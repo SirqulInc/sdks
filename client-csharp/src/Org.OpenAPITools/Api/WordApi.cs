@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a word by the given params.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="word">The text of the word.</param>
         /// <param name="definition">The definition of the word.</param>
@@ -57,7 +56,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateWordApiResponse"/>&gt;</returns>
-        Task<ICreateWordApiResponse> CreateWordAsync(decimal version, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateWordApiResponse> CreateWordAsync(long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Word
@@ -65,7 +64,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a word by the given params.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="word">The text of the word.</param>
         /// <param name="definition">The definition of the word.</param>
@@ -77,7 +75,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateWordApiResponse"/>?&gt;</returns>
-        Task<ICreateWordApiResponse?> CreateWordOrDefaultAsync(decimal version, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateWordApiResponse?> CreateWordOrDefaultAsync(long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Word
@@ -86,12 +84,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to delete.</param>
         /// <param name="accountId">The account vor validating permission</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteWordApiResponse"/>&gt;</returns>
-        Task<IDeleteWordApiResponse> DeleteWordAsync(decimal version, long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteWordApiResponse> DeleteWordAsync(long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Word
@@ -99,12 +96,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to delete.</param>
         /// <param name="accountId">The account vor validating permission</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteWordApiResponse"/>?&gt;</returns>
-        Task<IDeleteWordApiResponse?> DeleteWordOrDefaultAsync(decimal version, long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteWordApiResponse?> DeleteWordOrDefaultAsync(long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Word
@@ -113,12 +109,11 @@ namespace Org.OpenAPITools.Api
         /// Get a word by the given id.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to get.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordApiResponse"/>&gt;</returns>
-        Task<IGetWordApiResponse> GetWordAsync(decimal version, long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetWordApiResponse> GetWordAsync(long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Word
@@ -126,12 +121,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a word by the given id.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to get.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordApiResponse"/>?&gt;</returns>
-        Task<IGetWordApiResponse?> GetWordOrDefaultAsync(decimal version, long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetWordApiResponse?> GetWordOrDefaultAsync(long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Words
@@ -140,7 +134,6 @@ namespace Org.OpenAPITools.Api
         /// Search for words by the given params.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -150,7 +143,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword for searching words with matching definition or word text. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordsApiResponse"/>&gt;</returns>
-        Task<IGetWordsApiResponse> GetWordsAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetWordsApiResponse> GetWordsAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Words
@@ -158,7 +151,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for words by the given params.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -168,7 +160,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword for searching words with matching definition or word text. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordsApiResponse"/>?&gt;</returns>
-        Task<IGetWordsApiResponse?> GetWordsOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetWordsApiResponse?> GetWordsOrDefaultAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Word
@@ -177,7 +169,6 @@ namespace Org.OpenAPITools.Api
         /// Update a word by the given params.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to update.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="ticketCount">The number of tickets to reward</param>
@@ -190,7 +181,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateWordApiResponse"/>&gt;</returns>
-        Task<IUpdateWordApiResponse> UpdateWordAsync(decimal version, long wordId, long accountId, long ticketCount, Option<string> wordText = default, Option<string> definition = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateWordApiResponse> UpdateWordAsync(long wordId, long accountId, long ticketCount, Option<string> wordText = default, Option<string> definition = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Word
@@ -198,7 +189,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a word by the given params.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to update.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="ticketCount">The number of tickets to reward</param>
@@ -211,7 +201,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateWordApiResponse"/>?&gt;</returns>
-        Task<IUpdateWordApiResponse?> UpdateWordOrDefaultAsync(decimal version, long wordId, long accountId, long ticketCount, Option<string> wordText = default, Option<string> definition = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateWordApiResponse?> UpdateWordOrDefaultAsync(long wordId, long accountId, long ticketCount, Option<string> wordText = default, Option<string> definition = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -427,7 +417,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateWord(ref decimal version, ref long accountId, ref string word, ref string definition, ref bool active, ref bool allocateTickets, ref long ticketCount, ref Option<long> assetId, ref Option<string> ticketType, ref Option<long> points);
+        partial void FormatCreateWord(ref long accountId, ref string word, ref string definition, ref bool active, ref bool allocateTickets, ref long ticketCount, ref Option<long> assetId, ref Option<string> ticketType, ref Option<long> points);
 
         /// <summary>
         /// Validates the request parameters
@@ -452,7 +442,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="word"></param>
         /// <param name="definition"></param>
@@ -462,10 +451,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetId"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void AfterCreateWordDefaultImplementation(ICreateWordApiResponse apiResponseLocalVar, decimal version, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId, Option<string> ticketType, Option<long> points)
+        private void AfterCreateWordDefaultImplementation(ICreateWordApiResponse apiResponseLocalVar, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLog = false;
-            AfterCreateWord(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
+            AfterCreateWord(ref suppressDefaultLog, apiResponseLocalVar, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -475,7 +464,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="word"></param>
         /// <param name="definition"></param>
@@ -485,7 +473,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetId"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void AfterCreateWord(ref bool suppressDefaultLog, ICreateWordApiResponse apiResponseLocalVar, decimal version, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId, Option<string> ticketType, Option<long> points);
+        partial void AfterCreateWord(ref bool suppressDefaultLog, ICreateWordApiResponse apiResponseLocalVar, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -493,7 +481,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="word"></param>
         /// <param name="definition"></param>
@@ -503,10 +490,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetId"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void OnErrorCreateWordDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId, Option<string> ticketType, Option<long> points)
+        private void OnErrorCreateWordDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateWord(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
+            OnErrorCreateWord(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -518,7 +505,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="word"></param>
         /// <param name="definition"></param>
@@ -528,12 +514,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetId"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void OnErrorCreateWord(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId, Option<string> ticketType, Option<long> points);
+        partial void OnErrorCreateWord(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Create Word Create a word by the given params.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="word">The text of the word.</param>
         /// <param name="definition">The definition of the word.</param>
@@ -545,11 +530,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateWordApiResponse"/>&gt;</returns>
-        public async Task<ICreateWordApiResponse?> CreateWordOrDefaultAsync(decimal version, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateWordApiResponse?> CreateWordOrDefaultAsync(long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateWordAsync(version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points, cancellationToken).ConfigureAwait(false);
+                return await CreateWordAsync(accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -561,7 +546,6 @@ namespace Org.OpenAPITools.Api
         /// Create Word Create a word by the given params.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="word">The text of the word.</param>
         /// <param name="definition">The definition of the word.</param>
@@ -573,7 +557,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateWordApiResponse"/>&gt;</returns>
-        public async Task<ICreateWordApiResponse> CreateWordAsync(decimal version, long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateWordApiResponse> CreateWordAsync(long accountId, string word, string definition, bool active, bool allocateTickets, long ticketCount, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -581,7 +565,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateWord(word, definition, ticketType);
 
-                FormatCreateWord(ref version, ref accountId, ref word, ref definition, ref active, ref allocateTickets, ref ticketCount, ref assetId, ref ticketType, ref points);
+                FormatCreateWord(ref accountId, ref word, ref definition, ref active, ref allocateTickets, ref ticketCount, ref assetId, ref ticketType, ref points);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -589,9 +573,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/word/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/word/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/word/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/word/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -636,13 +619,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/word/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/word/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateWordDefaultImplementation(apiResponseLocalVar, version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
+                        AfterCreateWordDefaultImplementation(apiResponseLocalVar, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
 
                         Events.ExecuteOnCreateWord(apiResponseLocalVar);
 
@@ -652,7 +635,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateWordDefaultImplementation(e, "/api/{version}/game/word/create", uriBuilderLocalVar.Path, version, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
+                OnErrorCreateWordDefaultImplementation(e, "/game/word/create", uriBuilderLocalVar.Path, accountId, word, definition, active, allocateTickets, ticketCount, assetId, ticketType, points);
                 Events.ExecuteOnErrorCreateWord(e);
                 throw;
             }
@@ -751,19 +734,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteWord(ref decimal version, ref long wordId, ref long accountId);
+        partial void FormatDeleteWord(ref long wordId, ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteWordDefaultImplementation(IDeleteWordApiResponse apiResponseLocalVar, decimal version, long wordId, long accountId)
+        private void AfterDeleteWordDefaultImplementation(IDeleteWordApiResponse apiResponseLocalVar, long wordId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteWord(ref suppressDefaultLog, apiResponseLocalVar, version, wordId, accountId);
+            AfterDeleteWord(ref suppressDefaultLog, apiResponseLocalVar, wordId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -773,10 +755,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteWord(ref bool suppressDefaultLog, IDeleteWordApiResponse apiResponseLocalVar, decimal version, long wordId, long accountId);
+        partial void AfterDeleteWord(ref bool suppressDefaultLog, IDeleteWordApiResponse apiResponseLocalVar, long wordId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -784,13 +765,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteWordDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long wordId, long accountId)
+        private void OnErrorDeleteWordDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long wordId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteWord(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, wordId, accountId);
+            OnErrorDeleteWord(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, wordId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -802,24 +782,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteWord(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long wordId, long accountId);
+        partial void OnErrorDeleteWord(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long wordId, long accountId);
 
         /// <summary>
         /// Delete Word Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to delete.</param>
         /// <param name="accountId">The account vor validating permission</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteWordApiResponse"/>&gt;</returns>
-        public async Task<IDeleteWordApiResponse?> DeleteWordOrDefaultAsync(decimal version, long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteWordApiResponse?> DeleteWordOrDefaultAsync(long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteWordAsync(version, wordId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteWordAsync(wordId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -831,18 +809,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Word Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to delete.</param>
         /// <param name="accountId">The account vor validating permission</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteWordApiResponse"/>&gt;</returns>
-        public async Task<IDeleteWordApiResponse> DeleteWordAsync(decimal version, long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteWordApiResponse> DeleteWordAsync(long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteWord(ref version, ref wordId, ref accountId);
+                FormatDeleteWord(ref wordId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -850,9 +827,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/word/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/word/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/word/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/word/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -884,13 +860,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/word/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/word/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteWordDefaultImplementation(apiResponseLocalVar, version, wordId, accountId);
+                        AfterDeleteWordDefaultImplementation(apiResponseLocalVar, wordId, accountId);
 
                         Events.ExecuteOnDeleteWord(apiResponseLocalVar);
 
@@ -900,7 +876,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteWordDefaultImplementation(e, "/api/{version}/game/word/delete", uriBuilderLocalVar.Path, version, wordId, accountId);
+                OnErrorDeleteWordDefaultImplementation(e, "/game/word/delete", uriBuilderLocalVar.Path, wordId, accountId);
                 Events.ExecuteOnErrorDeleteWord(e);
                 throw;
             }
@@ -999,19 +975,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetWord(ref decimal version, ref long wordId, ref long accountId);
+        partial void FormatGetWord(ref long wordId, ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetWordDefaultImplementation(IGetWordApiResponse apiResponseLocalVar, decimal version, long wordId, long accountId)
+        private void AfterGetWordDefaultImplementation(IGetWordApiResponse apiResponseLocalVar, long wordId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetWord(ref suppressDefaultLog, apiResponseLocalVar, version, wordId, accountId);
+            AfterGetWord(ref suppressDefaultLog, apiResponseLocalVar, wordId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1021,10 +996,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetWord(ref bool suppressDefaultLog, IGetWordApiResponse apiResponseLocalVar, decimal version, long wordId, long accountId);
+        partial void AfterGetWord(ref bool suppressDefaultLog, IGetWordApiResponse apiResponseLocalVar, long wordId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1032,13 +1006,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetWordDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long wordId, long accountId)
+        private void OnErrorGetWordDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long wordId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetWord(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, wordId, accountId);
+            OnErrorGetWord(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, wordId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1050,24 +1023,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetWord(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long wordId, long accountId);
+        partial void OnErrorGetWord(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long wordId, long accountId);
 
         /// <summary>
         /// Get Word Get a word by the given id.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to get.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordApiResponse"/>&gt;</returns>
-        public async Task<IGetWordApiResponse?> GetWordOrDefaultAsync(decimal version, long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetWordApiResponse?> GetWordOrDefaultAsync(long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetWordAsync(version, wordId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetWordAsync(wordId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1079,18 +1050,17 @@ namespace Org.OpenAPITools.Api
         /// Get Word Get a word by the given id.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to get.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordApiResponse"/>&gt;</returns>
-        public async Task<IGetWordApiResponse> GetWordAsync(decimal version, long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetWordApiResponse> GetWordAsync(long wordId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetWord(ref version, ref wordId, ref accountId);
+                FormatGetWord(ref wordId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1098,9 +1068,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/word/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/word/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/word/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/word/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1132,13 +1101,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/word/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/word/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetWordDefaultImplementation(apiResponseLocalVar, version, wordId, accountId);
+                        AfterGetWordDefaultImplementation(apiResponseLocalVar, wordId, accountId);
 
                         Events.ExecuteOnGetWord(apiResponseLocalVar);
 
@@ -1148,7 +1117,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetWordDefaultImplementation(e, "/api/{version}/game/word/get", uriBuilderLocalVar.Path, version, wordId, accountId);
+                OnErrorGetWordDefaultImplementation(e, "/game/word/get", uriBuilderLocalVar.Path, wordId, accountId);
                 Events.ExecuteOnErrorGetWord(e);
                 throw;
             }
@@ -1247,7 +1216,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetWords(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<string> keyword);
+        partial void FormatGetWords(ref long accountId, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -1268,7 +1237,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1276,10 +1244,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        private void AfterGetWordsDefaultImplementation(IGetWordsApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword)
+        private void AfterGetWordsDefaultImplementation(IGetWordsApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterGetWords(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+            AfterGetWords(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, activeOnly, start, limit, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1289,7 +1257,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1297,7 +1264,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        partial void AfterGetWords(ref bool suppressDefaultLog, IGetWordsApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword);
+        partial void AfterGetWords(ref bool suppressDefaultLog, IGetWordsApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1305,7 +1272,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1313,10 +1279,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        private void OnErrorGetWordsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword)
+        private void OnErrorGetWordsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetWords(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+            OnErrorGetWords(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, activeOnly, start, limit, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1328,7 +1294,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1336,12 +1301,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorGetWords(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword);
+        partial void OnErrorGetWords(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword);
 
         /// <summary>
         /// Search Words Search for words by the given params.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -1351,11 +1315,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword for searching words with matching definition or word text. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordsApiResponse"/>&gt;</returns>
-        public async Task<IGetWordsApiResponse?> GetWordsOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetWordsApiResponse?> GetWordsOrDefaultAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetWordsAsync(version, accountId, sortField, descending, activeOnly, start, limit, keyword, cancellationToken).ConfigureAwait(false);
+                return await GetWordsAsync(accountId, sortField, descending, activeOnly, start, limit, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1367,7 +1331,6 @@ namespace Org.OpenAPITools.Api
         /// Search Words Search for words by the given params.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -1377,7 +1340,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword for searching words with matching definition or word text. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordsApiResponse"/>&gt;</returns>
-        public async Task<IGetWordsApiResponse> GetWordsAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetWordsApiResponse> GetWordsAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1385,7 +1348,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetWords(sortField, keyword);
 
-                FormatGetWords(ref version, ref accountId, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref keyword);
+                FormatGetWords(ref accountId, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1393,9 +1356,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/word/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/word/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/word/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/word/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1434,13 +1396,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/word/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/word/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetWordsDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+                        AfterGetWordsDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, activeOnly, start, limit, keyword);
 
                         Events.ExecuteOnGetWords(apiResponseLocalVar);
 
@@ -1450,7 +1412,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetWordsDefaultImplementation(e, "/api/{version}/game/word/search", uriBuilderLocalVar.Path, version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+                OnErrorGetWordsDefaultImplementation(e, "/game/word/search", uriBuilderLocalVar.Path, accountId, sortField, descending, activeOnly, start, limit, keyword);
                 Events.ExecuteOnErrorGetWords(e);
                 throw;
             }
@@ -1549,7 +1511,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateWord(ref decimal version, ref long wordId, ref long accountId, ref long ticketCount, ref Option<string> wordText, ref Option<string> definition, ref Option<long> assetId, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<string> ticketType, ref Option<long> points);
+        partial void FormatUpdateWord(ref long wordId, ref long accountId, ref long ticketCount, ref Option<string> wordText, ref Option<string> definition, ref Option<long> assetId, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<string> ticketType, ref Option<long> points);
 
         /// <summary>
         /// Validates the request parameters
@@ -1574,7 +1536,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketCount"></param>
@@ -1585,10 +1546,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="allocateTickets"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void AfterUpdateWordDefaultImplementation(IUpdateWordApiResponse apiResponseLocalVar, decimal version, long wordId, long accountId, long ticketCount, Option<string> wordText, Option<string> definition, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points)
+        private void AfterUpdateWordDefaultImplementation(IUpdateWordApiResponse apiResponseLocalVar, long wordId, long accountId, long ticketCount, Option<string> wordText, Option<string> definition, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateWord(ref suppressDefaultLog, apiResponseLocalVar, version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
+            AfterUpdateWord(ref suppressDefaultLog, apiResponseLocalVar, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1598,7 +1559,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketCount"></param>
@@ -1609,7 +1569,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="allocateTickets"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void AfterUpdateWord(ref bool suppressDefaultLog, IUpdateWordApiResponse apiResponseLocalVar, decimal version, long wordId, long accountId, long ticketCount, Option<string> wordText, Option<string> definition, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points);
+        partial void AfterUpdateWord(ref bool suppressDefaultLog, IUpdateWordApiResponse apiResponseLocalVar, long wordId, long accountId, long ticketCount, Option<string> wordText, Option<string> definition, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1617,7 +1577,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketCount"></param>
@@ -1628,10 +1587,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="allocateTickets"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void OnErrorUpdateWordDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long wordId, long accountId, long ticketCount, Option<string> wordText, Option<string> definition, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points)
+        private void OnErrorUpdateWordDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long wordId, long accountId, long ticketCount, Option<string> wordText, Option<string> definition, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateWord(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
+            OnErrorUpdateWord(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1643,7 +1602,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="wordId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketCount"></param>
@@ -1654,12 +1612,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="allocateTickets"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void OnErrorUpdateWord(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long wordId, long accountId, long ticketCount, Option<string> wordText, Option<string> definition, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points);
+        partial void OnErrorUpdateWord(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long wordId, long accountId, long ticketCount, Option<string> wordText, Option<string> definition, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Update Word Update a word by the given params.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to update.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="ticketCount">The number of tickets to reward</param>
@@ -1672,11 +1629,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateWordApiResponse"/>&gt;</returns>
-        public async Task<IUpdateWordApiResponse?> UpdateWordOrDefaultAsync(decimal version, long wordId, long accountId, long ticketCount, Option<string> wordText = default, Option<string> definition = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateWordApiResponse?> UpdateWordOrDefaultAsync(long wordId, long accountId, long ticketCount, Option<string> wordText = default, Option<string> definition = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateWordAsync(version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points, cancellationToken).ConfigureAwait(false);
+                return await UpdateWordAsync(wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1688,7 +1645,6 @@ namespace Org.OpenAPITools.Api
         /// Update Word Update a word by the given params.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="wordId">The id of the word to update.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="ticketCount">The number of tickets to reward</param>
@@ -1701,7 +1657,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateWordApiResponse"/>&gt;</returns>
-        public async Task<IUpdateWordApiResponse> UpdateWordAsync(decimal version, long wordId, long accountId, long ticketCount, Option<string> wordText = default, Option<string> definition = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateWordApiResponse> UpdateWordAsync(long wordId, long accountId, long ticketCount, Option<string> wordText = default, Option<string> definition = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1709,7 +1665,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateWord(wordText, definition, ticketType);
 
-                FormatUpdateWord(ref version, ref wordId, ref accountId, ref ticketCount, ref wordText, ref definition, ref assetId, ref active, ref allocateTickets, ref ticketType, ref points);
+                FormatUpdateWord(ref wordId, ref accountId, ref ticketCount, ref wordText, ref definition, ref assetId, ref active, ref allocateTickets, ref ticketType, ref points);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1717,9 +1673,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/word/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/word/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/word/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/word/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1773,13 +1728,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/word/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/word/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateWordDefaultImplementation(apiResponseLocalVar, version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
+                        AfterUpdateWordDefaultImplementation(apiResponseLocalVar, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
 
                         Events.ExecuteOnUpdateWord(apiResponseLocalVar);
 
@@ -1789,7 +1744,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateWordDefaultImplementation(e, "/api/{version}/game/word/update", uriBuilderLocalVar.Path, version, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
+                OnErrorUpdateWordDefaultImplementation(e, "/game/word/update", uriBuilderLocalVar.Path, wordId, accountId, ticketCount, wordText, definition, assetId, active, allocateTickets, ticketType, points);
                 Events.ExecuteOnErrorUpdateWord(e);
                 throw;
             }

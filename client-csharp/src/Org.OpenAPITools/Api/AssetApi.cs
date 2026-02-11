@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Downloads an asset from the server for assets that have been uploaded to the server.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filename">the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssetDownloadApiResponse"/>&gt;</returns>
-        Task<IAssetDownloadApiResponse> AssetDownloadAsync(decimal version, string filename, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssetDownloadApiResponse> AssetDownloadAsync(string filename, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Download Asset
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Downloads an asset from the server for assets that have been uploaded to the server.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="filename">the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssetDownloadApiResponse"/>?&gt;</returns>
-        Task<IAssetDownloadApiResponse?> AssetDownloadOrDefaultAsync(decimal version, string filename, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssetDownloadApiResponse?> AssetDownloadOrDefaultAsync(string filename, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Convert Offer to Creative
@@ -70,7 +68,6 @@ namespace Org.OpenAPITools.Api
         /// Converts an offer image + text into a creative image.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerId">offer id used for inserting offer text/flavor</param>
         /// <param name="adSize">the ad size used for selecting a format for the creative image</param>
         /// <param name="creativeId">used for inserting the newly created image into (optional)</param>
@@ -80,7 +77,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="template">the template to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssetMorphApiResponse"/>&gt;</returns>
-        Task<IAssetMorphApiResponse> AssetMorphAsync(decimal version, long offerId, string adSize, Option<long> creativeId = default, Option<int> width = default, Option<int> height = default, Option<string> backgroundSize = default, Option<string> template = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssetMorphApiResponse> AssetMorphAsync(long offerId, string adSize, Option<long> creativeId = default, Option<int> width = default, Option<int> height = default, Option<string> backgroundSize = default, Option<string> template = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Convert Offer to Creative
@@ -88,7 +85,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Converts an offer image + text into a creative image.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerId">offer id used for inserting offer text/flavor</param>
         /// <param name="adSize">the ad size used for selecting a format for the creative image</param>
         /// <param name="creativeId">used for inserting the newly created image into (optional)</param>
@@ -98,7 +94,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="template">the template to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssetMorphApiResponse"/>?&gt;</returns>
-        Task<IAssetMorphApiResponse?> AssetMorphOrDefaultAsync(decimal version, long offerId, string adSize, Option<long> creativeId = default, Option<int> width = default, Option<int> height = default, Option<string> backgroundSize = default, Option<string> template = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssetMorphApiResponse?> AssetMorphOrDefaultAsync(long offerId, string adSize, Option<long> creativeId = default, Option<int> width = default, Option<int> height = default, Option<string> backgroundSize = default, Option<string> template = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Asset
@@ -107,7 +103,6 @@ namespace Org.OpenAPITools.Api
         /// Uploads an asset to server and returns an asset id which can be used to assign to various objects.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">to return nulls (optional)</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -144,7 +139,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the longitude (optional) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAssetApiResponse"/>&gt;</returns>
-        Task<ICreateAssetApiResponse> CreateAssetAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<string> addToDefaultAlbum = default, Option<bool> addToMediaLibrary = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> app = default, Option<string> appKey = default, Option<string> searchTags = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAssetApiResponse> CreateAssetAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<string> addToDefaultAlbum = default, Option<bool> addToMediaLibrary = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> app = default, Option<string> appKey = default, Option<string> searchTags = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Asset
@@ -152,7 +147,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Uploads an asset to server and returns an asset id which can be used to assign to various objects.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">to return nulls (optional)</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -189,7 +183,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the longitude (optional) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAssetApiResponse"/>?&gt;</returns>
-        Task<ICreateAssetApiResponse?> CreateAssetOrDefaultAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<string> addToDefaultAlbum = default, Option<bool> addToMediaLibrary = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> app = default, Option<string> appKey = default, Option<string> searchTags = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAssetApiResponse?> CreateAssetOrDefaultAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<string> addToDefaultAlbum = default, Option<bool> addToMediaLibrary = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> app = default, Option<string> appKey = default, Option<string> searchTags = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Asset
@@ -198,7 +192,6 @@ namespace Org.OpenAPITools.Api
         /// Delete an asset.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="assetId">the id of the asset to delete</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -206,7 +199,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAssetApiResponse"/>&gt;</returns>
-        Task<IDeleteAssetApiResponse> DeleteAssetAsync(decimal version, string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteAssetApiResponse> DeleteAssetAsync(string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Asset
@@ -214,7 +207,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an asset.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="assetId">the id of the asset to delete</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -222,7 +214,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAssetApiResponse"/>?&gt;</returns>
-        Task<IDeleteAssetApiResponse?> DeleteAssetOrDefaultAsync(decimal version, string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteAssetApiResponse?> DeleteAssetOrDefaultAsync(string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Asset
@@ -231,14 +223,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the full asset response including attached likes and notes.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="assetId">the asset ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="noteDescending">determines whether the notes on the asset are in descending order (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAssetApiResponse"/>&gt;</returns>
-        Task<IGetAssetApiResponse> GetAssetAsync(decimal version, long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> noteDescending = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAssetApiResponse> GetAssetAsync(long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> noteDescending = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Asset
@@ -246,14 +237,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the full asset response including attached likes and notes.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="assetId">the asset ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="noteDescending">determines whether the notes on the asset are in descending order (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAssetApiResponse"/>?&gt;</returns>
-        Task<IGetAssetApiResponse?> GetAssetOrDefaultAsync(decimal version, long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> noteDescending = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAssetApiResponse?> GetAssetOrDefaultAsync(long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> noteDescending = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Asset from Collection
@@ -262,7 +252,6 @@ namespace Org.OpenAPITools.Api
         /// Remove assets from collections
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="assetId">the id of the asset to remove</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -273,7 +262,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAssetApiResponse"/>&gt;</returns>
-        Task<IRemoveAssetApiResponse> RemoveAssetAsync(decimal version, string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<bool> removeFromDefaultAlbums = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveAssetApiResponse> RemoveAssetAsync(string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<bool> removeFromDefaultAlbums = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Asset from Collection
@@ -281,7 +270,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Remove assets from collections
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="assetId">the id of the asset to remove</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -292,7 +280,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAssetApiResponse"/>?&gt;</returns>
-        Task<IRemoveAssetApiResponse?> RemoveAssetOrDefaultAsync(decimal version, string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<bool> removeFromDefaultAlbums = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveAssetApiResponse?> RemoveAssetOrDefaultAsync(string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<bool> removeFromDefaultAlbums = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Assets
@@ -301,7 +289,6 @@ namespace Org.OpenAPITools.Api
         /// Searches for assets
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="albumIds">comma separated list of album ids to search on (optional)</param>
@@ -328,7 +315,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedAccountId">filter results by an assigned account id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAssetsApiResponse"/>&gt;</returns>
-        Task<ISearchAssetsApiResponse> SearchAssetsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> albumIds = default, Option<string> assetIds = default, Option<string> appKey = default, Option<string> mediaType = default, Option<string> mimeType = default, Option<string> keyword = default, Option<int> versionCode = default, Option<string> versionName = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> searchMediaLibrary = default, Option<bool> filterByBillable = default, Option<bool> activeOnly = default, Option<bool> returnApp = default, Option<int> start = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAssetsApiResponse> SearchAssetsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> albumIds = default, Option<string> assetIds = default, Option<string> appKey = default, Option<string> mediaType = default, Option<string> mimeType = default, Option<string> keyword = default, Option<int> versionCode = default, Option<string> versionName = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> searchMediaLibrary = default, Option<bool> filterByBillable = default, Option<bool> activeOnly = default, Option<bool> returnApp = default, Option<int> start = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Assets
@@ -336,7 +323,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches for assets
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="albumIds">comma separated list of album ids to search on (optional)</param>
@@ -363,7 +349,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedAccountId">filter results by an assigned account id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAssetsApiResponse"/>?&gt;</returns>
-        Task<ISearchAssetsApiResponse?> SearchAssetsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> albumIds = default, Option<string> assetIds = default, Option<string> appKey = default, Option<string> mediaType = default, Option<string> mimeType = default, Option<string> keyword = default, Option<int> versionCode = default, Option<string> versionName = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> searchMediaLibrary = default, Option<bool> filterByBillable = default, Option<bool> activeOnly = default, Option<bool> returnApp = default, Option<int> start = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAssetsApiResponse?> SearchAssetsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> albumIds = default, Option<string> assetIds = default, Option<string> appKey = default, Option<string> mediaType = default, Option<string> mimeType = default, Option<string> keyword = default, Option<int> versionCode = default, Option<string> versionName = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> searchMediaLibrary = default, Option<bool> filterByBillable = default, Option<bool> activeOnly = default, Option<bool> returnApp = default, Option<int> start = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Asset
@@ -372,7 +358,6 @@ namespace Org.OpenAPITools.Api
         /// Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="assetId">the ID of the asset to update</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -406,7 +391,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the asset&#39;s location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAssetApiResponse"/>&gt;</returns>
-        Task<IUpdateAssetApiResponse> UpdateAssetAsync(decimal version, long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> attachedAssetId = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> searchTags = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAssetApiResponse> UpdateAssetAsync(long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> attachedAssetId = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> searchTags = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Asset
@@ -414,7 +399,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="assetId">the ID of the asset to update</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -448,7 +432,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the asset&#39;s location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAssetApiResponse"/>?&gt;</returns>
-        Task<IUpdateAssetApiResponse?> UpdateAssetOrDefaultAsync(decimal version, long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> attachedAssetId = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> searchTags = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAssetApiResponse?> UpdateAssetOrDefaultAsync(long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> attachedAssetId = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> searchTags = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -760,7 +744,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAssetDownload(ref decimal version, ref string filename);
+        partial void FormatAssetDownload(ref string filename);
 
         /// <summary>
         /// Validates the request parameters
@@ -777,12 +761,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filename"></param>
-        private void AfterAssetDownloadDefaultImplementation(IAssetDownloadApiResponse apiResponseLocalVar, decimal version, string filename)
+        private void AfterAssetDownloadDefaultImplementation(IAssetDownloadApiResponse apiResponseLocalVar, string filename)
         {
             bool suppressDefaultLog = false;
-            AfterAssetDownload(ref suppressDefaultLog, apiResponseLocalVar, version, filename);
+            AfterAssetDownload(ref suppressDefaultLog, apiResponseLocalVar, filename);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -792,9 +775,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filename"></param>
-        partial void AfterAssetDownload(ref bool suppressDefaultLog, IAssetDownloadApiResponse apiResponseLocalVar, decimal version, string filename);
+        partial void AfterAssetDownload(ref bool suppressDefaultLog, IAssetDownloadApiResponse apiResponseLocalVar, string filename);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -802,12 +784,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filename"></param>
-        private void OnErrorAssetDownloadDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string filename)
+        private void OnErrorAssetDownloadDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string filename)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssetDownload(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, filename);
+            OnErrorAssetDownload(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, filename);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -819,22 +800,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filename"></param>
-        partial void OnErrorAssetDownload(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string filename);
+        partial void OnErrorAssetDownload(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string filename);
 
         /// <summary>
         /// Download Asset Downloads an asset from the server for assets that have been uploaded to the server.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="filename">the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssetDownloadApiResponse"/>&gt;</returns>
-        public async Task<IAssetDownloadApiResponse?> AssetDownloadOrDefaultAsync(decimal version, string filename, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssetDownloadApiResponse?> AssetDownloadOrDefaultAsync(string filename, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssetDownloadAsync(version, filename, cancellationToken).ConfigureAwait(false);
+                return await AssetDownloadAsync(filename, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -846,11 +825,10 @@ namespace Org.OpenAPITools.Api
         /// Download Asset Downloads an asset from the server for assets that have been uploaded to the server.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filename">the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssetDownloadApiResponse"/>&gt;</returns>
-        public async Task<IAssetDownloadApiResponse> AssetDownloadAsync(decimal version, string filename, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssetDownloadApiResponse> AssetDownloadAsync(string filename, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -858,7 +836,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssetDownload(filename);
 
-                FormatAssetDownload(ref version, ref filename);
+                FormatAssetDownload(ref filename);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -866,9 +844,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/asset/download/{filename}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/asset/download/{filename}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/asset/download/{filename}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/asset/download/{filename}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bfilename%7D", Uri.EscapeDataString(filename.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -894,13 +871,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/asset/download/{filename}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/asset/download/{filename}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssetDownloadDefaultImplementation(apiResponseLocalVar, version, filename);
+                        AfterAssetDownloadDefaultImplementation(apiResponseLocalVar, filename);
 
                         Events.ExecuteOnAssetDownload(apiResponseLocalVar);
 
@@ -910,7 +887,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssetDownloadDefaultImplementation(e, "/api/{version}/asset/download/{filename}", uriBuilderLocalVar.Path, version, filename);
+                OnErrorAssetDownloadDefaultImplementation(e, "/asset/download/{filename}", uriBuilderLocalVar.Path, filename);
                 Events.ExecuteOnErrorAssetDownload(e);
                 throw;
             }
@@ -1009,7 +986,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssetMorph(ref decimal version, ref long offerId, ref string adSize, ref Option<long> creativeId, ref Option<int> width, ref Option<int> height, ref Option<string> backgroundSize, ref Option<string> template);
+        partial void FormatAssetMorph(ref long offerId, ref string adSize, ref Option<long> creativeId, ref Option<int> width, ref Option<int> height, ref Option<string> backgroundSize, ref Option<string> template);
 
         /// <summary>
         /// Validates the request parameters
@@ -1034,7 +1011,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="adSize"></param>
         /// <param name="creativeId"></param>
@@ -1042,10 +1018,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="height"></param>
         /// <param name="backgroundSize"></param>
         /// <param name="template"></param>
-        private void AfterAssetMorphDefaultImplementation(IAssetMorphApiResponse apiResponseLocalVar, decimal version, long offerId, string adSize, Option<long> creativeId, Option<int> width, Option<int> height, Option<string> backgroundSize, Option<string> template)
+        private void AfterAssetMorphDefaultImplementation(IAssetMorphApiResponse apiResponseLocalVar, long offerId, string adSize, Option<long> creativeId, Option<int> width, Option<int> height, Option<string> backgroundSize, Option<string> template)
         {
             bool suppressDefaultLog = false;
-            AfterAssetMorph(ref suppressDefaultLog, apiResponseLocalVar, version, offerId, adSize, creativeId, width, height, backgroundSize, template);
+            AfterAssetMorph(ref suppressDefaultLog, apiResponseLocalVar, offerId, adSize, creativeId, width, height, backgroundSize, template);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1055,7 +1031,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="adSize"></param>
         /// <param name="creativeId"></param>
@@ -1063,7 +1038,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="height"></param>
         /// <param name="backgroundSize"></param>
         /// <param name="template"></param>
-        partial void AfterAssetMorph(ref bool suppressDefaultLog, IAssetMorphApiResponse apiResponseLocalVar, decimal version, long offerId, string adSize, Option<long> creativeId, Option<int> width, Option<int> height, Option<string> backgroundSize, Option<string> template);
+        partial void AfterAssetMorph(ref bool suppressDefaultLog, IAssetMorphApiResponse apiResponseLocalVar, long offerId, string adSize, Option<long> creativeId, Option<int> width, Option<int> height, Option<string> backgroundSize, Option<string> template);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1071,7 +1046,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="adSize"></param>
         /// <param name="creativeId"></param>
@@ -1079,10 +1053,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="height"></param>
         /// <param name="backgroundSize"></param>
         /// <param name="template"></param>
-        private void OnErrorAssetMorphDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerId, string adSize, Option<long> creativeId, Option<int> width, Option<int> height, Option<string> backgroundSize, Option<string> template)
+        private void OnErrorAssetMorphDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerId, string adSize, Option<long> creativeId, Option<int> width, Option<int> height, Option<string> backgroundSize, Option<string> template)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssetMorph(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerId, adSize, creativeId, width, height, backgroundSize, template);
+            OnErrorAssetMorph(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerId, adSize, creativeId, width, height, backgroundSize, template);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1094,7 +1068,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="adSize"></param>
         /// <param name="creativeId"></param>
@@ -1102,12 +1075,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="height"></param>
         /// <param name="backgroundSize"></param>
         /// <param name="template"></param>
-        partial void OnErrorAssetMorph(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerId, string adSize, Option<long> creativeId, Option<int> width, Option<int> height, Option<string> backgroundSize, Option<string> template);
+        partial void OnErrorAssetMorph(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerId, string adSize, Option<long> creativeId, Option<int> width, Option<int> height, Option<string> backgroundSize, Option<string> template);
 
         /// <summary>
         /// Convert Offer to Creative Converts an offer image + text into a creative image.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerId">offer id used for inserting offer text/flavor</param>
         /// <param name="adSize">the ad size used for selecting a format for the creative image</param>
         /// <param name="creativeId">used for inserting the newly created image into (optional)</param>
@@ -1117,11 +1089,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="template">the template to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssetMorphApiResponse"/>&gt;</returns>
-        public async Task<IAssetMorphApiResponse?> AssetMorphOrDefaultAsync(decimal version, long offerId, string adSize, Option<long> creativeId = default, Option<int> width = default, Option<int> height = default, Option<string> backgroundSize = default, Option<string> template = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssetMorphApiResponse?> AssetMorphOrDefaultAsync(long offerId, string adSize, Option<long> creativeId = default, Option<int> width = default, Option<int> height = default, Option<string> backgroundSize = default, Option<string> template = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssetMorphAsync(version, offerId, adSize, creativeId, width, height, backgroundSize, template, cancellationToken).ConfigureAwait(false);
+                return await AssetMorphAsync(offerId, adSize, creativeId, width, height, backgroundSize, template, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1133,7 +1105,6 @@ namespace Org.OpenAPITools.Api
         /// Convert Offer to Creative Converts an offer image + text into a creative image.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerId">offer id used for inserting offer text/flavor</param>
         /// <param name="adSize">the ad size used for selecting a format for the creative image</param>
         /// <param name="creativeId">used for inserting the newly created image into (optional)</param>
@@ -1143,7 +1114,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="template">the template to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssetMorphApiResponse"/>&gt;</returns>
-        public async Task<IAssetMorphApiResponse> AssetMorphAsync(decimal version, long offerId, string adSize, Option<long> creativeId = default, Option<int> width = default, Option<int> height = default, Option<string> backgroundSize = default, Option<string> template = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssetMorphApiResponse> AssetMorphAsync(long offerId, string adSize, Option<long> creativeId = default, Option<int> width = default, Option<int> height = default, Option<string> backgroundSize = default, Option<string> template = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1151,7 +1122,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssetMorph(adSize, backgroundSize, template);
 
-                FormatAssetMorph(ref version, ref offerId, ref adSize, ref creativeId, ref width, ref height, ref backgroundSize, ref template);
+                FormatAssetMorph(ref offerId, ref adSize, ref creativeId, ref width, ref height, ref backgroundSize, ref template);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1159,9 +1130,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/asset/morph"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/asset/morph");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/asset/morph"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/asset/morph");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1208,13 +1178,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/asset/morph", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/asset/morph", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssetMorphDefaultImplementation(apiResponseLocalVar, version, offerId, adSize, creativeId, width, height, backgroundSize, template);
+                        AfterAssetMorphDefaultImplementation(apiResponseLocalVar, offerId, adSize, creativeId, width, height, backgroundSize, template);
 
                         Events.ExecuteOnAssetMorph(apiResponseLocalVar);
 
@@ -1224,7 +1194,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssetMorphDefaultImplementation(e, "/api/{version}/asset/morph", uriBuilderLocalVar.Path, version, offerId, adSize, creativeId, width, height, backgroundSize, template);
+                OnErrorAssetMorphDefaultImplementation(e, "/asset/morph", uriBuilderLocalVar.Path, offerId, adSize, creativeId, width, height, backgroundSize, template);
                 Events.ExecuteOnErrorAssetMorph(e);
                 throw;
             }
@@ -1323,7 +1293,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateAsset(ref decimal version, ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> albumId, ref Option<long> collectionId, ref Option<string> addToDefaultAlbum, ref Option<bool> addToMediaLibrary, ref Option<int> versionCode, ref Option<string> versionName, ref Option<string> metaData, ref Option<string> caption, ref Option<string> assetType, ref Option<string> approvalStatus, ref Option<long> assignedAccountId, ref Option<System.IO.Stream> media, ref Option<string> mediaUrl, ref Option<string> mediaString, ref Option<string> mediaStringFileName, ref Option<string> mediaStringContentType, ref Option<int> mediaHeight, ref Option<int> mediaWidth, ref Option<System.IO.Stream> attachedMedia, ref Option<string> attachedMediaUrl, ref Option<string> attachedMediaString, ref Option<string> attachedMediaStringFileName, ref Option<string> attachedMediaStringContentType, ref Option<int> attachedMediaHeight, ref Option<int> attachedMediaWidth, ref Option<string> locationDescription, ref Option<string> app, ref Option<string> appKey, ref Option<string> searchTags, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatCreateAsset(ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> albumId, ref Option<long> collectionId, ref Option<string> addToDefaultAlbum, ref Option<bool> addToMediaLibrary, ref Option<int> versionCode, ref Option<string> versionName, ref Option<string> metaData, ref Option<string> caption, ref Option<string> assetType, ref Option<string> approvalStatus, ref Option<long> assignedAccountId, ref Option<System.IO.Stream> media, ref Option<string> mediaUrl, ref Option<string> mediaString, ref Option<string> mediaStringFileName, ref Option<string> mediaStringContentType, ref Option<int> mediaHeight, ref Option<int> mediaWidth, ref Option<System.IO.Stream> attachedMedia, ref Option<string> attachedMediaUrl, ref Option<string> attachedMediaString, ref Option<string> attachedMediaStringFileName, ref Option<string> attachedMediaStringContentType, ref Option<int> attachedMediaHeight, ref Option<int> attachedMediaWidth, ref Option<string> locationDescription, ref Option<string> app, ref Option<string> appKey, ref Option<string> searchTags, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1420,7 +1390,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1455,10 +1424,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterCreateAssetDefaultImplementation(ICreateAssetApiResponse apiResponseLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<string> addToDefaultAlbum, Option<bool> addToMediaLibrary, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> app, Option<string> appKey, Option<string> searchTags, Option<double> latitude, Option<double> longitude)
+        private void AfterCreateAssetDefaultImplementation(ICreateAssetApiResponse apiResponseLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<string> addToDefaultAlbum, Option<bool> addToMediaLibrary, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> app, Option<string> appKey, Option<string> searchTags, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterCreateAsset(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
+            AfterCreateAsset(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1468,7 +1437,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1503,7 +1471,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterCreateAsset(ref bool suppressDefaultLog, ICreateAssetApiResponse apiResponseLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<string> addToDefaultAlbum, Option<bool> addToMediaLibrary, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> app, Option<string> appKey, Option<string> searchTags, Option<double> latitude, Option<double> longitude);
+        partial void AfterCreateAsset(ref bool suppressDefaultLog, ICreateAssetApiResponse apiResponseLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<string> addToDefaultAlbum, Option<bool> addToMediaLibrary, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> app, Option<string> appKey, Option<string> searchTags, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1511,7 +1479,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1546,10 +1513,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorCreateAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<string> addToDefaultAlbum, Option<bool> addToMediaLibrary, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> app, Option<string> appKey, Option<string> searchTags, Option<double> latitude, Option<double> longitude)
+        private void OnErrorCreateAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<string> addToDefaultAlbum, Option<bool> addToMediaLibrary, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> app, Option<string> appKey, Option<string> searchTags, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
+            OnErrorCreateAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1561,7 +1528,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1596,12 +1562,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorCreateAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<string> addToDefaultAlbum, Option<bool> addToMediaLibrary, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> app, Option<string> appKey, Option<string> searchTags, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorCreateAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<string> addToDefaultAlbum, Option<bool> addToMediaLibrary, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> app, Option<string> appKey, Option<string> searchTags, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create Asset Uploads an asset to server and returns an asset id which can be used to assign to various objects.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">to return nulls (optional)</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1638,11 +1603,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the longitude (optional) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAssetApiResponse"/>&gt;</returns>
-        public async Task<ICreateAssetApiResponse?> CreateAssetOrDefaultAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<string> addToDefaultAlbum = default, Option<bool> addToMediaLibrary = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> app = default, Option<string> appKey = default, Option<string> searchTags = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAssetApiResponse?> CreateAssetOrDefaultAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<string> addToDefaultAlbum = default, Option<bool> addToMediaLibrary = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> app = default, Option<string> appKey = default, Option<string> searchTags = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateAssetAsync(version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await CreateAssetAsync(returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1654,7 +1619,6 @@ namespace Org.OpenAPITools.Api
         /// Create Asset Uploads an asset to server and returns an asset id which can be used to assign to various objects.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">to return nulls (optional)</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1691,7 +1655,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the longitude (optional) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAssetApiResponse"/>&gt;</returns>
-        public async Task<ICreateAssetApiResponse> CreateAssetAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<string> addToDefaultAlbum = default, Option<bool> addToMediaLibrary = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> app = default, Option<string> appKey = default, Option<string> searchTags = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAssetApiResponse> CreateAssetAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<string> addToDefaultAlbum = default, Option<bool> addToMediaLibrary = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> app = default, Option<string> appKey = default, Option<string> searchTags = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1699,7 +1663,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateAsset(deviceId, addToDefaultAlbum, versionName, metaData, caption, assetType, approvalStatus, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, locationDescription, app, appKey, searchTags);
 
-                FormatCreateAsset(ref version, ref returnNulls, ref deviceId, ref accountId, ref albumId, ref collectionId, ref addToDefaultAlbum, ref addToMediaLibrary, ref versionCode, ref versionName, ref metaData, ref caption, ref assetType, ref approvalStatus, ref assignedAccountId, ref media, ref mediaUrl, ref mediaString, ref mediaStringFileName, ref mediaStringContentType, ref mediaHeight, ref mediaWidth, ref attachedMedia, ref attachedMediaUrl, ref attachedMediaString, ref attachedMediaStringFileName, ref attachedMediaStringContentType, ref attachedMediaHeight, ref attachedMediaWidth, ref locationDescription, ref app, ref appKey, ref searchTags, ref latitude, ref longitude);
+                FormatCreateAsset(ref returnNulls, ref deviceId, ref accountId, ref albumId, ref collectionId, ref addToDefaultAlbum, ref addToMediaLibrary, ref versionCode, ref versionName, ref metaData, ref caption, ref assetType, ref approvalStatus, ref assignedAccountId, ref media, ref mediaUrl, ref mediaString, ref mediaStringFileName, ref mediaStringContentType, ref mediaHeight, ref mediaWidth, ref attachedMedia, ref attachedMediaUrl, ref attachedMediaString, ref attachedMediaStringFileName, ref attachedMediaStringContentType, ref attachedMediaHeight, ref attachedMediaWidth, ref locationDescription, ref app, ref appKey, ref searchTags, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1707,9 +1671,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/asset/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/asset/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/asset/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/asset/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1840,13 +1803,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/asset/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/asset/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateAssetDefaultImplementation(apiResponseLocalVar, version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
+                        AfterCreateAssetDefaultImplementation(apiResponseLocalVar, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
 
                         Events.ExecuteOnCreateAsset(apiResponseLocalVar);
 
@@ -1856,7 +1819,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateAssetDefaultImplementation(e, "/api/{version}/asset/create", uriBuilderLocalVar.Path, version, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
+                OnErrorCreateAssetDefaultImplementation(e, "/asset/create", uriBuilderLocalVar.Path, returnNulls, deviceId, accountId, albumId, collectionId, addToDefaultAlbum, addToMediaLibrary, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, app, appKey, searchTags, latitude, longitude);
                 Events.ExecuteOnErrorCreateAsset(e);
                 throw;
             }
@@ -1955,7 +1918,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteAsset(ref decimal version, ref string assetId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatDeleteAsset(ref string assetId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1976,16 +1939,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterDeleteAssetDefaultImplementation(IDeleteAssetApiResponse apiResponseLocalVar, decimal version, string assetId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterDeleteAssetDefaultImplementation(IDeleteAssetApiResponse apiResponseLocalVar, string assetId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteAsset(ref suppressDefaultLog, apiResponseLocalVar, version, assetId, deviceId, accountId, latitude, longitude);
+            AfterDeleteAsset(ref suppressDefaultLog, apiResponseLocalVar, assetId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1995,13 +1957,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterDeleteAsset(ref bool suppressDefaultLog, IDeleteAssetApiResponse apiResponseLocalVar, decimal version, string assetId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterDeleteAsset(ref bool suppressDefaultLog, IDeleteAssetApiResponse apiResponseLocalVar, string assetId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2009,16 +1970,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorDeleteAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string assetId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorDeleteAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string assetId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, assetId, deviceId, accountId, latitude, longitude);
+            OnErrorDeleteAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, assetId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2030,18 +1990,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorDeleteAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string assetId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorDeleteAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string assetId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Delete Asset Delete an asset.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="assetId">the id of the asset to delete</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -2049,11 +2007,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAssetApiResponse"/>&gt;</returns>
-        public async Task<IDeleteAssetApiResponse?> DeleteAssetOrDefaultAsync(decimal version, string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteAssetApiResponse?> DeleteAssetOrDefaultAsync(string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteAssetAsync(version, assetId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await DeleteAssetAsync(assetId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2065,7 +2023,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Asset Delete an asset.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="assetId">the id of the asset to delete</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -2073,7 +2030,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAssetApiResponse"/>&gt;</returns>
-        public async Task<IDeleteAssetApiResponse> DeleteAssetAsync(decimal version, string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteAssetApiResponse> DeleteAssetAsync(string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2081,7 +2038,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteAsset(assetId, deviceId);
 
-                FormatDeleteAsset(ref version, ref assetId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatDeleteAsset(ref assetId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2089,9 +2046,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/asset/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/asset/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/asset/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/asset/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2134,13 +2090,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/asset/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/asset/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteAssetDefaultImplementation(apiResponseLocalVar, version, assetId, deviceId, accountId, latitude, longitude);
+                        AfterDeleteAssetDefaultImplementation(apiResponseLocalVar, assetId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnDeleteAsset(apiResponseLocalVar);
 
@@ -2150,7 +2106,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteAssetDefaultImplementation(e, "/api/{version}/asset/delete", uriBuilderLocalVar.Path, version, assetId, deviceId, accountId, latitude, longitude);
+                OnErrorDeleteAssetDefaultImplementation(e, "/asset/delete", uriBuilderLocalVar.Path, assetId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorDeleteAsset(e);
                 throw;
             }
@@ -2249,7 +2205,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAsset(ref decimal version, ref long assetId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> noteDescending);
+        partial void FormatGetAsset(ref long assetId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> noteDescending);
 
         /// <summary>
         /// Validates the request parameters
@@ -2266,15 +2222,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="noteDescending"></param>
-        private void AfterGetAssetDefaultImplementation(IGetAssetApiResponse apiResponseLocalVar, decimal version, long assetId, Option<string> deviceId, Option<long> accountId, Option<bool> noteDescending)
+        private void AfterGetAssetDefaultImplementation(IGetAssetApiResponse apiResponseLocalVar, long assetId, Option<string> deviceId, Option<long> accountId, Option<bool> noteDescending)
         {
             bool suppressDefaultLog = false;
-            AfterGetAsset(ref suppressDefaultLog, apiResponseLocalVar, version, assetId, deviceId, accountId, noteDescending);
+            AfterGetAsset(ref suppressDefaultLog, apiResponseLocalVar, assetId, deviceId, accountId, noteDescending);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2284,12 +2239,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="noteDescending"></param>
-        partial void AfterGetAsset(ref bool suppressDefaultLog, IGetAssetApiResponse apiResponseLocalVar, decimal version, long assetId, Option<string> deviceId, Option<long> accountId, Option<bool> noteDescending);
+        partial void AfterGetAsset(ref bool suppressDefaultLog, IGetAssetApiResponse apiResponseLocalVar, long assetId, Option<string> deviceId, Option<long> accountId, Option<bool> noteDescending);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2297,15 +2251,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="noteDescending"></param>
-        private void OnErrorGetAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long assetId, Option<string> deviceId, Option<long> accountId, Option<bool> noteDescending)
+        private void OnErrorGetAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long assetId, Option<string> deviceId, Option<long> accountId, Option<bool> noteDescending)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, assetId, deviceId, accountId, noteDescending);
+            OnErrorGetAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, assetId, deviceId, accountId, noteDescending);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2317,28 +2270,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="noteDescending"></param>
-        partial void OnErrorGetAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long assetId, Option<string> deviceId, Option<long> accountId, Option<bool> noteDescending);
+        partial void OnErrorGetAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long assetId, Option<string> deviceId, Option<long> accountId, Option<bool> noteDescending);
 
         /// <summary>
         /// Get Asset Gets the full asset response including attached likes and notes.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="assetId">the asset ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="noteDescending">determines whether the notes on the asset are in descending order (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAssetApiResponse"/>&gt;</returns>
-        public async Task<IGetAssetApiResponse?> GetAssetOrDefaultAsync(decimal version, long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> noteDescending = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAssetApiResponse?> GetAssetOrDefaultAsync(long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> noteDescending = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAssetAsync(version, assetId, deviceId, accountId, noteDescending, cancellationToken).ConfigureAwait(false);
+                return await GetAssetAsync(assetId, deviceId, accountId, noteDescending, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2350,14 +2301,13 @@ namespace Org.OpenAPITools.Api
         /// Get Asset Gets the full asset response including attached likes and notes.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="assetId">the asset ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="noteDescending">determines whether the notes on the asset are in descending order (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAssetApiResponse"/>&gt;</returns>
-        public async Task<IGetAssetApiResponse> GetAssetAsync(decimal version, long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> noteDescending = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAssetApiResponse> GetAssetAsync(long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> noteDescending = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2365,7 +2315,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAsset(deviceId);
 
-                FormatGetAsset(ref version, ref assetId, ref deviceId, ref accountId, ref noteDescending);
+                FormatGetAsset(ref assetId, ref deviceId, ref accountId, ref noteDescending);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2373,9 +2323,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/asset/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/asset/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/asset/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/asset/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2415,13 +2364,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/asset/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/asset/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAssetDefaultImplementation(apiResponseLocalVar, version, assetId, deviceId, accountId, noteDescending);
+                        AfterGetAssetDefaultImplementation(apiResponseLocalVar, assetId, deviceId, accountId, noteDescending);
 
                         Events.ExecuteOnGetAsset(apiResponseLocalVar);
 
@@ -2431,7 +2380,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAssetDefaultImplementation(e, "/api/{version}/asset/get", uriBuilderLocalVar.Path, version, assetId, deviceId, accountId, noteDescending);
+                OnErrorGetAssetDefaultImplementation(e, "/asset/get", uriBuilderLocalVar.Path, assetId, deviceId, accountId, noteDescending);
                 Events.ExecuteOnErrorGetAsset(e);
                 throw;
             }
@@ -2530,7 +2479,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveAsset(ref decimal version, ref string assetId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> albumId, ref Option<long> collectionId, ref Option<bool> removeFromDefaultAlbums, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRemoveAsset(ref string assetId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> albumId, ref Option<long> collectionId, ref Option<bool> removeFromDefaultAlbums, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2551,7 +2500,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2560,10 +2508,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromDefaultAlbums"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRemoveAssetDefaultImplementation(IRemoveAssetApiResponse apiResponseLocalVar, decimal version, string assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<bool> removeFromDefaultAlbums, Option<double> latitude, Option<double> longitude)
+        private void AfterRemoveAssetDefaultImplementation(IRemoveAssetApiResponse apiResponseLocalVar, string assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<bool> removeFromDefaultAlbums, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveAsset(ref suppressDefaultLog, apiResponseLocalVar, version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
+            AfterRemoveAsset(ref suppressDefaultLog, apiResponseLocalVar, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2573,7 +2521,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2582,7 +2529,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromDefaultAlbums"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRemoveAsset(ref bool suppressDefaultLog, IRemoveAssetApiResponse apiResponseLocalVar, decimal version, string assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<bool> removeFromDefaultAlbums, Option<double> latitude, Option<double> longitude);
+        partial void AfterRemoveAsset(ref bool suppressDefaultLog, IRemoveAssetApiResponse apiResponseLocalVar, string assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<bool> removeFromDefaultAlbums, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2590,7 +2537,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2599,10 +2545,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromDefaultAlbums"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRemoveAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<bool> removeFromDefaultAlbums, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRemoveAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<bool> removeFromDefaultAlbums, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
+            OnErrorRemoveAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2614,7 +2560,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2623,12 +2568,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromDefaultAlbums"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRemoveAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<bool> removeFromDefaultAlbums, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRemoveAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> collectionId, Option<bool> removeFromDefaultAlbums, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Remove Asset from Collection Remove assets from collections
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="assetId">the id of the asset to remove</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -2639,11 +2583,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAssetApiResponse"/>&gt;</returns>
-        public async Task<IRemoveAssetApiResponse?> RemoveAssetOrDefaultAsync(decimal version, string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<bool> removeFromDefaultAlbums = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveAssetApiResponse?> RemoveAssetOrDefaultAsync(string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<bool> removeFromDefaultAlbums = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveAssetAsync(version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RemoveAssetAsync(assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2655,7 +2599,6 @@ namespace Org.OpenAPITools.Api
         /// Remove Asset from Collection Remove assets from collections
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="assetId">the id of the asset to remove</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -2666,7 +2609,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAssetApiResponse"/>&gt;</returns>
-        public async Task<IRemoveAssetApiResponse> RemoveAssetAsync(decimal version, string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<bool> removeFromDefaultAlbums = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveAssetApiResponse> RemoveAssetAsync(string assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> collectionId = default, Option<bool> removeFromDefaultAlbums = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2674,7 +2617,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveAsset(assetId, deviceId);
 
-                FormatRemoveAsset(ref version, ref assetId, ref deviceId, ref accountId, ref albumId, ref collectionId, ref removeFromDefaultAlbums, ref latitude, ref longitude);
+                FormatRemoveAsset(ref assetId, ref deviceId, ref accountId, ref albumId, ref collectionId, ref removeFromDefaultAlbums, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2682,9 +2625,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/asset/remove"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/asset/remove");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/asset/remove"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/asset/remove");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2736,13 +2678,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/asset/remove", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/asset/remove", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveAssetDefaultImplementation(apiResponseLocalVar, version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
+                        AfterRemoveAssetDefaultImplementation(apiResponseLocalVar, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
 
                         Events.ExecuteOnRemoveAsset(apiResponseLocalVar);
 
@@ -2752,7 +2694,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveAssetDefaultImplementation(e, "/api/{version}/asset/remove", uriBuilderLocalVar.Path, version, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
+                OnErrorRemoveAssetDefaultImplementation(e, "/asset/remove", uriBuilderLocalVar.Path, assetId, deviceId, accountId, albumId, collectionId, removeFromDefaultAlbums, latitude, longitude);
                 Events.ExecuteOnErrorRemoveAsset(e);
                 throw;
             }
@@ -2851,7 +2793,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchAssets(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> albumIds, ref Option<string> assetIds, ref Option<string> appKey, ref Option<string> mediaType, ref Option<string> mimeType, ref Option<string> keyword, ref Option<int> versionCode, ref Option<string> versionName, ref Option<long> updatedSince, ref Option<long> updatedBefore, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> searchMediaLibrary, ref Option<bool> filterByBillable, ref Option<bool> activeOnly, ref Option<bool> returnApp, ref Option<int> start, ref Option<int> limit, ref Option<string> searchMode, ref Option<string> assetType, ref Option<string> approvalStatus, ref Option<long> assignedAccountId);
+        partial void FormatSearchAssets(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> albumIds, ref Option<string> assetIds, ref Option<string> appKey, ref Option<string> mediaType, ref Option<string> mimeType, ref Option<string> keyword, ref Option<int> versionCode, ref Option<string> versionName, ref Option<long> updatedSince, ref Option<long> updatedBefore, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> searchMediaLibrary, ref Option<bool> filterByBillable, ref Option<bool> activeOnly, ref Option<bool> returnApp, ref Option<int> start, ref Option<int> limit, ref Option<string> searchMode, ref Option<string> assetType, ref Option<string> approvalStatus, ref Option<long> assignedAccountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -2912,7 +2854,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="albumIds"></param>
@@ -2937,10 +2878,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetType"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="assignedAccountId"></param>
-        private void AfterSearchAssetsDefaultImplementation(ISearchAssetsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> albumIds, Option<string> assetIds, Option<string> appKey, Option<string> mediaType, Option<string> mimeType, Option<string> keyword, Option<int> versionCode, Option<string> versionName, Option<long> updatedSince, Option<long> updatedBefore, Option<string> sortField, Option<bool> descending, Option<bool> searchMediaLibrary, Option<bool> filterByBillable, Option<bool> activeOnly, Option<bool> returnApp, Option<int> start, Option<int> limit, Option<string> searchMode, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId)
+        private void AfterSearchAssetsDefaultImplementation(ISearchAssetsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> albumIds, Option<string> assetIds, Option<string> appKey, Option<string> mediaType, Option<string> mimeType, Option<string> keyword, Option<int> versionCode, Option<string> versionName, Option<long> updatedSince, Option<long> updatedBefore, Option<string> sortField, Option<bool> descending, Option<bool> searchMediaLibrary, Option<bool> filterByBillable, Option<bool> activeOnly, Option<bool> returnApp, Option<int> start, Option<int> limit, Option<string> searchMode, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId)
         {
             bool suppressDefaultLog = false;
-            AfterSearchAssets(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
+            AfterSearchAssets(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2950,7 +2891,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="albumIds"></param>
@@ -2975,7 +2915,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetType"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="assignedAccountId"></param>
-        partial void AfterSearchAssets(ref bool suppressDefaultLog, ISearchAssetsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> albumIds, Option<string> assetIds, Option<string> appKey, Option<string> mediaType, Option<string> mimeType, Option<string> keyword, Option<int> versionCode, Option<string> versionName, Option<long> updatedSince, Option<long> updatedBefore, Option<string> sortField, Option<bool> descending, Option<bool> searchMediaLibrary, Option<bool> filterByBillable, Option<bool> activeOnly, Option<bool> returnApp, Option<int> start, Option<int> limit, Option<string> searchMode, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId);
+        partial void AfterSearchAssets(ref bool suppressDefaultLog, ISearchAssetsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> albumIds, Option<string> assetIds, Option<string> appKey, Option<string> mediaType, Option<string> mimeType, Option<string> keyword, Option<int> versionCode, Option<string> versionName, Option<long> updatedSince, Option<long> updatedBefore, Option<string> sortField, Option<bool> descending, Option<bool> searchMediaLibrary, Option<bool> filterByBillable, Option<bool> activeOnly, Option<bool> returnApp, Option<int> start, Option<int> limit, Option<string> searchMode, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2983,7 +2923,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="albumIds"></param>
@@ -3008,10 +2947,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetType"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="assignedAccountId"></param>
-        private void OnErrorSearchAssetsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> albumIds, Option<string> assetIds, Option<string> appKey, Option<string> mediaType, Option<string> mimeType, Option<string> keyword, Option<int> versionCode, Option<string> versionName, Option<long> updatedSince, Option<long> updatedBefore, Option<string> sortField, Option<bool> descending, Option<bool> searchMediaLibrary, Option<bool> filterByBillable, Option<bool> activeOnly, Option<bool> returnApp, Option<int> start, Option<int> limit, Option<string> searchMode, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId)
+        private void OnErrorSearchAssetsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> albumIds, Option<string> assetIds, Option<string> appKey, Option<string> mediaType, Option<string> mimeType, Option<string> keyword, Option<int> versionCode, Option<string> versionName, Option<long> updatedSince, Option<long> updatedBefore, Option<string> sortField, Option<bool> descending, Option<bool> searchMediaLibrary, Option<bool> filterByBillable, Option<bool> activeOnly, Option<bool> returnApp, Option<int> start, Option<int> limit, Option<string> searchMode, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchAssets(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
+            OnErrorSearchAssets(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3023,7 +2962,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="albumIds"></param>
@@ -3048,12 +2986,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetType"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="assignedAccountId"></param>
-        partial void OnErrorSearchAssets(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> albumIds, Option<string> assetIds, Option<string> appKey, Option<string> mediaType, Option<string> mimeType, Option<string> keyword, Option<int> versionCode, Option<string> versionName, Option<long> updatedSince, Option<long> updatedBefore, Option<string> sortField, Option<bool> descending, Option<bool> searchMediaLibrary, Option<bool> filterByBillable, Option<bool> activeOnly, Option<bool> returnApp, Option<int> start, Option<int> limit, Option<string> searchMode, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId);
+        partial void OnErrorSearchAssets(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> albumIds, Option<string> assetIds, Option<string> appKey, Option<string> mediaType, Option<string> mimeType, Option<string> keyword, Option<int> versionCode, Option<string> versionName, Option<long> updatedSince, Option<long> updatedBefore, Option<string> sortField, Option<bool> descending, Option<bool> searchMediaLibrary, Option<bool> filterByBillable, Option<bool> activeOnly, Option<bool> returnApp, Option<int> start, Option<int> limit, Option<string> searchMode, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId);
 
         /// <summary>
         /// Search Assets Searches for assets
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="albumIds">comma separated list of album ids to search on (optional)</param>
@@ -3080,11 +3017,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedAccountId">filter results by an assigned account id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAssetsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAssetsApiResponse?> SearchAssetsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> albumIds = default, Option<string> assetIds = default, Option<string> appKey = default, Option<string> mediaType = default, Option<string> mimeType = default, Option<string> keyword = default, Option<int> versionCode = default, Option<string> versionName = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> searchMediaLibrary = default, Option<bool> filterByBillable = default, Option<bool> activeOnly = default, Option<bool> returnApp = default, Option<int> start = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAssetsApiResponse?> SearchAssetsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> albumIds = default, Option<string> assetIds = default, Option<string> appKey = default, Option<string> mediaType = default, Option<string> mimeType = default, Option<string> keyword = default, Option<int> versionCode = default, Option<string> versionName = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> searchMediaLibrary = default, Option<bool> filterByBillable = default, Option<bool> activeOnly = default, Option<bool> returnApp = default, Option<int> start = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchAssetsAsync(version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId, cancellationToken).ConfigureAwait(false);
+                return await SearchAssetsAsync(deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3096,7 +3033,6 @@ namespace Org.OpenAPITools.Api
         /// Search Assets Searches for assets
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="albumIds">comma separated list of album ids to search on (optional)</param>
@@ -3123,7 +3059,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedAccountId">filter results by an assigned account id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAssetsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAssetsApiResponse> SearchAssetsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> albumIds = default, Option<string> assetIds = default, Option<string> appKey = default, Option<string> mediaType = default, Option<string> mimeType = default, Option<string> keyword = default, Option<int> versionCode = default, Option<string> versionName = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> searchMediaLibrary = default, Option<bool> filterByBillable = default, Option<bool> activeOnly = default, Option<bool> returnApp = default, Option<int> start = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAssetsApiResponse> SearchAssetsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> albumIds = default, Option<string> assetIds = default, Option<string> appKey = default, Option<string> mediaType = default, Option<string> mimeType = default, Option<string> keyword = default, Option<int> versionCode = default, Option<string> versionName = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> searchMediaLibrary = default, Option<bool> filterByBillable = default, Option<bool> activeOnly = default, Option<bool> returnApp = default, Option<int> start = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3131,7 +3067,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchAssets(deviceId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionName, sortField, searchMode, assetType, approvalStatus);
 
-                FormatSearchAssets(ref version, ref deviceId, ref accountId, ref albumIds, ref assetIds, ref appKey, ref mediaType, ref mimeType, ref keyword, ref versionCode, ref versionName, ref updatedSince, ref updatedBefore, ref sortField, ref descending, ref searchMediaLibrary, ref filterByBillable, ref activeOnly, ref returnApp, ref start, ref limit, ref searchMode, ref assetType, ref approvalStatus, ref assignedAccountId);
+                FormatSearchAssets(ref deviceId, ref accountId, ref albumIds, ref assetIds, ref appKey, ref mediaType, ref mimeType, ref keyword, ref versionCode, ref versionName, ref updatedSince, ref updatedBefore, ref sortField, ref descending, ref searchMediaLibrary, ref filterByBillable, ref activeOnly, ref returnApp, ref start, ref limit, ref searchMode, ref assetType, ref approvalStatus, ref assignedAccountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3139,9 +3075,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/asset/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/asset/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/asset/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/asset/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3242,13 +3177,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/asset/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/asset/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchAssetsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
+                        AfterSearchAssetsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
 
                         Events.ExecuteOnSearchAssets(apiResponseLocalVar);
 
@@ -3258,7 +3193,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchAssetsDefaultImplementation(e, "/api/{version}/asset/search", uriBuilderLocalVar.Path, version, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
+                OnErrorSearchAssetsDefaultImplementation(e, "/asset/search", uriBuilderLocalVar.Path, deviceId, accountId, albumIds, assetIds, appKey, mediaType, mimeType, keyword, versionCode, versionName, updatedSince, updatedBefore, sortField, descending, searchMediaLibrary, filterByBillable, activeOnly, returnApp, start, limit, searchMode, assetType, approvalStatus, assignedAccountId);
                 Events.ExecuteOnErrorSearchAssets(e);
                 throw;
             }
@@ -3357,7 +3292,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateAsset(ref decimal version, ref long assetId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> albumId, ref Option<long> attachedAssetId, ref Option<int> versionCode, ref Option<string> versionName, ref Option<string> metaData, ref Option<string> caption, ref Option<string> assetType, ref Option<string> approvalStatus, ref Option<long> assignedAccountId, ref Option<System.IO.Stream> media, ref Option<string> mediaUrl, ref Option<string> mediaString, ref Option<string> mediaStringFileName, ref Option<string> mediaStringContentType, ref Option<int> mediaHeight, ref Option<int> mediaWidth, ref Option<System.IO.Stream> attachedMedia, ref Option<string> attachedMediaUrl, ref Option<string> attachedMediaString, ref Option<string> attachedMediaStringFileName, ref Option<string> attachedMediaStringContentType, ref Option<int> attachedMediaHeight, ref Option<int> attachedMediaWidth, ref Option<string> locationDescription, ref Option<string> searchTags, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatUpdateAsset(ref long assetId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> albumId, ref Option<long> attachedAssetId, ref Option<int> versionCode, ref Option<string> versionName, ref Option<string> metaData, ref Option<string> caption, ref Option<string> assetType, ref Option<string> approvalStatus, ref Option<long> assignedAccountId, ref Option<System.IO.Stream> media, ref Option<string> mediaUrl, ref Option<string> mediaString, ref Option<string> mediaStringFileName, ref Option<string> mediaStringContentType, ref Option<int> mediaHeight, ref Option<int> mediaWidth, ref Option<System.IO.Stream> attachedMedia, ref Option<string> attachedMediaUrl, ref Option<string> attachedMediaString, ref Option<string> attachedMediaStringFileName, ref Option<string> attachedMediaStringContentType, ref Option<int> attachedMediaHeight, ref Option<int> attachedMediaWidth, ref Option<string> locationDescription, ref Option<string> searchTags, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -3446,7 +3381,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3478,10 +3412,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterUpdateAssetDefaultImplementation(IUpdateAssetApiResponse apiResponseLocalVar, decimal version, long assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> attachedAssetId, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> searchTags, Option<string> appKey, Option<double> latitude, Option<double> longitude)
+        private void AfterUpdateAssetDefaultImplementation(IUpdateAssetApiResponse apiResponseLocalVar, long assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> attachedAssetId, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> searchTags, Option<string> appKey, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateAsset(ref suppressDefaultLog, apiResponseLocalVar, version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
+            AfterUpdateAsset(ref suppressDefaultLog, apiResponseLocalVar, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3491,7 +3425,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3523,7 +3456,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterUpdateAsset(ref bool suppressDefaultLog, IUpdateAssetApiResponse apiResponseLocalVar, decimal version, long assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> attachedAssetId, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> searchTags, Option<string> appKey, Option<double> latitude, Option<double> longitude);
+        partial void AfterUpdateAsset(ref bool suppressDefaultLog, IUpdateAssetApiResponse apiResponseLocalVar, long assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> attachedAssetId, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> searchTags, Option<string> appKey, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3531,7 +3464,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3563,10 +3495,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorUpdateAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> attachedAssetId, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> searchTags, Option<string> appKey, Option<double> latitude, Option<double> longitude)
+        private void OnErrorUpdateAssetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> attachedAssetId, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> searchTags, Option<string> appKey, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
+            OnErrorUpdateAsset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3578,7 +3510,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="assetId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3610,12 +3541,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorUpdateAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> attachedAssetId, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> searchTags, Option<string> appKey, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorUpdateAsset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long assetId, Option<string> deviceId, Option<long> accountId, Option<long> albumId, Option<long> attachedAssetId, Option<int> versionCode, Option<string> versionName, Option<string> metaData, Option<string> caption, Option<string> assetType, Option<string> approvalStatus, Option<long> assignedAccountId, Option<System.IO.Stream> media, Option<string> mediaUrl, Option<string> mediaString, Option<string> mediaStringFileName, Option<string> mediaStringContentType, Option<int> mediaHeight, Option<int> mediaWidth, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaUrl, Option<string> attachedMediaString, Option<string> attachedMediaStringFileName, Option<string> attachedMediaStringContentType, Option<int> attachedMediaHeight, Option<int> attachedMediaWidth, Option<string> locationDescription, Option<string> searchTags, Option<string> appKey, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Update Asset Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="assetId">the ID of the asset to update</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -3649,11 +3579,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the asset&#39;s location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAssetApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAssetApiResponse?> UpdateAssetOrDefaultAsync(decimal version, long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> attachedAssetId = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> searchTags = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAssetApiResponse?> UpdateAssetOrDefaultAsync(long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> attachedAssetId = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> searchTags = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateAssetAsync(version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await UpdateAssetAsync(assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3665,7 +3595,6 @@ namespace Org.OpenAPITools.Api
         /// Update Asset Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="assetId">the ID of the asset to update</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -3699,7 +3628,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the asset&#39;s location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAssetApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAssetApiResponse> UpdateAssetAsync(decimal version, long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> attachedAssetId = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> searchTags = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAssetApiResponse> UpdateAssetAsync(long assetId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> albumId = default, Option<long> attachedAssetId = default, Option<int> versionCode = default, Option<string> versionName = default, Option<string> metaData = default, Option<string> caption = default, Option<string> assetType = default, Option<string> approvalStatus = default, Option<long> assignedAccountId = default, Option<System.IO.Stream> media = default, Option<string> mediaUrl = default, Option<string> mediaString = default, Option<string> mediaStringFileName = default, Option<string> mediaStringContentType = default, Option<int> mediaHeight = default, Option<int> mediaWidth = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaUrl = default, Option<string> attachedMediaString = default, Option<string> attachedMediaStringFileName = default, Option<string> attachedMediaStringContentType = default, Option<int> attachedMediaHeight = default, Option<int> attachedMediaWidth = default, Option<string> locationDescription = default, Option<string> searchTags = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3707,7 +3636,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateAsset(deviceId, versionName, metaData, caption, assetType, approvalStatus, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, locationDescription, searchTags, appKey);
 
-                FormatUpdateAsset(ref version, ref assetId, ref deviceId, ref accountId, ref albumId, ref attachedAssetId, ref versionCode, ref versionName, ref metaData, ref caption, ref assetType, ref approvalStatus, ref assignedAccountId, ref media, ref mediaUrl, ref mediaString, ref mediaStringFileName, ref mediaStringContentType, ref mediaHeight, ref mediaWidth, ref attachedMedia, ref attachedMediaUrl, ref attachedMediaString, ref attachedMediaStringFileName, ref attachedMediaStringContentType, ref attachedMediaHeight, ref attachedMediaWidth, ref locationDescription, ref searchTags, ref appKey, ref latitude, ref longitude);
+                FormatUpdateAsset(ref assetId, ref deviceId, ref accountId, ref albumId, ref attachedAssetId, ref versionCode, ref versionName, ref metaData, ref caption, ref assetType, ref approvalStatus, ref assignedAccountId, ref media, ref mediaUrl, ref mediaString, ref mediaStringFileName, ref mediaStringContentType, ref mediaHeight, ref mediaWidth, ref attachedMedia, ref attachedMediaUrl, ref attachedMediaString, ref attachedMediaStringFileName, ref attachedMediaStringContentType, ref attachedMediaHeight, ref attachedMediaWidth, ref locationDescription, ref searchTags, ref appKey, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3715,9 +3644,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/asset/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/asset/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/asset/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/asset/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3838,13 +3766,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/asset/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/asset/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateAssetDefaultImplementation(apiResponseLocalVar, version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
+                        AfterUpdateAssetDefaultImplementation(apiResponseLocalVar, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
 
                         Events.ExecuteOnUpdateAsset(apiResponseLocalVar);
 
@@ -3854,7 +3782,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateAssetDefaultImplementation(e, "/api/{version}/asset/update", uriBuilderLocalVar.Path, version, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
+                OnErrorUpdateAssetDefaultImplementation(e, "/asset/update", uriBuilderLocalVar.Path, assetId, deviceId, accountId, albumId, attachedAssetId, versionCode, versionName, metaData, caption, assetType, approvalStatus, assignedAccountId, media, mediaUrl, mediaString, mediaStringFileName, mediaStringContentType, mediaHeight, mediaWidth, attachedMedia, attachedMediaUrl, attachedMediaString, attachedMediaStringFileName, attachedMediaStringContentType, attachedMediaHeight, attachedMediaWidth, locationDescription, searchTags, appKey, latitude, longitude);
                 Events.ExecuteOnErrorUpdateAsset(e);
                 throw;
             }

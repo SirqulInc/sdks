@@ -45,12 +45,11 @@ namespace Org.OpenAPITools.Api
         /// Enable this ad for preview for this account.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="creativeId">The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddPreviewApiResponse"/>&gt;</returns>
-        Task<IAddPreviewApiResponse> AddPreviewAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddPreviewApiResponse> AddPreviewAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Preview
@@ -58,12 +57,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Enable this ad for preview for this account.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="creativeId">The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddPreviewApiResponse"/>?&gt;</returns>
-        Task<IAddPreviewApiResponse?> AddPreviewOrDefaultAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddPreviewApiResponse?> AddPreviewOrDefaultAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Find Missions
@@ -72,7 +70,6 @@ namespace Org.OpenAPITools.Api
         /// Get a set of ad filtered by the parameters provided.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
         /// <param name="randomize">return a random set of results, default is true. If false returns in nature order.</param>
         /// <param name="targetedAdsOnly">return only ads targets to the specific app, no global ads.</param>
@@ -91,7 +88,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionIds">return only ads from the specified campaigns. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAdsFindApiResponse"/>&gt;</returns>
-        Task<IAdsFindApiResponse> AdsFindAsync(decimal version, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<string> missionIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAdsFindApiResponse> AdsFindAsync(string appKey, bool randomize, bool targetedAdsOnly, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<string> missionIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Find Missions
@@ -99,7 +96,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a set of ad filtered by the parameters provided.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
         /// <param name="randomize">return a random set of results, default is true. If false returns in nature order.</param>
         /// <param name="targetedAdsOnly">return only ads targets to the specific app, no global ads.</param>
@@ -118,7 +114,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionIds">return only ads from the specified campaigns. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAdsFindApiResponse"/>?&gt;</returns>
-        Task<IAdsFindApiResponse?> AdsFindOrDefaultAsync(decimal version, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<string> missionIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAdsFindApiResponse?> AdsFindOrDefaultAsync(string appKey, bool randomize, bool targetedAdsOnly, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<string> missionIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Creative
@@ -127,7 +123,6 @@ namespace Org.OpenAPITools.Api
         /// Create a creative
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the level.</param>
         /// <param name="active">If true set the game level as active. Default is false.</param>
@@ -145,7 +140,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerId">the id of the offer (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCreativeApiResponse"/>&gt;</returns>
-        Task<ICreateCreativeApiResponse> CreateCreativeAsync(decimal version, long accountId, string name, bool active, bool waitForAsset, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, Option<long> offerId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateCreativeApiResponse> CreateCreativeAsync(long accountId, string name, bool active, bool waitForAsset, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, Option<long> offerId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Creative
@@ -153,7 +148,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a creative
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the level.</param>
         /// <param name="active">If true set the game level as active. Default is false.</param>
@@ -171,7 +165,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerId">the id of the offer (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCreativeApiResponse"/>?&gt;</returns>
-        Task<ICreateCreativeApiResponse?> CreateCreativeOrDefaultAsync(decimal version, long accountId, string name, bool active, bool waitForAsset, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, Option<long> offerId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateCreativeApiResponse?> CreateCreativeOrDefaultAsync(long accountId, string name, bool active, bool waitForAsset, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, Option<long> offerId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Creative
@@ -180,12 +174,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a creative
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="creativeId">the id of the creative to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCreativeApiResponse"/>&gt;</returns>
-        Task<IDeleteCreativeApiResponse> DeleteCreativeAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteCreativeApiResponse> DeleteCreativeAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Creative
@@ -193,12 +186,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a creative
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="creativeId">the id of the creative to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCreativeApiResponse"/>?&gt;</returns>
-        Task<IDeleteCreativeApiResponse?> DeleteCreativeOrDefaultAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteCreativeApiResponse?> DeleteCreativeOrDefaultAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Creative
@@ -207,12 +199,11 @@ namespace Org.OpenAPITools.Api
         /// Get a creative
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="creativeId">the ID of the creative to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCreativeApiResponse"/>&gt;</returns>
-        Task<IGetCreativeApiResponse> GetCreativeAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCreativeApiResponse> GetCreativeAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Creative
@@ -220,12 +211,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a creative
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="creativeId">the ID of the creative to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCreativeApiResponse"/>?&gt;</returns>
-        Task<IGetCreativeApiResponse?> GetCreativeOrDefaultAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCreativeApiResponse?> GetCreativeOrDefaultAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Creatives
@@ -234,7 +224,6 @@ namespace Org.OpenAPITools.Api
         /// Get a list of levels for an application, just those the account has permissions to view.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="start">Start the result set at some index.</param>
@@ -243,7 +232,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">Match the keyword to the owner name or level name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCreativesByApplicationApiResponse"/>&gt;</returns>
-        Task<IGetCreativesByApplicationApiResponse> GetCreativesByApplicationAsync(decimal version, long accountId, string appKey, int start, int limit, Option<long> missionId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCreativesByApplicationApiResponse> GetCreativesByApplicationAsync(long accountId, string appKey, int start, int limit, Option<long> missionId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Creatives
@@ -251,7 +240,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list of levels for an application, just those the account has permissions to view.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="start">Start the result set at some index.</param>
@@ -260,7 +248,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">Match the keyword to the owner name or level name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCreativesByApplicationApiResponse"/>?&gt;</returns>
-        Task<IGetCreativesByApplicationApiResponse?> GetCreativesByApplicationOrDefaultAsync(decimal version, long accountId, string appKey, int start, int limit, Option<long> missionId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCreativesByApplicationApiResponse?> GetCreativesByApplicationOrDefaultAsync(long accountId, string appKey, int start, int limit, Option<long> missionId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Preview
@@ -269,12 +257,11 @@ namespace Org.OpenAPITools.Api
         /// Remove this ad for preview for this account.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the logged in user</param>
         /// <param name="creativeId">the ID of the creative to remove preview</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemovePreviewApiResponse"/>&gt;</returns>
-        Task<IRemovePreviewApiResponse> RemovePreviewAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemovePreviewApiResponse> RemovePreviewAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Preview
@@ -282,12 +269,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Remove this ad for preview for this account.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the logged in user</param>
         /// <param name="creativeId">the ID of the creative to remove preview</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemovePreviewApiResponse"/>?&gt;</returns>
-        Task<IRemovePreviewApiResponse?> RemovePreviewOrDefaultAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemovePreviewApiResponse?> RemovePreviewOrDefaultAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Creative
@@ -296,7 +282,6 @@ namespace Org.OpenAPITools.Api
         /// Update a creative
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="creativeId">the creative Id to upate.</param>
         /// <param name="name">The name of the level. (optional)</param>
@@ -313,7 +298,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionId">Assign the creative to a campaign for timing and audience matching. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCreativeApiResponse"/>&gt;</returns>
-        Task<IUpdateCreativeApiResponse> UpdateCreativeAsync(decimal version, long accountId, long creativeId, Option<string> name = default, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<bool> active = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateCreativeApiResponse> UpdateCreativeAsync(long accountId, long creativeId, Option<string> name = default, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<bool> active = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Creative
@@ -321,7 +306,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a creative
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="creativeId">the creative Id to upate.</param>
         /// <param name="name">The name of the level. (optional)</param>
@@ -338,7 +322,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionId">Assign the creative to a campaign for timing and audience matching. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCreativeApiResponse"/>?&gt;</returns>
-        Task<IUpdateCreativeApiResponse?> UpdateCreativeOrDefaultAsync(decimal version, long accountId, long creativeId, Option<string> name = default, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<bool> active = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateCreativeApiResponse?> UpdateCreativeOrDefaultAsync(long accountId, long creativeId, Option<string> name = default, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<bool> active = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -650,19 +634,18 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddPreview(ref decimal version, ref long accountId, ref long creativeId);
+        partial void FormatAddPreview(ref long accountId, ref long creativeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        private void AfterAddPreviewDefaultImplementation(IAddPreviewApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId)
+        private void AfterAddPreviewDefaultImplementation(IAddPreviewApiResponse apiResponseLocalVar, long accountId, long creativeId)
         {
             bool suppressDefaultLog = false;
-            AfterAddPreview(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, creativeId);
+            AfterAddPreview(ref suppressDefaultLog, apiResponseLocalVar, accountId, creativeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -672,10 +655,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        partial void AfterAddPreview(ref bool suppressDefaultLog, IAddPreviewApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId);
+        partial void AfterAddPreview(ref bool suppressDefaultLog, IAddPreviewApiResponse apiResponseLocalVar, long accountId, long creativeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -683,13 +665,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        private void OnErrorAddPreviewDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId)
+        private void OnErrorAddPreviewDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddPreview(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, creativeId);
+            OnErrorAddPreview(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, creativeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -701,24 +682,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        partial void OnErrorAddPreview(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId);
+        partial void OnErrorAddPreview(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId);
 
         /// <summary>
         /// Add Preview Enable this ad for preview for this account.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="creativeId">The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddPreviewApiResponse"/>&gt;</returns>
-        public async Task<IAddPreviewApiResponse?> AddPreviewOrDefaultAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddPreviewApiResponse?> AddPreviewOrDefaultAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddPreviewAsync(version, accountId, creativeId, cancellationToken).ConfigureAwait(false);
+                return await AddPreviewAsync(accountId, creativeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -730,18 +709,17 @@ namespace Org.OpenAPITools.Api
         /// Add Preview Enable this ad for preview for this account.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="creativeId">The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddPreviewApiResponse"/>&gt;</returns>
-        public async Task<IAddPreviewApiResponse> AddPreviewAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddPreviewApiResponse> AddPreviewAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatAddPreview(ref version, ref accountId, ref creativeId);
+                FormatAddPreview(ref accountId, ref creativeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -749,9 +727,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/creative/addpreview"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/creative/addpreview");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/creative/addpreview"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/creative/addpreview");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -783,13 +760,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/creative/addpreview", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/creative/addpreview", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddPreviewDefaultImplementation(apiResponseLocalVar, version, accountId, creativeId);
+                        AfterAddPreviewDefaultImplementation(apiResponseLocalVar, accountId, creativeId);
 
                         Events.ExecuteOnAddPreview(apiResponseLocalVar);
 
@@ -799,7 +776,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddPreviewDefaultImplementation(e, "/api/{version}/creative/addpreview", uriBuilderLocalVar.Path, version, accountId, creativeId);
+                OnErrorAddPreviewDefaultImplementation(e, "/creative/addpreview", uriBuilderLocalVar.Path, accountId, creativeId);
                 Events.ExecuteOnErrorAddPreview(e);
                 throw;
             }
@@ -898,7 +875,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAdsFind(ref decimal version, ref string appKey, ref bool randomize, ref bool targetedAdsOnly, ref Option<string> type, ref Option<long> accountId, ref Option<string> appVersion, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> device, ref Option<long> deviceIdentifier, ref Option<string> deviceVersion, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeAudiences, ref Option<bool> allocatesTickets, ref Option<string> missionIds);
+        partial void FormatAdsFind(ref string appKey, ref bool randomize, ref bool targetedAdsOnly, ref Option<string> type, ref Option<long> accountId, ref Option<string> appVersion, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> device, ref Option<long> deviceIdentifier, ref Option<string> deviceVersion, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeAudiences, ref Option<bool> allocatesTickets, ref Option<string> missionIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -935,7 +912,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="randomize"></param>
         /// <param name="targetedAdsOnly"></param>
@@ -952,10 +928,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeAudiences"></param>
         /// <param name="allocatesTickets"></param>
         /// <param name="missionIds"></param>
-        private void AfterAdsFindDefaultImplementation(IAdsFindApiResponse apiResponseLocalVar, decimal version, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<string> missionIds)
+        private void AfterAdsFindDefaultImplementation(IAdsFindApiResponse apiResponseLocalVar, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<string> missionIds)
         {
             bool suppressDefaultLog = false;
-            AfterAdsFind(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
+            AfterAdsFind(ref suppressDefaultLog, apiResponseLocalVar, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -965,7 +941,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="randomize"></param>
         /// <param name="targetedAdsOnly"></param>
@@ -982,7 +957,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeAudiences"></param>
         /// <param name="allocatesTickets"></param>
         /// <param name="missionIds"></param>
-        partial void AfterAdsFind(ref bool suppressDefaultLog, IAdsFindApiResponse apiResponseLocalVar, decimal version, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<string> missionIds);
+        partial void AfterAdsFind(ref bool suppressDefaultLog, IAdsFindApiResponse apiResponseLocalVar, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<string> missionIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -990,7 +965,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="randomize"></param>
         /// <param name="targetedAdsOnly"></param>
@@ -1007,10 +981,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeAudiences"></param>
         /// <param name="allocatesTickets"></param>
         /// <param name="missionIds"></param>
-        private void OnErrorAdsFindDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<string> missionIds)
+        private void OnErrorAdsFindDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<string> missionIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAdsFind(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
+            OnErrorAdsFind(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1022,7 +996,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="randomize"></param>
         /// <param name="targetedAdsOnly"></param>
@@ -1039,12 +1012,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeAudiences"></param>
         /// <param name="allocatesTickets"></param>
         /// <param name="missionIds"></param>
-        partial void OnErrorAdsFind(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<string> missionIds);
+        partial void OnErrorAdsFind(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<string> missionIds);
 
         /// <summary>
         /// Find Missions Get a set of ad filtered by the parameters provided.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
         /// <param name="randomize">return a random set of results, default is true. If false returns in nature order.</param>
         /// <param name="targetedAdsOnly">return only ads targets to the specific app, no global ads.</param>
@@ -1063,11 +1035,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionIds">return only ads from the specified campaigns. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAdsFindApiResponse"/>&gt;</returns>
-        public async Task<IAdsFindApiResponse?> AdsFindOrDefaultAsync(decimal version, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<string> missionIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAdsFindApiResponse?> AdsFindOrDefaultAsync(string appKey, bool randomize, bool targetedAdsOnly, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<string> missionIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AdsFindAsync(version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds, cancellationToken).ConfigureAwait(false);
+                return await AdsFindAsync(appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1079,7 +1051,6 @@ namespace Org.OpenAPITools.Api
         /// Find Missions Get a set of ad filtered by the parameters provided.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
         /// <param name="randomize">return a random set of results, default is true. If false returns in nature order.</param>
         /// <param name="targetedAdsOnly">return only ads targets to the specific app, no global ads.</param>
@@ -1098,7 +1069,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionIds">return only ads from the specified campaigns. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAdsFindApiResponse"/>&gt;</returns>
-        public async Task<IAdsFindApiResponse> AdsFindAsync(decimal version, string appKey, bool randomize, bool targetedAdsOnly, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<string> missionIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAdsFindApiResponse> AdsFindAsync(string appKey, bool randomize, bool targetedAdsOnly, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<string> missionIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1106,7 +1077,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAdsFind(appKey, type, appVersion, device, deviceVersion, missionIds);
 
-                FormatAdsFind(ref version, ref appKey, ref randomize, ref targetedAdsOnly, ref type, ref accountId, ref appVersion, ref latitude, ref longitude, ref device, ref deviceIdentifier, ref deviceVersion, ref start, ref limit, ref includeAudiences, ref allocatesTickets, ref missionIds);
+                FormatAdsFind(ref appKey, ref randomize, ref targetedAdsOnly, ref type, ref accountId, ref appVersion, ref latitude, ref longitude, ref device, ref deviceIdentifier, ref deviceVersion, ref start, ref limit, ref includeAudiences, ref allocatesTickets, ref missionIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1114,9 +1085,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ads/find"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ads/find");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ads/find"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ads/find");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1188,13 +1158,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ads/find", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ads/find", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAdsFindDefaultImplementation(apiResponseLocalVar, version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
+                        AfterAdsFindDefaultImplementation(apiResponseLocalVar, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
 
                         Events.ExecuteOnAdsFind(apiResponseLocalVar);
 
@@ -1204,7 +1174,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAdsFindDefaultImplementation(e, "/api/{version}/ads/find", uriBuilderLocalVar.Path, version, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
+                OnErrorAdsFindDefaultImplementation(e, "/ads/find", uriBuilderLocalVar.Path, appKey, randomize, targetedAdsOnly, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeAudiences, allocatesTickets, missionIds);
                 Events.ExecuteOnErrorAdsFind(e);
                 throw;
             }
@@ -1303,7 +1273,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateCreative(ref decimal version, ref long accountId, ref string name, ref bool active, ref bool waitForAsset, ref Option<string> description, ref Option<long> assetImageId, ref Option<string> action, ref Option<string> data, ref Option<string> suffix, ref Option<string> type, ref Option<double> balance, ref Option<long> referenceId, ref Option<string> appVersion, ref Option<long> missionId, ref Option<long> offerId);
+        partial void FormatCreateCreative(ref long accountId, ref string name, ref bool active, ref bool waitForAsset, ref Option<string> description, ref Option<long> assetImageId, ref Option<string> action, ref Option<string> data, ref Option<string> suffix, ref Option<string> type, ref Option<double> balance, ref Option<long> referenceId, ref Option<string> appVersion, ref Option<long> missionId, ref Option<long> offerId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1344,7 +1314,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
@@ -1360,10 +1329,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="missionId"></param>
         /// <param name="offerId"></param>
-        private void AfterCreateCreativeDefaultImplementation(ICreateCreativeApiResponse apiResponseLocalVar, decimal version, long accountId, string name, bool active, bool waitForAsset, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<long> referenceId, Option<string> appVersion, Option<long> missionId, Option<long> offerId)
+        private void AfterCreateCreativeDefaultImplementation(ICreateCreativeApiResponse apiResponseLocalVar, long accountId, string name, bool active, bool waitForAsset, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<long> referenceId, Option<string> appVersion, Option<long> missionId, Option<long> offerId)
         {
             bool suppressDefaultLog = false;
-            AfterCreateCreative(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
+            AfterCreateCreative(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1373,7 +1342,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
@@ -1389,7 +1357,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="missionId"></param>
         /// <param name="offerId"></param>
-        partial void AfterCreateCreative(ref bool suppressDefaultLog, ICreateCreativeApiResponse apiResponseLocalVar, decimal version, long accountId, string name, bool active, bool waitForAsset, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<long> referenceId, Option<string> appVersion, Option<long> missionId, Option<long> offerId);
+        partial void AfterCreateCreative(ref bool suppressDefaultLog, ICreateCreativeApiResponse apiResponseLocalVar, long accountId, string name, bool active, bool waitForAsset, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<long> referenceId, Option<string> appVersion, Option<long> missionId, Option<long> offerId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1397,7 +1365,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
@@ -1413,10 +1380,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="missionId"></param>
         /// <param name="offerId"></param>
-        private void OnErrorCreateCreativeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, bool active, bool waitForAsset, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<long> referenceId, Option<string> appVersion, Option<long> missionId, Option<long> offerId)
+        private void OnErrorCreateCreativeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, bool active, bool waitForAsset, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<long> referenceId, Option<string> appVersion, Option<long> missionId, Option<long> offerId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateCreative(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
+            OnErrorCreateCreative(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1428,7 +1395,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
@@ -1444,12 +1410,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="missionId"></param>
         /// <param name="offerId"></param>
-        partial void OnErrorCreateCreative(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, bool active, bool waitForAsset, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<long> referenceId, Option<string> appVersion, Option<long> missionId, Option<long> offerId);
+        partial void OnErrorCreateCreative(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, bool active, bool waitForAsset, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<long> referenceId, Option<string> appVersion, Option<long> missionId, Option<long> offerId);
 
         /// <summary>
         /// Create Creative Create a creative
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the level.</param>
         /// <param name="active">If true set the game level as active. Default is false.</param>
@@ -1467,11 +1432,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerId">the id of the offer (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCreativeApiResponse"/>&gt;</returns>
-        public async Task<ICreateCreativeApiResponse?> CreateCreativeOrDefaultAsync(decimal version, long accountId, string name, bool active, bool waitForAsset, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, Option<long> offerId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateCreativeApiResponse?> CreateCreativeOrDefaultAsync(long accountId, string name, bool active, bool waitForAsset, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, Option<long> offerId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateCreativeAsync(version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId, cancellationToken).ConfigureAwait(false);
+                return await CreateCreativeAsync(accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1483,7 +1448,6 @@ namespace Org.OpenAPITools.Api
         /// Create Creative Create a creative
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the level.</param>
         /// <param name="active">If true set the game level as active. Default is false.</param>
@@ -1501,7 +1465,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerId">the id of the offer (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCreativeApiResponse"/>&gt;</returns>
-        public async Task<ICreateCreativeApiResponse> CreateCreativeAsync(decimal version, long accountId, string name, bool active, bool waitForAsset, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, Option<long> offerId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateCreativeApiResponse> CreateCreativeAsync(long accountId, string name, bool active, bool waitForAsset, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, Option<long> offerId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1509,7 +1473,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateCreative(name, description, action, data, suffix, type, appVersion);
 
-                FormatCreateCreative(ref version, ref accountId, ref name, ref active, ref waitForAsset, ref description, ref assetImageId, ref action, ref data, ref suffix, ref type, ref balance, ref referenceId, ref appVersion, ref missionId, ref offerId);
+                FormatCreateCreative(ref accountId, ref name, ref active, ref waitForAsset, ref description, ref assetImageId, ref action, ref data, ref suffix, ref type, ref balance, ref referenceId, ref appVersion, ref missionId, ref offerId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1517,9 +1481,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/creative/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/creative/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/creative/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/creative/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1586,13 +1549,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/creative/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/creative/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateCreativeDefaultImplementation(apiResponseLocalVar, version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
+                        AfterCreateCreativeDefaultImplementation(apiResponseLocalVar, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
 
                         Events.ExecuteOnCreateCreative(apiResponseLocalVar);
 
@@ -1602,7 +1565,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateCreativeDefaultImplementation(e, "/api/{version}/creative/create", uriBuilderLocalVar.Path, version, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
+                OnErrorCreateCreativeDefaultImplementation(e, "/creative/create", uriBuilderLocalVar.Path, accountId, name, active, waitForAsset, description, assetImageId, action, data, suffix, type, balance, referenceId, appVersion, missionId, offerId);
                 Events.ExecuteOnErrorCreateCreative(e);
                 throw;
             }
@@ -1701,19 +1664,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteCreative(ref decimal version, ref long accountId, ref long creativeId);
+        partial void FormatDeleteCreative(ref long accountId, ref long creativeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        private void AfterDeleteCreativeDefaultImplementation(IDeleteCreativeApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId)
+        private void AfterDeleteCreativeDefaultImplementation(IDeleteCreativeApiResponse apiResponseLocalVar, long accountId, long creativeId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteCreative(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, creativeId);
+            AfterDeleteCreative(ref suppressDefaultLog, apiResponseLocalVar, accountId, creativeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1723,10 +1685,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        partial void AfterDeleteCreative(ref bool suppressDefaultLog, IDeleteCreativeApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId);
+        partial void AfterDeleteCreative(ref bool suppressDefaultLog, IDeleteCreativeApiResponse apiResponseLocalVar, long accountId, long creativeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1734,13 +1695,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        private void OnErrorDeleteCreativeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId)
+        private void OnErrorDeleteCreativeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteCreative(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, creativeId);
+            OnErrorDeleteCreative(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, creativeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1752,24 +1712,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        partial void OnErrorDeleteCreative(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId);
+        partial void OnErrorDeleteCreative(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId);
 
         /// <summary>
         /// Delete Creative Delete a creative
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="creativeId">the id of the creative to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCreativeApiResponse"/>&gt;</returns>
-        public async Task<IDeleteCreativeApiResponse?> DeleteCreativeOrDefaultAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteCreativeApiResponse?> DeleteCreativeOrDefaultAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteCreativeAsync(version, accountId, creativeId, cancellationToken).ConfigureAwait(false);
+                return await DeleteCreativeAsync(accountId, creativeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1781,18 +1739,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Creative Delete a creative
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="creativeId">the id of the creative to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCreativeApiResponse"/>&gt;</returns>
-        public async Task<IDeleteCreativeApiResponse> DeleteCreativeAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteCreativeApiResponse> DeleteCreativeAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteCreative(ref version, ref accountId, ref creativeId);
+                FormatDeleteCreative(ref accountId, ref creativeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1800,9 +1757,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/creative/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/creative/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/creative/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/creative/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1834,13 +1790,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/creative/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/creative/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteCreativeDefaultImplementation(apiResponseLocalVar, version, accountId, creativeId);
+                        AfterDeleteCreativeDefaultImplementation(apiResponseLocalVar, accountId, creativeId);
 
                         Events.ExecuteOnDeleteCreative(apiResponseLocalVar);
 
@@ -1850,7 +1806,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteCreativeDefaultImplementation(e, "/api/{version}/creative/delete", uriBuilderLocalVar.Path, version, accountId, creativeId);
+                OnErrorDeleteCreativeDefaultImplementation(e, "/creative/delete", uriBuilderLocalVar.Path, accountId, creativeId);
                 Events.ExecuteOnErrorDeleteCreative(e);
                 throw;
             }
@@ -1949,19 +1905,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCreative(ref decimal version, ref long accountId, ref long creativeId);
+        partial void FormatGetCreative(ref long accountId, ref long creativeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        private void AfterGetCreativeDefaultImplementation(IGetCreativeApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId)
+        private void AfterGetCreativeDefaultImplementation(IGetCreativeApiResponse apiResponseLocalVar, long accountId, long creativeId)
         {
             bool suppressDefaultLog = false;
-            AfterGetCreative(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, creativeId);
+            AfterGetCreative(ref suppressDefaultLog, apiResponseLocalVar, accountId, creativeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1971,10 +1926,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        partial void AfterGetCreative(ref bool suppressDefaultLog, IGetCreativeApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId);
+        partial void AfterGetCreative(ref bool suppressDefaultLog, IGetCreativeApiResponse apiResponseLocalVar, long accountId, long creativeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1982,13 +1936,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        private void OnErrorGetCreativeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId)
+        private void OnErrorGetCreativeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCreative(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, creativeId);
+            OnErrorGetCreative(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, creativeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2000,24 +1953,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        partial void OnErrorGetCreative(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId);
+        partial void OnErrorGetCreative(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId);
 
         /// <summary>
         /// Get Creative Get a creative
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="creativeId">the ID of the creative to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCreativeApiResponse"/>&gt;</returns>
-        public async Task<IGetCreativeApiResponse?> GetCreativeOrDefaultAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCreativeApiResponse?> GetCreativeOrDefaultAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCreativeAsync(version, accountId, creativeId, cancellationToken).ConfigureAwait(false);
+                return await GetCreativeAsync(accountId, creativeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2029,18 +1980,17 @@ namespace Org.OpenAPITools.Api
         /// Get Creative Get a creative
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="creativeId">the ID of the creative to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCreativeApiResponse"/>&gt;</returns>
-        public async Task<IGetCreativeApiResponse> GetCreativeAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCreativeApiResponse> GetCreativeAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetCreative(ref version, ref accountId, ref creativeId);
+                FormatGetCreative(ref accountId, ref creativeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2048,9 +1998,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/creative/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/creative/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/creative/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/creative/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2082,13 +2031,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/creative/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/creative/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCreativeDefaultImplementation(apiResponseLocalVar, version, accountId, creativeId);
+                        AfterGetCreativeDefaultImplementation(apiResponseLocalVar, accountId, creativeId);
 
                         Events.ExecuteOnGetCreative(apiResponseLocalVar);
 
@@ -2098,7 +2047,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCreativeDefaultImplementation(e, "/api/{version}/creative/get", uriBuilderLocalVar.Path, version, accountId, creativeId);
+                OnErrorGetCreativeDefaultImplementation(e, "/creative/get", uriBuilderLocalVar.Path, accountId, creativeId);
                 Events.ExecuteOnErrorGetCreative(e);
                 throw;
             }
@@ -2197,7 +2146,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCreativesByApplication(ref decimal version, ref long accountId, ref string appKey, ref int start, ref int limit, ref Option<long> missionId, ref Option<string> keyword);
+        partial void FormatGetCreativesByApplication(ref long accountId, ref string appKey, ref int start, ref int limit, ref Option<long> missionId, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -2218,17 +2167,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="missionId"></param>
         /// <param name="keyword"></param>
-        private void AfterGetCreativesByApplicationDefaultImplementation(IGetCreativesByApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, int start, int limit, Option<long> missionId, Option<string> keyword)
+        private void AfterGetCreativesByApplicationDefaultImplementation(IGetCreativesByApplicationApiResponse apiResponseLocalVar, long accountId, string appKey, int start, int limit, Option<long> missionId, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterGetCreativesByApplication(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, start, limit, missionId, keyword);
+            AfterGetCreativesByApplication(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, start, limit, missionId, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2238,14 +2186,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="missionId"></param>
         /// <param name="keyword"></param>
-        partial void AfterGetCreativesByApplication(ref bool suppressDefaultLog, IGetCreativesByApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, int start, int limit, Option<long> missionId, Option<string> keyword);
+        partial void AfterGetCreativesByApplication(ref bool suppressDefaultLog, IGetCreativesByApplicationApiResponse apiResponseLocalVar, long accountId, string appKey, int start, int limit, Option<long> missionId, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2253,17 +2200,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="missionId"></param>
         /// <param name="keyword"></param>
-        private void OnErrorGetCreativesByApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, int start, int limit, Option<long> missionId, Option<string> keyword)
+        private void OnErrorGetCreativesByApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, int start, int limit, Option<long> missionId, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCreativesByApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, start, limit, missionId, keyword);
+            OnErrorGetCreativesByApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, start, limit, missionId, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2275,19 +2221,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="missionId"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorGetCreativesByApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, int start, int limit, Option<long> missionId, Option<string> keyword);
+        partial void OnErrorGetCreativesByApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, int start, int limit, Option<long> missionId, Option<string> keyword);
 
         /// <summary>
         /// Search Creatives Get a list of levels for an application, just those the account has permissions to view.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="start">Start the result set at some index.</param>
@@ -2296,11 +2240,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">Match the keyword to the owner name or level name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCreativesByApplicationApiResponse"/>&gt;</returns>
-        public async Task<IGetCreativesByApplicationApiResponse?> GetCreativesByApplicationOrDefaultAsync(decimal version, long accountId, string appKey, int start, int limit, Option<long> missionId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCreativesByApplicationApiResponse?> GetCreativesByApplicationOrDefaultAsync(long accountId, string appKey, int start, int limit, Option<long> missionId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCreativesByApplicationAsync(version, accountId, appKey, start, limit, missionId, keyword, cancellationToken).ConfigureAwait(false);
+                return await GetCreativesByApplicationAsync(accountId, appKey, start, limit, missionId, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2312,7 +2256,6 @@ namespace Org.OpenAPITools.Api
         /// Search Creatives Get a list of levels for an application, just those the account has permissions to view.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="start">Start the result set at some index.</param>
@@ -2321,7 +2264,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">Match the keyword to the owner name or level name. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCreativesByApplicationApiResponse"/>&gt;</returns>
-        public async Task<IGetCreativesByApplicationApiResponse> GetCreativesByApplicationAsync(decimal version, long accountId, string appKey, int start, int limit, Option<long> missionId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCreativesByApplicationApiResponse> GetCreativesByApplicationAsync(long accountId, string appKey, int start, int limit, Option<long> missionId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2329,7 +2272,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetCreativesByApplication(appKey, keyword);
 
-                FormatGetCreativesByApplication(ref version, ref accountId, ref appKey, ref start, ref limit, ref missionId, ref keyword);
+                FormatGetCreativesByApplication(ref accountId, ref appKey, ref start, ref limit, ref missionId, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2337,9 +2280,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/creative/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/creative/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/creative/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/creative/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2379,13 +2321,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/creative/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/creative/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCreativesByApplicationDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, start, limit, missionId, keyword);
+                        AfterGetCreativesByApplicationDefaultImplementation(apiResponseLocalVar, accountId, appKey, start, limit, missionId, keyword);
 
                         Events.ExecuteOnGetCreativesByApplication(apiResponseLocalVar);
 
@@ -2395,7 +2337,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCreativesByApplicationDefaultImplementation(e, "/api/{version}/creative/search", uriBuilderLocalVar.Path, version, accountId, appKey, start, limit, missionId, keyword);
+                OnErrorGetCreativesByApplicationDefaultImplementation(e, "/creative/search", uriBuilderLocalVar.Path, accountId, appKey, start, limit, missionId, keyword);
                 Events.ExecuteOnErrorGetCreativesByApplication(e);
                 throw;
             }
@@ -2494,19 +2436,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemovePreview(ref decimal version, ref long accountId, ref long creativeId);
+        partial void FormatRemovePreview(ref long accountId, ref long creativeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        private void AfterRemovePreviewDefaultImplementation(IRemovePreviewApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId)
+        private void AfterRemovePreviewDefaultImplementation(IRemovePreviewApiResponse apiResponseLocalVar, long accountId, long creativeId)
         {
             bool suppressDefaultLog = false;
-            AfterRemovePreview(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, creativeId);
+            AfterRemovePreview(ref suppressDefaultLog, apiResponseLocalVar, accountId, creativeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2516,10 +2457,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        partial void AfterRemovePreview(ref bool suppressDefaultLog, IRemovePreviewApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId);
+        partial void AfterRemovePreview(ref bool suppressDefaultLog, IRemovePreviewApiResponse apiResponseLocalVar, long accountId, long creativeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2527,13 +2467,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        private void OnErrorRemovePreviewDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId)
+        private void OnErrorRemovePreviewDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemovePreview(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, creativeId);
+            OnErrorRemovePreview(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, creativeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2545,24 +2484,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
-        partial void OnErrorRemovePreview(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId);
+        partial void OnErrorRemovePreview(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId);
 
         /// <summary>
         /// Remove Preview Remove this ad for preview for this account.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the logged in user</param>
         /// <param name="creativeId">the ID of the creative to remove preview</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemovePreviewApiResponse"/>&gt;</returns>
-        public async Task<IRemovePreviewApiResponse?> RemovePreviewOrDefaultAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemovePreviewApiResponse?> RemovePreviewOrDefaultAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemovePreviewAsync(version, accountId, creativeId, cancellationToken).ConfigureAwait(false);
+                return await RemovePreviewAsync(accountId, creativeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2574,18 +2511,17 @@ namespace Org.OpenAPITools.Api
         /// Remove Preview Remove this ad for preview for this account.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the logged in user</param>
         /// <param name="creativeId">the ID of the creative to remove preview</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemovePreviewApiResponse"/>&gt;</returns>
-        public async Task<IRemovePreviewApiResponse> RemovePreviewAsync(decimal version, long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemovePreviewApiResponse> RemovePreviewAsync(long accountId, long creativeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatRemovePreview(ref version, ref accountId, ref creativeId);
+                FormatRemovePreview(ref accountId, ref creativeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2593,9 +2529,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/creative/removepreview"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/creative/removepreview");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/creative/removepreview"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/creative/removepreview");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2627,13 +2562,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/creative/removepreview", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/creative/removepreview", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemovePreviewDefaultImplementation(apiResponseLocalVar, version, accountId, creativeId);
+                        AfterRemovePreviewDefaultImplementation(apiResponseLocalVar, accountId, creativeId);
 
                         Events.ExecuteOnRemovePreview(apiResponseLocalVar);
 
@@ -2643,7 +2578,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemovePreviewDefaultImplementation(e, "/api/{version}/creative/removepreview", uriBuilderLocalVar.Path, version, accountId, creativeId);
+                OnErrorRemovePreviewDefaultImplementation(e, "/creative/removepreview", uriBuilderLocalVar.Path, accountId, creativeId);
                 Events.ExecuteOnErrorRemovePreview(e);
                 throw;
             }
@@ -2742,7 +2677,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateCreative(ref decimal version, ref long accountId, ref long creativeId, ref Option<string> name, ref Option<string> description, ref Option<long> assetImageId, ref Option<string> action, ref Option<string> data, ref Option<string> suffix, ref Option<string> type, ref Option<double> balance, ref Option<bool> active, ref Option<long> referenceId, ref Option<string> appVersion, ref Option<long> missionId);
+        partial void FormatUpdateCreative(ref long accountId, ref long creativeId, ref Option<string> name, ref Option<string> description, ref Option<long> assetImageId, ref Option<string> action, ref Option<string> data, ref Option<string> suffix, ref Option<string> type, ref Option<double> balance, ref Option<bool> active, ref Option<long> referenceId, ref Option<string> appVersion, ref Option<long> missionId);
 
         /// <summary>
         /// Validates the request parameters
@@ -2783,7 +2718,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
         /// <param name="name"></param>
@@ -2798,10 +2732,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="referenceId"></param>
         /// <param name="appVersion"></param>
         /// <param name="missionId"></param>
-        private void AfterUpdateCreativeDefaultImplementation(IUpdateCreativeApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId, Option<string> name, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<bool> active, Option<long> referenceId, Option<string> appVersion, Option<long> missionId)
+        private void AfterUpdateCreativeDefaultImplementation(IUpdateCreativeApiResponse apiResponseLocalVar, long accountId, long creativeId, Option<string> name, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<bool> active, Option<long> referenceId, Option<string> appVersion, Option<long> missionId)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateCreative(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
+            AfterUpdateCreative(ref suppressDefaultLog, apiResponseLocalVar, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2811,7 +2745,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
         /// <param name="name"></param>
@@ -2826,7 +2759,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="referenceId"></param>
         /// <param name="appVersion"></param>
         /// <param name="missionId"></param>
-        partial void AfterUpdateCreative(ref bool suppressDefaultLog, IUpdateCreativeApiResponse apiResponseLocalVar, decimal version, long accountId, long creativeId, Option<string> name, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<bool> active, Option<long> referenceId, Option<string> appVersion, Option<long> missionId);
+        partial void AfterUpdateCreative(ref bool suppressDefaultLog, IUpdateCreativeApiResponse apiResponseLocalVar, long accountId, long creativeId, Option<string> name, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<bool> active, Option<long> referenceId, Option<string> appVersion, Option<long> missionId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2834,7 +2767,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
         /// <param name="name"></param>
@@ -2849,10 +2781,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="referenceId"></param>
         /// <param name="appVersion"></param>
         /// <param name="missionId"></param>
-        private void OnErrorUpdateCreativeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId, Option<string> name, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<bool> active, Option<long> referenceId, Option<string> appVersion, Option<long> missionId)
+        private void OnErrorUpdateCreativeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId, Option<string> name, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<bool> active, Option<long> referenceId, Option<string> appVersion, Option<long> missionId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateCreative(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
+            OnErrorUpdateCreative(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2864,7 +2796,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="creativeId"></param>
         /// <param name="name"></param>
@@ -2879,12 +2810,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="referenceId"></param>
         /// <param name="appVersion"></param>
         /// <param name="missionId"></param>
-        partial void OnErrorUpdateCreative(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long creativeId, Option<string> name, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<bool> active, Option<long> referenceId, Option<string> appVersion, Option<long> missionId);
+        partial void OnErrorUpdateCreative(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long creativeId, Option<string> name, Option<string> description, Option<long> assetImageId, Option<string> action, Option<string> data, Option<string> suffix, Option<string> type, Option<double> balance, Option<bool> active, Option<long> referenceId, Option<string> appVersion, Option<long> missionId);
 
         /// <summary>
         /// Update Creative Update a creative
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="creativeId">the creative Id to upate.</param>
         /// <param name="name">The name of the level. (optional)</param>
@@ -2901,11 +2831,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionId">Assign the creative to a campaign for timing and audience matching. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCreativeApiResponse"/>&gt;</returns>
-        public async Task<IUpdateCreativeApiResponse?> UpdateCreativeOrDefaultAsync(decimal version, long accountId, long creativeId, Option<string> name = default, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<bool> active = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateCreativeApiResponse?> UpdateCreativeOrDefaultAsync(long accountId, long creativeId, Option<string> name = default, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<bool> active = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateCreativeAsync(version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId, cancellationToken).ConfigureAwait(false);
+                return await UpdateCreativeAsync(accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2917,7 +2847,6 @@ namespace Org.OpenAPITools.Api
         /// Update Creative Update a creative
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="creativeId">the creative Id to upate.</param>
         /// <param name="name">The name of the level. (optional)</param>
@@ -2934,7 +2863,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionId">Assign the creative to a campaign for timing and audience matching. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCreativeApiResponse"/>&gt;</returns>
-        public async Task<IUpdateCreativeApiResponse> UpdateCreativeAsync(decimal version, long accountId, long creativeId, Option<string> name = default, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<bool> active = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateCreativeApiResponse> UpdateCreativeAsync(long accountId, long creativeId, Option<string> name = default, Option<string> description = default, Option<long> assetImageId = default, Option<string> action = default, Option<string> data = default, Option<string> suffix = default, Option<string> type = default, Option<double> balance = default, Option<bool> active = default, Option<long> referenceId = default, Option<string> appVersion = default, Option<long> missionId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2942,7 +2871,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateCreative(name, description, action, data, suffix, type, appVersion);
 
-                FormatUpdateCreative(ref version, ref accountId, ref creativeId, ref name, ref description, ref assetImageId, ref action, ref data, ref suffix, ref type, ref balance, ref active, ref referenceId, ref appVersion, ref missionId);
+                FormatUpdateCreative(ref accountId, ref creativeId, ref name, ref description, ref assetImageId, ref action, ref data, ref suffix, ref type, ref balance, ref active, ref referenceId, ref appVersion, ref missionId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2950,9 +2879,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/creative/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/creative/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/creative/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/creative/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3020,13 +2948,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/creative/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/creative/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateCreativeDefaultImplementation(apiResponseLocalVar, version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
+                        AfterUpdateCreativeDefaultImplementation(apiResponseLocalVar, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
 
                         Events.ExecuteOnUpdateCreative(apiResponseLocalVar);
 
@@ -3036,7 +2964,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateCreativeDefaultImplementation(e, "/api/{version}/creative/update", uriBuilderLocalVar.Path, version, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
+                OnErrorUpdateCreativeDefaultImplementation(e, "/creative/update", uriBuilderLocalVar.Path, accountId, creativeId, name, description, assetImageId, action, data, suffix, type, balance, active, referenceId, appVersion, missionId);
                 Events.ExecuteOnErrorUpdateCreative(e);
                 throw;
             }

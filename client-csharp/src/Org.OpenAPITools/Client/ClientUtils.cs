@@ -674,22 +674,22 @@ namespace Org.OpenAPITools.Client
         /// <summary>
         /// The base path of the API
         /// </summary>
-        public const string BASE_ADDRESS = "http://localhost";
+        public const string BASE_ADDRESS = "https://dev.sirqul.com/api/3.18";
 
         /// <summary>
         /// The scheme of the API
         /// </summary>
-        public const string SCHEME = "http";
+        public const string SCHEME = "https";
 
         /// <summary>
         /// The context path of the API
         /// </summary>
-        public const string CONTEXT_PATH = "";
+        public const string CONTEXT_PATH = "/api/3.18";
 
         /// <summary>
         /// The host of the API
         /// </summary>
-        public const string HOST = "localhost";
+        public const string HOST = "dev.sirqul.com";
 
         /// <summary>
         /// The format to use for DateTime serialization

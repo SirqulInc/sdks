@@ -45,13 +45,12 @@ namespace Org.OpenAPITools.Api
         /// Processes all supported participant feeds.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="appKey">The application key used to identify the application (optional)</param>
         /// <param name="useShortNameAsID">Whether to use short name as the participant ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessAllParticipantsApiResponse"/>&gt;</returns>
-        Task<IProcessAllParticipantsApiResponse> ProcessAllParticipantsAsync(decimal version, long accountId, Option<string> appKey = default, Option<bool> useShortNameAsID = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IProcessAllParticipantsApiResponse> ProcessAllParticipantsAsync(long accountId, Option<string> appKey = default, Option<bool> useShortNameAsID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Process All Participant Feeds
@@ -59,13 +58,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Processes all supported participant feeds.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="appKey">The application key used to identify the application (optional)</param>
         /// <param name="useShortNameAsID">Whether to use short name as the participant ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessAllParticipantsApiResponse"/>?&gt;</returns>
-        Task<IProcessAllParticipantsApiResponse?> ProcessAllParticipantsOrDefaultAsync(decimal version, long accountId, Option<string> appKey = default, Option<bool> useShortNameAsID = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IProcessAllParticipantsApiResponse?> ProcessAllParticipantsOrDefaultAsync(long accountId, Option<string> appKey = default, Option<bool> useShortNameAsID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Process Participants Feed
@@ -74,7 +72,6 @@ namespace Org.OpenAPITools.Api
         /// Processes a participant feed or uploaded file for a specific league.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="league">The league identifier to process</param>
         /// <param name="appKey">The application key used to identify the application (optional)</param>
@@ -82,7 +79,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="file">Multipart file containing participant feed contents (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessParticipantsApiResponse"/>&gt;</returns>
-        Task<IProcessParticipantsApiResponse> ProcessParticipantsAsync(decimal version, long accountId, string league, Option<string> appKey = default, Option<bool> useShortNameAsID = default, Option<System.IO.Stream> file = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IProcessParticipantsApiResponse> ProcessParticipantsAsync(long accountId, string league, Option<string> appKey = default, Option<bool> useShortNameAsID = default, Option<System.IO.Stream> file = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Process Participants Feed
@@ -90,7 +87,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Processes a participant feed or uploaded file for a specific league.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="league">The league identifier to process</param>
         /// <param name="appKey">The application key used to identify the application (optional)</param>
@@ -98,7 +94,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="file">Multipart file containing participant feed contents (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessParticipantsApiResponse"/>?&gt;</returns>
-        Task<IProcessParticipantsApiResponse?> ProcessParticipantsOrDefaultAsync(decimal version, long accountId, string league, Option<string> appKey = default, Option<bool> useShortNameAsID = default, Option<System.IO.Stream> file = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IProcessParticipantsApiResponse?> ProcessParticipantsOrDefaultAsync(long accountId, string league, Option<string> appKey = default, Option<bool> useShortNameAsID = default, Option<System.IO.Stream> file = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -218,7 +214,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatProcessAllParticipants(ref decimal version, ref long accountId, ref Option<string> appKey, ref Option<bool> useShortNameAsID);
+        partial void FormatProcessAllParticipants(ref long accountId, ref Option<string> appKey, ref Option<bool> useShortNameAsID);
 
         /// <summary>
         /// Validates the request parameters
@@ -235,14 +231,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="useShortNameAsID"></param>
-        private void AfterProcessAllParticipantsDefaultImplementation(IProcessAllParticipantsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> appKey, Option<bool> useShortNameAsID)
+        private void AfterProcessAllParticipantsDefaultImplementation(IProcessAllParticipantsApiResponse apiResponseLocalVar, long accountId, Option<string> appKey, Option<bool> useShortNameAsID)
         {
             bool suppressDefaultLog = false;
-            AfterProcessAllParticipants(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, useShortNameAsID);
+            AfterProcessAllParticipants(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, useShortNameAsID);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -252,11 +247,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="useShortNameAsID"></param>
-        partial void AfterProcessAllParticipants(ref bool suppressDefaultLog, IProcessAllParticipantsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> appKey, Option<bool> useShortNameAsID);
+        partial void AfterProcessAllParticipants(ref bool suppressDefaultLog, IProcessAllParticipantsApiResponse apiResponseLocalVar, long accountId, Option<string> appKey, Option<bool> useShortNameAsID);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -264,14 +258,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="useShortNameAsID"></param>
-        private void OnErrorProcessAllParticipantsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> appKey, Option<bool> useShortNameAsID)
+        private void OnErrorProcessAllParticipantsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> appKey, Option<bool> useShortNameAsID)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorProcessAllParticipants(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, useShortNameAsID);
+            OnErrorProcessAllParticipants(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, useShortNameAsID);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -283,26 +276,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="useShortNameAsID"></param>
-        partial void OnErrorProcessAllParticipants(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> appKey, Option<bool> useShortNameAsID);
+        partial void OnErrorProcessAllParticipants(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> appKey, Option<bool> useShortNameAsID);
 
         /// <summary>
         /// Process All Participant Feeds Processes all supported participant feeds.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="appKey">The application key used to identify the application (optional)</param>
         /// <param name="useShortNameAsID">Whether to use short name as the participant ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessAllParticipantsApiResponse"/>&gt;</returns>
-        public async Task<IProcessAllParticipantsApiResponse?> ProcessAllParticipantsOrDefaultAsync(decimal version, long accountId, Option<string> appKey = default, Option<bool> useShortNameAsID = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IProcessAllParticipantsApiResponse?> ProcessAllParticipantsOrDefaultAsync(long accountId, Option<string> appKey = default, Option<bool> useShortNameAsID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ProcessAllParticipantsAsync(version, accountId, appKey, useShortNameAsID, cancellationToken).ConfigureAwait(false);
+                return await ProcessAllParticipantsAsync(accountId, appKey, useShortNameAsID, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -314,13 +305,12 @@ namespace Org.OpenAPITools.Api
         /// Process All Participant Feeds Processes all supported participant feeds.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="appKey">The application key used to identify the application (optional)</param>
         /// <param name="useShortNameAsID">Whether to use short name as the participant ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessAllParticipantsApiResponse"/>&gt;</returns>
-        public async Task<IProcessAllParticipantsApiResponse> ProcessAllParticipantsAsync(decimal version, long accountId, Option<string> appKey = default, Option<bool> useShortNameAsID = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IProcessAllParticipantsApiResponse> ProcessAllParticipantsAsync(long accountId, Option<string> appKey = default, Option<bool> useShortNameAsID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -328,7 +318,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateProcessAllParticipants(appKey);
 
-                FormatProcessAllParticipants(ref version, ref accountId, ref appKey, ref useShortNameAsID);
+                FormatProcessAllParticipants(ref accountId, ref appKey, ref useShortNameAsID);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -336,9 +326,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/participant/process/all"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/participant/process/all");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/participant/process/all"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/participant/process/all");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -375,13 +364,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/participant/process/all", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/participant/process/all", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterProcessAllParticipantsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, useShortNameAsID);
+                        AfterProcessAllParticipantsDefaultImplementation(apiResponseLocalVar, accountId, appKey, useShortNameAsID);
 
                         Events.ExecuteOnProcessAllParticipants(apiResponseLocalVar);
 
@@ -391,7 +380,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorProcessAllParticipantsDefaultImplementation(e, "/api/{version}/participant/process/all", uriBuilderLocalVar.Path, version, accountId, appKey, useShortNameAsID);
+                OnErrorProcessAllParticipantsDefaultImplementation(e, "/participant/process/all", uriBuilderLocalVar.Path, accountId, appKey, useShortNameAsID);
                 Events.ExecuteOnErrorProcessAllParticipants(e);
                 throw;
             }
@@ -490,7 +479,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatProcessParticipants(ref decimal version, ref long accountId, ref string league, ref Option<string> appKey, ref Option<bool> useShortNameAsID, ref Option<System.IO.Stream> file);
+        partial void FormatProcessParticipants(ref long accountId, ref string league, ref Option<string> appKey, ref Option<bool> useShortNameAsID, ref Option<System.IO.Stream> file);
 
         /// <summary>
         /// Validates the request parameters
@@ -515,16 +504,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="league"></param>
         /// <param name="appKey"></param>
         /// <param name="useShortNameAsID"></param>
         /// <param name="file"></param>
-        private void AfterProcessParticipantsDefaultImplementation(IProcessParticipantsApiResponse apiResponseLocalVar, decimal version, long accountId, string league, Option<string> appKey, Option<bool> useShortNameAsID, Option<System.IO.Stream> file)
+        private void AfterProcessParticipantsDefaultImplementation(IProcessParticipantsApiResponse apiResponseLocalVar, long accountId, string league, Option<string> appKey, Option<bool> useShortNameAsID, Option<System.IO.Stream> file)
         {
             bool suppressDefaultLog = false;
-            AfterProcessParticipants(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, league, appKey, useShortNameAsID, file);
+            AfterProcessParticipants(ref suppressDefaultLog, apiResponseLocalVar, accountId, league, appKey, useShortNameAsID, file);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -534,13 +522,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="league"></param>
         /// <param name="appKey"></param>
         /// <param name="useShortNameAsID"></param>
         /// <param name="file"></param>
-        partial void AfterProcessParticipants(ref bool suppressDefaultLog, IProcessParticipantsApiResponse apiResponseLocalVar, decimal version, long accountId, string league, Option<string> appKey, Option<bool> useShortNameAsID, Option<System.IO.Stream> file);
+        partial void AfterProcessParticipants(ref bool suppressDefaultLog, IProcessParticipantsApiResponse apiResponseLocalVar, long accountId, string league, Option<string> appKey, Option<bool> useShortNameAsID, Option<System.IO.Stream> file);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -548,16 +535,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="league"></param>
         /// <param name="appKey"></param>
         /// <param name="useShortNameAsID"></param>
         /// <param name="file"></param>
-        private void OnErrorProcessParticipantsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string league, Option<string> appKey, Option<bool> useShortNameAsID, Option<System.IO.Stream> file)
+        private void OnErrorProcessParticipantsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string league, Option<string> appKey, Option<bool> useShortNameAsID, Option<System.IO.Stream> file)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorProcessParticipants(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, league, appKey, useShortNameAsID, file);
+            OnErrorProcessParticipants(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, league, appKey, useShortNameAsID, file);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -569,18 +555,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="league"></param>
         /// <param name="appKey"></param>
         /// <param name="useShortNameAsID"></param>
         /// <param name="file"></param>
-        partial void OnErrorProcessParticipants(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string league, Option<string> appKey, Option<bool> useShortNameAsID, Option<System.IO.Stream> file);
+        partial void OnErrorProcessParticipants(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string league, Option<string> appKey, Option<bool> useShortNameAsID, Option<System.IO.Stream> file);
 
         /// <summary>
         /// Process Participants Feed Processes a participant feed or uploaded file for a specific league.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="league">The league identifier to process</param>
         /// <param name="appKey">The application key used to identify the application (optional)</param>
@@ -588,11 +572,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="file">Multipart file containing participant feed contents (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessParticipantsApiResponse"/>&gt;</returns>
-        public async Task<IProcessParticipantsApiResponse?> ProcessParticipantsOrDefaultAsync(decimal version, long accountId, string league, Option<string> appKey = default, Option<bool> useShortNameAsID = default, Option<System.IO.Stream> file = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IProcessParticipantsApiResponse?> ProcessParticipantsOrDefaultAsync(long accountId, string league, Option<string> appKey = default, Option<bool> useShortNameAsID = default, Option<System.IO.Stream> file = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ProcessParticipantsAsync(version, accountId, league, appKey, useShortNameAsID, file, cancellationToken).ConfigureAwait(false);
+                return await ProcessParticipantsAsync(accountId, league, appKey, useShortNameAsID, file, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -604,7 +588,6 @@ namespace Org.OpenAPITools.Api
         /// Process Participants Feed Processes a participant feed or uploaded file for a specific league.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="league">The league identifier to process</param>
         /// <param name="appKey">The application key used to identify the application (optional)</param>
@@ -612,7 +595,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="file">Multipart file containing participant feed contents (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessParticipantsApiResponse"/>&gt;</returns>
-        public async Task<IProcessParticipantsApiResponse> ProcessParticipantsAsync(decimal version, long accountId, string league, Option<string> appKey = default, Option<bool> useShortNameAsID = default, Option<System.IO.Stream> file = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IProcessParticipantsApiResponse> ProcessParticipantsAsync(long accountId, string league, Option<string> appKey = default, Option<bool> useShortNameAsID = default, Option<System.IO.Stream> file = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -620,7 +603,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateProcessParticipants(league, appKey, file);
 
-                FormatProcessParticipants(ref version, ref accountId, ref league, ref appKey, ref useShortNameAsID, ref file);
+                FormatProcessParticipants(ref accountId, ref league, ref appKey, ref useShortNameAsID, ref file);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -628,9 +611,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/participant/process"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/participant/process");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/participant/process"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/participant/process");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -671,13 +653,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/participant/process", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/participant/process", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterProcessParticipantsDefaultImplementation(apiResponseLocalVar, version, accountId, league, appKey, useShortNameAsID, file);
+                        AfterProcessParticipantsDefaultImplementation(apiResponseLocalVar, accountId, league, appKey, useShortNameAsID, file);
 
                         Events.ExecuteOnProcessParticipants(apiResponseLocalVar);
 
@@ -687,7 +669,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorProcessParticipantsDefaultImplementation(e, "/api/{version}/participant/process", uriBuilderLocalVar.Path, version, accountId, league, appKey, useShortNameAsID, file);
+                OnErrorProcessParticipantsDefaultImplementation(e, "/participant/process", uriBuilderLocalVar.Path, accountId, league, appKey, useShortNameAsID, file);
                 Events.ExecuteOnErrorProcessParticipants(e);
                 throw;
             }

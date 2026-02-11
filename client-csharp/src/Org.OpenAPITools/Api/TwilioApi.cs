@@ -45,14 +45,13 @@ namespace Org.OpenAPITools.Api
         /// Recieve an SMS payload from Twillio to purchase an offer.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="body">the message of the text</param>
         /// <param name="from">the sender of the sms</param>
         /// <param name="currencyType">the type of currency</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISmsBuyOfferApiResponse"/>&gt;</returns>
-        Task<ISmsBuyOfferApiResponse> SmsBuyOfferAsync(decimal version, string appKey, string body, string from, string currencyType, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISmsBuyOfferApiResponse> SmsBuyOfferAsync(string appKey, string body, string from, string currencyType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Buy Offer by SMS
@@ -60,14 +59,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Recieve an SMS payload from Twillio to purchase an offer.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="body">the message of the text</param>
         /// <param name="from">the sender of the sms</param>
         /// <param name="currencyType">the type of currency</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISmsBuyOfferApiResponse"/>?&gt;</returns>
-        Task<ISmsBuyOfferApiResponse?> SmsBuyOfferOrDefaultAsync(decimal version, string appKey, string body, string from, string currencyType, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISmsBuyOfferApiResponse?> SmsBuyOfferOrDefaultAsync(string appKey, string body, string from, string currencyType, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -155,7 +153,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatSmsBuyOffer(ref decimal version, ref string appKey, ref string body, ref string from, ref string currencyType);
+        partial void FormatSmsBuyOffer(ref string appKey, ref string body, ref string from, ref string currencyType);
 
         /// <summary>
         /// Validates the request parameters
@@ -184,15 +182,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="body"></param>
         /// <param name="from"></param>
         /// <param name="currencyType"></param>
-        private void AfterSmsBuyOfferDefaultImplementation(ISmsBuyOfferApiResponse apiResponseLocalVar, decimal version, string appKey, string body, string from, string currencyType)
+        private void AfterSmsBuyOfferDefaultImplementation(ISmsBuyOfferApiResponse apiResponseLocalVar, string appKey, string body, string from, string currencyType)
         {
             bool suppressDefaultLog = false;
-            AfterSmsBuyOffer(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, body, from, currencyType);
+            AfterSmsBuyOffer(ref suppressDefaultLog, apiResponseLocalVar, appKey, body, from, currencyType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -202,12 +199,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="body"></param>
         /// <param name="from"></param>
         /// <param name="currencyType"></param>
-        partial void AfterSmsBuyOffer(ref bool suppressDefaultLog, ISmsBuyOfferApiResponse apiResponseLocalVar, decimal version, string appKey, string body, string from, string currencyType);
+        partial void AfterSmsBuyOffer(ref bool suppressDefaultLog, ISmsBuyOfferApiResponse apiResponseLocalVar, string appKey, string body, string from, string currencyType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -215,15 +211,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="body"></param>
         /// <param name="from"></param>
         /// <param name="currencyType"></param>
-        private void OnErrorSmsBuyOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string body, string from, string currencyType)
+        private void OnErrorSmsBuyOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string body, string from, string currencyType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSmsBuyOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, body, from, currencyType);
+            OnErrorSmsBuyOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, body, from, currencyType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -235,28 +230,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="body"></param>
         /// <param name="from"></param>
         /// <param name="currencyType"></param>
-        partial void OnErrorSmsBuyOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string body, string from, string currencyType);
+        partial void OnErrorSmsBuyOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string body, string from, string currencyType);
 
         /// <summary>
         /// Buy Offer by SMS Recieve an SMS payload from Twillio to purchase an offer.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="body">the message of the text</param>
         /// <param name="from">the sender of the sms</param>
         /// <param name="currencyType">the type of currency</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISmsBuyOfferApiResponse"/>&gt;</returns>
-        public async Task<ISmsBuyOfferApiResponse?> SmsBuyOfferOrDefaultAsync(decimal version, string appKey, string body, string from, string currencyType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISmsBuyOfferApiResponse?> SmsBuyOfferOrDefaultAsync(string appKey, string body, string from, string currencyType, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SmsBuyOfferAsync(version, appKey, body, from, currencyType, cancellationToken).ConfigureAwait(false);
+                return await SmsBuyOfferAsync(appKey, body, from, currencyType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -268,14 +261,13 @@ namespace Org.OpenAPITools.Api
         /// Buy Offer by SMS Recieve an SMS payload from Twillio to purchase an offer.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="body">the message of the text</param>
         /// <param name="from">the sender of the sms</param>
         /// <param name="currencyType">the type of currency</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISmsBuyOfferApiResponse"/>&gt;</returns>
-        public async Task<ISmsBuyOfferApiResponse> SmsBuyOfferAsync(decimal version, string appKey, string body, string from, string currencyType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISmsBuyOfferApiResponse> SmsBuyOfferAsync(string appKey, string body, string from, string currencyType, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -283,7 +275,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSmsBuyOffer(appKey, body, from, currencyType);
 
-                FormatSmsBuyOffer(ref version, ref appKey, ref body, ref from, ref currencyType);
+                FormatSmsBuyOffer(ref appKey, ref body, ref from, ref currencyType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -291,9 +283,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/sms/buyoffer/{appKey}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/sms/buyoffer/{appKey}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/sms/buyoffer/{appKey}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/sms/buyoffer/{appKey}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BappKey%7D", Uri.EscapeDataString(appKey.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -327,13 +318,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/sms/buyoffer/{appKey}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/sms/buyoffer/{appKey}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSmsBuyOfferDefaultImplementation(apiResponseLocalVar, version, appKey, body, from, currencyType);
+                        AfterSmsBuyOfferDefaultImplementation(apiResponseLocalVar, appKey, body, from, currencyType);
 
                         Events.ExecuteOnSmsBuyOffer(apiResponseLocalVar);
 
@@ -343,7 +334,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSmsBuyOfferDefaultImplementation(e, "/api/{version}/sms/buyoffer/{appKey}", uriBuilderLocalVar.Path, version, appKey, body, from, currencyType);
+                OnErrorSmsBuyOfferDefaultImplementation(e, "/sms/buyoffer/{appKey}", uriBuilderLocalVar.Path, appKey, body, from, currencyType);
                 Events.ExecuteOnErrorSmsBuyOffer(e);
                 throw;
             }

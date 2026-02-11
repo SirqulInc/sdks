@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a bid on a biddable object
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="biddableType">A biddable object type. Possible values include: CREATIVE (ads).</param>
         /// <param name="biddableId">The id of the biddable object</param>
         /// <param name="amountPerView">The bid amount for views. For ads, this is the amount that will be taken for each impression.</param>
@@ -56,7 +55,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBidApiResponse"/>&gt;</returns>
-        Task<ICreateBidApiResponse> CreateBidAsync(decimal version, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateBidApiResponse> CreateBidAsync(string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Bid
@@ -64,7 +63,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a bid on a biddable object
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="biddableType">A biddable object type. Possible values include: CREATIVE (ads).</param>
         /// <param name="biddableId">The id of the biddable object</param>
         /// <param name="amountPerView">The bid amount for views. For ads, this is the amount that will be taken for each impression.</param>
@@ -75,7 +73,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBidApiResponse"/>?&gt;</returns>
-        Task<ICreateBidApiResponse?> CreateBidOrDefaultAsync(decimal version, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateBidApiResponse?> CreateBidOrDefaultAsync(string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Bid
@@ -84,13 +82,12 @@ namespace Org.OpenAPITools.Api
         /// Deleted a bid on a biddable object
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBidApiResponse"/>&gt;</returns>
-        Task<IDeleteBidApiResponse> DeleteBidAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteBidApiResponse> DeleteBidAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Bid
@@ -98,13 +95,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deleted a bid on a biddable object
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBidApiResponse"/>?&gt;</returns>
-        Task<IDeleteBidApiResponse?> DeleteBidOrDefaultAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteBidApiResponse?> DeleteBidOrDefaultAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Bid
@@ -113,13 +109,12 @@ namespace Org.OpenAPITools.Api
         /// Get the bid details of a biddable object
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBidApiResponse"/>&gt;</returns>
-        Task<IGetBidApiResponse> GetBidAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBidApiResponse> GetBidAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Bid
@@ -127,13 +122,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the bid details of a biddable object
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBidApiResponse"/>?&gt;</returns>
-        Task<IGetBidApiResponse?> GetBidOrDefaultAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBidApiResponse?> GetBidOrDefaultAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Bid
@@ -142,7 +136,6 @@ namespace Org.OpenAPITools.Api
         /// Updates a bid on a biddable object
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -152,7 +145,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="budgetSchedule">The schedule for when the allocated budget amount is reset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBidApiResponse"/>&gt;</returns>
-        Task<IUpdateBidApiResponse> UpdateBidAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> amountPerView = default, Option<double> amountPerAction = default, Option<double> budgetAmount = default, Option<string> budgetSchedule = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateBidApiResponse> UpdateBidAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> amountPerView = default, Option<double> amountPerAction = default, Option<double> budgetAmount = default, Option<string> budgetSchedule = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Bid
@@ -160,7 +153,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a bid on a biddable object
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -170,7 +162,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="budgetSchedule">The schedule for when the allocated budget amount is reset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBidApiResponse"/>?&gt;</returns>
-        Task<IUpdateBidApiResponse?> UpdateBidOrDefaultAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> amountPerView = default, Option<double> amountPerAction = default, Option<double> budgetAmount = default, Option<string> budgetSchedule = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateBidApiResponse?> UpdateBidOrDefaultAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> amountPerView = default, Option<double> amountPerAction = default, Option<double> budgetAmount = default, Option<string> budgetSchedule = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -354,7 +346,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateBid(ref decimal version, ref string biddableType, ref long biddableId, ref double amountPerView, ref double amountPerAction, ref double budgetAmount, ref string budgetSchedule, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatCreateBid(ref string biddableType, ref long biddableId, ref double amountPerView, ref double amountPerAction, ref double budgetAmount, ref string budgetSchedule, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -379,7 +371,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="biddableType"></param>
         /// <param name="biddableId"></param>
         /// <param name="amountPerView"></param>
@@ -388,10 +379,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="budgetSchedule"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterCreateBidDefaultImplementation(ICreateBidApiResponse apiResponseLocalVar, decimal version, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId, Option<long> accountId)
+        private void AfterCreateBidDefaultImplementation(ICreateBidApiResponse apiResponseLocalVar, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterCreateBid(ref suppressDefaultLog, apiResponseLocalVar, version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
+            AfterCreateBid(ref suppressDefaultLog, apiResponseLocalVar, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -401,7 +392,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="biddableType"></param>
         /// <param name="biddableId"></param>
         /// <param name="amountPerView"></param>
@@ -410,7 +400,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="budgetSchedule"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterCreateBid(ref bool suppressDefaultLog, ICreateBidApiResponse apiResponseLocalVar, decimal version, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId, Option<long> accountId);
+        partial void AfterCreateBid(ref bool suppressDefaultLog, ICreateBidApiResponse apiResponseLocalVar, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -418,7 +408,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="biddableType"></param>
         /// <param name="biddableId"></param>
         /// <param name="amountPerView"></param>
@@ -427,10 +416,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="budgetSchedule"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorCreateBidDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorCreateBidDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateBid(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
+            OnErrorCreateBid(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -442,7 +431,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="biddableType"></param>
         /// <param name="biddableId"></param>
         /// <param name="amountPerView"></param>
@@ -451,12 +439,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="budgetSchedule"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorCreateBid(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorCreateBid(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Create Bid Creates a bid on a biddable object
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="biddableType">A biddable object type. Possible values include: CREATIVE (ads).</param>
         /// <param name="biddableId">The id of the biddable object</param>
         /// <param name="amountPerView">The bid amount for views. For ads, this is the amount that will be taken for each impression.</param>
@@ -467,11 +454,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBidApiResponse"/>&gt;</returns>
-        public async Task<ICreateBidApiResponse?> CreateBidOrDefaultAsync(decimal version, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateBidApiResponse?> CreateBidOrDefaultAsync(string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateBidAsync(version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await CreateBidAsync(biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -483,7 +470,6 @@ namespace Org.OpenAPITools.Api
         /// Create Bid Creates a bid on a biddable object
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="biddableType">A biddable object type. Possible values include: CREATIVE (ads).</param>
         /// <param name="biddableId">The id of the biddable object</param>
         /// <param name="amountPerView">The bid amount for views. For ads, this is the amount that will be taken for each impression.</param>
@@ -494,7 +480,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBidApiResponse"/>&gt;</returns>
-        public async Task<ICreateBidApiResponse> CreateBidAsync(decimal version, string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateBidApiResponse> CreateBidAsync(string biddableType, long biddableId, double amountPerView, double amountPerAction, double budgetAmount, string budgetSchedule, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -502,7 +488,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateBid(biddableType, budgetSchedule, deviceId);
 
-                FormatCreateBid(ref version, ref biddableType, ref biddableId, ref amountPerView, ref amountPerAction, ref budgetAmount, ref budgetSchedule, ref deviceId, ref accountId);
+                FormatCreateBid(ref biddableType, ref biddableId, ref amountPerView, ref amountPerAction, ref budgetAmount, ref budgetSchedule, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -510,9 +496,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/bid/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/bid/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/bid/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/bid/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -554,13 +539,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/bid/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/bid/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateBidDefaultImplementation(apiResponseLocalVar, version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
+                        AfterCreateBidDefaultImplementation(apiResponseLocalVar, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
 
                         Events.ExecuteOnCreateBid(apiResponseLocalVar);
 
@@ -570,7 +555,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateBidDefaultImplementation(e, "/api/{version}/bid/create", uriBuilderLocalVar.Path, version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
+                OnErrorCreateBidDefaultImplementation(e, "/bid/create", uriBuilderLocalVar.Path, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, deviceId, accountId);
                 Events.ExecuteOnErrorCreateBid(e);
                 throw;
             }
@@ -669,7 +654,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteBid(ref decimal version, ref long bidId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteBid(ref long bidId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -686,14 +671,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteBidDefaultImplementation(IDeleteBidApiResponse apiResponseLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteBidDefaultImplementation(IDeleteBidApiResponse apiResponseLocalVar, long bidId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteBid(ref suppressDefaultLog, apiResponseLocalVar, version, bidId, deviceId, accountId);
+            AfterDeleteBid(ref suppressDefaultLog, apiResponseLocalVar, bidId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -703,11 +687,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteBid(ref bool suppressDefaultLog, IDeleteBidApiResponse apiResponseLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteBid(ref bool suppressDefaultLog, IDeleteBidApiResponse apiResponseLocalVar, long bidId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -715,14 +698,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteBidDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteBidDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long bidId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteBid(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, bidId, deviceId, accountId);
+            OnErrorDeleteBid(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, bidId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -734,26 +716,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteBid(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteBid(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long bidId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Bid Deleted a bid on a biddable object
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBidApiResponse"/>&gt;</returns>
-        public async Task<IDeleteBidApiResponse?> DeleteBidOrDefaultAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteBidApiResponse?> DeleteBidOrDefaultAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteBidAsync(version, bidId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteBidAsync(bidId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -765,13 +745,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Bid Deleted a bid on a biddable object
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBidApiResponse"/>&gt;</returns>
-        public async Task<IDeleteBidApiResponse> DeleteBidAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteBidApiResponse> DeleteBidAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -779,7 +758,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteBid(deviceId);
 
-                FormatDeleteBid(ref version, ref bidId, ref deviceId, ref accountId);
+                FormatDeleteBid(ref bidId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -787,9 +766,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/bid/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/bid/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/bid/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/bid/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -826,13 +804,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/bid/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/bid/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteBidDefaultImplementation(apiResponseLocalVar, version, bidId, deviceId, accountId);
+                        AfterDeleteBidDefaultImplementation(apiResponseLocalVar, bidId, deviceId, accountId);
 
                         Events.ExecuteOnDeleteBid(apiResponseLocalVar);
 
@@ -842,7 +820,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteBidDefaultImplementation(e, "/api/{version}/bid/delete", uriBuilderLocalVar.Path, version, bidId, deviceId, accountId);
+                OnErrorDeleteBidDefaultImplementation(e, "/bid/delete", uriBuilderLocalVar.Path, bidId, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteBid(e);
                 throw;
             }
@@ -941,7 +919,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBid(ref decimal version, ref long bidId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatGetBid(ref long bidId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -958,14 +936,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetBidDefaultImplementation(IGetBidApiResponse apiResponseLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId)
+        private void AfterGetBidDefaultImplementation(IGetBidApiResponse apiResponseLocalVar, long bidId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetBid(ref suppressDefaultLog, apiResponseLocalVar, version, bidId, deviceId, accountId);
+            AfterGetBid(ref suppressDefaultLog, apiResponseLocalVar, bidId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -975,11 +952,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetBid(ref bool suppressDefaultLog, IGetBidApiResponse apiResponseLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterGetBid(ref bool suppressDefaultLog, IGetBidApiResponse apiResponseLocalVar, long bidId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -987,14 +963,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetBidDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorGetBidDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long bidId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetBid(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, bidId, deviceId, accountId);
+            OnErrorGetBid(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, bidId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1006,26 +981,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetBid(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorGetBid(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long bidId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Get Bid Get the bid details of a biddable object
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBidApiResponse"/>&gt;</returns>
-        public async Task<IGetBidApiResponse?> GetBidOrDefaultAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBidApiResponse?> GetBidOrDefaultAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetBidAsync(version, bidId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetBidAsync(bidId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1037,13 +1010,12 @@ namespace Org.OpenAPITools.Api
         /// Get Bid Get the bid details of a biddable object
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBidApiResponse"/>&gt;</returns>
-        public async Task<IGetBidApiResponse> GetBidAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBidApiResponse> GetBidAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1051,7 +1023,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetBid(deviceId);
 
-                FormatGetBid(ref version, ref bidId, ref deviceId, ref accountId);
+                FormatGetBid(ref bidId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1059,9 +1031,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/bid/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/bid/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/bid/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/bid/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1098,13 +1069,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/bid/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/bid/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetBidDefaultImplementation(apiResponseLocalVar, version, bidId, deviceId, accountId);
+                        AfterGetBidDefaultImplementation(apiResponseLocalVar, bidId, deviceId, accountId);
 
                         Events.ExecuteOnGetBid(apiResponseLocalVar);
 
@@ -1114,7 +1085,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetBidDefaultImplementation(e, "/api/{version}/bid/get", uriBuilderLocalVar.Path, version, bidId, deviceId, accountId);
+                OnErrorGetBidDefaultImplementation(e, "/bid/get", uriBuilderLocalVar.Path, bidId, deviceId, accountId);
                 Events.ExecuteOnErrorGetBid(e);
                 throw;
             }
@@ -1213,7 +1184,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateBid(ref decimal version, ref long bidId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> amountPerView, ref Option<double> amountPerAction, ref Option<double> budgetAmount, ref Option<string> budgetSchedule);
+        partial void FormatUpdateBid(ref long bidId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> amountPerView, ref Option<double> amountPerAction, ref Option<double> budgetAmount, ref Option<string> budgetSchedule);
 
         /// <summary>
         /// Validates the request parameters
@@ -1234,7 +1205,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1242,10 +1212,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="amountPerAction"></param>
         /// <param name="budgetAmount"></param>
         /// <param name="budgetSchedule"></param>
-        private void AfterUpdateBidDefaultImplementation(IUpdateBidApiResponse apiResponseLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId, Option<double> amountPerView, Option<double> amountPerAction, Option<double> budgetAmount, Option<string> budgetSchedule)
+        private void AfterUpdateBidDefaultImplementation(IUpdateBidApiResponse apiResponseLocalVar, long bidId, Option<string> deviceId, Option<long> accountId, Option<double> amountPerView, Option<double> amountPerAction, Option<double> budgetAmount, Option<string> budgetSchedule)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateBid(ref suppressDefaultLog, apiResponseLocalVar, version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
+            AfterUpdateBid(ref suppressDefaultLog, apiResponseLocalVar, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1255,7 +1225,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1263,7 +1232,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="amountPerAction"></param>
         /// <param name="budgetAmount"></param>
         /// <param name="budgetSchedule"></param>
-        partial void AfterUpdateBid(ref bool suppressDefaultLog, IUpdateBidApiResponse apiResponseLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId, Option<double> amountPerView, Option<double> amountPerAction, Option<double> budgetAmount, Option<string> budgetSchedule);
+        partial void AfterUpdateBid(ref bool suppressDefaultLog, IUpdateBidApiResponse apiResponseLocalVar, long bidId, Option<string> deviceId, Option<long> accountId, Option<double> amountPerView, Option<double> amountPerAction, Option<double> budgetAmount, Option<string> budgetSchedule);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1271,7 +1240,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1279,10 +1247,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="amountPerAction"></param>
         /// <param name="budgetAmount"></param>
         /// <param name="budgetSchedule"></param>
-        private void OnErrorUpdateBidDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId, Option<double> amountPerView, Option<double> amountPerAction, Option<double> budgetAmount, Option<string> budgetSchedule)
+        private void OnErrorUpdateBidDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long bidId, Option<string> deviceId, Option<long> accountId, Option<double> amountPerView, Option<double> amountPerAction, Option<double> budgetAmount, Option<string> budgetSchedule)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateBid(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
+            OnErrorUpdateBid(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1294,7 +1262,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="bidId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1302,12 +1269,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="amountPerAction"></param>
         /// <param name="budgetAmount"></param>
         /// <param name="budgetSchedule"></param>
-        partial void OnErrorUpdateBid(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long bidId, Option<string> deviceId, Option<long> accountId, Option<double> amountPerView, Option<double> amountPerAction, Option<double> budgetAmount, Option<string> budgetSchedule);
+        partial void OnErrorUpdateBid(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long bidId, Option<string> deviceId, Option<long> accountId, Option<double> amountPerView, Option<double> amountPerAction, Option<double> budgetAmount, Option<string> budgetSchedule);
 
         /// <summary>
         /// Update Bid Updates a bid on a biddable object
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -1317,11 +1283,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="budgetSchedule">The schedule for when the allocated budget amount is reset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBidApiResponse"/>&gt;</returns>
-        public async Task<IUpdateBidApiResponse?> UpdateBidOrDefaultAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> amountPerView = default, Option<double> amountPerAction = default, Option<double> budgetAmount = default, Option<string> budgetSchedule = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateBidApiResponse?> UpdateBidOrDefaultAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> amountPerView = default, Option<double> amountPerAction = default, Option<double> budgetAmount = default, Option<string> budgetSchedule = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateBidAsync(version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, cancellationToken).ConfigureAwait(false);
+                return await UpdateBidAsync(bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1333,7 +1299,6 @@ namespace Org.OpenAPITools.Api
         /// Update Bid Updates a bid on a biddable object
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="bidId">The bid id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -1343,7 +1308,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="budgetSchedule">The schedule for when the allocated budget amount is reset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBidApiResponse"/>&gt;</returns>
-        public async Task<IUpdateBidApiResponse> UpdateBidAsync(decimal version, long bidId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> amountPerView = default, Option<double> amountPerAction = default, Option<double> budgetAmount = default, Option<string> budgetSchedule = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateBidApiResponse> UpdateBidAsync(long bidId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> amountPerView = default, Option<double> amountPerAction = default, Option<double> budgetAmount = default, Option<string> budgetSchedule = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1351,7 +1316,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateBid(deviceId, budgetSchedule);
 
-                FormatUpdateBid(ref version, ref bidId, ref deviceId, ref accountId, ref amountPerView, ref amountPerAction, ref budgetAmount, ref budgetSchedule);
+                FormatUpdateBid(ref bidId, ref deviceId, ref accountId, ref amountPerView, ref amountPerAction, ref budgetAmount, ref budgetSchedule);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1359,9 +1324,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/bid/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/bid/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/bid/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/bid/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1410,13 +1374,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/bid/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/bid/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateBidDefaultImplementation(apiResponseLocalVar, version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
+                        AfterUpdateBidDefaultImplementation(apiResponseLocalVar, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
 
                         Events.ExecuteOnUpdateBid(apiResponseLocalVar);
 
@@ -1426,7 +1390,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateBidDefaultImplementation(e, "/api/{version}/bid/update", uriBuilderLocalVar.Path, version, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
+                OnErrorUpdateBidDefaultImplementation(e, "/bid/update", uriBuilderLocalVar.Path, bidId, deviceId, accountId, amountPerView, amountPerAction, budgetAmount, budgetSchedule);
                 Events.ExecuteOnErrorUpdateBid(e);
                 throw;
             }

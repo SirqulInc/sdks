@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Create a new route setting
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRouteSettingsApiResponse"/>&gt;</returns>
-        Task<ICreateRouteSettingsApiResponse> CreateRouteSettingsAsync(decimal version, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRouteSettingsApiResponse> CreateRouteSettingsAsync(Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Route Setting
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new route setting
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRouteSettingsApiResponse"/>?&gt;</returns>
-        Task<ICreateRouteSettingsApiResponse?> CreateRouteSettingsOrDefaultAsync(decimal version, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRouteSettingsApiResponse?> CreateRouteSettingsOrDefaultAsync(Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Route Setting
@@ -70,11 +68,10 @@ namespace Org.OpenAPITools.Api
         /// Delete an existing route setting
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route setting to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRouteSettingsApiResponse"/>&gt;</returns>
-        Task<IDeleteRouteSettingsApiResponse> DeleteRouteSettingsAsync(decimal version, long routeSettingsId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRouteSettingsApiResponse> DeleteRouteSettingsAsync(long routeSettingsId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Route Setting
@@ -82,11 +79,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an existing route setting
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route setting to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRouteSettingsApiResponse"/>?&gt;</returns>
-        Task<IDeleteRouteSettingsApiResponse?> DeleteRouteSettingsOrDefaultAsync(decimal version, long routeSettingsId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRouteSettingsApiResponse?> DeleteRouteSettingsOrDefaultAsync(long routeSettingsId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Route Setting
@@ -95,11 +91,10 @@ namespace Org.OpenAPITools.Api
         /// Get an existing route settings
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route settings to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRouteSettingsApiResponse"/>&gt;</returns>
-        Task<IGetRouteSettingsApiResponse> GetRouteSettingsAsync(decimal version, long routeSettingsId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRouteSettingsApiResponse> GetRouteSettingsAsync(long routeSettingsId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Route Setting
@@ -107,11 +102,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an existing route settings
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route settings to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRouteSettingsApiResponse"/>?&gt;</returns>
-        Task<IGetRouteSettingsApiResponse?> GetRouteSettingsOrDefaultAsync(decimal version, long routeSettingsId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRouteSettingsApiResponse?> GetRouteSettingsOrDefaultAsync(long routeSettingsId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Route Settings
@@ -120,7 +114,6 @@ namespace Org.OpenAPITools.Api
         /// Search for route settings
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -131,7 +124,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to search for the route (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRouteSettingsApiResponse"/>&gt;</returns>
-        Task<ISearchRouteSettingsApiResponse> SearchRouteSettingsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId = default, Option<long> programId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRouteSettingsApiResponse> SearchRouteSettingsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId = default, Option<long> programId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Route Settings
@@ -139,7 +132,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for route settings
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -150,7 +142,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to search for the route (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRouteSettingsApiResponse"/>?&gt;</returns>
-        Task<ISearchRouteSettingsApiResponse?> SearchRouteSettingsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId = default, Option<long> programId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRouteSettingsApiResponse?> SearchRouteSettingsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId = default, Option<long> programId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Route Setting
@@ -159,12 +151,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing route setting
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route settings to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRouteSettingsApiResponse"/>&gt;</returns>
-        Task<IUpdateRouteSettingsApiResponse> UpdateRouteSettingsAsync(decimal version, long routeSettingsId, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRouteSettingsApiResponse> UpdateRouteSettingsAsync(long routeSettingsId, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Route Setting
@@ -172,12 +163,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing route setting
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route settings to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRouteSettingsApiResponse"/>?&gt;</returns>
-        Task<IUpdateRouteSettingsApiResponse?> UpdateRouteSettingsOrDefaultAsync(decimal version, long routeSettingsId, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRouteSettingsApiResponse?> UpdateRouteSettingsOrDefaultAsync(long routeSettingsId, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -393,7 +383,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateRouteSettings(ref decimal version, Option<RouteSettings> body);
+        partial void FormatCreateRouteSettings(Option<RouteSettings> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -410,12 +400,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateRouteSettingsDefaultImplementation(ICreateRouteSettingsApiResponse apiResponseLocalVar, decimal version, Option<RouteSettings> body)
+        private void AfterCreateRouteSettingsDefaultImplementation(ICreateRouteSettingsApiResponse apiResponseLocalVar, Option<RouteSettings> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -425,9 +414,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateRouteSettings(ref bool suppressDefaultLog, ICreateRouteSettingsApiResponse apiResponseLocalVar, decimal version, Option<RouteSettings> body);
+        partial void AfterCreateRouteSettings(ref bool suppressDefaultLog, ICreateRouteSettingsApiResponse apiResponseLocalVar, Option<RouteSettings> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -435,12 +423,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<RouteSettings> body)
+        private void OnErrorCreateRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<RouteSettings> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -452,22 +439,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<RouteSettings> body);
+        partial void OnErrorCreateRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<RouteSettings> body);
 
         /// <summary>
         /// Create Route Setting Create a new route setting
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<ICreateRouteSettingsApiResponse?> CreateRouteSettingsOrDefaultAsync(decimal version, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRouteSettingsApiResponse?> CreateRouteSettingsOrDefaultAsync(Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateRouteSettingsAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateRouteSettingsAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -479,11 +464,10 @@ namespace Org.OpenAPITools.Api
         /// Create Route Setting Create a new route setting
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<ICreateRouteSettingsApiResponse> CreateRouteSettingsAsync(decimal version, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRouteSettingsApiResponse> CreateRouteSettingsAsync(Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -491,7 +475,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateRouteSettings(body);
 
-                FormatCreateRouteSettings(ref version, body);
+                FormatCreateRouteSettings(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -499,9 +483,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/route/setting"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/route/setting");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/route/setting"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/route/setting");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -531,13 +514,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/route/setting", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/route/setting", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateRouteSettingsDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateRouteSettingsDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateRouteSettings(apiResponseLocalVar);
 
@@ -547,7 +530,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateRouteSettingsDefaultImplementation(e, "/api/{version}/route/setting", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateRouteSettingsDefaultImplementation(e, "/route/setting", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateRouteSettings(e);
                 throw;
             }
@@ -646,18 +629,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteRouteSettings(ref decimal version, ref long routeSettingsId);
+        partial void FormatDeleteRouteSettings(ref long routeSettingsId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
-        private void AfterDeleteRouteSettingsDefaultImplementation(IDeleteRouteSettingsApiResponse apiResponseLocalVar, decimal version, long routeSettingsId)
+        private void AfterDeleteRouteSettingsDefaultImplementation(IDeleteRouteSettingsApiResponse apiResponseLocalVar, long routeSettingsId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, version, routeSettingsId);
+            AfterDeleteRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, routeSettingsId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -667,9 +649,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
-        partial void AfterDeleteRouteSettings(ref bool suppressDefaultLog, IDeleteRouteSettingsApiResponse apiResponseLocalVar, decimal version, long routeSettingsId);
+        partial void AfterDeleteRouteSettings(ref bool suppressDefaultLog, IDeleteRouteSettingsApiResponse apiResponseLocalVar, long routeSettingsId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -677,12 +658,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
-        private void OnErrorDeleteRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long routeSettingsId)
+        private void OnErrorDeleteRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long routeSettingsId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, routeSettingsId);
+            OnErrorDeleteRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, routeSettingsId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -694,22 +674,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
-        partial void OnErrorDeleteRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long routeSettingsId);
+        partial void OnErrorDeleteRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long routeSettingsId);
 
         /// <summary>
         /// Delete Route Setting Delete an existing route setting
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route setting to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRouteSettingsApiResponse?> DeleteRouteSettingsOrDefaultAsync(decimal version, long routeSettingsId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRouteSettingsApiResponse?> DeleteRouteSettingsOrDefaultAsync(long routeSettingsId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteRouteSettingsAsync(version, routeSettingsId, cancellationToken).ConfigureAwait(false);
+                return await DeleteRouteSettingsAsync(routeSettingsId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -721,17 +699,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Route Setting Delete an existing route setting
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route setting to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRouteSettingsApiResponse> DeleteRouteSettingsAsync(decimal version, long routeSettingsId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRouteSettingsApiResponse> DeleteRouteSettingsAsync(long routeSettingsId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteRouteSettings(ref version, ref routeSettingsId);
+                FormatDeleteRouteSettings(ref routeSettingsId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -739,9 +716,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/route/setting/{routeSettingsId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/route/setting/{routeSettingsId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/route/setting/{routeSettingsId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/route/setting/{routeSettingsId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrouteSettingsId%7D", Uri.EscapeDataString(routeSettingsId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -767,13 +743,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/route/setting/{routeSettingsId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/route/setting/{routeSettingsId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteRouteSettingsDefaultImplementation(apiResponseLocalVar, version, routeSettingsId);
+                        AfterDeleteRouteSettingsDefaultImplementation(apiResponseLocalVar, routeSettingsId);
 
                         Events.ExecuteOnDeleteRouteSettings(apiResponseLocalVar);
 
@@ -783,7 +759,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteRouteSettingsDefaultImplementation(e, "/api/{version}/route/setting/{routeSettingsId}", uriBuilderLocalVar.Path, version, routeSettingsId);
+                OnErrorDeleteRouteSettingsDefaultImplementation(e, "/route/setting/{routeSettingsId}", uriBuilderLocalVar.Path, routeSettingsId);
                 Events.ExecuteOnErrorDeleteRouteSettings(e);
                 throw;
             }
@@ -882,18 +858,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetRouteSettings(ref decimal version, ref long routeSettingsId);
+        partial void FormatGetRouteSettings(ref long routeSettingsId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
-        private void AfterGetRouteSettingsDefaultImplementation(IGetRouteSettingsApiResponse apiResponseLocalVar, decimal version, long routeSettingsId)
+        private void AfterGetRouteSettingsDefaultImplementation(IGetRouteSettingsApiResponse apiResponseLocalVar, long routeSettingsId)
         {
             bool suppressDefaultLog = false;
-            AfterGetRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, version, routeSettingsId);
+            AfterGetRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, routeSettingsId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -903,9 +878,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
-        partial void AfterGetRouteSettings(ref bool suppressDefaultLog, IGetRouteSettingsApiResponse apiResponseLocalVar, decimal version, long routeSettingsId);
+        partial void AfterGetRouteSettings(ref bool suppressDefaultLog, IGetRouteSettingsApiResponse apiResponseLocalVar, long routeSettingsId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -913,12 +887,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
-        private void OnErrorGetRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long routeSettingsId)
+        private void OnErrorGetRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long routeSettingsId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, routeSettingsId);
+            OnErrorGetRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, routeSettingsId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -930,22 +903,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
-        partial void OnErrorGetRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long routeSettingsId);
+        partial void OnErrorGetRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long routeSettingsId);
 
         /// <summary>
         /// Get Route Setting Get an existing route settings
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route settings to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<IGetRouteSettingsApiResponse?> GetRouteSettingsOrDefaultAsync(decimal version, long routeSettingsId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRouteSettingsApiResponse?> GetRouteSettingsOrDefaultAsync(long routeSettingsId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRouteSettingsAsync(version, routeSettingsId, cancellationToken).ConfigureAwait(false);
+                return await GetRouteSettingsAsync(routeSettingsId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -957,17 +928,16 @@ namespace Org.OpenAPITools.Api
         /// Get Route Setting Get an existing route settings
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route settings to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<IGetRouteSettingsApiResponse> GetRouteSettingsAsync(decimal version, long routeSettingsId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRouteSettingsApiResponse> GetRouteSettingsAsync(long routeSettingsId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetRouteSettings(ref version, ref routeSettingsId);
+                FormatGetRouteSettings(ref routeSettingsId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -975,9 +945,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/route/setting/{routeSettingsId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/route/setting/{routeSettingsId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/route/setting/{routeSettingsId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/route/setting/{routeSettingsId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrouteSettingsId%7D", Uri.EscapeDataString(routeSettingsId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1003,13 +972,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/route/setting/{routeSettingsId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/route/setting/{routeSettingsId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRouteSettingsDefaultImplementation(apiResponseLocalVar, version, routeSettingsId);
+                        AfterGetRouteSettingsDefaultImplementation(apiResponseLocalVar, routeSettingsId);
 
                         Events.ExecuteOnGetRouteSettings(apiResponseLocalVar);
 
@@ -1019,7 +988,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRouteSettingsDefaultImplementation(e, "/api/{version}/route/setting/{routeSettingsId}", uriBuilderLocalVar.Path, version, routeSettingsId);
+                OnErrorGetRouteSettingsDefaultImplementation(e, "/route/setting/{routeSettingsId}", uriBuilderLocalVar.Path, routeSettingsId);
                 Events.ExecuteOnErrorGetRouteSettings(e);
                 throw;
             }
@@ -1118,7 +1087,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchRouteSettings(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> hubId, ref Option<long> programId, ref Option<string> keyword);
+        partial void FormatSearchRouteSettings(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> hubId, ref Option<long> programId, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -1139,7 +1108,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1148,10 +1116,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId"></param>
         /// <param name="programId"></param>
         /// <param name="keyword"></param>
-        private void AfterSearchRouteSettingsDefaultImplementation(ISearchRouteSettingsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId, Option<long> programId, Option<string> keyword)
+        private void AfterSearchRouteSettingsDefaultImplementation(ISearchRouteSettingsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId, Option<long> programId, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterSearchRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, hubId, programId, keyword);
+            AfterSearchRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, hubId, programId, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1161,7 +1129,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1170,7 +1137,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId"></param>
         /// <param name="programId"></param>
         /// <param name="keyword"></param>
-        partial void AfterSearchRouteSettings(ref bool suppressDefaultLog, ISearchRouteSettingsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId, Option<long> programId, Option<string> keyword);
+        partial void AfterSearchRouteSettings(ref bool suppressDefaultLog, ISearchRouteSettingsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId, Option<long> programId, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1178,7 +1145,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1187,10 +1153,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId"></param>
         /// <param name="programId"></param>
         /// <param name="keyword"></param>
-        private void OnErrorSearchRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId, Option<long> programId, Option<string> keyword)
+        private void OnErrorSearchRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId, Option<long> programId, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, hubId, programId, keyword);
+            OnErrorSearchRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, hubId, programId, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1202,7 +1168,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1211,12 +1176,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId"></param>
         /// <param name="programId"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorSearchRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId, Option<long> programId, Option<string> keyword);
+        partial void OnErrorSearchRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId, Option<long> programId, Option<string> keyword);
 
         /// <summary>
         /// Search Route Settings Search for route settings
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1227,11 +1191,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to search for the route (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRouteSettingsApiResponse?> SearchRouteSettingsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId = default, Option<long> programId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRouteSettingsApiResponse?> SearchRouteSettingsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId = default, Option<long> programId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchRouteSettingsAsync(version, sortField, descending, start, limit, activeOnly, hubId, programId, keyword, cancellationToken).ConfigureAwait(false);
+                return await SearchRouteSettingsAsync(sortField, descending, start, limit, activeOnly, hubId, programId, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1243,7 +1207,6 @@ namespace Org.OpenAPITools.Api
         /// Search Route Settings Search for route settings
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1254,7 +1217,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to search for the route (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRouteSettingsApiResponse> SearchRouteSettingsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId = default, Option<long> programId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRouteSettingsApiResponse> SearchRouteSettingsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> hubId = default, Option<long> programId = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1262,7 +1225,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchRouteSettings(sortField, keyword);
 
-                FormatSearchRouteSettings(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref hubId, ref programId, ref keyword);
+                FormatSearchRouteSettings(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref hubId, ref programId, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1270,9 +1233,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/route/setting"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/route/setting");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/route/setting"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/route/setting");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1316,13 +1278,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/route/setting", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/route/setting", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchRouteSettingsDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, hubId, programId, keyword);
+                        AfterSearchRouteSettingsDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, hubId, programId, keyword);
 
                         Events.ExecuteOnSearchRouteSettings(apiResponseLocalVar);
 
@@ -1332,7 +1294,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchRouteSettingsDefaultImplementation(e, "/api/{version}/route/setting", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, hubId, programId, keyword);
+                OnErrorSearchRouteSettingsDefaultImplementation(e, "/route/setting", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, hubId, programId, keyword);
                 Events.ExecuteOnErrorSearchRouteSettings(e);
                 throw;
             }
@@ -1431,7 +1393,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateRouteSettings(ref decimal version, ref long routeSettingsId, Option<RouteSettings> body);
+        partial void FormatUpdateRouteSettings(ref long routeSettingsId, Option<RouteSettings> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1448,13 +1410,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
         /// <param name="body"></param>
-        private void AfterUpdateRouteSettingsDefaultImplementation(IUpdateRouteSettingsApiResponse apiResponseLocalVar, decimal version, long routeSettingsId, Option<RouteSettings> body)
+        private void AfterUpdateRouteSettingsDefaultImplementation(IUpdateRouteSettingsApiResponse apiResponseLocalVar, long routeSettingsId, Option<RouteSettings> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, version, routeSettingsId, body);
+            AfterUpdateRouteSettings(ref suppressDefaultLog, apiResponseLocalVar, routeSettingsId, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1464,10 +1425,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateRouteSettings(ref bool suppressDefaultLog, IUpdateRouteSettingsApiResponse apiResponseLocalVar, decimal version, long routeSettingsId, Option<RouteSettings> body);
+        partial void AfterUpdateRouteSettings(ref bool suppressDefaultLog, IUpdateRouteSettingsApiResponse apiResponseLocalVar, long routeSettingsId, Option<RouteSettings> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1475,13 +1435,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long routeSettingsId, Option<RouteSettings> body)
+        private void OnErrorUpdateRouteSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long routeSettingsId, Option<RouteSettings> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, routeSettingsId, body);
+            OnErrorUpdateRouteSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, routeSettingsId, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1493,24 +1452,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long routeSettingsId, Option<RouteSettings> body);
+        partial void OnErrorUpdateRouteSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long routeSettingsId, Option<RouteSettings> body);
 
         /// <summary>
         /// Update Route Setting Update an existing route setting
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route settings to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRouteSettingsApiResponse?> UpdateRouteSettingsOrDefaultAsync(decimal version, long routeSettingsId, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRouteSettingsApiResponse?> UpdateRouteSettingsOrDefaultAsync(long routeSettingsId, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateRouteSettingsAsync(version, routeSettingsId, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateRouteSettingsAsync(routeSettingsId, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1522,12 +1479,11 @@ namespace Org.OpenAPITools.Api
         /// Update Route Setting Update an existing route setting
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="routeSettingsId">the id of the route settings to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRouteSettingsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRouteSettingsApiResponse> UpdateRouteSettingsAsync(decimal version, long routeSettingsId, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRouteSettingsApiResponse> UpdateRouteSettingsAsync(long routeSettingsId, Option<RouteSettings> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1535,7 +1491,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateRouteSettings(body);
 
-                FormatUpdateRouteSettings(ref version, ref routeSettingsId, body);
+                FormatUpdateRouteSettings(ref routeSettingsId, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1543,9 +1499,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/route/setting/{routeSettingsId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/route/setting/{routeSettingsId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/route/setting/{routeSettingsId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/route/setting/{routeSettingsId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrouteSettingsId%7D", Uri.EscapeDataString(routeSettingsId.ToString()));
 
                     if (body.IsSet)
@@ -1576,13 +1531,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/route/setting/{routeSettingsId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/route/setting/{routeSettingsId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateRouteSettingsDefaultImplementation(apiResponseLocalVar, version, routeSettingsId, body);
+                        AfterUpdateRouteSettingsDefaultImplementation(apiResponseLocalVar, routeSettingsId, body);
 
                         Events.ExecuteOnUpdateRouteSettings(apiResponseLocalVar);
 
@@ -1592,7 +1547,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateRouteSettingsDefaultImplementation(e, "/api/{version}/route/setting/{routeSettingsId}", uriBuilderLocalVar.Path, version, routeSettingsId, body);
+                OnErrorUpdateRouteSettingsDefaultImplementation(e, "/route/setting/{routeSettingsId}", uriBuilderLocalVar.Path, routeSettingsId, body);
                 Events.ExecuteOnErrorUpdateRouteSettings(e);
                 throw;
             }

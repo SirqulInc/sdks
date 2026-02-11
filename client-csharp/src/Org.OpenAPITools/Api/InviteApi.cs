@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">the invite token</param>
         /// <param name="accountId">the accountId of the user who is accepting the invite</param>
         /// <param name="albumId">the album id associated with this invite (if applicable) (optional)</param>
@@ -62,7 +61,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="autoFavoriteRetailerLocation">whether to mark the retailer location as favorited automatically after invite is accepted (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAcceptInviteApiResponse"/>&gt;</returns>
-        Task<IAcceptInviteApiResponse> AcceptInviteAsync(decimal version, string token, long accountId, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, Option<bool> autoFriend = default, Option<bool> autoAttendEvent = default, Option<bool> autoFavoriteOffer = default, Option<bool> autoFavoriteOfferLocation = default, Option<bool> autoFavoriteRetailerLocation = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAcceptInviteApiResponse> AcceptInviteAsync(string token, long accountId, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, Option<bool> autoFriend = default, Option<bool> autoAttendEvent = default, Option<bool> autoFavoriteOffer = default, Option<bool> autoFavoriteOfferLocation = default, Option<bool> autoFavoriteRetailerLocation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Accept Invite
@@ -70,7 +69,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="token">the invite token</param>
         /// <param name="accountId">the accountId of the user who is accepting the invite</param>
         /// <param name="albumId">the album id associated with this invite (if applicable) (optional)</param>
@@ -87,7 +85,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="autoFavoriteRetailerLocation">whether to mark the retailer location as favorited automatically after invite is accepted (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAcceptInviteApiResponse"/>?&gt;</returns>
-        Task<IAcceptInviteApiResponse?> AcceptInviteOrDefaultAsync(decimal version, string token, long accountId, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, Option<bool> autoFriend = default, Option<bool> autoAttendEvent = default, Option<bool> autoFavoriteOffer = default, Option<bool> autoFavoriteOfferLocation = default, Option<bool> autoFavoriteRetailerLocation = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAcceptInviteApiResponse?> AcceptInviteOrDefaultAsync(string token, long accountId, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, Option<bool> autoFriend = default, Option<bool> autoAttendEvent = default, Option<bool> autoFavoriteOffer = default, Option<bool> autoFavoriteOfferLocation = default, Option<bool> autoFavoriteRetailerLocation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Contest
@@ -96,7 +94,6 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -106,7 +103,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAlbumContestInviteApiResponse"/>&gt;</returns>
-        Task<IAlbumContestInviteApiResponse> AlbumContestInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumContestId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAlbumContestInviteApiResponse> AlbumContestInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumContestId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Contest
@@ -114,7 +111,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -124,7 +120,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAlbumContestInviteApiResponse"/>?&gt;</returns>
-        Task<IAlbumContestInviteApiResponse?> AlbumContestInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumContestId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAlbumContestInviteApiResponse?> AlbumContestInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumContestId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Collection
@@ -133,7 +129,6 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -143,7 +138,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAlbumInviteApiResponse"/>&gt;</returns>
-        Task<IAlbumInviteApiResponse> AlbumInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAlbumInviteApiResponse> AlbumInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Collection
@@ -151,7 +146,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -161,7 +155,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAlbumInviteApiResponse"/>?&gt;</returns>
-        Task<IAlbumInviteApiResponse?> AlbumInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAlbumInviteApiResponse?> AlbumInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Event
@@ -170,7 +164,6 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="listingId">The ID of the event listing</param>
@@ -178,7 +171,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId">The retailer location id of where the event will take place (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEventInviteApiResponse"/>&gt;</returns>
-        Task<IEventInviteApiResponse> EventInviteAsync(decimal version, long accountId, string appKey, long listingId, Option<string> receiverAccountIds = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEventInviteApiResponse> EventInviteAsync(long accountId, string appKey, long listingId, Option<string> receiverAccountIds = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Event
@@ -186,7 +179,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="listingId">The ID of the event listing</param>
@@ -194,7 +186,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId">The retailer location id of where the event will take place (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEventInviteApiResponse"/>?&gt;</returns>
-        Task<IEventInviteApiResponse?> EventInviteOrDefaultAsync(decimal version, long accountId, string appKey, long listingId, Option<string> receiverAccountIds = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEventInviteApiResponse?> EventInviteOrDefaultAsync(long accountId, string appKey, long listingId, Option<string> receiverAccountIds = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Game Level
@@ -203,7 +195,6 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -213,7 +204,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGameInviteApiResponse"/>&gt;</returns>
-        Task<IGameInviteApiResponse> GameInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> gameLevelId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGameInviteApiResponse> GameInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> gameLevelId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Game Level
@@ -221,7 +212,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -231,7 +221,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGameInviteApiResponse"/>?&gt;</returns>
-        Task<IGameInviteApiResponse?> GameInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> gameLevelId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGameInviteApiResponse?> GameInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> gameLevelId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Invite
@@ -240,7 +230,6 @@ namespace Org.OpenAPITools.Api
         /// This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Account ID of the user if they are logged in (optional)</param>
         /// <param name="token">the invite token (optional)</param>
         /// <param name="albumId">album id to match the invite against (if applicable) (optional)</param>
@@ -252,7 +241,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetInviteApiResponse"/>&gt;</returns>
-        Task<IGetInviteApiResponse> GetInviteAsync(decimal version, Option<long> accountId = default, Option<string> token = default, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetInviteApiResponse> GetInviteAsync(Option<long> accountId = default, Option<string> token = default, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Invite
@@ -260,7 +249,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Account ID of the user if they are logged in (optional)</param>
         /// <param name="token">the invite token (optional)</param>
         /// <param name="albumId">album id to match the invite against (if applicable) (optional)</param>
@@ -272,7 +260,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetInviteApiResponse"/>?&gt;</returns>
-        Task<IGetInviteApiResponse?> GetInviteOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> token = default, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetInviteApiResponse?> GetInviteOrDefaultAsync(Option<long> accountId = default, Option<string> token = default, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Mission
@@ -281,7 +269,6 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -291,7 +278,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMissionInviteApiResponse"/>&gt;</returns>
-        Task<IMissionInviteApiResponse> MissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> missionId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMissionInviteApiResponse> MissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> missionId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Mission
@@ -299,7 +286,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -309,7 +295,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMissionInviteApiResponse"/>?&gt;</returns>
-        Task<IMissionInviteApiResponse?> MissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> missionId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMissionInviteApiResponse?> MissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> missionId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Offer
@@ -318,13 +304,12 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="offerId">the ID of the offer used to invite to favorite</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOfferInviteApiResponse"/>&gt;</returns>
-        Task<IOfferInviteApiResponse> OfferInviteAsync(decimal version, long accountId, string appKey, long offerId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IOfferInviteApiResponse> OfferInviteAsync(long accountId, string appKey, long offerId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Offer
@@ -332,13 +317,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="offerId">the ID of the offer used to invite to favorite</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOfferInviteApiResponse"/>?&gt;</returns>
-        Task<IOfferInviteApiResponse?> OfferInviteOrDefaultAsync(decimal version, long accountId, string appKey, long offerId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IOfferInviteApiResponse?> OfferInviteOrDefaultAsync(long accountId, string appKey, long offerId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Offer Location
@@ -347,13 +331,12 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="offerLocationId">the id of the offer location to share</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOfferLocationInviteApiResponse"/>&gt;</returns>
-        Task<IOfferLocationInviteApiResponse> OfferLocationInviteAsync(decimal version, long accountId, string appKey, long offerLocationId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IOfferLocationInviteApiResponse> OfferLocationInviteAsync(long accountId, string appKey, long offerLocationId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Offer Location
@@ -361,13 +344,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="offerLocationId">the id of the offer location to share</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOfferLocationInviteApiResponse"/>?&gt;</returns>
-        Task<IOfferLocationInviteApiResponse?> OfferLocationInviteOrDefaultAsync(decimal version, long accountId, string appKey, long offerLocationId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IOfferLocationInviteApiResponse?> OfferLocationInviteOrDefaultAsync(long accountId, string appKey, long offerLocationId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Retailer Location
@@ -376,14 +358,13 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="retailerLocationId">The retailer location id of where the event will take place</param>
         /// <param name="albumId">Optional album id to link with the invite (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRetailerLocationInviteApiResponse"/>&gt;</returns>
-        Task<IRetailerLocationInviteApiResponse> RetailerLocationInviteAsync(decimal version, long accountId, string appKey, long retailerLocationId, Option<long> albumId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRetailerLocationInviteApiResponse> RetailerLocationInviteAsync(long accountId, string appKey, long retailerLocationId, Option<long> albumId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite to Retailer Location
@@ -391,14 +372,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="retailerLocationId">The retailer location id of where the event will take place</param>
         /// <param name="albumId">Optional album id to link with the invite (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRetailerLocationInviteApiResponse"/>?&gt;</returns>
-        Task<IRetailerLocationInviteApiResponse?> RetailerLocationInviteOrDefaultAsync(decimal version, long accountId, string appKey, long retailerLocationId, Option<long> albumId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRetailerLocationInviteApiResponse?> RetailerLocationInviteOrDefaultAsync(long accountId, string appKey, long retailerLocationId, Option<long> albumId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -774,7 +754,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAcceptInvite(ref decimal version, ref string token, ref long accountId, ref Option<long> albumId, ref Option<long> missionId, ref Option<long> albumContestId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<long> retailerLocationId, ref Option<string> appKey, ref Option<bool> autoFriend, ref Option<bool> autoAttendEvent, ref Option<bool> autoFavoriteOffer, ref Option<bool> autoFavoriteOfferLocation, ref Option<bool> autoFavoriteRetailerLocation);
+        partial void FormatAcceptInvite(ref string token, ref long accountId, ref Option<long> albumId, ref Option<long> missionId, ref Option<long> albumContestId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<long> retailerLocationId, ref Option<string> appKey, ref Option<bool> autoFriend, ref Option<bool> autoAttendEvent, ref Option<bool> autoFavoriteOffer, ref Option<bool> autoFavoriteOfferLocation, ref Option<bool> autoFavoriteRetailerLocation);
 
         /// <summary>
         /// Validates the request parameters
@@ -795,7 +775,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="accountId"></param>
         /// <param name="albumId"></param>
@@ -810,10 +789,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="autoFavoriteOffer"></param>
         /// <param name="autoFavoriteOfferLocation"></param>
         /// <param name="autoFavoriteRetailerLocation"></param>
-        private void AfterAcceptInviteDefaultImplementation(IAcceptInviteApiResponse apiResponseLocalVar, decimal version, string token, long accountId, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey, Option<bool> autoFriend, Option<bool> autoAttendEvent, Option<bool> autoFavoriteOffer, Option<bool> autoFavoriteOfferLocation, Option<bool> autoFavoriteRetailerLocation)
+        private void AfterAcceptInviteDefaultImplementation(IAcceptInviteApiResponse apiResponseLocalVar, string token, long accountId, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey, Option<bool> autoFriend, Option<bool> autoAttendEvent, Option<bool> autoFavoriteOffer, Option<bool> autoFavoriteOfferLocation, Option<bool> autoFavoriteRetailerLocation)
         {
             bool suppressDefaultLog = false;
-            AfterAcceptInvite(ref suppressDefaultLog, apiResponseLocalVar, version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
+            AfterAcceptInvite(ref suppressDefaultLog, apiResponseLocalVar, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -823,7 +802,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="accountId"></param>
         /// <param name="albumId"></param>
@@ -838,7 +816,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="autoFavoriteOffer"></param>
         /// <param name="autoFavoriteOfferLocation"></param>
         /// <param name="autoFavoriteRetailerLocation"></param>
-        partial void AfterAcceptInvite(ref bool suppressDefaultLog, IAcceptInviteApiResponse apiResponseLocalVar, decimal version, string token, long accountId, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey, Option<bool> autoFriend, Option<bool> autoAttendEvent, Option<bool> autoFavoriteOffer, Option<bool> autoFavoriteOfferLocation, Option<bool> autoFavoriteRetailerLocation);
+        partial void AfterAcceptInvite(ref bool suppressDefaultLog, IAcceptInviteApiResponse apiResponseLocalVar, string token, long accountId, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey, Option<bool> autoFriend, Option<bool> autoAttendEvent, Option<bool> autoFavoriteOffer, Option<bool> autoFavoriteOfferLocation, Option<bool> autoFavoriteRetailerLocation);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -846,7 +824,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="accountId"></param>
         /// <param name="albumId"></param>
@@ -861,10 +838,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="autoFavoriteOffer"></param>
         /// <param name="autoFavoriteOfferLocation"></param>
         /// <param name="autoFavoriteRetailerLocation"></param>
-        private void OnErrorAcceptInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token, long accountId, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey, Option<bool> autoFriend, Option<bool> autoAttendEvent, Option<bool> autoFavoriteOffer, Option<bool> autoFavoriteOfferLocation, Option<bool> autoFavoriteRetailerLocation)
+        private void OnErrorAcceptInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token, long accountId, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey, Option<bool> autoFriend, Option<bool> autoAttendEvent, Option<bool> autoFavoriteOffer, Option<bool> autoFavoriteOfferLocation, Option<bool> autoFavoriteRetailerLocation)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAcceptInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
+            OnErrorAcceptInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -876,7 +853,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="accountId"></param>
         /// <param name="albumId"></param>
@@ -891,12 +867,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="autoFavoriteOffer"></param>
         /// <param name="autoFavoriteOfferLocation"></param>
         /// <param name="autoFavoriteRetailerLocation"></param>
-        partial void OnErrorAcceptInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token, long accountId, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey, Option<bool> autoFriend, Option<bool> autoAttendEvent, Option<bool> autoFavoriteOffer, Option<bool> autoFavoriteOfferLocation, Option<bool> autoFavoriteRetailerLocation);
+        partial void OnErrorAcceptInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token, long accountId, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey, Option<bool> autoFriend, Option<bool> autoAttendEvent, Option<bool> autoFavoriteOffer, Option<bool> autoFavoriteOfferLocation, Option<bool> autoFavoriteRetailerLocation);
 
         /// <summary>
         /// Accept Invite Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="token">the invite token</param>
         /// <param name="accountId">the accountId of the user who is accepting the invite</param>
         /// <param name="albumId">the album id associated with this invite (if applicable) (optional)</param>
@@ -913,11 +888,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="autoFavoriteRetailerLocation">whether to mark the retailer location as favorited automatically after invite is accepted (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAcceptInviteApiResponse"/>&gt;</returns>
-        public async Task<IAcceptInviteApiResponse?> AcceptInviteOrDefaultAsync(decimal version, string token, long accountId, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, Option<bool> autoFriend = default, Option<bool> autoAttendEvent = default, Option<bool> autoFavoriteOffer = default, Option<bool> autoFavoriteOfferLocation = default, Option<bool> autoFavoriteRetailerLocation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAcceptInviteApiResponse?> AcceptInviteOrDefaultAsync(string token, long accountId, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, Option<bool> autoFriend = default, Option<bool> autoAttendEvent = default, Option<bool> autoFavoriteOffer = default, Option<bool> autoFavoriteOfferLocation = default, Option<bool> autoFavoriteRetailerLocation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AcceptInviteAsync(version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation, cancellationToken).ConfigureAwait(false);
+                return await AcceptInviteAsync(token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -929,7 +904,6 @@ namespace Org.OpenAPITools.Api
         /// Accept Invite Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">the invite token</param>
         /// <param name="accountId">the accountId of the user who is accepting the invite</param>
         /// <param name="albumId">the album id associated with this invite (if applicable) (optional)</param>
@@ -946,7 +920,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="autoFavoriteRetailerLocation">whether to mark the retailer location as favorited automatically after invite is accepted (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAcceptInviteApiResponse"/>&gt;</returns>
-        public async Task<IAcceptInviteApiResponse> AcceptInviteAsync(decimal version, string token, long accountId, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, Option<bool> autoFriend = default, Option<bool> autoAttendEvent = default, Option<bool> autoFavoriteOffer = default, Option<bool> autoFavoriteOfferLocation = default, Option<bool> autoFavoriteRetailerLocation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAcceptInviteApiResponse> AcceptInviteAsync(string token, long accountId, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, Option<bool> autoFriend = default, Option<bool> autoAttendEvent = default, Option<bool> autoFavoriteOffer = default, Option<bool> autoFavoriteOfferLocation = default, Option<bool> autoFavoriteRetailerLocation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -954,7 +928,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAcceptInvite(token, appKey);
 
-                FormatAcceptInvite(ref version, ref token, ref accountId, ref albumId, ref missionId, ref albumContestId, ref offerId, ref offerLocationId, ref retailerLocationId, ref appKey, ref autoFriend, ref autoAttendEvent, ref autoFavoriteOffer, ref autoFavoriteOfferLocation, ref autoFavoriteRetailerLocation);
+                FormatAcceptInvite(ref token, ref accountId, ref albumId, ref missionId, ref albumContestId, ref offerId, ref offerLocationId, ref retailerLocationId, ref appKey, ref autoFriend, ref autoAttendEvent, ref autoFavoriteOffer, ref autoFavoriteOfferLocation, ref autoFavoriteRetailerLocation);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -962,9 +936,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/accept"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/accept");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/accept"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/accept");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1032,13 +1005,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/accept", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/accept", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAcceptInviteDefaultImplementation(apiResponseLocalVar, version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
+                        AfterAcceptInviteDefaultImplementation(apiResponseLocalVar, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
 
                         Events.ExecuteOnAcceptInvite(apiResponseLocalVar);
 
@@ -1048,7 +1021,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAcceptInviteDefaultImplementation(e, "/api/{version}/invite/accept", uriBuilderLocalVar.Path, version, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
+                OnErrorAcceptInviteDefaultImplementation(e, "/invite/accept", uriBuilderLocalVar.Path, token, accountId, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, autoFriend, autoAttendEvent, autoFavoriteOffer, autoFavoriteOfferLocation, autoFavoriteRetailerLocation);
                 Events.ExecuteOnErrorAcceptInvite(e);
                 throw;
             }
@@ -1147,7 +1120,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAlbumContestInvite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> appId, ref Option<string> appKey, ref Option<long> albumContestId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAlbumContestInvite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> appId, ref Option<string> appKey, ref Option<long> albumContestId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1168,7 +1141,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -1176,10 +1148,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumContestId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAlbumContestInviteDefaultImplementation(IAlbumContestInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumContestId, Option<double> latitude, Option<double> longitude)
+        private void AfterAlbumContestInviteDefaultImplementation(IAlbumContestInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumContestId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAlbumContestInvite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
+            AfterAlbumContestInvite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1189,7 +1161,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -1197,7 +1168,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumContestId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAlbumContestInvite(ref bool suppressDefaultLog, IAlbumContestInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumContestId, Option<double> latitude, Option<double> longitude);
+        partial void AfterAlbumContestInvite(ref bool suppressDefaultLog, IAlbumContestInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumContestId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1205,7 +1176,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -1213,10 +1183,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumContestId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAlbumContestInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumContestId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAlbumContestInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumContestId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAlbumContestInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
+            OnErrorAlbumContestInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1228,7 +1198,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -1236,12 +1205,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumContestId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAlbumContestInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumContestId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAlbumContestInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumContestId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Invite to Contest Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -1251,11 +1219,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAlbumContestInviteApiResponse"/>&gt;</returns>
-        public async Task<IAlbumContestInviteApiResponse?> AlbumContestInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumContestId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAlbumContestInviteApiResponse?> AlbumContestInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumContestId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AlbumContestInviteAsync(version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AlbumContestInviteAsync(deviceId, accountId, appId, appKey, albumContestId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1267,7 +1235,6 @@ namespace Org.OpenAPITools.Api
         /// Invite to Contest Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -1277,7 +1244,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAlbumContestInviteApiResponse"/>&gt;</returns>
-        public async Task<IAlbumContestInviteApiResponse> AlbumContestInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumContestId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAlbumContestInviteApiResponse> AlbumContestInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumContestId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1285,7 +1252,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAlbumContestInvite(deviceId, appKey);
 
-                FormatAlbumContestInvite(ref version, ref deviceId, ref accountId, ref appId, ref appKey, ref albumContestId, ref latitude, ref longitude);
+                FormatAlbumContestInvite(ref deviceId, ref accountId, ref appId, ref appKey, ref albumContestId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1293,9 +1260,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/albumContest"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/albumContest");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/albumContest"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/albumContest");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1345,13 +1311,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/albumContest", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/albumContest", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAlbumContestInviteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
+                        AfterAlbumContestInviteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
 
                         Events.ExecuteOnAlbumContestInvite(apiResponseLocalVar);
 
@@ -1361,7 +1327,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAlbumContestInviteDefaultImplementation(e, "/api/{version}/invite/albumContest", uriBuilderLocalVar.Path, version, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
+                OnErrorAlbumContestInviteDefaultImplementation(e, "/invite/albumContest", uriBuilderLocalVar.Path, deviceId, accountId, appId, appKey, albumContestId, latitude, longitude);
                 Events.ExecuteOnErrorAlbumContestInvite(e);
                 throw;
             }
@@ -1460,7 +1426,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAlbumInvite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> appId, ref Option<string> appKey, ref Option<long> albumId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAlbumInvite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> appId, ref Option<string> appKey, ref Option<long> albumId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1481,7 +1447,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -1489,10 +1454,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAlbumInviteDefaultImplementation(IAlbumInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumId, Option<double> latitude, Option<double> longitude)
+        private void AfterAlbumInviteDefaultImplementation(IAlbumInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAlbumInvite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
+            AfterAlbumInvite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1502,7 +1467,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -1510,7 +1474,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAlbumInvite(ref bool suppressDefaultLog, IAlbumInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumId, Option<double> latitude, Option<double> longitude);
+        partial void AfterAlbumInvite(ref bool suppressDefaultLog, IAlbumInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1518,7 +1482,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -1526,10 +1489,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAlbumInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAlbumInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAlbumInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
+            OnErrorAlbumInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1541,7 +1504,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -1549,12 +1511,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAlbumInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAlbumInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> albumId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Invite to Collection Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -1564,11 +1525,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAlbumInviteApiResponse"/>&gt;</returns>
-        public async Task<IAlbumInviteApiResponse?> AlbumInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAlbumInviteApiResponse?> AlbumInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AlbumInviteAsync(version, deviceId, accountId, appId, appKey, albumId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AlbumInviteAsync(deviceId, accountId, appId, appKey, albumId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1580,7 +1541,6 @@ namespace Org.OpenAPITools.Api
         /// Invite to Collection Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -1590,7 +1550,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAlbumInviteApiResponse"/>&gt;</returns>
-        public async Task<IAlbumInviteApiResponse> AlbumInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAlbumInviteApiResponse> AlbumInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> albumId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1598,7 +1558,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAlbumInvite(deviceId, appKey);
 
-                FormatAlbumInvite(ref version, ref deviceId, ref accountId, ref appId, ref appKey, ref albumId, ref latitude, ref longitude);
+                FormatAlbumInvite(ref deviceId, ref accountId, ref appId, ref appKey, ref albumId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1606,9 +1566,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/album"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/album");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/album"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/album");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1658,13 +1617,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/album", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/album", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAlbumInviteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
+                        AfterAlbumInviteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
 
                         Events.ExecuteOnAlbumInvite(apiResponseLocalVar);
 
@@ -1674,7 +1633,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAlbumInviteDefaultImplementation(e, "/api/{version}/invite/album", uriBuilderLocalVar.Path, version, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
+                OnErrorAlbumInviteDefaultImplementation(e, "/invite/album", uriBuilderLocalVar.Path, deviceId, accountId, appId, appKey, albumId, latitude, longitude);
                 Events.ExecuteOnErrorAlbumInvite(e);
                 throw;
             }
@@ -1773,7 +1732,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatEventInvite(ref decimal version, ref long accountId, ref string appKey, ref long listingId, ref Option<string> receiverAccountIds, ref Option<long> retailerLocationId);
+        partial void FormatEventInvite(ref long accountId, ref string appKey, ref long listingId, ref Option<string> receiverAccountIds, ref Option<long> retailerLocationId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1794,16 +1753,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="listingId"></param>
         /// <param name="receiverAccountIds"></param>
         /// <param name="retailerLocationId"></param>
-        private void AfterEventInviteDefaultImplementation(IEventInviteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long listingId, Option<string> receiverAccountIds, Option<long> retailerLocationId)
+        private void AfterEventInviteDefaultImplementation(IEventInviteApiResponse apiResponseLocalVar, long accountId, string appKey, long listingId, Option<string> receiverAccountIds, Option<long> retailerLocationId)
         {
             bool suppressDefaultLog = false;
-            AfterEventInvite(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
+            AfterEventInvite(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1813,13 +1771,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="listingId"></param>
         /// <param name="receiverAccountIds"></param>
         /// <param name="retailerLocationId"></param>
-        partial void AfterEventInvite(ref bool suppressDefaultLog, IEventInviteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long listingId, Option<string> receiverAccountIds, Option<long> retailerLocationId);
+        partial void AfterEventInvite(ref bool suppressDefaultLog, IEventInviteApiResponse apiResponseLocalVar, long accountId, string appKey, long listingId, Option<string> receiverAccountIds, Option<long> retailerLocationId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1827,16 +1784,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="listingId"></param>
         /// <param name="receiverAccountIds"></param>
         /// <param name="retailerLocationId"></param>
-        private void OnErrorEventInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long listingId, Option<string> receiverAccountIds, Option<long> retailerLocationId)
+        private void OnErrorEventInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long listingId, Option<string> receiverAccountIds, Option<long> retailerLocationId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorEventInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
+            OnErrorEventInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1848,18 +1804,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="listingId"></param>
         /// <param name="receiverAccountIds"></param>
         /// <param name="retailerLocationId"></param>
-        partial void OnErrorEventInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long listingId, Option<string> receiverAccountIds, Option<long> retailerLocationId);
+        partial void OnErrorEventInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long listingId, Option<string> receiverAccountIds, Option<long> retailerLocationId);
 
         /// <summary>
         /// Invite to Event Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="listingId">The ID of the event listing</param>
@@ -1867,11 +1821,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId">The retailer location id of where the event will take place (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEventInviteApiResponse"/>&gt;</returns>
-        public async Task<IEventInviteApiResponse?> EventInviteOrDefaultAsync(decimal version, long accountId, string appKey, long listingId, Option<string> receiverAccountIds = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEventInviteApiResponse?> EventInviteOrDefaultAsync(long accountId, string appKey, long listingId, Option<string> receiverAccountIds = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await EventInviteAsync(version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId, cancellationToken).ConfigureAwait(false);
+                return await EventInviteAsync(accountId, appKey, listingId, receiverAccountIds, retailerLocationId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1883,7 +1837,6 @@ namespace Org.OpenAPITools.Api
         /// Invite to Event Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="listingId">The ID of the event listing</param>
@@ -1891,7 +1844,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId">The retailer location id of where the event will take place (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEventInviteApiResponse"/>&gt;</returns>
-        public async Task<IEventInviteApiResponse> EventInviteAsync(decimal version, long accountId, string appKey, long listingId, Option<string> receiverAccountIds = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEventInviteApiResponse> EventInviteAsync(long accountId, string appKey, long listingId, Option<string> receiverAccountIds = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1899,7 +1852,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateEventInvite(appKey, receiverAccountIds);
 
-                FormatEventInvite(ref version, ref accountId, ref appKey, ref listingId, ref receiverAccountIds, ref retailerLocationId);
+                FormatEventInvite(ref accountId, ref appKey, ref listingId, ref receiverAccountIds, ref retailerLocationId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1907,9 +1860,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/event"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/event");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/event"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/event");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1948,13 +1900,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/event", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/event", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterEventInviteDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
+                        AfterEventInviteDefaultImplementation(apiResponseLocalVar, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
 
                         Events.ExecuteOnEventInvite(apiResponseLocalVar);
 
@@ -1964,7 +1916,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorEventInviteDefaultImplementation(e, "/api/{version}/invite/event", uriBuilderLocalVar.Path, version, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
+                OnErrorEventInviteDefaultImplementation(e, "/invite/event", uriBuilderLocalVar.Path, accountId, appKey, listingId, receiverAccountIds, retailerLocationId);
                 Events.ExecuteOnErrorEventInvite(e);
                 throw;
             }
@@ -2063,7 +2015,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGameInvite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> appId, ref Option<string> appKey, ref Option<long> gameLevelId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGameInvite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> appId, ref Option<string> appKey, ref Option<long> gameLevelId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2084,7 +2036,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -2092,10 +2043,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGameInviteDefaultImplementation(IGameInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> gameLevelId, Option<double> latitude, Option<double> longitude)
+        private void AfterGameInviteDefaultImplementation(IGameInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> gameLevelId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGameInvite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
+            AfterGameInvite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2105,7 +2056,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -2113,7 +2063,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGameInvite(ref bool suppressDefaultLog, IGameInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> gameLevelId, Option<double> latitude, Option<double> longitude);
+        partial void AfterGameInvite(ref bool suppressDefaultLog, IGameInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> gameLevelId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2121,7 +2071,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -2129,10 +2078,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGameInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> gameLevelId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGameInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> gameLevelId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGameInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
+            OnErrorGameInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2144,7 +2093,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -2152,12 +2100,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGameInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> gameLevelId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGameInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> gameLevelId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Invite to Game Level Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -2167,11 +2114,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGameInviteApiResponse"/>&gt;</returns>
-        public async Task<IGameInviteApiResponse?> GameInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> gameLevelId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGameInviteApiResponse?> GameInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> gameLevelId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GameInviteAsync(version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GameInviteAsync(deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2183,7 +2130,6 @@ namespace Org.OpenAPITools.Api
         /// Invite to Game Level Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -2193,7 +2139,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGameInviteApiResponse"/>&gt;</returns>
-        public async Task<IGameInviteApiResponse> GameInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> gameLevelId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGameInviteApiResponse> GameInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> gameLevelId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2201,7 +2147,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGameInvite(deviceId, appKey);
 
-                FormatGameInvite(ref version, ref deviceId, ref accountId, ref appId, ref appKey, ref gameLevelId, ref latitude, ref longitude);
+                FormatGameInvite(ref deviceId, ref accountId, ref appId, ref appKey, ref gameLevelId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2209,9 +2155,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/gameLevel"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/gameLevel");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/gameLevel"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/gameLevel");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2261,13 +2206,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/gameLevel", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/gameLevel", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGameInviteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
+                        AfterGameInviteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
 
                         Events.ExecuteOnGameInvite(apiResponseLocalVar);
 
@@ -2277,7 +2222,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGameInviteDefaultImplementation(e, "/api/{version}/invite/gameLevel", uriBuilderLocalVar.Path, version, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
+                OnErrorGameInviteDefaultImplementation(e, "/invite/gameLevel", uriBuilderLocalVar.Path, deviceId, accountId, appId, appKey, gameLevelId, latitude, longitude);
                 Events.ExecuteOnErrorGameInvite(e);
                 throw;
             }
@@ -2376,7 +2321,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetInvite(ref decimal version, ref Option<long> accountId, ref Option<string> token, ref Option<long> albumId, ref Option<long> missionId, ref Option<long> albumContestId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<long> retailerLocationId, ref Option<string> appKey);
+        partial void FormatGetInvite(ref Option<long> accountId, ref Option<string> token, ref Option<long> albumId, ref Option<long> missionId, ref Option<long> albumContestId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<long> retailerLocationId, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -2397,7 +2342,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="token"></param>
         /// <param name="albumId"></param>
@@ -2407,10 +2351,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="appKey"></param>
-        private void AfterGetInviteDefaultImplementation(IGetInviteApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> token, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey)
+        private void AfterGetInviteDefaultImplementation(IGetInviteApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> token, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterGetInvite(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
+            AfterGetInvite(ref suppressDefaultLog, apiResponseLocalVar, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2420,7 +2364,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="token"></param>
         /// <param name="albumId"></param>
@@ -2430,7 +2373,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="appKey"></param>
-        partial void AfterGetInvite(ref bool suppressDefaultLog, IGetInviteApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> token, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey);
+        partial void AfterGetInvite(ref bool suppressDefaultLog, IGetInviteApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> token, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2438,7 +2381,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="token"></param>
         /// <param name="albumId"></param>
@@ -2448,10 +2390,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorGetInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> token, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey)
+        private void OnErrorGetInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> token, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
+            OnErrorGetInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2463,7 +2405,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="token"></param>
         /// <param name="albumId"></param>
@@ -2473,12 +2414,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorGetInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> token, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey);
+        partial void OnErrorGetInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> token, Option<long> albumId, Option<long> missionId, Option<long> albumContestId, Option<long> offerId, Option<long> offerLocationId, Option<long> retailerLocationId, Option<string> appKey);
 
         /// <summary>
         /// Get Invite This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Account ID of the user if they are logged in (optional)</param>
         /// <param name="token">the invite token (optional)</param>
         /// <param name="albumId">album id to match the invite against (if applicable) (optional)</param>
@@ -2490,11 +2430,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetInviteApiResponse"/>&gt;</returns>
-        public async Task<IGetInviteApiResponse?> GetInviteOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> token = default, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetInviteApiResponse?> GetInviteOrDefaultAsync(Option<long> accountId = default, Option<string> token = default, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetInviteAsync(version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, cancellationToken).ConfigureAwait(false);
+                return await GetInviteAsync(accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2506,7 +2446,6 @@ namespace Org.OpenAPITools.Api
         /// Get Invite This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Account ID of the user if they are logged in (optional)</param>
         /// <param name="token">the invite token (optional)</param>
         /// <param name="albumId">album id to match the invite against (if applicable) (optional)</param>
@@ -2518,7 +2457,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetInviteApiResponse"/>&gt;</returns>
-        public async Task<IGetInviteApiResponse> GetInviteAsync(decimal version, Option<long> accountId = default, Option<string> token = default, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetInviteApiResponse> GetInviteAsync(Option<long> accountId = default, Option<string> token = default, Option<long> albumId = default, Option<long> missionId = default, Option<long> albumContestId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<long> retailerLocationId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2526,7 +2465,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetInvite(token, appKey);
 
-                FormatGetInvite(ref version, ref accountId, ref token, ref albumId, ref missionId, ref albumContestId, ref offerId, ref offerLocationId, ref retailerLocationId, ref appKey);
+                FormatGetInvite(ref accountId, ref token, ref albumId, ref missionId, ref albumContestId, ref offerId, ref offerLocationId, ref retailerLocationId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2534,9 +2473,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2592,13 +2530,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetInviteDefaultImplementation(apiResponseLocalVar, version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
+                        AfterGetInviteDefaultImplementation(apiResponseLocalVar, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
 
                         Events.ExecuteOnGetInvite(apiResponseLocalVar);
 
@@ -2608,7 +2546,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetInviteDefaultImplementation(e, "/api/{version}/invite/get", uriBuilderLocalVar.Path, version, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
+                OnErrorGetInviteDefaultImplementation(e, "/invite/get", uriBuilderLocalVar.Path, accountId, token, albumId, missionId, albumContestId, offerId, offerLocationId, retailerLocationId, appKey);
                 Events.ExecuteOnErrorGetInvite(e);
                 throw;
             }
@@ -2707,7 +2645,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMissionInvite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> appId, ref Option<string> appKey, ref Option<long> missionId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatMissionInvite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> appId, ref Option<string> appKey, ref Option<long> missionId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2728,7 +2666,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -2736,10 +2673,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterMissionInviteDefaultImplementation(IMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> missionId, Option<double> latitude, Option<double> longitude)
+        private void AfterMissionInviteDefaultImplementation(IMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> missionId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
+            AfterMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2749,7 +2686,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -2757,7 +2693,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterMissionInvite(ref bool suppressDefaultLog, IMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> missionId, Option<double> latitude, Option<double> longitude);
+        partial void AfterMissionInvite(ref bool suppressDefaultLog, IMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> missionId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2765,7 +2701,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -2773,10 +2708,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> missionId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> missionId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
+            OnErrorMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2788,7 +2723,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appId"></param>
@@ -2796,12 +2730,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> missionId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> appId, Option<string> appKey, Option<long> missionId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Invite to Mission Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -2811,11 +2744,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<IMissionInviteApiResponse?> MissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> missionId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMissionInviteApiResponse?> MissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> missionId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await MissionInviteAsync(version, deviceId, accountId, appId, appKey, missionId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await MissionInviteAsync(deviceId, accountId, appId, appKey, missionId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2827,7 +2760,6 @@ namespace Org.OpenAPITools.Api
         /// Invite to Mission Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appId">This parameter is deprecated. (optional)</param>
@@ -2837,7 +2769,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<IMissionInviteApiResponse> MissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> missionId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMissionInviteApiResponse> MissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> appId = default, Option<string> appKey = default, Option<long> missionId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2845,7 +2777,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateMissionInvite(deviceId, appKey);
 
-                FormatMissionInvite(ref version, ref deviceId, ref accountId, ref appId, ref appKey, ref missionId, ref latitude, ref longitude);
+                FormatMissionInvite(ref deviceId, ref accountId, ref appId, ref appKey, ref missionId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2853,9 +2785,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/mission"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/mission");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/mission"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/mission");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2905,13 +2836,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/mission", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/mission", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterMissionInviteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
+                        AfterMissionInviteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
 
                         Events.ExecuteOnMissionInvite(apiResponseLocalVar);
 
@@ -2921,7 +2852,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorMissionInviteDefaultImplementation(e, "/api/{version}/invite/mission", uriBuilderLocalVar.Path, version, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
+                OnErrorMissionInviteDefaultImplementation(e, "/invite/mission", uriBuilderLocalVar.Path, deviceId, accountId, appId, appKey, missionId, latitude, longitude);
                 Events.ExecuteOnErrorMissionInvite(e);
                 throw;
             }
@@ -3020,7 +2951,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatOfferInvite(ref decimal version, ref long accountId, ref string appKey, ref long offerId);
+        partial void FormatOfferInvite(ref long accountId, ref string appKey, ref long offerId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3037,14 +2968,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="offerId"></param>
-        private void AfterOfferInviteDefaultImplementation(IOfferInviteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long offerId)
+        private void AfterOfferInviteDefaultImplementation(IOfferInviteApiResponse apiResponseLocalVar, long accountId, string appKey, long offerId)
         {
             bool suppressDefaultLog = false;
-            AfterOfferInvite(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, offerId);
+            AfterOfferInvite(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, offerId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3054,11 +2984,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="offerId"></param>
-        partial void AfterOfferInvite(ref bool suppressDefaultLog, IOfferInviteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long offerId);
+        partial void AfterOfferInvite(ref bool suppressDefaultLog, IOfferInviteApiResponse apiResponseLocalVar, long accountId, string appKey, long offerId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3066,14 +2995,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="offerId"></param>
-        private void OnErrorOfferInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long offerId)
+        private void OnErrorOfferInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long offerId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorOfferInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, offerId);
+            OnErrorOfferInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, offerId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3085,26 +3013,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="offerId"></param>
-        partial void OnErrorOfferInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long offerId);
+        partial void OnErrorOfferInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long offerId);
 
         /// <summary>
         /// Invite to Offer Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="offerId">the ID of the offer used to invite to favorite</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOfferInviteApiResponse"/>&gt;</returns>
-        public async Task<IOfferInviteApiResponse?> OfferInviteOrDefaultAsync(decimal version, long accountId, string appKey, long offerId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IOfferInviteApiResponse?> OfferInviteOrDefaultAsync(long accountId, string appKey, long offerId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await OfferInviteAsync(version, accountId, appKey, offerId, cancellationToken).ConfigureAwait(false);
+                return await OfferInviteAsync(accountId, appKey, offerId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3116,13 +3042,12 @@ namespace Org.OpenAPITools.Api
         /// Invite to Offer Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="offerId">the ID of the offer used to invite to favorite</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOfferInviteApiResponse"/>&gt;</returns>
-        public async Task<IOfferInviteApiResponse> OfferInviteAsync(decimal version, long accountId, string appKey, long offerId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IOfferInviteApiResponse> OfferInviteAsync(long accountId, string appKey, long offerId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3130,7 +3055,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateOfferInvite(appKey);
 
-                FormatOfferInvite(ref version, ref accountId, ref appKey, ref offerId);
+                FormatOfferInvite(ref accountId, ref appKey, ref offerId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3138,9 +3063,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/offer"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/offer");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/offer"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/offer");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3173,13 +3097,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/offer", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/offer", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterOfferInviteDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, offerId);
+                        AfterOfferInviteDefaultImplementation(apiResponseLocalVar, accountId, appKey, offerId);
 
                         Events.ExecuteOnOfferInvite(apiResponseLocalVar);
 
@@ -3189,7 +3113,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorOfferInviteDefaultImplementation(e, "/api/{version}/invite/offer", uriBuilderLocalVar.Path, version, accountId, appKey, offerId);
+                OnErrorOfferInviteDefaultImplementation(e, "/invite/offer", uriBuilderLocalVar.Path, accountId, appKey, offerId);
                 Events.ExecuteOnErrorOfferInvite(e);
                 throw;
             }
@@ -3288,7 +3212,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatOfferLocationInvite(ref decimal version, ref long accountId, ref string appKey, ref long offerLocationId);
+        partial void FormatOfferLocationInvite(ref long accountId, ref string appKey, ref long offerLocationId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3305,14 +3229,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="offerLocationId"></param>
-        private void AfterOfferLocationInviteDefaultImplementation(IOfferLocationInviteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long offerLocationId)
+        private void AfterOfferLocationInviteDefaultImplementation(IOfferLocationInviteApiResponse apiResponseLocalVar, long accountId, string appKey, long offerLocationId)
         {
             bool suppressDefaultLog = false;
-            AfterOfferLocationInvite(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, offerLocationId);
+            AfterOfferLocationInvite(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, offerLocationId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3322,11 +3245,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="offerLocationId"></param>
-        partial void AfterOfferLocationInvite(ref bool suppressDefaultLog, IOfferLocationInviteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long offerLocationId);
+        partial void AfterOfferLocationInvite(ref bool suppressDefaultLog, IOfferLocationInviteApiResponse apiResponseLocalVar, long accountId, string appKey, long offerLocationId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3334,14 +3256,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="offerLocationId"></param>
-        private void OnErrorOfferLocationInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long offerLocationId)
+        private void OnErrorOfferLocationInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long offerLocationId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorOfferLocationInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, offerLocationId);
+            OnErrorOfferLocationInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, offerLocationId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3353,26 +3274,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="offerLocationId"></param>
-        partial void OnErrorOfferLocationInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long offerLocationId);
+        partial void OnErrorOfferLocationInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long offerLocationId);
 
         /// <summary>
         /// Invite to Offer Location Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="offerLocationId">the id of the offer location to share</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOfferLocationInviteApiResponse"/>&gt;</returns>
-        public async Task<IOfferLocationInviteApiResponse?> OfferLocationInviteOrDefaultAsync(decimal version, long accountId, string appKey, long offerLocationId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IOfferLocationInviteApiResponse?> OfferLocationInviteOrDefaultAsync(long accountId, string appKey, long offerLocationId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await OfferLocationInviteAsync(version, accountId, appKey, offerLocationId, cancellationToken).ConfigureAwait(false);
+                return await OfferLocationInviteAsync(accountId, appKey, offerLocationId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3384,13 +3303,12 @@ namespace Org.OpenAPITools.Api
         /// Invite to Offer Location Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="offerLocationId">the id of the offer location to share</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOfferLocationInviteApiResponse"/>&gt;</returns>
-        public async Task<IOfferLocationInviteApiResponse> OfferLocationInviteAsync(decimal version, long accountId, string appKey, long offerLocationId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IOfferLocationInviteApiResponse> OfferLocationInviteAsync(long accountId, string appKey, long offerLocationId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3398,7 +3316,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateOfferLocationInvite(appKey);
 
-                FormatOfferLocationInvite(ref version, ref accountId, ref appKey, ref offerLocationId);
+                FormatOfferLocationInvite(ref accountId, ref appKey, ref offerLocationId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3406,9 +3324,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/offerLocation"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/offerLocation");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/offerLocation"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/offerLocation");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3441,13 +3358,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/offerLocation", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/offerLocation", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterOfferLocationInviteDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, offerLocationId);
+                        AfterOfferLocationInviteDefaultImplementation(apiResponseLocalVar, accountId, appKey, offerLocationId);
 
                         Events.ExecuteOnOfferLocationInvite(apiResponseLocalVar);
 
@@ -3457,7 +3374,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorOfferLocationInviteDefaultImplementation(e, "/api/{version}/invite/offerLocation", uriBuilderLocalVar.Path, version, accountId, appKey, offerLocationId);
+                OnErrorOfferLocationInviteDefaultImplementation(e, "/invite/offerLocation", uriBuilderLocalVar.Path, accountId, appKey, offerLocationId);
                 Events.ExecuteOnErrorOfferLocationInvite(e);
                 throw;
             }
@@ -3556,7 +3473,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRetailerLocationInvite(ref decimal version, ref long accountId, ref string appKey, ref long retailerLocationId, ref Option<long> albumId);
+        partial void FormatRetailerLocationInvite(ref long accountId, ref string appKey, ref long retailerLocationId, ref Option<long> albumId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3573,15 +3490,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="albumId"></param>
-        private void AfterRetailerLocationInviteDefaultImplementation(IRetailerLocationInviteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long retailerLocationId, Option<long> albumId)
+        private void AfterRetailerLocationInviteDefaultImplementation(IRetailerLocationInviteApiResponse apiResponseLocalVar, long accountId, string appKey, long retailerLocationId, Option<long> albumId)
         {
             bool suppressDefaultLog = false;
-            AfterRetailerLocationInvite(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, retailerLocationId, albumId);
+            AfterRetailerLocationInvite(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, retailerLocationId, albumId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3591,12 +3507,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="albumId"></param>
-        partial void AfterRetailerLocationInvite(ref bool suppressDefaultLog, IRetailerLocationInviteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long retailerLocationId, Option<long> albumId);
+        partial void AfterRetailerLocationInvite(ref bool suppressDefaultLog, IRetailerLocationInviteApiResponse apiResponseLocalVar, long accountId, string appKey, long retailerLocationId, Option<long> albumId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3604,15 +3519,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="albumId"></param>
-        private void OnErrorRetailerLocationInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long retailerLocationId, Option<long> albumId)
+        private void OnErrorRetailerLocationInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long retailerLocationId, Option<long> albumId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRetailerLocationInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, retailerLocationId, albumId);
+            OnErrorRetailerLocationInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, retailerLocationId, albumId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3624,28 +3538,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="albumId"></param>
-        partial void OnErrorRetailerLocationInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long retailerLocationId, Option<long> albumId);
+        partial void OnErrorRetailerLocationInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long retailerLocationId, Option<long> albumId);
 
         /// <summary>
         /// Invite to Retailer Location Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="retailerLocationId">The retailer location id of where the event will take place</param>
         /// <param name="albumId">Optional album id to link with the invite (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRetailerLocationInviteApiResponse"/>&gt;</returns>
-        public async Task<IRetailerLocationInviteApiResponse?> RetailerLocationInviteOrDefaultAsync(decimal version, long accountId, string appKey, long retailerLocationId, Option<long> albumId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRetailerLocationInviteApiResponse?> RetailerLocationInviteOrDefaultAsync(long accountId, string appKey, long retailerLocationId, Option<long> albumId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RetailerLocationInviteAsync(version, accountId, appKey, retailerLocationId, albumId, cancellationToken).ConfigureAwait(false);
+                return await RetailerLocationInviteAsync(accountId, appKey, retailerLocationId, albumId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3657,14 +3569,13 @@ namespace Org.OpenAPITools.Api
         /// Invite to Retailer Location Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user making the share</param>
         /// <param name="appKey">the application key</param>
         /// <param name="retailerLocationId">The retailer location id of where the event will take place</param>
         /// <param name="albumId">Optional album id to link with the invite (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRetailerLocationInviteApiResponse"/>&gt;</returns>
-        public async Task<IRetailerLocationInviteApiResponse> RetailerLocationInviteAsync(decimal version, long accountId, string appKey, long retailerLocationId, Option<long> albumId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRetailerLocationInviteApiResponse> RetailerLocationInviteAsync(long accountId, string appKey, long retailerLocationId, Option<long> albumId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3672,7 +3583,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRetailerLocationInvite(appKey);
 
-                FormatRetailerLocationInvite(ref version, ref accountId, ref appKey, ref retailerLocationId, ref albumId);
+                FormatRetailerLocationInvite(ref accountId, ref appKey, ref retailerLocationId, ref albumId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3680,9 +3591,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/invite/retailerLocation"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/invite/retailerLocation");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/invite/retailerLocation"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/invite/retailerLocation");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3718,13 +3628,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/invite/retailerLocation", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/invite/retailerLocation", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRetailerLocationInviteDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, retailerLocationId, albumId);
+                        AfterRetailerLocationInviteDefaultImplementation(apiResponseLocalVar, accountId, appKey, retailerLocationId, albumId);
 
                         Events.ExecuteOnRetailerLocationInvite(apiResponseLocalVar);
 
@@ -3734,7 +3644,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRetailerLocationInviteDefaultImplementation(e, "/api/{version}/invite/retailerLocation", uriBuilderLocalVar.Path, version, accountId, appKey, retailerLocationId, albumId);
+                OnErrorRetailerLocationInviteDefaultImplementation(e, "/invite/retailerLocation", uriBuilderLocalVar.Path, accountId, appKey, retailerLocationId, albumId);
                 Events.ExecuteOnErrorRetailerLocationInvite(e);
                 throw;
             }

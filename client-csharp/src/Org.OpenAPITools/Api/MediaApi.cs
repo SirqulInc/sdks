@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a media offering.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="title">The title (255 char limit)</param>
         /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -105,7 +104,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary">ability to assign when the media expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMediaApiResponse"/>&gt;</returns>
-        Task<ICreateMediaApiResponse> CreateMediaAsync(decimal version, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> parentalRating = default, Option<long> availabilityDate = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateMediaApiResponse> CreateMediaAsync(long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> parentalRating = default, Option<long> availabilityDate = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Media
@@ -113,7 +112,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a media offering.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="title">The title (255 char limit)</param>
         /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -173,7 +171,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary">ability to assign when the media expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMediaApiResponse"/>?&gt;</returns>
-        Task<ICreateMediaApiResponse?> CreateMediaOrDefaultAsync(decimal version, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> parentalRating = default, Option<long> availabilityDate = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateMediaApiResponse?> CreateMediaOrDefaultAsync(long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> parentalRating = default, Option<long> availabilityDate = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Media
@@ -182,12 +180,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a media offering that the user has permissions to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="mediaId">the ID of the media to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMediaApiResponse"/>&gt;</returns>
-        Task<IDeleteMediaApiResponse> DeleteMediaAsync(decimal version, long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteMediaApiResponse> DeleteMediaAsync(long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Media
@@ -195,12 +192,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a media offering that the user has permissions to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="mediaId">the ID of the media to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMediaApiResponse"/>?&gt;</returns>
-        Task<IDeleteMediaApiResponse?> DeleteMediaOrDefaultAsync(decimal version, long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteMediaApiResponse?> DeleteMediaOrDefaultAsync(long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Media Get
@@ -209,12 +205,11 @@ namespace Org.OpenAPITools.Api
         /// Get a media offering.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="mediaId">the id of the media to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMediaApiResponse"/>&gt;</returns>
-        Task<IGetMediaApiResponse> GetMediaAsync(decimal version, long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMediaApiResponse> GetMediaAsync(long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Media Get
@@ -222,12 +217,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a media offering.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="mediaId">the id of the media to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMediaApiResponse"/>?&gt;</returns>
-        Task<IGetMediaApiResponse?> GetMediaOrDefaultAsync(decimal version, long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMediaApiResponse?> GetMediaOrDefaultAsync(long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Media
@@ -236,7 +230,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on events that the account has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="activeOnly">Return only active results</param>
         /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE</param>
@@ -248,7 +241,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMediaApiResponse"/>&gt;</returns>
-        Task<ISearchMediaApiResponse> SearchMediaAsync(decimal version, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMediaApiResponse> SearchMediaAsync(long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Media
@@ -256,7 +249,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on events that the account has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="activeOnly">Return only active results</param>
         /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE</param>
@@ -268,7 +260,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMediaApiResponse"/>?&gt;</returns>
-        Task<ISearchMediaApiResponse?> SearchMediaOrDefaultAsync(decimal version, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMediaApiResponse?> SearchMediaOrDefaultAsync(long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Media
@@ -277,7 +269,6 @@ namespace Org.OpenAPITools.Api
         /// Update a media offering.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)</param>
         /// <param name="mediaId"></param>
         /// <param name="retailerLocationIds">Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)</param>
@@ -339,7 +330,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMediaApiResponse"/>&gt;</returns>
-        Task<IUpdateMediaApiResponse> UpdateMediaAsync(decimal version, long accountId, long mediaId, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<long> availabilityDate = default, Option<string> parentalRating = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateMediaApiResponse> UpdateMediaAsync(long accountId, long mediaId, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<long> availabilityDate = default, Option<string> parentalRating = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Media
@@ -347,7 +338,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a media offering.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)</param>
         /// <param name="mediaId"></param>
         /// <param name="retailerLocationIds">Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)</param>
@@ -409,7 +399,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMediaApiResponse"/>?&gt;</returns>
-        Task<IUpdateMediaApiResponse?> UpdateMediaOrDefaultAsync(decimal version, long accountId, long mediaId, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<long> availabilityDate = default, Option<string> parentalRating = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateMediaApiResponse?> UpdateMediaOrDefaultAsync(long accountId, long mediaId, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<long> availabilityDate = default, Option<string> parentalRating = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -625,7 +615,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateMedia(ref decimal version, ref long accountId, ref string title, ref string barcodeType, ref bool noExpiration, ref int availableLimit, ref int availableLimitPerUser, ref int addedLimit, ref int viewLimit, ref int maxPrints, ref long ticketPrice, ref double fullPrice, ref double discountPrice, ref string specialOfferType, ref string offerVisibility, ref bool active, ref Option<string> retailerLocationIds, ref Option<string> subTitle, ref Option<string> details, ref Option<string> subDetails, ref Option<string> finePrint, ref Option<string> barcodeEntry, ref Option<string> externalRedeemOptions, ref Option<string> externalUrl, ref Option<string> ticketsRewardType, ref Option<long> ticketsReward, ref Option<long> activated, ref Option<long> expires, ref Option<string> ticketPriceType, ref Option<bool> showRemaining, ref Option<bool> showRedeemed, ref Option<bool> replaced, ref Option<bool> featured, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<long> barcodeAssetId, ref Option<long> imageAssetId, ref Option<long> imageAssetId1, ref Option<long> imageAssetId2, ref Option<long> imageAssetId3, ref Option<long> imageAssetId4, ref Option<long> imageAssetId5, ref Option<string> publisher, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> conditionType, ref Option<string> isbn, ref Option<string> asin, ref Option<string> catalogNumbers, ref Option<string> parentalRating, ref Option<long> availabilityDate, ref Option<string> mediaType, ref Option<int> duration, ref Option<string> author, ref Option<long> releaseDate, ref Option<string> collectionIds, ref Option<string> availability, ref Option<string> availabilitySummary);
+        partial void FormatCreateMedia(ref long accountId, ref string title, ref string barcodeType, ref bool noExpiration, ref int availableLimit, ref int availableLimitPerUser, ref int addedLimit, ref int viewLimit, ref int maxPrints, ref long ticketPrice, ref double fullPrice, ref double discountPrice, ref string specialOfferType, ref string offerVisibility, ref bool active, ref Option<string> retailerLocationIds, ref Option<string> subTitle, ref Option<string> details, ref Option<string> subDetails, ref Option<string> finePrint, ref Option<string> barcodeEntry, ref Option<string> externalRedeemOptions, ref Option<string> externalUrl, ref Option<string> ticketsRewardType, ref Option<long> ticketsReward, ref Option<long> activated, ref Option<long> expires, ref Option<string> ticketPriceType, ref Option<bool> showRemaining, ref Option<bool> showRedeemed, ref Option<bool> replaced, ref Option<bool> featured, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<long> barcodeAssetId, ref Option<long> imageAssetId, ref Option<long> imageAssetId1, ref Option<long> imageAssetId2, ref Option<long> imageAssetId3, ref Option<long> imageAssetId4, ref Option<long> imageAssetId5, ref Option<string> publisher, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> conditionType, ref Option<string> isbn, ref Option<string> asin, ref Option<string> catalogNumbers, ref Option<string> parentalRating, ref Option<long> availabilityDate, ref Option<string> mediaType, ref Option<int> duration, ref Option<string> author, ref Option<long> releaseDate, ref Option<string> collectionIds, ref Option<string> availability, ref Option<string> availabilitySummary);
 
         /// <summary>
         /// Validates the request parameters
@@ -746,7 +736,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="barcodeType"></param>
@@ -804,10 +793,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="collectionIds"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void AfterCreateMediaDefaultImplementation(ICreateMediaApiResponse apiResponseLocalVar, decimal version, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> parentalRating, Option<long> availabilityDate, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary)
+        private void AfterCreateMediaDefaultImplementation(ICreateMediaApiResponse apiResponseLocalVar, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> parentalRating, Option<long> availabilityDate, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLog = false;
-            AfterCreateMedia(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+            AfterCreateMedia(ref suppressDefaultLog, apiResponseLocalVar, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -817,7 +806,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="barcodeType"></param>
@@ -875,7 +863,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="collectionIds"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void AfterCreateMedia(ref bool suppressDefaultLog, ICreateMediaApiResponse apiResponseLocalVar, decimal version, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> parentalRating, Option<long> availabilityDate, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary);
+        partial void AfterCreateMedia(ref bool suppressDefaultLog, ICreateMediaApiResponse apiResponseLocalVar, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> parentalRating, Option<long> availabilityDate, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -883,7 +871,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="barcodeType"></param>
@@ -941,10 +928,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="collectionIds"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void OnErrorCreateMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> parentalRating, Option<long> availabilityDate, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary)
+        private void OnErrorCreateMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> parentalRating, Option<long> availabilityDate, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+            OnErrorCreateMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -956,7 +943,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="barcodeType"></param>
@@ -1014,12 +1000,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="collectionIds"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void OnErrorCreateMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> parentalRating, Option<long> availabilityDate, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary);
+        partial void OnErrorCreateMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> parentalRating, Option<long> availabilityDate, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Create Media Create a media offering.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="title">The title (255 char limit)</param>
         /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -1079,11 +1064,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary">ability to assign when the media expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMediaApiResponse"/>&gt;</returns>
-        public async Task<ICreateMediaApiResponse?> CreateMediaOrDefaultAsync(decimal version, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> parentalRating = default, Option<long> availabilityDate = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateMediaApiResponse?> CreateMediaOrDefaultAsync(long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> parentalRating = default, Option<long> availabilityDate = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateMediaAsync(version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
+                return await CreateMediaAsync(accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1095,7 +1080,6 @@ namespace Org.OpenAPITools.Api
         /// Create Media Create a media offering.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="title">The title (255 char limit)</param>
         /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -1155,7 +1139,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary">ability to assign when the media expires (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMediaApiResponse"/>&gt;</returns>
-        public async Task<ICreateMediaApiResponse> CreateMediaAsync(decimal version, long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> parentalRating = default, Option<long> availabilityDate = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateMediaApiResponse> CreateMediaAsync(long accountId, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string specialOfferType, string offerVisibility, bool active, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> parentalRating = default, Option<long> availabilityDate = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1163,7 +1147,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateMedia(title, barcodeType, specialOfferType, offerVisibility, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketPriceType, categoryIds, filterIds, publisher, conditionType, isbn, asin, catalogNumbers, parentalRating, mediaType, author, collectionIds, availability, availabilitySummary);
 
-                FormatCreateMedia(ref version, ref accountId, ref title, ref barcodeType, ref noExpiration, ref availableLimit, ref availableLimitPerUser, ref addedLimit, ref viewLimit, ref maxPrints, ref ticketPrice, ref fullPrice, ref discountPrice, ref specialOfferType, ref offerVisibility, ref active, ref retailerLocationIds, ref subTitle, ref details, ref subDetails, ref finePrint, ref barcodeEntry, ref externalRedeemOptions, ref externalUrl, ref ticketsRewardType, ref ticketsReward, ref activated, ref expires, ref ticketPriceType, ref showRemaining, ref showRedeemed, ref replaced, ref featured, ref categoryIds, ref filterIds, ref barcodeAssetId, ref imageAssetId, ref imageAssetId1, ref imageAssetId2, ref imageAssetId3, ref imageAssetId4, ref imageAssetId5, ref publisher, ref redeemableStart, ref redeemableEnd, ref conditionType, ref isbn, ref asin, ref catalogNumbers, ref parentalRating, ref availabilityDate, ref mediaType, ref duration, ref author, ref releaseDate, ref collectionIds, ref availability, ref availabilitySummary);
+                FormatCreateMedia(ref accountId, ref title, ref barcodeType, ref noExpiration, ref availableLimit, ref availableLimitPerUser, ref addedLimit, ref viewLimit, ref maxPrints, ref ticketPrice, ref fullPrice, ref discountPrice, ref specialOfferType, ref offerVisibility, ref active, ref retailerLocationIds, ref subTitle, ref details, ref subDetails, ref finePrint, ref barcodeEntry, ref externalRedeemOptions, ref externalUrl, ref ticketsRewardType, ref ticketsReward, ref activated, ref expires, ref ticketPriceType, ref showRemaining, ref showRedeemed, ref replaced, ref featured, ref categoryIds, ref filterIds, ref barcodeAssetId, ref imageAssetId, ref imageAssetId1, ref imageAssetId2, ref imageAssetId3, ref imageAssetId4, ref imageAssetId5, ref publisher, ref redeemableStart, ref redeemableEnd, ref conditionType, ref isbn, ref asin, ref catalogNumbers, ref parentalRating, ref availabilityDate, ref mediaType, ref duration, ref author, ref releaseDate, ref collectionIds, ref availability, ref availabilitySummary);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1171,9 +1155,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/media/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/media/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/media/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/media/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1344,13 +1327,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/media/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/media/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateMediaDefaultImplementation(apiResponseLocalVar, version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+                        AfterCreateMediaDefaultImplementation(apiResponseLocalVar, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
 
                         Events.ExecuteOnCreateMedia(apiResponseLocalVar);
 
@@ -1360,7 +1343,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateMediaDefaultImplementation(e, "/api/{version}/media/create", uriBuilderLocalVar.Path, version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+                OnErrorCreateMediaDefaultImplementation(e, "/media/create", uriBuilderLocalVar.Path, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, retailerLocationIds, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, parentalRating, availabilityDate, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
                 Events.ExecuteOnErrorCreateMedia(e);
                 throw;
             }
@@ -1459,19 +1442,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteMedia(ref decimal version, ref long accountId, ref long mediaId);
+        partial void FormatDeleteMedia(ref long accountId, ref long mediaId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
-        private void AfterDeleteMediaDefaultImplementation(IDeleteMediaApiResponse apiResponseLocalVar, decimal version, long accountId, long mediaId)
+        private void AfterDeleteMediaDefaultImplementation(IDeleteMediaApiResponse apiResponseLocalVar, long accountId, long mediaId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteMedia(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, mediaId);
+            AfterDeleteMedia(ref suppressDefaultLog, apiResponseLocalVar, accountId, mediaId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1481,10 +1463,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
-        partial void AfterDeleteMedia(ref bool suppressDefaultLog, IDeleteMediaApiResponse apiResponseLocalVar, decimal version, long accountId, long mediaId);
+        partial void AfterDeleteMedia(ref bool suppressDefaultLog, IDeleteMediaApiResponse apiResponseLocalVar, long accountId, long mediaId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1492,13 +1473,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
-        private void OnErrorDeleteMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long mediaId)
+        private void OnErrorDeleteMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long mediaId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, mediaId);
+            OnErrorDeleteMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, mediaId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1510,24 +1490,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
-        partial void OnErrorDeleteMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long mediaId);
+        partial void OnErrorDeleteMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long mediaId);
 
         /// <summary>
         /// Delete Media Delete a media offering that the user has permissions to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="mediaId">the ID of the media to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMediaApiResponse"/>&gt;</returns>
-        public async Task<IDeleteMediaApiResponse?> DeleteMediaOrDefaultAsync(decimal version, long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteMediaApiResponse?> DeleteMediaOrDefaultAsync(long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteMediaAsync(version, accountId, mediaId, cancellationToken).ConfigureAwait(false);
+                return await DeleteMediaAsync(accountId, mediaId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1539,18 +1517,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Media Delete a media offering that the user has permissions to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="mediaId">the ID of the media to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMediaApiResponse"/>&gt;</returns>
-        public async Task<IDeleteMediaApiResponse> DeleteMediaAsync(decimal version, long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteMediaApiResponse> DeleteMediaAsync(long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteMedia(ref version, ref accountId, ref mediaId);
+                FormatDeleteMedia(ref accountId, ref mediaId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1558,9 +1535,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/media/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/media/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/media/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/media/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1592,13 +1568,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/media/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/media/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteMediaDefaultImplementation(apiResponseLocalVar, version, accountId, mediaId);
+                        AfterDeleteMediaDefaultImplementation(apiResponseLocalVar, accountId, mediaId);
 
                         Events.ExecuteOnDeleteMedia(apiResponseLocalVar);
 
@@ -1608,7 +1584,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteMediaDefaultImplementation(e, "/api/{version}/media/delete", uriBuilderLocalVar.Path, version, accountId, mediaId);
+                OnErrorDeleteMediaDefaultImplementation(e, "/media/delete", uriBuilderLocalVar.Path, accountId, mediaId);
                 Events.ExecuteOnErrorDeleteMedia(e);
                 throw;
             }
@@ -1707,19 +1683,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetMedia(ref decimal version, ref long accountId, ref long mediaId);
+        partial void FormatGetMedia(ref long accountId, ref long mediaId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
-        private void AfterGetMediaDefaultImplementation(IGetMediaApiResponse apiResponseLocalVar, decimal version, long accountId, long mediaId)
+        private void AfterGetMediaDefaultImplementation(IGetMediaApiResponse apiResponseLocalVar, long accountId, long mediaId)
         {
             bool suppressDefaultLog = false;
-            AfterGetMedia(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, mediaId);
+            AfterGetMedia(ref suppressDefaultLog, apiResponseLocalVar, accountId, mediaId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1729,10 +1704,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
-        partial void AfterGetMedia(ref bool suppressDefaultLog, IGetMediaApiResponse apiResponseLocalVar, decimal version, long accountId, long mediaId);
+        partial void AfterGetMedia(ref bool suppressDefaultLog, IGetMediaApiResponse apiResponseLocalVar, long accountId, long mediaId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1740,13 +1714,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
-        private void OnErrorGetMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long mediaId)
+        private void OnErrorGetMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long mediaId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, mediaId);
+            OnErrorGetMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, mediaId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1758,24 +1731,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
-        partial void OnErrorGetMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long mediaId);
+        partial void OnErrorGetMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long mediaId);
 
         /// <summary>
         /// Media Get Get a media offering.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="mediaId">the id of the media to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMediaApiResponse"/>&gt;</returns>
-        public async Task<IGetMediaApiResponse?> GetMediaOrDefaultAsync(decimal version, long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMediaApiResponse?> GetMediaOrDefaultAsync(long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetMediaAsync(version, accountId, mediaId, cancellationToken).ConfigureAwait(false);
+                return await GetMediaAsync(accountId, mediaId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1787,18 +1758,17 @@ namespace Org.OpenAPITools.Api
         /// Media Get Get a media offering.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="mediaId">the id of the media to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMediaApiResponse"/>&gt;</returns>
-        public async Task<IGetMediaApiResponse> GetMediaAsync(decimal version, long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMediaApiResponse> GetMediaAsync(long accountId, long mediaId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetMedia(ref version, ref accountId, ref mediaId);
+                FormatGetMedia(ref accountId, ref mediaId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1806,9 +1776,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/media/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/media/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/media/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/media/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1840,13 +1809,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/media/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/media/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetMediaDefaultImplementation(apiResponseLocalVar, version, accountId, mediaId);
+                        AfterGetMediaDefaultImplementation(apiResponseLocalVar, accountId, mediaId);
 
                         Events.ExecuteOnGetMedia(apiResponseLocalVar);
 
@@ -1856,7 +1825,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetMediaDefaultImplementation(e, "/api/{version}/media/get", uriBuilderLocalVar.Path, version, accountId, mediaId);
+                OnErrorGetMediaDefaultImplementation(e, "/media/get", uriBuilderLocalVar.Path, accountId, mediaId);
                 Events.ExecuteOnErrorGetMedia(e);
                 throw;
             }
@@ -1955,7 +1924,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchMedia(ref decimal version, ref long accountId, ref bool activeOnly, ref string sortField, ref bool descending, ref Option<string> keyword, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchMedia(ref long accountId, ref bool activeOnly, ref string sortField, ref bool descending, ref Option<string> keyword, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1984,7 +1953,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="activeOnly"></param>
         /// <param name="sortField"></param>
@@ -1994,10 +1962,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterIds"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchMediaDefaultImplementation(ISearchMediaApiResponse apiResponseLocalVar, decimal version, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> start, Option<int> limit)
+        private void AfterSearchMediaDefaultImplementation(ISearchMediaApiResponse apiResponseLocalVar, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchMedia(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
+            AfterSearchMedia(ref suppressDefaultLog, apiResponseLocalVar, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2007,7 +1975,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="activeOnly"></param>
         /// <param name="sortField"></param>
@@ -2017,7 +1984,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterIds"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchMedia(ref bool suppressDefaultLog, ISearchMediaApiResponse apiResponseLocalVar, decimal version, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> start, Option<int> limit);
+        partial void AfterSearchMedia(ref bool suppressDefaultLog, ISearchMediaApiResponse apiResponseLocalVar, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2025,7 +1992,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="activeOnly"></param>
         /// <param name="sortField"></param>
@@ -2035,10 +2001,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterIds"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> start, Option<int> limit)
+        private void OnErrorSearchMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
+            OnErrorSearchMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2050,7 +2016,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="activeOnly"></param>
         /// <param name="sortField"></param>
@@ -2060,12 +2025,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterIds"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Media Searches on events that the account has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="activeOnly">Return only active results</param>
         /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE</param>
@@ -2077,11 +2041,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMediaApiResponse"/>&gt;</returns>
-        public async Task<ISearchMediaApiResponse?> SearchMediaOrDefaultAsync(decimal version, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMediaApiResponse?> SearchMediaOrDefaultAsync(long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchMediaAsync(version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchMediaAsync(accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2093,7 +2057,6 @@ namespace Org.OpenAPITools.Api
         /// Search Media Searches on events that the account has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="activeOnly">Return only active results</param>
         /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE</param>
@@ -2105,7 +2068,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMediaApiResponse"/>&gt;</returns>
-        public async Task<ISearchMediaApiResponse> SearchMediaAsync(decimal version, long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMediaApiResponse> SearchMediaAsync(long accountId, bool activeOnly, string sortField, bool descending, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2113,7 +2076,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchMedia(sortField, keyword, categoryIds, filterIds);
 
-                FormatSearchMedia(ref version, ref accountId, ref activeOnly, ref sortField, ref descending, ref keyword, ref categoryIds, ref filterIds, ref start, ref limit);
+                FormatSearchMedia(ref accountId, ref activeOnly, ref sortField, ref descending, ref keyword, ref categoryIds, ref filterIds, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2121,9 +2084,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/media/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/media/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/media/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/media/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2172,13 +2134,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/media/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/media/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchMediaDefaultImplementation(apiResponseLocalVar, version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
+                        AfterSearchMediaDefaultImplementation(apiResponseLocalVar, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
 
                         Events.ExecuteOnSearchMedia(apiResponseLocalVar);
 
@@ -2188,7 +2150,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchMediaDefaultImplementation(e, "/api/{version}/media/search", uriBuilderLocalVar.Path, version, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
+                OnErrorSearchMediaDefaultImplementation(e, "/media/search", uriBuilderLocalVar.Path, accountId, activeOnly, sortField, descending, keyword, categoryIds, filterIds, start, limit);
                 Events.ExecuteOnErrorSearchMedia(e);
                 throw;
             }
@@ -2287,7 +2249,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateMedia(ref decimal version, ref long accountId, ref long mediaId, ref Option<string> retailerLocationIds, ref Option<string> offerLocations, ref Option<string> title, ref Option<string> subTitle, ref Option<string> details, ref Option<string> subDetails, ref Option<string> finePrint, ref Option<string> barcodeType, ref Option<string> barcodeEntry, ref Option<string> externalRedeemOptions, ref Option<string> externalUrl, ref Option<string> ticketsRewardType, ref Option<long> ticketsReward, ref Option<long> activated, ref Option<long> expires, ref Option<bool> noExpiration, ref Option<int> availableLimit, ref Option<int> availableLimitPerUser, ref Option<int> addedLimit, ref Option<int> viewLimit, ref Option<int> maxPrints, ref Option<string> ticketPriceType, ref Option<long> ticketPrice, ref Option<double> fullPrice, ref Option<double> discountPrice, ref Option<bool> showRemaining, ref Option<bool> showRedeemed, ref Option<bool> replaced, ref Option<bool> featured, ref Option<string> specialOfferType, ref Option<string> offerVisibility, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> active, ref Option<long> barcodeAssetId, ref Option<long> imageAssetId, ref Option<long> imageAssetId1, ref Option<long> imageAssetId2, ref Option<long> imageAssetId3, ref Option<long> imageAssetId4, ref Option<long> imageAssetId5, ref Option<string> publisher, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> conditionType, ref Option<string> isbn, ref Option<string> asin, ref Option<string> catalogNumbers, ref Option<long> availabilityDate, ref Option<string> parentalRating, ref Option<string> mediaType, ref Option<int> duration, ref Option<string> author, ref Option<long> releaseDate, ref Option<string> collectionIds, ref Option<string> availability, ref Option<string> availabilitySummary);
+        partial void FormatUpdateMedia(ref long accountId, ref long mediaId, ref Option<string> retailerLocationIds, ref Option<string> offerLocations, ref Option<string> title, ref Option<string> subTitle, ref Option<string> details, ref Option<string> subDetails, ref Option<string> finePrint, ref Option<string> barcodeType, ref Option<string> barcodeEntry, ref Option<string> externalRedeemOptions, ref Option<string> externalUrl, ref Option<string> ticketsRewardType, ref Option<long> ticketsReward, ref Option<long> activated, ref Option<long> expires, ref Option<bool> noExpiration, ref Option<int> availableLimit, ref Option<int> availableLimitPerUser, ref Option<int> addedLimit, ref Option<int> viewLimit, ref Option<int> maxPrints, ref Option<string> ticketPriceType, ref Option<long> ticketPrice, ref Option<double> fullPrice, ref Option<double> discountPrice, ref Option<bool> showRemaining, ref Option<bool> showRedeemed, ref Option<bool> replaced, ref Option<bool> featured, ref Option<string> specialOfferType, ref Option<string> offerVisibility, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> active, ref Option<long> barcodeAssetId, ref Option<long> imageAssetId, ref Option<long> imageAssetId1, ref Option<long> imageAssetId2, ref Option<long> imageAssetId3, ref Option<long> imageAssetId4, ref Option<long> imageAssetId5, ref Option<string> publisher, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> conditionType, ref Option<string> isbn, ref Option<string> asin, ref Option<string> catalogNumbers, ref Option<long> availabilityDate, ref Option<string> parentalRating, ref Option<string> mediaType, ref Option<int> duration, ref Option<string> author, ref Option<long> releaseDate, ref Option<string> collectionIds, ref Option<string> availability, ref Option<string> availabilitySummary);
 
         /// <summary>
         /// Validates the request parameters
@@ -2412,7 +2374,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
         /// <param name="retailerLocationIds"></param>
@@ -2472,10 +2433,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="collectionIds"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void AfterUpdateMediaDefaultImplementation(IUpdateMediaApiResponse apiResponseLocalVar, decimal version, long accountId, long mediaId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<long> availabilityDate, Option<string> parentalRating, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary)
+        private void AfterUpdateMediaDefaultImplementation(IUpdateMediaApiResponse apiResponseLocalVar, long accountId, long mediaId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<long> availabilityDate, Option<string> parentalRating, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateMedia(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+            AfterUpdateMedia(ref suppressDefaultLog, apiResponseLocalVar, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2485,7 +2446,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
         /// <param name="retailerLocationIds"></param>
@@ -2545,7 +2505,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="collectionIds"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void AfterUpdateMedia(ref bool suppressDefaultLog, IUpdateMediaApiResponse apiResponseLocalVar, decimal version, long accountId, long mediaId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<long> availabilityDate, Option<string> parentalRating, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary);
+        partial void AfterUpdateMedia(ref bool suppressDefaultLog, IUpdateMediaApiResponse apiResponseLocalVar, long accountId, long mediaId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<long> availabilityDate, Option<string> parentalRating, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2553,7 +2513,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
         /// <param name="retailerLocationIds"></param>
@@ -2613,10 +2572,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="collectionIds"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void OnErrorUpdateMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long mediaId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<long> availabilityDate, Option<string> parentalRating, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary)
+        private void OnErrorUpdateMediaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long mediaId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<long> availabilityDate, Option<string> parentalRating, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+            OnErrorUpdateMedia(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2628,7 +2587,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="mediaId"></param>
         /// <param name="retailerLocationIds"></param>
@@ -2688,12 +2646,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="collectionIds"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void OnErrorUpdateMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long mediaId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<long> availabilityDate, Option<string> parentalRating, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary);
+        partial void OnErrorUpdateMedia(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long mediaId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<long> availabilityDate, Option<string> parentalRating, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Update Media Update a media offering.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)</param>
         /// <param name="mediaId"></param>
         /// <param name="retailerLocationIds">Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)</param>
@@ -2755,11 +2712,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMediaApiResponse"/>&gt;</returns>
-        public async Task<IUpdateMediaApiResponse?> UpdateMediaOrDefaultAsync(decimal version, long accountId, long mediaId, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<long> availabilityDate = default, Option<string> parentalRating = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateMediaApiResponse?> UpdateMediaOrDefaultAsync(long accountId, long mediaId, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<long> availabilityDate = default, Option<string> parentalRating = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateMediaAsync(version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
+                return await UpdateMediaAsync(accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2771,7 +2728,6 @@ namespace Org.OpenAPITools.Api
         /// Update Media Update a media offering.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)</param>
         /// <param name="mediaId"></param>
         /// <param name="retailerLocationIds">Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)</param>
@@ -2833,7 +2789,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMediaApiResponse"/>&gt;</returns>
-        public async Task<IUpdateMediaApiResponse> UpdateMediaAsync(decimal version, long accountId, long mediaId, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<long> availabilityDate = default, Option<string> parentalRating = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateMediaApiResponse> UpdateMediaAsync(long accountId, long mediaId, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<long> availabilityDate = default, Option<string> parentalRating = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2841,7 +2797,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateMedia(retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketPriceType, specialOfferType, offerVisibility, categoryIds, filterIds, publisher, conditionType, isbn, asin, catalogNumbers, parentalRating, mediaType, author, collectionIds, availability, availabilitySummary);
 
-                FormatUpdateMedia(ref version, ref accountId, ref mediaId, ref retailerLocationIds, ref offerLocations, ref title, ref subTitle, ref details, ref subDetails, ref finePrint, ref barcodeType, ref barcodeEntry, ref externalRedeemOptions, ref externalUrl, ref ticketsRewardType, ref ticketsReward, ref activated, ref expires, ref noExpiration, ref availableLimit, ref availableLimitPerUser, ref addedLimit, ref viewLimit, ref maxPrints, ref ticketPriceType, ref ticketPrice, ref fullPrice, ref discountPrice, ref showRemaining, ref showRedeemed, ref replaced, ref featured, ref specialOfferType, ref offerVisibility, ref categoryIds, ref filterIds, ref active, ref barcodeAssetId, ref imageAssetId, ref imageAssetId1, ref imageAssetId2, ref imageAssetId3, ref imageAssetId4, ref imageAssetId5, ref publisher, ref redeemableStart, ref redeemableEnd, ref conditionType, ref isbn, ref asin, ref catalogNumbers, ref availabilityDate, ref parentalRating, ref mediaType, ref duration, ref author, ref releaseDate, ref collectionIds, ref availability, ref availabilitySummary);
+                FormatUpdateMedia(ref accountId, ref mediaId, ref retailerLocationIds, ref offerLocations, ref title, ref subTitle, ref details, ref subDetails, ref finePrint, ref barcodeType, ref barcodeEntry, ref externalRedeemOptions, ref externalUrl, ref ticketsRewardType, ref ticketsReward, ref activated, ref expires, ref noExpiration, ref availableLimit, ref availableLimitPerUser, ref addedLimit, ref viewLimit, ref maxPrints, ref ticketPriceType, ref ticketPrice, ref fullPrice, ref discountPrice, ref showRemaining, ref showRedeemed, ref replaced, ref featured, ref specialOfferType, ref offerVisibility, ref categoryIds, ref filterIds, ref active, ref barcodeAssetId, ref imageAssetId, ref imageAssetId1, ref imageAssetId2, ref imageAssetId3, ref imageAssetId4, ref imageAssetId5, ref publisher, ref redeemableStart, ref redeemableEnd, ref conditionType, ref isbn, ref asin, ref catalogNumbers, ref availabilityDate, ref parentalRating, ref mediaType, ref duration, ref author, ref releaseDate, ref collectionIds, ref availability, ref availabilitySummary);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2849,9 +2805,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/media/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/media/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/media/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/media/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3054,13 +3009,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/media/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/media/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateMediaDefaultImplementation(apiResponseLocalVar, version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+                        AfterUpdateMediaDefaultImplementation(apiResponseLocalVar, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
 
                         Events.ExecuteOnUpdateMedia(apiResponseLocalVar);
 
@@ -3070,7 +3025,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateMediaDefaultImplementation(e, "/api/{version}/media/update", uriBuilderLocalVar.Path, version, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
+                OnErrorUpdateMediaDefaultImplementation(e, "/media/update", uriBuilderLocalVar.Path, accountId, mediaId, retailerLocationIds, offerLocations, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, conditionType, isbn, asin, catalogNumbers, availabilityDate, parentalRating, mediaType, duration, author, releaseDate, collectionIds, availability, availabilitySummary);
                 Events.ExecuteOnErrorUpdateMedia(e);
                 throw;
             }

@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -60,7 +59,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="promoCode">The Promo Code (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrderApiResponse"/>&gt;</returns>
-        Task<ICreateOrderApiResponse> CreateOrderAsync(decimal version, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOrderApiResponse> CreateOrderAsync(string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Order
@@ -68,7 +67,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -83,7 +81,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="promoCode">The Promo Code (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrderApiResponse"/>?&gt;</returns>
-        Task<ICreateOrderApiResponse?> CreateOrderOrDefaultAsync(decimal version, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOrderApiResponse?> CreateOrderOrDefaultAsync(string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Order
@@ -92,13 +90,12 @@ namespace Org.OpenAPITools.Api
         /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="orderId">Order Id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOrderApiResponse"/>&gt;</returns>
-        Task<IDeleteOrderApiResponse> DeleteOrderAsync(decimal version, long orderId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOrderApiResponse> DeleteOrderAsync(long orderId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Order
@@ -106,13 +103,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="orderId">Order Id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOrderApiResponse"/>?&gt;</returns>
-        Task<IDeleteOrderApiResponse?> DeleteOrderOrDefaultAsync(decimal version, long orderId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOrderApiResponse?> DeleteOrderOrDefaultAsync(long orderId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Order
@@ -121,14 +117,13 @@ namespace Org.OpenAPITools.Api
         /// Get an order record
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="orderId">The order id to get details of, either orderId or externalOrderId must be provided (optional)</param>
         /// <param name="externalOrderId">The external order id to get details of, either orderId or externalOrderId must be provided (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOrderApiResponse"/>&gt;</returns>
-        Task<IGetOrderApiResponse> GetOrderAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> orderId = default, Option<string> externalOrderId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOrderApiResponse> GetOrderAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> orderId = default, Option<string> externalOrderId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Order
@@ -136,14 +131,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an order record
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="orderId">The order id to get details of, either orderId or externalOrderId must be provided (optional)</param>
         /// <param name="externalOrderId">The external order id to get details of, either orderId or externalOrderId must be provided (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOrderApiResponse"/>?&gt;</returns>
-        Task<IGetOrderApiResponse?> GetOrderOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> orderId = default, Option<string> externalOrderId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOrderApiResponse?> GetOrderOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> orderId = default, Option<string> externalOrderId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Preview Order
@@ -152,7 +146,6 @@ namespace Org.OpenAPITools.Api
         /// Previews a purchase to see the total cost before making it.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">A JSON list of items to purchase</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -167,7 +160,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="promoCode">The Promo Code (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPreviewOrderApiResponse"/>&gt;</returns>
-        Task<IPreviewOrderApiResponse> PreviewOrderAsync(decimal version, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPreviewOrderApiResponse> PreviewOrderAsync(string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Preview Order
@@ -175,7 +168,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Previews a purchase to see the total cost before making it.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">A JSON list of items to purchase</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -190,7 +182,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="promoCode">The Promo Code (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPreviewOrderApiResponse"/>?&gt;</returns>
-        Task<IPreviewOrderApiResponse?> PreviewOrderOrDefaultAsync(decimal version, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPreviewOrderApiResponse?> PreviewOrderOrDefaultAsync(string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Orders
@@ -199,7 +191,6 @@ namespace Org.OpenAPITools.Api
         /// Search on active orders by customer
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -233,7 +224,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endedBefore">Filter results by the offer end date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOrdersApiResponse"/>&gt;</returns>
-        Task<ISearchOrdersApiResponse> SearchOrdersAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<bool> ignoreCustomerFilter = default, Option<string> orderItemTypes = default, Option<string> orderItemIds = default, Option<string> orderCustomTypes = default, Option<string> orderCustomIds = default, Option<string> sortField = default, Option<string> offerTypes = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> offerIds = default, Option<string> offerLocationIds = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> statuses = default, Option<string> keyword = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOrdersApiResponse> SearchOrdersAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<bool> ignoreCustomerFilter = default, Option<string> orderItemTypes = default, Option<string> orderItemIds = default, Option<string> orderCustomTypes = default, Option<string> orderCustomIds = default, Option<string> sortField = default, Option<string> offerTypes = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> offerIds = default, Option<string> offerLocationIds = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> statuses = default, Option<string> keyword = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Orders
@@ -241,7 +232,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on active orders by customer
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -275,7 +265,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endedBefore">Filter results by the offer end date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOrdersApiResponse"/>?&gt;</returns>
-        Task<ISearchOrdersApiResponse?> SearchOrdersOrDefaultAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<bool> ignoreCustomerFilter = default, Option<string> orderItemTypes = default, Option<string> orderItemIds = default, Option<string> orderCustomTypes = default, Option<string> orderCustomIds = default, Option<string> sortField = default, Option<string> offerTypes = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> offerIds = default, Option<string> offerLocationIds = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> statuses = default, Option<string> keyword = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOrdersApiResponse?> SearchOrdersOrDefaultAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<bool> ignoreCustomerFilter = default, Option<string> orderItemTypes = default, Option<string> orderItemIds = default, Option<string> orderCustomTypes = default, Option<string> orderCustomIds = default, Option<string> sortField = default, Option<string> offerTypes = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> offerIds = default, Option<string> offerLocationIds = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> statuses = default, Option<string> keyword = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Order
@@ -284,7 +274,6 @@ namespace Org.OpenAPITools.Api
         /// Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="orderId">The order to add the purchase to, leave null for new order.</param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
@@ -298,7 +287,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalDate">External Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOrderApiResponse"/>&gt;</returns>
-        Task<IUpdateOrderApiResponse> UpdateOrderAsync(decimal version, long orderId, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<long> paymentTransactionId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalPaymentId = default, Option<long> externalDate = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOrderApiResponse> UpdateOrderAsync(long orderId, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<long> paymentTransactionId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalPaymentId = default, Option<long> externalDate = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Order
@@ -306,7 +295,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="orderId">The order to add the purchase to, leave null for new order.</param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
@@ -320,7 +308,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalDate">External Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOrderApiResponse"/>?&gt;</returns>
-        Task<IUpdateOrderApiResponse?> UpdateOrderOrDefaultAsync(decimal version, long orderId, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<long> paymentTransactionId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalPaymentId = default, Option<long> externalDate = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOrderApiResponse?> UpdateOrderOrDefaultAsync(long orderId, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<long> paymentTransactionId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalPaymentId = default, Option<long> externalDate = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -568,7 +556,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateOrder(ref decimal version, ref string appKey, ref string cart, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> description, ref Option<string> currencyType, ref Option<long> paymentMethodId, ref Option<string> externalOrderId, ref Option<string> externalPaymentId, ref Option<string> remoteRefType, ref Option<long> externalDate, ref Option<string> promoCode);
+        partial void FormatCreateOrder(ref string appKey, ref string cart, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> description, ref Option<string> currencyType, ref Option<long> paymentMethodId, ref Option<string> externalOrderId, ref Option<string> externalPaymentId, ref Option<string> remoteRefType, ref Option<long> externalDate, ref Option<string> promoCode);
 
         /// <summary>
         /// Validates the request parameters
@@ -617,7 +605,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
         /// <param name="deviceId"></param>
@@ -630,10 +617,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="remoteRefType"></param>
         /// <param name="externalDate"></param>
         /// <param name="promoCode"></param>
-        private void AfterCreateOrderDefaultImplementation(ICreateOrderApiResponse apiResponseLocalVar, decimal version, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode)
+        private void AfterCreateOrderDefaultImplementation(ICreateOrderApiResponse apiResponseLocalVar, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode)
         {
             bool suppressDefaultLog = false;
-            AfterCreateOrder(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+            AfterCreateOrder(ref suppressDefaultLog, apiResponseLocalVar, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -643,7 +630,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
         /// <param name="deviceId"></param>
@@ -656,7 +642,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="remoteRefType"></param>
         /// <param name="externalDate"></param>
         /// <param name="promoCode"></param>
-        partial void AfterCreateOrder(ref bool suppressDefaultLog, ICreateOrderApiResponse apiResponseLocalVar, decimal version, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode);
+        partial void AfterCreateOrder(ref bool suppressDefaultLog, ICreateOrderApiResponse apiResponseLocalVar, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -664,7 +650,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
         /// <param name="deviceId"></param>
@@ -677,10 +662,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="remoteRefType"></param>
         /// <param name="externalDate"></param>
         /// <param name="promoCode"></param>
-        private void OnErrorCreateOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode)
+        private void OnErrorCreateOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+            OnErrorCreateOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -692,7 +677,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
         /// <param name="deviceId"></param>
@@ -705,12 +689,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="remoteRefType"></param>
         /// <param name="externalDate"></param>
         /// <param name="promoCode"></param>
-        partial void OnErrorCreateOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode);
+        partial void OnErrorCreateOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode);
 
         /// <summary>
         /// Create Order Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -725,11 +708,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="promoCode">The Promo Code (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrderApiResponse"/>&gt;</returns>
-        public async Task<ICreateOrderApiResponse?> CreateOrderOrDefaultAsync(decimal version, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOrderApiResponse?> CreateOrderOrDefaultAsync(string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateOrderAsync(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, cancellationToken).ConfigureAwait(false);
+                return await CreateOrderAsync(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -741,7 +724,6 @@ namespace Org.OpenAPITools.Api
         /// Create Order Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -756,7 +738,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="promoCode">The Promo Code (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrderApiResponse"/>&gt;</returns>
-        public async Task<ICreateOrderApiResponse> CreateOrderAsync(decimal version, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOrderApiResponse> CreateOrderAsync(string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -764,7 +746,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateOrder(appKey, cart, deviceId, description, currencyType, externalOrderId, externalPaymentId, remoteRefType, promoCode);
 
-                FormatCreateOrder(ref version, ref appKey, ref cart, ref deviceId, ref accountId, ref description, ref currencyType, ref paymentMethodId, ref externalOrderId, ref externalPaymentId, ref remoteRefType, ref externalDate, ref promoCode);
+                FormatCreateOrder(ref appKey, ref cart, ref deviceId, ref accountId, ref description, ref currencyType, ref paymentMethodId, ref externalOrderId, ref externalPaymentId, ref remoteRefType, ref externalDate, ref promoCode);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -772,9 +754,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/order/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/order/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/order/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/order/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -836,13 +817,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/order/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/order/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateOrderDefaultImplementation(apiResponseLocalVar, version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+                        AfterCreateOrderDefaultImplementation(apiResponseLocalVar, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
 
                         Events.ExecuteOnCreateOrder(apiResponseLocalVar);
 
@@ -852,7 +833,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateOrderDefaultImplementation(e, "/api/{version}/order/create", uriBuilderLocalVar.Path, version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+                OnErrorCreateOrderDefaultImplementation(e, "/order/create", uriBuilderLocalVar.Path, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
                 Events.ExecuteOnErrorCreateOrder(e);
                 throw;
             }
@@ -951,7 +932,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteOrder(ref decimal version, ref long orderId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteOrder(ref long orderId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -968,14 +949,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="orderId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteOrderDefaultImplementation(IDeleteOrderApiResponse apiResponseLocalVar, decimal version, long orderId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteOrderDefaultImplementation(IDeleteOrderApiResponse apiResponseLocalVar, long orderId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteOrder(ref suppressDefaultLog, apiResponseLocalVar, version, orderId, deviceId, accountId);
+            AfterDeleteOrder(ref suppressDefaultLog, apiResponseLocalVar, orderId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -985,11 +965,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="orderId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteOrder(ref bool suppressDefaultLog, IDeleteOrderApiResponse apiResponseLocalVar, decimal version, long orderId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteOrder(ref bool suppressDefaultLog, IDeleteOrderApiResponse apiResponseLocalVar, long orderId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -997,14 +976,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="orderId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long orderId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long orderId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, orderId, deviceId, accountId);
+            OnErrorDeleteOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, orderId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1016,26 +994,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="orderId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long orderId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long orderId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Order Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="orderId">Order Id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOrderApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOrderApiResponse?> DeleteOrderOrDefaultAsync(decimal version, long orderId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOrderApiResponse?> DeleteOrderOrDefaultAsync(long orderId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteOrderAsync(version, orderId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteOrderAsync(orderId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1047,13 +1023,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Order Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="orderId">Order Id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOrderApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOrderApiResponse> DeleteOrderAsync(decimal version, long orderId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOrderApiResponse> DeleteOrderAsync(long orderId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1061,7 +1036,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteOrder(deviceId);
 
-                FormatDeleteOrder(ref version, ref orderId, ref deviceId, ref accountId);
+                FormatDeleteOrder(ref orderId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1069,9 +1044,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/order/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/order/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/order/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/order/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1108,13 +1082,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/order/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/order/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteOrderDefaultImplementation(apiResponseLocalVar, version, orderId, deviceId, accountId);
+                        AfterDeleteOrderDefaultImplementation(apiResponseLocalVar, orderId, deviceId, accountId);
 
                         Events.ExecuteOnDeleteOrder(apiResponseLocalVar);
 
@@ -1124,7 +1098,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteOrderDefaultImplementation(e, "/api/{version}/order/delete", uriBuilderLocalVar.Path, version, orderId, deviceId, accountId);
+                OnErrorDeleteOrderDefaultImplementation(e, "/order/delete", uriBuilderLocalVar.Path, orderId, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteOrder(e);
                 throw;
             }
@@ -1223,7 +1197,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOrder(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> orderId, ref Option<string> externalOrderId);
+        partial void FormatGetOrder(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> orderId, ref Option<string> externalOrderId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1244,15 +1218,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="orderId"></param>
         /// <param name="externalOrderId"></param>
-        private void AfterGetOrderDefaultImplementation(IGetOrderApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> orderId, Option<string> externalOrderId)
+        private void AfterGetOrderDefaultImplementation(IGetOrderApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> orderId, Option<string> externalOrderId)
         {
             bool suppressDefaultLog = false;
-            AfterGetOrder(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, orderId, externalOrderId);
+            AfterGetOrder(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, orderId, externalOrderId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1262,12 +1235,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="orderId"></param>
         /// <param name="externalOrderId"></param>
-        partial void AfterGetOrder(ref bool suppressDefaultLog, IGetOrderApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> orderId, Option<string> externalOrderId);
+        partial void AfterGetOrder(ref bool suppressDefaultLog, IGetOrderApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> orderId, Option<string> externalOrderId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1275,15 +1247,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="orderId"></param>
         /// <param name="externalOrderId"></param>
-        private void OnErrorGetOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> orderId, Option<string> externalOrderId)
+        private void OnErrorGetOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> orderId, Option<string> externalOrderId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, orderId, externalOrderId);
+            OnErrorGetOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, orderId, externalOrderId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1295,28 +1266,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="orderId"></param>
         /// <param name="externalOrderId"></param>
-        partial void OnErrorGetOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> orderId, Option<string> externalOrderId);
+        partial void OnErrorGetOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> orderId, Option<string> externalOrderId);
 
         /// <summary>
         /// Get Order Get an order record
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="orderId">The order id to get details of, either orderId or externalOrderId must be provided (optional)</param>
         /// <param name="externalOrderId">The external order id to get details of, either orderId or externalOrderId must be provided (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOrderApiResponse"/>&gt;</returns>
-        public async Task<IGetOrderApiResponse?> GetOrderOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> orderId = default, Option<string> externalOrderId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOrderApiResponse?> GetOrderOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> orderId = default, Option<string> externalOrderId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOrderAsync(version, deviceId, accountId, orderId, externalOrderId, cancellationToken).ConfigureAwait(false);
+                return await GetOrderAsync(deviceId, accountId, orderId, externalOrderId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1328,14 +1297,13 @@ namespace Org.OpenAPITools.Api
         /// Get Order Get an order record
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="orderId">The order id to get details of, either orderId or externalOrderId must be provided (optional)</param>
         /// <param name="externalOrderId">The external order id to get details of, either orderId or externalOrderId must be provided (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOrderApiResponse"/>&gt;</returns>
-        public async Task<IGetOrderApiResponse> GetOrderAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> orderId = default, Option<string> externalOrderId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOrderApiResponse> GetOrderAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> orderId = default, Option<string> externalOrderId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1343,7 +1311,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOrder(deviceId, externalOrderId);
 
-                FormatGetOrder(ref version, ref deviceId, ref accountId, ref orderId, ref externalOrderId);
+                FormatGetOrder(ref deviceId, ref accountId, ref orderId, ref externalOrderId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1351,9 +1319,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/order/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/order/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/order/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/order/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1394,13 +1361,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/order/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/order/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOrderDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, orderId, externalOrderId);
+                        AfterGetOrderDefaultImplementation(apiResponseLocalVar, deviceId, accountId, orderId, externalOrderId);
 
                         Events.ExecuteOnGetOrder(apiResponseLocalVar);
 
@@ -1410,7 +1377,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOrderDefaultImplementation(e, "/api/{version}/order/get", uriBuilderLocalVar.Path, version, deviceId, accountId, orderId, externalOrderId);
+                OnErrorGetOrderDefaultImplementation(e, "/order/get", uriBuilderLocalVar.Path, deviceId, accountId, orderId, externalOrderId);
                 Events.ExecuteOnErrorGetOrder(e);
                 throw;
             }
@@ -1509,7 +1476,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPreviewOrder(ref decimal version, ref string appKey, ref string cart, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> description, ref Option<string> currencyType, ref Option<long> paymentMethodId, ref Option<string> externalOrderId, ref Option<string> externalPaymentId, ref Option<string> remoteRefType, ref Option<long> externalDate, ref Option<string> promoCode);
+        partial void FormatPreviewOrder(ref string appKey, ref string cart, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> description, ref Option<string> currencyType, ref Option<long> paymentMethodId, ref Option<string> externalOrderId, ref Option<string> externalPaymentId, ref Option<string> remoteRefType, ref Option<long> externalDate, ref Option<string> promoCode);
 
         /// <summary>
         /// Validates the request parameters
@@ -1558,7 +1525,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
         /// <param name="deviceId"></param>
@@ -1571,10 +1537,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="remoteRefType"></param>
         /// <param name="externalDate"></param>
         /// <param name="promoCode"></param>
-        private void AfterPreviewOrderDefaultImplementation(IPreviewOrderApiResponse apiResponseLocalVar, decimal version, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode)
+        private void AfterPreviewOrderDefaultImplementation(IPreviewOrderApiResponse apiResponseLocalVar, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode)
         {
             bool suppressDefaultLog = false;
-            AfterPreviewOrder(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+            AfterPreviewOrder(ref suppressDefaultLog, apiResponseLocalVar, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1584,7 +1550,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
         /// <param name="deviceId"></param>
@@ -1597,7 +1562,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="remoteRefType"></param>
         /// <param name="externalDate"></param>
         /// <param name="promoCode"></param>
-        partial void AfterPreviewOrder(ref bool suppressDefaultLog, IPreviewOrderApiResponse apiResponseLocalVar, decimal version, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode);
+        partial void AfterPreviewOrder(ref bool suppressDefaultLog, IPreviewOrderApiResponse apiResponseLocalVar, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1605,7 +1570,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
         /// <param name="deviceId"></param>
@@ -1618,10 +1582,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="remoteRefType"></param>
         /// <param name="externalDate"></param>
         /// <param name="promoCode"></param>
-        private void OnErrorPreviewOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode)
+        private void OnErrorPreviewOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPreviewOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+            OnErrorPreviewOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1633,7 +1597,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
         /// <param name="deviceId"></param>
@@ -1646,12 +1609,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="remoteRefType"></param>
         /// <param name="externalDate"></param>
         /// <param name="promoCode"></param>
-        partial void OnErrorPreviewOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode);
+        partial void OnErrorPreviewOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalOrderId, Option<string> externalPaymentId, Option<string> remoteRefType, Option<long> externalDate, Option<string> promoCode);
 
         /// <summary>
         /// Preview Order Previews a purchase to see the total cost before making it.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">A JSON list of items to purchase</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -1666,11 +1628,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="promoCode">The Promo Code (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPreviewOrderApiResponse"/>&gt;</returns>
-        public async Task<IPreviewOrderApiResponse?> PreviewOrderOrDefaultAsync(decimal version, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPreviewOrderApiResponse?> PreviewOrderOrDefaultAsync(string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PreviewOrderAsync(version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, cancellationToken).ConfigureAwait(false);
+                return await PreviewOrderAsync(appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1682,7 +1644,6 @@ namespace Org.OpenAPITools.Api
         /// Preview Order Previews a purchase to see the total cost before making it.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">A JSON list of items to purchase</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -1697,7 +1658,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="promoCode">The Promo Code (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPreviewOrderApiResponse"/>&gt;</returns>
-        public async Task<IPreviewOrderApiResponse> PreviewOrderAsync(decimal version, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPreviewOrderApiResponse> PreviewOrderAsync(string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalOrderId = default, Option<string> externalPaymentId = default, Option<string> remoteRefType = default, Option<long> externalDate = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1705,7 +1666,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePreviewOrder(appKey, cart, deviceId, description, currencyType, externalOrderId, externalPaymentId, remoteRefType, promoCode);
 
-                FormatPreviewOrder(ref version, ref appKey, ref cart, ref deviceId, ref accountId, ref description, ref currencyType, ref paymentMethodId, ref externalOrderId, ref externalPaymentId, ref remoteRefType, ref externalDate, ref promoCode);
+                FormatPreviewOrder(ref appKey, ref cart, ref deviceId, ref accountId, ref description, ref currencyType, ref paymentMethodId, ref externalOrderId, ref externalPaymentId, ref remoteRefType, ref externalDate, ref promoCode);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1713,9 +1674,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/order/preview"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/order/preview");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/order/preview"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/order/preview");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1777,13 +1737,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/order/preview", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/order/preview", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPreviewOrderDefaultImplementation(apiResponseLocalVar, version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+                        AfterPreviewOrderDefaultImplementation(apiResponseLocalVar, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
 
                         Events.ExecuteOnPreviewOrder(apiResponseLocalVar);
 
@@ -1793,7 +1753,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPreviewOrderDefaultImplementation(e, "/api/{version}/order/preview", uriBuilderLocalVar.Path, version, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
+                OnErrorPreviewOrderDefaultImplementation(e, "/order/preview", uriBuilderLocalVar.Path, appKey, cart, deviceId, accountId, description, currencyType, paymentMethodId, externalOrderId, externalPaymentId, remoteRefType, externalDate, promoCode);
                 Events.ExecuteOnErrorPreviewOrder(e);
                 throw;
             }
@@ -1892,7 +1852,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchOrders(ref decimal version, ref string appKey, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> start, ref Option<int> limit, ref Option<bool> descending, ref Option<bool> activeOnly, ref Option<bool> ignoreCustomerFilter, ref Option<string> orderItemTypes, ref Option<string> orderItemIds, ref Option<string> orderCustomTypes, ref Option<string> orderCustomIds, ref Option<string> sortField, ref Option<string> offerTypes, ref Option<string> specialOfferTypes, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> offerAudienceIds, ref Option<string> transactionAudienceIds, ref Option<string> offerIds, ref Option<string> offerLocationIds, ref Option<string> retailerIds, ref Option<string> retailerLocationIds, ref Option<string> statuses, ref Option<string> keyword, ref Option<long> redeemableStartDate, ref Option<long> redeemableEndDate, ref Option<long> startedSince, ref Option<long> startedBefore, ref Option<long> endedSince, ref Option<long> endedBefore);
+        partial void FormatSearchOrders(ref string appKey, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> start, ref Option<int> limit, ref Option<bool> descending, ref Option<bool> activeOnly, ref Option<bool> ignoreCustomerFilter, ref Option<string> orderItemTypes, ref Option<string> orderItemIds, ref Option<string> orderCustomTypes, ref Option<string> orderCustomIds, ref Option<string> sortField, ref Option<string> offerTypes, ref Option<string> specialOfferTypes, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> offerAudienceIds, ref Option<string> transactionAudienceIds, ref Option<string> offerIds, ref Option<string> offerLocationIds, ref Option<string> retailerIds, ref Option<string> retailerLocationIds, ref Option<string> statuses, ref Option<string> keyword, ref Option<long> redeemableStartDate, ref Option<long> redeemableEndDate, ref Option<long> startedSince, ref Option<long> startedBefore, ref Option<long> endedSince, ref Option<long> endedBefore);
 
         /// <summary>
         /// Validates the request parameters
@@ -1981,7 +1941,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2013,10 +1972,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="startedBefore"></param>
         /// <param name="endedSince"></param>
         /// <param name="endedBefore"></param>
-        private void AfterSearchOrdersDefaultImplementation(ISearchOrdersApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> descending, Option<bool> activeOnly, Option<bool> ignoreCustomerFilter, Option<string> orderItemTypes, Option<string> orderItemIds, Option<string> orderCustomTypes, Option<string> orderCustomIds, Option<string> sortField, Option<string> offerTypes, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> offerIds, Option<string> offerLocationIds, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> statuses, Option<string> keyword, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore)
+        private void AfterSearchOrdersDefaultImplementation(ISearchOrdersApiResponse apiResponseLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> descending, Option<bool> activeOnly, Option<bool> ignoreCustomerFilter, Option<string> orderItemTypes, Option<string> orderItemIds, Option<string> orderCustomTypes, Option<string> orderCustomIds, Option<string> sortField, Option<string> offerTypes, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> offerIds, Option<string> offerLocationIds, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> statuses, Option<string> keyword, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore)
         {
             bool suppressDefaultLog = false;
-            AfterSearchOrders(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
+            AfterSearchOrders(ref suppressDefaultLog, apiResponseLocalVar, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2026,7 +1985,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2058,7 +2016,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="startedBefore"></param>
         /// <param name="endedSince"></param>
         /// <param name="endedBefore"></param>
-        partial void AfterSearchOrders(ref bool suppressDefaultLog, ISearchOrdersApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> descending, Option<bool> activeOnly, Option<bool> ignoreCustomerFilter, Option<string> orderItemTypes, Option<string> orderItemIds, Option<string> orderCustomTypes, Option<string> orderCustomIds, Option<string> sortField, Option<string> offerTypes, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> offerIds, Option<string> offerLocationIds, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> statuses, Option<string> keyword, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore);
+        partial void AfterSearchOrders(ref bool suppressDefaultLog, ISearchOrdersApiResponse apiResponseLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> descending, Option<bool> activeOnly, Option<bool> ignoreCustomerFilter, Option<string> orderItemTypes, Option<string> orderItemIds, Option<string> orderCustomTypes, Option<string> orderCustomIds, Option<string> sortField, Option<string> offerTypes, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> offerIds, Option<string> offerLocationIds, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> statuses, Option<string> keyword, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2066,7 +2024,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2098,10 +2055,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="startedBefore"></param>
         /// <param name="endedSince"></param>
         /// <param name="endedBefore"></param>
-        private void OnErrorSearchOrdersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> descending, Option<bool> activeOnly, Option<bool> ignoreCustomerFilter, Option<string> orderItemTypes, Option<string> orderItemIds, Option<string> orderCustomTypes, Option<string> orderCustomIds, Option<string> sortField, Option<string> offerTypes, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> offerIds, Option<string> offerLocationIds, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> statuses, Option<string> keyword, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore)
+        private void OnErrorSearchOrdersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> descending, Option<bool> activeOnly, Option<bool> ignoreCustomerFilter, Option<string> orderItemTypes, Option<string> orderItemIds, Option<string> orderCustomTypes, Option<string> orderCustomIds, Option<string> sortField, Option<string> offerTypes, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> offerIds, Option<string> offerLocationIds, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> statuses, Option<string> keyword, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchOrders(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
+            OnErrorSearchOrders(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2113,7 +2070,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2145,12 +2101,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="startedBefore"></param>
         /// <param name="endedSince"></param>
         /// <param name="endedBefore"></param>
-        partial void OnErrorSearchOrders(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> descending, Option<bool> activeOnly, Option<bool> ignoreCustomerFilter, Option<string> orderItemTypes, Option<string> orderItemIds, Option<string> orderCustomTypes, Option<string> orderCustomIds, Option<string> sortField, Option<string> offerTypes, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> offerIds, Option<string> offerLocationIds, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> statuses, Option<string> keyword, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore);
+        partial void OnErrorSearchOrders(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> descending, Option<bool> activeOnly, Option<bool> ignoreCustomerFilter, Option<string> orderItemTypes, Option<string> orderItemIds, Option<string> orderCustomTypes, Option<string> orderCustomIds, Option<string> sortField, Option<string> offerTypes, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> offerIds, Option<string> offerLocationIds, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> statuses, Option<string> keyword, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore);
 
         /// <summary>
         /// Search Orders Search on active orders by customer
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -2184,11 +2139,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endedBefore">Filter results by the offer end date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOrdersApiResponse"/>&gt;</returns>
-        public async Task<ISearchOrdersApiResponse?> SearchOrdersOrDefaultAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<bool> ignoreCustomerFilter = default, Option<string> orderItemTypes = default, Option<string> orderItemIds = default, Option<string> orderCustomTypes = default, Option<string> orderCustomIds = default, Option<string> sortField = default, Option<string> offerTypes = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> offerIds = default, Option<string> offerLocationIds = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> statuses = default, Option<string> keyword = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOrdersApiResponse?> SearchOrdersOrDefaultAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<bool> ignoreCustomerFilter = default, Option<string> orderItemTypes = default, Option<string> orderItemIds = default, Option<string> orderCustomTypes = default, Option<string> orderCustomIds = default, Option<string> sortField = default, Option<string> offerTypes = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> offerIds = default, Option<string> offerLocationIds = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> statuses = default, Option<string> keyword = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchOrdersAsync(version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore, cancellationToken).ConfigureAwait(false);
+                return await SearchOrdersAsync(appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2200,7 +2155,6 @@ namespace Org.OpenAPITools.Api
         /// Search Orders Search on active orders by customer
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -2234,7 +2188,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endedBefore">Filter results by the offer end date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOrdersApiResponse"/>&gt;</returns>
-        public async Task<ISearchOrdersApiResponse> SearchOrdersAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<bool> ignoreCustomerFilter = default, Option<string> orderItemTypes = default, Option<string> orderItemIds = default, Option<string> orderCustomTypes = default, Option<string> orderCustomIds = default, Option<string> sortField = default, Option<string> offerTypes = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> offerIds = default, Option<string> offerLocationIds = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> statuses = default, Option<string> keyword = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOrdersApiResponse> SearchOrdersAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<bool> ignoreCustomerFilter = default, Option<string> orderItemTypes = default, Option<string> orderItemIds = default, Option<string> orderCustomTypes = default, Option<string> orderCustomIds = default, Option<string> sortField = default, Option<string> offerTypes = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> offerIds = default, Option<string> offerLocationIds = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> statuses = default, Option<string> keyword = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2242,7 +2196,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchOrders(appKey, deviceId, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword);
 
-                FormatSearchOrders(ref version, ref appKey, ref deviceId, ref accountId, ref start, ref limit, ref descending, ref activeOnly, ref ignoreCustomerFilter, ref orderItemTypes, ref orderItemIds, ref orderCustomTypes, ref orderCustomIds, ref sortField, ref offerTypes, ref specialOfferTypes, ref categoryIds, ref filterIds, ref offerAudienceIds, ref transactionAudienceIds, ref offerIds, ref offerLocationIds, ref retailerIds, ref retailerLocationIds, ref statuses, ref keyword, ref redeemableStartDate, ref redeemableEndDate, ref startedSince, ref startedBefore, ref endedSince, ref endedBefore);
+                FormatSearchOrders(ref appKey, ref deviceId, ref accountId, ref start, ref limit, ref descending, ref activeOnly, ref ignoreCustomerFilter, ref orderItemTypes, ref orderItemIds, ref orderCustomTypes, ref orderCustomIds, ref sortField, ref offerTypes, ref specialOfferTypes, ref categoryIds, ref filterIds, ref offerAudienceIds, ref transactionAudienceIds, ref offerIds, ref offerLocationIds, ref retailerIds, ref retailerLocationIds, ref statuses, ref keyword, ref redeemableStartDate, ref redeemableEndDate, ref startedSince, ref startedBefore, ref endedSince, ref endedBefore);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2250,9 +2204,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/order/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/order/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/order/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/order/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2373,13 +2326,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/order/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/order/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchOrdersDefaultImplementation(apiResponseLocalVar, version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
+                        AfterSearchOrdersDefaultImplementation(apiResponseLocalVar, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
 
                         Events.ExecuteOnSearchOrders(apiResponseLocalVar);
 
@@ -2389,7 +2342,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchOrdersDefaultImplementation(e, "/api/{version}/order/search", uriBuilderLocalVar.Path, version, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
+                OnErrorSearchOrdersDefaultImplementation(e, "/order/search", uriBuilderLocalVar.Path, appKey, deviceId, accountId, start, limit, descending, activeOnly, ignoreCustomerFilter, orderItemTypes, orderItemIds, orderCustomTypes, orderCustomIds, sortField, offerTypes, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, offerIds, offerLocationIds, retailerIds, retailerLocationIds, statuses, keyword, redeemableStartDate, redeemableEndDate, startedSince, startedBefore, endedSince, endedBefore);
                 Events.ExecuteOnErrorSearchOrders(e);
                 throw;
             }
@@ -2488,7 +2441,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateOrder(ref decimal version, ref long orderId, ref string appKey, ref string cart, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> paymentTransactionId, ref Option<string> description, ref Option<string> currencyType, ref Option<long> paymentMethodId, ref Option<string> externalPaymentId, ref Option<long> externalDate);
+        partial void FormatUpdateOrder(ref long orderId, ref string appKey, ref string cart, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> paymentTransactionId, ref Option<string> description, ref Option<string> currencyType, ref Option<long> paymentMethodId, ref Option<string> externalPaymentId, ref Option<long> externalDate);
 
         /// <summary>
         /// Validates the request parameters
@@ -2525,7 +2478,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="orderId"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
@@ -2537,10 +2489,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="paymentMethodId"></param>
         /// <param name="externalPaymentId"></param>
         /// <param name="externalDate"></param>
-        private void AfterUpdateOrderDefaultImplementation(IUpdateOrderApiResponse apiResponseLocalVar, decimal version, long orderId, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<long> paymentTransactionId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalPaymentId, Option<long> externalDate)
+        private void AfterUpdateOrderDefaultImplementation(IUpdateOrderApiResponse apiResponseLocalVar, long orderId, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<long> paymentTransactionId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalPaymentId, Option<long> externalDate)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateOrder(ref suppressDefaultLog, apiResponseLocalVar, version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
+            AfterUpdateOrder(ref suppressDefaultLog, apiResponseLocalVar, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2550,7 +2502,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="orderId"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
@@ -2562,7 +2513,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="paymentMethodId"></param>
         /// <param name="externalPaymentId"></param>
         /// <param name="externalDate"></param>
-        partial void AfterUpdateOrder(ref bool suppressDefaultLog, IUpdateOrderApiResponse apiResponseLocalVar, decimal version, long orderId, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<long> paymentTransactionId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalPaymentId, Option<long> externalDate);
+        partial void AfterUpdateOrder(ref bool suppressDefaultLog, IUpdateOrderApiResponse apiResponseLocalVar, long orderId, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<long> paymentTransactionId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalPaymentId, Option<long> externalDate);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2570,7 +2521,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="orderId"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
@@ -2582,10 +2532,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="paymentMethodId"></param>
         /// <param name="externalPaymentId"></param>
         /// <param name="externalDate"></param>
-        private void OnErrorUpdateOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long orderId, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<long> paymentTransactionId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalPaymentId, Option<long> externalDate)
+        private void OnErrorUpdateOrderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long orderId, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<long> paymentTransactionId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalPaymentId, Option<long> externalDate)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
+            OnErrorUpdateOrder(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2597,7 +2547,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="orderId"></param>
         /// <param name="appKey"></param>
         /// <param name="cart"></param>
@@ -2609,12 +2558,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="paymentMethodId"></param>
         /// <param name="externalPaymentId"></param>
         /// <param name="externalDate"></param>
-        partial void OnErrorUpdateOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long orderId, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<long> paymentTransactionId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalPaymentId, Option<long> externalDate);
+        partial void OnErrorUpdateOrder(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long orderId, string appKey, string cart, Option<string> deviceId, Option<long> accountId, Option<long> paymentTransactionId, Option<string> description, Option<string> currencyType, Option<long> paymentMethodId, Option<string> externalPaymentId, Option<long> externalDate);
 
         /// <summary>
         /// Update Order Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="orderId">The order to add the purchase to, leave null for new order.</param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
@@ -2628,11 +2576,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalDate">External Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOrderApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOrderApiResponse?> UpdateOrderOrDefaultAsync(decimal version, long orderId, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<long> paymentTransactionId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalPaymentId = default, Option<long> externalDate = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOrderApiResponse?> UpdateOrderOrDefaultAsync(long orderId, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<long> paymentTransactionId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalPaymentId = default, Option<long> externalDate = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateOrderAsync(version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate, cancellationToken).ConfigureAwait(false);
+                return await UpdateOrderAsync(orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2644,7 +2592,6 @@ namespace Org.OpenAPITools.Api
         /// Update Order Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="orderId">The order to add the purchase to, leave null for new order.</param>
         /// <param name="appKey">The application requesting the purchase</param>
         /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
@@ -2658,7 +2605,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalDate">External Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOrderApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOrderApiResponse> UpdateOrderAsync(decimal version, long orderId, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<long> paymentTransactionId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalPaymentId = default, Option<long> externalDate = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOrderApiResponse> UpdateOrderAsync(long orderId, string appKey, string cart, Option<string> deviceId = default, Option<long> accountId = default, Option<long> paymentTransactionId = default, Option<string> description = default, Option<string> currencyType = default, Option<long> paymentMethodId = default, Option<string> externalPaymentId = default, Option<long> externalDate = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2666,7 +2613,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateOrder(appKey, cart, deviceId, description, currencyType, externalPaymentId);
 
-                FormatUpdateOrder(ref version, ref orderId, ref appKey, ref cart, ref deviceId, ref accountId, ref paymentTransactionId, ref description, ref currencyType, ref paymentMethodId, ref externalPaymentId, ref externalDate);
+                FormatUpdateOrder(ref orderId, ref appKey, ref cart, ref deviceId, ref accountId, ref paymentTransactionId, ref description, ref currencyType, ref paymentMethodId, ref externalPaymentId, ref externalDate);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2674,9 +2621,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/order/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/order/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/order/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/order/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2733,13 +2679,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/order/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/order/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateOrderDefaultImplementation(apiResponseLocalVar, version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
+                        AfterUpdateOrderDefaultImplementation(apiResponseLocalVar, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
 
                         Events.ExecuteOnUpdateOrder(apiResponseLocalVar);
 
@@ -2749,7 +2695,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateOrderDefaultImplementation(e, "/api/{version}/order/update", uriBuilderLocalVar.Path, version, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
+                OnErrorUpdateOrderDefaultImplementation(e, "/order/update", uriBuilderLocalVar.Path, orderId, appKey, cart, deviceId, accountId, paymentTransactionId, description, currencyType, paymentMethodId, externalPaymentId, externalDate);
                 Events.ExecuteOnErrorUpdateOrder(e);
                 throw;
             }

@@ -45,13 +45,12 @@ namespace Org.OpenAPITools.Api
         /// Get an activity feed by user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="start">The start of the pagination</param>
         /// <param name="limit">The limit of the pagination</param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IActivitiesApiResponse"/>&gt;</returns>
-        Task<IActivitiesApiResponse> ActivitiesAsync(decimal version, int start, int limit, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IActivitiesApiResponse> ActivitiesAsync(int start, int limit, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Activity
@@ -59,13 +58,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an activity feed by user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="start">The start of the pagination</param>
         /// <param name="limit">The limit of the pagination</param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IActivitiesApiResponse"/>?&gt;</returns>
-        Task<IActivitiesApiResponse?> ActivitiesOrDefaultAsync(decimal version, int start, int limit, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IActivitiesApiResponse?> ActivitiesOrDefaultAsync(int start, int limit, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Aggregated Filtered Usage
@@ -74,7 +72,6 @@ namespace Org.OpenAPITools.Api
         /// Query analytics to get data used for nested graphs and charts
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="applicationId">This parameter is deprecated. (optional)</param>
@@ -108,7 +105,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAggregatedFilteredUsageApiResponse"/>&gt;</returns>
-        Task<IAggregatedFilteredUsageApiResponse> AggregatedFilteredUsageAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<string> groupByRoot = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAggregatedFilteredUsageApiResponse> AggregatedFilteredUsageAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<string> groupByRoot = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Aggregated Filtered Usage
@@ -116,7 +113,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Query analytics to get data used for nested graphs and charts
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="applicationId">This parameter is deprecated. (optional)</param>
@@ -150,7 +146,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAggregatedFilteredUsageApiResponse"/>?&gt;</returns>
-        Task<IAggregatedFilteredUsageApiResponse?> AggregatedFilteredUsageOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<string> groupByRoot = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAggregatedFilteredUsageApiResponse?> AggregatedFilteredUsageOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<string> groupByRoot = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Filtered Usage
@@ -159,7 +155,6 @@ namespace Org.OpenAPITools.Api
         /// Query analytics to get data used for graphs and charts
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="applicationId">This parameter is deprecated. (optional)</param>
@@ -201,7 +196,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFilteredUsageApiResponse"/>&gt;</returns>
-        Task<IFilteredUsageApiResponse> FilteredUsageAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<long> customId = default, Option<string> customType = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sumColumn = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFilteredUsageApiResponse> FilteredUsageAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<long> customId = default, Option<string> customType = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sumColumn = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Filtered Usage
@@ -209,7 +204,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Query analytics to get data used for graphs and charts
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="applicationId">This parameter is deprecated. (optional)</param>
@@ -251,7 +245,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFilteredUsageApiResponse"/>?&gt;</returns>
-        Task<IFilteredUsageApiResponse?> FilteredUsageOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<long> customId = default, Option<string> customType = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sumColumn = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFilteredUsageApiResponse?> FilteredUsageOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<long> customId = default, Option<string> customType = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sumColumn = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Usage Record
@@ -260,7 +254,6 @@ namespace Org.OpenAPITools.Api
         /// Record an analytic record for a known state within the application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="tag">The tag to apply: the name of the action or thing being logged.</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -294,7 +287,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="customLong2">a custom long value for the usage record (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUsageApiResponse"/>&gt;</returns>
-        Task<IUsageApiResponse> UsageAsync(decimal version, string tag, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> device = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> customId = default, Option<string> customType = default, Option<long> achievementIncrement = default, Option<string> city = default, Option<string> state = default, Option<string> country = default, Option<string> zip = default, Option<string> locationDescription = default, Option<long> clientTime = default, Option<string> errorMessage = default, Option<string> ip = default, Option<string> userAgent = default, Option<bool> backgroundEvent = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUsageApiResponse> UsageAsync(string tag, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> device = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> customId = default, Option<string> customType = default, Option<long> achievementIncrement = default, Option<string> city = default, Option<string> state = default, Option<string> country = default, Option<string> zip = default, Option<string> locationDescription = default, Option<long> clientTime = default, Option<string> errorMessage = default, Option<string> ip = default, Option<string> userAgent = default, Option<bool> backgroundEvent = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Usage Record
@@ -302,7 +295,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Record an analytic record for a known state within the application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="tag">The tag to apply: the name of the action or thing being logged.</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -336,7 +328,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="customLong2">a custom long value for the usage record (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUsageApiResponse"/>?&gt;</returns>
-        Task<IUsageApiResponse?> UsageOrDefaultAsync(decimal version, string tag, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> device = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> customId = default, Option<string> customType = default, Option<long> achievementIncrement = default, Option<string> city = default, Option<string> state = default, Option<string> country = default, Option<string> zip = default, Option<string> locationDescription = default, Option<long> clientTime = default, Option<string> errorMessage = default, Option<string> ip = default, Option<string> userAgent = default, Option<bool> backgroundEvent = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUsageApiResponse?> UsageOrDefaultAsync(string tag, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> device = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> customId = default, Option<string> customType = default, Option<long> achievementIncrement = default, Option<string> city = default, Option<string> state = default, Option<string> country = default, Option<string> zip = default, Option<string> locationDescription = default, Option<long> clientTime = default, Option<string> errorMessage = default, Option<string> ip = default, Option<string> userAgent = default, Option<bool> backgroundEvent = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Multiple Usage Records
@@ -345,7 +337,6 @@ namespace Org.OpenAPITools.Api
         /// Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key unique to each application.</param>
         /// <param name="device">The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)</param>
         /// <param name="data">The analytic data AnalyticListResponse</param>
@@ -359,7 +350,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnSummaryResponse">Returns a summary response of the achievements that have been completed due to the analytics (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUsageBatchApiResponse"/>&gt;</returns>
-        Task<IUsageBatchApiResponse> UsageBatchAsync(decimal version, string appKey, string device, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appVersion = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<bool> updateRanking = default, Option<bool> returnSummaryResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUsageBatchApiResponse> UsageBatchAsync(string appKey, string device, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appVersion = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<bool> updateRanking = default, Option<bool> returnSummaryResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Multiple Usage Records
@@ -367,7 +358,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key unique to each application.</param>
         /// <param name="device">The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)</param>
         /// <param name="data">The analytic data AnalyticListResponse</param>
@@ -381,7 +371,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnSummaryResponse">Returns a summary response of the achievements that have been completed due to the analytics (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUsageBatchApiResponse"/>?&gt;</returns>
-        Task<IUsageBatchApiResponse?> UsageBatchOrDefaultAsync(decimal version, string appKey, string device, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appVersion = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<bool> updateRanking = default, Option<bool> returnSummaryResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUsageBatchApiResponse?> UsageBatchOrDefaultAsync(string appKey, string device, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appVersion = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<bool> updateRanking = default, Option<bool> returnSummaryResponse = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -597,20 +587,19 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatActivities(ref decimal version, ref int start, ref int limit, ref long accountId);
+        partial void FormatActivities(ref int start, ref int limit, ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="accountId"></param>
-        private void AfterActivitiesDefaultImplementation(IActivitiesApiResponse apiResponseLocalVar, decimal version, int start, int limit, long accountId)
+        private void AfterActivitiesDefaultImplementation(IActivitiesApiResponse apiResponseLocalVar, int start, int limit, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterActivities(ref suppressDefaultLog, apiResponseLocalVar, version, start, limit, accountId);
+            AfterActivities(ref suppressDefaultLog, apiResponseLocalVar, start, limit, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -620,11 +609,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="accountId"></param>
-        partial void AfterActivities(ref bool suppressDefaultLog, IActivitiesApiResponse apiResponseLocalVar, decimal version, int start, int limit, long accountId);
+        partial void AfterActivities(ref bool suppressDefaultLog, IActivitiesApiResponse apiResponseLocalVar, int start, int limit, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -632,14 +620,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="accountId"></param>
-        private void OnErrorActivitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, int start, int limit, long accountId)
+        private void OnErrorActivitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int start, int limit, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorActivities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, start, limit, accountId);
+            OnErrorActivities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, start, limit, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -651,26 +638,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorActivities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, int start, int limit, long accountId);
+        partial void OnErrorActivities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int start, int limit, long accountId);
 
         /// <summary>
         /// Get User Activity Get an activity feed by user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="start">The start of the pagination</param>
         /// <param name="limit">The limit of the pagination</param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IActivitiesApiResponse"/>&gt;</returns>
-        public async Task<IActivitiesApiResponse?> ActivitiesOrDefaultAsync(decimal version, int start, int limit, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IActivitiesApiResponse?> ActivitiesOrDefaultAsync(int start, int limit, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ActivitiesAsync(version, start, limit, accountId, cancellationToken).ConfigureAwait(false);
+                return await ActivitiesAsync(start, limit, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -682,19 +667,18 @@ namespace Org.OpenAPITools.Api
         /// Get User Activity Get an activity feed by user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="start">The start of the pagination</param>
         /// <param name="limit">The limit of the pagination</param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IActivitiesApiResponse"/>&gt;</returns>
-        public async Task<IActivitiesApiResponse> ActivitiesAsync(decimal version, int start, int limit, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IActivitiesApiResponse> ActivitiesAsync(int start, int limit, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatActivities(ref version, ref start, ref limit, ref accountId);
+                FormatActivities(ref start, ref limit, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -702,9 +686,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/analytics/useractivity"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/analytics/useractivity");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/analytics/useractivity"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/analytics/useractivity");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -737,13 +720,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/analytics/useractivity", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/analytics/useractivity", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterActivitiesDefaultImplementation(apiResponseLocalVar, version, start, limit, accountId);
+                        AfterActivitiesDefaultImplementation(apiResponseLocalVar, start, limit, accountId);
 
                         Events.ExecuteOnActivities(apiResponseLocalVar);
 
@@ -753,7 +736,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorActivitiesDefaultImplementation(e, "/api/{version}/analytics/useractivity", uriBuilderLocalVar.Path, version, start, limit, accountId);
+                OnErrorActivitiesDefaultImplementation(e, "/analytics/useractivity", uriBuilderLocalVar.Path, start, limit, accountId);
                 Events.ExecuteOnErrorActivities(e);
                 throw;
             }
@@ -852,7 +835,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAggregatedFilteredUsage(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> applicationId, ref Option<string> appKey, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> deviceType, ref Option<string> device, ref Option<string> deviceOS, ref Option<string> gender, ref Option<string> ageGroup, ref Option<string> country, ref Option<string> state, ref Option<string> city, ref Option<string> zip, ref Option<string> model, ref Option<string> tag, ref Option<long> userAccountId, ref Option<string> userAccountDisplay, ref Option<string> userAccountUsername, ref Option<string> groupByRoot, ref Option<string> groupBy, ref Option<string> distinctCount, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> hideUnknown, ref Option<string> responseFormat, ref Option<int> l, ref Option<int> limit, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAggregatedFilteredUsage(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> applicationId, ref Option<string> appKey, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> deviceType, ref Option<string> device, ref Option<string> deviceOS, ref Option<string> gender, ref Option<string> ageGroup, ref Option<string> country, ref Option<string> state, ref Option<string> city, ref Option<string> zip, ref Option<string> model, ref Option<string> tag, ref Option<long> userAccountId, ref Option<string> userAccountDisplay, ref Option<string> userAccountUsername, ref Option<string> groupByRoot, ref Option<string> groupBy, ref Option<string> distinctCount, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> hideUnknown, ref Option<string> responseFormat, ref Option<int> l, ref Option<int> limit, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -945,7 +928,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
@@ -977,10 +959,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAggregatedFilteredUsageDefaultImplementation(IAggregatedFilteredUsageApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<string> groupByRoot, Option<string> groupBy, Option<string> distinctCount, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude)
+        private void AfterAggregatedFilteredUsageDefaultImplementation(IAggregatedFilteredUsageApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<string> groupByRoot, Option<string> groupBy, Option<string> distinctCount, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAggregatedFilteredUsage(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+            AfterAggregatedFilteredUsage(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -990,7 +972,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
@@ -1022,7 +1003,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAggregatedFilteredUsage(ref bool suppressDefaultLog, IAggregatedFilteredUsageApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<string> groupByRoot, Option<string> groupBy, Option<string> distinctCount, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude);
+        partial void AfterAggregatedFilteredUsage(ref bool suppressDefaultLog, IAggregatedFilteredUsageApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<string> groupByRoot, Option<string> groupBy, Option<string> distinctCount, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1030,7 +1011,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
@@ -1062,10 +1042,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAggregatedFilteredUsageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<string> groupByRoot, Option<string> groupBy, Option<string> distinctCount, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAggregatedFilteredUsageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<string> groupByRoot, Option<string> groupBy, Option<string> distinctCount, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAggregatedFilteredUsage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+            OnErrorAggregatedFilteredUsage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1077,7 +1057,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
@@ -1109,12 +1088,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAggregatedFilteredUsage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<string> groupByRoot, Option<string> groupBy, Option<string> distinctCount, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAggregatedFilteredUsage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<string> groupByRoot, Option<string> groupBy, Option<string> distinctCount, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Aggregated Filtered Usage Query analytics to get data used for nested graphs and charts
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="applicationId">This parameter is deprecated. (optional)</param>
@@ -1148,11 +1126,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAggregatedFilteredUsageApiResponse"/>&gt;</returns>
-        public async Task<IAggregatedFilteredUsageApiResponse?> AggregatedFilteredUsageOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<string> groupByRoot = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAggregatedFilteredUsageApiResponse?> AggregatedFilteredUsageOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<string> groupByRoot = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AggregatedFilteredUsageAsync(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AggregatedFilteredUsageAsync(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1164,7 +1142,6 @@ namespace Org.OpenAPITools.Api
         /// Get Aggregated Filtered Usage Query analytics to get data used for nested graphs and charts
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="applicationId">This parameter is deprecated. (optional)</param>
@@ -1198,7 +1175,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAggregatedFilteredUsageApiResponse"/>&gt;</returns>
-        public async Task<IAggregatedFilteredUsageApiResponse> AggregatedFilteredUsageAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<string> groupByRoot = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAggregatedFilteredUsageApiResponse> AggregatedFilteredUsageAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<string> groupByRoot = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1206,7 +1183,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAggregatedFilteredUsage(deviceId, appKey, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, responseFormat);
 
-                FormatAggregatedFilteredUsage(ref version, ref deviceId, ref accountId, ref applicationId, ref appKey, ref startDate, ref endDate, ref deviceType, ref device, ref deviceOS, ref gender, ref ageGroup, ref country, ref state, ref city, ref zip, ref model, ref tag, ref userAccountId, ref userAccountDisplay, ref userAccountUsername, ref groupByRoot, ref groupBy, ref distinctCount, ref sortField, ref descending, ref hideUnknown, ref responseFormat, ref l, ref limit, ref latitude, ref longitude);
+                FormatAggregatedFilteredUsage(ref deviceId, ref accountId, ref applicationId, ref appKey, ref startDate, ref endDate, ref deviceType, ref device, ref deviceOS, ref gender, ref ageGroup, ref country, ref state, ref city, ref zip, ref model, ref tag, ref userAccountId, ref userAccountDisplay, ref userAccountUsername, ref groupByRoot, ref groupBy, ref distinctCount, ref sortField, ref descending, ref hideUnknown, ref responseFormat, ref l, ref limit, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1214,9 +1191,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/analytics/aggregatedFilteredUsage"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/analytics/aggregatedFilteredUsage");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/analytics/aggregatedFilteredUsage"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/analytics/aggregatedFilteredUsage");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1338,13 +1314,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/analytics/aggregatedFilteredUsage", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/analytics/aggregatedFilteredUsage", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAggregatedFilteredUsageDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+                        AfterAggregatedFilteredUsageDefaultImplementation(apiResponseLocalVar, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
 
                         Events.ExecuteOnAggregatedFilteredUsage(apiResponseLocalVar);
 
@@ -1354,7 +1330,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAggregatedFilteredUsageDefaultImplementation(e, "/api/{version}/analytics/aggregatedFilteredUsage", uriBuilderLocalVar.Path, version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+                OnErrorAggregatedFilteredUsageDefaultImplementation(e, "/analytics/aggregatedFilteredUsage", uriBuilderLocalVar.Path, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, groupByRoot, groupBy, distinctCount, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
                 Events.ExecuteOnErrorAggregatedFilteredUsage(e);
                 throw;
             }
@@ -1453,7 +1429,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFilteredUsage(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> applicationId, ref Option<string> appKey, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> deviceType, ref Option<string> device, ref Option<string> deviceOS, ref Option<string> gender, ref Option<string> ageGroup, ref Option<string> country, ref Option<string> state, ref Option<string> city, ref Option<string> zip, ref Option<string> model, ref Option<string> tag, ref Option<long> userAccountId, ref Option<string> userAccountDisplay, ref Option<string> userAccountUsername, ref Option<long> customId, ref Option<string> customType, ref Option<double> customValue, ref Option<double> customValue2, ref Option<long> customLong, ref Option<long> customLong2, ref Option<string> customMessage, ref Option<string> customMessage2, ref Option<string> groupBy, ref Option<string> distinctCount, ref Option<string> sumColumn, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> hideUnknown, ref Option<string> responseFormat, ref Option<int> l, ref Option<int> limit, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatFilteredUsage(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> applicationId, ref Option<string> appKey, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> deviceType, ref Option<string> device, ref Option<string> deviceOS, ref Option<string> gender, ref Option<string> ageGroup, ref Option<string> country, ref Option<string> state, ref Option<string> city, ref Option<string> zip, ref Option<string> model, ref Option<string> tag, ref Option<long> userAccountId, ref Option<string> userAccountDisplay, ref Option<string> userAccountUsername, ref Option<long> customId, ref Option<string> customType, ref Option<double> customValue, ref Option<double> customValue2, ref Option<long> customLong, ref Option<long> customLong2, ref Option<string> customMessage, ref Option<string> customMessage2, ref Option<string> groupBy, ref Option<string> distinctCount, ref Option<string> sumColumn, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> hideUnknown, ref Option<string> responseFormat, ref Option<int> l, ref Option<int> limit, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1558,7 +1534,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
@@ -1598,10 +1573,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterFilteredUsageDefaultImplementation(IFilteredUsageApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<long> customId, Option<string> customType, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2, Option<string> customMessage, Option<string> customMessage2, Option<string> groupBy, Option<string> distinctCount, Option<string> sumColumn, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude)
+        private void AfterFilteredUsageDefaultImplementation(IFilteredUsageApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<long> customId, Option<string> customType, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2, Option<string> customMessage, Option<string> customMessage2, Option<string> groupBy, Option<string> distinctCount, Option<string> sumColumn, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterFilteredUsage(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+            AfterFilteredUsage(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1611,7 +1586,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
@@ -1651,7 +1625,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterFilteredUsage(ref bool suppressDefaultLog, IFilteredUsageApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<long> customId, Option<string> customType, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2, Option<string> customMessage, Option<string> customMessage2, Option<string> groupBy, Option<string> distinctCount, Option<string> sumColumn, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude);
+        partial void AfterFilteredUsage(ref bool suppressDefaultLog, IFilteredUsageApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<long> customId, Option<string> customType, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2, Option<string> customMessage, Option<string> customMessage2, Option<string> groupBy, Option<string> distinctCount, Option<string> sumColumn, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1659,7 +1633,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
@@ -1699,10 +1672,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorFilteredUsageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<long> customId, Option<string> customType, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2, Option<string> customMessage, Option<string> customMessage2, Option<string> groupBy, Option<string> distinctCount, Option<string> sumColumn, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude)
+        private void OnErrorFilteredUsageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<long> customId, Option<string> customType, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2, Option<string> customMessage, Option<string> customMessage2, Option<string> groupBy, Option<string> distinctCount, Option<string> sumColumn, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFilteredUsage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+            OnErrorFilteredUsage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1714,7 +1687,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
@@ -1754,12 +1726,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorFilteredUsage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<long> customId, Option<string> customType, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2, Option<string> customMessage, Option<string> customMessage2, Option<string> groupBy, Option<string> distinctCount, Option<string> sumColumn, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorFilteredUsage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<long> startDate, Option<long> endDate, Option<string> deviceType, Option<string> device, Option<string> deviceOS, Option<string> gender, Option<string> ageGroup, Option<string> country, Option<string> state, Option<string> city, Option<string> zip, Option<string> model, Option<string> tag, Option<long> userAccountId, Option<string> userAccountDisplay, Option<string> userAccountUsername, Option<long> customId, Option<string> customType, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2, Option<string> customMessage, Option<string> customMessage2, Option<string> groupBy, Option<string> distinctCount, Option<string> sumColumn, Option<string> sortField, Option<bool> descending, Option<bool> hideUnknown, Option<string> responseFormat, Option<int> l, Option<int> limit, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Filtered Usage Query analytics to get data used for graphs and charts
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="applicationId">This parameter is deprecated. (optional)</param>
@@ -1801,11 +1772,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFilteredUsageApiResponse"/>&gt;</returns>
-        public async Task<IFilteredUsageApiResponse?> FilteredUsageOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<long> customId = default, Option<string> customType = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sumColumn = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFilteredUsageApiResponse?> FilteredUsageOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<long> customId = default, Option<string> customType = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sumColumn = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FilteredUsageAsync(version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await FilteredUsageAsync(deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1817,7 +1788,6 @@ namespace Org.OpenAPITools.Api
         /// Get Filtered Usage Query analytics to get data used for graphs and charts
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="applicationId">This parameter is deprecated. (optional)</param>
@@ -1859,7 +1829,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFilteredUsageApiResponse"/>&gt;</returns>
-        public async Task<IFilteredUsageApiResponse> FilteredUsageAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<long> customId = default, Option<string> customType = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sumColumn = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFilteredUsageApiResponse> FilteredUsageAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> deviceType = default, Option<string> device = default, Option<string> deviceOS = default, Option<string> gender = default, Option<string> ageGroup = default, Option<string> country = default, Option<string> state = default, Option<string> city = default, Option<string> zip = default, Option<string> model = default, Option<string> tag = default, Option<long> userAccountId = default, Option<string> userAccountDisplay = default, Option<string> userAccountUsername = default, Option<long> customId = default, Option<string> customType = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<string> groupBy = default, Option<string> distinctCount = default, Option<string> sumColumn = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> hideUnknown = default, Option<string> responseFormat = default, Option<int> l = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1867,7 +1837,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFilteredUsage(deviceId, appKey, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountDisplay, userAccountUsername, customType, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, responseFormat);
 
-                FormatFilteredUsage(ref version, ref deviceId, ref accountId, ref applicationId, ref appKey, ref startDate, ref endDate, ref deviceType, ref device, ref deviceOS, ref gender, ref ageGroup, ref country, ref state, ref city, ref zip, ref model, ref tag, ref userAccountId, ref userAccountDisplay, ref userAccountUsername, ref customId, ref customType, ref customValue, ref customValue2, ref customLong, ref customLong2, ref customMessage, ref customMessage2, ref groupBy, ref distinctCount, ref sumColumn, ref sortField, ref descending, ref hideUnknown, ref responseFormat, ref l, ref limit, ref latitude, ref longitude);
+                FormatFilteredUsage(ref deviceId, ref accountId, ref applicationId, ref appKey, ref startDate, ref endDate, ref deviceType, ref device, ref deviceOS, ref gender, ref ageGroup, ref country, ref state, ref city, ref zip, ref model, ref tag, ref userAccountId, ref userAccountDisplay, ref userAccountUsername, ref customId, ref customType, ref customValue, ref customValue2, ref customLong, ref customLong2, ref customMessage, ref customMessage2, ref groupBy, ref distinctCount, ref sumColumn, ref sortField, ref descending, ref hideUnknown, ref responseFormat, ref l, ref limit, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1875,9 +1845,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/analytics/filteredUsage"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/analytics/filteredUsage");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/analytics/filteredUsage"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/analytics/filteredUsage");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2023,13 +1992,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/analytics/filteredUsage", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/analytics/filteredUsage", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFilteredUsageDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+                        AfterFilteredUsageDefaultImplementation(apiResponseLocalVar, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
 
                         Events.ExecuteOnFilteredUsage(apiResponseLocalVar);
 
@@ -2039,7 +2008,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFilteredUsageDefaultImplementation(e, "/api/{version}/analytics/filteredUsage", uriBuilderLocalVar.Path, version, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
+                OnErrorFilteredUsageDefaultImplementation(e, "/analytics/filteredUsage", uriBuilderLocalVar.Path, deviceId, accountId, applicationId, appKey, startDate, endDate, deviceType, device, deviceOS, gender, ageGroup, country, state, city, zip, model, tag, userAccountId, userAccountDisplay, userAccountUsername, customId, customType, customValue, customValue2, customLong, customLong2, customMessage, customMessage2, groupBy, distinctCount, sumColumn, sortField, descending, hideUnknown, responseFormat, l, limit, latitude, longitude);
                 Events.ExecuteOnErrorFilteredUsage(e);
                 throw;
             }
@@ -2138,7 +2107,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUsage(ref decimal version, ref string tag, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> applicationId, ref Option<string> appKey, ref Option<string> appVersion, ref Option<string> device, ref Option<string> deviceType, ref Option<string> deviceOS, ref Option<string> model, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> customId, ref Option<string> customType, ref Option<long> achievementIncrement, ref Option<string> city, ref Option<string> state, ref Option<string> country, ref Option<string> zip, ref Option<string> locationDescription, ref Option<long> clientTime, ref Option<string> errorMessage, ref Option<string> ip, ref Option<string> userAgent, ref Option<bool> backgroundEvent, ref Option<string> customMessage, ref Option<string> customMessage2, ref Option<double> customValue, ref Option<double> customValue2, ref Option<long> customLong, ref Option<long> customLong2);
+        partial void FormatUsage(ref string tag, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> applicationId, ref Option<string> appKey, ref Option<string> appVersion, ref Option<string> device, ref Option<string> deviceType, ref Option<string> deviceOS, ref Option<string> model, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> customId, ref Option<string> customType, ref Option<long> achievementIncrement, ref Option<string> city, ref Option<string> state, ref Option<string> country, ref Option<string> zip, ref Option<string> locationDescription, ref Option<long> clientTime, ref Option<string> errorMessage, ref Option<string> ip, ref Option<string> userAgent, ref Option<bool> backgroundEvent, ref Option<string> customMessage, ref Option<string> customMessage2, ref Option<double> customValue, ref Option<double> customValue2, ref Option<long> customLong, ref Option<long> customLong2);
 
         /// <summary>
         /// Validates the request parameters
@@ -2227,7 +2196,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="tag"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2259,10 +2227,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="customValue2"></param>
         /// <param name="customLong"></param>
         /// <param name="customLong2"></param>
-        private void AfterUsageDefaultImplementation(IUsageApiResponse apiResponseLocalVar, decimal version, string tag, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<string> appVersion, Option<string> device, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<double> latitude, Option<double> longitude, Option<long> customId, Option<string> customType, Option<long> achievementIncrement, Option<string> city, Option<string> state, Option<string> country, Option<string> zip, Option<string> locationDescription, Option<long> clientTime, Option<string> errorMessage, Option<string> ip, Option<string> userAgent, Option<bool> backgroundEvent, Option<string> customMessage, Option<string> customMessage2, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2)
+        private void AfterUsageDefaultImplementation(IUsageApiResponse apiResponseLocalVar, string tag, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<string> appVersion, Option<string> device, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<double> latitude, Option<double> longitude, Option<long> customId, Option<string> customType, Option<long> achievementIncrement, Option<string> city, Option<string> state, Option<string> country, Option<string> zip, Option<string> locationDescription, Option<long> clientTime, Option<string> errorMessage, Option<string> ip, Option<string> userAgent, Option<bool> backgroundEvent, Option<string> customMessage, Option<string> customMessage2, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2)
         {
             bool suppressDefaultLog = false;
-            AfterUsage(ref suppressDefaultLog, apiResponseLocalVar, version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
+            AfterUsage(ref suppressDefaultLog, apiResponseLocalVar, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2272,7 +2240,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="tag"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2304,7 +2271,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="customValue2"></param>
         /// <param name="customLong"></param>
         /// <param name="customLong2"></param>
-        partial void AfterUsage(ref bool suppressDefaultLog, IUsageApiResponse apiResponseLocalVar, decimal version, string tag, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<string> appVersion, Option<string> device, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<double> latitude, Option<double> longitude, Option<long> customId, Option<string> customType, Option<long> achievementIncrement, Option<string> city, Option<string> state, Option<string> country, Option<string> zip, Option<string> locationDescription, Option<long> clientTime, Option<string> errorMessage, Option<string> ip, Option<string> userAgent, Option<bool> backgroundEvent, Option<string> customMessage, Option<string> customMessage2, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2);
+        partial void AfterUsage(ref bool suppressDefaultLog, IUsageApiResponse apiResponseLocalVar, string tag, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<string> appVersion, Option<string> device, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<double> latitude, Option<double> longitude, Option<long> customId, Option<string> customType, Option<long> achievementIncrement, Option<string> city, Option<string> state, Option<string> country, Option<string> zip, Option<string> locationDescription, Option<long> clientTime, Option<string> errorMessage, Option<string> ip, Option<string> userAgent, Option<bool> backgroundEvent, Option<string> customMessage, Option<string> customMessage2, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2312,7 +2279,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="tag"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2344,10 +2310,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="customValue2"></param>
         /// <param name="customLong"></param>
         /// <param name="customLong2"></param>
-        private void OnErrorUsageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string tag, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<string> appVersion, Option<string> device, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<double> latitude, Option<double> longitude, Option<long> customId, Option<string> customType, Option<long> achievementIncrement, Option<string> city, Option<string> state, Option<string> country, Option<string> zip, Option<string> locationDescription, Option<long> clientTime, Option<string> errorMessage, Option<string> ip, Option<string> userAgent, Option<bool> backgroundEvent, Option<string> customMessage, Option<string> customMessage2, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2)
+        private void OnErrorUsageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string tag, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<string> appVersion, Option<string> device, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<double> latitude, Option<double> longitude, Option<long> customId, Option<string> customType, Option<long> achievementIncrement, Option<string> city, Option<string> state, Option<string> country, Option<string> zip, Option<string> locationDescription, Option<long> clientTime, Option<string> errorMessage, Option<string> ip, Option<string> userAgent, Option<bool> backgroundEvent, Option<string> customMessage, Option<string> customMessage2, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUsage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
+            OnErrorUsage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2359,7 +2325,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="tag"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2391,12 +2356,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="customValue2"></param>
         /// <param name="customLong"></param>
         /// <param name="customLong2"></param>
-        partial void OnErrorUsage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string tag, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<string> appVersion, Option<string> device, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<double> latitude, Option<double> longitude, Option<long> customId, Option<string> customType, Option<long> achievementIncrement, Option<string> city, Option<string> state, Option<string> country, Option<string> zip, Option<string> locationDescription, Option<long> clientTime, Option<string> errorMessage, Option<string> ip, Option<string> userAgent, Option<bool> backgroundEvent, Option<string> customMessage, Option<string> customMessage2, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2);
+        partial void OnErrorUsage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string tag, Option<string> deviceId, Option<long> accountId, Option<long> applicationId, Option<string> appKey, Option<string> appVersion, Option<string> device, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<double> latitude, Option<double> longitude, Option<long> customId, Option<string> customType, Option<long> achievementIncrement, Option<string> city, Option<string> state, Option<string> country, Option<string> zip, Option<string> locationDescription, Option<long> clientTime, Option<string> errorMessage, Option<string> ip, Option<string> userAgent, Option<bool> backgroundEvent, Option<string> customMessage, Option<string> customMessage2, Option<double> customValue, Option<double> customValue2, Option<long> customLong, Option<long> customLong2);
 
         /// <summary>
         /// Create Usage Record Record an analytic record for a known state within the application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="tag">The tag to apply: the name of the action or thing being logged.</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -2430,11 +2394,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="customLong2">a custom long value for the usage record (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUsageApiResponse"/>&gt;</returns>
-        public async Task<IUsageApiResponse?> UsageOrDefaultAsync(decimal version, string tag, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> device = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> customId = default, Option<string> customType = default, Option<long> achievementIncrement = default, Option<string> city = default, Option<string> state = default, Option<string> country = default, Option<string> zip = default, Option<string> locationDescription = default, Option<long> clientTime = default, Option<string> errorMessage = default, Option<string> ip = default, Option<string> userAgent = default, Option<bool> backgroundEvent = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUsageApiResponse?> UsageOrDefaultAsync(string tag, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> device = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> customId = default, Option<string> customType = default, Option<long> achievementIncrement = default, Option<string> city = default, Option<string> state = default, Option<string> country = default, Option<string> zip = default, Option<string> locationDescription = default, Option<long> clientTime = default, Option<string> errorMessage = default, Option<string> ip = default, Option<string> userAgent = default, Option<bool> backgroundEvent = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UsageAsync(version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2, cancellationToken).ConfigureAwait(false);
+                return await UsageAsync(tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2446,7 +2410,6 @@ namespace Org.OpenAPITools.Api
         /// Create Usage Record Record an analytic record for a known state within the application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="tag">The tag to apply: the name of the action or thing being logged.</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -2480,7 +2443,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="customLong2">a custom long value for the usage record (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUsageApiResponse"/>&gt;</returns>
-        public async Task<IUsageApiResponse> UsageAsync(decimal version, string tag, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> device = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> customId = default, Option<string> customType = default, Option<long> achievementIncrement = default, Option<string> city = default, Option<string> state = default, Option<string> country = default, Option<string> zip = default, Option<string> locationDescription = default, Option<long> clientTime = default, Option<string> errorMessage = default, Option<string> ip = default, Option<string> userAgent = default, Option<bool> backgroundEvent = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUsageApiResponse> UsageAsync(string tag, Option<string> deviceId = default, Option<long> accountId = default, Option<long> applicationId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> device = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> customId = default, Option<string> customType = default, Option<long> achievementIncrement = default, Option<string> city = default, Option<string> state = default, Option<string> country = default, Option<string> zip = default, Option<string> locationDescription = default, Option<long> clientTime = default, Option<string> errorMessage = default, Option<string> ip = default, Option<string> userAgent = default, Option<bool> backgroundEvent = default, Option<string> customMessage = default, Option<string> customMessage2 = default, Option<double> customValue = default, Option<double> customValue2 = default, Option<long> customLong = default, Option<long> customLong2 = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2488,7 +2451,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUsage(tag, deviceId, appKey, appVersion, device, deviceType, deviceOS, model, customType, city, state, country, zip, locationDescription, errorMessage, ip, userAgent, customMessage, customMessage2);
 
-                FormatUsage(ref version, ref tag, ref deviceId, ref accountId, ref applicationId, ref appKey, ref appVersion, ref device, ref deviceType, ref deviceOS, ref model, ref latitude, ref longitude, ref customId, ref customType, ref achievementIncrement, ref city, ref state, ref country, ref zip, ref locationDescription, ref clientTime, ref errorMessage, ref ip, ref userAgent, ref backgroundEvent, ref customMessage, ref customMessage2, ref customValue, ref customValue2, ref customLong, ref customLong2);
+                FormatUsage(ref tag, ref deviceId, ref accountId, ref applicationId, ref appKey, ref appVersion, ref device, ref deviceType, ref deviceOS, ref model, ref latitude, ref longitude, ref customId, ref customType, ref achievementIncrement, ref city, ref state, ref country, ref zip, ref locationDescription, ref clientTime, ref errorMessage, ref ip, ref userAgent, ref backgroundEvent, ref customMessage, ref customMessage2, ref customValue, ref customValue2, ref customLong, ref customLong2);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2496,9 +2459,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/analytics/usage"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/analytics/usage");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/analytics/usage"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/analytics/usage");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2619,13 +2581,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/analytics/usage", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/analytics/usage", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUsageDefaultImplementation(apiResponseLocalVar, version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
+                        AfterUsageDefaultImplementation(apiResponseLocalVar, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
 
                         Events.ExecuteOnUsage(apiResponseLocalVar);
 
@@ -2635,7 +2597,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUsageDefaultImplementation(e, "/api/{version}/analytics/usage", uriBuilderLocalVar.Path, version, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
+                OnErrorUsageDefaultImplementation(e, "/analytics/usage", uriBuilderLocalVar.Path, tag, deviceId, accountId, applicationId, appKey, appVersion, device, deviceType, deviceOS, model, latitude, longitude, customId, customType, achievementIncrement, city, state, country, zip, locationDescription, clientTime, errorMessage, ip, userAgent, backgroundEvent, customMessage, customMessage2, customValue, customValue2, customLong, customLong2);
                 Events.ExecuteOnErrorUsage(e);
                 throw;
             }
@@ -2734,7 +2696,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUsageBatch(ref decimal version, ref string appKey, ref string device, ref string data, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appVersion, ref Option<string> deviceType, ref Option<string> deviceOS, ref Option<string> model, ref Option<bool> updateRanking, ref Option<bool> returnSummaryResponse);
+        partial void FormatUsageBatch(ref string appKey, ref string device, ref string data, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appVersion, ref Option<string> deviceType, ref Option<string> deviceOS, ref Option<string> model, ref Option<bool> updateRanking, ref Option<bool> returnSummaryResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -2779,7 +2741,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="device"></param>
         /// <param name="data"></param>
@@ -2791,10 +2752,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="model"></param>
         /// <param name="updateRanking"></param>
         /// <param name="returnSummaryResponse"></param>
-        private void AfterUsageBatchDefaultImplementation(IUsageBatchApiResponse apiResponseLocalVar, decimal version, string appKey, string device, string data, Option<string> deviceId, Option<long> accountId, Option<string> appVersion, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<bool> updateRanking, Option<bool> returnSummaryResponse)
+        private void AfterUsageBatchDefaultImplementation(IUsageBatchApiResponse apiResponseLocalVar, string appKey, string device, string data, Option<string> deviceId, Option<long> accountId, Option<string> appVersion, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<bool> updateRanking, Option<bool> returnSummaryResponse)
         {
             bool suppressDefaultLog = false;
-            AfterUsageBatch(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
+            AfterUsageBatch(ref suppressDefaultLog, apiResponseLocalVar, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2804,7 +2765,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="device"></param>
         /// <param name="data"></param>
@@ -2816,7 +2776,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="model"></param>
         /// <param name="updateRanking"></param>
         /// <param name="returnSummaryResponse"></param>
-        partial void AfterUsageBatch(ref bool suppressDefaultLog, IUsageBatchApiResponse apiResponseLocalVar, decimal version, string appKey, string device, string data, Option<string> deviceId, Option<long> accountId, Option<string> appVersion, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<bool> updateRanking, Option<bool> returnSummaryResponse);
+        partial void AfterUsageBatch(ref bool suppressDefaultLog, IUsageBatchApiResponse apiResponseLocalVar, string appKey, string device, string data, Option<string> deviceId, Option<long> accountId, Option<string> appVersion, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<bool> updateRanking, Option<bool> returnSummaryResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2824,7 +2784,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="device"></param>
         /// <param name="data"></param>
@@ -2836,10 +2795,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="model"></param>
         /// <param name="updateRanking"></param>
         /// <param name="returnSummaryResponse"></param>
-        private void OnErrorUsageBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string device, string data, Option<string> deviceId, Option<long> accountId, Option<string> appVersion, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<bool> updateRanking, Option<bool> returnSummaryResponse)
+        private void OnErrorUsageBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string device, string data, Option<string> deviceId, Option<long> accountId, Option<string> appVersion, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<bool> updateRanking, Option<bool> returnSummaryResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUsageBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
+            OnErrorUsageBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2851,7 +2810,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="device"></param>
         /// <param name="data"></param>
@@ -2863,12 +2821,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="model"></param>
         /// <param name="updateRanking"></param>
         /// <param name="returnSummaryResponse"></param>
-        partial void OnErrorUsageBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string device, string data, Option<string> deviceId, Option<long> accountId, Option<string> appVersion, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<bool> updateRanking, Option<bool> returnSummaryResponse);
+        partial void OnErrorUsageBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string device, string data, Option<string> deviceId, Option<long> accountId, Option<string> appVersion, Option<string> deviceType, Option<string> deviceOS, Option<string> model, Option<bool> updateRanking, Option<bool> returnSummaryResponse);
 
         /// <summary>
         /// Create Multiple Usage Records Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key unique to each application.</param>
         /// <param name="device">The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)</param>
         /// <param name="data">The analytic data AnalyticListResponse</param>
@@ -2882,11 +2839,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnSummaryResponse">Returns a summary response of the achievements that have been completed due to the analytics (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUsageBatchApiResponse"/>&gt;</returns>
-        public async Task<IUsageBatchApiResponse?> UsageBatchOrDefaultAsync(decimal version, string appKey, string device, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appVersion = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<bool> updateRanking = default, Option<bool> returnSummaryResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUsageBatchApiResponse?> UsageBatchOrDefaultAsync(string appKey, string device, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appVersion = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<bool> updateRanking = default, Option<bool> returnSummaryResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UsageBatchAsync(version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse, cancellationToken).ConfigureAwait(false);
+                return await UsageBatchAsync(appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2898,7 +2855,6 @@ namespace Org.OpenAPITools.Api
         /// Create Multiple Usage Records Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key unique to each application.</param>
         /// <param name="device">The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)</param>
         /// <param name="data">The analytic data AnalyticListResponse</param>
@@ -2912,7 +2868,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnSummaryResponse">Returns a summary response of the achievements that have been completed due to the analytics (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUsageBatchApiResponse"/>&gt;</returns>
-        public async Task<IUsageBatchApiResponse> UsageBatchAsync(decimal version, string appKey, string device, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appVersion = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<bool> updateRanking = default, Option<bool> returnSummaryResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUsageBatchApiResponse> UsageBatchAsync(string appKey, string device, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appVersion = default, Option<string> deviceType = default, Option<string> deviceOS = default, Option<string> model = default, Option<bool> updateRanking = default, Option<bool> returnSummaryResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2920,7 +2876,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUsageBatch(appKey, device, data, deviceId, appVersion, deviceType, deviceOS, model);
 
-                FormatUsageBatch(ref version, ref appKey, ref device, ref data, ref deviceId, ref accountId, ref appVersion, ref deviceType, ref deviceOS, ref model, ref updateRanking, ref returnSummaryResponse);
+                FormatUsageBatch(ref appKey, ref device, ref data, ref deviceId, ref accountId, ref appVersion, ref deviceType, ref deviceOS, ref model, ref updateRanking, ref returnSummaryResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2928,9 +2884,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/analytics/usage/batch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/analytics/usage/batch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/analytics/usage/batch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/analytics/usage/batch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2987,13 +2942,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/analytics/usage/batch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/analytics/usage/batch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUsageBatchDefaultImplementation(apiResponseLocalVar, version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
+                        AfterUsageBatchDefaultImplementation(apiResponseLocalVar, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
 
                         Events.ExecuteOnUsageBatch(apiResponseLocalVar);
 
@@ -3003,7 +2958,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUsageBatchDefaultImplementation(e, "/api/{version}/analytics/usage/batch", uriBuilderLocalVar.Path, version, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
+                OnErrorUsageBatchDefaultImplementation(e, "/analytics/usage/batch", uriBuilderLocalVar.Path, appKey, device, data, deviceId, accountId, appVersion, deviceType, deviceOS, model, updateRanking, returnSummaryResponse);
                 Events.ExecuteOnErrorUsageBatch(e);
                 throw;
             }

@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a notification template. Developers will only be able to create notification templates for their own applications.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="conduit">Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.</param>
         /// <param name="title">title of the notification template</param>
@@ -55,7 +54,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">tags associated with the note template (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNotificationTemplateApiResponse"/>&gt;</returns>
-        Task<ICreateNotificationTemplateApiResponse> CreateNotificationTemplateAsync(decimal version, long accountId, string conduit, string title, string body, Option<string> appKey = default, Option<string> varEvent = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateNotificationTemplateApiResponse> CreateNotificationTemplateAsync(long accountId, string conduit, string title, string body, Option<string> appKey = default, Option<string> varEvent = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Notification Template
@@ -63,7 +62,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a notification template. Developers will only be able to create notification templates for their own applications.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="conduit">Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.</param>
         /// <param name="title">title of the notification template</param>
@@ -73,7 +71,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">tags associated with the note template (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNotificationTemplateApiResponse"/>?&gt;</returns>
-        Task<ICreateNotificationTemplateApiResponse?> CreateNotificationTemplateOrDefaultAsync(decimal version, long accountId, string conduit, string title, string body, Option<string> appKey = default, Option<string> varEvent = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateNotificationTemplateApiResponse?> CreateNotificationTemplateOrDefaultAsync(long accountId, string conduit, string title, string body, Option<string> appKey = default, Option<string> varEvent = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create or update blocked notification settings
@@ -82,13 +80,12 @@ namespace Org.OpenAPITools.Api
         /// Create or update blocked notification settings
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="data">batch data payload (application specific)</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateBlockedNotificationsApiResponse"/>&gt;</returns>
-        Task<ICreateOrUpdateBlockedNotificationsApiResponse> CreateOrUpdateBlockedNotificationsAsync(decimal version, string appKey, string data, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOrUpdateBlockedNotificationsApiResponse> CreateOrUpdateBlockedNotificationsAsync(string appKey, string data, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create or update blocked notification settings
@@ -96,13 +93,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create or update blocked notification settings
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="data">batch data payload (application specific)</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateBlockedNotificationsApiResponse"/>?&gt;</returns>
-        Task<ICreateOrUpdateBlockedNotificationsApiResponse?> CreateOrUpdateBlockedNotificationsOrDefaultAsync(decimal version, string appKey, string data, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOrUpdateBlockedNotificationsApiResponse?> CreateOrUpdateBlockedNotificationsOrDefaultAsync(string appKey, string data, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Notification Template
@@ -111,12 +107,11 @@ namespace Org.OpenAPITools.Api
         /// Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="notificationTemplateId">the id of the notification template to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNotificationTemplateApiResponse"/>&gt;</returns>
-        Task<IDeleteNotificationTemplateApiResponse> DeleteNotificationTemplateAsync(decimal version, long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteNotificationTemplateApiResponse> DeleteNotificationTemplateAsync(long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Notification Template
@@ -124,12 +119,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="notificationTemplateId">the id of the notification template to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNotificationTemplateApiResponse"/>?&gt;</returns>
-        Task<IDeleteNotificationTemplateApiResponse?> DeleteNotificationTemplateOrDefaultAsync(decimal version, long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteNotificationTemplateApiResponse?> DeleteNotificationTemplateOrDefaultAsync(long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Notification Template
@@ -138,12 +132,11 @@ namespace Org.OpenAPITools.Api
         /// Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="notificationTemplateId">the id of the notification template to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNotificationTemplateApiResponse"/>&gt;</returns>
-        Task<IGetNotificationTemplateApiResponse> GetNotificationTemplateAsync(decimal version, long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNotificationTemplateApiResponse> GetNotificationTemplateAsync(long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Notification Template
@@ -151,12 +144,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="notificationTemplateId">the id of the notification template to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNotificationTemplateApiResponse"/>?&gt;</returns>
-        Task<IGetNotificationTemplateApiResponse?> GetNotificationTemplateOrDefaultAsync(decimal version, long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNotificationTemplateApiResponse?> GetNotificationTemplateOrDefaultAsync(long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Notifications
@@ -165,7 +157,6 @@ namespace Org.OpenAPITools.Api
         /// Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">the account id used to view another person&#39;s notifications (optional)</param>
@@ -189,7 +180,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNotificationsApiResponse"/>&gt;</returns>
-        Task<IGetNotificationsApiResponse> GetNotificationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> appKey = default, Option<string> eventType = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> actionCategory = default, Option<string> conduits = default, Option<string> keyword = default, Option<bool> returnReadMessages = default, Option<bool> markAsRead = default, Option<long> fromDate = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnSent = default, Option<bool> ignoreFlagged = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNotificationsApiResponse> GetNotificationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> appKey = default, Option<string> eventType = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> actionCategory = default, Option<string> conduits = default, Option<string> keyword = default, Option<bool> returnReadMessages = default, Option<bool> markAsRead = default, Option<long> fromDate = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnSent = default, Option<bool> ignoreFlagged = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Notifications
@@ -197,7 +188,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">the account id used to view another person&#39;s notifications (optional)</param>
@@ -221,7 +211,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNotificationsApiResponse"/>?&gt;</returns>
-        Task<IGetNotificationsApiResponse?> GetNotificationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> appKey = default, Option<string> eventType = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> actionCategory = default, Option<string> conduits = default, Option<string> keyword = default, Option<bool> returnReadMessages = default, Option<bool> markAsRead = default, Option<long> fromDate = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnSent = default, Option<bool> ignoreFlagged = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNotificationsApiResponse?> GetNotificationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> appKey = default, Option<string> eventType = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> actionCategory = default, Option<string> conduits = default, Option<string> keyword = default, Option<bool> returnReadMessages = default, Option<bool> markAsRead = default, Option<long> fromDate = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnSent = default, Option<bool> ignoreFlagged = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Register Notification Token
@@ -230,7 +220,6 @@ namespace Org.OpenAPITools.Api
         /// Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">A token that is generated by the device to sign requests for the notification service providers</param>
         /// <param name="pushType">The type of push notification. Possible values include: APNS, GCM</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -243,7 +232,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegisterNotificationTokenApiResponse"/>&gt;</returns>
-        Task<IRegisterNotificationTokenApiResponse> RegisterNotificationTokenAsync(decimal version, string token, string pushType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> environment = default, Option<string> appKey = default, Option<string> gameType = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegisterNotificationTokenApiResponse> RegisterNotificationTokenAsync(string token, string pushType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> environment = default, Option<string> appKey = default, Option<string> gameType = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Register Notification Token
@@ -251,7 +240,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="token">A token that is generated by the device to sign requests for the notification service providers</param>
         /// <param name="pushType">The type of push notification. Possible values include: APNS, GCM</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -264,7 +252,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegisterNotificationTokenApiResponse"/>?&gt;</returns>
-        Task<IRegisterNotificationTokenApiResponse?> RegisterNotificationTokenOrDefaultAsync(decimal version, string token, string pushType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> environment = default, Option<string> appKey = default, Option<string> gameType = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegisterNotificationTokenApiResponse?> RegisterNotificationTokenOrDefaultAsync(string token, string pushType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> environment = default, Option<string> appKey = default, Option<string> gameType = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search on the user&#39;s blocked notification settings
@@ -273,7 +261,6 @@ namespace Org.OpenAPITools.Api
         /// Search on the user&#39;s blocked notification settings
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="searchTags">search tags to filter results (optional)</param>
@@ -288,7 +275,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBlockedNotificationsApiResponse"/>&gt;</returns>
-        Task<ISearchBlockedNotificationsApiResponse> SearchBlockedNotificationsAsync(decimal version, string appKey, Option<long> accountId = default, Option<string> searchTags = default, Option<string> events = default, Option<string> conduits = default, Option<string> customTypes = default, Option<string> contentTypes = default, Option<string> contentIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchBlockedNotificationsApiResponse> SearchBlockedNotificationsAsync(string appKey, Option<long> accountId = default, Option<string> searchTags = default, Option<string> events = default, Option<string> conduits = default, Option<string> customTypes = default, Option<string> contentTypes = default, Option<string> contentIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search on the user&#39;s blocked notification settings
@@ -296,7 +283,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on the user&#39;s blocked notification settings
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="searchTags">search tags to filter results (optional)</param>
@@ -311,7 +297,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBlockedNotificationsApiResponse"/>?&gt;</returns>
-        Task<ISearchBlockedNotificationsApiResponse?> SearchBlockedNotificationsOrDefaultAsync(decimal version, string appKey, Option<long> accountId = default, Option<string> searchTags = default, Option<string> events = default, Option<string> conduits = default, Option<string> customTypes = default, Option<string> contentTypes = default, Option<string> contentIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchBlockedNotificationsApiResponse?> SearchBlockedNotificationsOrDefaultAsync(string appKey, Option<long> accountId = default, Option<string> searchTags = default, Option<string> events = default, Option<string> conduits = default, Option<string> customTypes = default, Option<string> contentTypes = default, Option<string> contentIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Notification Templates
@@ -320,7 +306,6 @@ namespace Org.OpenAPITools.Api
         /// Search for notification templates on owned applications.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="sortField">Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.</param>
         /// <param name="descending">Specified whether the results are returned in descending or ascending order.</param>
@@ -334,7 +319,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">Filter results by keyword on the title, tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNotificationTemplateApiResponse"/>&gt;</returns>
-        Task<ISearchNotificationTemplateApiResponse> SearchNotificationTemplateAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey = default, Option<string> varEvent = default, Option<string> conduit = default, Option<bool> globalOnly = default, Option<bool> reservedOnly = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchNotificationTemplateApiResponse> SearchNotificationTemplateAsync(long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey = default, Option<string> varEvent = default, Option<string> conduit = default, Option<bool> globalOnly = default, Option<bool> reservedOnly = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Notification Templates
@@ -342,7 +327,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for notification templates on owned applications.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="sortField">Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.</param>
         /// <param name="descending">Specified whether the results are returned in descending or ascending order.</param>
@@ -356,7 +340,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">Filter results by keyword on the title, tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNotificationTemplateApiResponse"/>?&gt;</returns>
-        Task<ISearchNotificationTemplateApiResponse?> SearchNotificationTemplateOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey = default, Option<string> varEvent = default, Option<string> conduit = default, Option<bool> globalOnly = default, Option<bool> reservedOnly = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchNotificationTemplateApiResponse?> SearchNotificationTemplateOrDefaultAsync(long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey = default, Option<string> varEvent = default, Option<string> conduit = default, Option<bool> globalOnly = default, Option<bool> reservedOnly = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Recipients
@@ -365,7 +349,6 @@ namespace Org.OpenAPITools.Api
         /// Search for application users to send notifications.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}</param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -381,7 +364,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (hard limit of 1000) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRecipientsApiResponse"/>&gt;</returns>
-        Task<ISearchRecipientsApiResponse> SearchRecipientsAsync(decimal version, string sortField, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> recipientAccountIds = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRecipientsApiResponse> SearchRecipientsAsync(string sortField, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> recipientAccountIds = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Recipients
@@ -389,7 +372,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for application users to send notifications.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}</param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -405,7 +387,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (hard limit of 1000) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRecipientsApiResponse"/>?&gt;</returns>
-        Task<ISearchRecipientsApiResponse?> SearchRecipientsOrDefaultAsync(decimal version, string sortField, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> recipientAccountIds = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRecipientsApiResponse?> SearchRecipientsOrDefaultAsync(string sortField, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> recipientAccountIds = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Recipients (Counts/Grouped)
@@ -414,7 +396,6 @@ namespace Org.OpenAPITools.Api
         /// Search for application users to send notifications (count/grouped variant).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)</param>
@@ -429,7 +410,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRecipientsCountApiResponse"/>&gt;</returns>
-        Task<ISearchRecipientsCountApiResponse> SearchRecipientsCountAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRecipientsCountApiResponse> SearchRecipientsCountAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Recipients (Counts/Grouped)
@@ -437,7 +418,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for application users to send notifications (count/grouped variant).
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)</param>
@@ -452,7 +432,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRecipientsCountApiResponse"/>?&gt;</returns>
-        Task<ISearchRecipientsCountApiResponse?> SearchRecipientsCountOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRecipientsCountApiResponse?> SearchRecipientsCountOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Batch Notifications
@@ -461,7 +441,6 @@ namespace Org.OpenAPITools.Api
         /// Send notifications to all users of an application. Only someone with permissions to the application can do this.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the application owner/manager</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="customMessage">Message string that will be displayed in on the notification</param>
@@ -473,7 +452,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="parentType">Default notification pay-load field (usage is dependent on the app and the type of event) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendBatchNotificationsApiResponse"/>&gt;</returns>
-        Task<ISendBatchNotificationsApiResponse> SendBatchNotificationsAsync(decimal version, long accountId, string appKey, string customMessage, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendBatchNotificationsApiResponse> SendBatchNotificationsAsync(long accountId, string appKey, string customMessage, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Batch Notifications
@@ -481,7 +460,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Send notifications to all users of an application. Only someone with permissions to the application can do this.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the application owner/manager</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="customMessage">Message string that will be displayed in on the notification</param>
@@ -493,7 +471,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="parentType">Default notification pay-load field (usage is dependent on the app and the type of event) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendBatchNotificationsApiResponse"/>?&gt;</returns>
-        Task<ISendBatchNotificationsApiResponse?> SendBatchNotificationsOrDefaultAsync(decimal version, long accountId, string appKey, string customMessage, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendBatchNotificationsApiResponse?> SendBatchNotificationsOrDefaultAsync(long accountId, string appKey, string customMessage, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Custom Notifications
@@ -502,7 +480,6 @@ namespace Org.OpenAPITools.Api
         /// Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="receiverAccountIds">comma separated list of account IDs that will receive the notification (optional)</param>
@@ -523,7 +500,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendCustomNotificationsApiResponse"/>&gt;</returns>
-        Task<ISendCustomNotificationsApiResponse> SendCustomNotificationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> receiverAccountIds = default, Option<bool> includeFriendGroup = default, Option<string> appKey = default, Option<string> gameType = default, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> actionCategory = default, Option<string> subject = default, Option<string> customMessage = default, Option<bool> friendOnlyAPNS = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendCustomNotificationsApiResponse> SendCustomNotificationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> receiverAccountIds = default, Option<bool> includeFriendGroup = default, Option<string> appKey = default, Option<string> gameType = default, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> actionCategory = default, Option<string> subject = default, Option<string> customMessage = default, Option<bool> friendOnlyAPNS = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Custom Notifications
@@ -531,7 +508,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="receiverAccountIds">comma separated list of account IDs that will receive the notification (optional)</param>
@@ -552,7 +528,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendCustomNotificationsApiResponse"/>?&gt;</returns>
-        Task<ISendCustomNotificationsApiResponse?> SendCustomNotificationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> receiverAccountIds = default, Option<bool> includeFriendGroup = default, Option<string> appKey = default, Option<string> gameType = default, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> actionCategory = default, Option<string> subject = default, Option<string> customMessage = default, Option<bool> friendOnlyAPNS = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendCustomNotificationsApiResponse?> SendCustomNotificationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> receiverAccountIds = default, Option<bool> includeFriendGroup = default, Option<string> appKey = default, Option<string> gameType = default, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> actionCategory = default, Option<string> subject = default, Option<string> customMessage = default, Option<bool> friendOnlyAPNS = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Notification Template
@@ -561,7 +537,6 @@ namespace Org.OpenAPITools.Api
         /// Update a notification template. Developers will only be able to update notification templates for their own applications.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="notificationTemplateId">The notification template ID to update.</param>
         /// <param name="title">The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)</param>
@@ -569,7 +544,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">The search tags on the template used during search queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNotificationTemplateApiResponse"/>&gt;</returns>
-        Task<IUpdateNotificationTemplateApiResponse> UpdateNotificationTemplateAsync(decimal version, long accountId, long notificationTemplateId, Option<string> title = default, Option<string> body = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateNotificationTemplateApiResponse> UpdateNotificationTemplateAsync(long accountId, long notificationTemplateId, Option<string> title = default, Option<string> body = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Notification Template
@@ -577,7 +552,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a notification template. Developers will only be able to update notification templates for their own applications.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="notificationTemplateId">The notification template ID to update.</param>
         /// <param name="title">The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)</param>
@@ -585,7 +559,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">The search tags on the template used during search queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNotificationTemplateApiResponse"/>?&gt;</returns>
-        Task<IUpdateNotificationTemplateApiResponse?> UpdateNotificationTemplateOrDefaultAsync(decimal version, long accountId, long notificationTemplateId, Option<string> title = default, Option<string> body = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateNotificationTemplateApiResponse?> UpdateNotificationTemplateOrDefaultAsync(long accountId, long notificationTemplateId, Option<string> title = default, Option<string> body = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -1057,7 +1031,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateNotificationTemplate(ref decimal version, ref long accountId, ref string conduit, ref string title, ref string body, ref Option<string> appKey, ref Option<string> varEvent, ref Option<string> tags);
+        partial void FormatCreateNotificationTemplate(ref long accountId, ref string conduit, ref string title, ref string body, ref Option<string> appKey, ref Option<string> varEvent, ref Option<string> tags);
 
         /// <summary>
         /// Validates the request parameters
@@ -1094,7 +1068,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="conduit"></param>
         /// <param name="title"></param>
@@ -1102,10 +1075,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="varEvent"></param>
         /// <param name="tags"></param>
-        private void AfterCreateNotificationTemplateDefaultImplementation(ICreateNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, string conduit, string title, string body, Option<string> appKey, Option<string> varEvent, Option<string> tags)
+        private void AfterCreateNotificationTemplateDefaultImplementation(ICreateNotificationTemplateApiResponse apiResponseLocalVar, long accountId, string conduit, string title, string body, Option<string> appKey, Option<string> varEvent, Option<string> tags)
         {
             bool suppressDefaultLog = false;
-            AfterCreateNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, conduit, title, body, appKey, varEvent, tags);
+            AfterCreateNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, accountId, conduit, title, body, appKey, varEvent, tags);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1115,7 +1088,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="conduit"></param>
         /// <param name="title"></param>
@@ -1123,7 +1095,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="varEvent"></param>
         /// <param name="tags"></param>
-        partial void AfterCreateNotificationTemplate(ref bool suppressDefaultLog, ICreateNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, string conduit, string title, string body, Option<string> appKey, Option<string> varEvent, Option<string> tags);
+        partial void AfterCreateNotificationTemplate(ref bool suppressDefaultLog, ICreateNotificationTemplateApiResponse apiResponseLocalVar, long accountId, string conduit, string title, string body, Option<string> appKey, Option<string> varEvent, Option<string> tags);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1131,7 +1103,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="conduit"></param>
         /// <param name="title"></param>
@@ -1139,10 +1110,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="varEvent"></param>
         /// <param name="tags"></param>
-        private void OnErrorCreateNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string conduit, string title, string body, Option<string> appKey, Option<string> varEvent, Option<string> tags)
+        private void OnErrorCreateNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string conduit, string title, string body, Option<string> appKey, Option<string> varEvent, Option<string> tags)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, conduit, title, body, appKey, varEvent, tags);
+            OnErrorCreateNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, conduit, title, body, appKey, varEvent, tags);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1154,7 +1125,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="conduit"></param>
         /// <param name="title"></param>
@@ -1162,12 +1132,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="varEvent"></param>
         /// <param name="tags"></param>
-        partial void OnErrorCreateNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string conduit, string title, string body, Option<string> appKey, Option<string> varEvent, Option<string> tags);
+        partial void OnErrorCreateNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string conduit, string title, string body, Option<string> appKey, Option<string> varEvent, Option<string> tags);
 
         /// <summary>
         /// Create Notification Template Create a notification template. Developers will only be able to create notification templates for their own applications.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="conduit">Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.</param>
         /// <param name="title">title of the notification template</param>
@@ -1177,11 +1146,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">tags associated with the note template (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<ICreateNotificationTemplateApiResponse?> CreateNotificationTemplateOrDefaultAsync(decimal version, long accountId, string conduit, string title, string body, Option<string> appKey = default, Option<string> varEvent = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateNotificationTemplateApiResponse?> CreateNotificationTemplateOrDefaultAsync(long accountId, string conduit, string title, string body, Option<string> appKey = default, Option<string> varEvent = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateNotificationTemplateAsync(version, accountId, conduit, title, body, appKey, varEvent, tags, cancellationToken).ConfigureAwait(false);
+                return await CreateNotificationTemplateAsync(accountId, conduit, title, body, appKey, varEvent, tags, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1193,7 +1162,6 @@ namespace Org.OpenAPITools.Api
         /// Create Notification Template Create a notification template. Developers will only be able to create notification templates for their own applications.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="conduit">Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.</param>
         /// <param name="title">title of the notification template</param>
@@ -1203,7 +1171,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">tags associated with the note template (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<ICreateNotificationTemplateApiResponse> CreateNotificationTemplateAsync(decimal version, long accountId, string conduit, string title, string body, Option<string> appKey = default, Option<string> varEvent = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateNotificationTemplateApiResponse> CreateNotificationTemplateAsync(long accountId, string conduit, string title, string body, Option<string> appKey = default, Option<string> varEvent = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1211,7 +1179,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateNotificationTemplate(conduit, title, body, appKey, varEvent, tags);
 
-                FormatCreateNotificationTemplate(ref version, ref accountId, ref conduit, ref title, ref body, ref appKey, ref varEvent, ref tags);
+                FormatCreateNotificationTemplate(ref accountId, ref conduit, ref title, ref body, ref appKey, ref varEvent, ref tags);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1219,9 +1187,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/template/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/template/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/template/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/template/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1264,13 +1231,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/template/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/template/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateNotificationTemplateDefaultImplementation(apiResponseLocalVar, version, accountId, conduit, title, body, appKey, varEvent, tags);
+                        AfterCreateNotificationTemplateDefaultImplementation(apiResponseLocalVar, accountId, conduit, title, body, appKey, varEvent, tags);
 
                         Events.ExecuteOnCreateNotificationTemplate(apiResponseLocalVar);
 
@@ -1280,7 +1247,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateNotificationTemplateDefaultImplementation(e, "/api/{version}/notification/template/create", uriBuilderLocalVar.Path, version, accountId, conduit, title, body, appKey, varEvent, tags);
+                OnErrorCreateNotificationTemplateDefaultImplementation(e, "/notification/template/create", uriBuilderLocalVar.Path, accountId, conduit, title, body, appKey, varEvent, tags);
                 Events.ExecuteOnErrorCreateNotificationTemplate(e);
                 throw;
             }
@@ -1379,7 +1346,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateOrUpdateBlockedNotifications(ref decimal version, ref string appKey, ref string data, ref Option<long> accountId);
+        partial void FormatCreateOrUpdateBlockedNotifications(ref string appKey, ref string data, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1400,14 +1367,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="data"></param>
         /// <param name="accountId"></param>
-        private void AfterCreateOrUpdateBlockedNotificationsDefaultImplementation(ICreateOrUpdateBlockedNotificationsApiResponse apiResponseLocalVar, decimal version, string appKey, string data, Option<long> accountId)
+        private void AfterCreateOrUpdateBlockedNotificationsDefaultImplementation(ICreateOrUpdateBlockedNotificationsApiResponse apiResponseLocalVar, string appKey, string data, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterCreateOrUpdateBlockedNotifications(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, data, accountId);
+            AfterCreateOrUpdateBlockedNotifications(ref suppressDefaultLog, apiResponseLocalVar, appKey, data, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1417,11 +1383,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="data"></param>
         /// <param name="accountId"></param>
-        partial void AfterCreateOrUpdateBlockedNotifications(ref bool suppressDefaultLog, ICreateOrUpdateBlockedNotificationsApiResponse apiResponseLocalVar, decimal version, string appKey, string data, Option<long> accountId);
+        partial void AfterCreateOrUpdateBlockedNotifications(ref bool suppressDefaultLog, ICreateOrUpdateBlockedNotificationsApiResponse apiResponseLocalVar, string appKey, string data, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1429,14 +1394,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="data"></param>
         /// <param name="accountId"></param>
-        private void OnErrorCreateOrUpdateBlockedNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string data, Option<long> accountId)
+        private void OnErrorCreateOrUpdateBlockedNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string data, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateOrUpdateBlockedNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, data, accountId);
+            OnErrorCreateOrUpdateBlockedNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, data, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1448,26 +1412,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="data"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorCreateOrUpdateBlockedNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string data, Option<long> accountId);
+        partial void OnErrorCreateOrUpdateBlockedNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string data, Option<long> accountId);
 
         /// <summary>
         /// Create or update blocked notification settings Create or update blocked notification settings
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="data">batch data payload (application specific)</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateBlockedNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ICreateOrUpdateBlockedNotificationsApiResponse?> CreateOrUpdateBlockedNotificationsOrDefaultAsync(decimal version, string appKey, string data, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOrUpdateBlockedNotificationsApiResponse?> CreateOrUpdateBlockedNotificationsOrDefaultAsync(string appKey, string data, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateOrUpdateBlockedNotificationsAsync(version, appKey, data, accountId, cancellationToken).ConfigureAwait(false);
+                return await CreateOrUpdateBlockedNotificationsAsync(appKey, data, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1479,13 +1441,12 @@ namespace Org.OpenAPITools.Api
         /// Create or update blocked notification settings Create or update blocked notification settings
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="data">batch data payload (application specific)</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateBlockedNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ICreateOrUpdateBlockedNotificationsApiResponse> CreateOrUpdateBlockedNotificationsAsync(decimal version, string appKey, string data, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOrUpdateBlockedNotificationsApiResponse> CreateOrUpdateBlockedNotificationsAsync(string appKey, string data, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1493,7 +1454,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateOrUpdateBlockedNotifications(appKey, data);
 
-                FormatCreateOrUpdateBlockedNotifications(ref version, ref appKey, ref data, ref accountId);
+                FormatCreateOrUpdateBlockedNotifications(ref appKey, ref data, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1501,9 +1462,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/blocked/batch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/blocked/batch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/blocked/batch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/blocked/batch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1538,13 +1498,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/blocked/batch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/blocked/batch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateOrUpdateBlockedNotificationsDefaultImplementation(apiResponseLocalVar, version, appKey, data, accountId);
+                        AfterCreateOrUpdateBlockedNotificationsDefaultImplementation(apiResponseLocalVar, appKey, data, accountId);
 
                         Events.ExecuteOnCreateOrUpdateBlockedNotifications(apiResponseLocalVar);
 
@@ -1554,7 +1514,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateOrUpdateBlockedNotificationsDefaultImplementation(e, "/api/{version}/notification/blocked/batch", uriBuilderLocalVar.Path, version, appKey, data, accountId);
+                OnErrorCreateOrUpdateBlockedNotificationsDefaultImplementation(e, "/notification/blocked/batch", uriBuilderLocalVar.Path, appKey, data, accountId);
                 Events.ExecuteOnErrorCreateOrUpdateBlockedNotifications(e);
                 throw;
             }
@@ -1653,19 +1613,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteNotificationTemplate(ref decimal version, ref long accountId, ref long notificationTemplateId);
+        partial void FormatDeleteNotificationTemplate(ref long accountId, ref long notificationTemplateId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
-        private void AfterDeleteNotificationTemplateDefaultImplementation(IDeleteNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, long notificationTemplateId)
+        private void AfterDeleteNotificationTemplateDefaultImplementation(IDeleteNotificationTemplateApiResponse apiResponseLocalVar, long accountId, long notificationTemplateId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, notificationTemplateId);
+            AfterDeleteNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, accountId, notificationTemplateId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1675,10 +1634,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
-        partial void AfterDeleteNotificationTemplate(ref bool suppressDefaultLog, IDeleteNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, long notificationTemplateId);
+        partial void AfterDeleteNotificationTemplate(ref bool suppressDefaultLog, IDeleteNotificationTemplateApiResponse apiResponseLocalVar, long accountId, long notificationTemplateId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1686,13 +1644,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
-        private void OnErrorDeleteNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long notificationTemplateId)
+        private void OnErrorDeleteNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long notificationTemplateId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, notificationTemplateId);
+            OnErrorDeleteNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, notificationTemplateId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1704,24 +1661,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
-        partial void OnErrorDeleteNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long notificationTemplateId);
+        partial void OnErrorDeleteNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long notificationTemplateId);
 
         /// <summary>
         /// Delete Notification Template Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="notificationTemplateId">the id of the notification template to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<IDeleteNotificationTemplateApiResponse?> DeleteNotificationTemplateOrDefaultAsync(decimal version, long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteNotificationTemplateApiResponse?> DeleteNotificationTemplateOrDefaultAsync(long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteNotificationTemplateAsync(version, accountId, notificationTemplateId, cancellationToken).ConfigureAwait(false);
+                return await DeleteNotificationTemplateAsync(accountId, notificationTemplateId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1733,18 +1688,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Notification Template Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="notificationTemplateId">the id of the notification template to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<IDeleteNotificationTemplateApiResponse> DeleteNotificationTemplateAsync(decimal version, long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteNotificationTemplateApiResponse> DeleteNotificationTemplateAsync(long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteNotificationTemplate(ref version, ref accountId, ref notificationTemplateId);
+                FormatDeleteNotificationTemplate(ref accountId, ref notificationTemplateId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1752,9 +1706,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/template/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/template/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/template/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/template/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1786,13 +1739,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/template/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/template/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteNotificationTemplateDefaultImplementation(apiResponseLocalVar, version, accountId, notificationTemplateId);
+                        AfterDeleteNotificationTemplateDefaultImplementation(apiResponseLocalVar, accountId, notificationTemplateId);
 
                         Events.ExecuteOnDeleteNotificationTemplate(apiResponseLocalVar);
 
@@ -1802,7 +1755,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteNotificationTemplateDefaultImplementation(e, "/api/{version}/notification/template/delete", uriBuilderLocalVar.Path, version, accountId, notificationTemplateId);
+                OnErrorDeleteNotificationTemplateDefaultImplementation(e, "/notification/template/delete", uriBuilderLocalVar.Path, accountId, notificationTemplateId);
                 Events.ExecuteOnErrorDeleteNotificationTemplate(e);
                 throw;
             }
@@ -1901,19 +1854,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetNotificationTemplate(ref decimal version, ref long accountId, ref long notificationTemplateId);
+        partial void FormatGetNotificationTemplate(ref long accountId, ref long notificationTemplateId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
-        private void AfterGetNotificationTemplateDefaultImplementation(IGetNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, long notificationTemplateId)
+        private void AfterGetNotificationTemplateDefaultImplementation(IGetNotificationTemplateApiResponse apiResponseLocalVar, long accountId, long notificationTemplateId)
         {
             bool suppressDefaultLog = false;
-            AfterGetNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, notificationTemplateId);
+            AfterGetNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, accountId, notificationTemplateId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1923,10 +1875,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
-        partial void AfterGetNotificationTemplate(ref bool suppressDefaultLog, IGetNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, long notificationTemplateId);
+        partial void AfterGetNotificationTemplate(ref bool suppressDefaultLog, IGetNotificationTemplateApiResponse apiResponseLocalVar, long accountId, long notificationTemplateId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1934,13 +1885,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
-        private void OnErrorGetNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long notificationTemplateId)
+        private void OnErrorGetNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long notificationTemplateId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, notificationTemplateId);
+            OnErrorGetNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, notificationTemplateId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1952,24 +1902,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
-        partial void OnErrorGetNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long notificationTemplateId);
+        partial void OnErrorGetNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long notificationTemplateId);
 
         /// <summary>
         /// Get Notification Template Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="notificationTemplateId">the id of the notification template to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<IGetNotificationTemplateApiResponse?> GetNotificationTemplateOrDefaultAsync(decimal version, long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNotificationTemplateApiResponse?> GetNotificationTemplateOrDefaultAsync(long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetNotificationTemplateAsync(version, accountId, notificationTemplateId, cancellationToken).ConfigureAwait(false);
+                return await GetNotificationTemplateAsync(accountId, notificationTemplateId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1981,18 +1929,17 @@ namespace Org.OpenAPITools.Api
         /// Get Notification Template Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="notificationTemplateId">the id of the notification template to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<IGetNotificationTemplateApiResponse> GetNotificationTemplateAsync(decimal version, long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNotificationTemplateApiResponse> GetNotificationTemplateAsync(long accountId, long notificationTemplateId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetNotificationTemplate(ref version, ref accountId, ref notificationTemplateId);
+                FormatGetNotificationTemplate(ref accountId, ref notificationTemplateId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2000,9 +1947,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/template/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/template/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/template/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/template/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2034,13 +1980,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/template/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/template/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetNotificationTemplateDefaultImplementation(apiResponseLocalVar, version, accountId, notificationTemplateId);
+                        AfterGetNotificationTemplateDefaultImplementation(apiResponseLocalVar, accountId, notificationTemplateId);
 
                         Events.ExecuteOnGetNotificationTemplate(apiResponseLocalVar);
 
@@ -2050,7 +1996,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetNotificationTemplateDefaultImplementation(e, "/api/{version}/notification/template/get", uriBuilderLocalVar.Path, version, accountId, notificationTemplateId);
+                OnErrorGetNotificationTemplateDefaultImplementation(e, "/notification/template/get", uriBuilderLocalVar.Path, accountId, notificationTemplateId);
                 Events.ExecuteOnErrorGetNotificationTemplate(e);
                 throw;
             }
@@ -2149,7 +2095,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetNotifications(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> appKey, ref Option<string> eventType, ref Option<string> contentIds, ref Option<string> contentTypes, ref Option<string> parentIds, ref Option<string> parentTypes, ref Option<string> actionCategory, ref Option<string> conduits, ref Option<string> keyword, ref Option<bool> returnReadMessages, ref Option<bool> markAsRead, ref Option<long> fromDate, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnSent, ref Option<bool> ignoreFlagged, ref Option<int> start, ref Option<int> limit);
+        partial void FormatGetNotifications(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> appKey, ref Option<string> eventType, ref Option<string> contentIds, ref Option<string> contentTypes, ref Option<string> parentIds, ref Option<string> parentTypes, ref Option<string> actionCategory, ref Option<string> conduits, ref Option<string> keyword, ref Option<bool> returnReadMessages, ref Option<bool> markAsRead, ref Option<long> fromDate, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnSent, ref Option<bool> ignoreFlagged, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2202,7 +2148,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -2224,10 +2169,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ignoreFlagged"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterGetNotificationsDefaultImplementation(IGetNotificationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> appKey, Option<string> eventType, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> actionCategory, Option<string> conduits, Option<string> keyword, Option<bool> returnReadMessages, Option<bool> markAsRead, Option<long> fromDate, Option<double> latitude, Option<double> longitude, Option<bool> returnSent, Option<bool> ignoreFlagged, Option<int> start, Option<int> limit)
+        private void AfterGetNotificationsDefaultImplementation(IGetNotificationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> appKey, Option<string> eventType, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> actionCategory, Option<string> conduits, Option<string> keyword, Option<bool> returnReadMessages, Option<bool> markAsRead, Option<long> fromDate, Option<double> latitude, Option<double> longitude, Option<bool> returnSent, Option<bool> ignoreFlagged, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetNotifications(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
+            AfterGetNotifications(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2237,7 +2182,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -2259,7 +2203,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="ignoreFlagged"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterGetNotifications(ref bool suppressDefaultLog, IGetNotificationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> appKey, Option<string> eventType, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> actionCategory, Option<string> conduits, Option<string> keyword, Option<bool> returnReadMessages, Option<bool> markAsRead, Option<long> fromDate, Option<double> latitude, Option<double> longitude, Option<bool> returnSent, Option<bool> ignoreFlagged, Option<int> start, Option<int> limit);
+        partial void AfterGetNotifications(ref bool suppressDefaultLog, IGetNotificationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> appKey, Option<string> eventType, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> actionCategory, Option<string> conduits, Option<string> keyword, Option<bool> returnReadMessages, Option<bool> markAsRead, Option<long> fromDate, Option<double> latitude, Option<double> longitude, Option<bool> returnSent, Option<bool> ignoreFlagged, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2267,7 +2211,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -2289,10 +2232,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ignoreFlagged"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> appKey, Option<string> eventType, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> actionCategory, Option<string> conduits, Option<string> keyword, Option<bool> returnReadMessages, Option<bool> markAsRead, Option<long> fromDate, Option<double> latitude, Option<double> longitude, Option<bool> returnSent, Option<bool> ignoreFlagged, Option<int> start, Option<int> limit)
+        private void OnErrorGetNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> appKey, Option<string> eventType, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> actionCategory, Option<string> conduits, Option<string> keyword, Option<bool> returnReadMessages, Option<bool> markAsRead, Option<long> fromDate, Option<double> latitude, Option<double> longitude, Option<bool> returnSent, Option<bool> ignoreFlagged, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
+            OnErrorGetNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2304,7 +2247,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -2326,12 +2268,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="ignoreFlagged"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> appKey, Option<string> eventType, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> actionCategory, Option<string> conduits, Option<string> keyword, Option<bool> returnReadMessages, Option<bool> markAsRead, Option<long> fromDate, Option<double> latitude, Option<double> longitude, Option<bool> returnSent, Option<bool> ignoreFlagged, Option<int> start, Option<int> limit);
+        partial void OnErrorGetNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> appKey, Option<string> eventType, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> actionCategory, Option<string> conduits, Option<string> keyword, Option<bool> returnReadMessages, Option<bool> markAsRead, Option<long> fromDate, Option<double> latitude, Option<double> longitude, Option<bool> returnSent, Option<bool> ignoreFlagged, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Get Notifications Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">the account id used to view another person&#39;s notifications (optional)</param>
@@ -2355,11 +2296,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNotificationsApiResponse"/>&gt;</returns>
-        public async Task<IGetNotificationsApiResponse?> GetNotificationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> appKey = default, Option<string> eventType = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> actionCategory = default, Option<string> conduits = default, Option<string> keyword = default, Option<bool> returnReadMessages = default, Option<bool> markAsRead = default, Option<long> fromDate = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnSent = default, Option<bool> ignoreFlagged = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNotificationsApiResponse?> GetNotificationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> appKey = default, Option<string> eventType = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> actionCategory = default, Option<string> conduits = default, Option<string> keyword = default, Option<bool> returnReadMessages = default, Option<bool> markAsRead = default, Option<long> fromDate = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnSent = default, Option<bool> ignoreFlagged = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetNotificationsAsync(version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit, cancellationToken).ConfigureAwait(false);
+                return await GetNotificationsAsync(deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2371,7 +2312,6 @@ namespace Org.OpenAPITools.Api
         /// Get Notifications Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">the account id used to view another person&#39;s notifications (optional)</param>
@@ -2395,7 +2335,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNotificationsApiResponse"/>&gt;</returns>
-        public async Task<IGetNotificationsApiResponse> GetNotificationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> appKey = default, Option<string> eventType = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> actionCategory = default, Option<string> conduits = default, Option<string> keyword = default, Option<bool> returnReadMessages = default, Option<bool> markAsRead = default, Option<long> fromDate = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnSent = default, Option<bool> ignoreFlagged = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNotificationsApiResponse> GetNotificationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> appKey = default, Option<string> eventType = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> actionCategory = default, Option<string> conduits = default, Option<string> keyword = default, Option<bool> returnReadMessages = default, Option<bool> markAsRead = default, Option<long> fromDate = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnSent = default, Option<bool> ignoreFlagged = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2403,7 +2343,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetNotifications(deviceId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword);
 
-                FormatGetNotifications(ref version, ref deviceId, ref accountId, ref connectionAccountId, ref appKey, ref eventType, ref contentIds, ref contentTypes, ref parentIds, ref parentTypes, ref actionCategory, ref conduits, ref keyword, ref returnReadMessages, ref markAsRead, ref fromDate, ref latitude, ref longitude, ref returnSent, ref ignoreFlagged, ref start, ref limit);
+                FormatGetNotifications(ref deviceId, ref accountId, ref connectionAccountId, ref appKey, ref eventType, ref contentIds, ref contentTypes, ref parentIds, ref parentTypes, ref actionCategory, ref conduits, ref keyword, ref returnReadMessages, ref markAsRead, ref fromDate, ref latitude, ref longitude, ref returnSent, ref ignoreFlagged, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2411,9 +2351,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2505,13 +2444,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetNotificationsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
+                        AfterGetNotificationsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
 
                         Events.ExecuteOnGetNotifications(apiResponseLocalVar);
 
@@ -2521,7 +2460,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetNotificationsDefaultImplementation(e, "/api/{version}/notification/search", uriBuilderLocalVar.Path, version, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
+                OnErrorGetNotificationsDefaultImplementation(e, "/notification/search", uriBuilderLocalVar.Path, deviceId, accountId, connectionAccountId, appKey, eventType, contentIds, contentTypes, parentIds, parentTypes, actionCategory, conduits, keyword, returnReadMessages, markAsRead, fromDate, latitude, longitude, returnSent, ignoreFlagged, start, limit);
                 Events.ExecuteOnErrorGetNotifications(e);
                 throw;
             }
@@ -2620,7 +2559,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRegisterNotificationToken(ref decimal version, ref string token, ref string pushType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> environment, ref Option<string> appKey, ref Option<string> gameType, ref Option<bool> active, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRegisterNotificationToken(ref string token, ref string pushType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> environment, ref Option<string> appKey, ref Option<string> gameType, ref Option<bool> active, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2657,7 +2596,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="pushType"></param>
         /// <param name="deviceId"></param>
@@ -2668,10 +2606,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRegisterNotificationTokenDefaultImplementation(IRegisterNotificationTokenApiResponse apiResponseLocalVar, decimal version, string token, string pushType, Option<string> deviceId, Option<long> accountId, Option<string> environment, Option<string> appKey, Option<string> gameType, Option<bool> active, Option<double> latitude, Option<double> longitude)
+        private void AfterRegisterNotificationTokenDefaultImplementation(IRegisterNotificationTokenApiResponse apiResponseLocalVar, string token, string pushType, Option<string> deviceId, Option<long> accountId, Option<string> environment, Option<string> appKey, Option<string> gameType, Option<bool> active, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRegisterNotificationToken(ref suppressDefaultLog, apiResponseLocalVar, version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
+            AfterRegisterNotificationToken(ref suppressDefaultLog, apiResponseLocalVar, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2681,7 +2619,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="pushType"></param>
         /// <param name="deviceId"></param>
@@ -2692,7 +2629,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRegisterNotificationToken(ref bool suppressDefaultLog, IRegisterNotificationTokenApiResponse apiResponseLocalVar, decimal version, string token, string pushType, Option<string> deviceId, Option<long> accountId, Option<string> environment, Option<string> appKey, Option<string> gameType, Option<bool> active, Option<double> latitude, Option<double> longitude);
+        partial void AfterRegisterNotificationToken(ref bool suppressDefaultLog, IRegisterNotificationTokenApiResponse apiResponseLocalVar, string token, string pushType, Option<string> deviceId, Option<long> accountId, Option<string> environment, Option<string> appKey, Option<string> gameType, Option<bool> active, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2700,7 +2637,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="pushType"></param>
         /// <param name="deviceId"></param>
@@ -2711,10 +2647,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRegisterNotificationTokenDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token, string pushType, Option<string> deviceId, Option<long> accountId, Option<string> environment, Option<string> appKey, Option<string> gameType, Option<bool> active, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRegisterNotificationTokenDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token, string pushType, Option<string> deviceId, Option<long> accountId, Option<string> environment, Option<string> appKey, Option<string> gameType, Option<bool> active, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRegisterNotificationToken(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
+            OnErrorRegisterNotificationToken(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2726,7 +2662,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="pushType"></param>
         /// <param name="deviceId"></param>
@@ -2737,12 +2672,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRegisterNotificationToken(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token, string pushType, Option<string> deviceId, Option<long> accountId, Option<string> environment, Option<string> appKey, Option<string> gameType, Option<bool> active, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRegisterNotificationToken(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token, string pushType, Option<string> deviceId, Option<long> accountId, Option<string> environment, Option<string> appKey, Option<string> gameType, Option<bool> active, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Register Notification Token Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="token">A token that is generated by the device to sign requests for the notification service providers</param>
         /// <param name="pushType">The type of push notification. Possible values include: APNS, GCM</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -2755,11 +2689,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegisterNotificationTokenApiResponse"/>&gt;</returns>
-        public async Task<IRegisterNotificationTokenApiResponse?> RegisterNotificationTokenOrDefaultAsync(decimal version, string token, string pushType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> environment = default, Option<string> appKey = default, Option<string> gameType = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegisterNotificationTokenApiResponse?> RegisterNotificationTokenOrDefaultAsync(string token, string pushType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> environment = default, Option<string> appKey = default, Option<string> gameType = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RegisterNotificationTokenAsync(version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RegisterNotificationTokenAsync(token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2771,7 +2705,6 @@ namespace Org.OpenAPITools.Api
         /// Register Notification Token Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">A token that is generated by the device to sign requests for the notification service providers</param>
         /// <param name="pushType">The type of push notification. Possible values include: APNS, GCM</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -2784,7 +2717,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegisterNotificationTokenApiResponse"/>&gt;</returns>
-        public async Task<IRegisterNotificationTokenApiResponse> RegisterNotificationTokenAsync(decimal version, string token, string pushType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> environment = default, Option<string> appKey = default, Option<string> gameType = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegisterNotificationTokenApiResponse> RegisterNotificationTokenAsync(string token, string pushType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> environment = default, Option<string> appKey = default, Option<string> gameType = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2792,7 +2725,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRegisterNotificationToken(token, pushType, deviceId, environment, appKey, gameType);
 
-                FormatRegisterNotificationToken(ref version, ref token, ref pushType, ref deviceId, ref accountId, ref environment, ref appKey, ref gameType, ref active, ref latitude, ref longitude);
+                FormatRegisterNotificationToken(ref token, ref pushType, ref deviceId, ref accountId, ref environment, ref appKey, ref gameType, ref active, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2800,9 +2733,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/token"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/token");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/token"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/token");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2858,13 +2790,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/token", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/token", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRegisterNotificationTokenDefaultImplementation(apiResponseLocalVar, version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
+                        AfterRegisterNotificationTokenDefaultImplementation(apiResponseLocalVar, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
 
                         Events.ExecuteOnRegisterNotificationToken(apiResponseLocalVar);
 
@@ -2874,7 +2806,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRegisterNotificationTokenDefaultImplementation(e, "/api/{version}/notification/token", uriBuilderLocalVar.Path, version, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
+                OnErrorRegisterNotificationTokenDefaultImplementation(e, "/notification/token", uriBuilderLocalVar.Path, token, pushType, deviceId, accountId, environment, appKey, gameType, active, latitude, longitude);
                 Events.ExecuteOnErrorRegisterNotificationToken(e);
                 throw;
             }
@@ -2973,7 +2905,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchBlockedNotifications(ref decimal version, ref string appKey, ref Option<long> accountId, ref Option<string> searchTags, ref Option<string> events, ref Option<string> conduits, ref Option<string> customTypes, ref Option<string> contentTypes, ref Option<string> contentIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchBlockedNotifications(ref string appKey, ref Option<long> accountId, ref Option<string> searchTags, ref Option<string> events, ref Option<string> conduits, ref Option<string> customTypes, ref Option<string> contentTypes, ref Option<string> contentIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -3018,7 +2950,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
         /// <param name="searchTags"></param>
@@ -3031,10 +2962,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchBlockedNotificationsDefaultImplementation(ISearchBlockedNotificationsApiResponse apiResponseLocalVar, decimal version, string appKey, Option<long> accountId, Option<string> searchTags, Option<string> events, Option<string> conduits, Option<string> customTypes, Option<string> contentTypes, Option<string> contentIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchBlockedNotificationsDefaultImplementation(ISearchBlockedNotificationsApiResponse apiResponseLocalVar, string appKey, Option<long> accountId, Option<string> searchTags, Option<string> events, Option<string> conduits, Option<string> customTypes, Option<string> contentTypes, Option<string> contentIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchBlockedNotifications(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
+            AfterSearchBlockedNotifications(ref suppressDefaultLog, apiResponseLocalVar, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3044,7 +2975,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
         /// <param name="searchTags"></param>
@@ -3057,7 +2987,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchBlockedNotifications(ref bool suppressDefaultLog, ISearchBlockedNotificationsApiResponse apiResponseLocalVar, decimal version, string appKey, Option<long> accountId, Option<string> searchTags, Option<string> events, Option<string> conduits, Option<string> customTypes, Option<string> contentTypes, Option<string> contentIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchBlockedNotifications(ref bool suppressDefaultLog, ISearchBlockedNotificationsApiResponse apiResponseLocalVar, string appKey, Option<long> accountId, Option<string> searchTags, Option<string> events, Option<string> conduits, Option<string> customTypes, Option<string> contentTypes, Option<string> contentIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3065,7 +2995,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
         /// <param name="searchTags"></param>
@@ -3078,10 +3007,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchBlockedNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<long> accountId, Option<string> searchTags, Option<string> events, Option<string> conduits, Option<string> customTypes, Option<string> contentTypes, Option<string> contentIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchBlockedNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<long> accountId, Option<string> searchTags, Option<string> events, Option<string> conduits, Option<string> customTypes, Option<string> contentTypes, Option<string> contentIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchBlockedNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
+            OnErrorSearchBlockedNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3093,7 +3022,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
         /// <param name="searchTags"></param>
@@ -3106,12 +3034,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchBlockedNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<long> accountId, Option<string> searchTags, Option<string> events, Option<string> conduits, Option<string> customTypes, Option<string> contentTypes, Option<string> contentIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchBlockedNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<long> accountId, Option<string> searchTags, Option<string> events, Option<string> conduits, Option<string> customTypes, Option<string> contentTypes, Option<string> contentIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search on the user&#39;s blocked notification settings Search on the user&#39;s blocked notification settings
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="searchTags">search tags to filter results (optional)</param>
@@ -3126,11 +3053,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBlockedNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchBlockedNotificationsApiResponse?> SearchBlockedNotificationsOrDefaultAsync(decimal version, string appKey, Option<long> accountId = default, Option<string> searchTags = default, Option<string> events = default, Option<string> conduits = default, Option<string> customTypes = default, Option<string> contentTypes = default, Option<string> contentIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchBlockedNotificationsApiResponse?> SearchBlockedNotificationsOrDefaultAsync(string appKey, Option<long> accountId = default, Option<string> searchTags = default, Option<string> events = default, Option<string> conduits = default, Option<string> customTypes = default, Option<string> contentTypes = default, Option<string> contentIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchBlockedNotificationsAsync(version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchBlockedNotificationsAsync(appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3142,7 +3069,6 @@ namespace Org.OpenAPITools.Api
         /// Search on the user&#39;s blocked notification settings Search on the user&#39;s blocked notification settings
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="searchTags">search tags to filter results (optional)</param>
@@ -3157,7 +3083,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBlockedNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchBlockedNotificationsApiResponse> SearchBlockedNotificationsAsync(decimal version, string appKey, Option<long> accountId = default, Option<string> searchTags = default, Option<string> events = default, Option<string> conduits = default, Option<string> customTypes = default, Option<string> contentTypes = default, Option<string> contentIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchBlockedNotificationsApiResponse> SearchBlockedNotificationsAsync(string appKey, Option<long> accountId = default, Option<string> searchTags = default, Option<string> events = default, Option<string> conduits = default, Option<string> customTypes = default, Option<string> contentTypes = default, Option<string> contentIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3165,7 +3091,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchBlockedNotifications(appKey, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField);
 
-                FormatSearchBlockedNotifications(ref version, ref appKey, ref accountId, ref searchTags, ref events, ref conduits, ref customTypes, ref contentTypes, ref contentIds, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchBlockedNotifications(ref appKey, ref accountId, ref searchTags, ref events, ref conduits, ref customTypes, ref contentTypes, ref contentIds, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3173,9 +3099,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/blocked/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/blocked/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/blocked/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/blocked/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3239,13 +3164,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/blocked/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/blocked/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchBlockedNotificationsDefaultImplementation(apiResponseLocalVar, version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
+                        AfterSearchBlockedNotificationsDefaultImplementation(apiResponseLocalVar, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchBlockedNotifications(apiResponseLocalVar);
 
@@ -3255,7 +3180,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchBlockedNotificationsDefaultImplementation(e, "/api/{version}/notification/blocked/search", uriBuilderLocalVar.Path, version, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
+                OnErrorSearchBlockedNotificationsDefaultImplementation(e, "/notification/blocked/search", uriBuilderLocalVar.Path, appKey, accountId, searchTags, events, conduits, customTypes, contentTypes, contentIds, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchBlockedNotifications(e);
                 throw;
             }
@@ -3354,7 +3279,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchNotificationTemplate(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<string> appKey, ref Option<string> varEvent, ref Option<string> conduit, ref Option<bool> globalOnly, ref Option<bool> reservedOnly, ref Option<string> keyword);
+        partial void FormatSearchNotificationTemplate(ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<string> appKey, ref Option<string> varEvent, ref Option<string> conduit, ref Option<bool> globalOnly, ref Option<bool> reservedOnly, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -3387,7 +3312,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3399,10 +3323,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="globalOnly"></param>
         /// <param name="reservedOnly"></param>
         /// <param name="keyword"></param>
-        private void AfterSearchNotificationTemplateDefaultImplementation(ISearchNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey, Option<string> varEvent, Option<string> conduit, Option<bool> globalOnly, Option<bool> reservedOnly, Option<string> keyword)
+        private void AfterSearchNotificationTemplateDefaultImplementation(ISearchNotificationTemplateApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey, Option<string> varEvent, Option<string> conduit, Option<bool> globalOnly, Option<bool> reservedOnly, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterSearchNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword);
+            AfterSearchNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3412,7 +3336,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3424,7 +3347,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="globalOnly"></param>
         /// <param name="reservedOnly"></param>
         /// <param name="keyword"></param>
-        partial void AfterSearchNotificationTemplate(ref bool suppressDefaultLog, ISearchNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey, Option<string> varEvent, Option<string> conduit, Option<bool> globalOnly, Option<bool> reservedOnly, Option<string> keyword);
+        partial void AfterSearchNotificationTemplate(ref bool suppressDefaultLog, ISearchNotificationTemplateApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey, Option<string> varEvent, Option<string> conduit, Option<bool> globalOnly, Option<bool> reservedOnly, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3432,7 +3355,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3444,10 +3366,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="globalOnly"></param>
         /// <param name="reservedOnly"></param>
         /// <param name="keyword"></param>
-        private void OnErrorSearchNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey, Option<string> varEvent, Option<string> conduit, Option<bool> globalOnly, Option<bool> reservedOnly, Option<string> keyword)
+        private void OnErrorSearchNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey, Option<string> varEvent, Option<string> conduit, Option<bool> globalOnly, Option<bool> reservedOnly, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword);
+            OnErrorSearchNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3459,7 +3381,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3471,12 +3392,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="globalOnly"></param>
         /// <param name="reservedOnly"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorSearchNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey, Option<string> varEvent, Option<string> conduit, Option<bool> globalOnly, Option<bool> reservedOnly, Option<string> keyword);
+        partial void OnErrorSearchNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey, Option<string> varEvent, Option<string> conduit, Option<bool> globalOnly, Option<bool> reservedOnly, Option<string> keyword);
 
         /// <summary>
         /// Search Notification Templates Search for notification templates on owned applications.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="sortField">Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.</param>
         /// <param name="descending">Specified whether the results are returned in descending or ascending order.</param>
@@ -3490,11 +3410,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">Filter results by keyword on the title, tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<ISearchNotificationTemplateApiResponse?> SearchNotificationTemplateOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey = default, Option<string> varEvent = default, Option<string> conduit = default, Option<bool> globalOnly = default, Option<bool> reservedOnly = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchNotificationTemplateApiResponse?> SearchNotificationTemplateOrDefaultAsync(long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey = default, Option<string> varEvent = default, Option<string> conduit = default, Option<bool> globalOnly = default, Option<bool> reservedOnly = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchNotificationTemplateAsync(version, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword, cancellationToken).ConfigureAwait(false);
+                return await SearchNotificationTemplateAsync(accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3506,7 +3426,6 @@ namespace Org.OpenAPITools.Api
         /// Search Notification Templates Search for notification templates on owned applications.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="sortField">Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.</param>
         /// <param name="descending">Specified whether the results are returned in descending or ascending order.</param>
@@ -3520,7 +3439,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">Filter results by keyword on the title, tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<ISearchNotificationTemplateApiResponse> SearchNotificationTemplateAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey = default, Option<string> varEvent = default, Option<string> conduit = default, Option<bool> globalOnly = default, Option<bool> reservedOnly = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchNotificationTemplateApiResponse> SearchNotificationTemplateAsync(long accountId, string sortField, bool descending, int start, int limit, Option<string> appKey = default, Option<string> varEvent = default, Option<string> conduit = default, Option<bool> globalOnly = default, Option<bool> reservedOnly = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3528,7 +3447,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchNotificationTemplate(sortField, appKey, varEvent, conduit, keyword);
 
-                FormatSearchNotificationTemplate(ref version, ref accountId, ref sortField, ref descending, ref start, ref limit, ref appKey, ref varEvent, ref conduit, ref globalOnly, ref reservedOnly, ref keyword);
+                FormatSearchNotificationTemplate(ref accountId, ref sortField, ref descending, ref start, ref limit, ref appKey, ref varEvent, ref conduit, ref globalOnly, ref reservedOnly, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3536,9 +3455,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/template/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/template/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/template/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/template/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3591,13 +3509,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/template/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/template/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchNotificationTemplateDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword);
+                        AfterSearchNotificationTemplateDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword);
 
                         Events.ExecuteOnSearchNotificationTemplate(apiResponseLocalVar);
 
@@ -3607,7 +3525,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchNotificationTemplateDefaultImplementation(e, "/api/{version}/notification/template/search", uriBuilderLocalVar.Path, version, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword);
+                OnErrorSearchNotificationTemplateDefaultImplementation(e, "/notification/template/search", uriBuilderLocalVar.Path, accountId, sortField, descending, start, limit, appKey, varEvent, conduit, globalOnly, reservedOnly, keyword);
                 Events.ExecuteOnErrorSearchNotificationTemplate(e);
                 throw;
             }
@@ -3706,7 +3624,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchRecipients(ref decimal version, ref string sortField, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> conduit, ref Option<string> keyword, ref Option<long> audienceId, ref Option<string> audienceIds, ref Option<string> connectionGroupIds, ref Option<string> recipientAccountIds, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchRecipients(ref string sortField, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> conduit, ref Option<string> keyword, ref Option<long> audienceId, ref Option<string> audienceIds, ref Option<string> connectionGroupIds, ref Option<string> recipientAccountIds, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -3751,7 +3669,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3765,10 +3682,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchRecipientsDefaultImplementation(ISearchRecipientsApiResponse apiResponseLocalVar, decimal version, string sortField, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> recipientAccountIds, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchRecipientsDefaultImplementation(ISearchRecipientsApiResponse apiResponseLocalVar, string sortField, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> recipientAccountIds, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchRecipients(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
+            AfterSearchRecipients(ref suppressDefaultLog, apiResponseLocalVar, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3778,7 +3695,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3792,7 +3708,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchRecipients(ref bool suppressDefaultLog, ISearchRecipientsApiResponse apiResponseLocalVar, decimal version, string sortField, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> recipientAccountIds, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchRecipients(ref bool suppressDefaultLog, ISearchRecipientsApiResponse apiResponseLocalVar, string sortField, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> recipientAccountIds, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3800,7 +3716,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3814,10 +3729,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchRecipientsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> recipientAccountIds, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchRecipientsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> recipientAccountIds, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchRecipients(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
+            OnErrorSearchRecipients(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3829,7 +3744,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3843,12 +3757,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchRecipients(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> recipientAccountIds, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchRecipients(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> recipientAccountIds, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search for Recipients Search for application users to send notifications.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}</param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -3864,11 +3777,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (hard limit of 1000) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRecipientsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRecipientsApiResponse?> SearchRecipientsOrDefaultAsync(decimal version, string sortField, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> recipientAccountIds = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRecipientsApiResponse?> SearchRecipientsOrDefaultAsync(string sortField, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> recipientAccountIds = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchRecipientsAsync(version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchRecipientsAsync(sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3880,7 +3793,6 @@ namespace Org.OpenAPITools.Api
         /// Search for Recipients Search for application users to send notifications.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}</param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -3896,7 +3808,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (hard limit of 1000) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRecipientsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRecipientsApiResponse> SearchRecipientsAsync(decimal version, string sortField, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> recipientAccountIds = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRecipientsApiResponse> SearchRecipientsAsync(string sortField, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> recipientAccountIds = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3904,7 +3816,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchRecipients(sortField, deviceId, appKey, conduit, keyword, audienceIds, connectionGroupIds, recipientAccountIds);
 
-                FormatSearchRecipients(ref version, ref sortField, ref deviceId, ref accountId, ref appKey, ref conduit, ref keyword, ref audienceId, ref audienceIds, ref connectionGroupIds, ref recipientAccountIds, ref descending, ref start, ref limit);
+                FormatSearchRecipients(ref sortField, ref deviceId, ref accountId, ref appKey, ref conduit, ref keyword, ref audienceId, ref audienceIds, ref connectionGroupIds, ref recipientAccountIds, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3912,9 +3824,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/recipient/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/recipient/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/recipient/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/recipient/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3981,13 +3892,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/recipient/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/recipient/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchRecipientsDefaultImplementation(apiResponseLocalVar, version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
+                        AfterSearchRecipientsDefaultImplementation(apiResponseLocalVar, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
 
                         Events.ExecuteOnSearchRecipients(apiResponseLocalVar);
 
@@ -3997,7 +3908,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchRecipientsDefaultImplementation(e, "/api/{version}/notification/recipient/search", uriBuilderLocalVar.Path, version, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
+                OnErrorSearchRecipientsDefaultImplementation(e, "/notification/recipient/search", uriBuilderLocalVar.Path, sortField, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, recipientAccountIds, descending, start, limit);
                 Events.ExecuteOnErrorSearchRecipients(e);
                 throw;
             }
@@ -4096,7 +4007,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchRecipientsCount(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> conduit, ref Option<string> keyword, ref Option<long> audienceId, ref Option<string> audienceIds, ref Option<string> connectionGroupIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchRecipientsCount(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> conduit, ref Option<string> keyword, ref Option<long> audienceId, ref Option<string> audienceIds, ref Option<string> connectionGroupIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -4137,7 +4048,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -4150,10 +4060,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchRecipientsCountDefaultImplementation(ISearchRecipientsCountApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchRecipientsCountDefaultImplementation(ISearchRecipientsCountApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchRecipientsCount(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
+            AfterSearchRecipientsCount(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4163,7 +4073,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -4176,7 +4085,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchRecipientsCount(ref bool suppressDefaultLog, ISearchRecipientsCountApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchRecipientsCount(ref bool suppressDefaultLog, ISearchRecipientsCountApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4184,7 +4093,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -4197,10 +4105,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchRecipientsCountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchRecipientsCountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchRecipientsCount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
+            OnErrorSearchRecipientsCount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4212,7 +4120,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -4225,12 +4132,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchRecipientsCount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchRecipientsCount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> conduit, Option<string> keyword, Option<long> audienceId, Option<string> audienceIds, Option<string> connectionGroupIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search for Recipients (Counts/Grouped) Search for application users to send notifications (count/grouped variant).
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)</param>
@@ -4245,11 +4151,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRecipientsCountApiResponse"/>&gt;</returns>
-        public async Task<ISearchRecipientsCountApiResponse?> SearchRecipientsCountOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRecipientsCountApiResponse?> SearchRecipientsCountOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchRecipientsCountAsync(version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchRecipientsCountAsync(deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4261,7 +4167,6 @@ namespace Org.OpenAPITools.Api
         /// Search for Recipients (Counts/Grouped) Search for application users to send notifications (count/grouped variant).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)</param>
@@ -4276,7 +4181,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">limit of the pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRecipientsCountApiResponse"/>&gt;</returns>
-        public async Task<ISearchRecipientsCountApiResponse> SearchRecipientsCountAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRecipientsCountApiResponse> SearchRecipientsCountAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> conduit = default, Option<string> keyword = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> connectionGroupIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4284,7 +4189,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchRecipientsCount(deviceId, appKey, conduit, keyword, audienceIds, connectionGroupIds, sortField);
 
-                FormatSearchRecipientsCount(ref version, ref deviceId, ref accountId, ref appKey, ref conduit, ref keyword, ref audienceId, ref audienceIds, ref connectionGroupIds, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchRecipientsCount(ref deviceId, ref accountId, ref appKey, ref conduit, ref keyword, ref audienceId, ref audienceIds, ref connectionGroupIds, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4292,9 +4197,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/recipient/search/count"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/recipient/search/count");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/recipient/search/count"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/recipient/search/count");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4359,13 +4263,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/recipient/search/count", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/recipient/search/count", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchRecipientsCountDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
+                        AfterSearchRecipientsCountDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchRecipientsCount(apiResponseLocalVar);
 
@@ -4375,7 +4279,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchRecipientsCountDefaultImplementation(e, "/api/{version}/notification/recipient/search/count", uriBuilderLocalVar.Path, version, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
+                OnErrorSearchRecipientsCountDefaultImplementation(e, "/notification/recipient/search/count", uriBuilderLocalVar.Path, deviceId, accountId, appKey, conduit, keyword, audienceId, audienceIds, connectionGroupIds, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchRecipientsCount(e);
                 throw;
             }
@@ -4474,7 +4378,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSendBatchNotifications(ref decimal version, ref long accountId, ref string appKey, ref string customMessage, ref Option<string> conduit, ref Option<long> contentId, ref Option<string> contentName, ref Option<string> contentType, ref Option<long> parentId, ref Option<string> parentType);
+        partial void FormatSendBatchNotifications(ref long accountId, ref string appKey, ref string customMessage, ref Option<string> conduit, ref Option<long> contentId, ref Option<string> contentName, ref Option<string> contentType, ref Option<long> parentId, ref Option<string> parentType);
 
         /// <summary>
         /// Validates the request parameters
@@ -4511,7 +4415,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="customMessage"></param>
@@ -4521,10 +4424,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="contentType"></param>
         /// <param name="parentId"></param>
         /// <param name="parentType"></param>
-        private void AfterSendBatchNotificationsDefaultImplementation(ISendBatchNotificationsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string customMessage, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType)
+        private void AfterSendBatchNotificationsDefaultImplementation(ISendBatchNotificationsApiResponse apiResponseLocalVar, long accountId, string appKey, string customMessage, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType)
         {
             bool suppressDefaultLog = false;
-            AfterSendBatchNotifications(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
+            AfterSendBatchNotifications(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4534,7 +4437,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="customMessage"></param>
@@ -4544,7 +4446,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="contentType"></param>
         /// <param name="parentId"></param>
         /// <param name="parentType"></param>
-        partial void AfterSendBatchNotifications(ref bool suppressDefaultLog, ISendBatchNotificationsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string customMessage, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType);
+        partial void AfterSendBatchNotifications(ref bool suppressDefaultLog, ISendBatchNotificationsApiResponse apiResponseLocalVar, long accountId, string appKey, string customMessage, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4552,7 +4454,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="customMessage"></param>
@@ -4562,10 +4463,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="contentType"></param>
         /// <param name="parentId"></param>
         /// <param name="parentType"></param>
-        private void OnErrorSendBatchNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string customMessage, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType)
+        private void OnErrorSendBatchNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string customMessage, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSendBatchNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
+            OnErrorSendBatchNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4577,7 +4478,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="customMessage"></param>
@@ -4587,12 +4487,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="contentType"></param>
         /// <param name="parentId"></param>
         /// <param name="parentType"></param>
-        partial void OnErrorSendBatchNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string customMessage, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType);
+        partial void OnErrorSendBatchNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string customMessage, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType);
 
         /// <summary>
         /// Send Batch Notifications Send notifications to all users of an application. Only someone with permissions to the application can do this.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the application owner/manager</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="customMessage">Message string that will be displayed in on the notification</param>
@@ -4604,11 +4503,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="parentType">Default notification pay-load field (usage is dependent on the app and the type of event) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendBatchNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ISendBatchNotificationsApiResponse?> SendBatchNotificationsOrDefaultAsync(decimal version, long accountId, string appKey, string customMessage, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendBatchNotificationsApiResponse?> SendBatchNotificationsOrDefaultAsync(long accountId, string appKey, string customMessage, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SendBatchNotificationsAsync(version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType, cancellationToken).ConfigureAwait(false);
+                return await SendBatchNotificationsAsync(accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4620,7 +4519,6 @@ namespace Org.OpenAPITools.Api
         /// Send Batch Notifications Send notifications to all users of an application. Only someone with permissions to the application can do this.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the application owner/manager</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="customMessage">Message string that will be displayed in on the notification</param>
@@ -4632,7 +4530,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="parentType">Default notification pay-load field (usage is dependent on the app and the type of event) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendBatchNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ISendBatchNotificationsApiResponse> SendBatchNotificationsAsync(decimal version, long accountId, string appKey, string customMessage, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendBatchNotificationsApiResponse> SendBatchNotificationsAsync(long accountId, string appKey, string customMessage, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4640,7 +4538,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSendBatchNotifications(appKey, customMessage, conduit, contentName, contentType, parentType);
 
-                FormatSendBatchNotifications(ref version, ref accountId, ref appKey, ref customMessage, ref conduit, ref contentId, ref contentName, ref contentType, ref parentId, ref parentType);
+                FormatSendBatchNotifications(ref accountId, ref appKey, ref customMessage, ref conduit, ref contentId, ref contentName, ref contentType, ref parentId, ref parentType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4648,9 +4546,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/batch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/batch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/batch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/batch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4701,13 +4598,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/batch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/batch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSendBatchNotificationsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
+                        AfterSendBatchNotificationsDefaultImplementation(apiResponseLocalVar, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
 
                         Events.ExecuteOnSendBatchNotifications(apiResponseLocalVar);
 
@@ -4717,7 +4614,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSendBatchNotificationsDefaultImplementation(e, "/api/{version}/notification/batch", uriBuilderLocalVar.Path, version, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
+                OnErrorSendBatchNotificationsDefaultImplementation(e, "/notification/batch", uriBuilderLocalVar.Path, accountId, appKey, customMessage, conduit, contentId, contentName, contentType, parentId, parentType);
                 Events.ExecuteOnErrorSendBatchNotifications(e);
                 throw;
             }
@@ -4816,7 +4713,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSendCustomNotifications(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> receiverAccountIds, ref Option<bool> includeFriendGroup, ref Option<string> appKey, ref Option<string> gameType, ref Option<string> conduit, ref Option<long> contentId, ref Option<string> contentName, ref Option<string> contentType, ref Option<long> parentId, ref Option<string> parentType, ref Option<string> actionCategory, ref Option<string> subject, ref Option<string> customMessage, ref Option<bool> friendOnlyAPNS, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatSendCustomNotifications(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> receiverAccountIds, ref Option<bool> includeFriendGroup, ref Option<string> appKey, ref Option<string> gameType, ref Option<string> conduit, ref Option<long> contentId, ref Option<string> contentName, ref Option<string> contentType, ref Option<long> parentId, ref Option<string> parentType, ref Option<string> actionCategory, ref Option<string> subject, ref Option<string> customMessage, ref Option<bool> friendOnlyAPNS, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -4873,7 +4770,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountIds"></param>
@@ -4892,10 +4788,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="friendOnlyAPNS"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterSendCustomNotificationsDefaultImplementation(ISendCustomNotificationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> receiverAccountIds, Option<bool> includeFriendGroup, Option<string> appKey, Option<string> gameType, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> actionCategory, Option<string> subject, Option<string> customMessage, Option<bool> friendOnlyAPNS, Option<double> latitude, Option<double> longitude)
+        private void AfterSendCustomNotificationsDefaultImplementation(ISendCustomNotificationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> receiverAccountIds, Option<bool> includeFriendGroup, Option<string> appKey, Option<string> gameType, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> actionCategory, Option<string> subject, Option<string> customMessage, Option<bool> friendOnlyAPNS, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterSendCustomNotifications(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
+            AfterSendCustomNotifications(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4905,7 +4801,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountIds"></param>
@@ -4924,7 +4819,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="friendOnlyAPNS"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterSendCustomNotifications(ref bool suppressDefaultLog, ISendCustomNotificationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> receiverAccountIds, Option<bool> includeFriendGroup, Option<string> appKey, Option<string> gameType, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> actionCategory, Option<string> subject, Option<string> customMessage, Option<bool> friendOnlyAPNS, Option<double> latitude, Option<double> longitude);
+        partial void AfterSendCustomNotifications(ref bool suppressDefaultLog, ISendCustomNotificationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> receiverAccountIds, Option<bool> includeFriendGroup, Option<string> appKey, Option<string> gameType, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> actionCategory, Option<string> subject, Option<string> customMessage, Option<bool> friendOnlyAPNS, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4932,7 +4827,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountIds"></param>
@@ -4951,10 +4845,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="friendOnlyAPNS"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorSendCustomNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> receiverAccountIds, Option<bool> includeFriendGroup, Option<string> appKey, Option<string> gameType, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> actionCategory, Option<string> subject, Option<string> customMessage, Option<bool> friendOnlyAPNS, Option<double> latitude, Option<double> longitude)
+        private void OnErrorSendCustomNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> receiverAccountIds, Option<bool> includeFriendGroup, Option<string> appKey, Option<string> gameType, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> actionCategory, Option<string> subject, Option<string> customMessage, Option<bool> friendOnlyAPNS, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSendCustomNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
+            OnErrorSendCustomNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4966,7 +4860,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountIds"></param>
@@ -4985,12 +4878,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="friendOnlyAPNS"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorSendCustomNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> receiverAccountIds, Option<bool> includeFriendGroup, Option<string> appKey, Option<string> gameType, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> actionCategory, Option<string> subject, Option<string> customMessage, Option<bool> friendOnlyAPNS, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorSendCustomNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> receiverAccountIds, Option<bool> includeFriendGroup, Option<string> appKey, Option<string> gameType, Option<string> conduit, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> actionCategory, Option<string> subject, Option<string> customMessage, Option<bool> friendOnlyAPNS, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Send Custom Notifications Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="receiverAccountIds">comma separated list of account IDs that will receive the notification (optional)</param>
@@ -5011,11 +4903,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendCustomNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ISendCustomNotificationsApiResponse?> SendCustomNotificationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> receiverAccountIds = default, Option<bool> includeFriendGroup = default, Option<string> appKey = default, Option<string> gameType = default, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> actionCategory = default, Option<string> subject = default, Option<string> customMessage = default, Option<bool> friendOnlyAPNS = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendCustomNotificationsApiResponse?> SendCustomNotificationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> receiverAccountIds = default, Option<bool> includeFriendGroup = default, Option<string> appKey = default, Option<string> gameType = default, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> actionCategory = default, Option<string> subject = default, Option<string> customMessage = default, Option<bool> friendOnlyAPNS = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SendCustomNotificationsAsync(version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await SendCustomNotificationsAsync(deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5027,7 +4919,6 @@ namespace Org.OpenAPITools.Api
         /// Send Custom Notifications Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="receiverAccountIds">comma separated list of account IDs that will receive the notification (optional)</param>
@@ -5048,7 +4939,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendCustomNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ISendCustomNotificationsApiResponse> SendCustomNotificationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> receiverAccountIds = default, Option<bool> includeFriendGroup = default, Option<string> appKey = default, Option<string> gameType = default, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> actionCategory = default, Option<string> subject = default, Option<string> customMessage = default, Option<bool> friendOnlyAPNS = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendCustomNotificationsApiResponse> SendCustomNotificationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> receiverAccountIds = default, Option<bool> includeFriendGroup = default, Option<string> appKey = default, Option<string> gameType = default, Option<string> conduit = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> actionCategory = default, Option<string> subject = default, Option<string> customMessage = default, Option<bool> friendOnlyAPNS = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5056,7 +4947,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSendCustomNotifications(deviceId, receiverAccountIds, appKey, gameType, conduit, contentName, contentType, parentType, actionCategory, subject, customMessage);
 
-                FormatSendCustomNotifications(ref version, ref deviceId, ref accountId, ref receiverAccountIds, ref includeFriendGroup, ref appKey, ref gameType, ref conduit, ref contentId, ref contentName, ref contentType, ref parentId, ref parentType, ref actionCategory, ref subject, ref customMessage, ref friendOnlyAPNS, ref latitude, ref longitude);
+                FormatSendCustomNotifications(ref deviceId, ref accountId, ref receiverAccountIds, ref includeFriendGroup, ref appKey, ref gameType, ref conduit, ref contentId, ref contentName, ref contentType, ref parentId, ref parentType, ref actionCategory, ref subject, ref customMessage, ref friendOnlyAPNS, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5064,9 +4955,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/custom"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/custom");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/custom"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/custom");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5149,13 +5039,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/custom", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/custom", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSendCustomNotificationsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
+                        AfterSendCustomNotificationsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
 
                         Events.ExecuteOnSendCustomNotifications(apiResponseLocalVar);
 
@@ -5165,7 +5055,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSendCustomNotificationsDefaultImplementation(e, "/api/{version}/notification/custom", uriBuilderLocalVar.Path, version, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
+                OnErrorSendCustomNotificationsDefaultImplementation(e, "/notification/custom", uriBuilderLocalVar.Path, deviceId, accountId, receiverAccountIds, includeFriendGroup, appKey, gameType, conduit, contentId, contentName, contentType, parentId, parentType, actionCategory, subject, customMessage, friendOnlyAPNS, latitude, longitude);
                 Events.ExecuteOnErrorSendCustomNotifications(e);
                 throw;
             }
@@ -5264,7 +5154,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateNotificationTemplate(ref decimal version, ref long accountId, ref long notificationTemplateId, ref Option<string> title, ref Option<string> body, ref Option<string> tags);
+        partial void FormatUpdateNotificationTemplate(ref long accountId, ref long notificationTemplateId, ref Option<string> title, ref Option<string> body, ref Option<string> tags);
 
         /// <summary>
         /// Validates the request parameters
@@ -5289,16 +5179,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
         /// <param name="title"></param>
         /// <param name="body"></param>
         /// <param name="tags"></param>
-        private void AfterUpdateNotificationTemplateDefaultImplementation(IUpdateNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, long notificationTemplateId, Option<string> title, Option<string> body, Option<string> tags)
+        private void AfterUpdateNotificationTemplateDefaultImplementation(IUpdateNotificationTemplateApiResponse apiResponseLocalVar, long accountId, long notificationTemplateId, Option<string> title, Option<string> body, Option<string> tags)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, notificationTemplateId, title, body, tags);
+            AfterUpdateNotificationTemplate(ref suppressDefaultLog, apiResponseLocalVar, accountId, notificationTemplateId, title, body, tags);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5308,13 +5197,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
         /// <param name="title"></param>
         /// <param name="body"></param>
         /// <param name="tags"></param>
-        partial void AfterUpdateNotificationTemplate(ref bool suppressDefaultLog, IUpdateNotificationTemplateApiResponse apiResponseLocalVar, decimal version, long accountId, long notificationTemplateId, Option<string> title, Option<string> body, Option<string> tags);
+        partial void AfterUpdateNotificationTemplate(ref bool suppressDefaultLog, IUpdateNotificationTemplateApiResponse apiResponseLocalVar, long accountId, long notificationTemplateId, Option<string> title, Option<string> body, Option<string> tags);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5322,16 +5210,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
         /// <param name="title"></param>
         /// <param name="body"></param>
         /// <param name="tags"></param>
-        private void OnErrorUpdateNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long notificationTemplateId, Option<string> title, Option<string> body, Option<string> tags)
+        private void OnErrorUpdateNotificationTemplateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long notificationTemplateId, Option<string> title, Option<string> body, Option<string> tags)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, notificationTemplateId, title, body, tags);
+            OnErrorUpdateNotificationTemplate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, notificationTemplateId, title, body, tags);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5343,18 +5230,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="notificationTemplateId"></param>
         /// <param name="title"></param>
         /// <param name="body"></param>
         /// <param name="tags"></param>
-        partial void OnErrorUpdateNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long notificationTemplateId, Option<string> title, Option<string> body, Option<string> tags);
+        partial void OnErrorUpdateNotificationTemplate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long notificationTemplateId, Option<string> title, Option<string> body, Option<string> tags);
 
         /// <summary>
         /// Update Notification Template Update a notification template. Developers will only be able to update notification templates for their own applications.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="notificationTemplateId">The notification template ID to update.</param>
         /// <param name="title">The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)</param>
@@ -5362,11 +5247,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">The search tags on the template used during search queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<IUpdateNotificationTemplateApiResponse?> UpdateNotificationTemplateOrDefaultAsync(decimal version, long accountId, long notificationTemplateId, Option<string> title = default, Option<string> body = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateNotificationTemplateApiResponse?> UpdateNotificationTemplateOrDefaultAsync(long accountId, long notificationTemplateId, Option<string> title = default, Option<string> body = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateNotificationTemplateAsync(version, accountId, notificationTemplateId, title, body, tags, cancellationToken).ConfigureAwait(false);
+                return await UpdateNotificationTemplateAsync(accountId, notificationTemplateId, title, body, tags, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5378,7 +5263,6 @@ namespace Org.OpenAPITools.Api
         /// Update Notification Template Update a notification template. Developers will only be able to update notification templates for their own applications.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user.</param>
         /// <param name="notificationTemplateId">The notification template ID to update.</param>
         /// <param name="title">The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)</param>
@@ -5386,7 +5270,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">The search tags on the template used during search queries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNotificationTemplateApiResponse"/>&gt;</returns>
-        public async Task<IUpdateNotificationTemplateApiResponse> UpdateNotificationTemplateAsync(decimal version, long accountId, long notificationTemplateId, Option<string> title = default, Option<string> body = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateNotificationTemplateApiResponse> UpdateNotificationTemplateAsync(long accountId, long notificationTemplateId, Option<string> title = default, Option<string> body = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5394,7 +5278,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateNotificationTemplate(title, body, tags);
 
-                FormatUpdateNotificationTemplate(ref version, ref accountId, ref notificationTemplateId, ref title, ref body, ref tags);
+                FormatUpdateNotificationTemplate(ref accountId, ref notificationTemplateId, ref title, ref body, ref tags);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5402,9 +5286,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/template/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/template/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/template/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/template/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5445,13 +5328,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/template/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/template/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateNotificationTemplateDefaultImplementation(apiResponseLocalVar, version, accountId, notificationTemplateId, title, body, tags);
+                        AfterUpdateNotificationTemplateDefaultImplementation(apiResponseLocalVar, accountId, notificationTemplateId, title, body, tags);
 
                         Events.ExecuteOnUpdateNotificationTemplate(apiResponseLocalVar);
 
@@ -5461,7 +5344,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateNotificationTemplateDefaultImplementation(e, "/api/{version}/notification/template/update", uriBuilderLocalVar.Path, version, accountId, notificationTemplateId, title, body, tags);
+                OnErrorUpdateNotificationTemplateDefaultImplementation(e, "/notification/template/update", uriBuilderLocalVar.Path, accountId, notificationTemplateId, title, body, tags);
                 Events.ExecuteOnErrorUpdateNotificationTemplate(e);
                 throw;
             }

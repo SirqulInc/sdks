@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Search for categories by distance.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The keyword string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)</param>
@@ -68,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="range">the maximum range the category can be from the center (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICategoryDistanceSearchApiResponse"/>&gt;</returns>
-        Task<ICategoryDistanceSearchApiResponse> CategoryDistanceSearchAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<int> minOfferCount = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICategoryDistanceSearchApiResponse> CategoryDistanceSearchAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<int> minOfferCount = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Categories by Distance
@@ -76,7 +75,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for categories by distance.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The keyword string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)</param>
@@ -99,7 +97,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="range">the maximum range the category can be from the center (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICategoryDistanceSearchApiResponse"/>?&gt;</returns>
-        Task<ICategoryDistanceSearchApiResponse?> CategoryDistanceSearchOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<int> minOfferCount = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICategoryDistanceSearchApiResponse?> CategoryDistanceSearchOrDefaultAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<int> minOfferCount = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Category
@@ -108,7 +106,6 @@ namespace Org.OpenAPITools.Api
         /// Create a new category.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="name">The name of the category</param>
         /// <param name="appKey">The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)</param>
@@ -125,7 +122,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags">user defined strings for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCategoryApiResponse"/>&gt;</returns>
-        Task<ICreateCategoryApiResponse> CreateCategoryAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<long> parentCategoryId = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateCategoryApiResponse> CreateCategoryAsync(long accountId, string name, Option<string> appKey = default, Option<long> parentCategoryId = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Category
@@ -133,7 +130,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new category.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="name">The name of the category</param>
         /// <param name="appKey">The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)</param>
@@ -150,7 +146,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags">user defined strings for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCategoryApiResponse"/>?&gt;</returns>
-        Task<ICreateCategoryApiResponse?> CreateCategoryOrDefaultAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<long> parentCategoryId = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateCategoryApiResponse?> CreateCategoryOrDefaultAsync(long accountId, string name, Option<string> appKey = default, Option<long> parentCategoryId = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Category
@@ -159,12 +155,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a category.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the account</param>
         /// <param name="categoryId">the ID of the category</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCategoryApiResponse"/>&gt;</returns>
-        Task<IDeleteCategoryApiResponse> DeleteCategoryAsync(decimal version, long accountId, long categoryId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteCategoryApiResponse> DeleteCategoryAsync(long accountId, long categoryId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Category
@@ -172,12 +167,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a category.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the account</param>
         /// <param name="categoryId">the ID of the category</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCategoryApiResponse"/>?&gt;</returns>
-        Task<IDeleteCategoryApiResponse?> DeleteCategoryOrDefaultAsync(decimal version, long accountId, long categoryId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteCategoryApiResponse?> DeleteCategoryOrDefaultAsync(long accountId, long categoryId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Duplicate Category
@@ -186,14 +180,13 @@ namespace Org.OpenAPITools.Api
         /// Duplicate a category, including all its children.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="categoryId">The category ID to duplicate (includes all children)</param>
         /// <param name="appKey">The application to assign the new category to, may be different then the application the source category is assigned to (optional)</param>
         /// <param name="parentCategoryId">The parent category ID to add the target category to. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDuplicateCategoryApiResponse"/>&gt;</returns>
-        Task<IDuplicateCategoryApiResponse> DuplicateCategoryAsync(decimal version, long accountId, long categoryId, Option<string> appKey = default, Option<long> parentCategoryId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDuplicateCategoryApiResponse> DuplicateCategoryAsync(long accountId, long categoryId, Option<string> appKey = default, Option<long> parentCategoryId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Duplicate Category
@@ -201,14 +194,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Duplicate a category, including all its children.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="categoryId">The category ID to duplicate (includes all children)</param>
         /// <param name="appKey">The application to assign the new category to, may be different then the application the source category is assigned to (optional)</param>
         /// <param name="parentCategoryId">The parent category ID to add the target category to. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDuplicateCategoryApiResponse"/>?&gt;</returns>
-        Task<IDuplicateCategoryApiResponse?> DuplicateCategoryOrDefaultAsync(decimal version, long accountId, long categoryId, Option<string> appKey = default, Option<long> parentCategoryId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDuplicateCategoryApiResponse?> DuplicateCategoryOrDefaultAsync(long accountId, long categoryId, Option<string> appKey = default, Option<long> parentCategoryId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Category
@@ -217,12 +209,11 @@ namespace Org.OpenAPITools.Api
         /// Get the details of a specific category. Recursively include all child categories and their children.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="categoryId">the ID of the category</param>
         /// <param name="returnExternal">Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCategoryApiResponse"/>&gt;</returns>
-        Task<IGetCategoryApiResponse> GetCategoryAsync(decimal version, long categoryId, Option<bool> returnExternal = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCategoryApiResponse> GetCategoryAsync(long categoryId, Option<bool> returnExternal = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Category
@@ -230,12 +221,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the details of a specific category. Recursively include all child categories and their children.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="categoryId">the ID of the category</param>
         /// <param name="returnExternal">Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCategoryApiResponse"/>?&gt;</returns>
-        Task<IGetCategoryApiResponse?> GetCategoryOrDefaultAsync(decimal version, long categoryId, Option<bool> returnExternal = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCategoryApiResponse?> GetCategoryOrDefaultAsync(long categoryId, Option<bool> returnExternal = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Categories
@@ -244,7 +234,6 @@ namespace Org.OpenAPITools.Api
         /// Search for categories.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)</param>
@@ -268,7 +257,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchMode">The search index mode to use (e.g. OPENSEARCH or RDS) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCategoriesApiResponse"/>&gt;</returns>
-        Task<ISearchCategoriesApiResponse> SearchCategoriesAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryId = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<bool> excludeExternalType = default, Option<int> minOfferCount = default, Option<int> searchDepth = default, Option<string> searchMode = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCategoriesApiResponse> SearchCategoriesAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryId = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<bool> excludeExternalType = default, Option<int> minOfferCount = default, Option<int> searchDepth = default, Option<string> searchMode = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Categories
@@ -276,7 +265,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for categories.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)</param>
@@ -300,7 +288,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchMode">The search index mode to use (e.g. OPENSEARCH or RDS) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCategoriesApiResponse"/>?&gt;</returns>
-        Task<ISearchCategoriesApiResponse?> SearchCategoriesOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryId = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<bool> excludeExternalType = default, Option<int> minOfferCount = default, Option<int> searchDepth = default, Option<string> searchMode = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCategoriesApiResponse?> SearchCategoriesOrDefaultAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryId = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<bool> excludeExternalType = default, Option<int> minOfferCount = default, Option<int> searchDepth = default, Option<string> searchMode = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Category
@@ -309,7 +297,6 @@ namespace Org.OpenAPITools.Api
         /// Update a category.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="categoryId">The ID of the category to edit</param>
         /// <param name="parentCategoryId">The ID of the parent category, if not provided then the parent category will be null (optional)</param>
@@ -326,7 +313,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags">user defined strings for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCategoryApiResponse"/>&gt;</returns>
-        Task<IUpdateCategoryApiResponse> UpdateCategoryAsync(decimal version, long accountId, long categoryId, Option<long> parentCategoryId = default, Option<string> name = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateCategoryApiResponse> UpdateCategoryAsync(long accountId, long categoryId, Option<long> parentCategoryId = default, Option<string> name = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Category
@@ -334,7 +321,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a category.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="categoryId">The ID of the category to edit</param>
         /// <param name="parentCategoryId">The ID of the parent category, if not provided then the parent category will be null (optional)</param>
@@ -351,7 +337,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags">user defined strings for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCategoryApiResponse"/>?&gt;</returns>
-        Task<IUpdateCategoryApiResponse?> UpdateCategoryOrDefaultAsync(decimal version, long accountId, long categoryId, Option<long> parentCategoryId = default, Option<string> name = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateCategoryApiResponse?> UpdateCategoryOrDefaultAsync(long accountId, long categoryId, Option<long> parentCategoryId = default, Option<string> name = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -631,7 +617,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCategoryDistanceSearch(ref decimal version, ref Option<long> accountId, ref Option<string> keyword, ref Option<string> appKey, ref Option<string> categoryIds, ref Option<string> parentCategoryIds, ref Option<bool> rootOnly, ref Option<string> sortField, ref Option<string> responseGroup, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<bool> returnExternal, ref Option<bool> exactMatch, ref Option<string> type, ref Option<string> externalType, ref Option<int> minOfferCount, ref Option<double> latitude, ref Option<double> longitude, ref Option<double> range);
+        partial void FormatCategoryDistanceSearch(ref Option<long> accountId, ref Option<string> keyword, ref Option<string> appKey, ref Option<string> categoryIds, ref Option<string> parentCategoryIds, ref Option<bool> rootOnly, ref Option<string> sortField, ref Option<string> responseGroup, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<bool> returnExternal, ref Option<bool> exactMatch, ref Option<string> type, ref Option<string> externalType, ref Option<int> minOfferCount, ref Option<double> latitude, ref Option<double> longitude, ref Option<double> range);
 
         /// <summary>
         /// Validates the request parameters
@@ -676,7 +662,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -697,10 +682,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="range"></param>
-        private void AfterCategoryDistanceSearchDefaultImplementation(ICategoryDistanceSearchApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<int> minOfferCount, Option<double> latitude, Option<double> longitude, Option<double> range)
+        private void AfterCategoryDistanceSearchDefaultImplementation(ICategoryDistanceSearchApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<int> minOfferCount, Option<double> latitude, Option<double> longitude, Option<double> range)
         {
             bool suppressDefaultLog = false;
-            AfterCategoryDistanceSearch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
+            AfterCategoryDistanceSearch(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -710,7 +695,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -731,7 +715,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="range"></param>
-        partial void AfterCategoryDistanceSearch(ref bool suppressDefaultLog, ICategoryDistanceSearchApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<int> minOfferCount, Option<double> latitude, Option<double> longitude, Option<double> range);
+        partial void AfterCategoryDistanceSearch(ref bool suppressDefaultLog, ICategoryDistanceSearchApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<int> minOfferCount, Option<double> latitude, Option<double> longitude, Option<double> range);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -739,7 +723,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -760,10 +743,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="range"></param>
-        private void OnErrorCategoryDistanceSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<int> minOfferCount, Option<double> latitude, Option<double> longitude, Option<double> range)
+        private void OnErrorCategoryDistanceSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<int> minOfferCount, Option<double> latitude, Option<double> longitude, Option<double> range)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCategoryDistanceSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
+            OnErrorCategoryDistanceSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -775,7 +758,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -796,12 +778,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="range"></param>
-        partial void OnErrorCategoryDistanceSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<int> minOfferCount, Option<double> latitude, Option<double> longitude, Option<double> range);
+        partial void OnErrorCategoryDistanceSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<int> minOfferCount, Option<double> latitude, Option<double> longitude, Option<double> range);
 
         /// <summary>
         /// Search Categories by Distance Search for categories by distance.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The keyword string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)</param>
@@ -824,11 +805,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="range">the maximum range the category can be from the center (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICategoryDistanceSearchApiResponse"/>&gt;</returns>
-        public async Task<ICategoryDistanceSearchApiResponse?> CategoryDistanceSearchOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<int> minOfferCount = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICategoryDistanceSearchApiResponse?> CategoryDistanceSearchOrDefaultAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<int> minOfferCount = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CategoryDistanceSearchAsync(version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range, cancellationToken).ConfigureAwait(false);
+                return await CategoryDistanceSearchAsync(accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -840,7 +821,6 @@ namespace Org.OpenAPITools.Api
         /// Search Categories by Distance Search for categories by distance.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The keyword string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)</param>
@@ -863,7 +843,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="range">the maximum range the category can be from the center (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICategoryDistanceSearchApiResponse"/>&gt;</returns>
-        public async Task<ICategoryDistanceSearchApiResponse> CategoryDistanceSearchAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<int> minOfferCount = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICategoryDistanceSearchApiResponse> CategoryDistanceSearchAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<int> minOfferCount = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -871,7 +851,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCategoryDistanceSearch(keyword, appKey, categoryIds, parentCategoryIds, sortField, responseGroup, type, externalType);
 
-                FormatCategoryDistanceSearch(ref version, ref accountId, ref keyword, ref appKey, ref categoryIds, ref parentCategoryIds, ref rootOnly, ref sortField, ref responseGroup, ref descending, ref start, ref limit, ref activeOnly, ref returnExternal, ref exactMatch, ref type, ref externalType, ref minOfferCount, ref latitude, ref longitude, ref range);
+                FormatCategoryDistanceSearch(ref accountId, ref keyword, ref appKey, ref categoryIds, ref parentCategoryIds, ref rootOnly, ref sortField, ref responseGroup, ref descending, ref start, ref limit, ref activeOnly, ref returnExternal, ref exactMatch, ref type, ref externalType, ref minOfferCount, ref latitude, ref longitude, ref range);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -879,9 +859,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/category/distancesearch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/category/distancesearch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/category/distancesearch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/category/distancesearch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -970,13 +949,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/category/distancesearch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/category/distancesearch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCategoryDistanceSearchDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
+                        AfterCategoryDistanceSearchDefaultImplementation(apiResponseLocalVar, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
 
                         Events.ExecuteOnCategoryDistanceSearch(apiResponseLocalVar);
 
@@ -986,7 +965,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCategoryDistanceSearchDefaultImplementation(e, "/api/{version}/category/distancesearch", uriBuilderLocalVar.Path, version, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
+                OnErrorCategoryDistanceSearchDefaultImplementation(e, "/category/distancesearch", uriBuilderLocalVar.Path, accountId, keyword, appKey, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, minOfferCount, latitude, longitude, range);
                 Events.ExecuteOnErrorCategoryDistanceSearch(e);
                 throw;
             }
@@ -1085,7 +1064,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateCategory(ref decimal version, ref long accountId, ref string name, ref Option<string> appKey, ref Option<long> parentCategoryId, ref Option<string> description, ref Option<string> type, ref Option<long> assetId, ref Option<string> externalId, ref Option<string> externalType, ref Option<string> externalCategorySlug, ref Option<string> sqootSlug, ref Option<bool> active, ref Option<string> metaData, ref Option<string> searchTags);
+        partial void FormatCreateCategory(ref long accountId, ref string name, ref Option<string> appKey, ref Option<long> parentCategoryId, ref Option<string> description, ref Option<string> type, ref Option<long> assetId, ref Option<string> externalId, ref Option<string> externalType, ref Option<string> externalCategorySlug, ref Option<string> sqootSlug, ref Option<bool> active, ref Option<string> metaData, ref Option<string> searchTags);
 
         /// <summary>
         /// Validates the request parameters
@@ -1138,7 +1117,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -1153,10 +1131,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="metaData"></param>
         /// <param name="searchTags"></param>
-        private void AfterCreateCategoryDefaultImplementation(ICreateCategoryApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<long> parentCategoryId, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags)
+        private void AfterCreateCategoryDefaultImplementation(ICreateCategoryApiResponse apiResponseLocalVar, long accountId, string name, Option<string> appKey, Option<long> parentCategoryId, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags)
         {
             bool suppressDefaultLog = false;
-            AfterCreateCategory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+            AfterCreateCategory(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1166,7 +1144,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -1181,7 +1158,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="metaData"></param>
         /// <param name="searchTags"></param>
-        partial void AfterCreateCategory(ref bool suppressDefaultLog, ICreateCategoryApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<long> parentCategoryId, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags);
+        partial void AfterCreateCategory(ref bool suppressDefaultLog, ICreateCategoryApiResponse apiResponseLocalVar, long accountId, string name, Option<string> appKey, Option<long> parentCategoryId, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1189,7 +1166,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -1204,10 +1180,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="metaData"></param>
         /// <param name="searchTags"></param>
-        private void OnErrorCreateCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<long> parentCategoryId, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags)
+        private void OnErrorCreateCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> appKey, Option<long> parentCategoryId, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+            OnErrorCreateCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1219,7 +1195,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -1234,12 +1209,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="metaData"></param>
         /// <param name="searchTags"></param>
-        partial void OnErrorCreateCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<long> parentCategoryId, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags);
+        partial void OnErrorCreateCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> appKey, Option<long> parentCategoryId, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags);
 
         /// <summary>
         /// Create Category Create a new category.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="name">The name of the category</param>
         /// <param name="appKey">The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)</param>
@@ -1256,11 +1230,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags">user defined strings for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCategoryApiResponse"/>&gt;</returns>
-        public async Task<ICreateCategoryApiResponse?> CreateCategoryOrDefaultAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<long> parentCategoryId = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateCategoryApiResponse?> CreateCategoryOrDefaultAsync(long accountId, string name, Option<string> appKey = default, Option<long> parentCategoryId = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateCategoryAsync(version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, cancellationToken).ConfigureAwait(false);
+                return await CreateCategoryAsync(accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1272,7 +1246,6 @@ namespace Org.OpenAPITools.Api
         /// Create Category Create a new category.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="name">The name of the category</param>
         /// <param name="appKey">The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)</param>
@@ -1289,7 +1262,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags">user defined strings for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCategoryApiResponse"/>&gt;</returns>
-        public async Task<ICreateCategoryApiResponse> CreateCategoryAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<long> parentCategoryId = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateCategoryApiResponse> CreateCategoryAsync(long accountId, string name, Option<string> appKey = default, Option<long> parentCategoryId = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1297,7 +1270,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateCategory(name, appKey, description, type, externalId, externalType, externalCategorySlug, sqootSlug, metaData, searchTags);
 
-                FormatCreateCategory(ref version, ref accountId, ref name, ref appKey, ref parentCategoryId, ref description, ref type, ref assetId, ref externalId, ref externalType, ref externalCategorySlug, ref sqootSlug, ref active, ref metaData, ref searchTags);
+                FormatCreateCategory(ref accountId, ref name, ref appKey, ref parentCategoryId, ref description, ref type, ref assetId, ref externalId, ref externalType, ref externalCategorySlug, ref sqootSlug, ref active, ref metaData, ref searchTags);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1305,9 +1278,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/category/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/category/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/category/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/category/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1375,13 +1347,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/category/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/category/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateCategoryDefaultImplementation(apiResponseLocalVar, version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+                        AfterCreateCategoryDefaultImplementation(apiResponseLocalVar, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
 
                         Events.ExecuteOnCreateCategory(apiResponseLocalVar);
 
@@ -1391,7 +1363,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateCategoryDefaultImplementation(e, "/api/{version}/category/create", uriBuilderLocalVar.Path, version, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+                OnErrorCreateCategoryDefaultImplementation(e, "/category/create", uriBuilderLocalVar.Path, accountId, name, appKey, parentCategoryId, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
                 Events.ExecuteOnErrorCreateCategory(e);
                 throw;
             }
@@ -1490,19 +1462,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteCategory(ref decimal version, ref long accountId, ref long categoryId);
+        partial void FormatDeleteCategory(ref long accountId, ref long categoryId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
-        private void AfterDeleteCategoryDefaultImplementation(IDeleteCategoryApiResponse apiResponseLocalVar, decimal version, long accountId, long categoryId)
+        private void AfterDeleteCategoryDefaultImplementation(IDeleteCategoryApiResponse apiResponseLocalVar, long accountId, long categoryId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteCategory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, categoryId);
+            AfterDeleteCategory(ref suppressDefaultLog, apiResponseLocalVar, accountId, categoryId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1512,10 +1483,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
-        partial void AfterDeleteCategory(ref bool suppressDefaultLog, IDeleteCategoryApiResponse apiResponseLocalVar, decimal version, long accountId, long categoryId);
+        partial void AfterDeleteCategory(ref bool suppressDefaultLog, IDeleteCategoryApiResponse apiResponseLocalVar, long accountId, long categoryId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1523,13 +1493,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
-        private void OnErrorDeleteCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long categoryId)
+        private void OnErrorDeleteCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long categoryId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, categoryId);
+            OnErrorDeleteCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, categoryId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1541,24 +1510,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
-        partial void OnErrorDeleteCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long categoryId);
+        partial void OnErrorDeleteCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long categoryId);
 
         /// <summary>
         /// Delete Category Delete a category.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the account</param>
         /// <param name="categoryId">the ID of the category</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCategoryApiResponse"/>&gt;</returns>
-        public async Task<IDeleteCategoryApiResponse?> DeleteCategoryOrDefaultAsync(decimal version, long accountId, long categoryId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteCategoryApiResponse?> DeleteCategoryOrDefaultAsync(long accountId, long categoryId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteCategoryAsync(version, accountId, categoryId, cancellationToken).ConfigureAwait(false);
+                return await DeleteCategoryAsync(accountId, categoryId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1570,18 +1537,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Category Delete a category.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the account</param>
         /// <param name="categoryId">the ID of the category</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCategoryApiResponse"/>&gt;</returns>
-        public async Task<IDeleteCategoryApiResponse> DeleteCategoryAsync(decimal version, long accountId, long categoryId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteCategoryApiResponse> DeleteCategoryAsync(long accountId, long categoryId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteCategory(ref version, ref accountId, ref categoryId);
+                FormatDeleteCategory(ref accountId, ref categoryId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1589,9 +1555,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/category/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/category/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/category/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/category/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1623,13 +1588,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/category/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/category/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteCategoryDefaultImplementation(apiResponseLocalVar, version, accountId, categoryId);
+                        AfterDeleteCategoryDefaultImplementation(apiResponseLocalVar, accountId, categoryId);
 
                         Events.ExecuteOnDeleteCategory(apiResponseLocalVar);
 
@@ -1639,7 +1604,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteCategoryDefaultImplementation(e, "/api/{version}/category/delete", uriBuilderLocalVar.Path, version, accountId, categoryId);
+                OnErrorDeleteCategoryDefaultImplementation(e, "/category/delete", uriBuilderLocalVar.Path, accountId, categoryId);
                 Events.ExecuteOnErrorDeleteCategory(e);
                 throw;
             }
@@ -1738,7 +1703,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDuplicateCategory(ref decimal version, ref long accountId, ref long categoryId, ref Option<string> appKey, ref Option<long> parentCategoryId);
+        partial void FormatDuplicateCategory(ref long accountId, ref long categoryId, ref Option<string> appKey, ref Option<long> parentCategoryId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1755,15 +1720,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
         /// <param name="appKey"></param>
         /// <param name="parentCategoryId"></param>
-        private void AfterDuplicateCategoryDefaultImplementation(IDuplicateCategoryApiResponse apiResponseLocalVar, decimal version, long accountId, long categoryId, Option<string> appKey, Option<long> parentCategoryId)
+        private void AfterDuplicateCategoryDefaultImplementation(IDuplicateCategoryApiResponse apiResponseLocalVar, long accountId, long categoryId, Option<string> appKey, Option<long> parentCategoryId)
         {
             bool suppressDefaultLog = false;
-            AfterDuplicateCategory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, categoryId, appKey, parentCategoryId);
+            AfterDuplicateCategory(ref suppressDefaultLog, apiResponseLocalVar, accountId, categoryId, appKey, parentCategoryId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1773,12 +1737,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
         /// <param name="appKey"></param>
         /// <param name="parentCategoryId"></param>
-        partial void AfterDuplicateCategory(ref bool suppressDefaultLog, IDuplicateCategoryApiResponse apiResponseLocalVar, decimal version, long accountId, long categoryId, Option<string> appKey, Option<long> parentCategoryId);
+        partial void AfterDuplicateCategory(ref bool suppressDefaultLog, IDuplicateCategoryApiResponse apiResponseLocalVar, long accountId, long categoryId, Option<string> appKey, Option<long> parentCategoryId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1786,15 +1749,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
         /// <param name="appKey"></param>
         /// <param name="parentCategoryId"></param>
-        private void OnErrorDuplicateCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long categoryId, Option<string> appKey, Option<long> parentCategoryId)
+        private void OnErrorDuplicateCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long categoryId, Option<string> appKey, Option<long> parentCategoryId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDuplicateCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, categoryId, appKey, parentCategoryId);
+            OnErrorDuplicateCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, categoryId, appKey, parentCategoryId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1806,28 +1768,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
         /// <param name="appKey"></param>
         /// <param name="parentCategoryId"></param>
-        partial void OnErrorDuplicateCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long categoryId, Option<string> appKey, Option<long> parentCategoryId);
+        partial void OnErrorDuplicateCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long categoryId, Option<string> appKey, Option<long> parentCategoryId);
 
         /// <summary>
         /// Duplicate Category Duplicate a category, including all its children.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="categoryId">The category ID to duplicate (includes all children)</param>
         /// <param name="appKey">The application to assign the new category to, may be different then the application the source category is assigned to (optional)</param>
         /// <param name="parentCategoryId">The parent category ID to add the target category to. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDuplicateCategoryApiResponse"/>&gt;</returns>
-        public async Task<IDuplicateCategoryApiResponse?> DuplicateCategoryOrDefaultAsync(decimal version, long accountId, long categoryId, Option<string> appKey = default, Option<long> parentCategoryId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDuplicateCategoryApiResponse?> DuplicateCategoryOrDefaultAsync(long accountId, long categoryId, Option<string> appKey = default, Option<long> parentCategoryId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DuplicateCategoryAsync(version, accountId, categoryId, appKey, parentCategoryId, cancellationToken).ConfigureAwait(false);
+                return await DuplicateCategoryAsync(accountId, categoryId, appKey, parentCategoryId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1839,14 +1799,13 @@ namespace Org.OpenAPITools.Api
         /// Duplicate Category Duplicate a category, including all its children.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="categoryId">The category ID to duplicate (includes all children)</param>
         /// <param name="appKey">The application to assign the new category to, may be different then the application the source category is assigned to (optional)</param>
         /// <param name="parentCategoryId">The parent category ID to add the target category to. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDuplicateCategoryApiResponse"/>&gt;</returns>
-        public async Task<IDuplicateCategoryApiResponse> DuplicateCategoryAsync(decimal version, long accountId, long categoryId, Option<string> appKey = default, Option<long> parentCategoryId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDuplicateCategoryApiResponse> DuplicateCategoryAsync(long accountId, long categoryId, Option<string> appKey = default, Option<long> parentCategoryId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1854,7 +1813,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDuplicateCategory(appKey);
 
-                FormatDuplicateCategory(ref version, ref accountId, ref categoryId, ref appKey, ref parentCategoryId);
+                FormatDuplicateCategory(ref accountId, ref categoryId, ref appKey, ref parentCategoryId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1862,9 +1821,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/category/duplicate"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/category/duplicate");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/category/duplicate"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/category/duplicate");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1902,13 +1860,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/category/duplicate", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/category/duplicate", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDuplicateCategoryDefaultImplementation(apiResponseLocalVar, version, accountId, categoryId, appKey, parentCategoryId);
+                        AfterDuplicateCategoryDefaultImplementation(apiResponseLocalVar, accountId, categoryId, appKey, parentCategoryId);
 
                         Events.ExecuteOnDuplicateCategory(apiResponseLocalVar);
 
@@ -1918,7 +1876,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDuplicateCategoryDefaultImplementation(e, "/api/{version}/category/duplicate", uriBuilderLocalVar.Path, version, accountId, categoryId, appKey, parentCategoryId);
+                OnErrorDuplicateCategoryDefaultImplementation(e, "/category/duplicate", uriBuilderLocalVar.Path, accountId, categoryId, appKey, parentCategoryId);
                 Events.ExecuteOnErrorDuplicateCategory(e);
                 throw;
             }
@@ -2017,19 +1975,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCategory(ref decimal version, ref long categoryId, ref Option<bool> returnExternal);
+        partial void FormatGetCategory(ref long categoryId, ref Option<bool> returnExternal);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="categoryId"></param>
         /// <param name="returnExternal"></param>
-        private void AfterGetCategoryDefaultImplementation(IGetCategoryApiResponse apiResponseLocalVar, decimal version, long categoryId, Option<bool> returnExternal)
+        private void AfterGetCategoryDefaultImplementation(IGetCategoryApiResponse apiResponseLocalVar, long categoryId, Option<bool> returnExternal)
         {
             bool suppressDefaultLog = false;
-            AfterGetCategory(ref suppressDefaultLog, apiResponseLocalVar, version, categoryId, returnExternal);
+            AfterGetCategory(ref suppressDefaultLog, apiResponseLocalVar, categoryId, returnExternal);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2039,10 +1996,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="categoryId"></param>
         /// <param name="returnExternal"></param>
-        partial void AfterGetCategory(ref bool suppressDefaultLog, IGetCategoryApiResponse apiResponseLocalVar, decimal version, long categoryId, Option<bool> returnExternal);
+        partial void AfterGetCategory(ref bool suppressDefaultLog, IGetCategoryApiResponse apiResponseLocalVar, long categoryId, Option<bool> returnExternal);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2050,13 +2006,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="categoryId"></param>
         /// <param name="returnExternal"></param>
-        private void OnErrorGetCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long categoryId, Option<bool> returnExternal)
+        private void OnErrorGetCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long categoryId, Option<bool> returnExternal)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, categoryId, returnExternal);
+            OnErrorGetCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, categoryId, returnExternal);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2068,24 +2023,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="categoryId"></param>
         /// <param name="returnExternal"></param>
-        partial void OnErrorGetCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long categoryId, Option<bool> returnExternal);
+        partial void OnErrorGetCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long categoryId, Option<bool> returnExternal);
 
         /// <summary>
         /// Get Category Get the details of a specific category. Recursively include all child categories and their children.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="categoryId">the ID of the category</param>
         /// <param name="returnExternal">Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCategoryApiResponse"/>&gt;</returns>
-        public async Task<IGetCategoryApiResponse?> GetCategoryOrDefaultAsync(decimal version, long categoryId, Option<bool> returnExternal = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCategoryApiResponse?> GetCategoryOrDefaultAsync(long categoryId, Option<bool> returnExternal = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCategoryAsync(version, categoryId, returnExternal, cancellationToken).ConfigureAwait(false);
+                return await GetCategoryAsync(categoryId, returnExternal, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2097,18 +2050,17 @@ namespace Org.OpenAPITools.Api
         /// Get Category Get the details of a specific category. Recursively include all child categories and their children.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="categoryId">the ID of the category</param>
         /// <param name="returnExternal">Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCategoryApiResponse"/>&gt;</returns>
-        public async Task<IGetCategoryApiResponse> GetCategoryAsync(decimal version, long categoryId, Option<bool> returnExternal = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCategoryApiResponse> GetCategoryAsync(long categoryId, Option<bool> returnExternal = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetCategory(ref version, ref categoryId, ref returnExternal);
+                FormatGetCategory(ref categoryId, ref returnExternal);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2116,9 +2068,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/category/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/category/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/category/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/category/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2152,13 +2103,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/category/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/category/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCategoryDefaultImplementation(apiResponseLocalVar, version, categoryId, returnExternal);
+                        AfterGetCategoryDefaultImplementation(apiResponseLocalVar, categoryId, returnExternal);
 
                         Events.ExecuteOnGetCategory(apiResponseLocalVar);
 
@@ -2168,7 +2119,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCategoryDefaultImplementation(e, "/api/{version}/category/get", uriBuilderLocalVar.Path, version, categoryId, returnExternal);
+                OnErrorGetCategoryDefaultImplementation(e, "/category/get", uriBuilderLocalVar.Path, categoryId, returnExternal);
                 Events.ExecuteOnErrorGetCategory(e);
                 throw;
             }
@@ -2267,7 +2218,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchCategories(ref decimal version, ref Option<long> accountId, ref Option<string> keyword, ref Option<string> appKey, ref Option<string> categoryId, ref Option<string> categoryIds, ref Option<string> parentCategoryIds, ref Option<bool> rootOnly, ref Option<string> sortField, ref Option<string> responseGroup, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<bool> returnExternal, ref Option<bool> exactMatch, ref Option<string> type, ref Option<string> externalType, ref Option<bool> excludeExternalType, ref Option<int> minOfferCount, ref Option<int> searchDepth, ref Option<string> searchMode);
+        partial void FormatSearchCategories(ref Option<long> accountId, ref Option<string> keyword, ref Option<string> appKey, ref Option<string> categoryId, ref Option<string> categoryIds, ref Option<string> parentCategoryIds, ref Option<bool> rootOnly, ref Option<string> sortField, ref Option<string> responseGroup, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<bool> returnExternal, ref Option<bool> exactMatch, ref Option<string> type, ref Option<string> externalType, ref Option<bool> excludeExternalType, ref Option<int> minOfferCount, ref Option<int> searchDepth, ref Option<string> searchMode);
 
         /// <summary>
         /// Validates the request parameters
@@ -2320,7 +2271,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -2342,10 +2292,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="minOfferCount"></param>
         /// <param name="searchDepth"></param>
         /// <param name="searchMode"></param>
-        private void AfterSearchCategoriesDefaultImplementation(ISearchCategoriesApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryId, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<bool> excludeExternalType, Option<int> minOfferCount, Option<int> searchDepth, Option<string> searchMode)
+        private void AfterSearchCategoriesDefaultImplementation(ISearchCategoriesApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryId, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<bool> excludeExternalType, Option<int> minOfferCount, Option<int> searchDepth, Option<string> searchMode)
         {
             bool suppressDefaultLog = false;
-            AfterSearchCategories(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
+            AfterSearchCategories(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2355,7 +2305,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -2377,7 +2326,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="minOfferCount"></param>
         /// <param name="searchDepth"></param>
         /// <param name="searchMode"></param>
-        partial void AfterSearchCategories(ref bool suppressDefaultLog, ISearchCategoriesApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryId, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<bool> excludeExternalType, Option<int> minOfferCount, Option<int> searchDepth, Option<string> searchMode);
+        partial void AfterSearchCategories(ref bool suppressDefaultLog, ISearchCategoriesApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryId, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<bool> excludeExternalType, Option<int> minOfferCount, Option<int> searchDepth, Option<string> searchMode);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2385,7 +2334,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -2407,10 +2355,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="minOfferCount"></param>
         /// <param name="searchDepth"></param>
         /// <param name="searchMode"></param>
-        private void OnErrorSearchCategoriesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryId, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<bool> excludeExternalType, Option<int> minOfferCount, Option<int> searchDepth, Option<string> searchMode)
+        private void OnErrorSearchCategoriesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryId, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<bool> excludeExternalType, Option<int> minOfferCount, Option<int> searchDepth, Option<string> searchMode)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchCategories(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
+            OnErrorSearchCategories(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2422,7 +2370,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -2444,12 +2391,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="minOfferCount"></param>
         /// <param name="searchDepth"></param>
         /// <param name="searchMode"></param>
-        partial void OnErrorSearchCategories(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryId, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<bool> excludeExternalType, Option<int> minOfferCount, Option<int> searchDepth, Option<string> searchMode);
+        partial void OnErrorSearchCategories(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> categoryId, Option<string> categoryIds, Option<string> parentCategoryIds, Option<bool> rootOnly, Option<string> sortField, Option<string> responseGroup, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> returnExternal, Option<bool> exactMatch, Option<string> type, Option<string> externalType, Option<bool> excludeExternalType, Option<int> minOfferCount, Option<int> searchDepth, Option<string> searchMode);
 
         /// <summary>
         /// Search Categories Search for categories.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)</param>
@@ -2473,11 +2419,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchMode">The search index mode to use (e.g. OPENSEARCH or RDS) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCategoriesApiResponse"/>&gt;</returns>
-        public async Task<ISearchCategoriesApiResponse?> SearchCategoriesOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryId = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<bool> excludeExternalType = default, Option<int> minOfferCount = default, Option<int> searchDepth = default, Option<string> searchMode = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCategoriesApiResponse?> SearchCategoriesOrDefaultAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryId = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<bool> excludeExternalType = default, Option<int> minOfferCount = default, Option<int> searchDepth = default, Option<string> searchMode = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchCategoriesAsync(version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode, cancellationToken).ConfigureAwait(false);
+                return await SearchCategoriesAsync(accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2489,7 +2435,6 @@ namespace Org.OpenAPITools.Api
         /// Search Categories Search for categories.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)</param>
@@ -2513,7 +2458,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchMode">The search index mode to use (e.g. OPENSEARCH or RDS) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCategoriesApiResponse"/>&gt;</returns>
-        public async Task<ISearchCategoriesApiResponse> SearchCategoriesAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryId = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<bool> excludeExternalType = default, Option<int> minOfferCount = default, Option<int> searchDepth = default, Option<string> searchMode = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCategoriesApiResponse> SearchCategoriesAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> categoryId = default, Option<string> categoryIds = default, Option<string> parentCategoryIds = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<string> responseGroup = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> returnExternal = default, Option<bool> exactMatch = default, Option<string> type = default, Option<string> externalType = default, Option<bool> excludeExternalType = default, Option<int> minOfferCount = default, Option<int> searchDepth = default, Option<string> searchMode = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2521,7 +2466,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchCategories(keyword, appKey, categoryId, categoryIds, parentCategoryIds, sortField, responseGroup, type, externalType, searchMode);
 
-                FormatSearchCategories(ref version, ref accountId, ref keyword, ref appKey, ref categoryId, ref categoryIds, ref parentCategoryIds, ref rootOnly, ref sortField, ref responseGroup, ref descending, ref start, ref limit, ref activeOnly, ref returnExternal, ref exactMatch, ref type, ref externalType, ref excludeExternalType, ref minOfferCount, ref searchDepth, ref searchMode);
+                FormatSearchCategories(ref accountId, ref keyword, ref appKey, ref categoryId, ref categoryIds, ref parentCategoryIds, ref rootOnly, ref sortField, ref responseGroup, ref descending, ref start, ref limit, ref activeOnly, ref returnExternal, ref exactMatch, ref type, ref externalType, ref excludeExternalType, ref minOfferCount, ref searchDepth, ref searchMode);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2529,9 +2474,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/category/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/category/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/category/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/category/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2623,13 +2567,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/category/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/category/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchCategoriesDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
+                        AfterSearchCategoriesDefaultImplementation(apiResponseLocalVar, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
 
                         Events.ExecuteOnSearchCategories(apiResponseLocalVar);
 
@@ -2639,7 +2583,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchCategoriesDefaultImplementation(e, "/api/{version}/category/search", uriBuilderLocalVar.Path, version, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
+                OnErrorSearchCategoriesDefaultImplementation(e, "/category/search", uriBuilderLocalVar.Path, accountId, keyword, appKey, categoryId, categoryIds, parentCategoryIds, rootOnly, sortField, responseGroup, descending, start, limit, activeOnly, returnExternal, exactMatch, type, externalType, excludeExternalType, minOfferCount, searchDepth, searchMode);
                 Events.ExecuteOnErrorSearchCategories(e);
                 throw;
             }
@@ -2738,7 +2682,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateCategory(ref decimal version, ref long accountId, ref long categoryId, ref Option<long> parentCategoryId, ref Option<string> name, ref Option<string> description, ref Option<string> type, ref Option<long> assetId, ref Option<string> externalId, ref Option<string> externalType, ref Option<string> externalCategorySlug, ref Option<string> sqootSlug, ref Option<bool> active, ref Option<string> metaData, ref Option<string> searchTags);
+        partial void FormatUpdateCategory(ref long accountId, ref long categoryId, ref Option<long> parentCategoryId, ref Option<string> name, ref Option<string> description, ref Option<string> type, ref Option<long> assetId, ref Option<string> externalId, ref Option<string> externalType, ref Option<string> externalCategorySlug, ref Option<string> sqootSlug, ref Option<bool> active, ref Option<string> metaData, ref Option<string> searchTags);
 
         /// <summary>
         /// Validates the request parameters
@@ -2787,7 +2731,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
         /// <param name="parentCategoryId"></param>
@@ -2802,10 +2745,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="metaData"></param>
         /// <param name="searchTags"></param>
-        private void AfterUpdateCategoryDefaultImplementation(IUpdateCategoryApiResponse apiResponseLocalVar, decimal version, long accountId, long categoryId, Option<long> parentCategoryId, Option<string> name, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags)
+        private void AfterUpdateCategoryDefaultImplementation(IUpdateCategoryApiResponse apiResponseLocalVar, long accountId, long categoryId, Option<long> parentCategoryId, Option<string> name, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateCategory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+            AfterUpdateCategory(ref suppressDefaultLog, apiResponseLocalVar, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2815,7 +2758,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
         /// <param name="parentCategoryId"></param>
@@ -2830,7 +2772,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="metaData"></param>
         /// <param name="searchTags"></param>
-        partial void AfterUpdateCategory(ref bool suppressDefaultLog, IUpdateCategoryApiResponse apiResponseLocalVar, decimal version, long accountId, long categoryId, Option<long> parentCategoryId, Option<string> name, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags);
+        partial void AfterUpdateCategory(ref bool suppressDefaultLog, IUpdateCategoryApiResponse apiResponseLocalVar, long accountId, long categoryId, Option<long> parentCategoryId, Option<string> name, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2838,7 +2780,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
         /// <param name="parentCategoryId"></param>
@@ -2853,10 +2794,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="metaData"></param>
         /// <param name="searchTags"></param>
-        private void OnErrorUpdateCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long categoryId, Option<long> parentCategoryId, Option<string> name, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags)
+        private void OnErrorUpdateCategoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long categoryId, Option<long> parentCategoryId, Option<string> name, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+            OnErrorUpdateCategory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2868,7 +2809,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="categoryId"></param>
         /// <param name="parentCategoryId"></param>
@@ -2883,12 +2823,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="metaData"></param>
         /// <param name="searchTags"></param>
-        partial void OnErrorUpdateCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long categoryId, Option<long> parentCategoryId, Option<string> name, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags);
+        partial void OnErrorUpdateCategory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long categoryId, Option<long> parentCategoryId, Option<string> name, Option<string> description, Option<string> type, Option<long> assetId, Option<string> externalId, Option<string> externalType, Option<string> externalCategorySlug, Option<string> sqootSlug, Option<bool> active, Option<string> metaData, Option<string> searchTags);
 
         /// <summary>
         /// Update Category Update a category.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="categoryId">The ID of the category to edit</param>
         /// <param name="parentCategoryId">The ID of the parent category, if not provided then the parent category will be null (optional)</param>
@@ -2905,11 +2844,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags">user defined strings for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCategoryApiResponse"/>&gt;</returns>
-        public async Task<IUpdateCategoryApiResponse?> UpdateCategoryOrDefaultAsync(decimal version, long accountId, long categoryId, Option<long> parentCategoryId = default, Option<string> name = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateCategoryApiResponse?> UpdateCategoryOrDefaultAsync(long accountId, long categoryId, Option<long> parentCategoryId = default, Option<string> name = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateCategoryAsync(version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, cancellationToken).ConfigureAwait(false);
+                return await UpdateCategoryAsync(accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2921,7 +2860,6 @@ namespace Org.OpenAPITools.Api
         /// Update Category Update a category.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="categoryId">The ID of the category to edit</param>
         /// <param name="parentCategoryId">The ID of the parent category, if not provided then the parent category will be null (optional)</param>
@@ -2938,7 +2876,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="searchTags">user defined strings for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCategoryApiResponse"/>&gt;</returns>
-        public async Task<IUpdateCategoryApiResponse> UpdateCategoryAsync(decimal version, long accountId, long categoryId, Option<long> parentCategoryId = default, Option<string> name = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateCategoryApiResponse> UpdateCategoryAsync(long accountId, long categoryId, Option<long> parentCategoryId = default, Option<string> name = default, Option<string> description = default, Option<string> type = default, Option<long> assetId = default, Option<string> externalId = default, Option<string> externalType = default, Option<string> externalCategorySlug = default, Option<string> sqootSlug = default, Option<bool> active = default, Option<string> metaData = default, Option<string> searchTags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2946,7 +2884,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateCategory(name, description, type, externalId, externalType, externalCategorySlug, sqootSlug, metaData, searchTags);
 
-                FormatUpdateCategory(ref version, ref accountId, ref categoryId, ref parentCategoryId, ref name, ref description, ref type, ref assetId, ref externalId, ref externalType, ref externalCategorySlug, ref sqootSlug, ref active, ref metaData, ref searchTags);
+                FormatUpdateCategory(ref accountId, ref categoryId, ref parentCategoryId, ref name, ref description, ref type, ref assetId, ref externalId, ref externalType, ref externalCategorySlug, ref sqootSlug, ref active, ref metaData, ref searchTags);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2954,9 +2892,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/category/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/category/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/category/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/category/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3024,13 +2961,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/category/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/category/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateCategoryDefaultImplementation(apiResponseLocalVar, version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+                        AfterUpdateCategoryDefaultImplementation(apiResponseLocalVar, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
 
                         Events.ExecuteOnUpdateCategory(apiResponseLocalVar);
 
@@ -3040,7 +2977,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateCategoryDefaultImplementation(e, "/api/{version}/category/update", uriBuilderLocalVar.Path, version, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
+                OnErrorUpdateCategoryDefaultImplementation(e, "/category/update", uriBuilderLocalVar.Path, accountId, categoryId, parentCategoryId, name, description, type, assetId, externalId, externalType, externalCategorySlug, sqootSlug, active, metaData, searchTags);
                 Events.ExecuteOnErrorUpdateCategory(e);
                 throw;
             }

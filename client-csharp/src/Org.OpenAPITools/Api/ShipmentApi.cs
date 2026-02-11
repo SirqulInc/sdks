@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Remove shipment from route
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to cancel</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICancelShipmentApiResponse"/>&gt;</returns>
-        Task<ICancelShipmentApiResponse> CancelShipmentAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICancelShipmentApiResponse> CancelShipmentAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Cancel Shipment
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Remove shipment from route
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to cancel</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICancelShipmentApiResponse"/>?&gt;</returns>
-        Task<ICancelShipmentApiResponse?> CancelShipmentOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICancelShipmentApiResponse?> CancelShipmentOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Shipment
@@ -70,11 +68,10 @@ namespace Org.OpenAPITools.Api
         /// Create new shipment
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateShipmentApiResponse"/>&gt;</returns>
-        Task<ICreateShipmentApiResponse> CreateShipmentAsync(decimal version, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateShipmentApiResponse> CreateShipmentAsync(Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Shipment
@@ -82,11 +79,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create new shipment
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateShipmentApiResponse"/>?&gt;</returns>
-        Task<ICreateShipmentApiResponse?> CreateShipmentOrDefaultAsync(decimal version, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateShipmentApiResponse?> CreateShipmentOrDefaultAsync(Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Shipment
@@ -95,11 +91,10 @@ namespace Org.OpenAPITools.Api
         /// Delete an existing shipment
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteShipmentApiResponse"/>&gt;</returns>
-        Task<IDeleteShipmentApiResponse> DeleteShipmentAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteShipmentApiResponse> DeleteShipmentAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Shipment
@@ -107,11 +102,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an existing shipment
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteShipmentApiResponse"/>?&gt;</returns>
-        Task<IDeleteShipmentApiResponse?> DeleteShipmentOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteShipmentApiResponse?> DeleteShipmentOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Shipment
@@ -120,11 +114,10 @@ namespace Org.OpenAPITools.Api
         /// Get an existing shipment
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentApiResponse"/>&gt;</returns>
-        Task<IGetShipmentApiResponse> GetShipmentAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetShipmentApiResponse> GetShipmentAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Shipment
@@ -132,11 +125,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an existing shipment
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentApiResponse"/>?&gt;</returns>
-        Task<IGetShipmentApiResponse?> GetShipmentOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetShipmentApiResponse?> GetShipmentOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Shipments
@@ -145,7 +137,6 @@ namespace Org.OpenAPITools.Api
         /// Search for shipments
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -156,7 +147,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="routeId">The route associate to this shipment (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchShipmentsApiResponse"/>&gt;</returns>
-        Task<ISearchShipmentsApiResponse> SearchShipmentsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId = default, Option<long> riderId = default, Option<long> routeId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchShipmentsApiResponse> SearchShipmentsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId = default, Option<long> riderId = default, Option<long> routeId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Shipments
@@ -164,7 +155,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for shipments
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -175,7 +165,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="routeId">The route associate to this shipment (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchShipmentsApiResponse"/>?&gt;</returns>
-        Task<ISearchShipmentsApiResponse?> SearchShipmentsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId = default, Option<long> riderId = default, Option<long> routeId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchShipmentsApiResponse?> SearchShipmentsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId = default, Option<long> riderId = default, Option<long> routeId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Shipment
@@ -184,12 +174,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing shipment
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentApiResponse"/>&gt;</returns>
-        Task<IUpdateShipmentApiResponse> UpdateShipmentAsync(decimal version, long id, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateShipmentApiResponse> UpdateShipmentAsync(long id, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Shipment
@@ -197,12 +186,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing shipment
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentApiResponse"/>?&gt;</returns>
-        Task<IUpdateShipmentApiResponse?> UpdateShipmentOrDefaultAsync(decimal version, long id, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateShipmentApiResponse?> UpdateShipmentOrDefaultAsync(long id, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Uupdate Shipment Status
@@ -211,12 +199,11 @@ namespace Org.OpenAPITools.Api
         /// Update status of an existing shipment
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to update status</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentStatusApiResponse"/>&gt;</returns>
-        Task<IUpdateShipmentStatusApiResponse> UpdateShipmentStatusAsync(decimal version, long id, Option<Dictionary<string, bool>> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateShipmentStatusApiResponse> UpdateShipmentStatusAsync(long id, Option<Dictionary<string, bool>> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Uupdate Shipment Status
@@ -224,12 +211,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update status of an existing shipment
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to update status</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentStatusApiResponse"/>?&gt;</returns>
-        Task<IUpdateShipmentStatusApiResponse?> UpdateShipmentStatusOrDefaultAsync(decimal version, long id, Option<Dictionary<string, bool>> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateShipmentStatusApiResponse?> UpdateShipmentStatusOrDefaultAsync(long id, Option<Dictionary<string, bool>> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -509,18 +495,17 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCancelShipment(ref decimal version, ref long id);
+        partial void FormatCancelShipment(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterCancelShipmentDefaultImplementation(ICancelShipmentApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterCancelShipmentDefaultImplementation(ICancelShipmentApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterCancelShipment(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterCancelShipment(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -530,9 +515,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterCancelShipment(ref bool suppressDefaultLog, ICancelShipmentApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterCancelShipment(ref bool suppressDefaultLog, ICancelShipmentApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -540,12 +524,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorCancelShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorCancelShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCancelShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorCancelShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -557,22 +540,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorCancelShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorCancelShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Cancel Shipment Remove shipment from route
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to cancel</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICancelShipmentApiResponse"/>&gt;</returns>
-        public async Task<ICancelShipmentApiResponse?> CancelShipmentOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICancelShipmentApiResponse?> CancelShipmentOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CancelShipmentAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await CancelShipmentAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -584,17 +565,16 @@ namespace Org.OpenAPITools.Api
         /// Cancel Shipment Remove shipment from route
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to cancel</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICancelShipmentApiResponse"/>&gt;</returns>
-        public async Task<ICancelShipmentApiResponse> CancelShipmentAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICancelShipmentApiResponse> CancelShipmentAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatCancelShipment(ref version, ref id);
+                FormatCancelShipment(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -602,9 +582,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/{id}/cancel"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/{id}/cancel");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/{id}/cancel"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/{id}/cancel");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -621,13 +600,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/{id}/cancel", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/{id}/cancel", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCancelShipmentDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterCancelShipmentDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnCancelShipment(apiResponseLocalVar);
 
@@ -637,7 +616,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCancelShipmentDefaultImplementation(e, "/api/{version}/shipment/{id}/cancel", uriBuilderLocalVar.Path, version, id);
+                OnErrorCancelShipmentDefaultImplementation(e, "/shipment/{id}/cancel", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorCancelShipment(e);
                 throw;
             }
@@ -704,7 +683,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateShipment(ref decimal version, Option<Shipment> body);
+        partial void FormatCreateShipment(Option<Shipment> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -721,12 +700,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateShipmentDefaultImplementation(ICreateShipmentApiResponse apiResponseLocalVar, decimal version, Option<Shipment> body)
+        private void AfterCreateShipmentDefaultImplementation(ICreateShipmentApiResponse apiResponseLocalVar, Option<Shipment> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateShipment(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateShipment(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -736,9 +714,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateShipment(ref bool suppressDefaultLog, ICreateShipmentApiResponse apiResponseLocalVar, decimal version, Option<Shipment> body);
+        partial void AfterCreateShipment(ref bool suppressDefaultLog, ICreateShipmentApiResponse apiResponseLocalVar, Option<Shipment> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -746,12 +723,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Shipment> body)
+        private void OnErrorCreateShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Shipment> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -763,22 +739,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Shipment> body);
+        partial void OnErrorCreateShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Shipment> body);
 
         /// <summary>
         /// Create Shipment Create new shipment
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateShipmentApiResponse"/>&gt;</returns>
-        public async Task<ICreateShipmentApiResponse?> CreateShipmentOrDefaultAsync(decimal version, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateShipmentApiResponse?> CreateShipmentOrDefaultAsync(Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateShipmentAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateShipmentAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -790,11 +764,10 @@ namespace Org.OpenAPITools.Api
         /// Create Shipment Create new shipment
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateShipmentApiResponse"/>&gt;</returns>
-        public async Task<ICreateShipmentApiResponse> CreateShipmentAsync(decimal version, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateShipmentApiResponse> CreateShipmentAsync(Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -802,7 +775,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateShipment(body);
 
-                FormatCreateShipment(ref version, body);
+                FormatCreateShipment(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -810,9 +783,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -842,13 +814,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateShipmentDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateShipmentDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateShipment(apiResponseLocalVar);
 
@@ -858,7 +830,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateShipmentDefaultImplementation(e, "/api/{version}/shipment", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateShipmentDefaultImplementation(e, "/shipment", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateShipment(e);
                 throw;
             }
@@ -957,18 +929,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteShipment(ref decimal version, ref long id);
+        partial void FormatDeleteShipment(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterDeleteShipmentDefaultImplementation(IDeleteShipmentApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterDeleteShipmentDefaultImplementation(IDeleteShipmentApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteShipment(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterDeleteShipment(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -978,9 +949,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterDeleteShipment(ref bool suppressDefaultLog, IDeleteShipmentApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterDeleteShipment(ref bool suppressDefaultLog, IDeleteShipmentApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -988,12 +958,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorDeleteShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorDeleteShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorDeleteShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1005,22 +974,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorDeleteShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorDeleteShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Delete Shipment Delete an existing shipment
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteShipmentApiResponse"/>&gt;</returns>
-        public async Task<IDeleteShipmentApiResponse?> DeleteShipmentOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteShipmentApiResponse?> DeleteShipmentOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteShipmentAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await DeleteShipmentAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1032,17 +999,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Shipment Delete an existing shipment
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteShipmentApiResponse"/>&gt;</returns>
-        public async Task<IDeleteShipmentApiResponse> DeleteShipmentAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteShipmentApiResponse> DeleteShipmentAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteShipment(ref version, ref id);
+                FormatDeleteShipment(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1050,9 +1016,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1069,13 +1034,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteShipmentDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterDeleteShipmentDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnDeleteShipment(apiResponseLocalVar);
 
@@ -1085,7 +1050,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteShipmentDefaultImplementation(e, "/api/{version}/shipment/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorDeleteShipmentDefaultImplementation(e, "/shipment/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorDeleteShipment(e);
                 throw;
             }
@@ -1152,18 +1117,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetShipment(ref decimal version, ref long id);
+        partial void FormatGetShipment(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterGetShipmentDefaultImplementation(IGetShipmentApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterGetShipmentDefaultImplementation(IGetShipmentApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterGetShipment(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterGetShipment(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1173,9 +1137,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterGetShipment(ref bool suppressDefaultLog, IGetShipmentApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterGetShipment(ref bool suppressDefaultLog, IGetShipmentApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1183,12 +1146,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorGetShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorGetShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorGetShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1200,22 +1162,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorGetShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorGetShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Get Shipment Get an existing shipment
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentApiResponse"/>&gt;</returns>
-        public async Task<IGetShipmentApiResponse?> GetShipmentOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetShipmentApiResponse?> GetShipmentOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetShipmentAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await GetShipmentAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1227,17 +1187,16 @@ namespace Org.OpenAPITools.Api
         /// Get Shipment Get an existing shipment
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentApiResponse"/>&gt;</returns>
-        public async Task<IGetShipmentApiResponse> GetShipmentAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetShipmentApiResponse> GetShipmentAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetShipment(ref version, ref id);
+                FormatGetShipment(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1245,9 +1204,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1273,13 +1231,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetShipmentDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterGetShipmentDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnGetShipment(apiResponseLocalVar);
 
@@ -1289,7 +1247,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetShipmentDefaultImplementation(e, "/api/{version}/shipment/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorGetShipmentDefaultImplementation(e, "/shipment/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorGetShipment(e);
                 throw;
             }
@@ -1388,7 +1346,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchShipments(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> ownerId, ref Option<long> riderId, ref Option<long> routeId);
+        partial void FormatSearchShipments(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> ownerId, ref Option<long> riderId, ref Option<long> routeId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1405,7 +1363,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1414,10 +1371,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ownerId"></param>
         /// <param name="riderId"></param>
         /// <param name="routeId"></param>
-        private void AfterSearchShipmentsDefaultImplementation(ISearchShipmentsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId, Option<long> riderId, Option<long> routeId)
+        private void AfterSearchShipmentsDefaultImplementation(ISearchShipmentsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId, Option<long> riderId, Option<long> routeId)
         {
             bool suppressDefaultLog = false;
-            AfterSearchShipments(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
+            AfterSearchShipments(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1427,7 +1384,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1436,7 +1392,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="ownerId"></param>
         /// <param name="riderId"></param>
         /// <param name="routeId"></param>
-        partial void AfterSearchShipments(ref bool suppressDefaultLog, ISearchShipmentsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId, Option<long> riderId, Option<long> routeId);
+        partial void AfterSearchShipments(ref bool suppressDefaultLog, ISearchShipmentsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId, Option<long> riderId, Option<long> routeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1444,7 +1400,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1453,10 +1408,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ownerId"></param>
         /// <param name="riderId"></param>
         /// <param name="routeId"></param>
-        private void OnErrorSearchShipmentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId, Option<long> riderId, Option<long> routeId)
+        private void OnErrorSearchShipmentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId, Option<long> riderId, Option<long> routeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchShipments(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
+            OnErrorSearchShipments(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1468,7 +1423,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1477,12 +1431,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="ownerId"></param>
         /// <param name="riderId"></param>
         /// <param name="routeId"></param>
-        partial void OnErrorSearchShipments(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId, Option<long> riderId, Option<long> routeId);
+        partial void OnErrorSearchShipments(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId, Option<long> riderId, Option<long> routeId);
 
         /// <summary>
         /// Search Shipments Search for shipments
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1493,11 +1446,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="routeId">The route associate to this shipment (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchShipmentsApiResponse"/>&gt;</returns>
-        public async Task<ISearchShipmentsApiResponse?> SearchShipmentsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId = default, Option<long> riderId = default, Option<long> routeId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchShipmentsApiResponse?> SearchShipmentsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId = default, Option<long> riderId = default, Option<long> routeId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchShipmentsAsync(version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId, cancellationToken).ConfigureAwait(false);
+                return await SearchShipmentsAsync(sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1509,7 +1462,6 @@ namespace Org.OpenAPITools.Api
         /// Search Shipments Search for shipments
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1520,7 +1472,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="routeId">The route associate to this shipment (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchShipmentsApiResponse"/>&gt;</returns>
-        public async Task<ISearchShipmentsApiResponse> SearchShipmentsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId = default, Option<long> riderId = default, Option<long> routeId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchShipmentsApiResponse> SearchShipmentsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> ownerId = default, Option<long> riderId = default, Option<long> routeId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1528,7 +1480,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchShipments(sortField);
 
-                FormatSearchShipments(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref ownerId, ref riderId, ref routeId);
+                FormatSearchShipments(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref ownerId, ref riderId, ref routeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1536,9 +1488,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1582,13 +1533,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchShipmentsDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
+                        AfterSearchShipmentsDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
 
                         Events.ExecuteOnSearchShipments(apiResponseLocalVar);
 
@@ -1598,7 +1549,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchShipmentsDefaultImplementation(e, "/api/{version}/shipment", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
+                OnErrorSearchShipmentsDefaultImplementation(e, "/shipment", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, ownerId, riderId, routeId);
                 Events.ExecuteOnErrorSearchShipments(e);
                 throw;
             }
@@ -1697,7 +1648,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateShipment(ref decimal version, ref long id, Option<Shipment> body);
+        partial void FormatUpdateShipment(ref long id, Option<Shipment> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1714,13 +1665,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateShipmentDefaultImplementation(IUpdateShipmentApiResponse apiResponseLocalVar, decimal version, long id, Option<Shipment> body)
+        private void AfterUpdateShipmentDefaultImplementation(IUpdateShipmentApiResponse apiResponseLocalVar, long id, Option<Shipment> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateShipment(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateShipment(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1730,10 +1680,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateShipment(ref bool suppressDefaultLog, IUpdateShipmentApiResponse apiResponseLocalVar, decimal version, long id, Option<Shipment> body);
+        partial void AfterUpdateShipment(ref bool suppressDefaultLog, IUpdateShipmentApiResponse apiResponseLocalVar, long id, Option<Shipment> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1741,13 +1690,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Shipment> body)
+        private void OnErrorUpdateShipmentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Shipment> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateShipment(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1759,24 +1707,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Shipment> body);
+        partial void OnErrorUpdateShipment(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Shipment> body);
 
         /// <summary>
         /// Update Shipment Update an existing shipment
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentApiResponse"/>&gt;</returns>
-        public async Task<IUpdateShipmentApiResponse?> UpdateShipmentOrDefaultAsync(decimal version, long id, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateShipmentApiResponse?> UpdateShipmentOrDefaultAsync(long id, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateShipmentAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateShipmentAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1788,12 +1734,11 @@ namespace Org.OpenAPITools.Api
         /// Update Shipment Update an existing shipment
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentApiResponse"/>&gt;</returns>
-        public async Task<IUpdateShipmentApiResponse> UpdateShipmentAsync(decimal version, long id, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateShipmentApiResponse> UpdateShipmentAsync(long id, Option<Shipment> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1801,7 +1746,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateShipment(body);
 
-                FormatUpdateShipment(ref version, ref id, body);
+                FormatUpdateShipment(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1809,9 +1754,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -1842,13 +1786,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateShipmentDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateShipmentDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateShipment(apiResponseLocalVar);
 
@@ -1858,7 +1802,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateShipmentDefaultImplementation(e, "/api/{version}/shipment/{id}", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateShipmentDefaultImplementation(e, "/shipment/{id}", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateShipment(e);
                 throw;
             }
@@ -1957,7 +1901,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateShipmentStatus(ref decimal version, ref long id, Option<Dictionary<string, bool>> body);
+        partial void FormatUpdateShipmentStatus(ref long id, Option<Dictionary<string, bool>> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1974,13 +1918,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateShipmentStatusDefaultImplementation(IUpdateShipmentStatusApiResponse apiResponseLocalVar, decimal version, long id, Option<Dictionary<string, bool>> body)
+        private void AfterUpdateShipmentStatusDefaultImplementation(IUpdateShipmentStatusApiResponse apiResponseLocalVar, long id, Option<Dictionary<string, bool>> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateShipmentStatus(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateShipmentStatus(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1990,10 +1933,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateShipmentStatus(ref bool suppressDefaultLog, IUpdateShipmentStatusApiResponse apiResponseLocalVar, decimal version, long id, Option<Dictionary<string, bool>> body);
+        partial void AfterUpdateShipmentStatus(ref bool suppressDefaultLog, IUpdateShipmentStatusApiResponse apiResponseLocalVar, long id, Option<Dictionary<string, bool>> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2001,13 +1943,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateShipmentStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Dictionary<string, bool>> body)
+        private void OnErrorUpdateShipmentStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Dictionary<string, bool>> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateShipmentStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateShipmentStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2019,24 +1960,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateShipmentStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Dictionary<string, bool>> body);
+        partial void OnErrorUpdateShipmentStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Dictionary<string, bool>> body);
 
         /// <summary>
         /// Uupdate Shipment Status Update status of an existing shipment
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to update status</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentStatusApiResponse"/>&gt;</returns>
-        public async Task<IUpdateShipmentStatusApiResponse?> UpdateShipmentStatusOrDefaultAsync(decimal version, long id, Option<Dictionary<string, bool>> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateShipmentStatusApiResponse?> UpdateShipmentStatusOrDefaultAsync(long id, Option<Dictionary<string, bool>> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateShipmentStatusAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateShipmentStatusAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2048,12 +1987,11 @@ namespace Org.OpenAPITools.Api
         /// Uupdate Shipment Status Update status of an existing shipment
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the shipment to update status</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentStatusApiResponse"/>&gt;</returns>
-        public async Task<IUpdateShipmentStatusApiResponse> UpdateShipmentStatusAsync(decimal version, long id, Option<Dictionary<string, bool>> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateShipmentStatusApiResponse> UpdateShipmentStatusAsync(long id, Option<Dictionary<string, bool>> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2061,7 +1999,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateShipmentStatus(body);
 
-                FormatUpdateShipmentStatus(ref version, ref id, body);
+                FormatUpdateShipmentStatus(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2069,9 +2007,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/{id}/status"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/{id}/status");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/{id}/status"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/{id}/status");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -2093,13 +2030,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/{id}/status", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/{id}/status", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateShipmentStatusDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateShipmentStatusDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateShipmentStatus(apiResponseLocalVar);
 
@@ -2109,7 +2046,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateShipmentStatusDefaultImplementation(e, "/api/{version}/shipment/{id}/status", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateShipmentStatusDefaultImplementation(e, "/shipment/{id}/status", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateShipmentStatus(e);
                 throw;
             }

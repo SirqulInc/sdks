@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a user defined mission.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The title of the mission</param>
         /// <param name="description">The description of the mission (optional)</param>
@@ -74,7 +73,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="radius">Comma separated list of radii for locations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMissionApiResponse"/>&gt;</returns>
-        Task<ICreateMissionApiResponse> CreateMissionAsync(decimal version, long accountId, string title, Option<string> description = default, Option<string> subType = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<string> missionTask = default, Option<string> formatType = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> metaData = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateMissionApiResponse> CreateMissionAsync(long accountId, string title, Option<string> description = default, Option<string> subType = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<string> missionTask = default, Option<string> formatType = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> metaData = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Mission
@@ -82,7 +81,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a user defined mission.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The title of the mission</param>
         /// <param name="description">The description of the mission (optional)</param>
@@ -111,7 +109,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="radius">Comma separated list of radii for locations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMissionApiResponse"/>?&gt;</returns>
-        Task<ICreateMissionApiResponse?> CreateMissionOrDefaultAsync(decimal version, long accountId, string title, Option<string> description = default, Option<string> subType = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<string> missionTask = default, Option<string> formatType = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> metaData = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateMissionApiResponse?> CreateMissionOrDefaultAsync(long accountId, string title, Option<string> description = default, Option<string> subType = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<string> missionTask = default, Option<string> formatType = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> metaData = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Mission
@@ -120,12 +118,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a mission.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMissionApiResponse"/>&gt;</returns>
-        Task<IDeleteMissionApiResponse> DeleteMissionAsync(decimal version, long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteMissionApiResponse> DeleteMissionAsync(long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Mission
@@ -133,12 +130,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a mission.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMissionApiResponse"/>?&gt;</returns>
-        Task<IDeleteMissionApiResponse?> DeleteMissionOrDefaultAsync(decimal version, long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteMissionApiResponse?> DeleteMissionOrDefaultAsync(long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Find Missions
@@ -147,7 +143,6 @@ namespace Org.OpenAPITools.Api
         /// Get a set of ad filtered by the parameters provided.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
         /// <param name="suffix">The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)</param>
         /// <param name="type">The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)</param>
@@ -169,7 +164,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceOperator">will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFindMissionsApiResponse"/>&gt;</returns>
-        Task<IFindMissionsApiResponse> FindMissionsAsync(decimal version, string appKey, Option<string> suffix = default, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<bool> randomize = default, Option<bool> targetedAdsOnly = default, Option<string> missionIds = default, Option<string> audienceOperator = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFindMissionsApiResponse> FindMissionsAsync(string appKey, Option<string> suffix = default, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<bool> randomize = default, Option<bool> targetedAdsOnly = default, Option<string> missionIds = default, Option<string> audienceOperator = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Find Missions
@@ -177,7 +172,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a set of ad filtered by the parameters provided.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
         /// <param name="suffix">The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)</param>
         /// <param name="type">The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)</param>
@@ -199,7 +193,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceOperator">will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFindMissionsApiResponse"/>?&gt;</returns>
-        Task<IFindMissionsApiResponse?> FindMissionsOrDefaultAsync(decimal version, string appKey, Option<string> suffix = default, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<bool> randomize = default, Option<bool> targetedAdsOnly = default, Option<string> missionIds = default, Option<string> audienceOperator = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFindMissionsApiResponse?> FindMissionsOrDefaultAsync(string appKey, Option<string> suffix = default, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<bool> randomize = default, Option<bool> targetedAdsOnly = default, Option<string> missionIds = default, Option<string> audienceOperator = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Mission
@@ -208,13 +202,12 @@ namespace Org.OpenAPITools.Api
         /// Get a mission.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The id of the mission to return.</param>
         /// <param name="returnCreative">Return creatives associated with the mission when true (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMissionApiResponse"/>&gt;</returns>
-        Task<IGetMissionApiResponse> GetMissionAsync(decimal version, long accountId, long missionId, Option<bool> returnCreative = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMissionApiResponse> GetMissionAsync(long accountId, long missionId, Option<bool> returnCreative = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Mission
@@ -222,13 +215,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a mission.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The id of the mission to return.</param>
         /// <param name="returnCreative">Return creatives associated with the mission when true (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMissionApiResponse"/>?&gt;</returns>
-        Task<IGetMissionApiResponse?> GetMissionOrDefaultAsync(decimal version, long accountId, long missionId, Option<bool> returnCreative = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMissionApiResponse?> GetMissionOrDefaultAsync(long accountId, long missionId, Option<bool> returnCreative = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Import Mission
@@ -237,7 +229,6 @@ namespace Org.OpenAPITools.Api
         /// Create a mission using a source item such as an offer location.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="latitude">The current location of the requesting device</param>
         /// <param name="longitude">The current location of the requesting device</param>
@@ -248,7 +239,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="adSize">the size of the ad (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IImportMissionApiResponse"/>&gt;</returns>
-        Task<IImportMissionApiResponse> ImportMissionAsync(decimal version, long accountId, double latitude, double longitude, string appKey, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<string> adSize = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IImportMissionApiResponse> ImportMissionAsync(long accountId, double latitude, double longitude, string appKey, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<string> adSize = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Import Mission
@@ -256,7 +247,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a mission using a source item such as an offer location.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="latitude">The current location of the requesting device</param>
         /// <param name="longitude">The current location of the requesting device</param>
@@ -267,7 +257,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="adSize">the size of the ad (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IImportMissionApiResponse"/>?&gt;</returns>
-        Task<IImportMissionApiResponse?> ImportMissionOrDefaultAsync(decimal version, long accountId, double latitude, double longitude, string appKey, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<string> adSize = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IImportMissionApiResponse?> ImportMissionOrDefaultAsync(long accountId, double latitude, double longitude, string appKey, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<string> adSize = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Mission Formats
@@ -276,13 +266,12 @@ namespace Org.OpenAPITools.Api
         /// Searches on pre-defined mission formats
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="start">The starting index in the result set to return. Default is 0.</param>
         /// <param name="limit">The total number of records to return. Default is 20.</param>
         /// <param name="activeOnly">Determines whether to return only active results. Default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionFormatsApiResponse"/>&gt;</returns>
-        Task<ISearchMissionFormatsApiResponse> SearchMissionFormatsAsync(decimal version, int start, int limit, bool activeOnly, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMissionFormatsApiResponse> SearchMissionFormatsAsync(int start, int limit, bool activeOnly, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Mission Formats
@@ -290,13 +279,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on pre-defined mission formats
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="start">The starting index in the result set to return. Default is 0.</param>
         /// <param name="limit">The total number of records to return. Default is 20.</param>
         /// <param name="activeOnly">Determines whether to return only active results. Default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionFormatsApiResponse"/>?&gt;</returns>
-        Task<ISearchMissionFormatsApiResponse?> SearchMissionFormatsOrDefaultAsync(decimal version, int start, int limit, bool activeOnly, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMissionFormatsApiResponse?> SearchMissionFormatsOrDefaultAsync(int start, int limit, bool activeOnly, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Missions
@@ -305,7 +293,6 @@ namespace Org.OpenAPITools.Api
         /// Get the list missions available to the account.  
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">Filter by keyword (optional)</param>
         /// <param name="subType">Custom string client apps can use for searching/filtering missions (optional)</param>
@@ -319,7 +306,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending">Whether to sort in descending order (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionsApiResponse"/>&gt;</returns>
-        Task<ISearchMissionsApiResponse> SearchMissionsAsync(decimal version, long accountId, Option<string> keyword = default, Option<string> subType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMissionsApiResponse> SearchMissionsAsync(long accountId, Option<string> keyword = default, Option<string> subType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Missions
@@ -327,7 +314,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the list missions available to the account.  
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">Filter by keyword (optional)</param>
         /// <param name="subType">Custom string client apps can use for searching/filtering missions (optional)</param>
@@ -341,7 +327,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending">Whether to sort in descending order (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionsApiResponse"/>?&gt;</returns>
-        Task<ISearchMissionsApiResponse?> SearchMissionsOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<string> subType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMissionsApiResponse?> SearchMissionsOrDefaultAsync(long accountId, Option<string> keyword = default, Option<string> subType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Missions by Billable Entity
@@ -350,7 +336,6 @@ namespace Org.OpenAPITools.Api
         /// Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">Filter by keyword (optional)</param>
         /// <param name="start">The index into the record set to start with. Default is 0. (optional)</param>
@@ -363,7 +348,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending">Whether to sort in descending order (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionsByBillableEntityApiResponse"/>&gt;</returns>
-        Task<ISearchMissionsByBillableEntityApiResponse> SearchMissionsByBillableEntityAsync(decimal version, long accountId, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMissionsByBillableEntityApiResponse> SearchMissionsByBillableEntityAsync(long accountId, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Missions by Billable Entity
@@ -371,7 +356,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">Filter by keyword (optional)</param>
         /// <param name="start">The index into the record set to start with. Default is 0. (optional)</param>
@@ -384,7 +368,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending">Whether to sort in descending order (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionsByBillableEntityApiResponse"/>?&gt;</returns>
-        Task<ISearchMissionsByBillableEntityApiResponse?> SearchMissionsByBillableEntityOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMissionsByBillableEntityApiResponse?> SearchMissionsByBillableEntityOrDefaultAsync(long accountId, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Mission
@@ -393,7 +377,6 @@ namespace Org.OpenAPITools.Api
         /// Update a mission.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The id of the mission to update.</param>
         /// <param name="title">The title of the mission (optional)</param>
@@ -421,7 +404,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="radius">Comma separated list of radii for locations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMissionApiResponse"/>&gt;</returns>
-        Task<IUpdateMissionApiResponse> UpdateMissionAsync(decimal version, long accountId, long missionId, Option<string> title = default, Option<string> description = default, Option<string> subType = default, Option<string> metaData = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateMissionApiResponse> UpdateMissionAsync(long accountId, long missionId, Option<string> title = default, Option<string> description = default, Option<string> subType = default, Option<string> metaData = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Mission
@@ -429,7 +412,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a mission.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The id of the mission to update.</param>
         /// <param name="title">The title of the mission (optional)</param>
@@ -457,7 +439,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="radius">Comma separated list of radii for locations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMissionApiResponse"/>?&gt;</returns>
-        Task<IUpdateMissionApiResponse?> UpdateMissionOrDefaultAsync(decimal version, long accountId, long missionId, Option<string> title = default, Option<string> description = default, Option<string> subType = default, Option<string> metaData = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateMissionApiResponse?> UpdateMissionOrDefaultAsync(long accountId, long missionId, Option<string> title = default, Option<string> description = default, Option<string> subType = default, Option<string> metaData = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -801,7 +783,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateMission(ref decimal version, ref long accountId, ref string title, ref Option<string> description, ref Option<string> subType, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> active, ref Option<string> gameLevelIds, ref Option<string> creativeIds, ref Option<string> audienceIds, ref Option<string> missionTask, ref Option<string> formatType, ref Option<long> offerId, ref Option<double> balance, ref Option<bool> advancedReporting, ref Option<bool> allocateTickets, ref Option<long> ticketCount, ref Option<string> ticketType, ref Option<long> points, ref Option<string> metaData, ref Option<string> applicationIds, ref Option<string> devices, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> locations, ref Option<string> radius);
+        partial void FormatCreateMission(ref long accountId, ref string title, ref Option<string> description, ref Option<string> subType, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> active, ref Option<string> gameLevelIds, ref Option<string> creativeIds, ref Option<string> audienceIds, ref Option<string> missionTask, ref Option<string> formatType, ref Option<long> offerId, ref Option<double> balance, ref Option<bool> advancedReporting, ref Option<bool> allocateTickets, ref Option<long> ticketCount, ref Option<string> ticketType, ref Option<long> points, ref Option<string> metaData, ref Option<string> applicationIds, ref Option<string> devices, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> locations, ref Option<string> radius);
 
         /// <summary>
         /// Validates the request parameters
@@ -878,7 +860,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
@@ -905,10 +886,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceVersions"></param>
         /// <param name="locations"></param>
         /// <param name="radius"></param>
-        private void AfterCreateMissionDefaultImplementation(ICreateMissionApiResponse apiResponseLocalVar, decimal version, long accountId, string title, Option<string> description, Option<string> subType, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<string> missionTask, Option<string> formatType, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> metaData, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius)
+        private void AfterCreateMissionDefaultImplementation(ICreateMissionApiResponse apiResponseLocalVar, long accountId, string title, Option<string> description, Option<string> subType, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<string> missionTask, Option<string> formatType, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> metaData, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius)
         {
             bool suppressDefaultLog = false;
-            AfterCreateMission(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+            AfterCreateMission(ref suppressDefaultLog, apiResponseLocalVar, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -918,7 +899,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
@@ -945,7 +925,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceVersions"></param>
         /// <param name="locations"></param>
         /// <param name="radius"></param>
-        partial void AfterCreateMission(ref bool suppressDefaultLog, ICreateMissionApiResponse apiResponseLocalVar, decimal version, long accountId, string title, Option<string> description, Option<string> subType, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<string> missionTask, Option<string> formatType, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> metaData, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius);
+        partial void AfterCreateMission(ref bool suppressDefaultLog, ICreateMissionApiResponse apiResponseLocalVar, long accountId, string title, Option<string> description, Option<string> subType, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<string> missionTask, Option<string> formatType, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> metaData, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -953,7 +933,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
@@ -980,10 +959,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceVersions"></param>
         /// <param name="locations"></param>
         /// <param name="radius"></param>
-        private void OnErrorCreateMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, Option<string> description, Option<string> subType, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<string> missionTask, Option<string> formatType, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> metaData, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius)
+        private void OnErrorCreateMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, Option<string> description, Option<string> subType, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<string> missionTask, Option<string> formatType, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> metaData, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+            OnErrorCreateMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -995,7 +974,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="description"></param>
@@ -1022,12 +1000,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceVersions"></param>
         /// <param name="locations"></param>
         /// <param name="radius"></param>
-        partial void OnErrorCreateMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, Option<string> description, Option<string> subType, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<string> missionTask, Option<string> formatType, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> metaData, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius);
+        partial void OnErrorCreateMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, Option<string> description, Option<string> subType, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<string> missionTask, Option<string> formatType, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> metaData, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius);
 
         /// <summary>
         /// Create Mission Create a user defined mission.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The title of the mission</param>
         /// <param name="description">The description of the mission (optional)</param>
@@ -1056,11 +1033,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="radius">Comma separated list of radii for locations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMissionApiResponse"/>&gt;</returns>
-        public async Task<ICreateMissionApiResponse?> CreateMissionOrDefaultAsync(decimal version, long accountId, string title, Option<string> description = default, Option<string> subType = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<string> missionTask = default, Option<string> formatType = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> metaData = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateMissionApiResponse?> CreateMissionOrDefaultAsync(long accountId, string title, Option<string> description = default, Option<string> subType = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<string> missionTask = default, Option<string> formatType = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> metaData = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateMissionAsync(version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius, cancellationToken).ConfigureAwait(false);
+                return await CreateMissionAsync(accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1072,7 +1049,6 @@ namespace Org.OpenAPITools.Api
         /// Create Mission Create a user defined mission.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The title of the mission</param>
         /// <param name="description">The description of the mission (optional)</param>
@@ -1101,7 +1077,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="radius">Comma separated list of radii for locations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMissionApiResponse"/>&gt;</returns>
-        public async Task<ICreateMissionApiResponse> CreateMissionAsync(decimal version, long accountId, string title, Option<string> description = default, Option<string> subType = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<string> missionTask = default, Option<string> formatType = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> metaData = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateMissionApiResponse> CreateMissionAsync(long accountId, string title, Option<string> description = default, Option<string> subType = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<string> missionTask = default, Option<string> formatType = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> metaData = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1109,7 +1085,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateMission(title, description, subType, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, ticketType, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
 
-                FormatCreateMission(ref version, ref accountId, ref title, ref description, ref subType, ref startDate, ref endDate, ref active, ref gameLevelIds, ref creativeIds, ref audienceIds, ref missionTask, ref formatType, ref offerId, ref balance, ref advancedReporting, ref allocateTickets, ref ticketCount, ref ticketType, ref points, ref metaData, ref applicationIds, ref devices, ref deviceIds, ref deviceVersions, ref locations, ref radius);
+                FormatCreateMission(ref accountId, ref title, ref description, ref subType, ref startDate, ref endDate, ref active, ref gameLevelIds, ref creativeIds, ref audienceIds, ref missionTask, ref formatType, ref offerId, ref balance, ref advancedReporting, ref allocateTickets, ref ticketCount, ref ticketType, ref points, ref metaData, ref applicationIds, ref devices, ref deviceIds, ref deviceVersions, ref locations, ref radius);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1117,9 +1093,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1223,13 +1198,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateMissionDefaultImplementation(apiResponseLocalVar, version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+                        AfterCreateMissionDefaultImplementation(apiResponseLocalVar, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
 
                         Events.ExecuteOnCreateMission(apiResponseLocalVar);
 
@@ -1239,7 +1214,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateMissionDefaultImplementation(e, "/api/{version}/mission/create", uriBuilderLocalVar.Path, version, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+                OnErrorCreateMissionDefaultImplementation(e, "/mission/create", uriBuilderLocalVar.Path, accountId, title, description, subType, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, missionTask, formatType, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, metaData, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
                 Events.ExecuteOnErrorCreateMission(e);
                 throw;
             }
@@ -1338,19 +1313,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteMission(ref decimal version, ref long accountId, ref long missionId);
+        partial void FormatDeleteMission(ref long accountId, ref long missionId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
-        private void AfterDeleteMissionDefaultImplementation(IDeleteMissionApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId)
+        private void AfterDeleteMissionDefaultImplementation(IDeleteMissionApiResponse apiResponseLocalVar, long accountId, long missionId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteMission(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, missionId);
+            AfterDeleteMission(ref suppressDefaultLog, apiResponseLocalVar, accountId, missionId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1360,10 +1334,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
-        partial void AfterDeleteMission(ref bool suppressDefaultLog, IDeleteMissionApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId);
+        partial void AfterDeleteMission(ref bool suppressDefaultLog, IDeleteMissionApiResponse apiResponseLocalVar, long accountId, long missionId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1371,13 +1344,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
-        private void OnErrorDeleteMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId)
+        private void OnErrorDeleteMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, missionId);
+            OnErrorDeleteMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, missionId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1389,24 +1361,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
-        partial void OnErrorDeleteMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId);
+        partial void OnErrorDeleteMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId);
 
         /// <summary>
         /// Delete Mission Delete a mission.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMissionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteMissionApiResponse?> DeleteMissionOrDefaultAsync(decimal version, long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteMissionApiResponse?> DeleteMissionOrDefaultAsync(long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteMissionAsync(version, accountId, missionId, cancellationToken).ConfigureAwait(false);
+                return await DeleteMissionAsync(accountId, missionId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1418,18 +1388,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Mission Delete a mission.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMissionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteMissionApiResponse> DeleteMissionAsync(decimal version, long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteMissionApiResponse> DeleteMissionAsync(long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteMission(ref version, ref accountId, ref missionId);
+                FormatDeleteMission(ref accountId, ref missionId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1437,9 +1406,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1471,13 +1439,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteMissionDefaultImplementation(apiResponseLocalVar, version, accountId, missionId);
+                        AfterDeleteMissionDefaultImplementation(apiResponseLocalVar, accountId, missionId);
 
                         Events.ExecuteOnDeleteMission(apiResponseLocalVar);
 
@@ -1487,7 +1455,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteMissionDefaultImplementation(e, "/api/{version}/mission/delete", uriBuilderLocalVar.Path, version, accountId, missionId);
+                OnErrorDeleteMissionDefaultImplementation(e, "/mission/delete", uriBuilderLocalVar.Path, accountId, missionId);
                 Events.ExecuteOnErrorDeleteMission(e);
                 throw;
             }
@@ -1586,7 +1554,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFindMissions(ref decimal version, ref string appKey, ref Option<string> suffix, ref Option<string> type, ref Option<long> accountId, ref Option<string> appVersion, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> device, ref Option<long> deviceIdentifier, ref Option<string> deviceVersion, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeGameData, ref Option<bool> includeAudiences, ref Option<bool> allocatesTickets, ref Option<bool> randomize, ref Option<bool> targetedAdsOnly, ref Option<string> missionIds, ref Option<string> audienceOperator);
+        partial void FormatFindMissions(ref string appKey, ref Option<string> suffix, ref Option<string> type, ref Option<long> accountId, ref Option<string> appVersion, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> device, ref Option<long> deviceIdentifier, ref Option<string> deviceVersion, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeGameData, ref Option<bool> includeAudiences, ref Option<bool> allocatesTickets, ref Option<bool> randomize, ref Option<bool> targetedAdsOnly, ref Option<string> missionIds, ref Option<string> audienceOperator);
 
         /// <summary>
         /// Validates the request parameters
@@ -1631,7 +1599,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="suffix"></param>
         /// <param name="type"></param>
@@ -1651,10 +1618,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="targetedAdsOnly"></param>
         /// <param name="missionIds"></param>
         /// <param name="audienceOperator"></param>
-        private void AfterFindMissionsDefaultImplementation(IFindMissionsApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> suffix, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<bool> randomize, Option<bool> targetedAdsOnly, Option<string> missionIds, Option<string> audienceOperator)
+        private void AfterFindMissionsDefaultImplementation(IFindMissionsApiResponse apiResponseLocalVar, string appKey, Option<string> suffix, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<bool> randomize, Option<bool> targetedAdsOnly, Option<string> missionIds, Option<string> audienceOperator)
         {
             bool suppressDefaultLog = false;
-            AfterFindMissions(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
+            AfterFindMissions(ref suppressDefaultLog, apiResponseLocalVar, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1664,7 +1631,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="suffix"></param>
         /// <param name="type"></param>
@@ -1684,7 +1650,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="targetedAdsOnly"></param>
         /// <param name="missionIds"></param>
         /// <param name="audienceOperator"></param>
-        partial void AfterFindMissions(ref bool suppressDefaultLog, IFindMissionsApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> suffix, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<bool> randomize, Option<bool> targetedAdsOnly, Option<string> missionIds, Option<string> audienceOperator);
+        partial void AfterFindMissions(ref bool suppressDefaultLog, IFindMissionsApiResponse apiResponseLocalVar, string appKey, Option<string> suffix, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<bool> randomize, Option<bool> targetedAdsOnly, Option<string> missionIds, Option<string> audienceOperator);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1692,7 +1658,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="suffix"></param>
         /// <param name="type"></param>
@@ -1712,10 +1677,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="targetedAdsOnly"></param>
         /// <param name="missionIds"></param>
         /// <param name="audienceOperator"></param>
-        private void OnErrorFindMissionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> suffix, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<bool> randomize, Option<bool> targetedAdsOnly, Option<string> missionIds, Option<string> audienceOperator)
+        private void OnErrorFindMissionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> suffix, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<bool> randomize, Option<bool> targetedAdsOnly, Option<string> missionIds, Option<string> audienceOperator)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFindMissions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
+            OnErrorFindMissions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1727,7 +1692,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="suffix"></param>
         /// <param name="type"></param>
@@ -1747,12 +1711,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="targetedAdsOnly"></param>
         /// <param name="missionIds"></param>
         /// <param name="audienceOperator"></param>
-        partial void OnErrorFindMissions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> suffix, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<bool> randomize, Option<bool> targetedAdsOnly, Option<string> missionIds, Option<string> audienceOperator);
+        partial void OnErrorFindMissions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> suffix, Option<string> type, Option<long> accountId, Option<string> appVersion, Option<double> latitude, Option<double> longitude, Option<string> device, Option<long> deviceIdentifier, Option<string> deviceVersion, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> allocatesTickets, Option<bool> randomize, Option<bool> targetedAdsOnly, Option<string> missionIds, Option<string> audienceOperator);
 
         /// <summary>
         /// Find Missions Get a set of ad filtered by the parameters provided.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
         /// <param name="suffix">The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)</param>
         /// <param name="type">The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)</param>
@@ -1774,11 +1737,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceOperator">will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFindMissionsApiResponse"/>&gt;</returns>
-        public async Task<IFindMissionsApiResponse?> FindMissionsOrDefaultAsync(decimal version, string appKey, Option<string> suffix = default, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<bool> randomize = default, Option<bool> targetedAdsOnly = default, Option<string> missionIds = default, Option<string> audienceOperator = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFindMissionsApiResponse?> FindMissionsOrDefaultAsync(string appKey, Option<string> suffix = default, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<bool> randomize = default, Option<bool> targetedAdsOnly = default, Option<string> missionIds = default, Option<string> audienceOperator = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FindMissionsAsync(version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator, cancellationToken).ConfigureAwait(false);
+                return await FindMissionsAsync(appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1790,7 +1753,6 @@ namespace Org.OpenAPITools.Api
         /// Find Missions Get a set of ad filtered by the parameters provided.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
         /// <param name="suffix">The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)</param>
         /// <param name="type">The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)</param>
@@ -1812,7 +1774,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceOperator">will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFindMissionsApiResponse"/>&gt;</returns>
-        public async Task<IFindMissionsApiResponse> FindMissionsAsync(decimal version, string appKey, Option<string> suffix = default, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<bool> randomize = default, Option<bool> targetedAdsOnly = default, Option<string> missionIds = default, Option<string> audienceOperator = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFindMissionsApiResponse> FindMissionsAsync(string appKey, Option<string> suffix = default, Option<string> type = default, Option<long> accountId = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> device = default, Option<long> deviceIdentifier = default, Option<string> deviceVersion = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> allocatesTickets = default, Option<bool> randomize = default, Option<bool> targetedAdsOnly = default, Option<string> missionIds = default, Option<string> audienceOperator = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1820,7 +1782,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFindMissions(appKey, suffix, type, appVersion, device, deviceVersion, missionIds, audienceOperator);
 
-                FormatFindMissions(ref version, ref appKey, ref suffix, ref type, ref accountId, ref appVersion, ref latitude, ref longitude, ref device, ref deviceIdentifier, ref deviceVersion, ref start, ref limit, ref includeGameData, ref includeAudiences, ref allocatesTickets, ref randomize, ref targetedAdsOnly, ref missionIds, ref audienceOperator);
+                FormatFindMissions(ref appKey, ref suffix, ref type, ref accountId, ref appVersion, ref latitude, ref longitude, ref device, ref deviceIdentifier, ref deviceVersion, ref start, ref limit, ref includeGameData, ref includeAudiences, ref allocatesTickets, ref randomize, ref targetedAdsOnly, ref missionIds, ref audienceOperator);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1828,9 +1790,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/find"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/find");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/find"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/find");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1915,13 +1876,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/find", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/find", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFindMissionsDefaultImplementation(apiResponseLocalVar, version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
+                        AfterFindMissionsDefaultImplementation(apiResponseLocalVar, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
 
                         Events.ExecuteOnFindMissions(apiResponseLocalVar);
 
@@ -1931,7 +1892,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFindMissionsDefaultImplementation(e, "/api/{version}/mission/find", uriBuilderLocalVar.Path, version, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
+                OnErrorFindMissionsDefaultImplementation(e, "/mission/find", uriBuilderLocalVar.Path, appKey, suffix, type, accountId, appVersion, latitude, longitude, device, deviceIdentifier, deviceVersion, start, limit, includeGameData, includeAudiences, allocatesTickets, randomize, targetedAdsOnly, missionIds, audienceOperator);
                 Events.ExecuteOnErrorFindMissions(e);
                 throw;
             }
@@ -2030,20 +1991,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetMission(ref decimal version, ref long accountId, ref long missionId, ref Option<bool> returnCreative);
+        partial void FormatGetMission(ref long accountId, ref long missionId, ref Option<bool> returnCreative);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="returnCreative"></param>
-        private void AfterGetMissionDefaultImplementation(IGetMissionApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId, Option<bool> returnCreative)
+        private void AfterGetMissionDefaultImplementation(IGetMissionApiResponse apiResponseLocalVar, long accountId, long missionId, Option<bool> returnCreative)
         {
             bool suppressDefaultLog = false;
-            AfterGetMission(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, missionId, returnCreative);
+            AfterGetMission(ref suppressDefaultLog, apiResponseLocalVar, accountId, missionId, returnCreative);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2053,11 +2013,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="returnCreative"></param>
-        partial void AfterGetMission(ref bool suppressDefaultLog, IGetMissionApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId, Option<bool> returnCreative);
+        partial void AfterGetMission(ref bool suppressDefaultLog, IGetMissionApiResponse apiResponseLocalVar, long accountId, long missionId, Option<bool> returnCreative);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2065,14 +2024,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="returnCreative"></param>
-        private void OnErrorGetMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId, Option<bool> returnCreative)
+        private void OnErrorGetMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId, Option<bool> returnCreative)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, missionId, returnCreative);
+            OnErrorGetMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, missionId, returnCreative);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2084,26 +2042,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="returnCreative"></param>
-        partial void OnErrorGetMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId, Option<bool> returnCreative);
+        partial void OnErrorGetMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId, Option<bool> returnCreative);
 
         /// <summary>
         /// Get Mission Get a mission.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The id of the mission to return.</param>
         /// <param name="returnCreative">Return creatives associated with the mission when true (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMissionApiResponse"/>&gt;</returns>
-        public async Task<IGetMissionApiResponse?> GetMissionOrDefaultAsync(decimal version, long accountId, long missionId, Option<bool> returnCreative = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMissionApiResponse?> GetMissionOrDefaultAsync(long accountId, long missionId, Option<bool> returnCreative = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetMissionAsync(version, accountId, missionId, returnCreative, cancellationToken).ConfigureAwait(false);
+                return await GetMissionAsync(accountId, missionId, returnCreative, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2115,19 +2071,18 @@ namespace Org.OpenAPITools.Api
         /// Get Mission Get a mission.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The id of the mission to return.</param>
         /// <param name="returnCreative">Return creatives associated with the mission when true (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMissionApiResponse"/>&gt;</returns>
-        public async Task<IGetMissionApiResponse> GetMissionAsync(decimal version, long accountId, long missionId, Option<bool> returnCreative = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMissionApiResponse> GetMissionAsync(long accountId, long missionId, Option<bool> returnCreative = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetMission(ref version, ref accountId, ref missionId, ref returnCreative);
+                FormatGetMission(ref accountId, ref missionId, ref returnCreative);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2135,9 +2090,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2172,13 +2126,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetMissionDefaultImplementation(apiResponseLocalVar, version, accountId, missionId, returnCreative);
+                        AfterGetMissionDefaultImplementation(apiResponseLocalVar, accountId, missionId, returnCreative);
 
                         Events.ExecuteOnGetMission(apiResponseLocalVar);
 
@@ -2188,7 +2142,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetMissionDefaultImplementation(e, "/api/{version}/mission/get", uriBuilderLocalVar.Path, version, accountId, missionId, returnCreative);
+                OnErrorGetMissionDefaultImplementation(e, "/mission/get", uriBuilderLocalVar.Path, accountId, missionId, returnCreative);
                 Events.ExecuteOnErrorGetMission(e);
                 throw;
             }
@@ -2287,7 +2241,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatImportMission(ref decimal version, ref long accountId, ref double latitude, ref double longitude, ref string appKey, ref Option<string> keyword, ref Option<int> start, ref Option<int> limit, ref Option<string> adSize);
+        partial void FormatImportMission(ref long accountId, ref double latitude, ref double longitude, ref string appKey, ref Option<string> keyword, ref Option<int> start, ref Option<int> limit, ref Option<string> adSize);
 
         /// <summary>
         /// Validates the request parameters
@@ -2312,7 +2266,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -2321,10 +2274,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="adSize"></param>
-        private void AfterImportMissionDefaultImplementation(IImportMissionApiResponse apiResponseLocalVar, decimal version, long accountId, double latitude, double longitude, string appKey, Option<string> keyword, Option<int> start, Option<int> limit, Option<string> adSize)
+        private void AfterImportMissionDefaultImplementation(IImportMissionApiResponse apiResponseLocalVar, long accountId, double latitude, double longitude, string appKey, Option<string> keyword, Option<int> start, Option<int> limit, Option<string> adSize)
         {
             bool suppressDefaultLog = false;
-            AfterImportMission(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
+            AfterImportMission(ref suppressDefaultLog, apiResponseLocalVar, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2334,7 +2287,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -2343,7 +2295,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="adSize"></param>
-        partial void AfterImportMission(ref bool suppressDefaultLog, IImportMissionApiResponse apiResponseLocalVar, decimal version, long accountId, double latitude, double longitude, string appKey, Option<string> keyword, Option<int> start, Option<int> limit, Option<string> adSize);
+        partial void AfterImportMission(ref bool suppressDefaultLog, IImportMissionApiResponse apiResponseLocalVar, long accountId, double latitude, double longitude, string appKey, Option<string> keyword, Option<int> start, Option<int> limit, Option<string> adSize);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2351,7 +2303,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -2360,10 +2311,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="adSize"></param>
-        private void OnErrorImportMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, double latitude, double longitude, string appKey, Option<string> keyword, Option<int> start, Option<int> limit, Option<string> adSize)
+        private void OnErrorImportMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, double latitude, double longitude, string appKey, Option<string> keyword, Option<int> start, Option<int> limit, Option<string> adSize)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorImportMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
+            OnErrorImportMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2375,7 +2326,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -2384,12 +2334,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="adSize"></param>
-        partial void OnErrorImportMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, double latitude, double longitude, string appKey, Option<string> keyword, Option<int> start, Option<int> limit, Option<string> adSize);
+        partial void OnErrorImportMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, double latitude, double longitude, string appKey, Option<string> keyword, Option<int> start, Option<int> limit, Option<string> adSize);
 
         /// <summary>
         /// Import Mission Create a mission using a source item such as an offer location.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="latitude">The current location of the requesting device</param>
         /// <param name="longitude">The current location of the requesting device</param>
@@ -2400,11 +2349,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="adSize">the size of the ad (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IImportMissionApiResponse"/>&gt;</returns>
-        public async Task<IImportMissionApiResponse?> ImportMissionOrDefaultAsync(decimal version, long accountId, double latitude, double longitude, string appKey, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<string> adSize = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IImportMissionApiResponse?> ImportMissionOrDefaultAsync(long accountId, double latitude, double longitude, string appKey, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<string> adSize = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ImportMissionAsync(version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize, cancellationToken).ConfigureAwait(false);
+                return await ImportMissionAsync(accountId, latitude, longitude, appKey, keyword, start, limit, adSize, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2416,7 +2365,6 @@ namespace Org.OpenAPITools.Api
         /// Import Mission Create a mission using a source item such as an offer location.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="latitude">The current location of the requesting device</param>
         /// <param name="longitude">The current location of the requesting device</param>
@@ -2427,7 +2375,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="adSize">the size of the ad (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IImportMissionApiResponse"/>&gt;</returns>
-        public async Task<IImportMissionApiResponse> ImportMissionAsync(decimal version, long accountId, double latitude, double longitude, string appKey, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<string> adSize = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IImportMissionApiResponse> ImportMissionAsync(long accountId, double latitude, double longitude, string appKey, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<string> adSize = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2435,7 +2383,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateImportMission(appKey, keyword, adSize);
 
-                FormatImportMission(ref version, ref accountId, ref latitude, ref longitude, ref appKey, ref keyword, ref start, ref limit, ref adSize);
+                FormatImportMission(ref accountId, ref latitude, ref longitude, ref appKey, ref keyword, ref start, ref limit, ref adSize);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2443,9 +2391,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/import"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/import");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/import"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/import");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2491,13 +2438,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/import", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/import", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterImportMissionDefaultImplementation(apiResponseLocalVar, version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
+                        AfterImportMissionDefaultImplementation(apiResponseLocalVar, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
 
                         Events.ExecuteOnImportMission(apiResponseLocalVar);
 
@@ -2507,7 +2454,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorImportMissionDefaultImplementation(e, "/api/{version}/mission/import", uriBuilderLocalVar.Path, version, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
+                OnErrorImportMissionDefaultImplementation(e, "/mission/import", uriBuilderLocalVar.Path, accountId, latitude, longitude, appKey, keyword, start, limit, adSize);
                 Events.ExecuteOnErrorImportMission(e);
                 throw;
             }
@@ -2606,20 +2553,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchMissionFormats(ref decimal version, ref int start, ref int limit, ref bool activeOnly);
+        partial void FormatSearchMissionFormats(ref int start, ref int limit, ref bool activeOnly);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchMissionFormatsDefaultImplementation(ISearchMissionFormatsApiResponse apiResponseLocalVar, decimal version, int start, int limit, bool activeOnly)
+        private void AfterSearchMissionFormatsDefaultImplementation(ISearchMissionFormatsApiResponse apiResponseLocalVar, int start, int limit, bool activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchMissionFormats(ref suppressDefaultLog, apiResponseLocalVar, version, start, limit, activeOnly);
+            AfterSearchMissionFormats(ref suppressDefaultLog, apiResponseLocalVar, start, limit, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2629,11 +2575,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchMissionFormats(ref bool suppressDefaultLog, ISearchMissionFormatsApiResponse apiResponseLocalVar, decimal version, int start, int limit, bool activeOnly);
+        partial void AfterSearchMissionFormats(ref bool suppressDefaultLog, ISearchMissionFormatsApiResponse apiResponseLocalVar, int start, int limit, bool activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2641,14 +2586,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchMissionFormatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, int start, int limit, bool activeOnly)
+        private void OnErrorSearchMissionFormatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int start, int limit, bool activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchMissionFormats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, start, limit, activeOnly);
+            OnErrorSearchMissionFormats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, start, limit, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2660,26 +2604,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchMissionFormats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, int start, int limit, bool activeOnly);
+        partial void OnErrorSearchMissionFormats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int start, int limit, bool activeOnly);
 
         /// <summary>
         /// Search Mission Formats Searches on pre-defined mission formats
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="start">The starting index in the result set to return. Default is 0.</param>
         /// <param name="limit">The total number of records to return. Default is 20.</param>
         /// <param name="activeOnly">Determines whether to return only active results. Default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionFormatsApiResponse"/>&gt;</returns>
-        public async Task<ISearchMissionFormatsApiResponse?> SearchMissionFormatsOrDefaultAsync(decimal version, int start, int limit, bool activeOnly, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMissionFormatsApiResponse?> SearchMissionFormatsOrDefaultAsync(int start, int limit, bool activeOnly, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchMissionFormatsAsync(version, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchMissionFormatsAsync(start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2691,19 +2633,18 @@ namespace Org.OpenAPITools.Api
         /// Search Mission Formats Searches on pre-defined mission formats
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="start">The starting index in the result set to return. Default is 0.</param>
         /// <param name="limit">The total number of records to return. Default is 20.</param>
         /// <param name="activeOnly">Determines whether to return only active results. Default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionFormatsApiResponse"/>&gt;</returns>
-        public async Task<ISearchMissionFormatsApiResponse> SearchMissionFormatsAsync(decimal version, int start, int limit, bool activeOnly, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMissionFormatsApiResponse> SearchMissionFormatsAsync(int start, int limit, bool activeOnly, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatSearchMissionFormats(ref version, ref start, ref limit, ref activeOnly);
+                FormatSearchMissionFormats(ref start, ref limit, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2711,9 +2652,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/format/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/format/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/format/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/format/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2746,13 +2686,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/format/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/format/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchMissionFormatsDefaultImplementation(apiResponseLocalVar, version, start, limit, activeOnly);
+                        AfterSearchMissionFormatsDefaultImplementation(apiResponseLocalVar, start, limit, activeOnly);
 
                         Events.ExecuteOnSearchMissionFormats(apiResponseLocalVar);
 
@@ -2762,7 +2702,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchMissionFormatsDefaultImplementation(e, "/api/{version}/mission/format/search", uriBuilderLocalVar.Path, version, start, limit, activeOnly);
+                OnErrorSearchMissionFormatsDefaultImplementation(e, "/mission/format/search", uriBuilderLocalVar.Path, start, limit, activeOnly);
                 Events.ExecuteOnErrorSearchMissionFormats(e);
                 throw;
             }
@@ -2861,7 +2801,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchMissions(ref decimal version, ref long accountId, ref Option<string> keyword, ref Option<string> subType, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeGameData, ref Option<bool> includeAudiences, ref Option<bool> includeInactive, ref Option<string> suffix, ref Option<string> sortField, ref Option<bool> descending);
+        partial void FormatSearchMissions(ref long accountId, ref Option<string> keyword, ref Option<string> subType, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeGameData, ref Option<bool> includeAudiences, ref Option<bool> includeInactive, ref Option<string> suffix, ref Option<string> sortField, ref Option<bool> descending);
 
         /// <summary>
         /// Validates the request parameters
@@ -2890,7 +2830,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="subType"></param>
@@ -2902,10 +2841,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="suffix"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
-        private void AfterSearchMissionsDefaultImplementation(ISearchMissionsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<string> subType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending)
+        private void AfterSearchMissionsDefaultImplementation(ISearchMissionsApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<string> subType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending)
         {
             bool suppressDefaultLog = false;
-            AfterSearchMissions(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+            AfterSearchMissions(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2915,7 +2854,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="subType"></param>
@@ -2927,7 +2865,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="suffix"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
-        partial void AfterSearchMissions(ref bool suppressDefaultLog, ISearchMissionsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<string> subType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending);
+        partial void AfterSearchMissions(ref bool suppressDefaultLog, ISearchMissionsApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<string> subType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2935,7 +2873,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="subType"></param>
@@ -2947,10 +2884,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="suffix"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
-        private void OnErrorSearchMissionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<string> subType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending)
+        private void OnErrorSearchMissionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<string> subType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchMissions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+            OnErrorSearchMissions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2962,7 +2899,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="subType"></param>
@@ -2974,12 +2910,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="suffix"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
-        partial void OnErrorSearchMissions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<string> subType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending);
+        partial void OnErrorSearchMissions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<string> subType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending);
 
         /// <summary>
         /// Search Missions Get the list missions available to the account.  
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">Filter by keyword (optional)</param>
         /// <param name="subType">Custom string client apps can use for searching/filtering missions (optional)</param>
@@ -2993,11 +2928,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending">Whether to sort in descending order (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchMissionsApiResponse?> SearchMissionsOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<string> subType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMissionsApiResponse?> SearchMissionsOrDefaultAsync(long accountId, Option<string> keyword = default, Option<string> subType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchMissionsAsync(version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, cancellationToken).ConfigureAwait(false);
+                return await SearchMissionsAsync(accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3009,7 +2944,6 @@ namespace Org.OpenAPITools.Api
         /// Search Missions Get the list missions available to the account.  
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">Filter by keyword (optional)</param>
         /// <param name="subType">Custom string client apps can use for searching/filtering missions (optional)</param>
@@ -3023,7 +2957,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending">Whether to sort in descending order (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchMissionsApiResponse> SearchMissionsAsync(decimal version, long accountId, Option<string> keyword = default, Option<string> subType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMissionsApiResponse> SearchMissionsAsync(long accountId, Option<string> keyword = default, Option<string> subType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3031,7 +2965,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchMissions(keyword, subType, suffix, sortField);
 
-                FormatSearchMissions(ref version, ref accountId, ref keyword, ref subType, ref start, ref limit, ref includeGameData, ref includeAudiences, ref includeInactive, ref suffix, ref sortField, ref descending);
+                FormatSearchMissions(ref accountId, ref keyword, ref subType, ref start, ref limit, ref includeGameData, ref includeAudiences, ref includeInactive, ref suffix, ref sortField, ref descending);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3039,9 +2973,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3102,13 +3035,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchMissionsDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+                        AfterSearchMissionsDefaultImplementation(apiResponseLocalVar, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
 
                         Events.ExecuteOnSearchMissions(apiResponseLocalVar);
 
@@ -3118,7 +3051,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchMissionsDefaultImplementation(e, "/api/{version}/mission/search", uriBuilderLocalVar.Path, version, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+                OnErrorSearchMissionsDefaultImplementation(e, "/mission/search", uriBuilderLocalVar.Path, accountId, keyword, subType, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
                 Events.ExecuteOnErrorSearchMissions(e);
                 throw;
             }
@@ -3217,7 +3150,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchMissionsByBillableEntity(ref decimal version, ref long accountId, ref Option<string> keyword, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeGameData, ref Option<bool> includeAudiences, ref Option<bool> includeInactive, ref Option<string> suffix, ref Option<string> sortField, ref Option<bool> descending);
+        partial void FormatSearchMissionsByBillableEntity(ref long accountId, ref Option<string> keyword, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeGameData, ref Option<bool> includeAudiences, ref Option<bool> includeInactive, ref Option<string> suffix, ref Option<string> sortField, ref Option<bool> descending);
 
         /// <summary>
         /// Validates the request parameters
@@ -3242,7 +3175,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
@@ -3253,10 +3185,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="suffix"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
-        private void AfterSearchMissionsByBillableEntityDefaultImplementation(ISearchMissionsByBillableEntityApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending)
+        private void AfterSearchMissionsByBillableEntityDefaultImplementation(ISearchMissionsByBillableEntityApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending)
         {
             bool suppressDefaultLog = false;
-            AfterSearchMissionsByBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+            AfterSearchMissionsByBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3266,7 +3198,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
@@ -3277,7 +3208,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="suffix"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
-        partial void AfterSearchMissionsByBillableEntity(ref bool suppressDefaultLog, ISearchMissionsByBillableEntityApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending);
+        partial void AfterSearchMissionsByBillableEntity(ref bool suppressDefaultLog, ISearchMissionsByBillableEntityApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3285,7 +3216,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
@@ -3296,10 +3226,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="suffix"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
-        private void OnErrorSearchMissionsByBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending)
+        private void OnErrorSearchMissionsByBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchMissionsByBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+            OnErrorSearchMissionsByBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3311,7 +3241,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
@@ -3322,12 +3251,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="suffix"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
-        partial void OnErrorSearchMissionsByBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending);
+        partial void OnErrorSearchMissionsByBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeAudiences, Option<bool> includeInactive, Option<string> suffix, Option<string> sortField, Option<bool> descending);
 
         /// <summary>
         /// Search Missions by Billable Entity Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">Filter by keyword (optional)</param>
         /// <param name="start">The index into the record set to start with. Default is 0. (optional)</param>
@@ -3340,11 +3268,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending">Whether to sort in descending order (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionsByBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<ISearchMissionsByBillableEntityApiResponse?> SearchMissionsByBillableEntityOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMissionsByBillableEntityApiResponse?> SearchMissionsByBillableEntityOrDefaultAsync(long accountId, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchMissionsByBillableEntityAsync(version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, cancellationToken).ConfigureAwait(false);
+                return await SearchMissionsByBillableEntityAsync(accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3356,7 +3284,6 @@ namespace Org.OpenAPITools.Api
         /// Search Missions by Billable Entity Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">Filter by keyword (optional)</param>
         /// <param name="start">The index into the record set to start with. Default is 0. (optional)</param>
@@ -3369,7 +3296,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending">Whether to sort in descending order (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionsByBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<ISearchMissionsByBillableEntityApiResponse> SearchMissionsByBillableEntityAsync(decimal version, long accountId, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMissionsByBillableEntityApiResponse> SearchMissionsByBillableEntityAsync(long accountId, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeAudiences = default, Option<bool> includeInactive = default, Option<string> suffix = default, Option<string> sortField = default, Option<bool> descending = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3377,7 +3304,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchMissionsByBillableEntity(keyword, suffix, sortField);
 
-                FormatSearchMissionsByBillableEntity(ref version, ref accountId, ref keyword, ref start, ref limit, ref includeGameData, ref includeAudiences, ref includeInactive, ref suffix, ref sortField, ref descending);
+                FormatSearchMissionsByBillableEntity(ref accountId, ref keyword, ref start, ref limit, ref includeGameData, ref includeAudiences, ref includeInactive, ref suffix, ref sortField, ref descending);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3385,9 +3312,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/searchByBillableEntity"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/searchByBillableEntity");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/searchByBillableEntity"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/searchByBillableEntity");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3445,13 +3371,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/searchByBillableEntity", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/searchByBillableEntity", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchMissionsByBillableEntityDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+                        AfterSearchMissionsByBillableEntityDefaultImplementation(apiResponseLocalVar, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
 
                         Events.ExecuteOnSearchMissionsByBillableEntity(apiResponseLocalVar);
 
@@ -3461,7 +3387,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchMissionsByBillableEntityDefaultImplementation(e, "/api/{version}/mission/searchByBillableEntity", uriBuilderLocalVar.Path, version, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
+                OnErrorSearchMissionsByBillableEntityDefaultImplementation(e, "/mission/searchByBillableEntity", uriBuilderLocalVar.Path, accountId, keyword, start, limit, includeGameData, includeAudiences, includeInactive, suffix, sortField, descending);
                 Events.ExecuteOnErrorSearchMissionsByBillableEntity(e);
                 throw;
             }
@@ -3560,7 +3486,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateMission(ref decimal version, ref long accountId, ref long missionId, ref Option<string> title, ref Option<string> description, ref Option<string> subType, ref Option<string> metaData, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> active, ref Option<string> gameLevelIds, ref Option<string> creativeIds, ref Option<string> audienceIds, ref Option<long> offerId, ref Option<double> balance, ref Option<bool> advancedReporting, ref Option<bool> allocateTickets, ref Option<long> ticketCount, ref Option<string> ticketType, ref Option<long> points, ref Option<string> applicationIds, ref Option<string> devices, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> locations, ref Option<string> radius);
+        partial void FormatUpdateMission(ref long accountId, ref long missionId, ref Option<string> title, ref Option<string> description, ref Option<string> subType, ref Option<string> metaData, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> active, ref Option<string> gameLevelIds, ref Option<string> creativeIds, ref Option<string> audienceIds, ref Option<long> offerId, ref Option<double> balance, ref Option<bool> advancedReporting, ref Option<bool> allocateTickets, ref Option<long> ticketCount, ref Option<string> ticketType, ref Option<long> points, ref Option<string> applicationIds, ref Option<string> devices, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> locations, ref Option<string> radius);
 
         /// <summary>
         /// Validates the request parameters
@@ -3629,7 +3555,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="title"></param>
@@ -3655,10 +3580,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceVersions"></param>
         /// <param name="locations"></param>
         /// <param name="radius"></param>
-        private void AfterUpdateMissionDefaultImplementation(IUpdateMissionApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId, Option<string> title, Option<string> description, Option<string> subType, Option<string> metaData, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius)
+        private void AfterUpdateMissionDefaultImplementation(IUpdateMissionApiResponse apiResponseLocalVar, long accountId, long missionId, Option<string> title, Option<string> description, Option<string> subType, Option<string> metaData, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateMission(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+            AfterUpdateMission(ref suppressDefaultLog, apiResponseLocalVar, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3668,7 +3593,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="title"></param>
@@ -3694,7 +3618,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceVersions"></param>
         /// <param name="locations"></param>
         /// <param name="radius"></param>
-        partial void AfterUpdateMission(ref bool suppressDefaultLog, IUpdateMissionApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId, Option<string> title, Option<string> description, Option<string> subType, Option<string> metaData, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius);
+        partial void AfterUpdateMission(ref bool suppressDefaultLog, IUpdateMissionApiResponse apiResponseLocalVar, long accountId, long missionId, Option<string> title, Option<string> description, Option<string> subType, Option<string> metaData, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3702,7 +3626,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="title"></param>
@@ -3728,10 +3651,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceVersions"></param>
         /// <param name="locations"></param>
         /// <param name="radius"></param>
-        private void OnErrorUpdateMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId, Option<string> title, Option<string> description, Option<string> subType, Option<string> metaData, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius)
+        private void OnErrorUpdateMissionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId, Option<string> title, Option<string> description, Option<string> subType, Option<string> metaData, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+            OnErrorUpdateMission(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3743,7 +3666,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="title"></param>
@@ -3769,12 +3691,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceVersions"></param>
         /// <param name="locations"></param>
         /// <param name="radius"></param>
-        partial void OnErrorUpdateMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId, Option<string> title, Option<string> description, Option<string> subType, Option<string> metaData, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius);
+        partial void OnErrorUpdateMission(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId, Option<string> title, Option<string> description, Option<string> subType, Option<string> metaData, Option<long> startDate, Option<long> endDate, Option<bool> active, Option<string> gameLevelIds, Option<string> creativeIds, Option<string> audienceIds, Option<long> offerId, Option<double> balance, Option<bool> advancedReporting, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> applicationIds, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius);
 
         /// <summary>
         /// Update Mission Update a mission.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The id of the mission to update.</param>
         /// <param name="title">The title of the mission (optional)</param>
@@ -3802,11 +3723,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="radius">Comma separated list of radii for locations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMissionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateMissionApiResponse?> UpdateMissionOrDefaultAsync(decimal version, long accountId, long missionId, Option<string> title = default, Option<string> description = default, Option<string> subType = default, Option<string> metaData = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateMissionApiResponse?> UpdateMissionOrDefaultAsync(long accountId, long missionId, Option<string> title = default, Option<string> description = default, Option<string> subType = default, Option<string> metaData = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateMissionAsync(version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius, cancellationToken).ConfigureAwait(false);
+                return await UpdateMissionAsync(accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3818,7 +3739,6 @@ namespace Org.OpenAPITools.Api
         /// Update Mission Update a mission.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The id of the mission to update.</param>
         /// <param name="title">The title of the mission (optional)</param>
@@ -3846,7 +3766,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="radius">Comma separated list of radii for locations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMissionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateMissionApiResponse> UpdateMissionAsync(decimal version, long accountId, long missionId, Option<string> title = default, Option<string> description = default, Option<string> subType = default, Option<string> metaData = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateMissionApiResponse> UpdateMissionAsync(long accountId, long missionId, Option<string> title = default, Option<string> description = default, Option<string> subType = default, Option<string> metaData = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> active = default, Option<string> gameLevelIds = default, Option<string> creativeIds = default, Option<string> audienceIds = default, Option<long> offerId = default, Option<double> balance = default, Option<bool> advancedReporting = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> applicationIds = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3854,7 +3774,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateMission(title, description, subType, metaData, gameLevelIds, creativeIds, audienceIds, ticketType, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
 
-                FormatUpdateMission(ref version, ref accountId, ref missionId, ref title, ref description, ref subType, ref metaData, ref startDate, ref endDate, ref active, ref gameLevelIds, ref creativeIds, ref audienceIds, ref offerId, ref balance, ref advancedReporting, ref allocateTickets, ref ticketCount, ref ticketType, ref points, ref applicationIds, ref devices, ref deviceIds, ref deviceVersions, ref locations, ref radius);
+                FormatUpdateMission(ref accountId, ref missionId, ref title, ref description, ref subType, ref metaData, ref startDate, ref endDate, ref active, ref gameLevelIds, ref creativeIds, ref audienceIds, ref offerId, ref balance, ref advancedReporting, ref allocateTickets, ref ticketCount, ref ticketType, ref points, ref applicationIds, ref devices, ref deviceIds, ref deviceVersions, ref locations, ref radius);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3862,9 +3782,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3965,13 +3884,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateMissionDefaultImplementation(apiResponseLocalVar, version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+                        AfterUpdateMissionDefaultImplementation(apiResponseLocalVar, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
 
                         Events.ExecuteOnUpdateMission(apiResponseLocalVar);
 
@@ -3981,7 +3900,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateMissionDefaultImplementation(e, "/api/{version}/mission/update", uriBuilderLocalVar.Path, version, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
+                OnErrorUpdateMissionDefaultImplementation(e, "/mission/update", uriBuilderLocalVar.Path, accountId, missionId, title, description, subType, metaData, startDate, endDate, active, gameLevelIds, creativeIds, audienceIds, offerId, balance, advancedReporting, allocateTickets, ticketCount, ticketType, points, applicationIds, devices, deviceIds, deviceVersions, locations, radius);
                 Events.ExecuteOnErrorUpdateMission(e);
                 throw;
             }

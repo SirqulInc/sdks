@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a region.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account sending the request</param>
         /// <param name="regionClass">RegionClass of this region</param>
         /// <param name="shortName">Short name of the region. This is optimized for search</param>
@@ -69,7 +68,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active or inactive status of the region (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRegionApiResponse"/>&gt;</returns>
-        Task<ICreateRegionApiResponse> CreateRegionAsync(decimal version, long accountId, string regionClass, string shortName, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRegionApiResponse> CreateRegionAsync(long accountId, string regionClass, string shortName, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Region
@@ -77,7 +76,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a region.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account sending the request</param>
         /// <param name="regionClass">RegionClass of this region</param>
         /// <param name="shortName">Short name of the region. This is optimized for search</param>
@@ -101,7 +99,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active or inactive status of the region (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRegionApiResponse"/>?&gt;</returns>
-        Task<ICreateRegionApiResponse?> CreateRegionOrDefaultAsync(decimal version, long accountId, string regionClass, string shortName, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRegionApiResponse?> CreateRegionOrDefaultAsync(long accountId, string regionClass, string shortName, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Region
@@ -110,12 +108,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a region.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="regionId">the id of the region</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRegionApiResponse"/>&gt;</returns>
-        Task<IDeleteRegionApiResponse> DeleteRegionAsync(decimal version, long accountId, long regionId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRegionApiResponse> DeleteRegionAsync(long accountId, long regionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Region
@@ -123,12 +120,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a region.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="regionId">the id of the region</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRegionApiResponse"/>?&gt;</returns>
-        Task<IDeleteRegionApiResponse?> DeleteRegionOrDefaultAsync(decimal version, long accountId, long regionId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRegionApiResponse?> DeleteRegionOrDefaultAsync(long accountId, long regionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Region
@@ -137,12 +133,11 @@ namespace Org.OpenAPITools.Api
         /// Get a region.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="regionId">the id of the region to get</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRegionApiResponse"/>&gt;</returns>
-        Task<IGetRegionApiResponse> GetRegionAsync(decimal version, long regionId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRegionApiResponse> GetRegionAsync(long regionId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Region
@@ -150,12 +145,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a region.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="regionId">the id of the region to get</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRegionApiResponse"/>?&gt;</returns>
-        Task<IGetRegionApiResponse?> GetRegionOrDefaultAsync(decimal version, long regionId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRegionApiResponse?> GetRegionOrDefaultAsync(long regionId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Regions
@@ -164,7 +158,6 @@ namespace Org.OpenAPITools.Api
         /// Get the list of regions.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the owner account id of the region to be created (optional)</param>
         /// <param name="query">This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)</param>
         /// <param name="keyword">the keyword to filter results on (optional)</param>
@@ -189,7 +182,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRegionsApiResponse"/>&gt;</returns>
-        Task<ISearchRegionsApiResponse> SearchRegionsAsync(decimal version, Option<long> accountId = default, Option<string> query = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> regionClass = default, Option<string> visibility = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeParent = default, Option<bool> includeChildren = default, Option<bool> includePostalCodes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> versionCode = default, Option<bool> activeOnly = default, Option<bool> showDeleted = default, Option<long> lastUpdatedSince = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRegionsApiResponse> SearchRegionsAsync(Option<long> accountId = default, Option<string> query = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> regionClass = default, Option<string> visibility = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeParent = default, Option<bool> includeChildren = default, Option<bool> includePostalCodes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> versionCode = default, Option<bool> activeOnly = default, Option<bool> showDeleted = default, Option<long> lastUpdatedSince = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Regions
@@ -197,7 +190,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the list of regions.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the owner account id of the region to be created (optional)</param>
         /// <param name="query">This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)</param>
         /// <param name="keyword">the keyword to filter results on (optional)</param>
@@ -222,7 +214,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRegionsApiResponse"/>?&gt;</returns>
-        Task<ISearchRegionsApiResponse?> SearchRegionsOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> query = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> regionClass = default, Option<string> visibility = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeParent = default, Option<bool> includeChildren = default, Option<bool> includePostalCodes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> versionCode = default, Option<bool> activeOnly = default, Option<bool> showDeleted = default, Option<long> lastUpdatedSince = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRegionsApiResponse?> SearchRegionsOrDefaultAsync(Option<long> accountId = default, Option<string> query = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> regionClass = default, Option<string> visibility = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeParent = default, Option<bool> includeChildren = default, Option<bool> includePostalCodes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> versionCode = default, Option<bool> activeOnly = default, Option<bool> showDeleted = default, Option<long> lastUpdatedSince = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Region
@@ -231,7 +223,6 @@ namespace Org.OpenAPITools.Api
         /// Update a region.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account sending the request</param>
         /// <param name="regionId">The id of the region to be updated</param>
         /// <param name="regionClass">RegionClass of this region (optional)</param>
@@ -257,7 +248,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="clearLists">If true clear the children and postal code lists before add new ones, otherwise just append. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRegionApiResponse"/>&gt;</returns>
-        Task<IUpdateRegionApiResponse> UpdateRegionAsync(decimal version, long accountId, long regionId, Option<string> regionClass = default, Option<string> shortName = default, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, Option<bool> clearLists = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRegionApiResponse> UpdateRegionAsync(long accountId, long regionId, Option<string> regionClass = default, Option<string> shortName = default, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, Option<bool> clearLists = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Region
@@ -265,7 +256,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a region.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account sending the request</param>
         /// <param name="regionId">The id of the region to be updated</param>
         /// <param name="regionClass">RegionClass of this region (optional)</param>
@@ -291,7 +281,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="clearLists">If true clear the children and postal code lists before add new ones, otherwise just append. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRegionApiResponse"/>?&gt;</returns>
-        Task<IUpdateRegionApiResponse?> UpdateRegionOrDefaultAsync(decimal version, long accountId, long regionId, Option<string> regionClass = default, Option<string> shortName = default, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, Option<bool> clearLists = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRegionApiResponse?> UpdateRegionOrDefaultAsync(long accountId, long regionId, Option<string> regionClass = default, Option<string> shortName = default, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, Option<bool> clearLists = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -507,7 +497,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateRegion(ref decimal version, ref long accountId, ref string regionClass, ref string shortName, ref Option<string> fullName, ref Option<string> parentIds, ref Option<string> childrenIds, ref Option<string> postalCodeIds, ref Option<string> locations, ref Option<long> retailerLocationId, ref Option<string> visibility, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<long> start, ref Option<long> end, ref Option<string> polygon, ref Option<string> metaData, ref Option<double> latitude, ref Option<double> longitude, ref Option<int> versionCode, ref Option<bool> root, ref Option<bool> active);
+        partial void FormatCreateRegion(ref long accountId, ref string regionClass, ref string shortName, ref Option<string> fullName, ref Option<string> parentIds, ref Option<string> childrenIds, ref Option<string> postalCodeIds, ref Option<string> locations, ref Option<long> retailerLocationId, ref Option<string> visibility, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<long> start, ref Option<long> end, ref Option<string> polygon, ref Option<string> metaData, ref Option<double> latitude, ref Option<double> longitude, ref Option<int> versionCode, ref Option<bool> root, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -568,7 +558,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionClass"></param>
         /// <param name="shortName"></param>
@@ -590,10 +579,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="versionCode"></param>
         /// <param name="root"></param>
         /// <param name="active"></param>
-        private void AfterCreateRegionDefaultImplementation(ICreateRegionApiResponse apiResponseLocalVar, decimal version, long accountId, string regionClass, string shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active)
+        private void AfterCreateRegionDefaultImplementation(ICreateRegionApiResponse apiResponseLocalVar, long accountId, string regionClass, string shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterCreateRegion(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
+            AfterCreateRegion(ref suppressDefaultLog, apiResponseLocalVar, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -603,7 +592,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionClass"></param>
         /// <param name="shortName"></param>
@@ -625,7 +613,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="versionCode"></param>
         /// <param name="root"></param>
         /// <param name="active"></param>
-        partial void AfterCreateRegion(ref bool suppressDefaultLog, ICreateRegionApiResponse apiResponseLocalVar, decimal version, long accountId, string regionClass, string shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active);
+        partial void AfterCreateRegion(ref bool suppressDefaultLog, ICreateRegionApiResponse apiResponseLocalVar, long accountId, string regionClass, string shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -633,7 +621,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionClass"></param>
         /// <param name="shortName"></param>
@@ -655,10 +642,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="versionCode"></param>
         /// <param name="root"></param>
         /// <param name="active"></param>
-        private void OnErrorCreateRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string regionClass, string shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active)
+        private void OnErrorCreateRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string regionClass, string shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
+            OnErrorCreateRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -670,7 +657,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionClass"></param>
         /// <param name="shortName"></param>
@@ -692,12 +678,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="versionCode"></param>
         /// <param name="root"></param>
         /// <param name="active"></param>
-        partial void OnErrorCreateRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string regionClass, string shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active);
+        partial void OnErrorCreateRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string regionClass, string shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active);
 
         /// <summary>
         /// Create Region Create a region.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account sending the request</param>
         /// <param name="regionClass">RegionClass of this region</param>
         /// <param name="shortName">Short name of the region. This is optimized for search</param>
@@ -721,11 +706,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active or inactive status of the region (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRegionApiResponse"/>&gt;</returns>
-        public async Task<ICreateRegionApiResponse?> CreateRegionOrDefaultAsync(decimal version, long accountId, string regionClass, string shortName, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRegionApiResponse?> CreateRegionOrDefaultAsync(long accountId, string regionClass, string shortName, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateRegionAsync(version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, cancellationToken).ConfigureAwait(false);
+                return await CreateRegionAsync(accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -737,7 +722,6 @@ namespace Org.OpenAPITools.Api
         /// Create Region Create a region.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account sending the request</param>
         /// <param name="regionClass">RegionClass of this region</param>
         /// <param name="shortName">Short name of the region. This is optimized for search</param>
@@ -761,7 +745,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active or inactive status of the region (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRegionApiResponse"/>&gt;</returns>
-        public async Task<ICreateRegionApiResponse> CreateRegionAsync(decimal version, long accountId, string regionClass, string shortName, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRegionApiResponse> CreateRegionAsync(long accountId, string regionClass, string shortName, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -769,7 +753,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateRegion(regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, visibility, categoryIds, filterIds, polygon, metaData);
 
-                FormatCreateRegion(ref version, ref accountId, ref regionClass, ref shortName, ref fullName, ref parentIds, ref childrenIds, ref postalCodeIds, ref locations, ref retailerLocationId, ref visibility, ref categoryIds, ref filterIds, ref start, ref end, ref polygon, ref metaData, ref latitude, ref longitude, ref versionCode, ref root, ref active);
+                FormatCreateRegion(ref accountId, ref regionClass, ref shortName, ref fullName, ref parentIds, ref childrenIds, ref postalCodeIds, ref locations, ref retailerLocationId, ref visibility, ref categoryIds, ref filterIds, ref start, ref end, ref polygon, ref metaData, ref latitude, ref longitude, ref versionCode, ref root, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -777,9 +761,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/region/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/region/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/region/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/region/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -866,13 +849,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/region/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/region/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateRegionDefaultImplementation(apiResponseLocalVar, version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
+                        AfterCreateRegionDefaultImplementation(apiResponseLocalVar, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
 
                         Events.ExecuteOnCreateRegion(apiResponseLocalVar);
 
@@ -882,7 +865,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateRegionDefaultImplementation(e, "/api/{version}/region/create", uriBuilderLocalVar.Path, version, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
+                OnErrorCreateRegionDefaultImplementation(e, "/region/create", uriBuilderLocalVar.Path, accountId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active);
                 Events.ExecuteOnErrorCreateRegion(e);
                 throw;
             }
@@ -981,19 +964,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteRegion(ref decimal version, ref long accountId, ref long regionId);
+        partial void FormatDeleteRegion(ref long accountId, ref long regionId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionId"></param>
-        private void AfterDeleteRegionDefaultImplementation(IDeleteRegionApiResponse apiResponseLocalVar, decimal version, long accountId, long regionId)
+        private void AfterDeleteRegionDefaultImplementation(IDeleteRegionApiResponse apiResponseLocalVar, long accountId, long regionId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteRegion(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, regionId);
+            AfterDeleteRegion(ref suppressDefaultLog, apiResponseLocalVar, accountId, regionId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1003,10 +985,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionId"></param>
-        partial void AfterDeleteRegion(ref bool suppressDefaultLog, IDeleteRegionApiResponse apiResponseLocalVar, decimal version, long accountId, long regionId);
+        partial void AfterDeleteRegion(ref bool suppressDefaultLog, IDeleteRegionApiResponse apiResponseLocalVar, long accountId, long regionId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1014,13 +995,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionId"></param>
-        private void OnErrorDeleteRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long regionId)
+        private void OnErrorDeleteRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long regionId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, regionId);
+            OnErrorDeleteRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, regionId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1032,24 +1012,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionId"></param>
-        partial void OnErrorDeleteRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long regionId);
+        partial void OnErrorDeleteRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long regionId);
 
         /// <summary>
         /// Delete Region Delete a region.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="regionId">the id of the region</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRegionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRegionApiResponse?> DeleteRegionOrDefaultAsync(decimal version, long accountId, long regionId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRegionApiResponse?> DeleteRegionOrDefaultAsync(long accountId, long regionId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteRegionAsync(version, accountId, regionId, cancellationToken).ConfigureAwait(false);
+                return await DeleteRegionAsync(accountId, regionId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1061,18 +1039,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Region Delete a region.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="regionId">the id of the region</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRegionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRegionApiResponse> DeleteRegionAsync(decimal version, long accountId, long regionId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRegionApiResponse> DeleteRegionAsync(long accountId, long regionId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteRegion(ref version, ref accountId, ref regionId);
+                FormatDeleteRegion(ref accountId, ref regionId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1080,9 +1057,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/region/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/region/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/region/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/region/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1114,13 +1090,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/region/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/region/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteRegionDefaultImplementation(apiResponseLocalVar, version, accountId, regionId);
+                        AfterDeleteRegionDefaultImplementation(apiResponseLocalVar, accountId, regionId);
 
                         Events.ExecuteOnDeleteRegion(apiResponseLocalVar);
 
@@ -1130,7 +1106,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteRegionDefaultImplementation(e, "/api/{version}/region/delete", uriBuilderLocalVar.Path, version, accountId, regionId);
+                OnErrorDeleteRegionDefaultImplementation(e, "/region/delete", uriBuilderLocalVar.Path, accountId, regionId);
                 Events.ExecuteOnErrorDeleteRegion(e);
                 throw;
             }
@@ -1229,19 +1205,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetRegion(ref decimal version, ref long regionId, ref Option<long> accountId);
+        partial void FormatGetRegion(ref long regionId, ref Option<long> accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="regionId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetRegionDefaultImplementation(IGetRegionApiResponse apiResponseLocalVar, decimal version, long regionId, Option<long> accountId)
+        private void AfterGetRegionDefaultImplementation(IGetRegionApiResponse apiResponseLocalVar, long regionId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetRegion(ref suppressDefaultLog, apiResponseLocalVar, version, regionId, accountId);
+            AfterGetRegion(ref suppressDefaultLog, apiResponseLocalVar, regionId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1251,10 +1226,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="regionId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetRegion(ref bool suppressDefaultLog, IGetRegionApiResponse apiResponseLocalVar, decimal version, long regionId, Option<long> accountId);
+        partial void AfterGetRegion(ref bool suppressDefaultLog, IGetRegionApiResponse apiResponseLocalVar, long regionId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1262,13 +1236,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="regionId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long regionId, Option<long> accountId)
+        private void OnErrorGetRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long regionId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, regionId, accountId);
+            OnErrorGetRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, regionId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1280,24 +1253,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="regionId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long regionId, Option<long> accountId);
+        partial void OnErrorGetRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long regionId, Option<long> accountId);
 
         /// <summary>
         /// Get Region Get a region.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="regionId">the id of the region to get</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRegionApiResponse"/>&gt;</returns>
-        public async Task<IGetRegionApiResponse?> GetRegionOrDefaultAsync(decimal version, long regionId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRegionApiResponse?> GetRegionOrDefaultAsync(long regionId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRegionAsync(version, regionId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetRegionAsync(regionId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1309,18 +1280,17 @@ namespace Org.OpenAPITools.Api
         /// Get Region Get a region.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="regionId">the id of the region to get</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRegionApiResponse"/>&gt;</returns>
-        public async Task<IGetRegionApiResponse> GetRegionAsync(decimal version, long regionId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRegionApiResponse> GetRegionAsync(long regionId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetRegion(ref version, ref regionId, ref accountId);
+                FormatGetRegion(ref regionId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1328,9 +1298,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/region/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/region/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/region/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/region/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1364,13 +1333,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/region/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/region/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRegionDefaultImplementation(apiResponseLocalVar, version, regionId, accountId);
+                        AfterGetRegionDefaultImplementation(apiResponseLocalVar, regionId, accountId);
 
                         Events.ExecuteOnGetRegion(apiResponseLocalVar);
 
@@ -1380,7 +1349,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRegionDefaultImplementation(e, "/api/{version}/region/get", uriBuilderLocalVar.Path, version, regionId, accountId);
+                OnErrorGetRegionDefaultImplementation(e, "/region/get", uriBuilderLocalVar.Path, regionId, accountId);
                 Events.ExecuteOnErrorGetRegion(e);
                 throw;
             }
@@ -1479,7 +1448,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchRegions(ref decimal version, ref Option<long> accountId, ref Option<string> query, ref Option<string> keyword, ref Option<double> latitude, ref Option<double> longitude, ref Option<double> range, ref Option<string> regionClass, ref Option<string> visibility, ref Option<string> searchMode, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> includeParent, ref Option<bool> includeChildren, ref Option<bool> includePostalCodes, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<int> versionCode, ref Option<bool> activeOnly, ref Option<bool> showDeleted, ref Option<long> lastUpdatedSince, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchRegions(ref Option<long> accountId, ref Option<string> query, ref Option<string> keyword, ref Option<double> latitude, ref Option<double> longitude, ref Option<double> range, ref Option<string> regionClass, ref Option<string> visibility, ref Option<string> searchMode, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> includeParent, ref Option<bool> includeChildren, ref Option<bool> includePostalCodes, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<int> versionCode, ref Option<bool> activeOnly, ref Option<bool> showDeleted, ref Option<long> lastUpdatedSince, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1524,7 +1493,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="query"></param>
         /// <param name="keyword"></param>
@@ -1547,10 +1515,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastUpdatedSince"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchRegionsDefaultImplementation(ISearchRegionsApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> query, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> regionClass, Option<string> visibility, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<bool> includeParent, Option<bool> includeChildren, Option<bool> includePostalCodes, Option<string> categoryIds, Option<string> filterIds, Option<int> versionCode, Option<bool> activeOnly, Option<bool> showDeleted, Option<long> lastUpdatedSince, Option<int> start, Option<int> limit)
+        private void AfterSearchRegionsDefaultImplementation(ISearchRegionsApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> query, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> regionClass, Option<string> visibility, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<bool> includeParent, Option<bool> includeChildren, Option<bool> includePostalCodes, Option<string> categoryIds, Option<string> filterIds, Option<int> versionCode, Option<bool> activeOnly, Option<bool> showDeleted, Option<long> lastUpdatedSince, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchRegions(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
+            AfterSearchRegions(ref suppressDefaultLog, apiResponseLocalVar, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1560,7 +1528,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="query"></param>
         /// <param name="keyword"></param>
@@ -1583,7 +1550,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastUpdatedSince"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchRegions(ref bool suppressDefaultLog, ISearchRegionsApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> query, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> regionClass, Option<string> visibility, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<bool> includeParent, Option<bool> includeChildren, Option<bool> includePostalCodes, Option<string> categoryIds, Option<string> filterIds, Option<int> versionCode, Option<bool> activeOnly, Option<bool> showDeleted, Option<long> lastUpdatedSince, Option<int> start, Option<int> limit);
+        partial void AfterSearchRegions(ref bool suppressDefaultLog, ISearchRegionsApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> query, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> regionClass, Option<string> visibility, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<bool> includeParent, Option<bool> includeChildren, Option<bool> includePostalCodes, Option<string> categoryIds, Option<string> filterIds, Option<int> versionCode, Option<bool> activeOnly, Option<bool> showDeleted, Option<long> lastUpdatedSince, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1591,7 +1558,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="query"></param>
         /// <param name="keyword"></param>
@@ -1614,10 +1580,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastUpdatedSince"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchRegionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> query, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> regionClass, Option<string> visibility, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<bool> includeParent, Option<bool> includeChildren, Option<bool> includePostalCodes, Option<string> categoryIds, Option<string> filterIds, Option<int> versionCode, Option<bool> activeOnly, Option<bool> showDeleted, Option<long> lastUpdatedSince, Option<int> start, Option<int> limit)
+        private void OnErrorSearchRegionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> query, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> regionClass, Option<string> visibility, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<bool> includeParent, Option<bool> includeChildren, Option<bool> includePostalCodes, Option<string> categoryIds, Option<string> filterIds, Option<int> versionCode, Option<bool> activeOnly, Option<bool> showDeleted, Option<long> lastUpdatedSince, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchRegions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
+            OnErrorSearchRegions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1629,7 +1595,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="query"></param>
         /// <param name="keyword"></param>
@@ -1652,12 +1617,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastUpdatedSince"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchRegions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> query, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> regionClass, Option<string> visibility, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<bool> includeParent, Option<bool> includeChildren, Option<bool> includePostalCodes, Option<string> categoryIds, Option<string> filterIds, Option<int> versionCode, Option<bool> activeOnly, Option<bool> showDeleted, Option<long> lastUpdatedSince, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchRegions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> query, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> regionClass, Option<string> visibility, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<bool> includeParent, Option<bool> includeChildren, Option<bool> includePostalCodes, Option<string> categoryIds, Option<string> filterIds, Option<int> versionCode, Option<bool> activeOnly, Option<bool> showDeleted, Option<long> lastUpdatedSince, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Regions Get the list of regions.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the owner account id of the region to be created (optional)</param>
         /// <param name="query">This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)</param>
         /// <param name="keyword">the keyword to filter results on (optional)</param>
@@ -1682,11 +1646,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRegionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRegionsApiResponse?> SearchRegionsOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> query = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> regionClass = default, Option<string> visibility = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeParent = default, Option<bool> includeChildren = default, Option<bool> includePostalCodes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> versionCode = default, Option<bool> activeOnly = default, Option<bool> showDeleted = default, Option<long> lastUpdatedSince = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRegionsApiResponse?> SearchRegionsOrDefaultAsync(Option<long> accountId = default, Option<string> query = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> regionClass = default, Option<string> visibility = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeParent = default, Option<bool> includeChildren = default, Option<bool> includePostalCodes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> versionCode = default, Option<bool> activeOnly = default, Option<bool> showDeleted = default, Option<long> lastUpdatedSince = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchRegionsAsync(version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchRegionsAsync(accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1698,7 +1662,6 @@ namespace Org.OpenAPITools.Api
         /// Search Regions Get the list of regions.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the owner account id of the region to be created (optional)</param>
         /// <param name="query">This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)</param>
         /// <param name="keyword">the keyword to filter results on (optional)</param>
@@ -1723,7 +1686,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRegionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRegionsApiResponse> SearchRegionsAsync(decimal version, Option<long> accountId = default, Option<string> query = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> regionClass = default, Option<string> visibility = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeParent = default, Option<bool> includeChildren = default, Option<bool> includePostalCodes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> versionCode = default, Option<bool> activeOnly = default, Option<bool> showDeleted = default, Option<long> lastUpdatedSince = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRegionsApiResponse> SearchRegionsAsync(Option<long> accountId = default, Option<string> query = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> regionClass = default, Option<string> visibility = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeParent = default, Option<bool> includeChildren = default, Option<bool> includePostalCodes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> versionCode = default, Option<bool> activeOnly = default, Option<bool> showDeleted = default, Option<long> lastUpdatedSince = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1731,7 +1694,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchRegions(query, keyword, regionClass, visibility, searchMode, sortField, categoryIds, filterIds);
 
-                FormatSearchRegions(ref version, ref accountId, ref query, ref keyword, ref latitude, ref longitude, ref range, ref regionClass, ref visibility, ref searchMode, ref sortField, ref descending, ref includeParent, ref includeChildren, ref includePostalCodes, ref categoryIds, ref filterIds, ref versionCode, ref activeOnly, ref showDeleted, ref lastUpdatedSince, ref start, ref limit);
+                FormatSearchRegions(ref accountId, ref query, ref keyword, ref latitude, ref longitude, ref range, ref regionClass, ref visibility, ref searchMode, ref sortField, ref descending, ref includeParent, ref includeChildren, ref includePostalCodes, ref categoryIds, ref filterIds, ref versionCode, ref activeOnly, ref showDeleted, ref lastUpdatedSince, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1739,9 +1702,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/region/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/region/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/region/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/region/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1836,13 +1798,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/region/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/region/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchRegionsDefaultImplementation(apiResponseLocalVar, version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
+                        AfterSearchRegionsDefaultImplementation(apiResponseLocalVar, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
 
                         Events.ExecuteOnSearchRegions(apiResponseLocalVar);
 
@@ -1852,7 +1814,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchRegionsDefaultImplementation(e, "/api/{version}/region/search", uriBuilderLocalVar.Path, version, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
+                OnErrorSearchRegionsDefaultImplementation(e, "/region/search", uriBuilderLocalVar.Path, accountId, query, keyword, latitude, longitude, range, regionClass, visibility, searchMode, sortField, descending, includeParent, includeChildren, includePostalCodes, categoryIds, filterIds, versionCode, activeOnly, showDeleted, lastUpdatedSince, start, limit);
                 Events.ExecuteOnErrorSearchRegions(e);
                 throw;
             }
@@ -1951,7 +1913,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateRegion(ref decimal version, ref long accountId, ref long regionId, ref Option<string> regionClass, ref Option<string> shortName, ref Option<string> fullName, ref Option<string> parentIds, ref Option<string> childrenIds, ref Option<string> postalCodeIds, ref Option<string> locations, ref Option<long> retailerLocationId, ref Option<string> visibility, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<long> start, ref Option<long> end, ref Option<string> polygon, ref Option<string> metaData, ref Option<double> latitude, ref Option<double> longitude, ref Option<int> versionCode, ref Option<bool> root, ref Option<bool> active, ref Option<bool> clearLists);
+        partial void FormatUpdateRegion(ref long accountId, ref long regionId, ref Option<string> regionClass, ref Option<string> shortName, ref Option<string> fullName, ref Option<string> parentIds, ref Option<string> childrenIds, ref Option<string> postalCodeIds, ref Option<string> locations, ref Option<long> retailerLocationId, ref Option<string> visibility, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<long> start, ref Option<long> end, ref Option<string> polygon, ref Option<string> metaData, ref Option<double> latitude, ref Option<double> longitude, ref Option<int> versionCode, ref Option<bool> root, ref Option<bool> active, ref Option<bool> clearLists);
 
         /// <summary>
         /// Validates the request parameters
@@ -2012,7 +1974,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionId"></param>
         /// <param name="regionClass"></param>
@@ -2036,10 +1997,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="root"></param>
         /// <param name="active"></param>
         /// <param name="clearLists"></param>
-        private void AfterUpdateRegionDefaultImplementation(IUpdateRegionApiResponse apiResponseLocalVar, decimal version, long accountId, long regionId, Option<string> regionClass, Option<string> shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active, Option<bool> clearLists)
+        private void AfterUpdateRegionDefaultImplementation(IUpdateRegionApiResponse apiResponseLocalVar, long accountId, long regionId, Option<string> regionClass, Option<string> shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active, Option<bool> clearLists)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateRegion(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
+            AfterUpdateRegion(ref suppressDefaultLog, apiResponseLocalVar, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2049,7 +2010,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionId"></param>
         /// <param name="regionClass"></param>
@@ -2073,7 +2033,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="root"></param>
         /// <param name="active"></param>
         /// <param name="clearLists"></param>
-        partial void AfterUpdateRegion(ref bool suppressDefaultLog, IUpdateRegionApiResponse apiResponseLocalVar, decimal version, long accountId, long regionId, Option<string> regionClass, Option<string> shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active, Option<bool> clearLists);
+        partial void AfterUpdateRegion(ref bool suppressDefaultLog, IUpdateRegionApiResponse apiResponseLocalVar, long accountId, long regionId, Option<string> regionClass, Option<string> shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active, Option<bool> clearLists);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2081,7 +2041,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionId"></param>
         /// <param name="regionClass"></param>
@@ -2105,10 +2064,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="root"></param>
         /// <param name="active"></param>
         /// <param name="clearLists"></param>
-        private void OnErrorUpdateRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long regionId, Option<string> regionClass, Option<string> shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active, Option<bool> clearLists)
+        private void OnErrorUpdateRegionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long regionId, Option<string> regionClass, Option<string> shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active, Option<bool> clearLists)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
+            OnErrorUpdateRegion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2120,7 +2079,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="regionId"></param>
         /// <param name="regionClass"></param>
@@ -2144,12 +2102,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="root"></param>
         /// <param name="active"></param>
         /// <param name="clearLists"></param>
-        partial void OnErrorUpdateRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long regionId, Option<string> regionClass, Option<string> shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active, Option<bool> clearLists);
+        partial void OnErrorUpdateRegion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long regionId, Option<string> regionClass, Option<string> shortName, Option<string> fullName, Option<string> parentIds, Option<string> childrenIds, Option<string> postalCodeIds, Option<string> locations, Option<long> retailerLocationId, Option<string> visibility, Option<string> categoryIds, Option<string> filterIds, Option<long> start, Option<long> end, Option<string> polygon, Option<string> metaData, Option<double> latitude, Option<double> longitude, Option<int> versionCode, Option<bool> root, Option<bool> active, Option<bool> clearLists);
 
         /// <summary>
         /// Update Region Update a region.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account sending the request</param>
         /// <param name="regionId">The id of the region to be updated</param>
         /// <param name="regionClass">RegionClass of this region (optional)</param>
@@ -2175,11 +2132,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="clearLists">If true clear the children and postal code lists before add new ones, otherwise just append. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRegionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRegionApiResponse?> UpdateRegionOrDefaultAsync(decimal version, long accountId, long regionId, Option<string> regionClass = default, Option<string> shortName = default, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, Option<bool> clearLists = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRegionApiResponse?> UpdateRegionOrDefaultAsync(long accountId, long regionId, Option<string> regionClass = default, Option<string> shortName = default, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, Option<bool> clearLists = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateRegionAsync(version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists, cancellationToken).ConfigureAwait(false);
+                return await UpdateRegionAsync(accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2191,7 +2148,6 @@ namespace Org.OpenAPITools.Api
         /// Update Region Update a region.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account sending the request</param>
         /// <param name="regionId">The id of the region to be updated</param>
         /// <param name="regionClass">RegionClass of this region (optional)</param>
@@ -2217,7 +2173,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="clearLists">If true clear the children and postal code lists before add new ones, otherwise just append. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRegionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRegionApiResponse> UpdateRegionAsync(decimal version, long accountId, long regionId, Option<string> regionClass = default, Option<string> shortName = default, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, Option<bool> clearLists = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRegionApiResponse> UpdateRegionAsync(long accountId, long regionId, Option<string> regionClass = default, Option<string> shortName = default, Option<string> fullName = default, Option<string> parentIds = default, Option<string> childrenIds = default, Option<string> postalCodeIds = default, Option<string> locations = default, Option<long> retailerLocationId = default, Option<string> visibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> start = default, Option<long> end = default, Option<string> polygon = default, Option<string> metaData = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> versionCode = default, Option<bool> root = default, Option<bool> active = default, Option<bool> clearLists = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2225,7 +2181,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateRegion(regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, visibility, categoryIds, filterIds, polygon, metaData);
 
-                FormatUpdateRegion(ref version, ref accountId, ref regionId, ref regionClass, ref shortName, ref fullName, ref parentIds, ref childrenIds, ref postalCodeIds, ref locations, ref retailerLocationId, ref visibility, ref categoryIds, ref filterIds, ref start, ref end, ref polygon, ref metaData, ref latitude, ref longitude, ref versionCode, ref root, ref active, ref clearLists);
+                FormatUpdateRegion(ref accountId, ref regionId, ref regionClass, ref shortName, ref fullName, ref parentIds, ref childrenIds, ref postalCodeIds, ref locations, ref retailerLocationId, ref visibility, ref categoryIds, ref filterIds, ref start, ref end, ref polygon, ref metaData, ref latitude, ref longitude, ref versionCode, ref root, ref active, ref clearLists);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2233,9 +2189,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/region/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/region/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/region/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/region/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2330,13 +2285,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/region/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/region/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateRegionDefaultImplementation(apiResponseLocalVar, version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
+                        AfterUpdateRegionDefaultImplementation(apiResponseLocalVar, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
 
                         Events.ExecuteOnUpdateRegion(apiResponseLocalVar);
 
@@ -2346,7 +2301,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateRegionDefaultImplementation(e, "/api/{version}/region/update", uriBuilderLocalVar.Path, version, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
+                OnErrorUpdateRegionDefaultImplementation(e, "/region/update", uriBuilderLocalVar.Path, accountId, regionId, regionClass, shortName, fullName, parentIds, childrenIds, postalCodeIds, locations, retailerLocationId, visibility, categoryIds, filterIds, start, end, polygon, metaData, latitude, longitude, versionCode, root, active, clearLists);
                 Events.ExecuteOnErrorUpdateRegion(e);
                 throw;
             }

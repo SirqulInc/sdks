@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="notableId">The id of the notable object the batch operation will affect</param>
         /// <param name="notableType">The notable object type (for example ALBUM, ASSET, OFFER, etc.)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="batchOperation">The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchOperationApiResponse"/>&gt;</returns>
-        Task<IBatchOperationApiResponse> BatchOperationAsync(decimal version, long notableId, string notableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> batchOperation = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBatchOperationApiResponse> BatchOperationAsync(long notableId, string notableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> batchOperation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Note Operation
@@ -61,7 +60,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="notableId">The id of the notable object the batch operation will affect</param>
         /// <param name="notableType">The notable object type (for example ALBUM, ASSET, OFFER, etc.)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -69,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="batchOperation">The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchOperationApiResponse"/>?&gt;</returns>
-        Task<IBatchOperationApiResponse?> BatchOperationOrDefaultAsync(decimal version, long notableId, string notableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> batchOperation = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBatchOperationApiResponse?> BatchOperationOrDefaultAsync(long notableId, string notableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> batchOperation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Note
@@ -78,7 +76,6 @@ namespace Org.OpenAPITools.Api
         /// This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="comment">The message the user wishes to leave a comment on</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -123,7 +120,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetLongitude">the longitude of the asset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNoteApiResponse"/>&gt;</returns>
-        Task<ICreateNoteApiResponse> CreateNoteAsync(decimal version, string comment, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> receiverAccountIds = default, Option<bool> returnFullResponse = default, Option<bool> initializeAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<decimal> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateNoteApiResponse> CreateNoteAsync(string comment, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> receiverAccountIds = default, Option<bool> returnFullResponse = default, Option<bool> initializeAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<decimal> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Note
@@ -131,7 +128,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="comment">The message the user wishes to leave a comment on</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -176,7 +172,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetLongitude">the longitude of the asset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNoteApiResponse"/>?&gt;</returns>
-        Task<ICreateNoteApiResponse?> CreateNoteOrDefaultAsync(decimal version, string comment, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> receiverAccountIds = default, Option<bool> returnFullResponse = default, Option<bool> initializeAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<decimal> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateNoteApiResponse?> CreateNoteOrDefaultAsync(string comment, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> receiverAccountIds = default, Option<bool> returnFullResponse = default, Option<bool> initializeAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<decimal> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Note
@@ -185,7 +181,6 @@ namespace Org.OpenAPITools.Api
         /// Sets a comment (note) as deleted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="noteId">The ID of the note to delete</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -194,7 +189,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application key used to identify the application (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNoteApiResponse"/>&gt;</returns>
-        Task<IDeleteNoteApiResponse> DeleteNoteAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteNoteApiResponse> DeleteNoteAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Note
@@ -202,7 +197,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sets a comment (note) as deleted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="noteId">The ID of the note to delete</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -211,7 +205,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application key used to identify the application (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNoteApiResponse"/>?&gt;</returns>
-        Task<IDeleteNoteApiResponse?> DeleteNoteOrDefaultAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteNoteApiResponse?> DeleteNoteOrDefaultAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Note
@@ -220,14 +214,13 @@ namespace Org.OpenAPITools.Api
         /// Get for a note based on its Id.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="noteId">the id of the note to get</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="returnFullResponse">Determines whether to return the NoteFullResponse for the item (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNoteApiResponse"/>&gt;</returns>
-        Task<IGetNoteApiResponse> GetNoteAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNoteApiResponse> GetNoteAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Note
@@ -235,14 +228,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get for a note based on its Id.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="noteId">the id of the note to get</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="returnFullResponse">Determines whether to return the NoteFullResponse for the item (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNoteApiResponse"/>?&gt;</returns>
-        Task<IGetNoteApiResponse?> GetNoteOrDefaultAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNoteApiResponse?> GetNoteOrDefaultAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Notes
@@ -251,7 +243,6 @@ namespace Org.OpenAPITools.Api
         /// Search for notes on a notable object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="notableType">The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)</param>
@@ -271,7 +262,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNotesApiResponse"/>&gt;</returns>
-        Task<ISearchNotesApiResponse> SearchNotesAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> flagCountMinimum = default, Option<bool> flagsExceedThreshold = default, Option<bool> includeInactive = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> returnFullResponse = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchNotesApiResponse> SearchNotesAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> flagCountMinimum = default, Option<bool> flagsExceedThreshold = default, Option<bool> includeInactive = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> returnFullResponse = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Notes
@@ -279,7 +270,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for notes on a notable object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="notableType">The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)</param>
@@ -299,7 +289,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNotesApiResponse"/>?&gt;</returns>
-        Task<ISearchNotesApiResponse?> SearchNotesOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> flagCountMinimum = default, Option<bool> flagsExceedThreshold = default, Option<bool> includeInactive = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> returnFullResponse = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchNotesApiResponse?> SearchNotesOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> flagCountMinimum = default, Option<bool> flagsExceedThreshold = default, Option<bool> includeInactive = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> returnFullResponse = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Note
@@ -308,7 +298,6 @@ namespace Org.OpenAPITools.Api
         /// Update an existing comment (note). Only the creator of the note have permission to update.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="noteId">The id of the note, used when editing a comment</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -352,7 +341,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetLongitude">the longitude of the asset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNoteApiResponse"/>&gt;</returns>
-        Task<IUpdateNoteApiResponse> UpdateNoteAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> comment = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<bool> active = default, Option<bool> updateAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<double> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateNoteApiResponse> UpdateNoteAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> comment = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<bool> active = default, Option<bool> updateAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<double> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Note
@@ -360,7 +349,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing comment (note). Only the creator of the note have permission to update.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="noteId">The id of the note, used when editing a comment</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -404,7 +392,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetLongitude">the longitude of the asset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNoteApiResponse"/>?&gt;</returns>
-        Task<IUpdateNoteApiResponse?> UpdateNoteOrDefaultAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> comment = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<bool> active = default, Option<bool> updateAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<double> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateNoteApiResponse?> UpdateNoteOrDefaultAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> comment = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<bool> active = default, Option<bool> updateAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<double> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -652,7 +640,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatBatchOperation(ref decimal version, ref long notableId, ref string notableType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> batchOperation);
+        partial void FormatBatchOperation(ref long notableId, ref string notableType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> batchOperation);
 
         /// <summary>
         /// Validates the request parameters
@@ -677,16 +665,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="notableId"></param>
         /// <param name="notableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="batchOperation"></param>
-        private void AfterBatchOperationDefaultImplementation(IBatchOperationApiResponse apiResponseLocalVar, decimal version, long notableId, string notableType, Option<string> deviceId, Option<long> accountId, Option<string> batchOperation)
+        private void AfterBatchOperationDefaultImplementation(IBatchOperationApiResponse apiResponseLocalVar, long notableId, string notableType, Option<string> deviceId, Option<long> accountId, Option<string> batchOperation)
         {
             bool suppressDefaultLog = false;
-            AfterBatchOperation(ref suppressDefaultLog, apiResponseLocalVar, version, notableId, notableType, deviceId, accountId, batchOperation);
+            AfterBatchOperation(ref suppressDefaultLog, apiResponseLocalVar, notableId, notableType, deviceId, accountId, batchOperation);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -696,13 +683,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="notableId"></param>
         /// <param name="notableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="batchOperation"></param>
-        partial void AfterBatchOperation(ref bool suppressDefaultLog, IBatchOperationApiResponse apiResponseLocalVar, decimal version, long notableId, string notableType, Option<string> deviceId, Option<long> accountId, Option<string> batchOperation);
+        partial void AfterBatchOperation(ref bool suppressDefaultLog, IBatchOperationApiResponse apiResponseLocalVar, long notableId, string notableType, Option<string> deviceId, Option<long> accountId, Option<string> batchOperation);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -710,16 +696,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="notableId"></param>
         /// <param name="notableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="batchOperation"></param>
-        private void OnErrorBatchOperationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long notableId, string notableType, Option<string> deviceId, Option<long> accountId, Option<string> batchOperation)
+        private void OnErrorBatchOperationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long notableId, string notableType, Option<string> deviceId, Option<long> accountId, Option<string> batchOperation)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorBatchOperation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, notableId, notableType, deviceId, accountId, batchOperation);
+            OnErrorBatchOperation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, notableId, notableType, deviceId, accountId, batchOperation);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -731,18 +716,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="notableId"></param>
         /// <param name="notableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="batchOperation"></param>
-        partial void OnErrorBatchOperation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long notableId, string notableType, Option<string> deviceId, Option<long> accountId, Option<string> batchOperation);
+        partial void OnErrorBatchOperation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long notableId, string notableType, Option<string> deviceId, Option<long> accountId, Option<string> batchOperation);
 
         /// <summary>
         /// Batch Note Operation Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="notableId">The id of the notable object the batch operation will affect</param>
         /// <param name="notableType">The notable object type (for example ALBUM, ASSET, OFFER, etc.)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -750,11 +733,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="batchOperation">The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchOperationApiResponse"/>&gt;</returns>
-        public async Task<IBatchOperationApiResponse?> BatchOperationOrDefaultAsync(decimal version, long notableId, string notableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> batchOperation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBatchOperationApiResponse?> BatchOperationOrDefaultAsync(long notableId, string notableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> batchOperation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await BatchOperationAsync(version, notableId, notableType, deviceId, accountId, batchOperation, cancellationToken).ConfigureAwait(false);
+                return await BatchOperationAsync(notableId, notableType, deviceId, accountId, batchOperation, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -766,7 +749,6 @@ namespace Org.OpenAPITools.Api
         /// Batch Note Operation Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="notableId">The id of the notable object the batch operation will affect</param>
         /// <param name="notableType">The notable object type (for example ALBUM, ASSET, OFFER, etc.)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -774,7 +756,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="batchOperation">The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchOperationApiResponse"/>&gt;</returns>
-        public async Task<IBatchOperationApiResponse> BatchOperationAsync(decimal version, long notableId, string notableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> batchOperation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBatchOperationApiResponse> BatchOperationAsync(long notableId, string notableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> batchOperation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -782,7 +764,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateBatchOperation(notableType, deviceId, batchOperation);
 
-                FormatBatchOperation(ref version, ref notableId, ref notableType, ref deviceId, ref accountId, ref batchOperation);
+                FormatBatchOperation(ref notableId, ref notableType, ref deviceId, ref accountId, ref batchOperation);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -790,9 +772,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/note/batch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/note/batch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/note/batch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/note/batch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -833,13 +814,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/note/batch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/note/batch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterBatchOperationDefaultImplementation(apiResponseLocalVar, version, notableId, notableType, deviceId, accountId, batchOperation);
+                        AfterBatchOperationDefaultImplementation(apiResponseLocalVar, notableId, notableType, deviceId, accountId, batchOperation);
 
                         Events.ExecuteOnBatchOperation(apiResponseLocalVar);
 
@@ -849,7 +830,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorBatchOperationDefaultImplementation(e, "/api/{version}/note/batch", uriBuilderLocalVar.Path, version, notableId, notableType, deviceId, accountId, batchOperation);
+                OnErrorBatchOperationDefaultImplementation(e, "/note/batch", uriBuilderLocalVar.Path, notableId, notableType, deviceId, accountId, batchOperation);
                 Events.ExecuteOnErrorBatchOperation(e);
                 throw;
             }
@@ -948,7 +929,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateNote(ref decimal version, ref string comment, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> notableType, ref Option<long> notableId, ref Option<string> noteType, ref Option<string> assetIds, ref Option<string> tags, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<string> appKey, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<string> receiverAccountIds, ref Option<bool> returnFullResponse, ref Option<bool> initializeAsset, ref Option<bool> assetReturnNulls, ref Option<long> assetAlbumId, ref Option<long> assetCollectionId, ref Option<string> assetAddToDefaultAlbum, ref Option<bool> assetAddToMediaLibrary, ref Option<int> assetVersionCode, ref Option<string> assetVersionName, ref Option<string> assetMetaData, ref Option<string> assetCaption, ref Option<System.IO.Stream> assetMedia, ref Option<string> assetMediaUrl, ref Option<string> assetMediaString, ref Option<string> assetMediaStringFileName, ref Option<string> assetMediaStringContentType, ref Option<System.IO.Stream> assetAttachedMedia, ref Option<string> assetAttachedMediaUrl, ref Option<string> assetAttachedMediaString, ref Option<string> assetAttachedMediaStringFileName, ref Option<string> assetAttachedMediaStringContentType, ref Option<string> assetLocationDescription, ref Option<string> assetApp, ref Option<string> assetSearchTags, ref Option<double> assetLatitude, ref Option<decimal> assetLongitude);
+        partial void FormatCreateNote(ref string comment, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> notableType, ref Option<long> notableId, ref Option<string> noteType, ref Option<string> assetIds, ref Option<string> tags, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<string> appKey, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<string> receiverAccountIds, ref Option<bool> returnFullResponse, ref Option<bool> initializeAsset, ref Option<bool> assetReturnNulls, ref Option<long> assetAlbumId, ref Option<long> assetCollectionId, ref Option<string> assetAddToDefaultAlbum, ref Option<bool> assetAddToMediaLibrary, ref Option<int> assetVersionCode, ref Option<string> assetVersionName, ref Option<string> assetMetaData, ref Option<string> assetCaption, ref Option<System.IO.Stream> assetMedia, ref Option<string> assetMediaUrl, ref Option<string> assetMediaString, ref Option<string> assetMediaStringFileName, ref Option<string> assetMediaStringContentType, ref Option<System.IO.Stream> assetAttachedMedia, ref Option<string> assetAttachedMediaUrl, ref Option<string> assetAttachedMediaString, ref Option<string> assetAttachedMediaStringFileName, ref Option<string> assetAttachedMediaStringContentType, ref Option<string> assetLocationDescription, ref Option<string> assetApp, ref Option<string> assetSearchTags, ref Option<double> assetLatitude, ref Option<decimal> assetLongitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1073,7 +1054,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="comment"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1116,10 +1096,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetSearchTags"></param>
         /// <param name="assetLatitude"></param>
         /// <param name="assetLongitude"></param>
-        private void AfterCreateNoteDefaultImplementation(ICreateNoteApiResponse apiResponseLocalVar, decimal version, string comment, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> receiverAccountIds, Option<bool> returnFullResponse, Option<bool> initializeAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<decimal> assetLongitude)
+        private void AfterCreateNoteDefaultImplementation(ICreateNoteApiResponse apiResponseLocalVar, string comment, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> receiverAccountIds, Option<bool> returnFullResponse, Option<bool> initializeAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<decimal> assetLongitude)
         {
             bool suppressDefaultLog = false;
-            AfterCreateNote(ref suppressDefaultLog, apiResponseLocalVar, version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+            AfterCreateNote(ref suppressDefaultLog, apiResponseLocalVar, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1129,7 +1109,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="comment"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1172,7 +1151,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetSearchTags"></param>
         /// <param name="assetLatitude"></param>
         /// <param name="assetLongitude"></param>
-        partial void AfterCreateNote(ref bool suppressDefaultLog, ICreateNoteApiResponse apiResponseLocalVar, decimal version, string comment, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> receiverAccountIds, Option<bool> returnFullResponse, Option<bool> initializeAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<decimal> assetLongitude);
+        partial void AfterCreateNote(ref bool suppressDefaultLog, ICreateNoteApiResponse apiResponseLocalVar, string comment, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> receiverAccountIds, Option<bool> returnFullResponse, Option<bool> initializeAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<decimal> assetLongitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1180,7 +1159,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="comment"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1223,10 +1201,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetSearchTags"></param>
         /// <param name="assetLatitude"></param>
         /// <param name="assetLongitude"></param>
-        private void OnErrorCreateNoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string comment, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> receiverAccountIds, Option<bool> returnFullResponse, Option<bool> initializeAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<decimal> assetLongitude)
+        private void OnErrorCreateNoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string comment, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> receiverAccountIds, Option<bool> returnFullResponse, Option<bool> initializeAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<decimal> assetLongitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateNote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+            OnErrorCreateNote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1238,7 +1216,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="comment"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1281,12 +1258,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetSearchTags"></param>
         /// <param name="assetLatitude"></param>
         /// <param name="assetLongitude"></param>
-        partial void OnErrorCreateNote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string comment, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> receiverAccountIds, Option<bool> returnFullResponse, Option<bool> initializeAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<decimal> assetLongitude);
+        partial void OnErrorCreateNote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string comment, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> receiverAccountIds, Option<bool> returnFullResponse, Option<bool> initializeAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<decimal> assetLongitude);
 
         /// <summary>
         /// Create Note This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="comment">The message the user wishes to leave a comment on</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -1331,11 +1307,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetLongitude">the longitude of the asset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNoteApiResponse"/>&gt;</returns>
-        public async Task<ICreateNoteApiResponse?> CreateNoteOrDefaultAsync(decimal version, string comment, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> receiverAccountIds = default, Option<bool> returnFullResponse = default, Option<bool> initializeAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<decimal> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateNoteApiResponse?> CreateNoteOrDefaultAsync(string comment, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> receiverAccountIds = default, Option<bool> returnFullResponse = default, Option<bool> initializeAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<decimal> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateNoteAsync(version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, cancellationToken).ConfigureAwait(false);
+                return await CreateNoteAsync(comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1347,7 +1323,6 @@ namespace Org.OpenAPITools.Api
         /// Create Note This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="comment">The message the user wishes to leave a comment on</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -1392,7 +1367,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetLongitude">the longitude of the asset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNoteApiResponse"/>&gt;</returns>
-        public async Task<ICreateNoteApiResponse> CreateNoteAsync(decimal version, string comment, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> receiverAccountIds = default, Option<bool> returnFullResponse = default, Option<bool> initializeAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<decimal> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateNoteApiResponse> CreateNoteAsync(string comment, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> receiverAccountIds = default, Option<bool> returnFullResponse = default, Option<bool> initializeAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<decimal> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1400,7 +1375,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateNote(comment, deviceId, notableType, noteType, assetIds, tags, permissionableType, appKey, locationDescription, metaData, receiverAccountIds, assetAddToDefaultAlbum, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags);
 
-                FormatCreateNote(ref version, ref comment, ref deviceId, ref accountId, ref notableType, ref notableId, ref noteType, ref assetIds, ref tags, ref permissionableType, ref permissionableId, ref appKey, ref locationDescription, ref latitude, ref longitude, ref metaData, ref receiverAccountIds, ref returnFullResponse, ref initializeAsset, ref assetReturnNulls, ref assetAlbumId, ref assetCollectionId, ref assetAddToDefaultAlbum, ref assetAddToMediaLibrary, ref assetVersionCode, ref assetVersionName, ref assetMetaData, ref assetCaption, ref assetMedia, ref assetMediaUrl, ref assetMediaString, ref assetMediaStringFileName, ref assetMediaStringContentType, ref assetAttachedMedia, ref assetAttachedMediaUrl, ref assetAttachedMediaString, ref assetAttachedMediaStringFileName, ref assetAttachedMediaStringContentType, ref assetLocationDescription, ref assetApp, ref assetSearchTags, ref assetLatitude, ref assetLongitude);
+                FormatCreateNote(ref comment, ref deviceId, ref accountId, ref notableType, ref notableId, ref noteType, ref assetIds, ref tags, ref permissionableType, ref permissionableId, ref appKey, ref locationDescription, ref latitude, ref longitude, ref metaData, ref receiverAccountIds, ref returnFullResponse, ref initializeAsset, ref assetReturnNulls, ref assetAlbumId, ref assetCollectionId, ref assetAddToDefaultAlbum, ref assetAddToMediaLibrary, ref assetVersionCode, ref assetVersionName, ref assetMetaData, ref assetCaption, ref assetMedia, ref assetMediaUrl, ref assetMediaString, ref assetMediaStringFileName, ref assetMediaStringContentType, ref assetAttachedMedia, ref assetAttachedMediaUrl, ref assetAttachedMediaString, ref assetAttachedMediaStringFileName, ref assetAttachedMediaStringContentType, ref assetLocationDescription, ref assetApp, ref assetSearchTags, ref assetLatitude, ref assetLongitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1408,9 +1383,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/note/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/note/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/note/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/note/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1564,13 +1538,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/note/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/note/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateNoteDefaultImplementation(apiResponseLocalVar, version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+                        AfterCreateNoteDefaultImplementation(apiResponseLocalVar, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
 
                         Events.ExecuteOnCreateNote(apiResponseLocalVar);
 
@@ -1580,7 +1554,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateNoteDefaultImplementation(e, "/api/{version}/note/create", uriBuilderLocalVar.Path, version, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+                OnErrorCreateNoteDefaultImplementation(e, "/note/create", uriBuilderLocalVar.Path, comment, deviceId, accountId, notableType, notableId, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, receiverAccountIds, returnFullResponse, initializeAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
                 Events.ExecuteOnErrorCreateNote(e);
                 throw;
             }
@@ -1679,7 +1653,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteNote(ref decimal version, ref long noteId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> appKey);
+        partial void FormatDeleteNote(ref long noteId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1700,17 +1674,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="appKey"></param>
-        private void AfterDeleteNoteDefaultImplementation(IDeleteNoteApiResponse apiResponseLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> appKey)
+        private void AfterDeleteNoteDefaultImplementation(IDeleteNoteApiResponse apiResponseLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteNote(ref suppressDefaultLog, apiResponseLocalVar, version, noteId, deviceId, accountId, latitude, longitude, appKey);
+            AfterDeleteNote(ref suppressDefaultLog, apiResponseLocalVar, noteId, deviceId, accountId, latitude, longitude, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1720,14 +1693,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="appKey"></param>
-        partial void AfterDeleteNote(ref bool suppressDefaultLog, IDeleteNoteApiResponse apiResponseLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> appKey);
+        partial void AfterDeleteNote(ref bool suppressDefaultLog, IDeleteNoteApiResponse apiResponseLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1735,17 +1707,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="appKey"></param>
-        private void OnErrorDeleteNoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> appKey)
+        private void OnErrorDeleteNoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteNote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, noteId, deviceId, accountId, latitude, longitude, appKey);
+            OnErrorDeleteNote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, noteId, deviceId, accountId, latitude, longitude, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1757,19 +1728,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorDeleteNote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> appKey);
+        partial void OnErrorDeleteNote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> appKey);
 
         /// <summary>
         /// Delete Note Sets a comment (note) as deleted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="noteId">The ID of the note to delete</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -1778,11 +1747,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application key used to identify the application (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNoteApiResponse"/>&gt;</returns>
-        public async Task<IDeleteNoteApiResponse?> DeleteNoteOrDefaultAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteNoteApiResponse?> DeleteNoteOrDefaultAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteNoteAsync(version, noteId, deviceId, accountId, latitude, longitude, appKey, cancellationToken).ConfigureAwait(false);
+                return await DeleteNoteAsync(noteId, deviceId, accountId, latitude, longitude, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1794,7 +1763,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Note Sets a comment (note) as deleted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="noteId">The ID of the note to delete</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -1803,7 +1771,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application key used to identify the application (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNoteApiResponse"/>&gt;</returns>
-        public async Task<IDeleteNoteApiResponse> DeleteNoteAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteNoteApiResponse> DeleteNoteAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1811,7 +1779,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteNote(deviceId, appKey);
 
-                FormatDeleteNote(ref version, ref noteId, ref deviceId, ref accountId, ref latitude, ref longitude, ref appKey);
+                FormatDeleteNote(ref noteId, ref deviceId, ref accountId, ref latitude, ref longitude, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1819,9 +1787,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/note/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/note/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/note/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/note/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1867,13 +1834,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/note/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/note/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteNoteDefaultImplementation(apiResponseLocalVar, version, noteId, deviceId, accountId, latitude, longitude, appKey);
+                        AfterDeleteNoteDefaultImplementation(apiResponseLocalVar, noteId, deviceId, accountId, latitude, longitude, appKey);
 
                         Events.ExecuteOnDeleteNote(apiResponseLocalVar);
 
@@ -1883,7 +1850,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteNoteDefaultImplementation(e, "/api/{version}/note/delete", uriBuilderLocalVar.Path, version, noteId, deviceId, accountId, latitude, longitude, appKey);
+                OnErrorDeleteNoteDefaultImplementation(e, "/note/delete", uriBuilderLocalVar.Path, noteId, deviceId, accountId, latitude, longitude, appKey);
                 Events.ExecuteOnErrorDeleteNote(e);
                 throw;
             }
@@ -1982,7 +1949,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetNote(ref decimal version, ref long noteId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> returnFullResponse);
+        partial void FormatGetNote(ref long noteId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> returnFullResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -1999,15 +1966,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="returnFullResponse"></param>
-        private void AfterGetNoteDefaultImplementation(IGetNoteApiResponse apiResponseLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<bool> returnFullResponse)
+        private void AfterGetNoteDefaultImplementation(IGetNoteApiResponse apiResponseLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<bool> returnFullResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetNote(ref suppressDefaultLog, apiResponseLocalVar, version, noteId, deviceId, accountId, returnFullResponse);
+            AfterGetNote(ref suppressDefaultLog, apiResponseLocalVar, noteId, deviceId, accountId, returnFullResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2017,12 +1983,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="returnFullResponse"></param>
-        partial void AfterGetNote(ref bool suppressDefaultLog, IGetNoteApiResponse apiResponseLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<bool> returnFullResponse);
+        partial void AfterGetNote(ref bool suppressDefaultLog, IGetNoteApiResponse apiResponseLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<bool> returnFullResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2030,15 +1995,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="returnFullResponse"></param>
-        private void OnErrorGetNoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<bool> returnFullResponse)
+        private void OnErrorGetNoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<bool> returnFullResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetNote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, noteId, deviceId, accountId, returnFullResponse);
+            OnErrorGetNote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, noteId, deviceId, accountId, returnFullResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2050,28 +2014,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="returnFullResponse"></param>
-        partial void OnErrorGetNote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<bool> returnFullResponse);
+        partial void OnErrorGetNote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<bool> returnFullResponse);
 
         /// <summary>
         /// Get Note Get for a note based on its Id.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="noteId">the id of the note to get</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="returnFullResponse">Determines whether to return the NoteFullResponse for the item (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNoteApiResponse"/>&gt;</returns>
-        public async Task<IGetNoteApiResponse?> GetNoteOrDefaultAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNoteApiResponse?> GetNoteOrDefaultAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetNoteAsync(version, noteId, deviceId, accountId, returnFullResponse, cancellationToken).ConfigureAwait(false);
+                return await GetNoteAsync(noteId, deviceId, accountId, returnFullResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2083,14 +2045,13 @@ namespace Org.OpenAPITools.Api
         /// Get Note Get for a note based on its Id.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="noteId">the id of the note to get</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="returnFullResponse">Determines whether to return the NoteFullResponse for the item (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNoteApiResponse"/>&gt;</returns>
-        public async Task<IGetNoteApiResponse> GetNoteAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNoteApiResponse> GetNoteAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2098,7 +2059,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetNote(deviceId);
 
-                FormatGetNote(ref version, ref noteId, ref deviceId, ref accountId, ref returnFullResponse);
+                FormatGetNote(ref noteId, ref deviceId, ref accountId, ref returnFullResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2106,9 +2067,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/note/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/note/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/note/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/note/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2148,13 +2108,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/note/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/note/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetNoteDefaultImplementation(apiResponseLocalVar, version, noteId, deviceId, accountId, returnFullResponse);
+                        AfterGetNoteDefaultImplementation(apiResponseLocalVar, noteId, deviceId, accountId, returnFullResponse);
 
                         Events.ExecuteOnGetNote(apiResponseLocalVar);
 
@@ -2164,7 +2124,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetNoteDefaultImplementation(e, "/api/{version}/note/get", uriBuilderLocalVar.Path, version, noteId, deviceId, accountId, returnFullResponse);
+                OnErrorGetNoteDefaultImplementation(e, "/note/get", uriBuilderLocalVar.Path, noteId, deviceId, accountId, returnFullResponse);
                 Events.ExecuteOnErrorGetNote(e);
                 throw;
             }
@@ -2263,7 +2223,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchNotes(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> notableType, ref Option<long> notableId, ref Option<string> noteTypes, ref Option<string> appKey, ref Option<string> keyword, ref Option<long> flagCountMinimum, ref Option<bool> flagsExceedThreshold, ref Option<bool> includeInactive, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> returnFullResponse, ref Option<long> updatedSince, ref Option<long> updatedBefore, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchNotes(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> notableType, ref Option<long> notableId, ref Option<string> noteTypes, ref Option<string> appKey, ref Option<string> keyword, ref Option<long> flagCountMinimum, ref Option<bool> flagsExceedThreshold, ref Option<bool> includeInactive, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> returnFullResponse, ref Option<long> updatedSince, ref Option<long> updatedBefore, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2300,7 +2260,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="notableType"></param>
@@ -2318,10 +2277,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="updatedBefore"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchNotesDefaultImplementation(ISearchNotesApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteTypes, Option<string> appKey, Option<string> keyword, Option<long> flagCountMinimum, Option<bool> flagsExceedThreshold, Option<bool> includeInactive, Option<string> sortField, Option<bool> descending, Option<bool> returnFullResponse, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit)
+        private void AfterSearchNotesDefaultImplementation(ISearchNotesApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteTypes, Option<string> appKey, Option<string> keyword, Option<long> flagCountMinimum, Option<bool> flagsExceedThreshold, Option<bool> includeInactive, Option<string> sortField, Option<bool> descending, Option<bool> returnFullResponse, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchNotes(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
+            AfterSearchNotes(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2331,7 +2290,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="notableType"></param>
@@ -2349,7 +2307,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="updatedBefore"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchNotes(ref bool suppressDefaultLog, ISearchNotesApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteTypes, Option<string> appKey, Option<string> keyword, Option<long> flagCountMinimum, Option<bool> flagsExceedThreshold, Option<bool> includeInactive, Option<string> sortField, Option<bool> descending, Option<bool> returnFullResponse, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit);
+        partial void AfterSearchNotes(ref bool suppressDefaultLog, ISearchNotesApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteTypes, Option<string> appKey, Option<string> keyword, Option<long> flagCountMinimum, Option<bool> flagsExceedThreshold, Option<bool> includeInactive, Option<string> sortField, Option<bool> descending, Option<bool> returnFullResponse, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2357,7 +2315,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="notableType"></param>
@@ -2375,10 +2332,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="updatedBefore"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchNotesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteTypes, Option<string> appKey, Option<string> keyword, Option<long> flagCountMinimum, Option<bool> flagsExceedThreshold, Option<bool> includeInactive, Option<string> sortField, Option<bool> descending, Option<bool> returnFullResponse, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit)
+        private void OnErrorSearchNotesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteTypes, Option<string> appKey, Option<string> keyword, Option<long> flagCountMinimum, Option<bool> flagsExceedThreshold, Option<bool> includeInactive, Option<string> sortField, Option<bool> descending, Option<bool> returnFullResponse, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchNotes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
+            OnErrorSearchNotes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2390,7 +2347,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="notableType"></param>
@@ -2408,12 +2364,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="updatedBefore"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchNotes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteTypes, Option<string> appKey, Option<string> keyword, Option<long> flagCountMinimum, Option<bool> flagsExceedThreshold, Option<bool> includeInactive, Option<string> sortField, Option<bool> descending, Option<bool> returnFullResponse, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchNotes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> notableType, Option<long> notableId, Option<string> noteTypes, Option<string> appKey, Option<string> keyword, Option<long> flagCountMinimum, Option<bool> flagsExceedThreshold, Option<bool> includeInactive, Option<string> sortField, Option<bool> descending, Option<bool> returnFullResponse, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Notes Search for notes on a notable object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="notableType">The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)</param>
@@ -2433,11 +2388,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNotesApiResponse"/>&gt;</returns>
-        public async Task<ISearchNotesApiResponse?> SearchNotesOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> flagCountMinimum = default, Option<bool> flagsExceedThreshold = default, Option<bool> includeInactive = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> returnFullResponse = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchNotesApiResponse?> SearchNotesOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> flagCountMinimum = default, Option<bool> flagsExceedThreshold = default, Option<bool> includeInactive = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> returnFullResponse = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchNotesAsync(version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchNotesAsync(deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2449,7 +2404,6 @@ namespace Org.OpenAPITools.Api
         /// Search Notes Search for notes on a notable object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="notableType">The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)</param>
@@ -2469,7 +2423,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNotesApiResponse"/>&gt;</returns>
-        public async Task<ISearchNotesApiResponse> SearchNotesAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> flagCountMinimum = default, Option<bool> flagsExceedThreshold = default, Option<bool> includeInactive = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> returnFullResponse = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchNotesApiResponse> SearchNotesAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> notableType = default, Option<long> notableId = default, Option<string> noteTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> flagCountMinimum = default, Option<bool> flagsExceedThreshold = default, Option<bool> includeInactive = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> returnFullResponse = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2477,7 +2431,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchNotes(deviceId, notableType, noteTypes, appKey, keyword, sortField);
 
-                FormatSearchNotes(ref version, ref deviceId, ref accountId, ref notableType, ref notableId, ref noteTypes, ref appKey, ref keyword, ref flagCountMinimum, ref flagsExceedThreshold, ref includeInactive, ref sortField, ref descending, ref returnFullResponse, ref updatedSince, ref updatedBefore, ref start, ref limit);
+                FormatSearchNotes(ref deviceId, ref accountId, ref notableType, ref notableId, ref noteTypes, ref appKey, ref keyword, ref flagCountMinimum, ref flagsExceedThreshold, ref includeInactive, ref sortField, ref descending, ref returnFullResponse, ref updatedSince, ref updatedBefore, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2485,9 +2439,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/note/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/note/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/note/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/note/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2567,13 +2520,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/note/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/note/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchNotesDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
+                        AfterSearchNotesDefaultImplementation(apiResponseLocalVar, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
 
                         Events.ExecuteOnSearchNotes(apiResponseLocalVar);
 
@@ -2583,7 +2536,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchNotesDefaultImplementation(e, "/api/{version}/note/search", uriBuilderLocalVar.Path, version, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
+                OnErrorSearchNotesDefaultImplementation(e, "/note/search", uriBuilderLocalVar.Path, deviceId, accountId, notableType, notableId, noteTypes, appKey, keyword, flagCountMinimum, flagsExceedThreshold, includeInactive, sortField, descending, returnFullResponse, updatedSince, updatedBefore, start, limit);
                 Events.ExecuteOnErrorSearchNotes(e);
                 throw;
             }
@@ -2682,7 +2635,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateNote(ref decimal version, ref long noteId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> comment, ref Option<string> noteType, ref Option<string> assetIds, ref Option<string> tags, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<string> appKey, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<bool> returnFullResponse, ref Option<bool> active, ref Option<bool> updateAsset, ref Option<bool> assetReturnNulls, ref Option<long> assetAlbumId, ref Option<long> assetCollectionId, ref Option<string> assetAddToDefaultAlbum, ref Option<bool> assetAddToMediaLibrary, ref Option<int> assetVersionCode, ref Option<string> assetVersionName, ref Option<string> assetMetaData, ref Option<string> assetCaption, ref Option<System.IO.Stream> assetMedia, ref Option<string> assetMediaUrl, ref Option<string> assetMediaString, ref Option<string> assetMediaStringFileName, ref Option<string> assetMediaStringContentType, ref Option<System.IO.Stream> assetAttachedMedia, ref Option<string> assetAttachedMediaUrl, ref Option<string> assetAttachedMediaString, ref Option<string> assetAttachedMediaStringFileName, ref Option<string> assetAttachedMediaStringContentType, ref Option<string> assetLocationDescription, ref Option<string> assetApp, ref Option<string> assetSearchTags, ref Option<double> assetLatitude, ref Option<double> assetLongitude);
+        partial void FormatUpdateNote(ref long noteId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> comment, ref Option<string> noteType, ref Option<string> assetIds, ref Option<string> tags, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<string> appKey, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<bool> returnFullResponse, ref Option<bool> active, ref Option<bool> updateAsset, ref Option<bool> assetReturnNulls, ref Option<long> assetAlbumId, ref Option<long> assetCollectionId, ref Option<string> assetAddToDefaultAlbum, ref Option<bool> assetAddToMediaLibrary, ref Option<int> assetVersionCode, ref Option<string> assetVersionName, ref Option<string> assetMetaData, ref Option<string> assetCaption, ref Option<System.IO.Stream> assetMedia, ref Option<string> assetMediaUrl, ref Option<string> assetMediaString, ref Option<string> assetMediaStringFileName, ref Option<string> assetMediaStringContentType, ref Option<System.IO.Stream> assetAttachedMedia, ref Option<string> assetAttachedMediaUrl, ref Option<string> assetAttachedMediaString, ref Option<string> assetAttachedMediaStringFileName, ref Option<string> assetAttachedMediaStringContentType, ref Option<string> assetLocationDescription, ref Option<string> assetApp, ref Option<string> assetSearchTags, ref Option<double> assetLatitude, ref Option<double> assetLongitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2799,7 +2752,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2841,10 +2793,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetSearchTags"></param>
         /// <param name="assetLatitude"></param>
         /// <param name="assetLongitude"></param>
-        private void AfterUpdateNoteDefaultImplementation(IUpdateNoteApiResponse apiResponseLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<string> comment, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<bool> active, Option<bool> updateAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<double> assetLongitude)
+        private void AfterUpdateNoteDefaultImplementation(IUpdateNoteApiResponse apiResponseLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<string> comment, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<bool> active, Option<bool> updateAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<double> assetLongitude)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateNote(ref suppressDefaultLog, apiResponseLocalVar, version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+            AfterUpdateNote(ref suppressDefaultLog, apiResponseLocalVar, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2854,7 +2806,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2896,7 +2847,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetSearchTags"></param>
         /// <param name="assetLatitude"></param>
         /// <param name="assetLongitude"></param>
-        partial void AfterUpdateNote(ref bool suppressDefaultLog, IUpdateNoteApiResponse apiResponseLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<string> comment, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<bool> active, Option<bool> updateAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<double> assetLongitude);
+        partial void AfterUpdateNote(ref bool suppressDefaultLog, IUpdateNoteApiResponse apiResponseLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<string> comment, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<bool> active, Option<bool> updateAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<double> assetLongitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2904,7 +2855,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2946,10 +2896,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetSearchTags"></param>
         /// <param name="assetLatitude"></param>
         /// <param name="assetLongitude"></param>
-        private void OnErrorUpdateNoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<string> comment, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<bool> active, Option<bool> updateAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<double> assetLongitude)
+        private void OnErrorUpdateNoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<string> comment, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<bool> active, Option<bool> updateAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<double> assetLongitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateNote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+            OnErrorUpdateNote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2961,7 +2911,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="noteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3003,12 +2952,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetSearchTags"></param>
         /// <param name="assetLatitude"></param>
         /// <param name="assetLongitude"></param>
-        partial void OnErrorUpdateNote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long noteId, Option<string> deviceId, Option<long> accountId, Option<string> comment, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<bool> active, Option<bool> updateAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<double> assetLongitude);
+        partial void OnErrorUpdateNote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long noteId, Option<string> deviceId, Option<long> accountId, Option<string> comment, Option<string> noteType, Option<string> assetIds, Option<string> tags, Option<string> permissionableType, Option<long> permissionableId, Option<string> appKey, Option<string> locationDescription, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<bool> active, Option<bool> updateAsset, Option<bool> assetReturnNulls, Option<long> assetAlbumId, Option<long> assetCollectionId, Option<string> assetAddToDefaultAlbum, Option<bool> assetAddToMediaLibrary, Option<int> assetVersionCode, Option<string> assetVersionName, Option<string> assetMetaData, Option<string> assetCaption, Option<System.IO.Stream> assetMedia, Option<string> assetMediaUrl, Option<string> assetMediaString, Option<string> assetMediaStringFileName, Option<string> assetMediaStringContentType, Option<System.IO.Stream> assetAttachedMedia, Option<string> assetAttachedMediaUrl, Option<string> assetAttachedMediaString, Option<string> assetAttachedMediaStringFileName, Option<string> assetAttachedMediaStringContentType, Option<string> assetLocationDescription, Option<string> assetApp, Option<string> assetSearchTags, Option<double> assetLatitude, Option<double> assetLongitude);
 
         /// <summary>
         /// Update Note Update an existing comment (note). Only the creator of the note have permission to update.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="noteId">The id of the note, used when editing a comment</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -3052,11 +3000,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetLongitude">the longitude of the asset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNoteApiResponse"/>&gt;</returns>
-        public async Task<IUpdateNoteApiResponse?> UpdateNoteOrDefaultAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> comment = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<bool> active = default, Option<bool> updateAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<double> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateNoteApiResponse?> UpdateNoteOrDefaultAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> comment = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<bool> active = default, Option<bool> updateAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<double> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateNoteAsync(version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, cancellationToken).ConfigureAwait(false);
+                return await UpdateNoteAsync(noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3068,7 +3016,6 @@ namespace Org.OpenAPITools.Api
         /// Update Note Update an existing comment (note). Only the creator of the note have permission to update.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="noteId">The id of the note, used when editing a comment</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -3112,7 +3059,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetLongitude">the longitude of the asset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNoteApiResponse"/>&gt;</returns>
-        public async Task<IUpdateNoteApiResponse> UpdateNoteAsync(decimal version, long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> comment = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<bool> active = default, Option<bool> updateAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<double> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateNoteApiResponse> UpdateNoteAsync(long noteId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> comment = default, Option<string> noteType = default, Option<string> assetIds = default, Option<string> tags = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> appKey = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<bool> active = default, Option<bool> updateAsset = default, Option<bool> assetReturnNulls = default, Option<long> assetAlbumId = default, Option<long> assetCollectionId = default, Option<string> assetAddToDefaultAlbum = default, Option<bool> assetAddToMediaLibrary = default, Option<int> assetVersionCode = default, Option<string> assetVersionName = default, Option<string> assetMetaData = default, Option<string> assetCaption = default, Option<System.IO.Stream> assetMedia = default, Option<string> assetMediaUrl = default, Option<string> assetMediaString = default, Option<string> assetMediaStringFileName = default, Option<string> assetMediaStringContentType = default, Option<System.IO.Stream> assetAttachedMedia = default, Option<string> assetAttachedMediaUrl = default, Option<string> assetAttachedMediaString = default, Option<string> assetAttachedMediaStringFileName = default, Option<string> assetAttachedMediaStringContentType = default, Option<string> assetLocationDescription = default, Option<string> assetApp = default, Option<string> assetSearchTags = default, Option<double> assetLatitude = default, Option<double> assetLongitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3120,7 +3067,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateNote(deviceId, comment, noteType, assetIds, tags, permissionableType, appKey, locationDescription, metaData, assetAddToDefaultAlbum, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags);
 
-                FormatUpdateNote(ref version, ref noteId, ref deviceId, ref accountId, ref comment, ref noteType, ref assetIds, ref tags, ref permissionableType, ref permissionableId, ref appKey, ref locationDescription, ref latitude, ref longitude, ref metaData, ref returnFullResponse, ref active, ref updateAsset, ref assetReturnNulls, ref assetAlbumId, ref assetCollectionId, ref assetAddToDefaultAlbum, ref assetAddToMediaLibrary, ref assetVersionCode, ref assetVersionName, ref assetMetaData, ref assetCaption, ref assetMedia, ref assetMediaUrl, ref assetMediaString, ref assetMediaStringFileName, ref assetMediaStringContentType, ref assetAttachedMedia, ref assetAttachedMediaUrl, ref assetAttachedMediaString, ref assetAttachedMediaStringFileName, ref assetAttachedMediaStringContentType, ref assetLocationDescription, ref assetApp, ref assetSearchTags, ref assetLatitude, ref assetLongitude);
+                FormatUpdateNote(ref noteId, ref deviceId, ref accountId, ref comment, ref noteType, ref assetIds, ref tags, ref permissionableType, ref permissionableId, ref appKey, ref locationDescription, ref latitude, ref longitude, ref metaData, ref returnFullResponse, ref active, ref updateAsset, ref assetReturnNulls, ref assetAlbumId, ref assetCollectionId, ref assetAddToDefaultAlbum, ref assetAddToMediaLibrary, ref assetVersionCode, ref assetVersionName, ref assetMetaData, ref assetCaption, ref assetMedia, ref assetMediaUrl, ref assetMediaString, ref assetMediaStringFileName, ref assetMediaStringContentType, ref assetAttachedMedia, ref assetAttachedMediaUrl, ref assetAttachedMediaString, ref assetAttachedMediaStringFileName, ref assetAttachedMediaStringContentType, ref assetLocationDescription, ref assetApp, ref assetSearchTags, ref assetLatitude, ref assetLongitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3128,9 +3075,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/note/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/note/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/note/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/note/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3281,13 +3227,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/note/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/note/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateNoteDefaultImplementation(apiResponseLocalVar, version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+                        AfterUpdateNoteDefaultImplementation(apiResponseLocalVar, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
 
                         Events.ExecuteOnUpdateNote(apiResponseLocalVar);
 
@@ -3297,7 +3243,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateNoteDefaultImplementation(e, "/api/{version}/note/update", uriBuilderLocalVar.Path, version, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
+                OnErrorUpdateNoteDefaultImplementation(e, "/note/update", uriBuilderLocalVar.Path, noteId, deviceId, accountId, comment, noteType, assetIds, tags, permissionableType, permissionableId, appKey, locationDescription, latitude, longitude, metaData, returnFullResponse, active, updateAsset, assetReturnNulls, assetAlbumId, assetCollectionId, assetAddToDefaultAlbum, assetAddToMediaLibrary, assetVersionCode, assetVersionName, assetMetaData, assetCaption, assetMedia, assetMediaUrl, assetMediaString, assetMediaStringFileName, assetMediaStringContentType, assetAttachedMedia, assetAttachedMediaUrl, assetAttachedMediaString, assetAttachedMediaStringFileName, assetAttachedMediaStringContentType, assetLocationDescription, assetApp, assetSearchTags, assetLatitude, assetLongitude);
                 Events.ExecuteOnErrorUpdateNote(e);
                 throw;
             }

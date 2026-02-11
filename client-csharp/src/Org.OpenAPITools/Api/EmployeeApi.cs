@@ -45,14 +45,13 @@ namespace Org.OpenAPITools.Api
         /// Assign An existing account to be an employee
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="managerAccountId">The account id of the manager to assign under</param>
         /// <param name="employeeAccountId">The account id of the user to be assigned as employee</param>
         /// <param name="role">The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignEmployeeApiResponse"/>&gt;</returns>
-        Task<IAssignEmployeeApiResponse> AssignEmployeeAsync(decimal version, long accountId, long managerAccountId, long employeeAccountId, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignEmployeeApiResponse> AssignEmployeeAsync(long accountId, long managerAccountId, long employeeAccountId, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Assign Employee
@@ -60,14 +59,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Assign An existing account to be an employee
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="managerAccountId">The account id of the manager to assign under</param>
         /// <param name="employeeAccountId">The account id of the user to be assigned as employee</param>
         /// <param name="role">The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignEmployeeApiResponse"/>?&gt;</returns>
-        Task<IAssignEmployeeApiResponse?> AssignEmployeeOrDefaultAsync(decimal version, long accountId, long managerAccountId, long employeeAccountId, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignEmployeeApiResponse?> AssignEmployeeOrDefaultAsync(long accountId, long managerAccountId, long employeeAccountId, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Assign Employee to Location
@@ -76,14 +74,13 @@ namespace Org.OpenAPITools.Api
         /// Assign or unassign the account to a retailer location.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="retailerLocationId">The retailer location to apply the change to</param>
         /// <param name="employeeAccountId">The account id of the user to apply the change to (optional)</param>
         /// <param name="assign">If true (default) assign to the location, otherwise remove from the retailer (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignToLocationEmployeeApiResponse"/>&gt;</returns>
-        Task<IAssignToLocationEmployeeApiResponse> AssignToLocationEmployeeAsync(decimal version, long accountId, long retailerLocationId, Option<long> employeeAccountId = default, Option<bool> assign = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignToLocationEmployeeApiResponse> AssignToLocationEmployeeAsync(long accountId, long retailerLocationId, Option<long> employeeAccountId = default, Option<bool> assign = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Assign Employee to Location
@@ -91,14 +88,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Assign or unassign the account to a retailer location.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="retailerLocationId">The retailer location to apply the change to</param>
         /// <param name="employeeAccountId">The account id of the user to apply the change to (optional)</param>
         /// <param name="assign">If true (default) assign to the location, otherwise remove from the retailer (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignToLocationEmployeeApiResponse"/>?&gt;</returns>
-        Task<IAssignToLocationEmployeeApiResponse?> AssignToLocationEmployeeOrDefaultAsync(decimal version, long accountId, long retailerLocationId, Option<long> employeeAccountId = default, Option<bool> assign = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignToLocationEmployeeApiResponse?> AssignToLocationEmployeeOrDefaultAsync(long accountId, long retailerLocationId, Option<long> employeeAccountId = default, Option<bool> assign = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Employee
@@ -107,7 +103,6 @@ namespace Org.OpenAPITools.Api
         /// Create a new account record with the provided information.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="managerAccountId">The account id of the manager to assign under</param>
         /// <param name="username">The username/email for the new user. This must be unique across the entire the system.</param>
@@ -140,7 +135,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEmployeeApiResponse"/>&gt;</returns>
-        Task<ICreateEmployeeApiResponse> CreateEmployeeAsync(decimal version, long accountId, long managerAccountId, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> aboutUs = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateEmployeeApiResponse> CreateEmployeeAsync(long accountId, long managerAccountId, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> aboutUs = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Employee
@@ -148,7 +143,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new account record with the provided information.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="managerAccountId">The account id of the manager to assign under</param>
         /// <param name="username">The username/email for the new user. This must be unique across the entire the system.</param>
@@ -181,7 +175,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEmployeeApiResponse"/>?&gt;</returns>
-        Task<ICreateEmployeeApiResponse?> CreateEmployeeOrDefaultAsync(decimal version, long accountId, long managerAccountId, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> aboutUs = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateEmployeeApiResponse?> CreateEmployeeOrDefaultAsync(long accountId, long managerAccountId, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> aboutUs = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Employee
@@ -190,12 +184,11 @@ namespace Org.OpenAPITools.Api
         /// Set the deleted date field which marks the record as deleted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="employeeAccountId">the id of the employee to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteEmployeeApiResponse"/>&gt;</returns>
-        Task<IDeleteEmployeeApiResponse> DeleteEmployeeAsync(decimal version, long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteEmployeeApiResponse> DeleteEmployeeAsync(long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Employee
@@ -203,12 +196,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Set the deleted date field which marks the record as deleted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="employeeAccountId">the id of the employee to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteEmployeeApiResponse"/>?&gt;</returns>
-        Task<IDeleteEmployeeApiResponse?> DeleteEmployeeOrDefaultAsync(decimal version, long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteEmployeeApiResponse?> DeleteEmployeeOrDefaultAsync(long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Employee
@@ -217,13 +209,12 @@ namespace Org.OpenAPITools.Api
         /// Get the account record for the account id provided.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of logged in user</param>
         /// <param name="employeeAccountId">the id of the employee account to get</param>
         /// <param name="settingsAppKey">Determines whether to return the application settings for the employee for a particular application (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEmployeeApiResponse"/>&gt;</returns>
-        Task<IGetEmployeeApiResponse> GetEmployeeAsync(decimal version, long accountId, long employeeAccountId, Option<string> settingsAppKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEmployeeApiResponse> GetEmployeeAsync(long accountId, long employeeAccountId, Option<string> settingsAppKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Employee
@@ -231,13 +222,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the account record for the account id provided.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of logged in user</param>
         /// <param name="employeeAccountId">the id of the employee account to get</param>
         /// <param name="settingsAppKey">Determines whether to return the application settings for the employee for a particular application (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEmployeeApiResponse"/>?&gt;</returns>
-        Task<IGetEmployeeApiResponse?> GetEmployeeOrDefaultAsync(decimal version, long accountId, long employeeAccountId, Option<string> settingsAppKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEmployeeApiResponse?> GetEmployeeOrDefaultAsync(long accountId, long employeeAccountId, Option<string> settingsAppKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Employees
@@ -246,7 +236,6 @@ namespace Org.OpenAPITools.Api
         /// Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="role">The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)</param>
         /// <param name="retailerId">Filters employees by retailer (optional)</param>
@@ -266,7 +255,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="query">Legacy/reporting query parameter used for formatting employee responses (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEmployeesApiResponse"/>&gt;</returns>
-        Task<ISearchEmployeesApiResponse> SearchEmployeesAsync(decimal version, long accountId, Option<string> role = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> managedOnly = default, Option<string> settingsAppKey = default, Option<string> categoryIds = default, Option<string> query = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchEmployeesApiResponse> SearchEmployeesAsync(long accountId, Option<string> role = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> managedOnly = default, Option<string> settingsAppKey = default, Option<string> categoryIds = default, Option<string> query = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Employees
@@ -274,7 +263,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="role">The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)</param>
         /// <param name="retailerId">Filters employees by retailer (optional)</param>
@@ -294,7 +282,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="query">Legacy/reporting query parameter used for formatting employee responses (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEmployeesApiResponse"/>?&gt;</returns>
-        Task<ISearchEmployeesApiResponse?> SearchEmployeesOrDefaultAsync(decimal version, long accountId, Option<string> role = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> managedOnly = default, Option<string> settingsAppKey = default, Option<string> categoryIds = default, Option<string> query = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchEmployeesApiResponse?> SearchEmployeesOrDefaultAsync(long accountId, Option<string> role = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> managedOnly = default, Option<string> settingsAppKey = default, Option<string> categoryIds = default, Option<string> query = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Unassign Employee
@@ -303,12 +291,11 @@ namespace Org.OpenAPITools.Api
         /// Unassign An existing account to be an employee
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="employeeAccountId">The account id of the user to be unassigned</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUnassignEmployeeApiResponse"/>&gt;</returns>
-        Task<IUnassignEmployeeApiResponse> UnassignEmployeeAsync(decimal version, long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUnassignEmployeeApiResponse> UnassignEmployeeAsync(long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Unassign Employee
@@ -316,12 +303,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Unassign An existing account to be an employee
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="employeeAccountId">The account id of the user to be unassigned</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUnassignEmployeeApiResponse"/>?&gt;</returns>
-        Task<IUnassignEmployeeApiResponse?> UnassignEmployeeOrDefaultAsync(decimal version, long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUnassignEmployeeApiResponse?> UnassignEmployeeOrDefaultAsync(long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Employee
@@ -330,7 +316,6 @@ namespace Org.OpenAPITools.Api
         /// Update the account record with the provided information.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="employeeAccountId">the id of the employee account</param>
         /// <param name="managerAccountId">The account id of the manager to assign under (optional)</param>
@@ -363,7 +348,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEmployeeApiResponse"/>&gt;</returns>
-        Task<IUpdateEmployeeApiResponse> UpdateEmployeeAsync(decimal version, long accountId, long employeeAccountId, Option<long> managerAccountId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<bool> active = default, Option<string> password = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateEmployeeApiResponse> UpdateEmployeeAsync(long accountId, long employeeAccountId, Option<long> managerAccountId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<bool> active = default, Option<string> password = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Employee
@@ -371,7 +356,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the account record with the provided information.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="employeeAccountId">the id of the employee account</param>
         /// <param name="managerAccountId">The account id of the manager to assign under (optional)</param>
@@ -404,7 +388,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEmployeeApiResponse"/>?&gt;</returns>
-        Task<IUpdateEmployeeApiResponse?> UpdateEmployeeOrDefaultAsync(decimal version, long accountId, long employeeAccountId, Option<long> managerAccountId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<bool> active = default, Option<string> password = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateEmployeeApiResponse?> UpdateEmployeeOrDefaultAsync(long accountId, long employeeAccountId, Option<long> managerAccountId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<bool> active = default, Option<string> password = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -716,7 +700,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAssignEmployee(ref decimal version, ref long accountId, ref long managerAccountId, ref long employeeAccountId, ref Option<string> role);
+        partial void FormatAssignEmployee(ref long accountId, ref long managerAccountId, ref long employeeAccountId, ref Option<string> role);
 
         /// <summary>
         /// Validates the request parameters
@@ -733,15 +717,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="managerAccountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="role"></param>
-        private void AfterAssignEmployeeDefaultImplementation(IAssignEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long managerAccountId, long employeeAccountId, Option<string> role)
+        private void AfterAssignEmployeeDefaultImplementation(IAssignEmployeeApiResponse apiResponseLocalVar, long accountId, long managerAccountId, long employeeAccountId, Option<string> role)
         {
             bool suppressDefaultLog = false;
-            AfterAssignEmployee(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, managerAccountId, employeeAccountId, role);
+            AfterAssignEmployee(ref suppressDefaultLog, apiResponseLocalVar, accountId, managerAccountId, employeeAccountId, role);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -751,12 +734,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="managerAccountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="role"></param>
-        partial void AfterAssignEmployee(ref bool suppressDefaultLog, IAssignEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long managerAccountId, long employeeAccountId, Option<string> role);
+        partial void AfterAssignEmployee(ref bool suppressDefaultLog, IAssignEmployeeApiResponse apiResponseLocalVar, long accountId, long managerAccountId, long employeeAccountId, Option<string> role);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -764,15 +746,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="managerAccountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="role"></param>
-        private void OnErrorAssignEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long managerAccountId, long employeeAccountId, Option<string> role)
+        private void OnErrorAssignEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long managerAccountId, long employeeAccountId, Option<string> role)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, managerAccountId, employeeAccountId, role);
+            OnErrorAssignEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, managerAccountId, employeeAccountId, role);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -784,28 +765,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="managerAccountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="role"></param>
-        partial void OnErrorAssignEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long managerAccountId, long employeeAccountId, Option<string> role);
+        partial void OnErrorAssignEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long managerAccountId, long employeeAccountId, Option<string> role);
 
         /// <summary>
         /// Assign Employee Assign An existing account to be an employee
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="managerAccountId">The account id of the manager to assign under</param>
         /// <param name="employeeAccountId">The account id of the user to be assigned as employee</param>
         /// <param name="role">The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IAssignEmployeeApiResponse?> AssignEmployeeOrDefaultAsync(decimal version, long accountId, long managerAccountId, long employeeAccountId, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignEmployeeApiResponse?> AssignEmployeeOrDefaultAsync(long accountId, long managerAccountId, long employeeAccountId, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignEmployeeAsync(version, accountId, managerAccountId, employeeAccountId, role, cancellationToken).ConfigureAwait(false);
+                return await AssignEmployeeAsync(accountId, managerAccountId, employeeAccountId, role, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -817,14 +796,13 @@ namespace Org.OpenAPITools.Api
         /// Assign Employee Assign An existing account to be an employee
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="managerAccountId">The account id of the manager to assign under</param>
         /// <param name="employeeAccountId">The account id of the user to be assigned as employee</param>
         /// <param name="role">The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IAssignEmployeeApiResponse> AssignEmployeeAsync(decimal version, long accountId, long managerAccountId, long employeeAccountId, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignEmployeeApiResponse> AssignEmployeeAsync(long accountId, long managerAccountId, long employeeAccountId, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -832,7 +810,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssignEmployee(role);
 
-                FormatAssignEmployee(ref version, ref accountId, ref managerAccountId, ref employeeAccountId, ref role);
+                FormatAssignEmployee(ref accountId, ref managerAccountId, ref employeeAccountId, ref role);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -840,9 +818,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/employee/assign"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/employee/assign");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/employee/assign"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/employee/assign");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -878,13 +855,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/employee/assign", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/employee/assign", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignEmployeeDefaultImplementation(apiResponseLocalVar, version, accountId, managerAccountId, employeeAccountId, role);
+                        AfterAssignEmployeeDefaultImplementation(apiResponseLocalVar, accountId, managerAccountId, employeeAccountId, role);
 
                         Events.ExecuteOnAssignEmployee(apiResponseLocalVar);
 
@@ -894,7 +871,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignEmployeeDefaultImplementation(e, "/api/{version}/employee/assign", uriBuilderLocalVar.Path, version, accountId, managerAccountId, employeeAccountId, role);
+                OnErrorAssignEmployeeDefaultImplementation(e, "/employee/assign", uriBuilderLocalVar.Path, accountId, managerAccountId, employeeAccountId, role);
                 Events.ExecuteOnErrorAssignEmployee(e);
                 throw;
             }
@@ -993,21 +970,20 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignToLocationEmployee(ref decimal version, ref long accountId, ref long retailerLocationId, ref Option<long> employeeAccountId, ref Option<bool> assign);
+        partial void FormatAssignToLocationEmployee(ref long accountId, ref long retailerLocationId, ref Option<long> employeeAccountId, ref Option<bool> assign);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="assign"></param>
-        private void AfterAssignToLocationEmployeeDefaultImplementation(IAssignToLocationEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long retailerLocationId, Option<long> employeeAccountId, Option<bool> assign)
+        private void AfterAssignToLocationEmployeeDefaultImplementation(IAssignToLocationEmployeeApiResponse apiResponseLocalVar, long accountId, long retailerLocationId, Option<long> employeeAccountId, Option<bool> assign)
         {
             bool suppressDefaultLog = false;
-            AfterAssignToLocationEmployee(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, retailerLocationId, employeeAccountId, assign);
+            AfterAssignToLocationEmployee(ref suppressDefaultLog, apiResponseLocalVar, accountId, retailerLocationId, employeeAccountId, assign);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1017,12 +993,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="assign"></param>
-        partial void AfterAssignToLocationEmployee(ref bool suppressDefaultLog, IAssignToLocationEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long retailerLocationId, Option<long> employeeAccountId, Option<bool> assign);
+        partial void AfterAssignToLocationEmployee(ref bool suppressDefaultLog, IAssignToLocationEmployeeApiResponse apiResponseLocalVar, long accountId, long retailerLocationId, Option<long> employeeAccountId, Option<bool> assign);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1030,15 +1005,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="assign"></param>
-        private void OnErrorAssignToLocationEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long retailerLocationId, Option<long> employeeAccountId, Option<bool> assign)
+        private void OnErrorAssignToLocationEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long retailerLocationId, Option<long> employeeAccountId, Option<bool> assign)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignToLocationEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, retailerLocationId, employeeAccountId, assign);
+            OnErrorAssignToLocationEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, retailerLocationId, employeeAccountId, assign);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1050,28 +1024,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="assign"></param>
-        partial void OnErrorAssignToLocationEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long retailerLocationId, Option<long> employeeAccountId, Option<bool> assign);
+        partial void OnErrorAssignToLocationEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long retailerLocationId, Option<long> employeeAccountId, Option<bool> assign);
 
         /// <summary>
         /// Assign Employee to Location Assign or unassign the account to a retailer location.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="retailerLocationId">The retailer location to apply the change to</param>
         /// <param name="employeeAccountId">The account id of the user to apply the change to (optional)</param>
         /// <param name="assign">If true (default) assign to the location, otherwise remove from the retailer (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignToLocationEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IAssignToLocationEmployeeApiResponse?> AssignToLocationEmployeeOrDefaultAsync(decimal version, long accountId, long retailerLocationId, Option<long> employeeAccountId = default, Option<bool> assign = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignToLocationEmployeeApiResponse?> AssignToLocationEmployeeOrDefaultAsync(long accountId, long retailerLocationId, Option<long> employeeAccountId = default, Option<bool> assign = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignToLocationEmployeeAsync(version, accountId, retailerLocationId, employeeAccountId, assign, cancellationToken).ConfigureAwait(false);
+                return await AssignToLocationEmployeeAsync(accountId, retailerLocationId, employeeAccountId, assign, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1083,20 +1055,19 @@ namespace Org.OpenAPITools.Api
         /// Assign Employee to Location Assign or unassign the account to a retailer location.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="retailerLocationId">The retailer location to apply the change to</param>
         /// <param name="employeeAccountId">The account id of the user to apply the change to (optional)</param>
         /// <param name="assign">If true (default) assign to the location, otherwise remove from the retailer (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignToLocationEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IAssignToLocationEmployeeApiResponse> AssignToLocationEmployeeAsync(decimal version, long accountId, long retailerLocationId, Option<long> employeeAccountId = default, Option<bool> assign = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignToLocationEmployeeApiResponse> AssignToLocationEmployeeAsync(long accountId, long retailerLocationId, Option<long> employeeAccountId = default, Option<bool> assign = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatAssignToLocationEmployee(ref version, ref accountId, ref retailerLocationId, ref employeeAccountId, ref assign);
+                FormatAssignToLocationEmployee(ref accountId, ref retailerLocationId, ref employeeAccountId, ref assign);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1104,9 +1075,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/employee/assignToLocation"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/employee/assignToLocation");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/employee/assignToLocation"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/employee/assignToLocation");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1144,13 +1114,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/employee/assignToLocation", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/employee/assignToLocation", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignToLocationEmployeeDefaultImplementation(apiResponseLocalVar, version, accountId, retailerLocationId, employeeAccountId, assign);
+                        AfterAssignToLocationEmployeeDefaultImplementation(apiResponseLocalVar, accountId, retailerLocationId, employeeAccountId, assign);
 
                         Events.ExecuteOnAssignToLocationEmployee(apiResponseLocalVar);
 
@@ -1160,7 +1130,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignToLocationEmployeeDefaultImplementation(e, "/api/{version}/employee/assignToLocation", uriBuilderLocalVar.Path, version, accountId, retailerLocationId, employeeAccountId, assign);
+                OnErrorAssignToLocationEmployeeDefaultImplementation(e, "/employee/assignToLocation", uriBuilderLocalVar.Path, accountId, retailerLocationId, employeeAccountId, assign);
                 Events.ExecuteOnErrorAssignToLocationEmployee(e);
                 throw;
             }
@@ -1259,7 +1229,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateEmployee(ref decimal version, ref long accountId, ref long managerAccountId, ref string username, ref string password, ref Option<string> name, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<string> aboutUs, ref Option<long> assetId, ref Option<string> gender, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> emailAddress, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> zipcode, ref Option<string> country, ref Option<string> role, ref Option<string> retailerLocationIds, ref Option<string> settingsAppKey, ref Option<string> appBlob, ref Option<string> assignedDeviceId);
+        partial void FormatCreateEmployee(ref long accountId, ref long managerAccountId, ref string username, ref string password, ref Option<string> name, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<string> aboutUs, ref Option<long> assetId, ref Option<string> gender, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> emailAddress, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> zipcode, ref Option<string> country, ref Option<string> role, ref Option<string> retailerLocationIds, ref Option<string> settingsAppKey, ref Option<string> appBlob, ref Option<string> assignedDeviceId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1380,7 +1350,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="managerAccountId"></param>
         /// <param name="username"></param>
@@ -1411,10 +1380,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="appBlob"></param>
         /// <param name="assignedDeviceId"></param>
-        private void AfterCreateEmployeeDefaultImplementation(ICreateEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long managerAccountId, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> aboutUs, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId)
+        private void AfterCreateEmployeeDefaultImplementation(ICreateEmployeeApiResponse apiResponseLocalVar, long accountId, long managerAccountId, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> aboutUs, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId)
         {
             bool suppressDefaultLog = false;
-            AfterCreateEmployee(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+            AfterCreateEmployee(ref suppressDefaultLog, apiResponseLocalVar, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1424,7 +1393,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="managerAccountId"></param>
         /// <param name="username"></param>
@@ -1455,7 +1423,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="appBlob"></param>
         /// <param name="assignedDeviceId"></param>
-        partial void AfterCreateEmployee(ref bool suppressDefaultLog, ICreateEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long managerAccountId, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> aboutUs, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId);
+        partial void AfterCreateEmployee(ref bool suppressDefaultLog, ICreateEmployeeApiResponse apiResponseLocalVar, long accountId, long managerAccountId, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> aboutUs, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1463,7 +1431,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="managerAccountId"></param>
         /// <param name="username"></param>
@@ -1494,10 +1461,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="appBlob"></param>
         /// <param name="assignedDeviceId"></param>
-        private void OnErrorCreateEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long managerAccountId, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> aboutUs, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId)
+        private void OnErrorCreateEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long managerAccountId, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> aboutUs, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+            OnErrorCreateEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1509,7 +1476,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="managerAccountId"></param>
         /// <param name="username"></param>
@@ -1540,12 +1506,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="appBlob"></param>
         /// <param name="assignedDeviceId"></param>
-        partial void OnErrorCreateEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long managerAccountId, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> aboutUs, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId);
+        partial void OnErrorCreateEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long managerAccountId, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> aboutUs, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId);
 
         /// <summary>
         /// Create Employee Create a new account record with the provided information.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="managerAccountId">The account id of the manager to assign under</param>
         /// <param name="username">The username/email for the new user. This must be unique across the entire the system.</param>
@@ -1578,11 +1543,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEmployeeApiResponse"/>&gt;</returns>
-        public async Task<ICreateEmployeeApiResponse?> CreateEmployeeOrDefaultAsync(decimal version, long accountId, long managerAccountId, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> aboutUs = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateEmployeeApiResponse?> CreateEmployeeOrDefaultAsync(long accountId, long managerAccountId, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> aboutUs = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateEmployeeAsync(version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, cancellationToken).ConfigureAwait(false);
+                return await CreateEmployeeAsync(accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1594,7 +1559,6 @@ namespace Org.OpenAPITools.Api
         /// Create Employee Create a new account record with the provided information.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="managerAccountId">The account id of the manager to assign under</param>
         /// <param name="username">The username/email for the new user. This must be unique across the entire the system.</param>
@@ -1627,7 +1591,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEmployeeApiResponse"/>&gt;</returns>
-        public async Task<ICreateEmployeeApiResponse> CreateEmployeeAsync(decimal version, long accountId, long managerAccountId, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> aboutUs = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateEmployeeApiResponse> CreateEmployeeAsync(long accountId, long managerAccountId, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> aboutUs = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1635,7 +1599,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateEmployee(username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
 
-                FormatCreateEmployee(ref version, ref accountId, ref managerAccountId, ref username, ref password, ref name, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref aboutUs, ref assetId, ref gender, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref emailAddress, ref streetAddress, ref streetAddress2, ref city, ref state, ref zipcode, ref country, ref role, ref retailerLocationIds, ref settingsAppKey, ref appBlob, ref assignedDeviceId);
+                FormatCreateEmployee(ref accountId, ref managerAccountId, ref username, ref password, ref name, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref aboutUs, ref assetId, ref gender, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref emailAddress, ref streetAddress, ref streetAddress2, ref city, ref state, ref zipcode, ref country, ref role, ref retailerLocationIds, ref settingsAppKey, ref appBlob, ref assignedDeviceId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1643,9 +1607,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/employee/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/employee/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/employee/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/employee/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1757,13 +1720,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/employee/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/employee/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateEmployeeDefaultImplementation(apiResponseLocalVar, version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+                        AfterCreateEmployeeDefaultImplementation(apiResponseLocalVar, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
 
                         Events.ExecuteOnCreateEmployee(apiResponseLocalVar);
 
@@ -1773,7 +1736,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateEmployeeDefaultImplementation(e, "/api/{version}/employee/create", uriBuilderLocalVar.Path, version, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+                OnErrorCreateEmployeeDefaultImplementation(e, "/employee/create", uriBuilderLocalVar.Path, accountId, managerAccountId, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, aboutUs, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
                 Events.ExecuteOnErrorCreateEmployee(e);
                 throw;
             }
@@ -1872,19 +1835,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteEmployee(ref decimal version, ref long accountId, ref long employeeAccountId);
+        partial void FormatDeleteEmployee(ref long accountId, ref long employeeAccountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
-        private void AfterDeleteEmployeeDefaultImplementation(IDeleteEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long employeeAccountId)
+        private void AfterDeleteEmployeeDefaultImplementation(IDeleteEmployeeApiResponse apiResponseLocalVar, long accountId, long employeeAccountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteEmployee(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, employeeAccountId);
+            AfterDeleteEmployee(ref suppressDefaultLog, apiResponseLocalVar, accountId, employeeAccountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1894,10 +1856,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
-        partial void AfterDeleteEmployee(ref bool suppressDefaultLog, IDeleteEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long employeeAccountId);
+        partial void AfterDeleteEmployee(ref bool suppressDefaultLog, IDeleteEmployeeApiResponse apiResponseLocalVar, long accountId, long employeeAccountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1905,13 +1866,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
-        private void OnErrorDeleteEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long employeeAccountId)
+        private void OnErrorDeleteEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long employeeAccountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, employeeAccountId);
+            OnErrorDeleteEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, employeeAccountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1923,24 +1883,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
-        partial void OnErrorDeleteEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long employeeAccountId);
+        partial void OnErrorDeleteEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long employeeAccountId);
 
         /// <summary>
         /// Delete Employee Set the deleted date field which marks the record as deleted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="employeeAccountId">the id of the employee to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IDeleteEmployeeApiResponse?> DeleteEmployeeOrDefaultAsync(decimal version, long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteEmployeeApiResponse?> DeleteEmployeeOrDefaultAsync(long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteEmployeeAsync(version, accountId, employeeAccountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteEmployeeAsync(accountId, employeeAccountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1952,18 +1910,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Employee Set the deleted date field which marks the record as deleted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="employeeAccountId">the id of the employee to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IDeleteEmployeeApiResponse> DeleteEmployeeAsync(decimal version, long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteEmployeeApiResponse> DeleteEmployeeAsync(long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteEmployee(ref version, ref accountId, ref employeeAccountId);
+                FormatDeleteEmployee(ref accountId, ref employeeAccountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1971,9 +1928,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/employee/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/employee/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/employee/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/employee/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2005,13 +1961,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/employee/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/employee/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteEmployeeDefaultImplementation(apiResponseLocalVar, version, accountId, employeeAccountId);
+                        AfterDeleteEmployeeDefaultImplementation(apiResponseLocalVar, accountId, employeeAccountId);
 
                         Events.ExecuteOnDeleteEmployee(apiResponseLocalVar);
 
@@ -2021,7 +1977,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteEmployeeDefaultImplementation(e, "/api/{version}/employee/delete", uriBuilderLocalVar.Path, version, accountId, employeeAccountId);
+                OnErrorDeleteEmployeeDefaultImplementation(e, "/employee/delete", uriBuilderLocalVar.Path, accountId, employeeAccountId);
                 Events.ExecuteOnErrorDeleteEmployee(e);
                 throw;
             }
@@ -2120,7 +2076,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetEmployee(ref decimal version, ref long accountId, ref long employeeAccountId, ref Option<string> settingsAppKey);
+        partial void FormatGetEmployee(ref long accountId, ref long employeeAccountId, ref Option<string> settingsAppKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -2137,14 +2093,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="settingsAppKey"></param>
-        private void AfterGetEmployeeDefaultImplementation(IGetEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long employeeAccountId, Option<string> settingsAppKey)
+        private void AfterGetEmployeeDefaultImplementation(IGetEmployeeApiResponse apiResponseLocalVar, long accountId, long employeeAccountId, Option<string> settingsAppKey)
         {
             bool suppressDefaultLog = false;
-            AfterGetEmployee(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, employeeAccountId, settingsAppKey);
+            AfterGetEmployee(ref suppressDefaultLog, apiResponseLocalVar, accountId, employeeAccountId, settingsAppKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2154,11 +2109,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="settingsAppKey"></param>
-        partial void AfterGetEmployee(ref bool suppressDefaultLog, IGetEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long employeeAccountId, Option<string> settingsAppKey);
+        partial void AfterGetEmployee(ref bool suppressDefaultLog, IGetEmployeeApiResponse apiResponseLocalVar, long accountId, long employeeAccountId, Option<string> settingsAppKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2166,14 +2120,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="settingsAppKey"></param>
-        private void OnErrorGetEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long employeeAccountId, Option<string> settingsAppKey)
+        private void OnErrorGetEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long employeeAccountId, Option<string> settingsAppKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, employeeAccountId, settingsAppKey);
+            OnErrorGetEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, employeeAccountId, settingsAppKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2185,26 +2138,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="settingsAppKey"></param>
-        partial void OnErrorGetEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long employeeAccountId, Option<string> settingsAppKey);
+        partial void OnErrorGetEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long employeeAccountId, Option<string> settingsAppKey);
 
         /// <summary>
         /// Get Employee Get the account record for the account id provided.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of logged in user</param>
         /// <param name="employeeAccountId">the id of the employee account to get</param>
         /// <param name="settingsAppKey">Determines whether to return the application settings for the employee for a particular application (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IGetEmployeeApiResponse?> GetEmployeeOrDefaultAsync(decimal version, long accountId, long employeeAccountId, Option<string> settingsAppKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEmployeeApiResponse?> GetEmployeeOrDefaultAsync(long accountId, long employeeAccountId, Option<string> settingsAppKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetEmployeeAsync(version, accountId, employeeAccountId, settingsAppKey, cancellationToken).ConfigureAwait(false);
+                return await GetEmployeeAsync(accountId, employeeAccountId, settingsAppKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2216,13 +2167,12 @@ namespace Org.OpenAPITools.Api
         /// Get Employee Get the account record for the account id provided.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of logged in user</param>
         /// <param name="employeeAccountId">the id of the employee account to get</param>
         /// <param name="settingsAppKey">Determines whether to return the application settings for the employee for a particular application (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IGetEmployeeApiResponse> GetEmployeeAsync(decimal version, long accountId, long employeeAccountId, Option<string> settingsAppKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEmployeeApiResponse> GetEmployeeAsync(long accountId, long employeeAccountId, Option<string> settingsAppKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2230,7 +2180,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetEmployee(settingsAppKey);
 
-                FormatGetEmployee(ref version, ref accountId, ref employeeAccountId, ref settingsAppKey);
+                FormatGetEmployee(ref accountId, ref employeeAccountId, ref settingsAppKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2238,9 +2188,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/employee/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/employee/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/employee/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/employee/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2275,13 +2224,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/employee/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/employee/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetEmployeeDefaultImplementation(apiResponseLocalVar, version, accountId, employeeAccountId, settingsAppKey);
+                        AfterGetEmployeeDefaultImplementation(apiResponseLocalVar, accountId, employeeAccountId, settingsAppKey);
 
                         Events.ExecuteOnGetEmployee(apiResponseLocalVar);
 
@@ -2291,7 +2240,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetEmployeeDefaultImplementation(e, "/api/{version}/employee/get", uriBuilderLocalVar.Path, version, accountId, employeeAccountId, settingsAppKey);
+                OnErrorGetEmployeeDefaultImplementation(e, "/employee/get", uriBuilderLocalVar.Path, accountId, employeeAccountId, settingsAppKey);
                 Events.ExecuteOnErrorGetEmployee(e);
                 throw;
             }
@@ -2390,7 +2339,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchEmployees(ref decimal version, ref long accountId, ref Option<string> role, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> q, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<bool> managedOnly, ref Option<string> settingsAppKey, ref Option<string> categoryIds, ref Option<string> query);
+        partial void FormatSearchEmployees(ref long accountId, ref Option<string> role, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> q, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<bool> managedOnly, ref Option<string> settingsAppKey, ref Option<string> categoryIds, ref Option<string> query);
 
         /// <summary>
         /// Validates the request parameters
@@ -2431,7 +2380,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="role"></param>
         /// <param name="retailerId"></param>
@@ -2449,10 +2397,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="categoryIds"></param>
         /// <param name="query"></param>
-        private void AfterSearchEmployeesDefaultImplementation(ISearchEmployeesApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> role, Option<long> retailerId, Option<long> retailerLocationId, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> activeOnly, Option<bool> managedOnly, Option<string> settingsAppKey, Option<string> categoryIds, Option<string> query)
+        private void AfterSearchEmployeesDefaultImplementation(ISearchEmployeesApiResponse apiResponseLocalVar, long accountId, Option<string> role, Option<long> retailerId, Option<long> retailerLocationId, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> activeOnly, Option<bool> managedOnly, Option<string> settingsAppKey, Option<string> categoryIds, Option<string> query)
         {
             bool suppressDefaultLog = false;
-            AfterSearchEmployees(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
+            AfterSearchEmployees(ref suppressDefaultLog, apiResponseLocalVar, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2462,7 +2410,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="role"></param>
         /// <param name="retailerId"></param>
@@ -2480,7 +2427,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="categoryIds"></param>
         /// <param name="query"></param>
-        partial void AfterSearchEmployees(ref bool suppressDefaultLog, ISearchEmployeesApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> role, Option<long> retailerId, Option<long> retailerLocationId, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> activeOnly, Option<bool> managedOnly, Option<string> settingsAppKey, Option<string> categoryIds, Option<string> query);
+        partial void AfterSearchEmployees(ref bool suppressDefaultLog, ISearchEmployeesApiResponse apiResponseLocalVar, long accountId, Option<string> role, Option<long> retailerId, Option<long> retailerLocationId, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> activeOnly, Option<bool> managedOnly, Option<string> settingsAppKey, Option<string> categoryIds, Option<string> query);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2488,7 +2435,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="role"></param>
         /// <param name="retailerId"></param>
@@ -2506,10 +2452,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="categoryIds"></param>
         /// <param name="query"></param>
-        private void OnErrorSearchEmployeesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> role, Option<long> retailerId, Option<long> retailerLocationId, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> activeOnly, Option<bool> managedOnly, Option<string> settingsAppKey, Option<string> categoryIds, Option<string> query)
+        private void OnErrorSearchEmployeesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> role, Option<long> retailerId, Option<long> retailerLocationId, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> activeOnly, Option<bool> managedOnly, Option<string> settingsAppKey, Option<string> categoryIds, Option<string> query)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchEmployees(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
+            OnErrorSearchEmployees(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2521,7 +2467,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="role"></param>
         /// <param name="retailerId"></param>
@@ -2539,12 +2484,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="categoryIds"></param>
         /// <param name="query"></param>
-        partial void OnErrorSearchEmployees(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> role, Option<long> retailerId, Option<long> retailerLocationId, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> activeOnly, Option<bool> managedOnly, Option<string> settingsAppKey, Option<string> categoryIds, Option<string> query);
+        partial void OnErrorSearchEmployees(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> role, Option<long> retailerId, Option<long> retailerLocationId, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> activeOnly, Option<bool> managedOnly, Option<string> settingsAppKey, Option<string> categoryIds, Option<string> query);
 
         /// <summary>
         /// Search Employees Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="role">The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)</param>
         /// <param name="retailerId">Filters employees by retailer (optional)</param>
@@ -2564,11 +2508,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="query">Legacy/reporting query parameter used for formatting employee responses (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEmployeesApiResponse"/>&gt;</returns>
-        public async Task<ISearchEmployeesApiResponse?> SearchEmployeesOrDefaultAsync(decimal version, long accountId, Option<string> role = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> managedOnly = default, Option<string> settingsAppKey = default, Option<string> categoryIds = default, Option<string> query = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchEmployeesApiResponse?> SearchEmployeesOrDefaultAsync(long accountId, Option<string> role = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> managedOnly = default, Option<string> settingsAppKey = default, Option<string> categoryIds = default, Option<string> query = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchEmployeesAsync(version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query, cancellationToken).ConfigureAwait(false);
+                return await SearchEmployeesAsync(accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2580,7 +2524,6 @@ namespace Org.OpenAPITools.Api
         /// Search Employees Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="role">The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)</param>
         /// <param name="retailerId">Filters employees by retailer (optional)</param>
@@ -2600,7 +2543,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="query">Legacy/reporting query parameter used for formatting employee responses (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEmployeesApiResponse"/>&gt;</returns>
-        public async Task<ISearchEmployeesApiResponse> SearchEmployeesAsync(decimal version, long accountId, Option<string> role = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> managedOnly = default, Option<string> settingsAppKey = default, Option<string> categoryIds = default, Option<string> query = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchEmployeesApiResponse> SearchEmployeesAsync(long accountId, Option<string> role = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> managedOnly = default, Option<string> settingsAppKey = default, Option<string> categoryIds = default, Option<string> query = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2608,7 +2551,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchEmployees(role, q, keyword, sortField, settingsAppKey, categoryIds, query);
 
-                FormatSearchEmployees(ref version, ref accountId, ref role, ref retailerId, ref retailerLocationId, ref q, ref keyword, ref sortField, ref descending, ref i, ref start, ref l, ref limit, ref activeOnly, ref managedOnly, ref settingsAppKey, ref categoryIds, ref query);
+                FormatSearchEmployees(ref accountId, ref role, ref retailerId, ref retailerLocationId, ref q, ref keyword, ref sortField, ref descending, ref i, ref start, ref l, ref limit, ref activeOnly, ref managedOnly, ref settingsAppKey, ref categoryIds, ref query);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2616,9 +2559,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/employee/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/employee/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/employee/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/employee/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2697,13 +2639,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/employee/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/employee/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchEmployeesDefaultImplementation(apiResponseLocalVar, version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
+                        AfterSearchEmployeesDefaultImplementation(apiResponseLocalVar, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
 
                         Events.ExecuteOnSearchEmployees(apiResponseLocalVar);
 
@@ -2713,7 +2655,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchEmployeesDefaultImplementation(e, "/api/{version}/employee/search", uriBuilderLocalVar.Path, version, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
+                OnErrorSearchEmployeesDefaultImplementation(e, "/employee/search", uriBuilderLocalVar.Path, accountId, role, retailerId, retailerLocationId, q, keyword, sortField, descending, i, start, l, limit, activeOnly, managedOnly, settingsAppKey, categoryIds, query);
                 Events.ExecuteOnErrorSearchEmployees(e);
                 throw;
             }
@@ -2812,19 +2754,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUnassignEmployee(ref decimal version, ref long accountId, ref long employeeAccountId);
+        partial void FormatUnassignEmployee(ref long accountId, ref long employeeAccountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
-        private void AfterUnassignEmployeeDefaultImplementation(IUnassignEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long employeeAccountId)
+        private void AfterUnassignEmployeeDefaultImplementation(IUnassignEmployeeApiResponse apiResponseLocalVar, long accountId, long employeeAccountId)
         {
             bool suppressDefaultLog = false;
-            AfterUnassignEmployee(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, employeeAccountId);
+            AfterUnassignEmployee(ref suppressDefaultLog, apiResponseLocalVar, accountId, employeeAccountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2834,10 +2775,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
-        partial void AfterUnassignEmployee(ref bool suppressDefaultLog, IUnassignEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long employeeAccountId);
+        partial void AfterUnassignEmployee(ref bool suppressDefaultLog, IUnassignEmployeeApiResponse apiResponseLocalVar, long accountId, long employeeAccountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2845,13 +2785,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
-        private void OnErrorUnassignEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long employeeAccountId)
+        private void OnErrorUnassignEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long employeeAccountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUnassignEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, employeeAccountId);
+            OnErrorUnassignEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, employeeAccountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2863,24 +2802,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
-        partial void OnErrorUnassignEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long employeeAccountId);
+        partial void OnErrorUnassignEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long employeeAccountId);
 
         /// <summary>
         /// Unassign Employee Unassign An existing account to be an employee
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="employeeAccountId">The account id of the user to be unassigned</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUnassignEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IUnassignEmployeeApiResponse?> UnassignEmployeeOrDefaultAsync(decimal version, long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUnassignEmployeeApiResponse?> UnassignEmployeeOrDefaultAsync(long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UnassignEmployeeAsync(version, accountId, employeeAccountId, cancellationToken).ConfigureAwait(false);
+                return await UnassignEmployeeAsync(accountId, employeeAccountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2892,18 +2829,17 @@ namespace Org.OpenAPITools.Api
         /// Unassign Employee Unassign An existing account to be an employee
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="employeeAccountId">The account id of the user to be unassigned</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUnassignEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IUnassignEmployeeApiResponse> UnassignEmployeeAsync(decimal version, long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUnassignEmployeeApiResponse> UnassignEmployeeAsync(long accountId, long employeeAccountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatUnassignEmployee(ref version, ref accountId, ref employeeAccountId);
+                FormatUnassignEmployee(ref accountId, ref employeeAccountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2911,9 +2847,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/employee/unassign"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/employee/unassign");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/employee/unassign"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/employee/unassign");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2945,13 +2880,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/employee/unassign", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/employee/unassign", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUnassignEmployeeDefaultImplementation(apiResponseLocalVar, version, accountId, employeeAccountId);
+                        AfterUnassignEmployeeDefaultImplementation(apiResponseLocalVar, accountId, employeeAccountId);
 
                         Events.ExecuteOnUnassignEmployee(apiResponseLocalVar);
 
@@ -2961,7 +2896,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUnassignEmployeeDefaultImplementation(e, "/api/{version}/employee/unassign", uriBuilderLocalVar.Path, version, accountId, employeeAccountId);
+                OnErrorUnassignEmployeeDefaultImplementation(e, "/employee/unassign", uriBuilderLocalVar.Path, accountId, employeeAccountId);
                 Events.ExecuteOnErrorUnassignEmployee(e);
                 throw;
             }
@@ -3060,7 +2995,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateEmployee(ref decimal version, ref long accountId, ref long employeeAccountId, ref Option<long> managerAccountId, ref Option<string> name, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<long> assetId, ref Option<string> gender, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> emailAddress, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> zipcode, ref Option<string> country, ref Option<string> role, ref Option<bool> active, ref Option<string> password, ref Option<string> retailerLocationIds, ref Option<string> settingsAppKey, ref Option<string> appBlob, ref Option<string> assignedDeviceId);
+        partial void FormatUpdateEmployee(ref long accountId, ref long employeeAccountId, ref Option<long> managerAccountId, ref Option<string> name, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<long> assetId, ref Option<string> gender, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> emailAddress, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> zipcode, ref Option<string> country, ref Option<string> role, ref Option<bool> active, ref Option<string> password, ref Option<string> retailerLocationIds, ref Option<string> settingsAppKey, ref Option<string> appBlob, ref Option<string> assignedDeviceId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3173,7 +3108,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="managerAccountId"></param>
@@ -3204,10 +3138,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="appBlob"></param>
         /// <param name="assignedDeviceId"></param>
-        private void AfterUpdateEmployeeDefaultImplementation(IUpdateEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long employeeAccountId, Option<long> managerAccountId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<bool> active, Option<string> password, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId)
+        private void AfterUpdateEmployeeDefaultImplementation(IUpdateEmployeeApiResponse apiResponseLocalVar, long accountId, long employeeAccountId, Option<long> managerAccountId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<bool> active, Option<string> password, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateEmployee(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+            AfterUpdateEmployee(ref suppressDefaultLog, apiResponseLocalVar, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3217,7 +3151,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="managerAccountId"></param>
@@ -3248,7 +3181,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="appBlob"></param>
         /// <param name="assignedDeviceId"></param>
-        partial void AfterUpdateEmployee(ref bool suppressDefaultLog, IUpdateEmployeeApiResponse apiResponseLocalVar, decimal version, long accountId, long employeeAccountId, Option<long> managerAccountId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<bool> active, Option<string> password, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId);
+        partial void AfterUpdateEmployee(ref bool suppressDefaultLog, IUpdateEmployeeApiResponse apiResponseLocalVar, long accountId, long employeeAccountId, Option<long> managerAccountId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<bool> active, Option<string> password, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3256,7 +3189,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="managerAccountId"></param>
@@ -3287,10 +3219,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="appBlob"></param>
         /// <param name="assignedDeviceId"></param>
-        private void OnErrorUpdateEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long employeeAccountId, Option<long> managerAccountId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<bool> active, Option<string> password, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId)
+        private void OnErrorUpdateEmployeeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long employeeAccountId, Option<long> managerAccountId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<bool> active, Option<string> password, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+            OnErrorUpdateEmployee(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3302,7 +3234,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="employeeAccountId"></param>
         /// <param name="managerAccountId"></param>
@@ -3333,12 +3264,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="settingsAppKey"></param>
         /// <param name="appBlob"></param>
         /// <param name="assignedDeviceId"></param>
-        partial void OnErrorUpdateEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long employeeAccountId, Option<long> managerAccountId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<bool> active, Option<string> password, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId);
+        partial void OnErrorUpdateEmployee(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long employeeAccountId, Option<long> managerAccountId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<long> assetId, Option<string> gender, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<string> role, Option<bool> active, Option<string> password, Option<string> retailerLocationIds, Option<string> settingsAppKey, Option<string> appBlob, Option<string> assignedDeviceId);
 
         /// <summary>
         /// Update Employee Update the account record with the provided information.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="employeeAccountId">the id of the employee account</param>
         /// <param name="managerAccountId">The account id of the manager to assign under (optional)</param>
@@ -3371,11 +3301,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IUpdateEmployeeApiResponse?> UpdateEmployeeOrDefaultAsync(decimal version, long accountId, long employeeAccountId, Option<long> managerAccountId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<bool> active = default, Option<string> password = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateEmployeeApiResponse?> UpdateEmployeeOrDefaultAsync(long accountId, long employeeAccountId, Option<long> managerAccountId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<bool> active = default, Option<string> password = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateEmployeeAsync(version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, cancellationToken).ConfigureAwait(false);
+                return await UpdateEmployeeAsync(accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3387,7 +3317,6 @@ namespace Org.OpenAPITools.Api
         /// Update Employee Update the account record with the provided information.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="employeeAccountId">the id of the employee account</param>
         /// <param name="managerAccountId">The account id of the manager to assign under (optional)</param>
@@ -3420,7 +3349,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEmployeeApiResponse"/>&gt;</returns>
-        public async Task<IUpdateEmployeeApiResponse> UpdateEmployeeAsync(decimal version, long accountId, long employeeAccountId, Option<long> managerAccountId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<bool> active = default, Option<string> password = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateEmployeeApiResponse> UpdateEmployeeAsync(long accountId, long employeeAccountId, Option<long> managerAccountId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<long> assetId = default, Option<string> gender = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<string> role = default, Option<bool> active = default, Option<string> password = default, Option<string> retailerLocationIds = default, Option<string> settingsAppKey = default, Option<string> appBlob = default, Option<string> assignedDeviceId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3428,7 +3357,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateEmployee(name, prefixName, firstName, middleName, lastName, suffixName, title, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
 
-                FormatUpdateEmployee(ref version, ref accountId, ref employeeAccountId, ref managerAccountId, ref name, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref assetId, ref gender, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref emailAddress, ref streetAddress, ref streetAddress2, ref city, ref state, ref zipcode, ref country, ref role, ref active, ref password, ref retailerLocationIds, ref settingsAppKey, ref appBlob, ref assignedDeviceId);
+                FormatUpdateEmployee(ref accountId, ref employeeAccountId, ref managerAccountId, ref name, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref assetId, ref gender, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref emailAddress, ref streetAddress, ref streetAddress2, ref city, ref state, ref zipcode, ref country, ref role, ref active, ref password, ref retailerLocationIds, ref settingsAppKey, ref appBlob, ref assignedDeviceId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3436,9 +3365,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/employee/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/employee/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/employee/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/employee/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3554,13 +3482,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/employee/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/employee/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateEmployeeDefaultImplementation(apiResponseLocalVar, version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+                        AfterUpdateEmployeeDefaultImplementation(apiResponseLocalVar, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
 
                         Events.ExecuteOnUpdateEmployee(apiResponseLocalVar);
 
@@ -3570,7 +3498,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateEmployeeDefaultImplementation(e, "/api/{version}/employee/update", uriBuilderLocalVar.Path, version, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
+                OnErrorUpdateEmployeeDefaultImplementation(e, "/employee/update", uriBuilderLocalVar.Path, accountId, employeeAccountId, managerAccountId, name, prefixName, firstName, middleName, lastName, suffixName, title, assetId, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, role, active, password, retailerLocationIds, settingsAppKey, appBlob, assignedDeviceId);
                 Events.ExecuteOnErrorUpdateEmployee(e);
                 throw;
             }

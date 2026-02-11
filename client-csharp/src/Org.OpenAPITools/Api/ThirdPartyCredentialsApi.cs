@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="thirdPartyId">the third party user account id</param>
         /// <param name="thirdPartyToken">the access token to authenticate with (ex: username or fb token or phone number)</param>
         /// <param name="networkUID">the access provider to authenticate against</param>
@@ -65,7 +64,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove">audience ids to remove from the account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCredentialApiResponse"/>&gt;</returns>
-        Task<ICreateCredentialApiResponse> CreateCredentialAsync(decimal version, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<string> thirdPartyName = default, Option<string> emailAddress = default, Option<bool> signinOnlyMode = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateCredentialApiResponse> CreateCredentialAsync(string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<string> thirdPartyName = default, Option<string> emailAddress = default, Option<bool> signinOnlyMode = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Credential
@@ -73,7 +72,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="thirdPartyId">the third party user account id</param>
         /// <param name="thirdPartyToken">the access token to authenticate with (ex: username or fb token or phone number)</param>
         /// <param name="networkUID">the access provider to authenticate against</param>
@@ -93,7 +91,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove">audience ids to remove from the account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCredentialApiResponse"/>?&gt;</returns>
-        Task<ICreateCredentialApiResponse?> CreateCredentialOrDefaultAsync(decimal version, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<string> thirdPartyName = default, Option<string> emailAddress = default, Option<bool> signinOnlyMode = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateCredentialApiResponse?> CreateCredentialOrDefaultAsync(string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<string> thirdPartyName = default, Option<string> emailAddress = default, Option<bool> signinOnlyMode = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Network
@@ -102,7 +100,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a custom third party network.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="name">The name of the network</param>
         /// <param name="enableIntrospection">Whether the network uses introspection calls</param>
@@ -122,7 +119,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNetworkApiResponse"/>&gt;</returns>
-        Task<ICreateNetworkApiResponse> CreateNetworkAsync(decimal version, long accountId, string name, bool enableIntrospection, Option<string> description = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateNetworkApiResponse> CreateNetworkAsync(long accountId, string name, bool enableIntrospection, Option<string> description = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Network
@@ -130,7 +127,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a custom third party network.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="name">The name of the network</param>
         /// <param name="enableIntrospection">Whether the network uses introspection calls</param>
@@ -150,7 +146,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNetworkApiResponse"/>?&gt;</returns>
-        Task<ICreateNetworkApiResponse?> CreateNetworkOrDefaultAsync(decimal version, long accountId, string name, bool enableIntrospection, Option<string> description = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateNetworkApiResponse?> CreateNetworkOrDefaultAsync(long accountId, string name, bool enableIntrospection, Option<string> description = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Credential
@@ -159,14 +155,13 @@ namespace Org.OpenAPITools.Api
         /// Delete a third party network on a Sirqul account.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="networkUID">The third party network identifier</param>
         /// <param name="thirdPartyId">The third party user id</param>
         /// <param name="appKey">the application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCredentialApiResponse"/>&gt;</returns>
-        Task<IDeleteCredentialApiResponse> DeleteCredentialAsync(decimal version, long accountId, string networkUID, string thirdPartyId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteCredentialApiResponse> DeleteCredentialAsync(long accountId, string networkUID, string thirdPartyId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Credential
@@ -174,14 +169,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a third party network on a Sirqul account.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="networkUID">The third party network identifier</param>
         /// <param name="thirdPartyId">The third party user id</param>
         /// <param name="appKey">the application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCredentialApiResponse"/>?&gt;</returns>
-        Task<IDeleteCredentialApiResponse?> DeleteCredentialOrDefaultAsync(decimal version, long accountId, string networkUID, string thirdPartyId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteCredentialApiResponse?> DeleteCredentialOrDefaultAsync(long accountId, string networkUID, string thirdPartyId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Network
@@ -190,12 +184,11 @@ namespace Org.OpenAPITools.Api
         /// Marks a custom third party network as deleted. Only the network owners and managers have access to this.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNetworkApiResponse"/>&gt;</returns>
-        Task<IDeleteNetworkApiResponse> DeleteNetworkAsync(decimal version, long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteNetworkApiResponse> DeleteNetworkAsync(long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Network
@@ -203,12 +196,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Marks a custom third party network as deleted. Only the network owners and managers have access to this.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNetworkApiResponse"/>?&gt;</returns>
-        Task<IDeleteNetworkApiResponse?> DeleteNetworkOrDefaultAsync(decimal version, long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteNetworkApiResponse?> DeleteNetworkOrDefaultAsync(long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Credential
@@ -217,7 +209,6 @@ namespace Org.OpenAPITools.Api
         /// Gets the account information given a third party token.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="networkUID">the access provider to authenticate against</param>
         /// <param name="appKey">the application key</param>
         /// <param name="accountId">the unique account id of a specific account that will be bound to the third-party credentials (optional)</param>
@@ -235,7 +226,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="referralAccountId">account id of the referrer (inviter-invitee relationship) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCredentialApiResponse"/>&gt;</returns>
-        Task<IGetCredentialApiResponse> GetCredentialAsync(decimal version, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<long> thirdPartyCredentialId = default, Option<string> thirdPartyToken = default, Option<string> thirdPartySecret = default, Option<bool> createNewAccount = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCredentialApiResponse> GetCredentialAsync(string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<long> thirdPartyCredentialId = default, Option<string> thirdPartyToken = default, Option<string> thirdPartySecret = default, Option<bool> createNewAccount = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Credential
@@ -243,7 +234,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the account information given a third party token.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="networkUID">the access provider to authenticate against</param>
         /// <param name="appKey">the application key</param>
         /// <param name="accountId">the unique account id of a specific account that will be bound to the third-party credentials (optional)</param>
@@ -261,7 +251,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="referralAccountId">account id of the referrer (inviter-invitee relationship) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCredentialApiResponse"/>?&gt;</returns>
-        Task<IGetCredentialApiResponse?> GetCredentialOrDefaultAsync(decimal version, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<long> thirdPartyCredentialId = default, Option<string> thirdPartyToken = default, Option<string> thirdPartySecret = default, Option<bool> createNewAccount = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCredentialApiResponse?> GetCredentialOrDefaultAsync(string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<long> thirdPartyCredentialId = default, Option<string> thirdPartyToken = default, Option<string> thirdPartySecret = default, Option<bool> createNewAccount = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Network
@@ -270,12 +260,11 @@ namespace Org.OpenAPITools.Api
         /// Get the details of a third party network. Only the network owners and managers have access to this.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNetworkApiResponse"/>&gt;</returns>
-        Task<IGetNetworkApiResponse> GetNetworkAsync(decimal version, long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNetworkApiResponse> GetNetworkAsync(long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Network
@@ -283,12 +272,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the details of a third party network. Only the network owners and managers have access to this.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNetworkApiResponse"/>?&gt;</returns>
-        Task<IGetNetworkApiResponse?> GetNetworkOrDefaultAsync(decimal version, long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNetworkApiResponse?> GetNetworkOrDefaultAsync(long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Credentials
@@ -297,7 +285,6 @@ namespace Org.OpenAPITools.Api
         /// Search on a user&#39;s linked third party networks.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="keyword">The keyword used to search on the third party name and network string (optional)</param>
         /// <param name="networkUID">The network UID to filter results with (optional)</param>
@@ -306,7 +293,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCredentialsApiResponse"/>&gt;</returns>
-        Task<ISearchCredentialsApiResponse> SearchCredentialsAsync(decimal version, long accountId, Option<string> keyword = default, Option<string> networkUID = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCredentialsApiResponse> SearchCredentialsAsync(long accountId, Option<string> keyword = default, Option<string> networkUID = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Credentials
@@ -314,7 +301,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on a user&#39;s linked third party networks.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="keyword">The keyword used to search on the third party name and network string (optional)</param>
         /// <param name="networkUID">The network UID to filter results with (optional)</param>
@@ -323,7 +309,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCredentialsApiResponse"/>?&gt;</returns>
-        Task<ISearchCredentialsApiResponse?> SearchCredentialsOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<string> networkUID = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCredentialsApiResponse?> SearchCredentialsOrDefaultAsync(long accountId, Option<string> keyword = default, Option<string> networkUID = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Networks
@@ -332,7 +318,6 @@ namespace Org.OpenAPITools.Api
         /// Search on supported third party networks and custom networks from external users.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="sortField">The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME</param>
         /// <param name="descending">The order to return the search results</param>
@@ -343,7 +328,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterBillable">Determines whether to only return applications that the user has access to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNetworksApiResponse"/>&gt;</returns>
-        Task<ISearchNetworksApiResponse> SearchNetworksAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<bool> filterBillable = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchNetworksApiResponse> SearchNetworksAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<bool> filterBillable = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Networks
@@ -351,7 +336,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on supported third party networks and custom networks from external users.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="sortField">The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME</param>
         /// <param name="descending">The order to return the search results</param>
@@ -362,7 +346,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterBillable">Determines whether to only return applications that the user has access to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNetworksApiResponse"/>?&gt;</returns>
-        Task<ISearchNetworksApiResponse?> SearchNetworksOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<bool> filterBillable = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchNetworksApiResponse?> SearchNetworksOrDefaultAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<bool> filterBillable = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send MFA Challenge
@@ -371,7 +355,6 @@ namespace Org.OpenAPITools.Api
         /// Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="networkUID">the third party network provider that has MFA enabled</param>
         /// <param name="appKey">the application key</param>
         /// <param name="thirdPartyToken">the access token to authenticate with (optional)</param>
@@ -379,7 +362,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId">the unique id of the device making the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendMFAChallengeApiResponse"/>&gt;</returns>
-        Task<ISendMFAChallengeApiResponse> SendMFAChallengeAsync(decimal version, string networkUID, string appKey, Option<string> thirdPartyToken = default, Option<long> thirdPartyCredentialId = default, Option<string> deviceId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendMFAChallengeApiResponse> SendMFAChallengeAsync(string networkUID, string appKey, Option<string> thirdPartyToken = default, Option<long> thirdPartyCredentialId = default, Option<string> deviceId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send MFA Challenge
@@ -387,7 +370,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="networkUID">the third party network provider that has MFA enabled</param>
         /// <param name="appKey">the application key</param>
         /// <param name="thirdPartyToken">the access token to authenticate with (optional)</param>
@@ -395,7 +377,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId">the unique id of the device making the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendMFAChallengeApiResponse"/>?&gt;</returns>
-        Task<ISendMFAChallengeApiResponse?> SendMFAChallengeOrDefaultAsync(decimal version, string networkUID, string appKey, Option<string> thirdPartyToken = default, Option<long> thirdPartyCredentialId = default, Option<string> deviceId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendMFAChallengeApiResponse?> SendMFAChallengeOrDefaultAsync(string networkUID, string appKey, Option<string> thirdPartyToken = default, Option<long> thirdPartyCredentialId = default, Option<string> deviceId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Credential
@@ -404,7 +386,6 @@ namespace Org.OpenAPITools.Api
         /// Updates a third-party login for an account.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="networkUID">the access provider to authenticate against</param>
         /// <param name="thirdPartyId">the third party user account id</param>
         /// <param name="appKey">the application key</param>
@@ -416,7 +397,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyRefreshToken">optional refresh token for the third party (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCredentialApiResponse"/>&gt;</returns>
-        Task<IUpdateCredentialApiResponse> UpdateCredentialAsync(decimal version, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId = default, Option<string> thirdPartyName = default, Option<string> thirdPartyToken = default, Option<string> responseFilters = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateCredentialApiResponse> UpdateCredentialAsync(string networkUID, string thirdPartyId, string appKey, Option<string> deviceId = default, Option<string> thirdPartyName = default, Option<string> thirdPartyToken = default, Option<string> responseFilters = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Credential
@@ -424,7 +405,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a third-party login for an account.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="networkUID">the access provider to authenticate against</param>
         /// <param name="thirdPartyId">the third party user account id</param>
         /// <param name="appKey">the application key</param>
@@ -436,7 +416,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyRefreshToken">optional refresh token for the third party (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCredentialApiResponse"/>?&gt;</returns>
-        Task<IUpdateCredentialApiResponse?> UpdateCredentialOrDefaultAsync(decimal version, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId = default, Option<string> thirdPartyName = default, Option<string> thirdPartyToken = default, Option<string> responseFilters = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateCredentialApiResponse?> UpdateCredentialOrDefaultAsync(string networkUID, string thirdPartyId, string appKey, Option<string> deviceId = default, Option<string> thirdPartyName = default, Option<string> thirdPartyToken = default, Option<string> responseFilters = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Network
@@ -445,7 +425,6 @@ namespace Org.OpenAPITools.Api
         /// Updates a custom third party network. Only the network owners and managers have access to this.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="name">The name of the network (optional)</param>
@@ -466,7 +445,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNetworkApiResponse"/>&gt;</returns>
-        Task<IUpdateNetworkApiResponse> UpdateNetworkAsync(decimal version, long accountId, string networkUID, Option<string> name = default, Option<string> description = default, Option<bool> enableIntrospection = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateNetworkApiResponse> UpdateNetworkAsync(long accountId, string networkUID, Option<string> name = default, Option<string> description = default, Option<bool> enableIntrospection = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Network
@@ -474,7 +453,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a custom third party network. Only the network owners and managers have access to this.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="name">The name of the network (optional)</param>
@@ -495,7 +473,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNetworkApiResponse"/>?&gt;</returns>
-        Task<IUpdateNetworkApiResponse?> UpdateNetworkOrDefaultAsync(decimal version, long accountId, string networkUID, Option<string> name = default, Option<string> description = default, Option<bool> enableIntrospection = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateNetworkApiResponse?> UpdateNetworkOrDefaultAsync(long accountId, string networkUID, Option<string> name = default, Option<string> description = default, Option<bool> enableIntrospection = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -903,7 +881,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateCredential(ref decimal version, ref string thirdPartyId, ref string thirdPartyToken, ref string networkUID, ref string appKey, ref Option<long> accountId, ref Option<string> deviceId, ref Option<string> sessionId, ref Option<string> thirdPartyName, ref Option<string> emailAddress, ref Option<bool> signinOnlyMode, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<string> thirdPartyRefreshToken, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove);
+        partial void FormatCreateCredential(ref string thirdPartyId, ref string thirdPartyToken, ref string networkUID, ref string appKey, ref Option<long> accountId, ref Option<string> deviceId, ref Option<string> sessionId, ref Option<string> thirdPartyName, ref Option<string> emailAddress, ref Option<bool> signinOnlyMode, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<string> thirdPartyRefreshToken, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove);
 
         /// <summary>
         /// Validates the request parameters
@@ -968,7 +946,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="thirdPartyToken"></param>
         /// <param name="networkUID"></param>
@@ -986,10 +963,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyRefreshToken"></param>
         /// <param name="audienceIdsToAdd"></param>
         /// <param name="audienceIdsToRemove"></param>
-        private void AfterCreateCredentialDefaultImplementation(ICreateCredentialApiResponse apiResponseLocalVar, decimal version, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<string> thirdPartyName, Option<string> emailAddress, Option<bool> signinOnlyMode, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> thirdPartyRefreshToken, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove)
+        private void AfterCreateCredentialDefaultImplementation(ICreateCredentialApiResponse apiResponseLocalVar, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<string> thirdPartyName, Option<string> emailAddress, Option<bool> signinOnlyMode, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> thirdPartyRefreshToken, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove)
         {
             bool suppressDefaultLog = false;
-            AfterCreateCredential(ref suppressDefaultLog, apiResponseLocalVar, version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
+            AfterCreateCredential(ref suppressDefaultLog, apiResponseLocalVar, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -999,7 +976,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="thirdPartyToken"></param>
         /// <param name="networkUID"></param>
@@ -1017,7 +993,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyRefreshToken"></param>
         /// <param name="audienceIdsToAdd"></param>
         /// <param name="audienceIdsToRemove"></param>
-        partial void AfterCreateCredential(ref bool suppressDefaultLog, ICreateCredentialApiResponse apiResponseLocalVar, decimal version, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<string> thirdPartyName, Option<string> emailAddress, Option<bool> signinOnlyMode, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> thirdPartyRefreshToken, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove);
+        partial void AfterCreateCredential(ref bool suppressDefaultLog, ICreateCredentialApiResponse apiResponseLocalVar, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<string> thirdPartyName, Option<string> emailAddress, Option<bool> signinOnlyMode, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> thirdPartyRefreshToken, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1025,7 +1001,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="thirdPartyToken"></param>
         /// <param name="networkUID"></param>
@@ -1043,10 +1018,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyRefreshToken"></param>
         /// <param name="audienceIdsToAdd"></param>
         /// <param name="audienceIdsToRemove"></param>
-        private void OnErrorCreateCredentialDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<string> thirdPartyName, Option<string> emailAddress, Option<bool> signinOnlyMode, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> thirdPartyRefreshToken, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove)
+        private void OnErrorCreateCredentialDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<string> thirdPartyName, Option<string> emailAddress, Option<bool> signinOnlyMode, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> thirdPartyRefreshToken, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateCredential(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
+            OnErrorCreateCredential(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1058,7 +1033,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="thirdPartyToken"></param>
         /// <param name="networkUID"></param>
@@ -1076,12 +1050,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyRefreshToken"></param>
         /// <param name="audienceIdsToAdd"></param>
         /// <param name="audienceIdsToRemove"></param>
-        partial void OnErrorCreateCredential(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<string> thirdPartyName, Option<string> emailAddress, Option<bool> signinOnlyMode, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> thirdPartyRefreshToken, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove);
+        partial void OnErrorCreateCredential(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<string> thirdPartyName, Option<string> emailAddress, Option<bool> signinOnlyMode, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> thirdPartyRefreshToken, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove);
 
         /// <summary>
         /// Create Credential This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="thirdPartyId">the third party user account id</param>
         /// <param name="thirdPartyToken">the access token to authenticate with (ex: username or fb token or phone number)</param>
         /// <param name="networkUID">the access provider to authenticate against</param>
@@ -1101,11 +1074,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove">audience ids to remove from the account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCredentialApiResponse"/>&gt;</returns>
-        public async Task<ICreateCredentialApiResponse?> CreateCredentialOrDefaultAsync(decimal version, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<string> thirdPartyName = default, Option<string> emailAddress = default, Option<bool> signinOnlyMode = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateCredentialApiResponse?> CreateCredentialOrDefaultAsync(string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<string> thirdPartyName = default, Option<string> emailAddress = default, Option<bool> signinOnlyMode = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateCredentialAsync(version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove, cancellationToken).ConfigureAwait(false);
+                return await CreateCredentialAsync(thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1117,7 +1090,6 @@ namespace Org.OpenAPITools.Api
         /// Create Credential This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="thirdPartyId">the third party user account id</param>
         /// <param name="thirdPartyToken">the access token to authenticate with (ex: username or fb token or phone number)</param>
         /// <param name="networkUID">the access provider to authenticate against</param>
@@ -1137,7 +1109,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove">audience ids to remove from the account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCredentialApiResponse"/>&gt;</returns>
-        public async Task<ICreateCredentialApiResponse> CreateCredentialAsync(decimal version, string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<string> thirdPartyName = default, Option<string> emailAddress = default, Option<bool> signinOnlyMode = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateCredentialApiResponse> CreateCredentialAsync(string thirdPartyId, string thirdPartyToken, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<string> thirdPartyName = default, Option<string> emailAddress = default, Option<bool> signinOnlyMode = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1145,7 +1117,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateCredential(thirdPartyId, thirdPartyToken, networkUID, appKey, deviceId, sessionId, thirdPartyName, emailAddress, responseFilters, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
 
-                FormatCreateCredential(ref version, ref thirdPartyId, ref thirdPartyToken, ref networkUID, ref appKey, ref accountId, ref deviceId, ref sessionId, ref thirdPartyName, ref emailAddress, ref signinOnlyMode, ref responseFilters, ref latitude, ref longitude, ref metaData, ref thirdPartyRefreshToken, ref audienceIdsToAdd, ref audienceIdsToRemove);
+                FormatCreateCredential(ref thirdPartyId, ref thirdPartyToken, ref networkUID, ref appKey, ref accountId, ref deviceId, ref sessionId, ref thirdPartyName, ref emailAddress, ref signinOnlyMode, ref responseFilters, ref latitude, ref longitude, ref metaData, ref thirdPartyRefreshToken, ref audienceIdsToAdd, ref audienceIdsToRemove);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1153,9 +1125,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/credential/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/credential/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/credential/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/credential/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1228,13 +1199,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/credential/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/credential/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateCredentialDefaultImplementation(apiResponseLocalVar, version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
+                        AfterCreateCredentialDefaultImplementation(apiResponseLocalVar, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
 
                         Events.ExecuteOnCreateCredential(apiResponseLocalVar);
 
@@ -1244,7 +1215,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateCredentialDefaultImplementation(e, "/api/{version}/thirdparty/credential/create", uriBuilderLocalVar.Path, version, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
+                OnErrorCreateCredentialDefaultImplementation(e, "/thirdparty/credential/create", uriBuilderLocalVar.Path, thirdPartyId, thirdPartyToken, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyName, emailAddress, signinOnlyMode, responseFilters, latitude, longitude, metaData, thirdPartyRefreshToken, audienceIdsToAdd, audienceIdsToRemove);
                 Events.ExecuteOnErrorCreateCredential(e);
                 throw;
             }
@@ -1343,7 +1314,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateNetwork(ref decimal version, ref long accountId, ref string name, ref bool enableIntrospection, ref Option<string> description, ref Option<string> introspectionMethod, ref Option<string> introspectionURL, ref Option<string> introspectionParams, ref Option<string> requiredRootField, ref Option<bool> enableMFA, ref Option<int> sizeMFA, ref Option<int> shelfLifeMFA, ref Option<string> oauthTokenURL, ref Option<System.IO.Stream> oauthPrivateKey, ref Option<System.IO.Stream> oauthPublicKey, ref Option<string> oauthClientId, ref Option<string> oauthSecretKey, ref Option<string> body);
+        partial void FormatCreateNetwork(ref long accountId, ref string name, ref bool enableIntrospection, ref Option<string> description, ref Option<string> introspectionMethod, ref Option<string> introspectionURL, ref Option<string> introspectionParams, ref Option<string> requiredRootField, ref Option<bool> enableMFA, ref Option<int> sizeMFA, ref Option<int> shelfLifeMFA, ref Option<string> oauthTokenURL, ref Option<System.IO.Stream> oauthPrivateKey, ref Option<System.IO.Stream> oauthPublicKey, ref Option<string> oauthClientId, ref Option<string> oauthSecretKey, ref Option<string> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1404,7 +1375,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="enableIntrospection"></param>
@@ -1422,10 +1392,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="oauthClientId"></param>
         /// <param name="oauthSecretKey"></param>
         /// <param name="body"></param>
-        private void AfterCreateNetworkDefaultImplementation(ICreateNetworkApiResponse apiResponseLocalVar, decimal version, long accountId, string name, bool enableIntrospection, Option<string> description, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body)
+        private void AfterCreateNetworkDefaultImplementation(ICreateNetworkApiResponse apiResponseLocalVar, long accountId, string name, bool enableIntrospection, Option<string> description, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateNetwork(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+            AfterCreateNetwork(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1435,7 +1405,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="enableIntrospection"></param>
@@ -1453,7 +1422,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="oauthClientId"></param>
         /// <param name="oauthSecretKey"></param>
         /// <param name="body"></param>
-        partial void AfterCreateNetwork(ref bool suppressDefaultLog, ICreateNetworkApiResponse apiResponseLocalVar, decimal version, long accountId, string name, bool enableIntrospection, Option<string> description, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body);
+        partial void AfterCreateNetwork(ref bool suppressDefaultLog, ICreateNetworkApiResponse apiResponseLocalVar, long accountId, string name, bool enableIntrospection, Option<string> description, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1461,7 +1430,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="enableIntrospection"></param>
@@ -1479,10 +1447,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="oauthClientId"></param>
         /// <param name="oauthSecretKey"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateNetworkDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, bool enableIntrospection, Option<string> description, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body)
+        private void OnErrorCreateNetworkDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, bool enableIntrospection, Option<string> description, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateNetwork(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+            OnErrorCreateNetwork(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1494,7 +1462,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="enableIntrospection"></param>
@@ -1512,12 +1479,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="oauthClientId"></param>
         /// <param name="oauthSecretKey"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateNetwork(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, bool enableIntrospection, Option<string> description, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body);
+        partial void OnErrorCreateNetwork(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, bool enableIntrospection, Option<string> description, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body);
 
         /// <summary>
         /// Create Network Creates a custom third party network.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="name">The name of the network</param>
         /// <param name="enableIntrospection">Whether the network uses introspection calls</param>
@@ -1537,11 +1503,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNetworkApiResponse"/>&gt;</returns>
-        public async Task<ICreateNetworkApiResponse?> CreateNetworkOrDefaultAsync(decimal version, long accountId, string name, bool enableIntrospection, Option<string> description = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateNetworkApiResponse?> CreateNetworkOrDefaultAsync(long accountId, string name, bool enableIntrospection, Option<string> description = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateNetworkAsync(version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, cancellationToken).ConfigureAwait(false);
+                return await CreateNetworkAsync(accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1553,7 +1519,6 @@ namespace Org.OpenAPITools.Api
         /// Create Network Creates a custom third party network.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="name">The name of the network</param>
         /// <param name="enableIntrospection">Whether the network uses introspection calls</param>
@@ -1573,7 +1538,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateNetworkApiResponse"/>&gt;</returns>
-        public async Task<ICreateNetworkApiResponse> CreateNetworkAsync(decimal version, long accountId, string name, bool enableIntrospection, Option<string> description = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateNetworkApiResponse> CreateNetworkAsync(long accountId, string name, bool enableIntrospection, Option<string> description = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1581,7 +1546,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateNetwork(name, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
 
-                FormatCreateNetwork(ref version, ref accountId, ref name, ref enableIntrospection, ref description, ref introspectionMethod, ref introspectionURL, ref introspectionParams, ref requiredRootField, ref enableMFA, ref sizeMFA, ref shelfLifeMFA, ref oauthTokenURL, ref oauthPrivateKey, ref oauthPublicKey, ref oauthClientId, ref oauthSecretKey, ref body);
+                FormatCreateNetwork(ref accountId, ref name, ref enableIntrospection, ref description, ref introspectionMethod, ref introspectionURL, ref introspectionParams, ref requiredRootField, ref enableMFA, ref sizeMFA, ref shelfLifeMFA, ref oauthTokenURL, ref oauthPrivateKey, ref oauthPublicKey, ref oauthClientId, ref oauthSecretKey, ref body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1589,9 +1554,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/network/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/network/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/network/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/network/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1668,13 +1632,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/network/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/network/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateNetworkDefaultImplementation(apiResponseLocalVar, version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+                        AfterCreateNetworkDefaultImplementation(apiResponseLocalVar, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
 
                         Events.ExecuteOnCreateNetwork(apiResponseLocalVar);
 
@@ -1684,7 +1648,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateNetworkDefaultImplementation(e, "/api/{version}/thirdparty/network/create", uriBuilderLocalVar.Path, version, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+                OnErrorCreateNetworkDefaultImplementation(e, "/thirdparty/network/create", uriBuilderLocalVar.Path, accountId, name, enableIntrospection, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
                 Events.ExecuteOnErrorCreateNetwork(e);
                 throw;
             }
@@ -1783,7 +1747,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteCredential(ref decimal version, ref long accountId, ref string networkUID, ref string thirdPartyId, ref string appKey);
+        partial void FormatDeleteCredential(ref long accountId, ref string networkUID, ref string thirdPartyId, ref string appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1808,15 +1772,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="appKey"></param>
-        private void AfterDeleteCredentialDefaultImplementation(IDeleteCredentialApiResponse apiResponseLocalVar, decimal version, long accountId, string networkUID, string thirdPartyId, string appKey)
+        private void AfterDeleteCredentialDefaultImplementation(IDeleteCredentialApiResponse apiResponseLocalVar, long accountId, string networkUID, string thirdPartyId, string appKey)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteCredential(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, networkUID, thirdPartyId, appKey);
+            AfterDeleteCredential(ref suppressDefaultLog, apiResponseLocalVar, accountId, networkUID, thirdPartyId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1826,12 +1789,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="appKey"></param>
-        partial void AfterDeleteCredential(ref bool suppressDefaultLog, IDeleteCredentialApiResponse apiResponseLocalVar, decimal version, long accountId, string networkUID, string thirdPartyId, string appKey);
+        partial void AfterDeleteCredential(ref bool suppressDefaultLog, IDeleteCredentialApiResponse apiResponseLocalVar, long accountId, string networkUID, string thirdPartyId, string appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1839,15 +1801,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorDeleteCredentialDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string networkUID, string thirdPartyId, string appKey)
+        private void OnErrorDeleteCredentialDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string networkUID, string thirdPartyId, string appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteCredential(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, networkUID, thirdPartyId, appKey);
+            OnErrorDeleteCredential(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, networkUID, thirdPartyId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1859,28 +1820,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorDeleteCredential(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string networkUID, string thirdPartyId, string appKey);
+        partial void OnErrorDeleteCredential(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string networkUID, string thirdPartyId, string appKey);
 
         /// <summary>
         /// Delete Credential Delete a third party network on a Sirqul account.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="networkUID">The third party network identifier</param>
         /// <param name="thirdPartyId">The third party user id</param>
         /// <param name="appKey">the application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCredentialApiResponse"/>&gt;</returns>
-        public async Task<IDeleteCredentialApiResponse?> DeleteCredentialOrDefaultAsync(decimal version, long accountId, string networkUID, string thirdPartyId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteCredentialApiResponse?> DeleteCredentialOrDefaultAsync(long accountId, string networkUID, string thirdPartyId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteCredentialAsync(version, accountId, networkUID, thirdPartyId, appKey, cancellationToken).ConfigureAwait(false);
+                return await DeleteCredentialAsync(accountId, networkUID, thirdPartyId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1892,14 +1851,13 @@ namespace Org.OpenAPITools.Api
         /// Delete Credential Delete a third party network on a Sirqul account.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="networkUID">The third party network identifier</param>
         /// <param name="thirdPartyId">The third party user id</param>
         /// <param name="appKey">the application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCredentialApiResponse"/>&gt;</returns>
-        public async Task<IDeleteCredentialApiResponse> DeleteCredentialAsync(decimal version, long accountId, string networkUID, string thirdPartyId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteCredentialApiResponse> DeleteCredentialAsync(long accountId, string networkUID, string thirdPartyId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1907,7 +1865,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteCredential(networkUID, thirdPartyId, appKey);
 
-                FormatDeleteCredential(ref version, ref accountId, ref networkUID, ref thirdPartyId, ref appKey);
+                FormatDeleteCredential(ref accountId, ref networkUID, ref thirdPartyId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1915,9 +1873,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/credential/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/credential/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/credential/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/credential/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1951,13 +1908,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/credential/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/credential/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteCredentialDefaultImplementation(apiResponseLocalVar, version, accountId, networkUID, thirdPartyId, appKey);
+                        AfterDeleteCredentialDefaultImplementation(apiResponseLocalVar, accountId, networkUID, thirdPartyId, appKey);
 
                         Events.ExecuteOnDeleteCredential(apiResponseLocalVar);
 
@@ -1967,7 +1924,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteCredentialDefaultImplementation(e, "/api/{version}/thirdparty/credential/delete", uriBuilderLocalVar.Path, version, accountId, networkUID, thirdPartyId, appKey);
+                OnErrorDeleteCredentialDefaultImplementation(e, "/thirdparty/credential/delete", uriBuilderLocalVar.Path, accountId, networkUID, thirdPartyId, appKey);
                 Events.ExecuteOnErrorDeleteCredential(e);
                 throw;
             }
@@ -2066,7 +2023,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteNetwork(ref decimal version, ref long accountId, ref string networkUID);
+        partial void FormatDeleteNetwork(ref long accountId, ref string networkUID);
 
         /// <summary>
         /// Validates the request parameters
@@ -2083,13 +2040,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
-        private void AfterDeleteNetworkDefaultImplementation(IDeleteNetworkApiResponse apiResponseLocalVar, decimal version, long accountId, string networkUID)
+        private void AfterDeleteNetworkDefaultImplementation(IDeleteNetworkApiResponse apiResponseLocalVar, long accountId, string networkUID)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteNetwork(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, networkUID);
+            AfterDeleteNetwork(ref suppressDefaultLog, apiResponseLocalVar, accountId, networkUID);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2099,10 +2055,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
-        partial void AfterDeleteNetwork(ref bool suppressDefaultLog, IDeleteNetworkApiResponse apiResponseLocalVar, decimal version, long accountId, string networkUID);
+        partial void AfterDeleteNetwork(ref bool suppressDefaultLog, IDeleteNetworkApiResponse apiResponseLocalVar, long accountId, string networkUID);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2110,13 +2065,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
-        private void OnErrorDeleteNetworkDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string networkUID)
+        private void OnErrorDeleteNetworkDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string networkUID)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteNetwork(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, networkUID);
+            OnErrorDeleteNetwork(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, networkUID);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2128,24 +2082,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
-        partial void OnErrorDeleteNetwork(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string networkUID);
+        partial void OnErrorDeleteNetwork(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string networkUID);
 
         /// <summary>
         /// Delete Network Marks a custom third party network as deleted. Only the network owners and managers have access to this.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNetworkApiResponse"/>&gt;</returns>
-        public async Task<IDeleteNetworkApiResponse?> DeleteNetworkOrDefaultAsync(decimal version, long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteNetworkApiResponse?> DeleteNetworkOrDefaultAsync(long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteNetworkAsync(version, accountId, networkUID, cancellationToken).ConfigureAwait(false);
+                return await DeleteNetworkAsync(accountId, networkUID, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2157,12 +2109,11 @@ namespace Org.OpenAPITools.Api
         /// Delete Network Marks a custom third party network as deleted. Only the network owners and managers have access to this.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteNetworkApiResponse"/>&gt;</returns>
-        public async Task<IDeleteNetworkApiResponse> DeleteNetworkAsync(decimal version, long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteNetworkApiResponse> DeleteNetworkAsync(long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2170,7 +2121,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteNetwork(networkUID);
 
-                FormatDeleteNetwork(ref version, ref accountId, ref networkUID);
+                FormatDeleteNetwork(ref accountId, ref networkUID);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2178,9 +2129,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/network/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/network/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/network/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/network/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2212,13 +2162,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/network/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/network/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteNetworkDefaultImplementation(apiResponseLocalVar, version, accountId, networkUID);
+                        AfterDeleteNetworkDefaultImplementation(apiResponseLocalVar, accountId, networkUID);
 
                         Events.ExecuteOnDeleteNetwork(apiResponseLocalVar);
 
@@ -2228,7 +2178,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteNetworkDefaultImplementation(e, "/api/{version}/thirdparty/network/delete", uriBuilderLocalVar.Path, version, accountId, networkUID);
+                OnErrorDeleteNetworkDefaultImplementation(e, "/thirdparty/network/delete", uriBuilderLocalVar.Path, accountId, networkUID);
                 Events.ExecuteOnErrorDeleteNetwork(e);
                 throw;
             }
@@ -2327,7 +2277,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCredential(ref decimal version, ref string networkUID, ref string appKey, ref Option<long> accountId, ref Option<string> deviceId, ref Option<string> sessionId, ref Option<long> thirdPartyCredentialId, ref Option<string> thirdPartyToken, ref Option<string> thirdPartySecret, ref Option<bool> createNewAccount, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<long> referralAccountId);
+        partial void FormatGetCredential(ref string networkUID, ref string appKey, ref Option<long> accountId, ref Option<string> deviceId, ref Option<string> sessionId, ref Option<long> thirdPartyCredentialId, ref Option<string> thirdPartyToken, ref Option<string> thirdPartySecret, ref Option<bool> createNewAccount, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<long> referralAccountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -2376,7 +2326,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
@@ -2392,10 +2341,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToAdd"></param>
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="referralAccountId"></param>
-        private void AfterGetCredentialDefaultImplementation(IGetCredentialApiResponse apiResponseLocalVar, decimal version, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<long> thirdPartyCredentialId, Option<string> thirdPartyToken, Option<string> thirdPartySecret, Option<bool> createNewAccount, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId)
+        private void AfterGetCredentialDefaultImplementation(IGetCredentialApiResponse apiResponseLocalVar, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<long> thirdPartyCredentialId, Option<string> thirdPartyToken, Option<string> thirdPartySecret, Option<bool> createNewAccount, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetCredential(ref suppressDefaultLog, apiResponseLocalVar, version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
+            AfterGetCredential(ref suppressDefaultLog, apiResponseLocalVar, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2405,7 +2354,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
@@ -2421,7 +2369,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToAdd"></param>
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="referralAccountId"></param>
-        partial void AfterGetCredential(ref bool suppressDefaultLog, IGetCredentialApiResponse apiResponseLocalVar, decimal version, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<long> thirdPartyCredentialId, Option<string> thirdPartyToken, Option<string> thirdPartySecret, Option<bool> createNewAccount, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId);
+        partial void AfterGetCredential(ref bool suppressDefaultLog, IGetCredentialApiResponse apiResponseLocalVar, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<long> thirdPartyCredentialId, Option<string> thirdPartyToken, Option<string> thirdPartySecret, Option<bool> createNewAccount, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2429,7 +2377,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
@@ -2445,10 +2392,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToAdd"></param>
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="referralAccountId"></param>
-        private void OnErrorGetCredentialDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<long> thirdPartyCredentialId, Option<string> thirdPartyToken, Option<string> thirdPartySecret, Option<bool> createNewAccount, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId)
+        private void OnErrorGetCredentialDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<long> thirdPartyCredentialId, Option<string> thirdPartyToken, Option<string> thirdPartySecret, Option<bool> createNewAccount, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCredential(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
+            OnErrorGetCredential(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2460,7 +2407,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
@@ -2476,12 +2422,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToAdd"></param>
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="referralAccountId"></param>
-        partial void OnErrorGetCredential(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<long> thirdPartyCredentialId, Option<string> thirdPartyToken, Option<string> thirdPartySecret, Option<bool> createNewAccount, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId);
+        partial void OnErrorGetCredential(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string networkUID, string appKey, Option<long> accountId, Option<string> deviceId, Option<string> sessionId, Option<long> thirdPartyCredentialId, Option<string> thirdPartyToken, Option<string> thirdPartySecret, Option<bool> createNewAccount, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId);
 
         /// <summary>
         /// Get Credential Gets the account information given a third party token.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="networkUID">the access provider to authenticate against</param>
         /// <param name="appKey">the application key</param>
         /// <param name="accountId">the unique account id of a specific account that will be bound to the third-party credentials (optional)</param>
@@ -2499,11 +2444,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="referralAccountId">account id of the referrer (inviter-invitee relationship) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCredentialApiResponse"/>&gt;</returns>
-        public async Task<IGetCredentialApiResponse?> GetCredentialOrDefaultAsync(decimal version, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<long> thirdPartyCredentialId = default, Option<string> thirdPartyToken = default, Option<string> thirdPartySecret = default, Option<bool> createNewAccount = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCredentialApiResponse?> GetCredentialOrDefaultAsync(string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<long> thirdPartyCredentialId = default, Option<string> thirdPartyToken = default, Option<string> thirdPartySecret = default, Option<bool> createNewAccount = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCredentialAsync(version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, cancellationToken).ConfigureAwait(false);
+                return await GetCredentialAsync(networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2515,7 +2460,6 @@ namespace Org.OpenAPITools.Api
         /// Get Credential Gets the account information given a third party token.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="networkUID">the access provider to authenticate against</param>
         /// <param name="appKey">the application key</param>
         /// <param name="accountId">the unique account id of a specific account that will be bound to the third-party credentials (optional)</param>
@@ -2533,7 +2477,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="referralAccountId">account id of the referrer (inviter-invitee relationship) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCredentialApiResponse"/>&gt;</returns>
-        public async Task<IGetCredentialApiResponse> GetCredentialAsync(decimal version, string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<long> thirdPartyCredentialId = default, Option<string> thirdPartyToken = default, Option<string> thirdPartySecret = default, Option<bool> createNewAccount = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCredentialApiResponse> GetCredentialAsync(string networkUID, string appKey, Option<long> accountId = default, Option<string> deviceId = default, Option<string> sessionId = default, Option<long> thirdPartyCredentialId = default, Option<string> thirdPartyToken = default, Option<string> thirdPartySecret = default, Option<bool> createNewAccount = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2541,7 +2485,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetCredential(networkUID, appKey, deviceId, sessionId, thirdPartyToken, thirdPartySecret, responseFilters, audienceIdsToAdd, audienceIdsToRemove);
 
-                FormatGetCredential(ref version, ref networkUID, ref appKey, ref accountId, ref deviceId, ref sessionId, ref thirdPartyCredentialId, ref thirdPartyToken, ref thirdPartySecret, ref createNewAccount, ref responseFilters, ref latitude, ref longitude, ref audienceIdsToAdd, ref audienceIdsToRemove, ref referralAccountId);
+                FormatGetCredential(ref networkUID, ref appKey, ref accountId, ref deviceId, ref sessionId, ref thirdPartyCredentialId, ref thirdPartyToken, ref thirdPartySecret, ref createNewAccount, ref responseFilters, ref latitude, ref longitude, ref audienceIdsToAdd, ref audienceIdsToRemove, ref referralAccountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2549,9 +2493,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/credential/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/credential/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/credential/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/credential/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2622,13 +2565,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/credential/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/credential/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCredentialDefaultImplementation(apiResponseLocalVar, version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
+                        AfterGetCredentialDefaultImplementation(apiResponseLocalVar, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
 
                         Events.ExecuteOnGetCredential(apiResponseLocalVar);
 
@@ -2638,7 +2581,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCredentialDefaultImplementation(e, "/api/{version}/thirdparty/credential/get", uriBuilderLocalVar.Path, version, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
+                OnErrorGetCredentialDefaultImplementation(e, "/thirdparty/credential/get", uriBuilderLocalVar.Path, networkUID, appKey, accountId, deviceId, sessionId, thirdPartyCredentialId, thirdPartyToken, thirdPartySecret, createNewAccount, responseFilters, latitude, longitude, audienceIdsToAdd, audienceIdsToRemove, referralAccountId);
                 Events.ExecuteOnErrorGetCredential(e);
                 throw;
             }
@@ -2737,7 +2680,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetNetwork(ref decimal version, ref long accountId, ref string networkUID);
+        partial void FormatGetNetwork(ref long accountId, ref string networkUID);
 
         /// <summary>
         /// Validates the request parameters
@@ -2754,13 +2697,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
-        private void AfterGetNetworkDefaultImplementation(IGetNetworkApiResponse apiResponseLocalVar, decimal version, long accountId, string networkUID)
+        private void AfterGetNetworkDefaultImplementation(IGetNetworkApiResponse apiResponseLocalVar, long accountId, string networkUID)
         {
             bool suppressDefaultLog = false;
-            AfterGetNetwork(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, networkUID);
+            AfterGetNetwork(ref suppressDefaultLog, apiResponseLocalVar, accountId, networkUID);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2770,10 +2712,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
-        partial void AfterGetNetwork(ref bool suppressDefaultLog, IGetNetworkApiResponse apiResponseLocalVar, decimal version, long accountId, string networkUID);
+        partial void AfterGetNetwork(ref bool suppressDefaultLog, IGetNetworkApiResponse apiResponseLocalVar, long accountId, string networkUID);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2781,13 +2722,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
-        private void OnErrorGetNetworkDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string networkUID)
+        private void OnErrorGetNetworkDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string networkUID)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetNetwork(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, networkUID);
+            OnErrorGetNetwork(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, networkUID);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2799,24 +2739,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
-        partial void OnErrorGetNetwork(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string networkUID);
+        partial void OnErrorGetNetwork(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string networkUID);
 
         /// <summary>
         /// Get Network Get the details of a third party network. Only the network owners and managers have access to this.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNetworkApiResponse"/>&gt;</returns>
-        public async Task<IGetNetworkApiResponse?> GetNetworkOrDefaultAsync(decimal version, long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNetworkApiResponse?> GetNetworkOrDefaultAsync(long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetNetworkAsync(version, accountId, networkUID, cancellationToken).ConfigureAwait(false);
+                return await GetNetworkAsync(accountId, networkUID, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2828,12 +2766,11 @@ namespace Org.OpenAPITools.Api
         /// Get Network Get the details of a third party network. Only the network owners and managers have access to this.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNetworkApiResponse"/>&gt;</returns>
-        public async Task<IGetNetworkApiResponse> GetNetworkAsync(decimal version, long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNetworkApiResponse> GetNetworkAsync(long accountId, string networkUID, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2841,7 +2778,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetNetwork(networkUID);
 
-                FormatGetNetwork(ref version, ref accountId, ref networkUID);
+                FormatGetNetwork(ref accountId, ref networkUID);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2849,9 +2786,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/network/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/network/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/network/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/network/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2883,13 +2819,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/network/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/network/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetNetworkDefaultImplementation(apiResponseLocalVar, version, accountId, networkUID);
+                        AfterGetNetworkDefaultImplementation(apiResponseLocalVar, accountId, networkUID);
 
                         Events.ExecuteOnGetNetwork(apiResponseLocalVar);
 
@@ -2899,7 +2835,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetNetworkDefaultImplementation(e, "/api/{version}/thirdparty/network/get", uriBuilderLocalVar.Path, version, accountId, networkUID);
+                OnErrorGetNetworkDefaultImplementation(e, "/thirdparty/network/get", uriBuilderLocalVar.Path, accountId, networkUID);
                 Events.ExecuteOnErrorGetNetwork(e);
                 throw;
             }
@@ -2998,7 +2934,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchCredentials(ref decimal version, ref long accountId, ref Option<string> keyword, ref Option<string> networkUID, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchCredentials(ref long accountId, ref Option<string> keyword, ref Option<string> networkUID, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -3019,17 +2955,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="networkUID"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchCredentialsDefaultImplementation(ISearchCredentialsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<string> networkUID, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchCredentialsDefaultImplementation(ISearchCredentialsApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<string> networkUID, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchCredentials(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, networkUID, descending, start, limit);
+            AfterSearchCredentials(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, networkUID, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3039,14 +2974,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="networkUID"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchCredentials(ref bool suppressDefaultLog, ISearchCredentialsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<string> networkUID, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchCredentials(ref bool suppressDefaultLog, ISearchCredentialsApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<string> networkUID, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3054,17 +2988,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="networkUID"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchCredentialsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<string> networkUID, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchCredentialsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<string> networkUID, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchCredentials(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, networkUID, descending, start, limit);
+            OnErrorSearchCredentials(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, networkUID, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3076,19 +3009,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="networkUID"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchCredentials(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<string> networkUID, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchCredentials(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<string> networkUID, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Credentials Search on a user&#39;s linked third party networks.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="keyword">The keyword used to search on the third party name and network string (optional)</param>
         /// <param name="networkUID">The network UID to filter results with (optional)</param>
@@ -3097,11 +3028,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCredentialsApiResponse"/>&gt;</returns>
-        public async Task<ISearchCredentialsApiResponse?> SearchCredentialsOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<string> networkUID = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCredentialsApiResponse?> SearchCredentialsOrDefaultAsync(long accountId, Option<string> keyword = default, Option<string> networkUID = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchCredentialsAsync(version, accountId, keyword, networkUID, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchCredentialsAsync(accountId, keyword, networkUID, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3113,7 +3044,6 @@ namespace Org.OpenAPITools.Api
         /// Search Credentials Search on a user&#39;s linked third party networks.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="keyword">The keyword used to search on the third party name and network string (optional)</param>
         /// <param name="networkUID">The network UID to filter results with (optional)</param>
@@ -3122,7 +3052,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCredentialsApiResponse"/>&gt;</returns>
-        public async Task<ISearchCredentialsApiResponse> SearchCredentialsAsync(decimal version, long accountId, Option<string> keyword = default, Option<string> networkUID = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCredentialsApiResponse> SearchCredentialsAsync(long accountId, Option<string> keyword = default, Option<string> networkUID = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3130,7 +3060,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchCredentials(keyword, networkUID);
 
-                FormatSearchCredentials(ref version, ref accountId, ref keyword, ref networkUID, ref descending, ref start, ref limit);
+                FormatSearchCredentials(ref accountId, ref keyword, ref networkUID, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3138,9 +3068,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/credential/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/credential/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/credential/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/credential/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3186,13 +3115,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/credential/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/credential/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchCredentialsDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, networkUID, descending, start, limit);
+                        AfterSearchCredentialsDefaultImplementation(apiResponseLocalVar, accountId, keyword, networkUID, descending, start, limit);
 
                         Events.ExecuteOnSearchCredentials(apiResponseLocalVar);
 
@@ -3202,7 +3131,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchCredentialsDefaultImplementation(e, "/api/{version}/thirdparty/credential/search", uriBuilderLocalVar.Path, version, accountId, keyword, networkUID, descending, start, limit);
+                OnErrorSearchCredentialsDefaultImplementation(e, "/thirdparty/credential/search", uriBuilderLocalVar.Path, accountId, keyword, networkUID, descending, start, limit);
                 Events.ExecuteOnErrorSearchCredentials(e);
                 throw;
             }
@@ -3301,7 +3230,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchNetworks(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> keyword, ref Option<bool> filterBillable);
+        partial void FormatSearchNetworks(ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> keyword, ref Option<bool> filterBillable);
 
         /// <summary>
         /// Validates the request parameters
@@ -3322,7 +3251,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3331,10 +3259,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="filterBillable"></param>
-        private void AfterSearchNetworksDefaultImplementation(ISearchNetworksApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<bool> filterBillable)
+        private void AfterSearchNetworksDefaultImplementation(ISearchNetworksApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<bool> filterBillable)
         {
             bool suppressDefaultLog = false;
-            AfterSearchNetworks(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
+            AfterSearchNetworks(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3344,7 +3272,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3353,7 +3280,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="filterBillable"></param>
-        partial void AfterSearchNetworks(ref bool suppressDefaultLog, ISearchNetworksApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<bool> filterBillable);
+        partial void AfterSearchNetworks(ref bool suppressDefaultLog, ISearchNetworksApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<bool> filterBillable);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3361,7 +3288,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3370,10 +3296,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="filterBillable"></param>
-        private void OnErrorSearchNetworksDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<bool> filterBillable)
+        private void OnErrorSearchNetworksDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<bool> filterBillable)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchNetworks(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
+            OnErrorSearchNetworks(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3385,7 +3311,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3394,12 +3319,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="filterBillable"></param>
-        partial void OnErrorSearchNetworks(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<bool> filterBillable);
+        partial void OnErrorSearchNetworks(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<bool> filterBillable);
 
         /// <summary>
         /// Search Networks Search on supported third party networks and custom networks from external users.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="sortField">The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME</param>
         /// <param name="descending">The order to return the search results</param>
@@ -3410,11 +3334,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterBillable">Determines whether to only return applications that the user has access to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNetworksApiResponse"/>&gt;</returns>
-        public async Task<ISearchNetworksApiResponse?> SearchNetworksOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<bool> filterBillable = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchNetworksApiResponse?> SearchNetworksOrDefaultAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<bool> filterBillable = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchNetworksAsync(version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable, cancellationToken).ConfigureAwait(false);
+                return await SearchNetworksAsync(accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3426,7 +3350,6 @@ namespace Org.OpenAPITools.Api
         /// Search Networks Search on supported third party networks and custom networks from external users.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="sortField">The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME</param>
         /// <param name="descending">The order to return the search results</param>
@@ -3437,7 +3360,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterBillable">Determines whether to only return applications that the user has access to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchNetworksApiResponse"/>&gt;</returns>
-        public async Task<ISearchNetworksApiResponse> SearchNetworksAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<bool> filterBillable = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchNetworksApiResponse> SearchNetworksAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<bool> filterBillable = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3445,7 +3368,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchNetworks(sortField, keyword);
 
-                FormatSearchNetworks(ref version, ref accountId, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref keyword, ref filterBillable);
+                FormatSearchNetworks(ref accountId, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref keyword, ref filterBillable);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3453,9 +3376,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/network/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/network/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/network/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/network/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3497,13 +3419,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/network/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/network/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchNetworksDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
+                        AfterSearchNetworksDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
 
                         Events.ExecuteOnSearchNetworks(apiResponseLocalVar);
 
@@ -3513,7 +3435,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchNetworksDefaultImplementation(e, "/api/{version}/thirdparty/network/search", uriBuilderLocalVar.Path, version, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
+                OnErrorSearchNetworksDefaultImplementation(e, "/thirdparty/network/search", uriBuilderLocalVar.Path, accountId, sortField, descending, start, limit, activeOnly, keyword, filterBillable);
                 Events.ExecuteOnErrorSearchNetworks(e);
                 throw;
             }
@@ -3612,7 +3534,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSendMFAChallenge(ref decimal version, ref string networkUID, ref string appKey, ref Option<string> thirdPartyToken, ref Option<long> thirdPartyCredentialId, ref Option<string> deviceId);
+        partial void FormatSendMFAChallenge(ref string networkUID, ref string appKey, ref Option<string> thirdPartyToken, ref Option<long> thirdPartyCredentialId, ref Option<string> deviceId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3641,16 +3563,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="appKey"></param>
         /// <param name="thirdPartyToken"></param>
         /// <param name="thirdPartyCredentialId"></param>
         /// <param name="deviceId"></param>
-        private void AfterSendMFAChallengeDefaultImplementation(ISendMFAChallengeApiResponse apiResponseLocalVar, decimal version, string networkUID, string appKey, Option<string> thirdPartyToken, Option<long> thirdPartyCredentialId, Option<string> deviceId)
+        private void AfterSendMFAChallengeDefaultImplementation(ISendMFAChallengeApiResponse apiResponseLocalVar, string networkUID, string appKey, Option<string> thirdPartyToken, Option<long> thirdPartyCredentialId, Option<string> deviceId)
         {
             bool suppressDefaultLog = false;
-            AfterSendMFAChallenge(ref suppressDefaultLog, apiResponseLocalVar, version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
+            AfterSendMFAChallenge(ref suppressDefaultLog, apiResponseLocalVar, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3660,13 +3581,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="appKey"></param>
         /// <param name="thirdPartyToken"></param>
         /// <param name="thirdPartyCredentialId"></param>
         /// <param name="deviceId"></param>
-        partial void AfterSendMFAChallenge(ref bool suppressDefaultLog, ISendMFAChallengeApiResponse apiResponseLocalVar, decimal version, string networkUID, string appKey, Option<string> thirdPartyToken, Option<long> thirdPartyCredentialId, Option<string> deviceId);
+        partial void AfterSendMFAChallenge(ref bool suppressDefaultLog, ISendMFAChallengeApiResponse apiResponseLocalVar, string networkUID, string appKey, Option<string> thirdPartyToken, Option<long> thirdPartyCredentialId, Option<string> deviceId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3674,16 +3594,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="appKey"></param>
         /// <param name="thirdPartyToken"></param>
         /// <param name="thirdPartyCredentialId"></param>
         /// <param name="deviceId"></param>
-        private void OnErrorSendMFAChallengeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string networkUID, string appKey, Option<string> thirdPartyToken, Option<long> thirdPartyCredentialId, Option<string> deviceId)
+        private void OnErrorSendMFAChallengeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string networkUID, string appKey, Option<string> thirdPartyToken, Option<long> thirdPartyCredentialId, Option<string> deviceId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSendMFAChallenge(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
+            OnErrorSendMFAChallenge(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3695,18 +3614,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="appKey"></param>
         /// <param name="thirdPartyToken"></param>
         /// <param name="thirdPartyCredentialId"></param>
         /// <param name="deviceId"></param>
-        partial void OnErrorSendMFAChallenge(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string networkUID, string appKey, Option<string> thirdPartyToken, Option<long> thirdPartyCredentialId, Option<string> deviceId);
+        partial void OnErrorSendMFAChallenge(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string networkUID, string appKey, Option<string> thirdPartyToken, Option<long> thirdPartyCredentialId, Option<string> deviceId);
 
         /// <summary>
         /// Send MFA Challenge Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="networkUID">the third party network provider that has MFA enabled</param>
         /// <param name="appKey">the application key</param>
         /// <param name="thirdPartyToken">the access token to authenticate with (optional)</param>
@@ -3714,11 +3631,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId">the unique id of the device making the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendMFAChallengeApiResponse"/>&gt;</returns>
-        public async Task<ISendMFAChallengeApiResponse?> SendMFAChallengeOrDefaultAsync(decimal version, string networkUID, string appKey, Option<string> thirdPartyToken = default, Option<long> thirdPartyCredentialId = default, Option<string> deviceId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendMFAChallengeApiResponse?> SendMFAChallengeOrDefaultAsync(string networkUID, string appKey, Option<string> thirdPartyToken = default, Option<long> thirdPartyCredentialId = default, Option<string> deviceId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SendMFAChallengeAsync(version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId, cancellationToken).ConfigureAwait(false);
+                return await SendMFAChallengeAsync(networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3730,7 +3647,6 @@ namespace Org.OpenAPITools.Api
         /// Send MFA Challenge Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="networkUID">the third party network provider that has MFA enabled</param>
         /// <param name="appKey">the application key</param>
         /// <param name="thirdPartyToken">the access token to authenticate with (optional)</param>
@@ -3738,7 +3654,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId">the unique id of the device making the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendMFAChallengeApiResponse"/>&gt;</returns>
-        public async Task<ISendMFAChallengeApiResponse> SendMFAChallengeAsync(decimal version, string networkUID, string appKey, Option<string> thirdPartyToken = default, Option<long> thirdPartyCredentialId = default, Option<string> deviceId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendMFAChallengeApiResponse> SendMFAChallengeAsync(string networkUID, string appKey, Option<string> thirdPartyToken = default, Option<long> thirdPartyCredentialId = default, Option<string> deviceId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3746,7 +3662,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSendMFAChallenge(networkUID, appKey, thirdPartyToken, deviceId);
 
-                FormatSendMFAChallenge(ref version, ref networkUID, ref appKey, ref thirdPartyToken, ref thirdPartyCredentialId, ref deviceId);
+                FormatSendMFAChallenge(ref networkUID, ref appKey, ref thirdPartyToken, ref thirdPartyCredentialId, ref deviceId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3754,9 +3670,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/credential/mfa/send"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/credential/mfa/send");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/credential/mfa/send"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/credential/mfa/send");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3797,13 +3712,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/credential/mfa/send", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/credential/mfa/send", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSendMFAChallengeDefaultImplementation(apiResponseLocalVar, version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
+                        AfterSendMFAChallengeDefaultImplementation(apiResponseLocalVar, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
 
                         Events.ExecuteOnSendMFAChallenge(apiResponseLocalVar);
 
@@ -3813,7 +3728,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSendMFAChallengeDefaultImplementation(e, "/api/{version}/thirdparty/credential/mfa/send", uriBuilderLocalVar.Path, version, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
+                OnErrorSendMFAChallengeDefaultImplementation(e, "/thirdparty/credential/mfa/send", uriBuilderLocalVar.Path, networkUID, appKey, thirdPartyToken, thirdPartyCredentialId, deviceId);
                 Events.ExecuteOnErrorSendMFAChallenge(e);
                 throw;
             }
@@ -3912,7 +3827,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateCredential(ref decimal version, ref string networkUID, ref string thirdPartyId, ref string appKey, ref Option<string> deviceId, ref Option<string> thirdPartyName, ref Option<string> thirdPartyToken, ref Option<string> responseFilters, ref Option<string> metaData, ref Option<string> thirdPartyRefreshToken);
+        partial void FormatUpdateCredential(ref string networkUID, ref string thirdPartyId, ref string appKey, ref Option<string> deviceId, ref Option<string> thirdPartyName, ref Option<string> thirdPartyToken, ref Option<string> responseFilters, ref Option<string> metaData, ref Option<string> thirdPartyRefreshToken);
 
         /// <summary>
         /// Validates the request parameters
@@ -3961,7 +3876,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="appKey"></param>
@@ -3971,10 +3885,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="metaData"></param>
         /// <param name="thirdPartyRefreshToken"></param>
-        private void AfterUpdateCredentialDefaultImplementation(IUpdateCredentialApiResponse apiResponseLocalVar, decimal version, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId, Option<string> thirdPartyName, Option<string> thirdPartyToken, Option<string> responseFilters, Option<string> metaData, Option<string> thirdPartyRefreshToken)
+        private void AfterUpdateCredentialDefaultImplementation(IUpdateCredentialApiResponse apiResponseLocalVar, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId, Option<string> thirdPartyName, Option<string> thirdPartyToken, Option<string> responseFilters, Option<string> metaData, Option<string> thirdPartyRefreshToken)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateCredential(ref suppressDefaultLog, apiResponseLocalVar, version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
+            AfterUpdateCredential(ref suppressDefaultLog, apiResponseLocalVar, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3984,7 +3898,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="appKey"></param>
@@ -3994,7 +3907,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="metaData"></param>
         /// <param name="thirdPartyRefreshToken"></param>
-        partial void AfterUpdateCredential(ref bool suppressDefaultLog, IUpdateCredentialApiResponse apiResponseLocalVar, decimal version, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId, Option<string> thirdPartyName, Option<string> thirdPartyToken, Option<string> responseFilters, Option<string> metaData, Option<string> thirdPartyRefreshToken);
+        partial void AfterUpdateCredential(ref bool suppressDefaultLog, IUpdateCredentialApiResponse apiResponseLocalVar, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId, Option<string> thirdPartyName, Option<string> thirdPartyToken, Option<string> responseFilters, Option<string> metaData, Option<string> thirdPartyRefreshToken);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4002,7 +3915,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="appKey"></param>
@@ -4012,10 +3924,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="metaData"></param>
         /// <param name="thirdPartyRefreshToken"></param>
-        private void OnErrorUpdateCredentialDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId, Option<string> thirdPartyName, Option<string> thirdPartyToken, Option<string> responseFilters, Option<string> metaData, Option<string> thirdPartyRefreshToken)
+        private void OnErrorUpdateCredentialDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId, Option<string> thirdPartyName, Option<string> thirdPartyToken, Option<string> responseFilters, Option<string> metaData, Option<string> thirdPartyRefreshToken)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateCredential(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
+            OnErrorUpdateCredential(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4027,7 +3939,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="networkUID"></param>
         /// <param name="thirdPartyId"></param>
         /// <param name="appKey"></param>
@@ -4037,12 +3948,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="metaData"></param>
         /// <param name="thirdPartyRefreshToken"></param>
-        partial void OnErrorUpdateCredential(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId, Option<string> thirdPartyName, Option<string> thirdPartyToken, Option<string> responseFilters, Option<string> metaData, Option<string> thirdPartyRefreshToken);
+        partial void OnErrorUpdateCredential(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId, Option<string> thirdPartyName, Option<string> thirdPartyToken, Option<string> responseFilters, Option<string> metaData, Option<string> thirdPartyRefreshToken);
 
         /// <summary>
         /// Update Credential Updates a third-party login for an account.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="networkUID">the access provider to authenticate against</param>
         /// <param name="thirdPartyId">the third party user account id</param>
         /// <param name="appKey">the application key</param>
@@ -4054,11 +3964,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyRefreshToken">optional refresh token for the third party (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCredentialApiResponse"/>&gt;</returns>
-        public async Task<IUpdateCredentialApiResponse?> UpdateCredentialOrDefaultAsync(decimal version, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId = default, Option<string> thirdPartyName = default, Option<string> thirdPartyToken = default, Option<string> responseFilters = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateCredentialApiResponse?> UpdateCredentialOrDefaultAsync(string networkUID, string thirdPartyId, string appKey, Option<string> deviceId = default, Option<string> thirdPartyName = default, Option<string> thirdPartyToken = default, Option<string> responseFilters = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateCredentialAsync(version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken, cancellationToken).ConfigureAwait(false);
+                return await UpdateCredentialAsync(networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4070,7 +3980,6 @@ namespace Org.OpenAPITools.Api
         /// Update Credential Updates a third-party login for an account.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="networkUID">the access provider to authenticate against</param>
         /// <param name="thirdPartyId">the third party user account id</param>
         /// <param name="appKey">the application key</param>
@@ -4082,7 +3991,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyRefreshToken">optional refresh token for the third party (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCredentialApiResponse"/>&gt;</returns>
-        public async Task<IUpdateCredentialApiResponse> UpdateCredentialAsync(decimal version, string networkUID, string thirdPartyId, string appKey, Option<string> deviceId = default, Option<string> thirdPartyName = default, Option<string> thirdPartyToken = default, Option<string> responseFilters = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateCredentialApiResponse> UpdateCredentialAsync(string networkUID, string thirdPartyId, string appKey, Option<string> deviceId = default, Option<string> thirdPartyName = default, Option<string> thirdPartyToken = default, Option<string> responseFilters = default, Option<string> metaData = default, Option<string> thirdPartyRefreshToken = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4090,7 +3999,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateCredential(networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
 
-                FormatUpdateCredential(ref version, ref networkUID, ref thirdPartyId, ref appKey, ref deviceId, ref thirdPartyName, ref thirdPartyToken, ref responseFilters, ref metaData, ref thirdPartyRefreshToken);
+                FormatUpdateCredential(ref networkUID, ref thirdPartyId, ref appKey, ref deviceId, ref thirdPartyName, ref thirdPartyToken, ref responseFilters, ref metaData, ref thirdPartyRefreshToken);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4098,9 +4007,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/credential/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/credential/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/credential/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/credential/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4151,13 +4059,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/credential/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/credential/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateCredentialDefaultImplementation(apiResponseLocalVar, version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
+                        AfterUpdateCredentialDefaultImplementation(apiResponseLocalVar, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
 
                         Events.ExecuteOnUpdateCredential(apiResponseLocalVar);
 
@@ -4167,7 +4075,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateCredentialDefaultImplementation(e, "/api/{version}/thirdparty/credential/update", uriBuilderLocalVar.Path, version, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
+                OnErrorUpdateCredentialDefaultImplementation(e, "/thirdparty/credential/update", uriBuilderLocalVar.Path, networkUID, thirdPartyId, appKey, deviceId, thirdPartyName, thirdPartyToken, responseFilters, metaData, thirdPartyRefreshToken);
                 Events.ExecuteOnErrorUpdateCredential(e);
                 throw;
             }
@@ -4266,7 +4174,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateNetwork(ref decimal version, ref long accountId, ref string networkUID, ref Option<string> name, ref Option<string> description, ref Option<bool> enableIntrospection, ref Option<string> introspectionMethod, ref Option<string> introspectionURL, ref Option<string> introspectionParams, ref Option<string> requiredRootField, ref Option<bool> enableMFA, ref Option<int> sizeMFA, ref Option<int> shelfLifeMFA, ref Option<string> oauthTokenURL, ref Option<System.IO.Stream> oauthPrivateKey, ref Option<System.IO.Stream> oauthPublicKey, ref Option<string> oauthClientId, ref Option<string> oauthSecretKey, ref Option<string> body);
+        partial void FormatUpdateNetwork(ref long accountId, ref string networkUID, ref Option<string> name, ref Option<string> description, ref Option<bool> enableIntrospection, ref Option<string> introspectionMethod, ref Option<string> introspectionURL, ref Option<string> introspectionParams, ref Option<string> requiredRootField, ref Option<bool> enableMFA, ref Option<int> sizeMFA, ref Option<int> shelfLifeMFA, ref Option<string> oauthTokenURL, ref Option<System.IO.Stream> oauthPrivateKey, ref Option<System.IO.Stream> oauthPublicKey, ref Option<string> oauthClientId, ref Option<string> oauthSecretKey, ref Option<string> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -4331,7 +4239,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
         /// <param name="name"></param>
@@ -4350,10 +4257,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="oauthClientId"></param>
         /// <param name="oauthSecretKey"></param>
         /// <param name="body"></param>
-        private void AfterUpdateNetworkDefaultImplementation(IUpdateNetworkApiResponse apiResponseLocalVar, decimal version, long accountId, string networkUID, Option<string> name, Option<string> description, Option<bool> enableIntrospection, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body)
+        private void AfterUpdateNetworkDefaultImplementation(IUpdateNetworkApiResponse apiResponseLocalVar, long accountId, string networkUID, Option<string> name, Option<string> description, Option<bool> enableIntrospection, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateNetwork(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+            AfterUpdateNetwork(ref suppressDefaultLog, apiResponseLocalVar, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4363,7 +4270,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
         /// <param name="name"></param>
@@ -4382,7 +4288,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="oauthClientId"></param>
         /// <param name="oauthSecretKey"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateNetwork(ref bool suppressDefaultLog, IUpdateNetworkApiResponse apiResponseLocalVar, decimal version, long accountId, string networkUID, Option<string> name, Option<string> description, Option<bool> enableIntrospection, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body);
+        partial void AfterUpdateNetwork(ref bool suppressDefaultLog, IUpdateNetworkApiResponse apiResponseLocalVar, long accountId, string networkUID, Option<string> name, Option<string> description, Option<bool> enableIntrospection, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4390,7 +4296,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
         /// <param name="name"></param>
@@ -4409,10 +4314,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="oauthClientId"></param>
         /// <param name="oauthSecretKey"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateNetworkDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string networkUID, Option<string> name, Option<string> description, Option<bool> enableIntrospection, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body)
+        private void OnErrorUpdateNetworkDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string networkUID, Option<string> name, Option<string> description, Option<bool> enableIntrospection, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateNetwork(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+            OnErrorUpdateNetwork(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4424,7 +4329,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="networkUID"></param>
         /// <param name="name"></param>
@@ -4443,12 +4347,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="oauthClientId"></param>
         /// <param name="oauthSecretKey"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateNetwork(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string networkUID, Option<string> name, Option<string> description, Option<bool> enableIntrospection, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body);
+        partial void OnErrorUpdateNetwork(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string networkUID, Option<string> name, Option<string> description, Option<bool> enableIntrospection, Option<string> introspectionMethod, Option<string> introspectionURL, Option<string> introspectionParams, Option<string> requiredRootField, Option<bool> enableMFA, Option<int> sizeMFA, Option<int> shelfLifeMFA, Option<string> oauthTokenURL, Option<System.IO.Stream> oauthPrivateKey, Option<System.IO.Stream> oauthPublicKey, Option<string> oauthClientId, Option<string> oauthSecretKey, Option<string> body);
 
         /// <summary>
         /// Update Network Updates a custom third party network. Only the network owners and managers have access to this.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="name">The name of the network (optional)</param>
@@ -4469,11 +4372,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNetworkApiResponse"/>&gt;</returns>
-        public async Task<IUpdateNetworkApiResponse?> UpdateNetworkOrDefaultAsync(decimal version, long accountId, string networkUID, Option<string> name = default, Option<string> description = default, Option<bool> enableIntrospection = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateNetworkApiResponse?> UpdateNetworkOrDefaultAsync(long accountId, string networkUID, Option<string> name = default, Option<string> description = default, Option<bool> enableIntrospection = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateNetworkAsync(version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateNetworkAsync(accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4485,7 +4388,6 @@ namespace Org.OpenAPITools.Api
         /// Update Network Updates a custom third party network. Only the network owners and managers have access to this.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id making the request</param>
         /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
         /// <param name="name">The name of the network (optional)</param>
@@ -4506,7 +4408,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateNetworkApiResponse"/>&gt;</returns>
-        public async Task<IUpdateNetworkApiResponse> UpdateNetworkAsync(decimal version, long accountId, string networkUID, Option<string> name = default, Option<string> description = default, Option<bool> enableIntrospection = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateNetworkApiResponse> UpdateNetworkAsync(long accountId, string networkUID, Option<string> name = default, Option<string> description = default, Option<bool> enableIntrospection = default, Option<string> introspectionMethod = default, Option<string> introspectionURL = default, Option<string> introspectionParams = default, Option<string> requiredRootField = default, Option<bool> enableMFA = default, Option<int> sizeMFA = default, Option<int> shelfLifeMFA = default, Option<string> oauthTokenURL = default, Option<System.IO.Stream> oauthPrivateKey = default, Option<System.IO.Stream> oauthPublicKey = default, Option<string> oauthClientId = default, Option<string> oauthSecretKey = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4514,7 +4416,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateNetwork(networkUID, name, description, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
 
-                FormatUpdateNetwork(ref version, ref accountId, ref networkUID, ref name, ref description, ref enableIntrospection, ref introspectionMethod, ref introspectionURL, ref introspectionParams, ref requiredRootField, ref enableMFA, ref sizeMFA, ref shelfLifeMFA, ref oauthTokenURL, ref oauthPrivateKey, ref oauthPublicKey, ref oauthClientId, ref oauthSecretKey, ref body);
+                FormatUpdateNetwork(ref accountId, ref networkUID, ref name, ref description, ref enableIntrospection, ref introspectionMethod, ref introspectionURL, ref introspectionParams, ref requiredRootField, ref enableMFA, ref sizeMFA, ref shelfLifeMFA, ref oauthTokenURL, ref oauthPrivateKey, ref oauthPublicKey, ref oauthClientId, ref oauthSecretKey, ref body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4522,9 +4424,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/thirdparty/network/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/thirdparty/network/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/thirdparty/network/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/thirdparty/network/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4606,13 +4507,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/thirdparty/network/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/thirdparty/network/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateNetworkDefaultImplementation(apiResponseLocalVar, version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+                        AfterUpdateNetworkDefaultImplementation(apiResponseLocalVar, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
 
                         Events.ExecuteOnUpdateNetwork(apiResponseLocalVar);
 
@@ -4622,7 +4523,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateNetworkDefaultImplementation(e, "/api/{version}/thirdparty/network/update", uriBuilderLocalVar.Path, version, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
+                OnErrorUpdateNetworkDefaultImplementation(e, "/thirdparty/network/update", uriBuilderLocalVar.Path, accountId, networkUID, name, description, enableIntrospection, introspectionMethod, introspectionURL, introspectionParams, requiredRootField, enableMFA, sizeMFA, shelfLifeMFA, oauthTokenURL, oauthPrivateKey, oauthPublicKey, oauthClientId, oauthSecretKey, body);
                 Events.ExecuteOnErrorUpdateNetwork(e);
                 throw;
             }

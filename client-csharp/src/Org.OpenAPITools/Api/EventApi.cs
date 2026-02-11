@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         ///  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application of where to send notifications about the attend action (optional)</param>
@@ -58,7 +57,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The location of the status update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAttendEventApiResponse"/>&gt;</returns>
-        Task<IAttendEventApiResponse> AttendEventAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> listingId = default, Option<long> retailerLocationId = default, Option<long> offerLocationId = default, Option<long> transactionId = default, Option<int> status = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAttendEventApiResponse> AttendEventAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> listingId = default, Option<long> retailerLocationId = default, Option<long> offerLocationId = default, Option<long> transactionId = default, Option<int> status = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Attend Event
@@ -66,7 +65,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         ///  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application of where to send notifications about the attend action (optional)</param>
@@ -79,7 +77,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The location of the status update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAttendEventApiResponse"/>?&gt;</returns>
-        Task<IAttendEventApiResponse?> AttendEventOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> listingId = default, Option<long> retailerLocationId = default, Option<long> offerLocationId = default, Option<long> transactionId = default, Option<int> status = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAttendEventApiResponse?> AttendEventOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> listingId = default, Option<long> retailerLocationId = default, Option<long> offerLocationId = default, Option<long> transactionId = default, Option<int> status = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Event
@@ -88,7 +86,6 @@ namespace Org.OpenAPITools.Api
         /// Create a private event to share with associates.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The event title</param>
         /// <param name="retailerLocationIds">The retailer location to have the event at (optional)</param>
@@ -103,7 +100,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEventApiResponse"/>&gt;</returns>
-        Task<ICreateEventApiResponse> CreateEventAsync(decimal version, long accountId, string title, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateEventApiResponse> CreateEventAsync(long accountId, string title, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Event
@@ -111,7 +108,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a private event to share with associates.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The event title</param>
         /// <param name="retailerLocationIds">The retailer location to have the event at (optional)</param>
@@ -126,7 +122,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEventApiResponse"/>?&gt;</returns>
-        Task<ICreateEventApiResponse?> CreateEventOrDefaultAsync(decimal version, long accountId, string title, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateEventApiResponse?> CreateEventOrDefaultAsync(long accountId, string title, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Event
@@ -135,12 +131,11 @@ namespace Org.OpenAPITools.Api
         /// Delete an event that the user has permissions to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="eventId">the id of the event to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteEventApiResponse"/>&gt;</returns>
-        Task<IDeleteEventApiResponse> DeleteEventAsync(decimal version, long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteEventApiResponse> DeleteEventAsync(long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Event
@@ -148,12 +143,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an event that the user has permissions to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="eventId">the id of the event to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteEventApiResponse"/>?&gt;</returns>
-        Task<IDeleteEventApiResponse?> DeleteEventOrDefaultAsync(decimal version, long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteEventApiResponse?> DeleteEventOrDefaultAsync(long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Event
@@ -162,12 +156,11 @@ namespace Org.OpenAPITools.Api
         /// Get an event.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="eventId">The id of the event to return</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEventApiResponse"/>&gt;</returns>
-        Task<IGetEventApiResponse> GetEventAsync(decimal version, long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEventApiResponse> GetEventAsync(long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Event
@@ -175,12 +168,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an event.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="eventId">The id of the event to return</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEventApiResponse"/>?&gt;</returns>
-        Task<IGetEventApiResponse?> GetEventOrDefaultAsync(decimal version, long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEventApiResponse?> GetEventOrDefaultAsync(long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Event Attendance
@@ -189,7 +181,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on event type transactions. This can be used to see who is attending an event.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
@@ -211,7 +202,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEventTransactionsApiResponse"/>&gt;</returns>
-        Task<ISearchEventTransactionsApiResponse> SearchEventTransactionsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> excludeRetailerLocationId = default, Option<long> listingId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> customerAccountIds = default, Option<string> affiliatedCategoryIds = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> statuses = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchEventTransactionsApiResponse> SearchEventTransactionsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> excludeRetailerLocationId = default, Option<long> listingId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> customerAccountIds = default, Option<string> affiliatedCategoryIds = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> statuses = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Event Attendance
@@ -219,7 +210,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on event type transactions. This can be used to see who is attending an event.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
@@ -241,7 +231,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEventTransactionsApiResponse"/>?&gt;</returns>
-        Task<ISearchEventTransactionsApiResponse?> SearchEventTransactionsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> excludeRetailerLocationId = default, Option<long> listingId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> customerAccountIds = default, Option<string> affiliatedCategoryIds = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> statuses = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchEventTransactionsApiResponse?> SearchEventTransactionsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> excludeRetailerLocationId = default, Option<long> listingId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> customerAccountIds = default, Option<string> affiliatedCategoryIds = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> statuses = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Events
@@ -250,7 +240,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on events that the account has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
         /// <param name="activeOnly">Return only active results (optional)</param>
@@ -266,7 +255,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEventsApiResponse"/>&gt;</returns>
-        Task<ISearchEventsApiResponse> SearchEventsAsync(decimal version, long accountId, Option<string> keyword = default, Option<bool> activeOnly = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchEventsApiResponse> SearchEventsAsync(long accountId, Option<string> keyword = default, Option<bool> activeOnly = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Events
@@ -274,7 +263,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on events that the account has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
         /// <param name="activeOnly">Return only active results (optional)</param>
@@ -290,7 +278,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEventsApiResponse"/>?&gt;</returns>
-        Task<ISearchEventsApiResponse?> SearchEventsOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<bool> activeOnly = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchEventsApiResponse?> SearchEventsOrDefaultAsync(long accountId, Option<string> keyword = default, Option<bool> activeOnly = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Event
@@ -299,7 +287,6 @@ namespace Org.OpenAPITools.Api
         /// Update a private event to share with associates.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="eventId">The id of the event to update</param>
         /// <param name="retailerLocationIds">The retailer location to have the event at (optional)</param>
@@ -314,7 +301,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableEnd">The event end date/time (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEventApiResponse"/>&gt;</returns>
-        Task<IUpdateEventApiResponse> UpdateEventAsync(decimal version, long accountId, long eventId, Option<string> retailerLocationIds = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateEventApiResponse> UpdateEventAsync(long accountId, long eventId, Option<string> retailerLocationIds = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Event
@@ -322,7 +309,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a private event to share with associates.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="eventId">The id of the event to update</param>
         /// <param name="retailerLocationIds">The retailer location to have the event at (optional)</param>
@@ -337,7 +323,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableEnd">The event end date/time (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEventApiResponse"/>?&gt;</returns>
-        Task<IUpdateEventApiResponse?> UpdateEventOrDefaultAsync(decimal version, long accountId, long eventId, Option<string> retailerLocationIds = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateEventApiResponse?> UpdateEventOrDefaultAsync(long accountId, long eventId, Option<string> retailerLocationIds = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -617,7 +603,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAttendEvent(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<long> listingId, ref Option<long> retailerLocationId, ref Option<long> offerLocationId, ref Option<long> transactionId, ref Option<int> status, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAttendEvent(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<long> listingId, ref Option<long> retailerLocationId, ref Option<long> offerLocationId, ref Option<long> transactionId, ref Option<int> status, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -638,7 +624,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -649,10 +634,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="status"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAttendEventDefaultImplementation(IAttendEventApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> listingId, Option<long> retailerLocationId, Option<long> offerLocationId, Option<long> transactionId, Option<int> status, Option<double> latitude, Option<double> longitude)
+        private void AfterAttendEventDefaultImplementation(IAttendEventApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> listingId, Option<long> retailerLocationId, Option<long> offerLocationId, Option<long> transactionId, Option<int> status, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAttendEvent(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
+            AfterAttendEvent(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -662,7 +647,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -673,7 +657,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="status"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAttendEvent(ref bool suppressDefaultLog, IAttendEventApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> listingId, Option<long> retailerLocationId, Option<long> offerLocationId, Option<long> transactionId, Option<int> status, Option<double> latitude, Option<double> longitude);
+        partial void AfterAttendEvent(ref bool suppressDefaultLog, IAttendEventApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> listingId, Option<long> retailerLocationId, Option<long> offerLocationId, Option<long> transactionId, Option<int> status, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -681,7 +665,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -692,10 +675,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="status"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAttendEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> listingId, Option<long> retailerLocationId, Option<long> offerLocationId, Option<long> transactionId, Option<int> status, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAttendEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> listingId, Option<long> retailerLocationId, Option<long> offerLocationId, Option<long> transactionId, Option<int> status, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAttendEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
+            OnErrorAttendEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -707,7 +690,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -718,12 +700,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="status"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAttendEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> listingId, Option<long> retailerLocationId, Option<long> offerLocationId, Option<long> transactionId, Option<int> status, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAttendEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> listingId, Option<long> retailerLocationId, Option<long> offerLocationId, Option<long> transactionId, Option<int> status, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Attend Event  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application of where to send notifications about the attend action (optional)</param>
@@ -736,11 +717,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The location of the status update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAttendEventApiResponse"/>&gt;</returns>
-        public async Task<IAttendEventApiResponse?> AttendEventOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> listingId = default, Option<long> retailerLocationId = default, Option<long> offerLocationId = default, Option<long> transactionId = default, Option<int> status = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAttendEventApiResponse?> AttendEventOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> listingId = default, Option<long> retailerLocationId = default, Option<long> offerLocationId = default, Option<long> transactionId = default, Option<int> status = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AttendEventAsync(version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AttendEventAsync(deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -752,7 +733,6 @@ namespace Org.OpenAPITools.Api
         /// Attend Event  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application of where to send notifications about the attend action (optional)</param>
@@ -765,7 +745,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The location of the status update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAttendEventApiResponse"/>&gt;</returns>
-        public async Task<IAttendEventApiResponse> AttendEventAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> listingId = default, Option<long> retailerLocationId = default, Option<long> offerLocationId = default, Option<long> transactionId = default, Option<int> status = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAttendEventApiResponse> AttendEventAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> listingId = default, Option<long> retailerLocationId = default, Option<long> offerLocationId = default, Option<long> transactionId = default, Option<int> status = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -773,7 +753,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAttendEvent(deviceId, appKey);
 
-                FormatAttendEvent(ref version, ref deviceId, ref accountId, ref appKey, ref listingId, ref retailerLocationId, ref offerLocationId, ref transactionId, ref status, ref latitude, ref longitude);
+                FormatAttendEvent(ref deviceId, ref accountId, ref appKey, ref listingId, ref retailerLocationId, ref offerLocationId, ref transactionId, ref status, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -781,9 +761,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/event/attend"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/event/attend");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/event/attend"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/event/attend");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -842,13 +821,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/event/attend", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/event/attend", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAttendEventDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
+                        AfterAttendEventDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
 
                         Events.ExecuteOnAttendEvent(apiResponseLocalVar);
 
@@ -858,7 +837,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAttendEventDefaultImplementation(e, "/api/{version}/event/attend", uriBuilderLocalVar.Path, version, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
+                OnErrorAttendEventDefaultImplementation(e, "/event/attend", uriBuilderLocalVar.Path, deviceId, accountId, appKey, listingId, retailerLocationId, offerLocationId, transactionId, status, latitude, longitude);
                 Events.ExecuteOnErrorAttendEvent(e);
                 throw;
             }
@@ -957,7 +936,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateEvent(ref decimal version, ref long accountId, ref string title, ref Option<string> retailerLocationIds, ref Option<string> subTitle, ref Option<string> details, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> active, ref Option<long> imageAssetId, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> metaData);
+        partial void FormatCreateEvent(ref long accountId, ref string title, ref Option<string> retailerLocationIds, ref Option<string> subTitle, ref Option<string> details, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> active, ref Option<long> imageAssetId, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -998,7 +977,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="retailerLocationIds"></param>
@@ -1011,10 +989,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableStart"></param>
         /// <param name="redeemableEnd"></param>
         /// <param name="metaData"></param>
-        private void AfterCreateEventDefaultImplementation(ICreateEventApiResponse apiResponseLocalVar, decimal version, long accountId, string title, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> metaData)
+        private void AfterCreateEventDefaultImplementation(ICreateEventApiResponse apiResponseLocalVar, long accountId, string title, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterCreateEvent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
+            AfterCreateEvent(ref suppressDefaultLog, apiResponseLocalVar, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1024,7 +1002,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="retailerLocationIds"></param>
@@ -1037,7 +1014,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableStart"></param>
         /// <param name="redeemableEnd"></param>
         /// <param name="metaData"></param>
-        partial void AfterCreateEvent(ref bool suppressDefaultLog, ICreateEventApiResponse apiResponseLocalVar, decimal version, long accountId, string title, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> metaData);
+        partial void AfterCreateEvent(ref bool suppressDefaultLog, ICreateEventApiResponse apiResponseLocalVar, long accountId, string title, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1045,7 +1022,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="retailerLocationIds"></param>
@@ -1058,10 +1034,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableStart"></param>
         /// <param name="redeemableEnd"></param>
         /// <param name="metaData"></param>
-        private void OnErrorCreateEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> metaData)
+        private void OnErrorCreateEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
+            OnErrorCreateEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1073,7 +1049,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="retailerLocationIds"></param>
@@ -1086,12 +1061,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableStart"></param>
         /// <param name="redeemableEnd"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorCreateEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> metaData);
+        partial void OnErrorCreateEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, Option<string> retailerLocationIds, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> metaData);
 
         /// <summary>
         /// Create Event Create a private event to share with associates.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The event title</param>
         /// <param name="retailerLocationIds">The retailer location to have the event at (optional)</param>
@@ -1106,11 +1080,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEventApiResponse"/>&gt;</returns>
-        public async Task<ICreateEventApiResponse?> CreateEventOrDefaultAsync(decimal version, long accountId, string title, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateEventApiResponse?> CreateEventOrDefaultAsync(long accountId, string title, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateEventAsync(version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData, cancellationToken).ConfigureAwait(false);
+                return await CreateEventAsync(accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1122,7 +1096,6 @@ namespace Org.OpenAPITools.Api
         /// Create Event Create a private event to share with associates.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The event title</param>
         /// <param name="retailerLocationIds">The retailer location to have the event at (optional)</param>
@@ -1137,7 +1110,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEventApiResponse"/>&gt;</returns>
-        public async Task<ICreateEventApiResponse> CreateEventAsync(decimal version, long accountId, string title, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateEventApiResponse> CreateEventAsync(long accountId, string title, Option<string> retailerLocationIds = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1145,7 +1118,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateEvent(title, retailerLocationIds, subTitle, details, categoryIds, filterIds, metaData);
 
-                FormatCreateEvent(ref version, ref accountId, ref title, ref retailerLocationIds, ref subTitle, ref details, ref categoryIds, ref filterIds, ref active, ref imageAssetId, ref redeemableStart, ref redeemableEnd, ref metaData);
+                FormatCreateEvent(ref accountId, ref title, ref retailerLocationIds, ref subTitle, ref details, ref categoryIds, ref filterIds, ref active, ref imageAssetId, ref redeemableStart, ref redeemableEnd, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1153,9 +1126,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/event/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/event/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/event/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/event/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1217,13 +1189,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/event/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/event/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateEventDefaultImplementation(apiResponseLocalVar, version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
+                        AfterCreateEventDefaultImplementation(apiResponseLocalVar, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
 
                         Events.ExecuteOnCreateEvent(apiResponseLocalVar);
 
@@ -1233,7 +1205,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateEventDefaultImplementation(e, "/api/{version}/event/create", uriBuilderLocalVar.Path, version, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
+                OnErrorCreateEventDefaultImplementation(e, "/event/create", uriBuilderLocalVar.Path, accountId, title, retailerLocationIds, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, metaData);
                 Events.ExecuteOnErrorCreateEvent(e);
                 throw;
             }
@@ -1332,19 +1304,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteEvent(ref decimal version, ref long accountId, ref long eventId);
+        partial void FormatDeleteEvent(ref long accountId, ref long eventId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
-        private void AfterDeleteEventDefaultImplementation(IDeleteEventApiResponse apiResponseLocalVar, decimal version, long accountId, long eventId)
+        private void AfterDeleteEventDefaultImplementation(IDeleteEventApiResponse apiResponseLocalVar, long accountId, long eventId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteEvent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, eventId);
+            AfterDeleteEvent(ref suppressDefaultLog, apiResponseLocalVar, accountId, eventId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1354,10 +1325,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
-        partial void AfterDeleteEvent(ref bool suppressDefaultLog, IDeleteEventApiResponse apiResponseLocalVar, decimal version, long accountId, long eventId);
+        partial void AfterDeleteEvent(ref bool suppressDefaultLog, IDeleteEventApiResponse apiResponseLocalVar, long accountId, long eventId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1365,13 +1335,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
-        private void OnErrorDeleteEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long eventId)
+        private void OnErrorDeleteEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long eventId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, eventId);
+            OnErrorDeleteEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, eventId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1383,24 +1352,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
-        partial void OnErrorDeleteEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long eventId);
+        partial void OnErrorDeleteEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long eventId);
 
         /// <summary>
         /// Delete Event Delete an event that the user has permissions to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="eventId">the id of the event to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteEventApiResponse"/>&gt;</returns>
-        public async Task<IDeleteEventApiResponse?> DeleteEventOrDefaultAsync(decimal version, long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteEventApiResponse?> DeleteEventOrDefaultAsync(long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteEventAsync(version, accountId, eventId, cancellationToken).ConfigureAwait(false);
+                return await DeleteEventAsync(accountId, eventId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1412,18 +1379,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Event Delete an event that the user has permissions to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="eventId">the id of the event to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteEventApiResponse"/>&gt;</returns>
-        public async Task<IDeleteEventApiResponse> DeleteEventAsync(decimal version, long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteEventApiResponse> DeleteEventAsync(long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteEvent(ref version, ref accountId, ref eventId);
+                FormatDeleteEvent(ref accountId, ref eventId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1431,9 +1397,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/event/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/event/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/event/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/event/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1465,13 +1430,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/event/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/event/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteEventDefaultImplementation(apiResponseLocalVar, version, accountId, eventId);
+                        AfterDeleteEventDefaultImplementation(apiResponseLocalVar, accountId, eventId);
 
                         Events.ExecuteOnDeleteEvent(apiResponseLocalVar);
 
@@ -1481,7 +1446,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteEventDefaultImplementation(e, "/api/{version}/event/delete", uriBuilderLocalVar.Path, version, accountId, eventId);
+                OnErrorDeleteEventDefaultImplementation(e, "/event/delete", uriBuilderLocalVar.Path, accountId, eventId);
                 Events.ExecuteOnErrorDeleteEvent(e);
                 throw;
             }
@@ -1580,19 +1545,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetEvent(ref decimal version, ref long accountId, ref long eventId);
+        partial void FormatGetEvent(ref long accountId, ref long eventId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
-        private void AfterGetEventDefaultImplementation(IGetEventApiResponse apiResponseLocalVar, decimal version, long accountId, long eventId)
+        private void AfterGetEventDefaultImplementation(IGetEventApiResponse apiResponseLocalVar, long accountId, long eventId)
         {
             bool suppressDefaultLog = false;
-            AfterGetEvent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, eventId);
+            AfterGetEvent(ref suppressDefaultLog, apiResponseLocalVar, accountId, eventId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1602,10 +1566,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
-        partial void AfterGetEvent(ref bool suppressDefaultLog, IGetEventApiResponse apiResponseLocalVar, decimal version, long accountId, long eventId);
+        partial void AfterGetEvent(ref bool suppressDefaultLog, IGetEventApiResponse apiResponseLocalVar, long accountId, long eventId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1613,13 +1576,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
-        private void OnErrorGetEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long eventId)
+        private void OnErrorGetEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long eventId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, eventId);
+            OnErrorGetEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, eventId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1631,24 +1593,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
-        partial void OnErrorGetEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long eventId);
+        partial void OnErrorGetEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long eventId);
 
         /// <summary>
         /// Get Event Get an event.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="eventId">The id of the event to return</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEventApiResponse"/>&gt;</returns>
-        public async Task<IGetEventApiResponse?> GetEventOrDefaultAsync(decimal version, long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEventApiResponse?> GetEventOrDefaultAsync(long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetEventAsync(version, accountId, eventId, cancellationToken).ConfigureAwait(false);
+                return await GetEventAsync(accountId, eventId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1660,18 +1620,17 @@ namespace Org.OpenAPITools.Api
         /// Get Event Get an event.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="eventId">The id of the event to return</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEventApiResponse"/>&gt;</returns>
-        public async Task<IGetEventApiResponse> GetEventAsync(decimal version, long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEventApiResponse> GetEventAsync(long accountId, long eventId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetEvent(ref version, ref accountId, ref eventId);
+                FormatGetEvent(ref accountId, ref eventId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1679,9 +1638,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/event/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/event/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/event/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/event/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1713,13 +1671,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/event/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/event/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetEventDefaultImplementation(apiResponseLocalVar, version, accountId, eventId);
+                        AfterGetEventDefaultImplementation(apiResponseLocalVar, accountId, eventId);
 
                         Events.ExecuteOnGetEvent(apiResponseLocalVar);
 
@@ -1729,7 +1687,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetEventDefaultImplementation(e, "/api/{version}/event/get", uriBuilderLocalVar.Path, version, accountId, eventId);
+                OnErrorGetEventDefaultImplementation(e, "/event/get", uriBuilderLocalVar.Path, accountId, eventId);
                 Events.ExecuteOnErrorGetEvent(e);
                 throw;
             }
@@ -1828,7 +1786,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchEventTransactions(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> keyword, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<long> excludeRetailerLocationId, ref Option<long> listingId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<string> customerAccountIds, ref Option<string> affiliatedCategoryIds, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> statuses, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchEventTransactions(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> keyword, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<long> excludeRetailerLocationId, ref Option<long> listingId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<string> customerAccountIds, ref Option<string> affiliatedCategoryIds, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> statuses, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1869,7 +1827,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1889,10 +1846,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchEventTransactionsDefaultImplementation(ISearchEventTransactionsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> excludeRetailerLocationId, Option<long> listingId, Option<long> offerId, Option<long> offerLocationId, Option<string> customerAccountIds, Option<string> affiliatedCategoryIds, Option<long> startDate, Option<long> endDate, Option<string> statuses, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchEventTransactionsDefaultImplementation(ISearchEventTransactionsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> excludeRetailerLocationId, Option<long> listingId, Option<long> offerId, Option<long> offerLocationId, Option<string> customerAccountIds, Option<string> affiliatedCategoryIds, Option<long> startDate, Option<long> endDate, Option<string> statuses, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchEventTransactions(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
+            AfterSearchEventTransactions(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1902,7 +1859,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1922,7 +1878,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchEventTransactions(ref bool suppressDefaultLog, ISearchEventTransactionsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> excludeRetailerLocationId, Option<long> listingId, Option<long> offerId, Option<long> offerLocationId, Option<string> customerAccountIds, Option<string> affiliatedCategoryIds, Option<long> startDate, Option<long> endDate, Option<string> statuses, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchEventTransactions(ref bool suppressDefaultLog, ISearchEventTransactionsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> excludeRetailerLocationId, Option<long> listingId, Option<long> offerId, Option<long> offerLocationId, Option<string> customerAccountIds, Option<string> affiliatedCategoryIds, Option<long> startDate, Option<long> endDate, Option<string> statuses, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1930,7 +1886,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1950,10 +1905,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchEventTransactionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> excludeRetailerLocationId, Option<long> listingId, Option<long> offerId, Option<long> offerLocationId, Option<string> customerAccountIds, Option<string> affiliatedCategoryIds, Option<long> startDate, Option<long> endDate, Option<string> statuses, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchEventTransactionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> excludeRetailerLocationId, Option<long> listingId, Option<long> offerId, Option<long> offerLocationId, Option<string> customerAccountIds, Option<string> affiliatedCategoryIds, Option<long> startDate, Option<long> endDate, Option<string> statuses, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchEventTransactions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
+            OnErrorSearchEventTransactions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1965,7 +1920,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1985,12 +1939,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchEventTransactions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> excludeRetailerLocationId, Option<long> listingId, Option<long> offerId, Option<long> offerLocationId, Option<string> customerAccountIds, Option<string> affiliatedCategoryIds, Option<long> startDate, Option<long> endDate, Option<string> statuses, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchEventTransactions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> excludeRetailerLocationId, Option<long> listingId, Option<long> offerId, Option<long> offerLocationId, Option<string> customerAccountIds, Option<string> affiliatedCategoryIds, Option<long> startDate, Option<long> endDate, Option<string> statuses, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Event Attendance Searches on event type transactions. This can be used to see who is attending an event.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
@@ -2012,11 +1965,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEventTransactionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchEventTransactionsApiResponse?> SearchEventTransactionsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> excludeRetailerLocationId = default, Option<long> listingId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> customerAccountIds = default, Option<string> affiliatedCategoryIds = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> statuses = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchEventTransactionsApiResponse?> SearchEventTransactionsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> excludeRetailerLocationId = default, Option<long> listingId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> customerAccountIds = default, Option<string> affiliatedCategoryIds = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> statuses = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchEventTransactionsAsync(version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchEventTransactionsAsync(deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2028,7 +1981,6 @@ namespace Org.OpenAPITools.Api
         /// Search Event Attendance Searches on event type transactions. This can be used to see who is attending an event.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
@@ -2050,7 +2002,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEventTransactionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchEventTransactionsApiResponse> SearchEventTransactionsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> excludeRetailerLocationId = default, Option<long> listingId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> customerAccountIds = default, Option<string> affiliatedCategoryIds = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> statuses = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchEventTransactionsApiResponse> SearchEventTransactionsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> excludeRetailerLocationId = default, Option<long> listingId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> customerAccountIds = default, Option<string> affiliatedCategoryIds = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> statuses = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2058,7 +2010,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchEventTransactions(deviceId, appKey, keyword, customerAccountIds, affiliatedCategoryIds, statuses, sortField);
 
-                FormatSearchEventTransactions(ref version, ref deviceId, ref accountId, ref appKey, ref keyword, ref retailerId, ref retailerLocationId, ref excludeRetailerLocationId, ref listingId, ref offerId, ref offerLocationId, ref customerAccountIds, ref affiliatedCategoryIds, ref startDate, ref endDate, ref statuses, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchEventTransactions(ref deviceId, ref accountId, ref appKey, ref keyword, ref retailerId, ref retailerLocationId, ref excludeRetailerLocationId, ref listingId, ref offerId, ref offerLocationId, ref customerAccountIds, ref affiliatedCategoryIds, ref startDate, ref endDate, ref statuses, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2066,9 +2018,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/event/attendance/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/event/attendance/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/event/attendance/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/event/attendance/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2154,13 +2105,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/event/attendance/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/event/attendance/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchEventTransactionsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
+                        AfterSearchEventTransactionsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchEventTransactions(apiResponseLocalVar);
 
@@ -2170,7 +2121,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchEventTransactionsDefaultImplementation(e, "/api/{version}/event/attendance/search", uriBuilderLocalVar.Path, version, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
+                OnErrorSearchEventTransactionsDefaultImplementation(e, "/event/attendance/search", uriBuilderLocalVar.Path, deviceId, accountId, appKey, keyword, retailerId, retailerLocationId, excludeRetailerLocationId, listingId, offerId, offerLocationId, customerAccountIds, affiliatedCategoryIds, startDate, endDate, statuses, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchEventTransactions(e);
                 throw;
             }
@@ -2269,7 +2220,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchEvents(ref decimal version, ref long accountId, ref Option<string> keyword, ref Option<bool> activeOnly, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> offerAudienceIds, ref Option<string> transactionAudienceIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<long> startDate, ref Option<long> endDate, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchEvents(ref long accountId, ref Option<string> keyword, ref Option<bool> activeOnly, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> offerAudienceIds, ref Option<string> transactionAudienceIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<long> startDate, ref Option<long> endDate, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2306,7 +2257,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="activeOnly"></param>
@@ -2320,10 +2270,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchEventsDefaultImplementation(ISearchEventsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<bool> activeOnly, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> sortField, Option<bool> descending, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
+        private void AfterSearchEventsDefaultImplementation(ISearchEventsApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<bool> activeOnly, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> sortField, Option<bool> descending, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchEvents(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
+            AfterSearchEvents(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2333,7 +2283,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="activeOnly"></param>
@@ -2347,7 +2296,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchEvents(ref bool suppressDefaultLog, ISearchEventsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<bool> activeOnly, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> sortField, Option<bool> descending, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
+        partial void AfterSearchEvents(ref bool suppressDefaultLog, ISearchEventsApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<bool> activeOnly, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> sortField, Option<bool> descending, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2355,7 +2304,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="activeOnly"></param>
@@ -2369,10 +2317,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchEventsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<bool> activeOnly, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> sortField, Option<bool> descending, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
+        private void OnErrorSearchEventsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<bool> activeOnly, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> sortField, Option<bool> descending, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchEvents(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
+            OnErrorSearchEvents(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2384,7 +2332,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="activeOnly"></param>
@@ -2398,12 +2345,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchEvents(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<bool> activeOnly, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> sortField, Option<bool> descending, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchEvents(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<bool> activeOnly, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> transactionAudienceIds, Option<string> sortField, Option<bool> descending, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Events Searches on events that the account has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
         /// <param name="activeOnly">Return only active results (optional)</param>
@@ -2419,11 +2365,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEventsApiResponse"/>&gt;</returns>
-        public async Task<ISearchEventsApiResponse?> SearchEventsOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<bool> activeOnly = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchEventsApiResponse?> SearchEventsOrDefaultAsync(long accountId, Option<string> keyword = default, Option<bool> activeOnly = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchEventsAsync(version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchEventsAsync(accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2435,7 +2381,6 @@ namespace Org.OpenAPITools.Api
         /// Search Events Searches on events that the account has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
         /// <param name="activeOnly">Return only active results (optional)</param>
@@ -2451,7 +2396,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchEventsApiResponse"/>&gt;</returns>
-        public async Task<ISearchEventsApiResponse> SearchEventsAsync(decimal version, long accountId, Option<string> keyword = default, Option<bool> activeOnly = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchEventsApiResponse> SearchEventsAsync(long accountId, Option<string> keyword = default, Option<bool> activeOnly = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> transactionAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2459,7 +2404,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchEvents(keyword, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField);
 
-                FormatSearchEvents(ref version, ref accountId, ref keyword, ref activeOnly, ref categoryIds, ref filterIds, ref offerAudienceIds, ref transactionAudienceIds, ref sortField, ref descending, ref startDate, ref endDate, ref start, ref limit);
+                FormatSearchEvents(ref accountId, ref keyword, ref activeOnly, ref categoryIds, ref filterIds, ref offerAudienceIds, ref transactionAudienceIds, ref sortField, ref descending, ref startDate, ref endDate, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2467,9 +2412,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/event/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/event/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/event/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/event/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2536,13 +2480,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/event/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/event/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchEventsDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
+                        AfterSearchEventsDefaultImplementation(apiResponseLocalVar, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
 
                         Events.ExecuteOnSearchEvents(apiResponseLocalVar);
 
@@ -2552,7 +2496,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchEventsDefaultImplementation(e, "/api/{version}/event/search", uriBuilderLocalVar.Path, version, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
+                OnErrorSearchEventsDefaultImplementation(e, "/event/search", uriBuilderLocalVar.Path, accountId, keyword, activeOnly, categoryIds, filterIds, offerAudienceIds, transactionAudienceIds, sortField, descending, startDate, endDate, start, limit);
                 Events.ExecuteOnErrorSearchEvents(e);
                 throw;
             }
@@ -2651,7 +2595,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateEvent(ref decimal version, ref long accountId, ref long eventId, ref Option<string> retailerLocationIds, ref Option<string> title, ref Option<string> subTitle, ref Option<string> details, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> active, ref Option<long> imageAssetId, ref Option<long> redeemableStart, ref Option<long> redeemableEnd);
+        partial void FormatUpdateEvent(ref long accountId, ref long eventId, ref Option<string> retailerLocationIds, ref Option<string> title, ref Option<string> subTitle, ref Option<string> details, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> active, ref Option<long> imageAssetId, ref Option<long> redeemableStart, ref Option<long> redeemableEnd);
 
         /// <summary>
         /// Validates the request parameters
@@ -2688,7 +2632,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
         /// <param name="retailerLocationIds"></param>
@@ -2701,10 +2644,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="imageAssetId"></param>
         /// <param name="redeemableStart"></param>
         /// <param name="redeemableEnd"></param>
-        private void AfterUpdateEventDefaultImplementation(IUpdateEventApiResponse apiResponseLocalVar, decimal version, long accountId, long eventId, Option<string> retailerLocationIds, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd)
+        private void AfterUpdateEventDefaultImplementation(IUpdateEventApiResponse apiResponseLocalVar, long accountId, long eventId, Option<string> retailerLocationIds, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateEvent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
+            AfterUpdateEvent(ref suppressDefaultLog, apiResponseLocalVar, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2714,7 +2657,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
         /// <param name="retailerLocationIds"></param>
@@ -2727,7 +2669,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="imageAssetId"></param>
         /// <param name="redeemableStart"></param>
         /// <param name="redeemableEnd"></param>
-        partial void AfterUpdateEvent(ref bool suppressDefaultLog, IUpdateEventApiResponse apiResponseLocalVar, decimal version, long accountId, long eventId, Option<string> retailerLocationIds, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd);
+        partial void AfterUpdateEvent(ref bool suppressDefaultLog, IUpdateEventApiResponse apiResponseLocalVar, long accountId, long eventId, Option<string> retailerLocationIds, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2735,7 +2677,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
         /// <param name="retailerLocationIds"></param>
@@ -2748,10 +2689,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="imageAssetId"></param>
         /// <param name="redeemableStart"></param>
         /// <param name="redeemableEnd"></param>
-        private void OnErrorUpdateEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long eventId, Option<string> retailerLocationIds, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd)
+        private void OnErrorUpdateEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long eventId, Option<string> retailerLocationIds, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
+            OnErrorUpdateEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2763,7 +2704,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="eventId"></param>
         /// <param name="retailerLocationIds"></param>
@@ -2776,12 +2716,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="imageAssetId"></param>
         /// <param name="redeemableStart"></param>
         /// <param name="redeemableEnd"></param>
-        partial void OnErrorUpdateEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long eventId, Option<string> retailerLocationIds, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd);
+        partial void OnErrorUpdateEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long eventId, Option<string> retailerLocationIds, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> imageAssetId, Option<long> redeemableStart, Option<long> redeemableEnd);
 
         /// <summary>
         /// Update Event Update a private event to share with associates.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="eventId">The id of the event to update</param>
         /// <param name="retailerLocationIds">The retailer location to have the event at (optional)</param>
@@ -2796,11 +2735,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableEnd">The event end date/time (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEventApiResponse"/>&gt;</returns>
-        public async Task<IUpdateEventApiResponse?> UpdateEventOrDefaultAsync(decimal version, long accountId, long eventId, Option<string> retailerLocationIds = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateEventApiResponse?> UpdateEventOrDefaultAsync(long accountId, long eventId, Option<string> retailerLocationIds = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateEventAsync(version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, cancellationToken).ConfigureAwait(false);
+                return await UpdateEventAsync(accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2812,7 +2751,6 @@ namespace Org.OpenAPITools.Api
         /// Update Event Update a private event to share with associates.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="eventId">The id of the event to update</param>
         /// <param name="retailerLocationIds">The retailer location to have the event at (optional)</param>
@@ -2827,7 +2765,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableEnd">The event end date/time (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEventApiResponse"/>&gt;</returns>
-        public async Task<IUpdateEventApiResponse> UpdateEventAsync(decimal version, long accountId, long eventId, Option<string> retailerLocationIds = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateEventApiResponse> UpdateEventAsync(long accountId, long eventId, Option<string> retailerLocationIds = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> imageAssetId = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2835,7 +2773,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateEvent(retailerLocationIds, title, subTitle, details, categoryIds, filterIds);
 
-                FormatUpdateEvent(ref version, ref accountId, ref eventId, ref retailerLocationIds, ref title, ref subTitle, ref details, ref categoryIds, ref filterIds, ref active, ref imageAssetId, ref redeemableStart, ref redeemableEnd);
+                FormatUpdateEvent(ref accountId, ref eventId, ref retailerLocationIds, ref title, ref subTitle, ref details, ref categoryIds, ref filterIds, ref active, ref imageAssetId, ref redeemableStart, ref redeemableEnd);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2843,9 +2781,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/event/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/event/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/event/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/event/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2907,13 +2844,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/event/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/event/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateEventDefaultImplementation(apiResponseLocalVar, version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
+                        AfterUpdateEventDefaultImplementation(apiResponseLocalVar, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
 
                         Events.ExecuteOnUpdateEvent(apiResponseLocalVar);
 
@@ -2923,7 +2860,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateEventDefaultImplementation(e, "/api/{version}/event/update", uriBuilderLocalVar.Path, version, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
+                OnErrorUpdateEventDefaultImplementation(e, "/event/update", uriBuilderLocalVar.Path, accountId, eventId, retailerLocationIds, title, subTitle, details, categoryIds, filterIds, active, imageAssetId, redeemableStart, redeemableEnd);
                 Events.ExecuteOnErrorUpdateEvent(e);
                 throw;
             }

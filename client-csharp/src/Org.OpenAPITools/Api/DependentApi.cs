@@ -45,12 +45,11 @@ namespace Org.OpenAPITools.Api
         /// Create dependent of the account
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account to create a dependent for</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApiResponse"/>&gt;</returns>
-        Task<ICreateApiResponse> CreateAsync(decimal version, long accountId, Option<Account> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateApiResponse> CreateAsync(long accountId, Option<Account> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Dependent
@@ -58,12 +57,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create dependent of the account
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account to create a dependent for</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApiResponse"/>?&gt;</returns>
-        Task<ICreateApiResponse?> CreateOrDefaultAsync(decimal version, long accountId, Option<Account> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateApiResponse?> CreateOrDefaultAsync(long accountId, Option<Account> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get dependent list of an account
@@ -72,11 +70,10 @@ namespace Org.OpenAPITools.Api
         /// Get the dependent list of an account
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account to get a list of dependents</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDependentsApiResponse"/>&gt;</returns>
-        Task<IGetDependentsApiResponse> GetDependentsAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetDependentsApiResponse> GetDependentsAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get dependent list of an account
@@ -84,11 +81,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the dependent list of an account
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account to get a list of dependents</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDependentsApiResponse"/>?&gt;</returns>
-        Task<IGetDependentsApiResponse?> GetDependentsOrDefaultAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetDependentsApiResponse?> GetDependentsOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Dependent
@@ -97,12 +93,11 @@ namespace Org.OpenAPITools.Api
         /// Delete the Dependent
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account tied to the dependent</param>
         /// <param name="dependentId">the id of the dependent to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveDependentApiResponse"/>&gt;</returns>
-        Task<IRemoveDependentApiResponse> RemoveDependentAsync(decimal version, long accountId, long dependentId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveDependentApiResponse> RemoveDependentAsync(long accountId, long dependentId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Dependent
@@ -110,12 +105,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete the Dependent
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account tied to the dependent</param>
         /// <param name="dependentId">the id of the dependent to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveDependentApiResponse"/>?&gt;</returns>
-        Task<IRemoveDependentApiResponse?> RemoveDependentOrDefaultAsync(decimal version, long accountId, long dependentId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveDependentApiResponse?> RemoveDependentOrDefaultAsync(long accountId, long dependentId, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -267,7 +261,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreate(ref decimal version, ref long accountId, Option<Account> body);
+        partial void FormatCreate(ref long accountId, Option<Account> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -284,13 +278,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        private void AfterCreateDefaultImplementation(ICreateApiResponse apiResponseLocalVar, decimal version, long accountId, Option<Account> body)
+        private void AfterCreateDefaultImplementation(ICreateApiResponse apiResponseLocalVar, long accountId, Option<Account> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, body);
+            AfterCreate(ref suppressDefaultLog, apiResponseLocalVar, accountId, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -300,10 +293,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        partial void AfterCreate(ref bool suppressDefaultLog, ICreateApiResponse apiResponseLocalVar, decimal version, long accountId, Option<Account> body);
+        partial void AfterCreate(ref bool suppressDefaultLog, ICreateApiResponse apiResponseLocalVar, long accountId, Option<Account> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -311,13 +303,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<Account> body)
+        private void OnErrorCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<Account> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, body);
+            OnErrorCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -329,24 +320,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<Account> body);
+        partial void OnErrorCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<Account> body);
 
         /// <summary>
         /// Create Dependent Create dependent of the account
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account to create a dependent for</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApiResponse"/>&gt;</returns>
-        public async Task<ICreateApiResponse?> CreateOrDefaultAsync(decimal version, long accountId, Option<Account> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateApiResponse?> CreateOrDefaultAsync(long accountId, Option<Account> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateAsync(version, accountId, body, cancellationToken).ConfigureAwait(false);
+                return await CreateAsync(accountId, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -358,12 +347,11 @@ namespace Org.OpenAPITools.Api
         /// Create Dependent Create dependent of the account
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account to create a dependent for</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApiResponse"/>&gt;</returns>
-        public async Task<ICreateApiResponse> CreateAsync(decimal version, long accountId, Option<Account> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateApiResponse> CreateAsync(long accountId, Option<Account> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -371,7 +359,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreate(body);
 
-                FormatCreate(ref version, ref accountId, body);
+                FormatCreate(ref accountId, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -379,9 +367,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/cargo/dependent/{accountId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/cargo/dependent/{accountId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/cargo/dependent/{accountId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/cargo/dependent/{accountId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BaccountId%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     if (body.IsSet)
@@ -412,13 +399,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/cargo/dependent/{accountId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/cargo/dependent/{accountId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateDefaultImplementation(apiResponseLocalVar, version, accountId, body);
+                        AfterCreateDefaultImplementation(apiResponseLocalVar, accountId, body);
 
                         Events.ExecuteOnCreate(apiResponseLocalVar);
 
@@ -428,7 +415,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateDefaultImplementation(e, "/api/{version}/cargo/dependent/{accountId}", uriBuilderLocalVar.Path, version, accountId, body);
+                OnErrorCreateDefaultImplementation(e, "/cargo/dependent/{accountId}", uriBuilderLocalVar.Path, accountId, body);
                 Events.ExecuteOnErrorCreate(e);
                 throw;
             }
@@ -527,18 +514,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetDependents(ref decimal version, ref long accountId);
+        partial void FormatGetDependents(ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        private void AfterGetDependentsDefaultImplementation(IGetDependentsApiResponse apiResponseLocalVar, decimal version, long accountId)
+        private void AfterGetDependentsDefaultImplementation(IGetDependentsApiResponse apiResponseLocalVar, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetDependents(ref suppressDefaultLog, apiResponseLocalVar, version, accountId);
+            AfterGetDependents(ref suppressDefaultLog, apiResponseLocalVar, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -548,9 +534,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetDependents(ref bool suppressDefaultLog, IGetDependentsApiResponse apiResponseLocalVar, decimal version, long accountId);
+        partial void AfterGetDependents(ref bool suppressDefaultLog, IGetDependentsApiResponse apiResponseLocalVar, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -558,12 +543,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetDependentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId)
+        private void OnErrorGetDependentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetDependents(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId);
+            OnErrorGetDependents(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -575,22 +559,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetDependents(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId);
+        partial void OnErrorGetDependents(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
         /// Get dependent list of an account Get the dependent list of an account
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account to get a list of dependents</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDependentsApiResponse"/>&gt;</returns>
-        public async Task<IGetDependentsApiResponse?> GetDependentsOrDefaultAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetDependentsApiResponse?> GetDependentsOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetDependentsAsync(version, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetDependentsAsync(accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -602,17 +584,16 @@ namespace Org.OpenAPITools.Api
         /// Get dependent list of an account Get the dependent list of an account
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account to get a list of dependents</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDependentsApiResponse"/>&gt;</returns>
-        public async Task<IGetDependentsApiResponse> GetDependentsAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetDependentsApiResponse> GetDependentsAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetDependents(ref version, ref accountId);
+                FormatGetDependents(ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -620,9 +601,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/cargo/dependent/{accountId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/cargo/dependent/{accountId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/cargo/dependent/{accountId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/cargo/dependent/{accountId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BaccountId%7D", Uri.EscapeDataString(accountId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -648,13 +628,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/cargo/dependent/{accountId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/cargo/dependent/{accountId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetDependentsDefaultImplementation(apiResponseLocalVar, version, accountId);
+                        AfterGetDependentsDefaultImplementation(apiResponseLocalVar, accountId);
 
                         Events.ExecuteOnGetDependents(apiResponseLocalVar);
 
@@ -664,7 +644,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetDependentsDefaultImplementation(e, "/api/{version}/cargo/dependent/{accountId}", uriBuilderLocalVar.Path, version, accountId);
+                OnErrorGetDependentsDefaultImplementation(e, "/cargo/dependent/{accountId}", uriBuilderLocalVar.Path, accountId);
                 Events.ExecuteOnErrorGetDependents(e);
                 throw;
             }
@@ -763,19 +743,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveDependent(ref decimal version, ref long accountId, ref long dependentId);
+        partial void FormatRemoveDependent(ref long accountId, ref long dependentId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="dependentId"></param>
-        private void AfterRemoveDependentDefaultImplementation(IRemoveDependentApiResponse apiResponseLocalVar, decimal version, long accountId, long dependentId)
+        private void AfterRemoveDependentDefaultImplementation(IRemoveDependentApiResponse apiResponseLocalVar, long accountId, long dependentId)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveDependent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, dependentId);
+            AfterRemoveDependent(ref suppressDefaultLog, apiResponseLocalVar, accountId, dependentId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -785,10 +764,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="dependentId"></param>
-        partial void AfterRemoveDependent(ref bool suppressDefaultLog, IRemoveDependentApiResponse apiResponseLocalVar, decimal version, long accountId, long dependentId);
+        partial void AfterRemoveDependent(ref bool suppressDefaultLog, IRemoveDependentApiResponse apiResponseLocalVar, long accountId, long dependentId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -796,13 +774,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="dependentId"></param>
-        private void OnErrorRemoveDependentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long dependentId)
+        private void OnErrorRemoveDependentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long dependentId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveDependent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, dependentId);
+            OnErrorRemoveDependent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, dependentId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -814,24 +791,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="dependentId"></param>
-        partial void OnErrorRemoveDependent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long dependentId);
+        partial void OnErrorRemoveDependent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long dependentId);
 
         /// <summary>
         /// Delete Dependent Delete the Dependent
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account tied to the dependent</param>
         /// <param name="dependentId">the id of the dependent to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveDependentApiResponse"/>&gt;</returns>
-        public async Task<IRemoveDependentApiResponse?> RemoveDependentOrDefaultAsync(decimal version, long accountId, long dependentId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveDependentApiResponse?> RemoveDependentOrDefaultAsync(long accountId, long dependentId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveDependentAsync(version, accountId, dependentId, cancellationToken).ConfigureAwait(false);
+                return await RemoveDependentAsync(accountId, dependentId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -843,18 +818,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Dependent Delete the Dependent
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the parent account tied to the dependent</param>
         /// <param name="dependentId">the id of the dependent to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveDependentApiResponse"/>&gt;</returns>
-        public async Task<IRemoveDependentApiResponse> RemoveDependentAsync(decimal version, long accountId, long dependentId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveDependentApiResponse> RemoveDependentAsync(long accountId, long dependentId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatRemoveDependent(ref version, ref accountId, ref dependentId);
+                FormatRemoveDependent(ref accountId, ref dependentId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -862,9 +836,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/cargo/dependent/{accountId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/cargo/dependent/{accountId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/cargo/dependent/{accountId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/cargo/dependent/{accountId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BaccountId%7D", Uri.EscapeDataString(accountId.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BdependentId%7D", Uri.EscapeDataString(dependentId.ToString()));
 
@@ -882,13 +855,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/cargo/dependent/{accountId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/cargo/dependent/{accountId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveDependentDefaultImplementation(apiResponseLocalVar, version, accountId, dependentId);
+                        AfterRemoveDependentDefaultImplementation(apiResponseLocalVar, accountId, dependentId);
 
                         Events.ExecuteOnRemoveDependent(apiResponseLocalVar);
 
@@ -898,7 +871,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveDependentDefaultImplementation(e, "/api/{version}/cargo/dependent/{accountId}", uriBuilderLocalVar.Path, version, accountId, dependentId);
+                OnErrorRemoveDependentDefaultImplementation(e, "/cargo/dependent/{accountId}", uriBuilderLocalVar.Path, accountId, dependentId);
                 Events.ExecuteOnErrorRemoveDependent(e);
                 throw;
             }

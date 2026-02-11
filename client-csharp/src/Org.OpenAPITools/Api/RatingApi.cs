@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ratableType">The ratable object type {RETAILER_LOCATION}</param>
         /// <param name="ratableId">The id of the ratable object</param>
         /// <param name="ratingValue">The integer value of 0-100</param>
@@ -59,7 +58,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRatingApiResponse"/>&gt;</returns>
-        Task<ICreateRatingApiResponse> CreateRatingAsync(decimal version, string ratableType, long ratableId, int ratingValue, Option<string> deviceId = default, Option<long> accountId = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRatingApiResponse> CreateRatingAsync(string ratableType, long ratableId, int ratingValue, Option<string> deviceId = default, Option<long> accountId = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Rating
@@ -67,7 +66,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="ratableType">The ratable object type {RETAILER_LOCATION}</param>
         /// <param name="ratableId">The id of the ratable object</param>
         /// <param name="ratingValue">The integer value of 0-100</param>
@@ -81,7 +79,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRatingApiResponse"/>?&gt;</returns>
-        Task<ICreateRatingApiResponse?> CreateRatingOrDefaultAsync(decimal version, string ratableType, long ratableId, int ratingValue, Option<string> deviceId = default, Option<long> accountId = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRatingApiResponse?> CreateRatingOrDefaultAsync(string ratableType, long ratableId, int ratingValue, Option<string> deviceId = default, Option<long> accountId = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Rating
@@ -90,13 +88,12 @@ namespace Org.OpenAPITools.Api
         /// Sets a rating as deleted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ratingId">The ID of the rating to delete</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRatingApiResponse"/>&gt;</returns>
-        Task<IDeleteRatingApiResponse> DeleteRatingAsync(decimal version, long ratingId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRatingApiResponse> DeleteRatingAsync(long ratingId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Rating
@@ -104,13 +101,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sets a rating as deleted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="ratingId">The ID of the rating to delete</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRatingApiResponse"/>?&gt;</returns>
-        Task<IDeleteRatingApiResponse?> DeleteRatingOrDefaultAsync(decimal version, long ratingId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRatingApiResponse?> DeleteRatingOrDefaultAsync(long ratingId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Location Rating Indexes
@@ -119,7 +115,6 @@ namespace Org.OpenAPITools.Api
         /// Search for retailer locations by averages near you.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
         /// <param name="locationType">The type of location to filter the results by (optional)</param>
@@ -139,7 +134,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnFilters">whether to return the filters or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLocationRatingIndexesApiResponse"/>&gt;</returns>
-        Task<ISearchLocationRatingIndexesApiResponse> SearchLocationRatingIndexesAsync(decimal version, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnOverallRating = default, Option<string> distanceUnit = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchLocationRatingIndexesApiResponse> SearchLocationRatingIndexesAsync(Option<string> categoryIds = default, Option<string> keyword = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnOverallRating = default, Option<string> distanceUnit = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Location Rating Indexes
@@ -147,7 +142,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for retailer locations by averages near you.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
         /// <param name="locationType">The type of location to filter the results by (optional)</param>
@@ -167,7 +161,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnFilters">whether to return the filters or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLocationRatingIndexesApiResponse"/>?&gt;</returns>
-        Task<ISearchLocationRatingIndexesApiResponse?> SearchLocationRatingIndexesOrDefaultAsync(decimal version, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnOverallRating = default, Option<string> distanceUnit = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchLocationRatingIndexesApiResponse?> SearchLocationRatingIndexesOrDefaultAsync(Option<string> categoryIds = default, Option<string> keyword = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnOverallRating = default, Option<string> distanceUnit = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Rating Indexes
@@ -176,7 +170,6 @@ namespace Org.OpenAPITools.Api
         /// Search for ratable items by averages.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ratableType">Filter results by a ratable type {RETAILER_LOCATION}</param>
         /// <param name="ratableIds">Comma separated list of ratable ids to filter the resuts by (optional)</param>
         /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional)</param>
@@ -192,7 +185,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnOverallRating">Determines whether to return the overall rating record instead (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRatingIndexesApiResponse"/>&gt;</returns>
-        Task<ISearchRatingIndexesApiResponse> SearchRatingIndexesAsync(decimal version, string ratableType, Option<string> ratableIds = default, Option<string> categoryIds = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnRatable = default, Option<bool> returnOverallRating = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRatingIndexesApiResponse> SearchRatingIndexesAsync(string ratableType, Option<string> ratableIds = default, Option<string> categoryIds = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnRatable = default, Option<bool> returnOverallRating = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Rating Indexes
@@ -200,7 +193,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for ratable items by averages.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="ratableType">Filter results by a ratable type {RETAILER_LOCATION}</param>
         /// <param name="ratableIds">Comma separated list of ratable ids to filter the resuts by (optional)</param>
         /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional)</param>
@@ -216,7 +208,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnOverallRating">Determines whether to return the overall rating record instead (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRatingIndexesApiResponse"/>?&gt;</returns>
-        Task<ISearchRatingIndexesApiResponse?> SearchRatingIndexesOrDefaultAsync(decimal version, string ratableType, Option<string> ratableIds = default, Option<string> categoryIds = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnRatable = default, Option<bool> returnOverallRating = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRatingIndexesApiResponse?> SearchRatingIndexesOrDefaultAsync(string ratableType, Option<string> ratableIds = default, Option<string> categoryIds = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnRatable = default, Option<bool> returnOverallRating = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Ratings
@@ -225,7 +217,6 @@ namespace Org.OpenAPITools.Api
         /// Search for ratings on a ratable object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="filterAccountId">Filter results for a particular account (optional)</param>
@@ -239,7 +230,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRatingsApiResponse"/>&gt;</returns>
-        Task<ISearchRatingsApiResponse> SearchRatingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<string> ratableType = default, Option<long> ratableId = default, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRatingsApiResponse> SearchRatingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<string> ratableType = default, Option<long> ratableId = default, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Ratings
@@ -247,7 +238,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for ratings on a ratable object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="filterAccountId">Filter results for a particular account (optional)</param>
@@ -261,7 +251,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRatingsApiResponse"/>?&gt;</returns>
-        Task<ISearchRatingsApiResponse?> SearchRatingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<string> ratableType = default, Option<long> ratableId = default, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRatingsApiResponse?> SearchRatingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<string> ratableType = default, Option<long> ratableId = default, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Rating
@@ -270,7 +260,6 @@ namespace Org.OpenAPITools.Api
         /// Update an existing rating. Only the creator of the rating have permission to update.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ratingId">The id of the rating (Note: this is not the ratable object id)</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -283,7 +272,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRatingApiResponse"/>&gt;</returns>
-        Task<IUpdateRatingApiResponse> UpdateRatingAsync(decimal version, long ratingId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> ratingValue = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRatingApiResponse> UpdateRatingAsync(long ratingId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> ratingValue = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Rating
@@ -291,7 +280,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing rating. Only the creator of the rating have permission to update.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="ratingId">The id of the rating (Note: this is not the ratable object id)</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -304,7 +292,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRatingApiResponse"/>?&gt;</returns>
-        Task<IUpdateRatingApiResponse?> UpdateRatingOrDefaultAsync(decimal version, long ratingId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> ratingValue = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRatingApiResponse?> UpdateRatingOrDefaultAsync(long ratingId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> ratingValue = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -552,7 +540,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateRating(ref decimal version, ref string ratableType, ref long ratableId, ref int ratingValue, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> categoryId, ref Option<string> display, ref Option<string> description, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatCreateRating(ref string ratableType, ref long ratableId, ref int ratingValue, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> categoryId, ref Option<string> display, ref Option<string> description, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -585,7 +573,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratableType"></param>
         /// <param name="ratableId"></param>
         /// <param name="ratingValue"></param>
@@ -597,10 +584,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterCreateRatingDefaultImplementation(ICreateRatingApiResponse apiResponseLocalVar, decimal version, string ratableType, long ratableId, int ratingValue, Option<string> deviceId, Option<long> accountId, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
+        private void AfterCreateRatingDefaultImplementation(ICreateRatingApiResponse apiResponseLocalVar, string ratableType, long ratableId, int ratingValue, Option<string> deviceId, Option<long> accountId, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterCreateRating(ref suppressDefaultLog, apiResponseLocalVar, version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
+            AfterCreateRating(ref suppressDefaultLog, apiResponseLocalVar, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -610,7 +597,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratableType"></param>
         /// <param name="ratableId"></param>
         /// <param name="ratingValue"></param>
@@ -622,7 +608,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterCreateRating(ref bool suppressDefaultLog, ICreateRatingApiResponse apiResponseLocalVar, decimal version, string ratableType, long ratableId, int ratingValue, Option<string> deviceId, Option<long> accountId, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
+        partial void AfterCreateRating(ref bool suppressDefaultLog, ICreateRatingApiResponse apiResponseLocalVar, string ratableType, long ratableId, int ratingValue, Option<string> deviceId, Option<long> accountId, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -630,7 +616,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratableType"></param>
         /// <param name="ratableId"></param>
         /// <param name="ratingValue"></param>
@@ -642,10 +627,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorCreateRatingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string ratableType, long ratableId, int ratingValue, Option<string> deviceId, Option<long> accountId, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
+        private void OnErrorCreateRatingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string ratableType, long ratableId, int ratingValue, Option<string> deviceId, Option<long> accountId, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateRating(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
+            OnErrorCreateRating(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -657,7 +642,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratableType"></param>
         /// <param name="ratableId"></param>
         /// <param name="ratingValue"></param>
@@ -669,12 +653,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorCreateRating(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string ratableType, long ratableId, int ratingValue, Option<string> deviceId, Option<long> accountId, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorCreateRating(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string ratableType, long ratableId, int ratingValue, Option<string> deviceId, Option<long> accountId, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create Rating This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="ratableType">The ratable object type {RETAILER_LOCATION}</param>
         /// <param name="ratableId">The id of the ratable object</param>
         /// <param name="ratingValue">The integer value of 0-100</param>
@@ -688,11 +671,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRatingApiResponse"/>&gt;</returns>
-        public async Task<ICreateRatingApiResponse?> CreateRatingOrDefaultAsync(decimal version, string ratableType, long ratableId, int ratingValue, Option<string> deviceId = default, Option<long> accountId = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRatingApiResponse?> CreateRatingOrDefaultAsync(string ratableType, long ratableId, int ratingValue, Option<string> deviceId = default, Option<long> accountId = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateRatingAsync(version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await CreateRatingAsync(ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -704,7 +687,6 @@ namespace Org.OpenAPITools.Api
         /// Create Rating This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ratableType">The ratable object type {RETAILER_LOCATION}</param>
         /// <param name="ratableId">The id of the ratable object</param>
         /// <param name="ratingValue">The integer value of 0-100</param>
@@ -718,7 +700,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRatingApiResponse"/>&gt;</returns>
-        public async Task<ICreateRatingApiResponse> CreateRatingAsync(decimal version, string ratableType, long ratableId, int ratingValue, Option<string> deviceId = default, Option<long> accountId = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRatingApiResponse> CreateRatingAsync(string ratableType, long ratableId, int ratingValue, Option<string> deviceId = default, Option<long> accountId = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -726,7 +708,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateRating(ratableType, deviceId, display, description, locationDescription);
 
-                FormatCreateRating(ref version, ref ratableType, ref ratableId, ref ratingValue, ref deviceId, ref accountId, ref categoryId, ref display, ref description, ref locationDescription, ref latitude, ref longitude);
+                FormatCreateRating(ref ratableType, ref ratableId, ref ratingValue, ref deviceId, ref accountId, ref categoryId, ref display, ref description, ref locationDescription, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -734,9 +716,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/rating/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/rating/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/rating/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/rating/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -793,13 +774,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/rating/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/rating/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateRatingDefaultImplementation(apiResponseLocalVar, version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
+                        AfterCreateRatingDefaultImplementation(apiResponseLocalVar, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
 
                         Events.ExecuteOnCreateRating(apiResponseLocalVar);
 
@@ -809,7 +790,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateRatingDefaultImplementation(e, "/api/{version}/rating/create", uriBuilderLocalVar.Path, version, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
+                OnErrorCreateRatingDefaultImplementation(e, "/rating/create", uriBuilderLocalVar.Path, ratableType, ratableId, ratingValue, deviceId, accountId, categoryId, display, description, locationDescription, latitude, longitude);
                 Events.ExecuteOnErrorCreateRating(e);
                 throw;
             }
@@ -908,7 +889,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteRating(ref decimal version, ref long ratingId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteRating(ref long ratingId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -925,14 +906,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratingId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteRatingDefaultImplementation(IDeleteRatingApiResponse apiResponseLocalVar, decimal version, long ratingId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteRatingDefaultImplementation(IDeleteRatingApiResponse apiResponseLocalVar, long ratingId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteRating(ref suppressDefaultLog, apiResponseLocalVar, version, ratingId, deviceId, accountId);
+            AfterDeleteRating(ref suppressDefaultLog, apiResponseLocalVar, ratingId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -942,11 +922,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratingId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteRating(ref bool suppressDefaultLog, IDeleteRatingApiResponse apiResponseLocalVar, decimal version, long ratingId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteRating(ref bool suppressDefaultLog, IDeleteRatingApiResponse apiResponseLocalVar, long ratingId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -954,14 +933,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratingId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteRatingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long ratingId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteRatingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long ratingId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteRating(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, ratingId, deviceId, accountId);
+            OnErrorDeleteRating(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, ratingId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -973,26 +951,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratingId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteRating(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long ratingId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteRating(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long ratingId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Rating Sets a rating as deleted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="ratingId">The ID of the rating to delete</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRatingApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRatingApiResponse?> DeleteRatingOrDefaultAsync(decimal version, long ratingId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRatingApiResponse?> DeleteRatingOrDefaultAsync(long ratingId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteRatingAsync(version, ratingId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteRatingAsync(ratingId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1004,13 +980,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Rating Sets a rating as deleted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ratingId">The ID of the rating to delete</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRatingApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRatingApiResponse> DeleteRatingAsync(decimal version, long ratingId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRatingApiResponse> DeleteRatingAsync(long ratingId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1018,7 +993,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteRating(deviceId);
 
-                FormatDeleteRating(ref version, ref ratingId, ref deviceId, ref accountId);
+                FormatDeleteRating(ref ratingId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1026,9 +1001,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/rating/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/rating/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/rating/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/rating/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1065,13 +1039,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/rating/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/rating/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteRatingDefaultImplementation(apiResponseLocalVar, version, ratingId, deviceId, accountId);
+                        AfterDeleteRatingDefaultImplementation(apiResponseLocalVar, ratingId, deviceId, accountId);
 
                         Events.ExecuteOnDeleteRating(apiResponseLocalVar);
 
@@ -1081,7 +1055,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteRatingDefaultImplementation(e, "/api/{version}/rating/delete", uriBuilderLocalVar.Path, version, ratingId, deviceId, accountId);
+                OnErrorDeleteRatingDefaultImplementation(e, "/rating/delete", uriBuilderLocalVar.Path, ratingId, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteRating(e);
                 throw;
             }
@@ -1180,7 +1154,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchLocationRatingIndexes(ref decimal version, ref Option<string> categoryIds, ref Option<string> keyword, ref Option<string> locationType, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<double> searchRange, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnOverallRating, ref Option<string> distanceUnit, ref Option<bool> returnRetailer, ref Option<bool> returnAssets, ref Option<bool> returnOffers, ref Option<bool> returnCategories, ref Option<bool> returnFilters);
+        partial void FormatSearchLocationRatingIndexes(ref Option<string> categoryIds, ref Option<string> keyword, ref Option<string> locationType, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<double> searchRange, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnOverallRating, ref Option<string> distanceUnit, ref Option<bool> returnRetailer, ref Option<bool> returnAssets, ref Option<bool> returnOffers, ref Option<bool> returnCategories, ref Option<bool> returnFilters);
 
         /// <summary>
         /// Validates the request parameters
@@ -1213,7 +1187,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="categoryIds"></param>
         /// <param name="keyword"></param>
         /// <param name="locationType"></param>
@@ -1231,10 +1204,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnOffers"></param>
         /// <param name="returnCategories"></param>
         /// <param name="returnFilters"></param>
-        private void AfterSearchLocationRatingIndexesDefaultImplementation(ISearchLocationRatingIndexesApiResponse apiResponseLocalVar, decimal version, Option<string> categoryIds, Option<string> keyword, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<double> latitude, Option<double> longitude, Option<bool> returnOverallRating, Option<string> distanceUnit, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters)
+        private void AfterSearchLocationRatingIndexesDefaultImplementation(ISearchLocationRatingIndexesApiResponse apiResponseLocalVar, Option<string> categoryIds, Option<string> keyword, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<double> latitude, Option<double> longitude, Option<bool> returnOverallRating, Option<string> distanceUnit, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters)
         {
             bool suppressDefaultLog = false;
-            AfterSearchLocationRatingIndexes(ref suppressDefaultLog, apiResponseLocalVar, version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
+            AfterSearchLocationRatingIndexes(ref suppressDefaultLog, apiResponseLocalVar, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1244,7 +1217,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="categoryIds"></param>
         /// <param name="keyword"></param>
         /// <param name="locationType"></param>
@@ -1262,7 +1234,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnOffers"></param>
         /// <param name="returnCategories"></param>
         /// <param name="returnFilters"></param>
-        partial void AfterSearchLocationRatingIndexes(ref bool suppressDefaultLog, ISearchLocationRatingIndexesApiResponse apiResponseLocalVar, decimal version, Option<string> categoryIds, Option<string> keyword, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<double> latitude, Option<double> longitude, Option<bool> returnOverallRating, Option<string> distanceUnit, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters);
+        partial void AfterSearchLocationRatingIndexes(ref bool suppressDefaultLog, ISearchLocationRatingIndexesApiResponse apiResponseLocalVar, Option<string> categoryIds, Option<string> keyword, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<double> latitude, Option<double> longitude, Option<bool> returnOverallRating, Option<string> distanceUnit, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1270,7 +1242,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="categoryIds"></param>
         /// <param name="keyword"></param>
         /// <param name="locationType"></param>
@@ -1288,10 +1259,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnOffers"></param>
         /// <param name="returnCategories"></param>
         /// <param name="returnFilters"></param>
-        private void OnErrorSearchLocationRatingIndexesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> categoryIds, Option<string> keyword, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<double> latitude, Option<double> longitude, Option<bool> returnOverallRating, Option<string> distanceUnit, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters)
+        private void OnErrorSearchLocationRatingIndexesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> categoryIds, Option<string> keyword, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<double> latitude, Option<double> longitude, Option<bool> returnOverallRating, Option<string> distanceUnit, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchLocationRatingIndexes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
+            OnErrorSearchLocationRatingIndexes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1303,7 +1274,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="categoryIds"></param>
         /// <param name="keyword"></param>
         /// <param name="locationType"></param>
@@ -1321,12 +1291,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnOffers"></param>
         /// <param name="returnCategories"></param>
         /// <param name="returnFilters"></param>
-        partial void OnErrorSearchLocationRatingIndexes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> categoryIds, Option<string> keyword, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<double> latitude, Option<double> longitude, Option<bool> returnOverallRating, Option<string> distanceUnit, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters);
+        partial void OnErrorSearchLocationRatingIndexes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> categoryIds, Option<string> keyword, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<double> latitude, Option<double> longitude, Option<bool> returnOverallRating, Option<string> distanceUnit, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters);
 
         /// <summary>
         /// Search Location Rating Indexes Search for retailer locations by averages near you.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
         /// <param name="locationType">The type of location to filter the results by (optional)</param>
@@ -1346,11 +1315,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnFilters">whether to return the filters or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLocationRatingIndexesApiResponse"/>&gt;</returns>
-        public async Task<ISearchLocationRatingIndexesApiResponse?> SearchLocationRatingIndexesOrDefaultAsync(decimal version, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnOverallRating = default, Option<string> distanceUnit = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchLocationRatingIndexesApiResponse?> SearchLocationRatingIndexesOrDefaultAsync(Option<string> categoryIds = default, Option<string> keyword = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnOverallRating = default, Option<string> distanceUnit = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchLocationRatingIndexesAsync(version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, cancellationToken).ConfigureAwait(false);
+                return await SearchLocationRatingIndexesAsync(categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1362,7 +1331,6 @@ namespace Org.OpenAPITools.Api
         /// Search Location Rating Indexes Search for retailer locations by averages near you.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
         /// <param name="locationType">The type of location to filter the results by (optional)</param>
@@ -1382,7 +1350,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnFilters">whether to return the filters or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLocationRatingIndexesApiResponse"/>&gt;</returns>
-        public async Task<ISearchLocationRatingIndexesApiResponse> SearchLocationRatingIndexesAsync(decimal version, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnOverallRating = default, Option<string> distanceUnit = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchLocationRatingIndexesApiResponse> SearchLocationRatingIndexesAsync(Option<string> categoryIds = default, Option<string> keyword = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnOverallRating = default, Option<string> distanceUnit = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1390,7 +1358,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchLocationRatingIndexes(categoryIds, keyword, locationType, sortField, distanceUnit);
 
-                FormatSearchLocationRatingIndexes(ref version, ref categoryIds, ref keyword, ref locationType, ref sortField, ref descending, ref start, ref limit, ref searchRange, ref latitude, ref longitude, ref returnOverallRating, ref distanceUnit, ref returnRetailer, ref returnAssets, ref returnOffers, ref returnCategories, ref returnFilters);
+                FormatSearchLocationRatingIndexes(ref categoryIds, ref keyword, ref locationType, ref sortField, ref descending, ref start, ref limit, ref searchRange, ref latitude, ref longitude, ref returnOverallRating, ref distanceUnit, ref returnRetailer, ref returnAssets, ref returnOffers, ref returnCategories, ref returnFilters);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1398,9 +1366,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location/rating/index/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location/rating/index/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location/rating/index/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location/rating/index/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1480,13 +1447,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location/rating/index/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location/rating/index/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchLocationRatingIndexesDefaultImplementation(apiResponseLocalVar, version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
+                        AfterSearchLocationRatingIndexesDefaultImplementation(apiResponseLocalVar, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
 
                         Events.ExecuteOnSearchLocationRatingIndexes(apiResponseLocalVar);
 
@@ -1496,7 +1463,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchLocationRatingIndexesDefaultImplementation(e, "/api/{version}/location/rating/index/search", uriBuilderLocalVar.Path, version, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
+                OnErrorSearchLocationRatingIndexesDefaultImplementation(e, "/location/rating/index/search", uriBuilderLocalVar.Path, categoryIds, keyword, locationType, sortField, descending, start, limit, searchRange, latitude, longitude, returnOverallRating, distanceUnit, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters);
                 Events.ExecuteOnErrorSearchLocationRatingIndexes(e);
                 throw;
             }
@@ -1595,7 +1562,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchRatingIndexes(ref decimal version, ref string ratableType, ref Option<string> ratableIds, ref Option<string> categoryIds, ref Option<string> secondaryType, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnRatable, ref Option<bool> returnOverallRating);
+        partial void FormatSearchRatingIndexes(ref string ratableType, ref Option<string> ratableIds, ref Option<string> categoryIds, ref Option<string> secondaryType, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnRatable, ref Option<bool> returnOverallRating);
 
         /// <summary>
         /// Validates the request parameters
@@ -1632,7 +1599,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratableType"></param>
         /// <param name="ratableIds"></param>
         /// <param name="categoryIds"></param>
@@ -1646,10 +1612,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"></param>
         /// <param name="returnRatable"></param>
         /// <param name="returnOverallRating"></param>
-        private void AfterSearchRatingIndexesDefaultImplementation(ISearchRatingIndexesApiResponse apiResponseLocalVar, decimal version, string ratableType, Option<string> ratableIds, Option<string> categoryIds, Option<string> secondaryType, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<bool> returnRatable, Option<bool> returnOverallRating)
+        private void AfterSearchRatingIndexesDefaultImplementation(ISearchRatingIndexesApiResponse apiResponseLocalVar, string ratableType, Option<string> ratableIds, Option<string> categoryIds, Option<string> secondaryType, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<bool> returnRatable, Option<bool> returnOverallRating)
         {
             bool suppressDefaultLog = false;
-            AfterSearchRatingIndexes(ref suppressDefaultLog, apiResponseLocalVar, version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
+            AfterSearchRatingIndexes(ref suppressDefaultLog, apiResponseLocalVar, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1659,7 +1625,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratableType"></param>
         /// <param name="ratableIds"></param>
         /// <param name="categoryIds"></param>
@@ -1673,7 +1638,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"></param>
         /// <param name="returnRatable"></param>
         /// <param name="returnOverallRating"></param>
-        partial void AfterSearchRatingIndexes(ref bool suppressDefaultLog, ISearchRatingIndexesApiResponse apiResponseLocalVar, decimal version, string ratableType, Option<string> ratableIds, Option<string> categoryIds, Option<string> secondaryType, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<bool> returnRatable, Option<bool> returnOverallRating);
+        partial void AfterSearchRatingIndexes(ref bool suppressDefaultLog, ISearchRatingIndexesApiResponse apiResponseLocalVar, string ratableType, Option<string> ratableIds, Option<string> categoryIds, Option<string> secondaryType, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<bool> returnRatable, Option<bool> returnOverallRating);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1681,7 +1646,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratableType"></param>
         /// <param name="ratableIds"></param>
         /// <param name="categoryIds"></param>
@@ -1695,10 +1659,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"></param>
         /// <param name="returnRatable"></param>
         /// <param name="returnOverallRating"></param>
-        private void OnErrorSearchRatingIndexesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string ratableType, Option<string> ratableIds, Option<string> categoryIds, Option<string> secondaryType, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<bool> returnRatable, Option<bool> returnOverallRating)
+        private void OnErrorSearchRatingIndexesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string ratableType, Option<string> ratableIds, Option<string> categoryIds, Option<string> secondaryType, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<bool> returnRatable, Option<bool> returnOverallRating)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchRatingIndexes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
+            OnErrorSearchRatingIndexes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1710,7 +1674,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratableType"></param>
         /// <param name="ratableIds"></param>
         /// <param name="categoryIds"></param>
@@ -1724,12 +1687,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"></param>
         /// <param name="returnRatable"></param>
         /// <param name="returnOverallRating"></param>
-        partial void OnErrorSearchRatingIndexes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string ratableType, Option<string> ratableIds, Option<string> categoryIds, Option<string> secondaryType, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<bool> returnRatable, Option<bool> returnOverallRating);
+        partial void OnErrorSearchRatingIndexes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string ratableType, Option<string> ratableIds, Option<string> categoryIds, Option<string> secondaryType, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<bool> returnRatable, Option<bool> returnOverallRating);
 
         /// <summary>
         /// Search Rating Indexes Search for ratable items by averages.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="ratableType">Filter results by a ratable type {RETAILER_LOCATION}</param>
         /// <param name="ratableIds">Comma separated list of ratable ids to filter the resuts by (optional)</param>
         /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional)</param>
@@ -1745,11 +1707,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnOverallRating">Determines whether to return the overall rating record instead (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRatingIndexesApiResponse"/>&gt;</returns>
-        public async Task<ISearchRatingIndexesApiResponse?> SearchRatingIndexesOrDefaultAsync(decimal version, string ratableType, Option<string> ratableIds = default, Option<string> categoryIds = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnRatable = default, Option<bool> returnOverallRating = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRatingIndexesApiResponse?> SearchRatingIndexesOrDefaultAsync(string ratableType, Option<string> ratableIds = default, Option<string> categoryIds = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnRatable = default, Option<bool> returnOverallRating = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchRatingIndexesAsync(version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating, cancellationToken).ConfigureAwait(false);
+                return await SearchRatingIndexesAsync(ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1761,7 +1723,6 @@ namespace Org.OpenAPITools.Api
         /// Search Rating Indexes Search for ratable items by averages.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ratableType">Filter results by a ratable type {RETAILER_LOCATION}</param>
         /// <param name="ratableIds">Comma separated list of ratable ids to filter the resuts by (optional)</param>
         /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional)</param>
@@ -1777,7 +1738,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnOverallRating">Determines whether to return the overall rating record instead (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRatingIndexesApiResponse"/>&gt;</returns>
-        public async Task<ISearchRatingIndexesApiResponse> SearchRatingIndexesAsync(decimal version, string ratableType, Option<string> ratableIds = default, Option<string> categoryIds = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnRatable = default, Option<bool> returnOverallRating = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRatingIndexesApiResponse> SearchRatingIndexesAsync(string ratableType, Option<string> ratableIds = default, Option<string> categoryIds = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnRatable = default, Option<bool> returnOverallRating = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1785,7 +1746,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchRatingIndexes(ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField);
 
-                FormatSearchRatingIndexes(ref version, ref ratableType, ref ratableIds, ref categoryIds, ref secondaryType, ref keyword, ref sortField, ref descending, ref start, ref limit, ref latitude, ref longitude, ref returnRatable, ref returnOverallRating);
+                FormatSearchRatingIndexes(ref ratableType, ref ratableIds, ref categoryIds, ref secondaryType, ref keyword, ref sortField, ref descending, ref start, ref limit, ref latitude, ref longitude, ref returnRatable, ref returnOverallRating);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1793,9 +1754,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/rating/index/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/rating/index/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/rating/index/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/rating/index/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1862,13 +1822,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/rating/index/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/rating/index/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchRatingIndexesDefaultImplementation(apiResponseLocalVar, version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
+                        AfterSearchRatingIndexesDefaultImplementation(apiResponseLocalVar, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
 
                         Events.ExecuteOnSearchRatingIndexes(apiResponseLocalVar);
 
@@ -1878,7 +1838,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchRatingIndexesDefaultImplementation(e, "/api/{version}/rating/index/search", uriBuilderLocalVar.Path, version, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
+                OnErrorSearchRatingIndexesDefaultImplementation(e, "/rating/index/search", uriBuilderLocalVar.Path, ratableType, ratableIds, categoryIds, secondaryType, keyword, sortField, descending, start, limit, latitude, longitude, returnRatable, returnOverallRating);
                 Events.ExecuteOnErrorSearchRatingIndexes(e);
                 throw;
             }
@@ -1977,7 +1937,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchRatings(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> filterAccountId, ref Option<string> ratableType, ref Option<long> ratableId, ref Option<string> categoryIds, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchRatings(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> filterAccountId, ref Option<string> ratableType, ref Option<long> ratableId, ref Option<string> categoryIds, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2010,7 +1970,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="filterAccountId"></param>
@@ -2022,10 +1981,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchRatingsDefaultImplementation(ISearchRatingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> filterAccountId, Option<string> ratableType, Option<long> ratableId, Option<string> categoryIds, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchRatingsDefaultImplementation(ISearchRatingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> filterAccountId, Option<string> ratableType, Option<long> ratableId, Option<string> categoryIds, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchRatings(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
+            AfterSearchRatings(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2035,7 +1994,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="filterAccountId"></param>
@@ -2047,7 +2005,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchRatings(ref bool suppressDefaultLog, ISearchRatingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> filterAccountId, Option<string> ratableType, Option<long> ratableId, Option<string> categoryIds, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchRatings(ref bool suppressDefaultLog, ISearchRatingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> filterAccountId, Option<string> ratableType, Option<long> ratableId, Option<string> categoryIds, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2055,7 +2013,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="filterAccountId"></param>
@@ -2067,10 +2024,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchRatingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> filterAccountId, Option<string> ratableType, Option<long> ratableId, Option<string> categoryIds, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchRatingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> filterAccountId, Option<string> ratableType, Option<long> ratableId, Option<string> categoryIds, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchRatings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
+            OnErrorSearchRatings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2082,7 +2039,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="filterAccountId"></param>
@@ -2094,12 +2050,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchRatings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> filterAccountId, Option<string> ratableType, Option<long> ratableId, Option<string> categoryIds, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchRatings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> filterAccountId, Option<string> ratableType, Option<long> ratableId, Option<string> categoryIds, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Ratings Search for ratings on a ratable object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="filterAccountId">Filter results for a particular account (optional)</param>
@@ -2113,11 +2068,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRatingsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRatingsApiResponse?> SearchRatingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<string> ratableType = default, Option<long> ratableId = default, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRatingsApiResponse?> SearchRatingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<string> ratableType = default, Option<long> ratableId = default, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchRatingsAsync(version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchRatingsAsync(deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2129,7 +2084,6 @@ namespace Org.OpenAPITools.Api
         /// Search Ratings Search for ratings on a ratable object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="filterAccountId">Filter results for a particular account (optional)</param>
@@ -2143,7 +2097,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRatingsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRatingsApiResponse> SearchRatingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<string> ratableType = default, Option<long> ratableId = default, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRatingsApiResponse> SearchRatingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<string> ratableType = default, Option<long> ratableId = default, Option<string> categoryIds = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2151,7 +2105,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchRatings(deviceId, ratableType, categoryIds, keyword, sortField);
 
-                FormatSearchRatings(ref version, ref deviceId, ref accountId, ref filterAccountId, ref ratableType, ref ratableId, ref categoryIds, ref keyword, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchRatings(ref deviceId, ref accountId, ref filterAccountId, ref ratableType, ref ratableId, ref categoryIds, ref keyword, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2159,9 +2113,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/rating/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/rating/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/rating/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/rating/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2223,13 +2176,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/rating/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/rating/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchRatingsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
+                        AfterSearchRatingsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchRatings(apiResponseLocalVar);
 
@@ -2239,7 +2192,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchRatingsDefaultImplementation(e, "/api/{version}/rating/search", uriBuilderLocalVar.Path, version, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
+                OnErrorSearchRatingsDefaultImplementation(e, "/rating/search", uriBuilderLocalVar.Path, deviceId, accountId, filterAccountId, ratableType, ratableId, categoryIds, keyword, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchRatings(e);
                 throw;
             }
@@ -2338,7 +2291,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateRating(ref decimal version, ref long ratingId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> ratingValue, ref Option<long> categoryId, ref Option<string> display, ref Option<string> description, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatUpdateRating(ref long ratingId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> ratingValue, ref Option<long> categoryId, ref Option<string> display, ref Option<string> description, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2367,7 +2320,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratingId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2378,10 +2330,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterUpdateRatingDefaultImplementation(IUpdateRatingApiResponse apiResponseLocalVar, decimal version, long ratingId, Option<string> deviceId, Option<long> accountId, Option<int> ratingValue, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
+        private void AfterUpdateRatingDefaultImplementation(IUpdateRatingApiResponse apiResponseLocalVar, long ratingId, Option<string> deviceId, Option<long> accountId, Option<int> ratingValue, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateRating(ref suppressDefaultLog, apiResponseLocalVar, version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
+            AfterUpdateRating(ref suppressDefaultLog, apiResponseLocalVar, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2391,7 +2343,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratingId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2402,7 +2353,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterUpdateRating(ref bool suppressDefaultLog, IUpdateRatingApiResponse apiResponseLocalVar, decimal version, long ratingId, Option<string> deviceId, Option<long> accountId, Option<int> ratingValue, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
+        partial void AfterUpdateRating(ref bool suppressDefaultLog, IUpdateRatingApiResponse apiResponseLocalVar, long ratingId, Option<string> deviceId, Option<long> accountId, Option<int> ratingValue, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2410,7 +2361,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratingId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2421,10 +2371,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorUpdateRatingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long ratingId, Option<string> deviceId, Option<long> accountId, Option<int> ratingValue, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
+        private void OnErrorUpdateRatingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long ratingId, Option<string> deviceId, Option<long> accountId, Option<int> ratingValue, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateRating(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
+            OnErrorUpdateRating(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2436,7 +2386,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ratingId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2447,12 +2396,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorUpdateRating(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long ratingId, Option<string> deviceId, Option<long> accountId, Option<int> ratingValue, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorUpdateRating(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long ratingId, Option<string> deviceId, Option<long> accountId, Option<int> ratingValue, Option<long> categoryId, Option<string> display, Option<string> description, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Update Rating Update an existing rating. Only the creator of the rating have permission to update.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="ratingId">The id of the rating (Note: this is not the ratable object id)</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -2465,11 +2413,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRatingApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRatingApiResponse?> UpdateRatingOrDefaultAsync(decimal version, long ratingId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> ratingValue = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRatingApiResponse?> UpdateRatingOrDefaultAsync(long ratingId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> ratingValue = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateRatingAsync(version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await UpdateRatingAsync(ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2481,7 +2429,6 @@ namespace Org.OpenAPITools.Api
         /// Update Rating Update an existing rating. Only the creator of the rating have permission to update.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ratingId">The id of the rating (Note: this is not the ratable object id)</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -2494,7 +2441,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRatingApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRatingApiResponse> UpdateRatingAsync(decimal version, long ratingId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> ratingValue = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRatingApiResponse> UpdateRatingAsync(long ratingId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> ratingValue = default, Option<long> categoryId = default, Option<string> display = default, Option<string> description = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2502,7 +2449,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateRating(deviceId, display, description, locationDescription);
 
-                FormatUpdateRating(ref version, ref ratingId, ref deviceId, ref accountId, ref ratingValue, ref categoryId, ref display, ref description, ref locationDescription, ref latitude, ref longitude);
+                FormatUpdateRating(ref ratingId, ref deviceId, ref accountId, ref ratingValue, ref categoryId, ref display, ref description, ref locationDescription, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2510,9 +2457,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/rating/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/rating/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/rating/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/rating/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2570,13 +2516,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/rating/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/rating/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateRatingDefaultImplementation(apiResponseLocalVar, version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
+                        AfterUpdateRatingDefaultImplementation(apiResponseLocalVar, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
 
                         Events.ExecuteOnUpdateRating(apiResponseLocalVar);
 
@@ -2586,7 +2532,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateRatingDefaultImplementation(e, "/api/{version}/rating/update", uriBuilderLocalVar.Path, version, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
+                OnErrorUpdateRatingDefaultImplementation(e, "/rating/update", uriBuilderLocalVar.Path, ratingId, deviceId, accountId, ratingValue, categoryId, display, description, locationDescription, latitude, longitude);
                 Events.ExecuteOnErrorUpdateRating(e);
                 throw;
             }

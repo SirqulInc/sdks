@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a question and related answers by the given params.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="question">the text of the question</param>
         /// <param name="answers">&#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; </param>
@@ -59,7 +58,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateQuestionApiResponse"/>&gt;</returns>
-        Task<ICreateQuestionApiResponse> CreateQuestionAsync(decimal version, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateQuestionApiResponse> CreateQuestionAsync(long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Question
@@ -67,7 +66,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a question and related answers by the given params.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="question">the text of the question</param>
         /// <param name="answers">&#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; </param>
@@ -81,7 +79,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateQuestionApiResponse"/>?&gt;</returns>
-        Task<ICreateQuestionApiResponse?> CreateQuestionOrDefaultAsync(decimal version, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateQuestionApiResponse?> CreateQuestionOrDefaultAsync(long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Question
@@ -90,12 +88,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="questionId">the id of the question to delete</param>
         /// <param name="accountId">the id of the account that can execute this request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteQuestionApiResponse"/>&gt;</returns>
-        Task<IDeleteQuestionApiResponse> DeleteQuestionAsync(decimal version, long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteQuestionApiResponse> DeleteQuestionAsync(long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Question
@@ -103,12 +100,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="questionId">the id of the question to delete</param>
         /// <param name="accountId">the id of the account that can execute this request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteQuestionApiResponse"/>?&gt;</returns>
-        Task<IDeleteQuestionApiResponse?> DeleteQuestionOrDefaultAsync(decimal version, long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteQuestionApiResponse?> DeleteQuestionOrDefaultAsync(long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Question
@@ -117,12 +113,11 @@ namespace Org.OpenAPITools.Api
         /// Get a question by the given id.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="questionId">the id of the question to get</param>
         /// <param name="accountId">the id of the account that can make this request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetQuestionApiResponse"/>&gt;</returns>
-        Task<IGetQuestionApiResponse> GetQuestionAsync(decimal version, long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetQuestionApiResponse> GetQuestionAsync(long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Question
@@ -130,12 +125,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a question by the given id.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="questionId">the id of the question to get</param>
         /// <param name="accountId">the id of the account that can make this request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetQuestionApiResponse"/>?&gt;</returns>
-        Task<IGetQuestionApiResponse?> GetQuestionOrDefaultAsync(decimal version, long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetQuestionApiResponse?> GetQuestionOrDefaultAsync(long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Questions
@@ -144,7 +138,6 @@ namespace Org.OpenAPITools.Api
         /// Search for questions by the given params.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -154,7 +147,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword for searching questions with matching tags or question text. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchQuestionsApiResponse"/>&gt;</returns>
-        Task<ISearchQuestionsApiResponse> SearchQuestionsAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchQuestionsApiResponse> SearchQuestionsAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Questions
@@ -162,7 +155,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for questions by the given params.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -172,7 +164,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword for searching questions with matching tags or question text. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchQuestionsApiResponse"/>?&gt;</returns>
-        Task<ISearchQuestionsApiResponse?> SearchQuestionsOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchQuestionsApiResponse?> SearchQuestionsOrDefaultAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Question
@@ -181,7 +173,6 @@ namespace Org.OpenAPITools.Api
         /// Update a question and related answers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="questionId">The id of the question to update.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="ticketCount">The number of tickets to reward</param>
@@ -196,7 +187,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateQuestionApiResponse"/>&gt;</returns>
-        Task<IUpdateQuestionApiResponse> UpdateQuestionAsync(decimal version, long questionId, long accountId, long ticketCount, Option<string> question = default, Option<string> answers = default, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateQuestionApiResponse> UpdateQuestionAsync(long questionId, long accountId, long ticketCount, Option<string> question = default, Option<string> answers = default, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Question
@@ -204,7 +195,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a question and related answers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="questionId">The id of the question to update.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="ticketCount">The number of tickets to reward</param>
@@ -219,7 +209,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateQuestionApiResponse"/>?&gt;</returns>
-        Task<IUpdateQuestionApiResponse?> UpdateQuestionOrDefaultAsync(decimal version, long questionId, long accountId, long ticketCount, Option<string> question = default, Option<string> answers = default, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateQuestionApiResponse?> UpdateQuestionOrDefaultAsync(long questionId, long accountId, long ticketCount, Option<string> question = default, Option<string> answers = default, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -435,7 +425,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateQuestion(ref decimal version, ref long accountId, ref string question, ref string answers, ref bool active, ref bool allocateTickets, ref long ticketCount, ref Option<string> tags, ref Option<string> videoURL, ref Option<long> assetId, ref Option<string> ticketType, ref Option<long> points);
+        partial void FormatCreateQuestion(ref long accountId, ref string question, ref string answers, ref bool active, ref bool allocateTickets, ref long ticketCount, ref Option<string> tags, ref Option<string> videoURL, ref Option<long> assetId, ref Option<string> ticketType, ref Option<long> points);
 
         /// <summary>
         /// Validates the request parameters
@@ -468,7 +458,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="question"></param>
         /// <param name="answers"></param>
@@ -480,10 +469,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetId"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void AfterCreateQuestionDefaultImplementation(ICreateQuestionApiResponse apiResponseLocalVar, decimal version, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<string> ticketType, Option<long> points)
+        private void AfterCreateQuestionDefaultImplementation(ICreateQuestionApiResponse apiResponseLocalVar, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLog = false;
-            AfterCreateQuestion(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
+            AfterCreateQuestion(ref suppressDefaultLog, apiResponseLocalVar, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -493,7 +482,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="question"></param>
         /// <param name="answers"></param>
@@ -505,7 +493,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetId"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void AfterCreateQuestion(ref bool suppressDefaultLog, ICreateQuestionApiResponse apiResponseLocalVar, decimal version, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<string> ticketType, Option<long> points);
+        partial void AfterCreateQuestion(ref bool suppressDefaultLog, ICreateQuestionApiResponse apiResponseLocalVar, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -513,7 +501,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="question"></param>
         /// <param name="answers"></param>
@@ -525,10 +512,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetId"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void OnErrorCreateQuestionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<string> ticketType, Option<long> points)
+        private void OnErrorCreateQuestionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateQuestion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
+            OnErrorCreateQuestion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -540,7 +527,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="question"></param>
         /// <param name="answers"></param>
@@ -552,12 +538,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="assetId"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void OnErrorCreateQuestion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<string> ticketType, Option<long> points);
+        partial void OnErrorCreateQuestion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Create Question Create a question and related answers by the given params.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="question">the text of the question</param>
         /// <param name="answers">&#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; </param>
@@ -571,11 +556,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateQuestionApiResponse"/>&gt;</returns>
-        public async Task<ICreateQuestionApiResponse?> CreateQuestionOrDefaultAsync(decimal version, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateQuestionApiResponse?> CreateQuestionOrDefaultAsync(long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateQuestionAsync(version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points, cancellationToken).ConfigureAwait(false);
+                return await CreateQuestionAsync(accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -587,7 +572,6 @@ namespace Org.OpenAPITools.Api
         /// Create Question Create a question and related answers by the given params.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="question">the text of the question</param>
         /// <param name="answers">&#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; </param>
@@ -601,7 +585,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateQuestionApiResponse"/>&gt;</returns>
-        public async Task<ICreateQuestionApiResponse> CreateQuestionAsync(decimal version, long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateQuestionApiResponse> CreateQuestionAsync(long accountId, string question, string answers, bool active, bool allocateTickets, long ticketCount, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -609,7 +593,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateQuestion(question, answers, tags, videoURL, ticketType);
 
-                FormatCreateQuestion(ref version, ref accountId, ref question, ref answers, ref active, ref allocateTickets, ref ticketCount, ref tags, ref videoURL, ref assetId, ref ticketType, ref points);
+                FormatCreateQuestion(ref accountId, ref question, ref answers, ref active, ref allocateTickets, ref ticketCount, ref tags, ref videoURL, ref assetId, ref ticketType, ref points);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -617,9 +601,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/question/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/question/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/question/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/question/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -670,13 +653,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/question/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/question/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateQuestionDefaultImplementation(apiResponseLocalVar, version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
+                        AfterCreateQuestionDefaultImplementation(apiResponseLocalVar, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
 
                         Events.ExecuteOnCreateQuestion(apiResponseLocalVar);
 
@@ -686,7 +669,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateQuestionDefaultImplementation(e, "/api/{version}/game/question/create", uriBuilderLocalVar.Path, version, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
+                OnErrorCreateQuestionDefaultImplementation(e, "/game/question/create", uriBuilderLocalVar.Path, accountId, question, answers, active, allocateTickets, ticketCount, tags, videoURL, assetId, ticketType, points);
                 Events.ExecuteOnErrorCreateQuestion(e);
                 throw;
             }
@@ -785,19 +768,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteQuestion(ref decimal version, ref long questionId, ref long accountId);
+        partial void FormatDeleteQuestion(ref long questionId, ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteQuestionDefaultImplementation(IDeleteQuestionApiResponse apiResponseLocalVar, decimal version, long questionId, long accountId)
+        private void AfterDeleteQuestionDefaultImplementation(IDeleteQuestionApiResponse apiResponseLocalVar, long questionId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteQuestion(ref suppressDefaultLog, apiResponseLocalVar, version, questionId, accountId);
+            AfterDeleteQuestion(ref suppressDefaultLog, apiResponseLocalVar, questionId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -807,10 +789,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteQuestion(ref bool suppressDefaultLog, IDeleteQuestionApiResponse apiResponseLocalVar, decimal version, long questionId, long accountId);
+        partial void AfterDeleteQuestion(ref bool suppressDefaultLog, IDeleteQuestionApiResponse apiResponseLocalVar, long questionId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -818,13 +799,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteQuestionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long questionId, long accountId)
+        private void OnErrorDeleteQuestionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long questionId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteQuestion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, questionId, accountId);
+            OnErrorDeleteQuestion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, questionId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -836,24 +816,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteQuestion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long questionId, long accountId);
+        partial void OnErrorDeleteQuestion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long questionId, long accountId);
 
         /// <summary>
         /// Delete Question Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="questionId">the id of the question to delete</param>
         /// <param name="accountId">the id of the account that can execute this request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteQuestionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteQuestionApiResponse?> DeleteQuestionOrDefaultAsync(decimal version, long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteQuestionApiResponse?> DeleteQuestionOrDefaultAsync(long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteQuestionAsync(version, questionId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteQuestionAsync(questionId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -865,18 +843,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Question Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="questionId">the id of the question to delete</param>
         /// <param name="accountId">the id of the account that can execute this request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteQuestionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteQuestionApiResponse> DeleteQuestionAsync(decimal version, long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteQuestionApiResponse> DeleteQuestionAsync(long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteQuestion(ref version, ref questionId, ref accountId);
+                FormatDeleteQuestion(ref questionId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -884,9 +861,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/question/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/question/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/question/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/question/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -918,13 +894,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/question/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/question/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteQuestionDefaultImplementation(apiResponseLocalVar, version, questionId, accountId);
+                        AfterDeleteQuestionDefaultImplementation(apiResponseLocalVar, questionId, accountId);
 
                         Events.ExecuteOnDeleteQuestion(apiResponseLocalVar);
 
@@ -934,7 +910,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteQuestionDefaultImplementation(e, "/api/{version}/game/question/delete", uriBuilderLocalVar.Path, version, questionId, accountId);
+                OnErrorDeleteQuestionDefaultImplementation(e, "/game/question/delete", uriBuilderLocalVar.Path, questionId, accountId);
                 Events.ExecuteOnErrorDeleteQuestion(e);
                 throw;
             }
@@ -1033,19 +1009,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetQuestion(ref decimal version, ref long questionId, ref long accountId);
+        partial void FormatGetQuestion(ref long questionId, ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetQuestionDefaultImplementation(IGetQuestionApiResponse apiResponseLocalVar, decimal version, long questionId, long accountId)
+        private void AfterGetQuestionDefaultImplementation(IGetQuestionApiResponse apiResponseLocalVar, long questionId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetQuestion(ref suppressDefaultLog, apiResponseLocalVar, version, questionId, accountId);
+            AfterGetQuestion(ref suppressDefaultLog, apiResponseLocalVar, questionId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1055,10 +1030,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetQuestion(ref bool suppressDefaultLog, IGetQuestionApiResponse apiResponseLocalVar, decimal version, long questionId, long accountId);
+        partial void AfterGetQuestion(ref bool suppressDefaultLog, IGetQuestionApiResponse apiResponseLocalVar, long questionId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1066,13 +1040,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetQuestionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long questionId, long accountId)
+        private void OnErrorGetQuestionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long questionId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetQuestion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, questionId, accountId);
+            OnErrorGetQuestion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, questionId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1084,24 +1057,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetQuestion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long questionId, long accountId);
+        partial void OnErrorGetQuestion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long questionId, long accountId);
 
         /// <summary>
         /// Get Question Get a question by the given id.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="questionId">the id of the question to get</param>
         /// <param name="accountId">the id of the account that can make this request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetQuestionApiResponse"/>&gt;</returns>
-        public async Task<IGetQuestionApiResponse?> GetQuestionOrDefaultAsync(decimal version, long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetQuestionApiResponse?> GetQuestionOrDefaultAsync(long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetQuestionAsync(version, questionId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetQuestionAsync(questionId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1113,18 +1084,17 @@ namespace Org.OpenAPITools.Api
         /// Get Question Get a question by the given id.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="questionId">the id of the question to get</param>
         /// <param name="accountId">the id of the account that can make this request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetQuestionApiResponse"/>&gt;</returns>
-        public async Task<IGetQuestionApiResponse> GetQuestionAsync(decimal version, long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetQuestionApiResponse> GetQuestionAsync(long questionId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetQuestion(ref version, ref questionId, ref accountId);
+                FormatGetQuestion(ref questionId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1132,9 +1102,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/question/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/question/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/question/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/question/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1166,13 +1135,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/question/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/question/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetQuestionDefaultImplementation(apiResponseLocalVar, version, questionId, accountId);
+                        AfterGetQuestionDefaultImplementation(apiResponseLocalVar, questionId, accountId);
 
                         Events.ExecuteOnGetQuestion(apiResponseLocalVar);
 
@@ -1182,7 +1151,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetQuestionDefaultImplementation(e, "/api/{version}/game/question/get", uriBuilderLocalVar.Path, version, questionId, accountId);
+                OnErrorGetQuestionDefaultImplementation(e, "/game/question/get", uriBuilderLocalVar.Path, questionId, accountId);
                 Events.ExecuteOnErrorGetQuestion(e);
                 throw;
             }
@@ -1281,7 +1250,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchQuestions(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<string> keyword);
+        partial void FormatSearchQuestions(ref long accountId, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -1302,7 +1271,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1310,10 +1278,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        private void AfterSearchQuestionsDefaultImplementation(ISearchQuestionsApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword)
+        private void AfterSearchQuestionsDefaultImplementation(ISearchQuestionsApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterSearchQuestions(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+            AfterSearchQuestions(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, activeOnly, start, limit, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1323,7 +1291,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1331,7 +1298,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        partial void AfterSearchQuestions(ref bool suppressDefaultLog, ISearchQuestionsApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword);
+        partial void AfterSearchQuestions(ref bool suppressDefaultLog, ISearchQuestionsApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1339,7 +1306,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1347,10 +1313,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        private void OnErrorSearchQuestionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword)
+        private void OnErrorSearchQuestionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchQuestions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+            OnErrorSearchQuestions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, activeOnly, start, limit, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1362,7 +1328,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1370,12 +1335,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorSearchQuestions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword);
+        partial void OnErrorSearchQuestions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword);
 
         /// <summary>
         /// Search Questions Search for questions by the given params.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -1385,11 +1349,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword for searching questions with matching tags or question text. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchQuestionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchQuestionsApiResponse?> SearchQuestionsOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchQuestionsApiResponse?> SearchQuestionsOrDefaultAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchQuestionsAsync(version, accountId, sortField, descending, activeOnly, start, limit, keyword, cancellationToken).ConfigureAwait(false);
+                return await SearchQuestionsAsync(accountId, sortField, descending, activeOnly, start, limit, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1401,7 +1365,6 @@ namespace Org.OpenAPITools.Api
         /// Search Questions Search for questions by the given params.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -1411,7 +1374,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword for searching questions with matching tags or question text. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchQuestionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchQuestionsApiResponse> SearchQuestionsAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchQuestionsApiResponse> SearchQuestionsAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1419,7 +1382,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchQuestions(sortField, keyword);
 
-                FormatSearchQuestions(ref version, ref accountId, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref keyword);
+                FormatSearchQuestions(ref accountId, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1427,9 +1390,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/question/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/question/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/question/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/question/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1468,13 +1430,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/question/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/question/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchQuestionsDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+                        AfterSearchQuestionsDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, activeOnly, start, limit, keyword);
 
                         Events.ExecuteOnSearchQuestions(apiResponseLocalVar);
 
@@ -1484,7 +1446,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchQuestionsDefaultImplementation(e, "/api/{version}/game/question/search", uriBuilderLocalVar.Path, version, accountId, sortField, descending, activeOnly, start, limit, keyword);
+                OnErrorSearchQuestionsDefaultImplementation(e, "/game/question/search", uriBuilderLocalVar.Path, accountId, sortField, descending, activeOnly, start, limit, keyword);
                 Events.ExecuteOnErrorSearchQuestions(e);
                 throw;
             }
@@ -1583,7 +1545,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateQuestion(ref decimal version, ref long questionId, ref long accountId, ref long ticketCount, ref Option<string> question, ref Option<string> answers, ref Option<string> tags, ref Option<string> videoURL, ref Option<long> assetId, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<string> ticketType, ref Option<long> points);
+        partial void FormatUpdateQuestion(ref long questionId, ref long accountId, ref long ticketCount, ref Option<string> question, ref Option<string> answers, ref Option<string> tags, ref Option<string> videoURL, ref Option<long> assetId, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<string> ticketType, ref Option<long> points);
 
         /// <summary>
         /// Validates the request parameters
@@ -1616,7 +1578,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketCount"></param>
@@ -1629,10 +1590,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="allocateTickets"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void AfterUpdateQuestionDefaultImplementation(IUpdateQuestionApiResponse apiResponseLocalVar, decimal version, long questionId, long accountId, long ticketCount, Option<string> question, Option<string> answers, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points)
+        private void AfterUpdateQuestionDefaultImplementation(IUpdateQuestionApiResponse apiResponseLocalVar, long questionId, long accountId, long ticketCount, Option<string> question, Option<string> answers, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateQuestion(ref suppressDefaultLog, apiResponseLocalVar, version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
+            AfterUpdateQuestion(ref suppressDefaultLog, apiResponseLocalVar, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1642,7 +1603,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketCount"></param>
@@ -1655,7 +1615,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="allocateTickets"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void AfterUpdateQuestion(ref bool suppressDefaultLog, IUpdateQuestionApiResponse apiResponseLocalVar, decimal version, long questionId, long accountId, long ticketCount, Option<string> question, Option<string> answers, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points);
+        partial void AfterUpdateQuestion(ref bool suppressDefaultLog, IUpdateQuestionApiResponse apiResponseLocalVar, long questionId, long accountId, long ticketCount, Option<string> question, Option<string> answers, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1663,7 +1623,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketCount"></param>
@@ -1676,10 +1635,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="allocateTickets"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void OnErrorUpdateQuestionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long questionId, long accountId, long ticketCount, Option<string> question, Option<string> answers, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points)
+        private void OnErrorUpdateQuestionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long questionId, long accountId, long ticketCount, Option<string> question, Option<string> answers, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateQuestion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
+            OnErrorUpdateQuestion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1691,7 +1650,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="questionId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketCount"></param>
@@ -1704,12 +1662,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="allocateTickets"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void OnErrorUpdateQuestion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long questionId, long accountId, long ticketCount, Option<string> question, Option<string> answers, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points);
+        partial void OnErrorUpdateQuestion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long questionId, long accountId, long ticketCount, Option<string> question, Option<string> answers, Option<string> tags, Option<string> videoURL, Option<long> assetId, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Update Question Update a question and related answers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="questionId">The id of the question to update.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="ticketCount">The number of tickets to reward</param>
@@ -1724,11 +1681,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateQuestionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateQuestionApiResponse?> UpdateQuestionOrDefaultAsync(decimal version, long questionId, long accountId, long ticketCount, Option<string> question = default, Option<string> answers = default, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateQuestionApiResponse?> UpdateQuestionOrDefaultAsync(long questionId, long accountId, long ticketCount, Option<string> question = default, Option<string> answers = default, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateQuestionAsync(version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points, cancellationToken).ConfigureAwait(false);
+                return await UpdateQuestionAsync(questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1740,7 +1697,6 @@ namespace Org.OpenAPITools.Api
         /// Update Question Update a question and related answers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="questionId">The id of the question to update.</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="ticketCount">The number of tickets to reward</param>
@@ -1755,7 +1711,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateQuestionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateQuestionApiResponse> UpdateQuestionAsync(decimal version, long questionId, long accountId, long ticketCount, Option<string> question = default, Option<string> answers = default, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateQuestionApiResponse> UpdateQuestionAsync(long questionId, long accountId, long ticketCount, Option<string> question = default, Option<string> answers = default, Option<string> tags = default, Option<string> videoURL = default, Option<long> assetId = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1763,7 +1719,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateQuestion(question, answers, tags, videoURL, ticketType);
 
-                FormatUpdateQuestion(ref version, ref questionId, ref accountId, ref ticketCount, ref question, ref answers, ref tags, ref videoURL, ref assetId, ref active, ref allocateTickets, ref ticketType, ref points);
+                FormatUpdateQuestion(ref questionId, ref accountId, ref ticketCount, ref question, ref answers, ref tags, ref videoURL, ref assetId, ref active, ref allocateTickets, ref ticketType, ref points);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1771,9 +1727,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/question/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/question/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/question/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/question/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1833,13 +1788,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/question/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/question/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateQuestionDefaultImplementation(apiResponseLocalVar, version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
+                        AfterUpdateQuestionDefaultImplementation(apiResponseLocalVar, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
 
                         Events.ExecuteOnUpdateQuestion(apiResponseLocalVar);
 
@@ -1849,7 +1804,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateQuestionDefaultImplementation(e, "/api/{version}/game/question/update", uriBuilderLocalVar.Path, version, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
+                OnErrorUpdateQuestionDefaultImplementation(e, "/game/question/update", uriBuilderLocalVar.Path, questionId, accountId, ticketCount, question, answers, tags, videoURL, assetId, active, allocateTickets, ticketType, points);
                 Events.ExecuteOnErrorUpdateQuestion(e);
                 throw;
             }

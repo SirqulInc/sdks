@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Get historical leaderboard rankings by time-frame.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="rankType">the rank type to return</param>
         /// <param name="startDate">timestamp in milliseconds to filter results with</param>
@@ -58,7 +57,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHistoricalRankingsApiResponse"/>&gt;</returns>
-        Task<IGetHistoricalRankingsApiResponse> GetHistoricalRankingsAsync(decimal version, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetHistoricalRankingsApiResponse> GetHistoricalRankingsAsync(string appKey, string rankType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Historical Rankings
@@ -66,7 +65,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get historical leaderboard rankings by time-frame.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="rankType">the rank type to return</param>
         /// <param name="startDate">timestamp in milliseconds to filter results with</param>
@@ -79,7 +77,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHistoricalRankingsApiResponse"/>?&gt;</returns>
-        Task<IGetHistoricalRankingsApiResponse?> GetHistoricalRankingsOrDefaultAsync(decimal version, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetHistoricalRankingsApiResponse?> GetHistoricalRankingsOrDefaultAsync(string appKey, string rankType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Rankings
@@ -88,7 +86,6 @@ namespace Org.OpenAPITools.Api
         /// Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="gameType">This parameter is deprecated. (optional)</param>
@@ -109,7 +106,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRankingsApiResponse"/>&gt;</returns>
-        Task<IGetRankingsApiResponse> GetRankingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> q = default, Option<string> keyword = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> withinAccountIds = default, Option<bool> returnUserRank = default, Option<long> albumId = default, Option<long> audienceId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRankingsApiResponse> GetRankingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> q = default, Option<string> keyword = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> withinAccountIds = default, Option<bool> returnUserRank = default, Option<long> albumId = default, Option<long> audienceId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Rankings
@@ -117,7 +114,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="gameType">This parameter is deprecated. (optional)</param>
@@ -138,7 +134,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRankingsApiResponse"/>?&gt;</returns>
-        Task<IGetRankingsApiResponse?> GetRankingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> q = default, Option<string> keyword = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> withinAccountIds = default, Option<bool> returnUserRank = default, Option<long> albumId = default, Option<long> audienceId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRankingsApiResponse?> GetRankingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> q = default, Option<string> keyword = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> withinAccountIds = default, Option<bool> returnUserRank = default, Option<long> albumId = default, Option<long> audienceId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Personal Rankings
@@ -147,7 +143,6 @@ namespace Org.OpenAPITools.Api
         /// Returns the user&#39;s ranks for one or more rank types and modes.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="appKey">the application key for filtering results by application (required) (optional)</param>
@@ -161,7 +156,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserRankApiResponse"/>&gt;</returns>
-        Task<IGetUserRankApiResponse> GetUserRankAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<bool> returnUserRank = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserRankApiResponse> GetUserRankAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<bool> returnUserRank = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Personal Rankings
@@ -169,7 +164,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Returns the user&#39;s ranks for one or more rank types and modes.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="appKey">the application key for filtering results by application (required) (optional)</param>
@@ -183,7 +177,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserRankApiResponse"/>?&gt;</returns>
-        Task<IGetUserRankApiResponse?> GetUserRankOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<bool> returnUserRank = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserRankApiResponse?> GetUserRankOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<bool> returnUserRank = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Override User Rank
@@ -192,7 +186,6 @@ namespace Org.OpenAPITools.Api
         /// Allows an admin of an application to override a user&#39;s scores for a leaderboard.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the logged in user&#39;s account id (must have permissions to manage data for the application)</param>
         /// <param name="ownerAccountId">the end user&#39;s account id to override</param>
         /// <param name="appKey">the application key the leaderboard is for</param>
@@ -217,7 +210,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate">the end date to update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOverrideUserRankApiResponse"/>&gt;</returns>
-        Task<IOverrideUserRankApiResponse> OverrideUserRankAsync(decimal version, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore = default, Option<long> totalCount = default, Option<long> totalTime = default, Option<long> dailyScore = default, Option<long> dailyCount = default, Option<long> dailyTime = default, Option<long> weeklyScore = default, Option<long> weeklyCount = default, Option<long> weeklyTime = default, Option<long> monthlyScore = default, Option<long> monthlyCount = default, Option<long> monthlyTime = default, Option<long> topScore = default, Option<long> lowestScore = default, Option<long> streakCount = default, Option<long> streakBestCount = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IOverrideUserRankApiResponse> OverrideUserRankAsync(long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore = default, Option<long> totalCount = default, Option<long> totalTime = default, Option<long> dailyScore = default, Option<long> dailyCount = default, Option<long> dailyTime = default, Option<long> weeklyScore = default, Option<long> weeklyCount = default, Option<long> weeklyTime = default, Option<long> monthlyScore = default, Option<long> monthlyCount = default, Option<long> monthlyTime = default, Option<long> topScore = default, Option<long> lowestScore = default, Option<long> streakCount = default, Option<long> streakBestCount = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Override User Rank
@@ -225,7 +218,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows an admin of an application to override a user&#39;s scores for a leaderboard.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the logged in user&#39;s account id (must have permissions to manage data for the application)</param>
         /// <param name="ownerAccountId">the end user&#39;s account id to override</param>
         /// <param name="appKey">the application key the leaderboard is for</param>
@@ -250,7 +242,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate">the end date to update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOverrideUserRankApiResponse"/>?&gt;</returns>
-        Task<IOverrideUserRankApiResponse?> OverrideUserRankOrDefaultAsync(decimal version, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore = default, Option<long> totalCount = default, Option<long> totalTime = default, Option<long> dailyScore = default, Option<long> dailyCount = default, Option<long> dailyTime = default, Option<long> weeklyScore = default, Option<long> weeklyCount = default, Option<long> weeklyTime = default, Option<long> monthlyScore = default, Option<long> monthlyCount = default, Option<long> monthlyTime = default, Option<long> topScore = default, Option<long> lowestScore = default, Option<long> streakCount = default, Option<long> streakBestCount = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IOverrideUserRankApiResponse?> OverrideUserRankOrDefaultAsync(long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore = default, Option<long> totalCount = default, Option<long> totalTime = default, Option<long> dailyScore = default, Option<long> dailyCount = default, Option<long> dailyTime = default, Option<long> weeklyScore = default, Option<long> weeklyCount = default, Option<long> weeklyTime = default, Option<long> monthlyScore = default, Option<long> monthlyCount = default, Option<long> monthlyTime = default, Option<long> topScore = default, Option<long> lowestScore = default, Option<long> streakCount = default, Option<long> streakBestCount = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Ranking
@@ -259,7 +251,6 @@ namespace Org.OpenAPITools.Api
         /// Update the rank value 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS</param>
@@ -272,7 +263,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="createLeaderboard">create the leaderboard if it does not exist (default false) (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRankingsApiResponse"/>&gt;</returns>
-        Task<IUpdateRankingsApiResponse> UpdateRankingsAsync(decimal version, long accountId, string appKey, string rankType, Option<long> increment = default, Option<long> timeIncrement = default, Option<string> tag = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> updateGlobal = default, Option<bool> createLeaderboard = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRankingsApiResponse> UpdateRankingsAsync(long accountId, string appKey, string rankType, Option<long> increment = default, Option<long> timeIncrement = default, Option<string> tag = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> updateGlobal = default, Option<bool> createLeaderboard = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Ranking
@@ -280,7 +271,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the rank value 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS</param>
@@ -293,7 +283,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="createLeaderboard">create the leaderboard if it does not exist (default false) (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRankingsApiResponse"/>?&gt;</returns>
-        Task<IUpdateRankingsApiResponse?> UpdateRankingsOrDefaultAsync(decimal version, long accountId, string appKey, string rankType, Option<long> increment = default, Option<long> timeIncrement = default, Option<string> tag = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> updateGlobal = default, Option<bool> createLeaderboard = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRankingsApiResponse?> UpdateRankingsOrDefaultAsync(long accountId, string appKey, string rankType, Option<long> increment = default, Option<long> timeIncrement = default, Option<string> tag = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> updateGlobal = default, Option<bool> createLeaderboard = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -509,7 +499,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetHistoricalRankings(ref decimal version, ref string appKey, ref string rankType, ref long startDate, ref long endDate, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatGetHistoricalRankings(ref string appKey, ref string rankType, ref long startDate, ref long endDate, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -538,7 +528,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
         /// <param name="startDate"></param>
@@ -549,10 +538,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterGetHistoricalRankingsDefaultImplementation(IGetHistoricalRankingsApiResponse apiResponseLocalVar, decimal version, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterGetHistoricalRankingsDefaultImplementation(IGetHistoricalRankingsApiResponse apiResponseLocalVar, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetHistoricalRankings(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
+            AfterGetHistoricalRankings(ref suppressDefaultLog, apiResponseLocalVar, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -562,7 +551,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
         /// <param name="startDate"></param>
@@ -573,7 +561,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterGetHistoricalRankings(ref bool suppressDefaultLog, IGetHistoricalRankingsApiResponse apiResponseLocalVar, decimal version, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterGetHistoricalRankings(ref bool suppressDefaultLog, IGetHistoricalRankingsApiResponse apiResponseLocalVar, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -581,7 +569,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
         /// <param name="startDate"></param>
@@ -592,10 +579,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetHistoricalRankingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorGetHistoricalRankingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetHistoricalRankings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
+            OnErrorGetHistoricalRankings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -607,7 +594,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
         /// <param name="startDate"></param>
@@ -618,12 +604,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetHistoricalRankings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorGetHistoricalRankings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Historical Rankings Get historical leaderboard rankings by time-frame.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="rankType">the rank type to return</param>
         /// <param name="startDate">timestamp in milliseconds to filter results with</param>
@@ -636,11 +621,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHistoricalRankingsApiResponse"/>&gt;</returns>
-        public async Task<IGetHistoricalRankingsApiResponse?> GetHistoricalRankingsOrDefaultAsync(decimal version, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetHistoricalRankingsApiResponse?> GetHistoricalRankingsOrDefaultAsync(string appKey, string rankType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetHistoricalRankingsAsync(version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await GetHistoricalRankingsAsync(appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -652,7 +637,6 @@ namespace Org.OpenAPITools.Api
         /// Search Historical Rankings Get historical leaderboard rankings by time-frame.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="rankType">the rank type to return</param>
         /// <param name="startDate">timestamp in milliseconds to filter results with</param>
@@ -665,7 +649,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetHistoricalRankingsApiResponse"/>&gt;</returns>
-        public async Task<IGetHistoricalRankingsApiResponse> GetHistoricalRankingsAsync(decimal version, string appKey, string rankType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetHistoricalRankingsApiResponse> GetHistoricalRankingsAsync(string appKey, string rankType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -673,7 +657,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetHistoricalRankings(appKey, rankType, deviceId, sortField);
 
-                FormatGetHistoricalRankings(ref version, ref appKey, ref rankType, ref startDate, ref endDate, ref deviceId, ref accountId, ref sortField, ref descending, ref start, ref limit);
+                FormatGetHistoricalRankings(ref appKey, ref rankType, ref startDate, ref endDate, ref deviceId, ref accountId, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -681,9 +665,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ranking/historical/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ranking/historical/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ranking/historical/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ranking/historical/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -735,13 +718,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ranking/historical/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ranking/historical/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetHistoricalRankingsDefaultImplementation(apiResponseLocalVar, version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
+                        AfterGetHistoricalRankingsDefaultImplementation(apiResponseLocalVar, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
 
                         Events.ExecuteOnGetHistoricalRankings(apiResponseLocalVar);
 
@@ -751,7 +734,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetHistoricalRankingsDefaultImplementation(e, "/api/{version}/ranking/historical/search", uriBuilderLocalVar.Path, version, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
+                OnErrorGetHistoricalRankingsDefaultImplementation(e, "/ranking/historical/search", uriBuilderLocalVar.Path, appKey, rankType, startDate, endDate, deviceId, accountId, sortField, descending, start, limit);
                 Events.ExecuteOnErrorGetHistoricalRankings(e);
                 throw;
             }
@@ -850,7 +833,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetRankings(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> q, ref Option<string> keyword, ref Option<string> rankType, ref Option<string> leaderboardMode, ref Option<string> withinAccountIds, ref Option<bool> returnUserRank, ref Option<long> albumId, ref Option<long> audienceId, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit);
+        partial void FormatGetRankings(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> q, ref Option<string> keyword, ref Option<string> rankType, ref Option<string> leaderboardMode, ref Option<string> withinAccountIds, ref Option<bool> returnUserRank, ref Option<long> albumId, ref Option<long> audienceId, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -899,7 +882,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
@@ -918,10 +900,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        private void AfterGetRankingsDefaultImplementation(IGetRankingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> q, Option<string> keyword, Option<string> rankType, Option<string> leaderboardMode, Option<string> withinAccountIds, Option<bool> returnUserRank, Option<long> albumId, Option<long> audienceId, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
+        private void AfterGetRankingsDefaultImplementation(IGetRankingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> q, Option<string> keyword, Option<string> rankType, Option<string> leaderboardMode, Option<string> withinAccountIds, Option<bool> returnUserRank, Option<long> albumId, Option<long> audienceId, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetRankings(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
+            AfterGetRankings(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -931,7 +913,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
@@ -950,7 +931,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        partial void AfterGetRankings(ref bool suppressDefaultLog, IGetRankingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> q, Option<string> keyword, Option<string> rankType, Option<string> leaderboardMode, Option<string> withinAccountIds, Option<bool> returnUserRank, Option<long> albumId, Option<long> audienceId, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
+        partial void AfterGetRankings(ref bool suppressDefaultLog, IGetRankingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> q, Option<string> keyword, Option<string> rankType, Option<string> leaderboardMode, Option<string> withinAccountIds, Option<bool> returnUserRank, Option<long> albumId, Option<long> audienceId, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -958,7 +939,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
@@ -977,10 +957,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetRankingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> q, Option<string> keyword, Option<string> rankType, Option<string> leaderboardMode, Option<string> withinAccountIds, Option<bool> returnUserRank, Option<long> albumId, Option<long> audienceId, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
+        private void OnErrorGetRankingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> q, Option<string> keyword, Option<string> rankType, Option<string> leaderboardMode, Option<string> withinAccountIds, Option<bool> returnUserRank, Option<long> albumId, Option<long> audienceId, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRankings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
+            OnErrorGetRankings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -992,7 +972,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
@@ -1011,12 +990,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetRankings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> q, Option<string> keyword, Option<string> rankType, Option<string> leaderboardMode, Option<string> withinAccountIds, Option<bool> returnUserRank, Option<long> albumId, Option<long> audienceId, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
+        partial void OnErrorGetRankings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> q, Option<string> keyword, Option<string> rankType, Option<string> leaderboardMode, Option<string> withinAccountIds, Option<bool> returnUserRank, Option<long> albumId, Option<long> audienceId, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
 
         /// <summary>
         /// Search Rankings Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="gameType">This parameter is deprecated. (optional)</param>
@@ -1037,11 +1015,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRankingsApiResponse"/>&gt;</returns>
-        public async Task<IGetRankingsApiResponse?> GetRankingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> q = default, Option<string> keyword = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> withinAccountIds = default, Option<bool> returnUserRank = default, Option<long> albumId = default, Option<long> audienceId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRankingsApiResponse?> GetRankingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> q = default, Option<string> keyword = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> withinAccountIds = default, Option<bool> returnUserRank = default, Option<long> albumId = default, Option<long> audienceId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRankingsAsync(version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit, cancellationToken).ConfigureAwait(false);
+                return await GetRankingsAsync(deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1053,7 +1031,6 @@ namespace Org.OpenAPITools.Api
         /// Search Rankings Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="gameType">This parameter is deprecated. (optional)</param>
@@ -1074,7 +1051,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRankingsApiResponse"/>&gt;</returns>
-        public async Task<IGetRankingsApiResponse> GetRankingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> q = default, Option<string> keyword = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> withinAccountIds = default, Option<bool> returnUserRank = default, Option<long> albumId = default, Option<long> audienceId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRankingsApiResponse> GetRankingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> q = default, Option<string> keyword = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> withinAccountIds = default, Option<bool> returnUserRank = default, Option<long> albumId = default, Option<long> audienceId = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1082,7 +1059,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetRankings(deviceId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, sortField);
 
-                FormatGetRankings(ref version, ref deviceId, ref accountId, ref gameType, ref appKey, ref q, ref keyword, ref rankType, ref leaderboardMode, ref withinAccountIds, ref returnUserRank, ref albumId, ref audienceId, ref sortField, ref descending, ref i, ref start, ref l, ref limit);
+                FormatGetRankings(ref deviceId, ref accountId, ref gameType, ref appKey, ref q, ref keyword, ref rankType, ref leaderboardMode, ref withinAccountIds, ref returnUserRank, ref albumId, ref audienceId, ref sortField, ref descending, ref i, ref start, ref l, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1090,9 +1067,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ranking/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ranking/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ranking/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ranking/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1175,13 +1151,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ranking/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ranking/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRankingsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
+                        AfterGetRankingsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
 
                         Events.ExecuteOnGetRankings(apiResponseLocalVar);
 
@@ -1191,7 +1167,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRankingsDefaultImplementation(e, "/api/{version}/ranking/search", uriBuilderLocalVar.Path, version, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
+                OnErrorGetRankingsDefaultImplementation(e, "/ranking/search", uriBuilderLocalVar.Path, deviceId, accountId, gameType, appKey, q, keyword, rankType, leaderboardMode, withinAccountIds, returnUserRank, albumId, audienceId, sortField, descending, i, start, l, limit);
                 Events.ExecuteOnErrorGetRankings(e);
                 throw;
             }
@@ -1290,7 +1266,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUserRank(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> rankType, ref Option<bool> returnUserRank, ref Option<string> leaderboardMode, ref Option<string> sortField, ref Option<string> keyword, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatGetUserRank(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> rankType, ref Option<bool> returnUserRank, ref Option<string> leaderboardMode, ref Option<string> sortField, ref Option<string> keyword, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1327,7 +1303,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1339,10 +1314,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterGetUserRankDefaultImplementation(IGetUserRankApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<bool> returnUserRank, Option<string> leaderboardMode, Option<string> sortField, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterGetUserRankDefaultImplementation(IGetUserRankApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<bool> returnUserRank, Option<string> leaderboardMode, Option<string> sortField, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetUserRank(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
+            AfterGetUserRank(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1352,7 +1327,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1364,7 +1338,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterGetUserRank(ref bool suppressDefaultLog, IGetUserRankApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<bool> returnUserRank, Option<string> leaderboardMode, Option<string> sortField, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterGetUserRank(ref bool suppressDefaultLog, IGetUserRankApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<bool> returnUserRank, Option<string> leaderboardMode, Option<string> sortField, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1372,7 +1346,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1384,10 +1357,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetUserRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<bool> returnUserRank, Option<string> leaderboardMode, Option<string> sortField, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorGetUserRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<bool> returnUserRank, Option<string> leaderboardMode, Option<string> sortField, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUserRank(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
+            OnErrorGetUserRank(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1399,7 +1372,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1411,12 +1383,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetUserRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<bool> returnUserRank, Option<string> leaderboardMode, Option<string> sortField, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorGetUserRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<bool> returnUserRank, Option<string> leaderboardMode, Option<string> sortField, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Get Personal Rankings Returns the user&#39;s ranks for one or more rank types and modes.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="appKey">the application key for filtering results by application (required) (optional)</param>
@@ -1430,11 +1401,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserRankApiResponse"/>&gt;</returns>
-        public async Task<IGetUserRankApiResponse?> GetUserRankOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<bool> returnUserRank = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserRankApiResponse?> GetUserRankOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<bool> returnUserRank = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUserRankAsync(version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await GetUserRankAsync(deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1446,7 +1417,6 @@ namespace Org.OpenAPITools.Api
         /// Get Personal Rankings Returns the user&#39;s ranks for one or more rank types and modes.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="appKey">the application key for filtering results by application (required) (optional)</param>
@@ -1460,7 +1430,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserRankApiResponse"/>&gt;</returns>
-        public async Task<IGetUserRankApiResponse> GetUserRankAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<bool> returnUserRank = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserRankApiResponse> GetUserRankAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<bool> returnUserRank = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1468,7 +1438,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetUserRank(deviceId, appKey, rankType, leaderboardMode, sortField, keyword);
 
-                FormatGetUserRank(ref version, ref deviceId, ref accountId, ref appKey, ref rankType, ref returnUserRank, ref leaderboardMode, ref sortField, ref keyword, ref descending, ref start, ref limit);
+                FormatGetUserRank(ref deviceId, ref accountId, ref appKey, ref rankType, ref returnUserRank, ref leaderboardMode, ref sortField, ref keyword, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1476,9 +1446,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ranking/personal/ranks"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ranking/personal/ranks");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ranking/personal/ranks"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ranking/personal/ranks");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1540,13 +1509,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ranking/personal/ranks", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ranking/personal/ranks", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUserRankDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
+                        AfterGetUserRankDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
 
                         Events.ExecuteOnGetUserRank(apiResponseLocalVar);
 
@@ -1556,7 +1525,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUserRankDefaultImplementation(e, "/api/{version}/ranking/personal/ranks", uriBuilderLocalVar.Path, version, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
+                OnErrorGetUserRankDefaultImplementation(e, "/ranking/personal/ranks", uriBuilderLocalVar.Path, deviceId, accountId, appKey, rankType, returnUserRank, leaderboardMode, sortField, keyword, descending, start, limit);
                 Events.ExecuteOnErrorGetUserRank(e);
                 throw;
             }
@@ -1655,7 +1624,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatOverrideUserRank(ref decimal version, ref long accountId, ref long ownerAccountId, ref string appKey, ref string rankType, ref Option<long> totalScore, ref Option<long> totalCount, ref Option<long> totalTime, ref Option<long> dailyScore, ref Option<long> dailyCount, ref Option<long> dailyTime, ref Option<long> weeklyScore, ref Option<long> weeklyCount, ref Option<long> weeklyTime, ref Option<long> monthlyScore, ref Option<long> monthlyCount, ref Option<long> monthlyTime, ref Option<long> topScore, ref Option<long> lowestScore, ref Option<long> streakCount, ref Option<long> streakBestCount, ref Option<long> startDate, ref Option<long> endDate);
+        partial void FormatOverrideUserRank(ref long accountId, ref long ownerAccountId, ref string appKey, ref string rankType, ref Option<long> totalScore, ref Option<long> totalCount, ref Option<long> totalTime, ref Option<long> dailyScore, ref Option<long> dailyCount, ref Option<long> dailyTime, ref Option<long> weeklyScore, ref Option<long> weeklyCount, ref Option<long> weeklyTime, ref Option<long> monthlyScore, ref Option<long> monthlyCount, ref Option<long> monthlyTime, ref Option<long> topScore, ref Option<long> lowestScore, ref Option<long> streakCount, ref Option<long> streakBestCount, ref Option<long> startDate, ref Option<long> endDate);
 
         /// <summary>
         /// Validates the request parameters
@@ -1676,7 +1645,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerAccountId"></param>
         /// <param name="appKey"></param>
@@ -1699,10 +1667,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="streakBestCount"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
-        private void AfterOverrideUserRankDefaultImplementation(IOverrideUserRankApiResponse apiResponseLocalVar, decimal version, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore, Option<long> totalCount, Option<long> totalTime, Option<long> dailyScore, Option<long> dailyCount, Option<long> dailyTime, Option<long> weeklyScore, Option<long> weeklyCount, Option<long> weeklyTime, Option<long> monthlyScore, Option<long> monthlyCount, Option<long> monthlyTime, Option<long> topScore, Option<long> lowestScore, Option<long> streakCount, Option<long> streakBestCount, Option<long> startDate, Option<long> endDate)
+        private void AfterOverrideUserRankDefaultImplementation(IOverrideUserRankApiResponse apiResponseLocalVar, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore, Option<long> totalCount, Option<long> totalTime, Option<long> dailyScore, Option<long> dailyCount, Option<long> dailyTime, Option<long> weeklyScore, Option<long> weeklyCount, Option<long> weeklyTime, Option<long> monthlyScore, Option<long> monthlyCount, Option<long> monthlyTime, Option<long> topScore, Option<long> lowestScore, Option<long> streakCount, Option<long> streakBestCount, Option<long> startDate, Option<long> endDate)
         {
             bool suppressDefaultLog = false;
-            AfterOverrideUserRank(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
+            AfterOverrideUserRank(ref suppressDefaultLog, apiResponseLocalVar, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1712,7 +1680,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerAccountId"></param>
         /// <param name="appKey"></param>
@@ -1735,7 +1702,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="streakBestCount"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
-        partial void AfterOverrideUserRank(ref bool suppressDefaultLog, IOverrideUserRankApiResponse apiResponseLocalVar, decimal version, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore, Option<long> totalCount, Option<long> totalTime, Option<long> dailyScore, Option<long> dailyCount, Option<long> dailyTime, Option<long> weeklyScore, Option<long> weeklyCount, Option<long> weeklyTime, Option<long> monthlyScore, Option<long> monthlyCount, Option<long> monthlyTime, Option<long> topScore, Option<long> lowestScore, Option<long> streakCount, Option<long> streakBestCount, Option<long> startDate, Option<long> endDate);
+        partial void AfterOverrideUserRank(ref bool suppressDefaultLog, IOverrideUserRankApiResponse apiResponseLocalVar, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore, Option<long> totalCount, Option<long> totalTime, Option<long> dailyScore, Option<long> dailyCount, Option<long> dailyTime, Option<long> weeklyScore, Option<long> weeklyCount, Option<long> weeklyTime, Option<long> monthlyScore, Option<long> monthlyCount, Option<long> monthlyTime, Option<long> topScore, Option<long> lowestScore, Option<long> streakCount, Option<long> streakBestCount, Option<long> startDate, Option<long> endDate);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1743,7 +1710,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerAccountId"></param>
         /// <param name="appKey"></param>
@@ -1766,10 +1732,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="streakBestCount"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
-        private void OnErrorOverrideUserRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore, Option<long> totalCount, Option<long> totalTime, Option<long> dailyScore, Option<long> dailyCount, Option<long> dailyTime, Option<long> weeklyScore, Option<long> weeklyCount, Option<long> weeklyTime, Option<long> monthlyScore, Option<long> monthlyCount, Option<long> monthlyTime, Option<long> topScore, Option<long> lowestScore, Option<long> streakCount, Option<long> streakBestCount, Option<long> startDate, Option<long> endDate)
+        private void OnErrorOverrideUserRankDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore, Option<long> totalCount, Option<long> totalTime, Option<long> dailyScore, Option<long> dailyCount, Option<long> dailyTime, Option<long> weeklyScore, Option<long> weeklyCount, Option<long> weeklyTime, Option<long> monthlyScore, Option<long> monthlyCount, Option<long> monthlyTime, Option<long> topScore, Option<long> lowestScore, Option<long> streakCount, Option<long> streakBestCount, Option<long> startDate, Option<long> endDate)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorOverrideUserRank(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
+            OnErrorOverrideUserRank(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1781,7 +1747,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerAccountId"></param>
         /// <param name="appKey"></param>
@@ -1804,12 +1769,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="streakBestCount"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
-        partial void OnErrorOverrideUserRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore, Option<long> totalCount, Option<long> totalTime, Option<long> dailyScore, Option<long> dailyCount, Option<long> dailyTime, Option<long> weeklyScore, Option<long> weeklyCount, Option<long> weeklyTime, Option<long> monthlyScore, Option<long> monthlyCount, Option<long> monthlyTime, Option<long> topScore, Option<long> lowestScore, Option<long> streakCount, Option<long> streakBestCount, Option<long> startDate, Option<long> endDate);
+        partial void OnErrorOverrideUserRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore, Option<long> totalCount, Option<long> totalTime, Option<long> dailyScore, Option<long> dailyCount, Option<long> dailyTime, Option<long> weeklyScore, Option<long> weeklyCount, Option<long> weeklyTime, Option<long> monthlyScore, Option<long> monthlyCount, Option<long> monthlyTime, Option<long> topScore, Option<long> lowestScore, Option<long> streakCount, Option<long> streakBestCount, Option<long> startDate, Option<long> endDate);
 
         /// <summary>
         /// Override User Rank Allows an admin of an application to override a user&#39;s scores for a leaderboard.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the logged in user&#39;s account id (must have permissions to manage data for the application)</param>
         /// <param name="ownerAccountId">the end user&#39;s account id to override</param>
         /// <param name="appKey">the application key the leaderboard is for</param>
@@ -1834,11 +1798,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate">the end date to update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOverrideUserRankApiResponse"/>&gt;</returns>
-        public async Task<IOverrideUserRankApiResponse?> OverrideUserRankOrDefaultAsync(decimal version, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore = default, Option<long> totalCount = default, Option<long> totalTime = default, Option<long> dailyScore = default, Option<long> dailyCount = default, Option<long> dailyTime = default, Option<long> weeklyScore = default, Option<long> weeklyCount = default, Option<long> weeklyTime = default, Option<long> monthlyScore = default, Option<long> monthlyCount = default, Option<long> monthlyTime = default, Option<long> topScore = default, Option<long> lowestScore = default, Option<long> streakCount = default, Option<long> streakBestCount = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IOverrideUserRankApiResponse?> OverrideUserRankOrDefaultAsync(long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore = default, Option<long> totalCount = default, Option<long> totalTime = default, Option<long> dailyScore = default, Option<long> dailyCount = default, Option<long> dailyTime = default, Option<long> weeklyScore = default, Option<long> weeklyCount = default, Option<long> weeklyTime = default, Option<long> monthlyScore = default, Option<long> monthlyCount = default, Option<long> monthlyTime = default, Option<long> topScore = default, Option<long> lowestScore = default, Option<long> streakCount = default, Option<long> streakBestCount = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await OverrideUserRankAsync(version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate, cancellationToken).ConfigureAwait(false);
+                return await OverrideUserRankAsync(accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1850,7 +1814,6 @@ namespace Org.OpenAPITools.Api
         /// Override User Rank Allows an admin of an application to override a user&#39;s scores for a leaderboard.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the logged in user&#39;s account id (must have permissions to manage data for the application)</param>
         /// <param name="ownerAccountId">the end user&#39;s account id to override</param>
         /// <param name="appKey">the application key the leaderboard is for</param>
@@ -1875,7 +1838,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate">the end date to update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IOverrideUserRankApiResponse"/>&gt;</returns>
-        public async Task<IOverrideUserRankApiResponse> OverrideUserRankAsync(decimal version, long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore = default, Option<long> totalCount = default, Option<long> totalTime = default, Option<long> dailyScore = default, Option<long> dailyCount = default, Option<long> dailyTime = default, Option<long> weeklyScore = default, Option<long> weeklyCount = default, Option<long> weeklyTime = default, Option<long> monthlyScore = default, Option<long> monthlyCount = default, Option<long> monthlyTime = default, Option<long> topScore = default, Option<long> lowestScore = default, Option<long> streakCount = default, Option<long> streakBestCount = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IOverrideUserRankApiResponse> OverrideUserRankAsync(long accountId, long ownerAccountId, string appKey, string rankType, Option<long> totalScore = default, Option<long> totalCount = default, Option<long> totalTime = default, Option<long> dailyScore = default, Option<long> dailyCount = default, Option<long> dailyTime = default, Option<long> weeklyScore = default, Option<long> weeklyCount = default, Option<long> weeklyTime = default, Option<long> monthlyScore = default, Option<long> monthlyCount = default, Option<long> monthlyTime = default, Option<long> topScore = default, Option<long> lowestScore = default, Option<long> streakCount = default, Option<long> streakBestCount = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1883,7 +1846,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateOverrideUserRank(appKey, rankType);
 
-                FormatOverrideUserRank(ref version, ref accountId, ref ownerAccountId, ref appKey, ref rankType, ref totalScore, ref totalCount, ref totalTime, ref dailyScore, ref dailyCount, ref dailyTime, ref weeklyScore, ref weeklyCount, ref weeklyTime, ref monthlyScore, ref monthlyCount, ref monthlyTime, ref topScore, ref lowestScore, ref streakCount, ref streakBestCount, ref startDate, ref endDate);
+                FormatOverrideUserRank(ref accountId, ref ownerAccountId, ref appKey, ref rankType, ref totalScore, ref totalCount, ref totalTime, ref dailyScore, ref dailyCount, ref dailyTime, ref weeklyScore, ref weeklyCount, ref weeklyTime, ref monthlyScore, ref monthlyCount, ref monthlyTime, ref topScore, ref lowestScore, ref streakCount, ref streakBestCount, ref startDate, ref endDate);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1891,9 +1854,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ranking/override"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ranking/override");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ranking/override"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ranking/override");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1981,13 +1943,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ranking/override", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ranking/override", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterOverrideUserRankDefaultImplementation(apiResponseLocalVar, version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
+                        AfterOverrideUserRankDefaultImplementation(apiResponseLocalVar, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
 
                         Events.ExecuteOnOverrideUserRank(apiResponseLocalVar);
 
@@ -1997,7 +1959,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorOverrideUserRankDefaultImplementation(e, "/api/{version}/ranking/override", uriBuilderLocalVar.Path, version, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
+                OnErrorOverrideUserRankDefaultImplementation(e, "/ranking/override", uriBuilderLocalVar.Path, accountId, ownerAccountId, appKey, rankType, totalScore, totalCount, totalTime, dailyScore, dailyCount, dailyTime, weeklyScore, weeklyCount, weeklyTime, monthlyScore, monthlyCount, monthlyTime, topScore, lowestScore, streakCount, streakBestCount, startDate, endDate);
                 Events.ExecuteOnErrorOverrideUserRank(e);
                 throw;
             }
@@ -2096,7 +2058,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateRankings(ref decimal version, ref long accountId, ref string appKey, ref string rankType, ref Option<long> increment, ref Option<long> timeIncrement, ref Option<string> tag, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> updateGlobal, ref Option<bool> createLeaderboard);
+        partial void FormatUpdateRankings(ref long accountId, ref string appKey, ref string rankType, ref Option<long> increment, ref Option<long> timeIncrement, ref Option<string> tag, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> updateGlobal, ref Option<bool> createLeaderboard);
 
         /// <summary>
         /// Validates the request parameters
@@ -2121,7 +2083,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
@@ -2132,10 +2093,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="updateGlobal"></param>
         /// <param name="createLeaderboard"></param>
-        private void AfterUpdateRankingsDefaultImplementation(IUpdateRankingsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string rankType, Option<long> increment, Option<long> timeIncrement, Option<string> tag, Option<long> startDate, Option<long> endDate, Option<bool> updateGlobal, Option<bool> createLeaderboard)
+        private void AfterUpdateRankingsDefaultImplementation(IUpdateRankingsApiResponse apiResponseLocalVar, long accountId, string appKey, string rankType, Option<long> increment, Option<long> timeIncrement, Option<string> tag, Option<long> startDate, Option<long> endDate, Option<bool> updateGlobal, Option<bool> createLeaderboard)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateRankings(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
+            AfterUpdateRankings(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2145,7 +2106,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
@@ -2156,7 +2116,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="updateGlobal"></param>
         /// <param name="createLeaderboard"></param>
-        partial void AfterUpdateRankings(ref bool suppressDefaultLog, IUpdateRankingsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string rankType, Option<long> increment, Option<long> timeIncrement, Option<string> tag, Option<long> startDate, Option<long> endDate, Option<bool> updateGlobal, Option<bool> createLeaderboard);
+        partial void AfterUpdateRankings(ref bool suppressDefaultLog, IUpdateRankingsApiResponse apiResponseLocalVar, long accountId, string appKey, string rankType, Option<long> increment, Option<long> timeIncrement, Option<string> tag, Option<long> startDate, Option<long> endDate, Option<bool> updateGlobal, Option<bool> createLeaderboard);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2164,7 +2124,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
@@ -2175,10 +2134,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="updateGlobal"></param>
         /// <param name="createLeaderboard"></param>
-        private void OnErrorUpdateRankingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string rankType, Option<long> increment, Option<long> timeIncrement, Option<string> tag, Option<long> startDate, Option<long> endDate, Option<bool> updateGlobal, Option<bool> createLeaderboard)
+        private void OnErrorUpdateRankingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string rankType, Option<long> increment, Option<long> timeIncrement, Option<string> tag, Option<long> startDate, Option<long> endDate, Option<bool> updateGlobal, Option<bool> createLeaderboard)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateRankings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
+            OnErrorUpdateRankings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2190,7 +2149,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
@@ -2201,12 +2159,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="updateGlobal"></param>
         /// <param name="createLeaderboard"></param>
-        partial void OnErrorUpdateRankings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string rankType, Option<long> increment, Option<long> timeIncrement, Option<string> tag, Option<long> startDate, Option<long> endDate, Option<bool> updateGlobal, Option<bool> createLeaderboard);
+        partial void OnErrorUpdateRankings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string rankType, Option<long> increment, Option<long> timeIncrement, Option<string> tag, Option<long> startDate, Option<long> endDate, Option<bool> updateGlobal, Option<bool> createLeaderboard);
 
         /// <summary>
         /// Update Ranking Update the rank value 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS</param>
@@ -2219,11 +2176,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="createLeaderboard">create the leaderboard if it does not exist (default false) (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRankingsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRankingsApiResponse?> UpdateRankingsOrDefaultAsync(decimal version, long accountId, string appKey, string rankType, Option<long> increment = default, Option<long> timeIncrement = default, Option<string> tag = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> updateGlobal = default, Option<bool> createLeaderboard = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRankingsApiResponse?> UpdateRankingsOrDefaultAsync(long accountId, string appKey, string rankType, Option<long> increment = default, Option<long> timeIncrement = default, Option<string> tag = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> updateGlobal = default, Option<bool> createLeaderboard = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateRankingsAsync(version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard, cancellationToken).ConfigureAwait(false);
+                return await UpdateRankingsAsync(accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2235,7 +2192,6 @@ namespace Org.OpenAPITools.Api
         /// Update Ranking Update the rank value 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS</param>
@@ -2248,7 +2204,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="createLeaderboard">create the leaderboard if it does not exist (default false) (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRankingsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRankingsApiResponse> UpdateRankingsAsync(decimal version, long accountId, string appKey, string rankType, Option<long> increment = default, Option<long> timeIncrement = default, Option<string> tag = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> updateGlobal = default, Option<bool> createLeaderboard = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRankingsApiResponse> UpdateRankingsAsync(long accountId, string appKey, string rankType, Option<long> increment = default, Option<long> timeIncrement = default, Option<string> tag = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> updateGlobal = default, Option<bool> createLeaderboard = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2256,7 +2212,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateRankings(appKey, rankType, tag);
 
-                FormatUpdateRankings(ref version, ref accountId, ref appKey, ref rankType, ref increment, ref timeIncrement, ref tag, ref startDate, ref endDate, ref updateGlobal, ref createLeaderboard);
+                FormatUpdateRankings(ref accountId, ref appKey, ref rankType, ref increment, ref timeIncrement, ref tag, ref startDate, ref endDate, ref updateGlobal, ref createLeaderboard);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2264,9 +2220,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ranking/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ranking/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ranking/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ranking/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2320,13 +2275,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ranking/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ranking/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateRankingsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
+                        AfterUpdateRankingsDefaultImplementation(apiResponseLocalVar, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
 
                         Events.ExecuteOnUpdateRankings(apiResponseLocalVar);
 
@@ -2336,7 +2291,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateRankingsDefaultImplementation(e, "/api/{version}/ranking/update", uriBuilderLocalVar.Path, version, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
+                OnErrorUpdateRankingsDefaultImplementation(e, "/ranking/update", uriBuilderLocalVar.Path, accountId, appKey, rankType, increment, timeIncrement, tag, startDate, endDate, updateGlobal, createLeaderboard);
                 Events.ExecuteOnErrorUpdateRankings(e);
                 throw;
             }

@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Get an existing stop
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the stop to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetStopApiResponse"/>&gt;</returns>
-        Task<IGetStopApiResponse> GetStopAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetStopApiResponse> GetStopAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Stop
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an existing stop
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the stop to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetStopApiResponse"/>?&gt;</returns>
-        Task<IGetStopApiResponse?> GetStopOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetStopApiResponse?> GetStopOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Stop
@@ -70,12 +68,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing stop
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the stop to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateStopApiResponse"/>&gt;</returns>
-        Task<IUpdateStopApiResponse> UpdateStopAsync(decimal version, long id, Option<Stop> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateStopApiResponse> UpdateStopAsync(long id, Option<Stop> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Stop
@@ -83,12 +80,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing stop
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the stop to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateStopApiResponse"/>?&gt;</returns>
-        Task<IUpdateStopApiResponse?> UpdateStopOrDefaultAsync(decimal version, long id, Option<Stop> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateStopApiResponse?> UpdateStopOrDefaultAsync(long id, Option<Stop> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -208,18 +204,17 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetStop(ref decimal version, ref long id);
+        partial void FormatGetStop(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterGetStopDefaultImplementation(IGetStopApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterGetStopDefaultImplementation(IGetStopApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterGetStop(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterGetStop(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -229,9 +224,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterGetStop(ref bool suppressDefaultLog, IGetStopApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterGetStop(ref bool suppressDefaultLog, IGetStopApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -239,12 +233,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorGetStopDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorGetStopDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetStop(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorGetStop(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -256,22 +249,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorGetStop(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorGetStop(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Get Stop Get an existing stop
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the stop to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetStopApiResponse"/>&gt;</returns>
-        public async Task<IGetStopApiResponse?> GetStopOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetStopApiResponse?> GetStopOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetStopAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await GetStopAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -283,17 +274,16 @@ namespace Org.OpenAPITools.Api
         /// Get Stop Get an existing stop
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the stop to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetStopApiResponse"/>&gt;</returns>
-        public async Task<IGetStopApiResponse> GetStopAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetStopApiResponse> GetStopAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetStop(ref version, ref id);
+                FormatGetStop(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -301,9 +291,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/stop/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/stop/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/stop/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/stop/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -329,13 +318,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/stop/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/stop/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetStopDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterGetStopDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnGetStop(apiResponseLocalVar);
 
@@ -345,7 +334,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetStopDefaultImplementation(e, "/api/{version}/stop/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorGetStopDefaultImplementation(e, "/stop/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorGetStop(e);
                 throw;
             }
@@ -444,7 +433,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateStop(ref decimal version, ref long id, Option<Stop> body);
+        partial void FormatUpdateStop(ref long id, Option<Stop> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -461,13 +450,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateStopDefaultImplementation(IUpdateStopApiResponse apiResponseLocalVar, decimal version, long id, Option<Stop> body)
+        private void AfterUpdateStopDefaultImplementation(IUpdateStopApiResponse apiResponseLocalVar, long id, Option<Stop> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateStop(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateStop(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -477,10 +465,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateStop(ref bool suppressDefaultLog, IUpdateStopApiResponse apiResponseLocalVar, decimal version, long id, Option<Stop> body);
+        partial void AfterUpdateStop(ref bool suppressDefaultLog, IUpdateStopApiResponse apiResponseLocalVar, long id, Option<Stop> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -488,13 +475,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateStopDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Stop> body)
+        private void OnErrorUpdateStopDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Stop> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateStop(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateStop(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -506,24 +492,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateStop(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Stop> body);
+        partial void OnErrorUpdateStop(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Stop> body);
 
         /// <summary>
         /// Update Stop Update an existing stop
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the stop to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateStopApiResponse"/>&gt;</returns>
-        public async Task<IUpdateStopApiResponse?> UpdateStopOrDefaultAsync(decimal version, long id, Option<Stop> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateStopApiResponse?> UpdateStopOrDefaultAsync(long id, Option<Stop> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateStopAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateStopAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -535,12 +519,11 @@ namespace Org.OpenAPITools.Api
         /// Update Stop Update an existing stop
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the stop to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateStopApiResponse"/>&gt;</returns>
-        public async Task<IUpdateStopApiResponse> UpdateStopAsync(decimal version, long id, Option<Stop> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateStopApiResponse> UpdateStopAsync(long id, Option<Stop> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -548,7 +531,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateStop(body);
 
-                FormatUpdateStop(ref version, ref id, body);
+                FormatUpdateStop(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -556,9 +539,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/stop/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/stop/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/stop/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/stop/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -589,13 +571,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/stop/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/stop/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateStopDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateStopDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateStop(apiResponseLocalVar);
 
@@ -605,7 +587,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateStopDefaultImplementation(e, "/api/{version}/stop/{id}", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateStopDefaultImplementation(e, "/stop/{id}", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateStop(e);
                 throw;
             }

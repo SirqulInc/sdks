@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a pack.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The title of the pack</param>
         /// <param name="packOrder">The order of the pack</param>
@@ -72,7 +71,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a pack (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePackApiResponse"/>&gt;</returns>
-        Task<ICreatePackApiResponse> CreatePackAsync(decimal version, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePackApiResponse> CreatePackAsync(long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Pack
@@ -80,7 +79,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a pack.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The title of the pack</param>
         /// <param name="packOrder">The order of the pack</param>
@@ -107,7 +105,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a pack (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePackApiResponse"/>?&gt;</returns>
-        Task<ICreatePackApiResponse?> CreatePackOrDefaultAsync(decimal version, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePackApiResponse?> CreatePackOrDefaultAsync(long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Pack
@@ -116,12 +114,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a pack.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="packId">the id of the pack to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePackApiResponse"/>&gt;</returns>
-        Task<IDeletePackApiResponse> DeletePackAsync(decimal version, long accountId, long packId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePackApiResponse> DeletePackAsync(long accountId, long packId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Pack
@@ -129,12 +126,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a pack.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="packId">the id of the pack to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePackApiResponse"/>?&gt;</returns>
-        Task<IDeletePackApiResponse?> DeletePackOrDefaultAsync(decimal version, long accountId, long packId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePackApiResponse?> DeletePackOrDefaultAsync(long accountId, long packId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Pack
@@ -143,13 +139,12 @@ namespace Org.OpenAPITools.Api
         /// Get a pack.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="packId">The id of the pack to return.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPackApiResponse"/>&gt;</returns>
-        Task<IGetPackApiResponse> GetPackAsync(decimal version, long accountId, long packId, bool includeGameData, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPackApiResponse> GetPackAsync(long accountId, long packId, bool includeGameData, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Pack
@@ -157,13 +152,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a pack.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="packId">The id of the pack to return.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPackApiResponse"/>?&gt;</returns>
-        Task<IGetPackApiResponse?> GetPackOrDefaultAsync(decimal version, long accountId, long packId, bool includeGameData, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPackApiResponse?> GetPackOrDefaultAsync(long accountId, long packId, bool includeGameData, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Packs
@@ -172,7 +166,6 @@ namespace Org.OpenAPITools.Api
         /// Search on packs.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -185,7 +178,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application to filter results on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPacksApiResponse"/>&gt;</returns>
-        Task<ISearchPacksApiResponse> SearchPacksAsync(decimal version, long accountId, string sortField, bool descending, Option<string> keyword = default, Option<string> packType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPacksApiResponse> SearchPacksAsync(long accountId, string sortField, bool descending, Option<string> keyword = default, Option<string> packType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Packs
@@ -193,7 +186,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on packs.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -206,7 +198,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application to filter results on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPacksApiResponse"/>?&gt;</returns>
-        Task<ISearchPacksApiResponse?> SearchPacksOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, Option<string> keyword = default, Option<string> packType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPacksApiResponse?> SearchPacksOrDefaultAsync(long accountId, string sortField, bool descending, Option<string> keyword = default, Option<string> packType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Pack
@@ -215,7 +207,6 @@ namespace Org.OpenAPITools.Api
         /// Update a pack.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="packId">The id of the pack to update.</param>
         /// <param name="allocateTickets">Flag to indicate owner should receive tickets for completed packs</param>
@@ -243,7 +234,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a pack (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePackApiResponse"/>&gt;</returns>
-        Task<IUpdatePackApiResponse> UpdatePackAsync(decimal version, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title = default, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<long> packOrder = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<int> price = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<bool> highest = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdatePackApiResponse> UpdatePackAsync(long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title = default, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<long> packOrder = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<int> price = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<bool> highest = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Pack
@@ -251,7 +242,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a pack.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="packId">The id of the pack to update.</param>
         /// <param name="allocateTickets">Flag to indicate owner should receive tickets for completed packs</param>
@@ -279,7 +269,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a pack (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePackApiResponse"/>?&gt;</returns>
-        Task<IUpdatePackApiResponse?> UpdatePackOrDefaultAsync(decimal version, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title = default, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<long> packOrder = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<int> price = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<bool> highest = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdatePackApiResponse?> UpdatePackOrDefaultAsync(long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title = default, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<long> packOrder = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<int> price = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<bool> highest = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -495,7 +485,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreatePack(ref decimal version, ref long accountId, ref string title, ref long packOrder, ref int price, ref bool highest, ref bool allocateTickets, ref long ticketCount, ref Option<string> description, ref Option<string> searchTags, ref Option<bool> active, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> packType, ref Option<string> sequenceType, ref Option<long> backgroundId, ref Option<long> imageId, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> authorOverride, ref Option<string> priceType, ref Option<string> gameLevelIds, ref Option<bool> inGame, ref Option<string> ticketType, ref Option<long> points);
+        partial void FormatCreatePack(ref long accountId, ref string title, ref long packOrder, ref int price, ref bool highest, ref bool allocateTickets, ref long ticketCount, ref Option<string> description, ref Option<string> searchTags, ref Option<bool> active, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> packType, ref Option<string> sequenceType, ref Option<long> backgroundId, ref Option<long> imageId, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> authorOverride, ref Option<string> priceType, ref Option<string> gameLevelIds, ref Option<bool> inGame, ref Option<string> ticketType, ref Option<long> points);
 
         /// <summary>
         /// Validates the request parameters
@@ -552,7 +542,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="packOrder"></param>
@@ -577,10 +566,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="inGame"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void AfterCreatePackDefaultImplementation(ICreatePackApiResponse apiResponseLocalVar, decimal version, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<string> ticketType, Option<long> points)
+        private void AfterCreatePackDefaultImplementation(ICreatePackApiResponse apiResponseLocalVar, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLog = false;
-            AfterCreatePack(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
+            AfterCreatePack(ref suppressDefaultLog, apiResponseLocalVar, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -590,7 +579,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="packOrder"></param>
@@ -615,7 +603,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="inGame"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void AfterCreatePack(ref bool suppressDefaultLog, ICreatePackApiResponse apiResponseLocalVar, decimal version, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<string> ticketType, Option<long> points);
+        partial void AfterCreatePack(ref bool suppressDefaultLog, ICreatePackApiResponse apiResponseLocalVar, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -623,7 +611,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="packOrder"></param>
@@ -648,10 +635,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="inGame"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void OnErrorCreatePackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<string> ticketType, Option<long> points)
+        private void OnErrorCreatePackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreatePack(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
+            OnErrorCreatePack(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -663,7 +650,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="packOrder"></param>
@@ -688,12 +674,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="inGame"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void OnErrorCreatePack(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<string> ticketType, Option<long> points);
+        partial void OnErrorCreatePack(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Create Pack Create a pack.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The title of the pack</param>
         /// <param name="packOrder">The order of the pack</param>
@@ -720,11 +705,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a pack (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePackApiResponse"/>&gt;</returns>
-        public async Task<ICreatePackApiResponse?> CreatePackOrDefaultAsync(decimal version, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePackApiResponse?> CreatePackOrDefaultAsync(long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreatePackAsync(version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points, cancellationToken).ConfigureAwait(false);
+                return await CreatePackAsync(accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -736,7 +721,6 @@ namespace Org.OpenAPITools.Api
         /// Create Pack Create a pack.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="title">The title of the pack</param>
         /// <param name="packOrder">The order of the pack</param>
@@ -763,7 +747,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a pack (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePackApiResponse"/>&gt;</returns>
-        public async Task<ICreatePackApiResponse> CreatePackAsync(decimal version, long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePackApiResponse> CreatePackAsync(long accountId, string title, long packOrder, int price, bool highest, bool allocateTickets, long ticketCount, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -771,7 +755,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreatePack(title, description, searchTags, gameType, appKey, packType, sequenceType, authorOverride, priceType, gameLevelIds, ticketType);
 
-                FormatCreatePack(ref version, ref accountId, ref title, ref packOrder, ref price, ref highest, ref allocateTickets, ref ticketCount, ref description, ref searchTags, ref active, ref gameType, ref appKey, ref packType, ref sequenceType, ref backgroundId, ref imageId, ref startDate, ref endDate, ref authorOverride, ref priceType, ref gameLevelIds, ref inGame, ref ticketType, ref points);
+                FormatCreatePack(ref accountId, ref title, ref packOrder, ref price, ref highest, ref allocateTickets, ref ticketCount, ref description, ref searchTags, ref active, ref gameType, ref appKey, ref packType, ref sequenceType, ref backgroundId, ref imageId, ref startDate, ref endDate, ref authorOverride, ref priceType, ref gameLevelIds, ref inGame, ref ticketType, ref points);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -779,9 +763,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/pack/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/pack/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/pack/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/pack/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -869,13 +852,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/pack/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/pack/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreatePackDefaultImplementation(apiResponseLocalVar, version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
+                        AfterCreatePackDefaultImplementation(apiResponseLocalVar, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
 
                         Events.ExecuteOnCreatePack(apiResponseLocalVar);
 
@@ -885,7 +868,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreatePackDefaultImplementation(e, "/api/{version}/pack/create", uriBuilderLocalVar.Path, version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
+                OnErrorCreatePackDefaultImplementation(e, "/pack/create", uriBuilderLocalVar.Path, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, description, searchTags, active, gameType, appKey, packType, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, priceType, gameLevelIds, inGame, ticketType, points);
                 Events.ExecuteOnErrorCreatePack(e);
                 throw;
             }
@@ -984,19 +967,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeletePack(ref decimal version, ref long accountId, ref long packId);
+        partial void FormatDeletePack(ref long accountId, ref long packId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
-        private void AfterDeletePackDefaultImplementation(IDeletePackApiResponse apiResponseLocalVar, decimal version, long accountId, long packId)
+        private void AfterDeletePackDefaultImplementation(IDeletePackApiResponse apiResponseLocalVar, long accountId, long packId)
         {
             bool suppressDefaultLog = false;
-            AfterDeletePack(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, packId);
+            AfterDeletePack(ref suppressDefaultLog, apiResponseLocalVar, accountId, packId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1006,10 +988,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
-        partial void AfterDeletePack(ref bool suppressDefaultLog, IDeletePackApiResponse apiResponseLocalVar, decimal version, long accountId, long packId);
+        partial void AfterDeletePack(ref bool suppressDefaultLog, IDeletePackApiResponse apiResponseLocalVar, long accountId, long packId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1017,13 +998,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
-        private void OnErrorDeletePackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long packId)
+        private void OnErrorDeletePackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long packId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeletePack(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, packId);
+            OnErrorDeletePack(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, packId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1035,24 +1015,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
-        partial void OnErrorDeletePack(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long packId);
+        partial void OnErrorDeletePack(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long packId);
 
         /// <summary>
         /// Delete Pack Delete a pack.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="packId">the id of the pack to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePackApiResponse"/>&gt;</returns>
-        public async Task<IDeletePackApiResponse?> DeletePackOrDefaultAsync(decimal version, long accountId, long packId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePackApiResponse?> DeletePackOrDefaultAsync(long accountId, long packId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeletePackAsync(version, accountId, packId, cancellationToken).ConfigureAwait(false);
+                return await DeletePackAsync(accountId, packId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1064,18 +1042,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Pack Delete a pack.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="packId">the id of the pack to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePackApiResponse"/>&gt;</returns>
-        public async Task<IDeletePackApiResponse> DeletePackAsync(decimal version, long accountId, long packId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePackApiResponse> DeletePackAsync(long accountId, long packId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeletePack(ref version, ref accountId, ref packId);
+                FormatDeletePack(ref accountId, ref packId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1083,9 +1060,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/pack/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/pack/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/pack/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/pack/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1117,13 +1093,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/pack/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/pack/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeletePackDefaultImplementation(apiResponseLocalVar, version, accountId, packId);
+                        AfterDeletePackDefaultImplementation(apiResponseLocalVar, accountId, packId);
 
                         Events.ExecuteOnDeletePack(apiResponseLocalVar);
 
@@ -1133,7 +1109,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeletePackDefaultImplementation(e, "/api/{version}/pack/delete", uriBuilderLocalVar.Path, version, accountId, packId);
+                OnErrorDeletePackDefaultImplementation(e, "/pack/delete", uriBuilderLocalVar.Path, accountId, packId);
                 Events.ExecuteOnErrorDeletePack(e);
                 throw;
             }
@@ -1232,20 +1208,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPack(ref decimal version, ref long accountId, ref long packId, ref bool includeGameData);
+        partial void FormatGetPack(ref long accountId, ref long packId, ref bool includeGameData);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
         /// <param name="includeGameData"></param>
-        private void AfterGetPackDefaultImplementation(IGetPackApiResponse apiResponseLocalVar, decimal version, long accountId, long packId, bool includeGameData)
+        private void AfterGetPackDefaultImplementation(IGetPackApiResponse apiResponseLocalVar, long accountId, long packId, bool includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterGetPack(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, packId, includeGameData);
+            AfterGetPack(ref suppressDefaultLog, apiResponseLocalVar, accountId, packId, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1255,11 +1230,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterGetPack(ref bool suppressDefaultLog, IGetPackApiResponse apiResponseLocalVar, decimal version, long accountId, long packId, bool includeGameData);
+        partial void AfterGetPack(ref bool suppressDefaultLog, IGetPackApiResponse apiResponseLocalVar, long accountId, long packId, bool includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1267,14 +1241,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorGetPackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long packId, bool includeGameData)
+        private void OnErrorGetPackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long packId, bool includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPack(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, packId, includeGameData);
+            OnErrorGetPack(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, packId, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1286,26 +1259,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorGetPack(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long packId, bool includeGameData);
+        partial void OnErrorGetPack(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long packId, bool includeGameData);
 
         /// <summary>
         /// Get Pack Get a pack.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="packId">The id of the pack to return.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPackApiResponse"/>&gt;</returns>
-        public async Task<IGetPackApiResponse?> GetPackOrDefaultAsync(decimal version, long accountId, long packId, bool includeGameData, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPackApiResponse?> GetPackOrDefaultAsync(long accountId, long packId, bool includeGameData, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPackAsync(version, accountId, packId, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await GetPackAsync(accountId, packId, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1317,19 +1288,18 @@ namespace Org.OpenAPITools.Api
         /// Get Pack Get a pack.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="packId">The id of the pack to return.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPackApiResponse"/>&gt;</returns>
-        public async Task<IGetPackApiResponse> GetPackAsync(decimal version, long accountId, long packId, bool includeGameData, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPackApiResponse> GetPackAsync(long accountId, long packId, bool includeGameData, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetPack(ref version, ref accountId, ref packId, ref includeGameData);
+                FormatGetPack(ref accountId, ref packId, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1337,9 +1307,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/pack/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/pack/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/pack/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/pack/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1372,13 +1341,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/pack/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/pack/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPackDefaultImplementation(apiResponseLocalVar, version, accountId, packId, includeGameData);
+                        AfterGetPackDefaultImplementation(apiResponseLocalVar, accountId, packId, includeGameData);
 
                         Events.ExecuteOnGetPack(apiResponseLocalVar);
 
@@ -1388,7 +1357,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPackDefaultImplementation(e, "/api/{version}/pack/get", uriBuilderLocalVar.Path, version, accountId, packId, includeGameData);
+                OnErrorGetPackDefaultImplementation(e, "/pack/get", uriBuilderLocalVar.Path, accountId, packId, includeGameData);
                 Events.ExecuteOnErrorGetPack(e);
                 throw;
             }
@@ -1487,7 +1456,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchPacks(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref Option<string> keyword, ref Option<string> packType, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeGameData, ref Option<bool> includeInactive, ref Option<string> appKey);
+        partial void FormatSearchPacks(ref long accountId, ref string sortField, ref bool descending, ref Option<string> keyword, ref Option<string> packType, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeGameData, ref Option<bool> includeInactive, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1516,7 +1485,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1527,10 +1495,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData"></param>
         /// <param name="includeInactive"></param>
         /// <param name="appKey"></param>
-        private void AfterSearchPacksDefaultImplementation(ISearchPacksApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, Option<string> keyword, Option<string> packType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeInactive, Option<string> appKey)
+        private void AfterSearchPacksDefaultImplementation(ISearchPacksApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, Option<string> keyword, Option<string> packType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeInactive, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterSearchPacks(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
+            AfterSearchPacks(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1540,7 +1508,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1551,7 +1518,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData"></param>
         /// <param name="includeInactive"></param>
         /// <param name="appKey"></param>
-        partial void AfterSearchPacks(ref bool suppressDefaultLog, ISearchPacksApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, Option<string> keyword, Option<string> packType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeInactive, Option<string> appKey);
+        partial void AfterSearchPacks(ref bool suppressDefaultLog, ISearchPacksApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, Option<string> keyword, Option<string> packType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeInactive, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1559,7 +1526,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1570,10 +1536,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData"></param>
         /// <param name="includeInactive"></param>
         /// <param name="appKey"></param>
-        private void OnErrorSearchPacksDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, Option<string> keyword, Option<string> packType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeInactive, Option<string> appKey)
+        private void OnErrorSearchPacksDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, Option<string> keyword, Option<string> packType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeInactive, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchPacks(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
+            OnErrorSearchPacks(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1585,7 +1551,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1596,12 +1561,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData"></param>
         /// <param name="includeInactive"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorSearchPacks(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, Option<string> keyword, Option<string> packType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeInactive, Option<string> appKey);
+        partial void OnErrorSearchPacks(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, Option<string> keyword, Option<string> packType, Option<int> start, Option<int> limit, Option<bool> includeGameData, Option<bool> includeInactive, Option<string> appKey);
 
         /// <summary>
         /// Search Packs Search on packs.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -1614,11 +1578,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application to filter results on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPacksApiResponse"/>&gt;</returns>
-        public async Task<ISearchPacksApiResponse?> SearchPacksOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, Option<string> keyword = default, Option<string> packType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPacksApiResponse?> SearchPacksOrDefaultAsync(long accountId, string sortField, bool descending, Option<string> keyword = default, Option<string> packType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchPacksAsync(version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey, cancellationToken).ConfigureAwait(false);
+                return await SearchPacksAsync(accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1630,7 +1594,6 @@ namespace Org.OpenAPITools.Api
         /// Search Packs Search on packs.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="sortField">The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -1643,7 +1606,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application to filter results on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPacksApiResponse"/>&gt;</returns>
-        public async Task<ISearchPacksApiResponse> SearchPacksAsync(decimal version, long accountId, string sortField, bool descending, Option<string> keyword = default, Option<string> packType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPacksApiResponse> SearchPacksAsync(long accountId, string sortField, bool descending, Option<string> keyword = default, Option<string> packType = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1651,7 +1614,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchPacks(sortField, keyword, packType, appKey);
 
-                FormatSearchPacks(ref version, ref accountId, ref sortField, ref descending, ref keyword, ref packType, ref start, ref limit, ref includeGameData, ref includeInactive, ref appKey);
+                FormatSearchPacks(ref accountId, ref sortField, ref descending, ref keyword, ref packType, ref start, ref limit, ref includeGameData, ref includeInactive, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1659,9 +1622,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/pack/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/pack/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/pack/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/pack/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1715,13 +1677,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/pack/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/pack/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchPacksDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
+                        AfterSearchPacksDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
 
                         Events.ExecuteOnSearchPacks(apiResponseLocalVar);
 
@@ -1731,7 +1693,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchPacksDefaultImplementation(e, "/api/{version}/pack/search", uriBuilderLocalVar.Path, version, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
+                OnErrorSearchPacksDefaultImplementation(e, "/pack/search", uriBuilderLocalVar.Path, accountId, sortField, descending, keyword, packType, start, limit, includeGameData, includeInactive, appKey);
                 Events.ExecuteOnErrorSearchPacks(e);
                 throw;
             }
@@ -1830,7 +1792,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdatePack(ref decimal version, ref long accountId, ref long packId, ref bool allocateTickets, ref long ticketCount, ref Option<string> title, ref Option<string> description, ref Option<string> searchTags, ref Option<bool> active, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> packType, ref Option<long> packOrder, ref Option<string> sequenceType, ref Option<long> backgroundId, ref Option<long> imageId, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> authorOverride, ref Option<int> price, ref Option<string> priceType, ref Option<string> gameLevelIds, ref Option<bool> inGame, ref Option<bool> highest, ref Option<string> ticketType, ref Option<long> points);
+        partial void FormatUpdatePack(ref long accountId, ref long packId, ref bool allocateTickets, ref long ticketCount, ref Option<string> title, ref Option<string> description, ref Option<string> searchTags, ref Option<bool> active, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> packType, ref Option<long> packOrder, ref Option<string> sequenceType, ref Option<long> backgroundId, ref Option<long> imageId, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> authorOverride, ref Option<int> price, ref Option<string> priceType, ref Option<string> gameLevelIds, ref Option<bool> inGame, ref Option<bool> highest, ref Option<string> ticketType, ref Option<long> points);
 
         /// <summary>
         /// Validates the request parameters
@@ -1887,7 +1849,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
         /// <param name="allocateTickets"></param>
@@ -1913,10 +1874,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="highest"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void AfterUpdatePackDefaultImplementation(IUpdatePackApiResponse apiResponseLocalVar, decimal version, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<long> packOrder, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<int> price, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<bool> highest, Option<string> ticketType, Option<long> points)
+        private void AfterUpdatePackDefaultImplementation(IUpdatePackApiResponse apiResponseLocalVar, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<long> packOrder, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<int> price, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<bool> highest, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLog = false;
-            AfterUpdatePack(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
+            AfterUpdatePack(ref suppressDefaultLog, apiResponseLocalVar, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1926,7 +1887,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
         /// <param name="allocateTickets"></param>
@@ -1952,7 +1912,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="highest"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void AfterUpdatePack(ref bool suppressDefaultLog, IUpdatePackApiResponse apiResponseLocalVar, decimal version, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<long> packOrder, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<int> price, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<bool> highest, Option<string> ticketType, Option<long> points);
+        partial void AfterUpdatePack(ref bool suppressDefaultLog, IUpdatePackApiResponse apiResponseLocalVar, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<long> packOrder, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<int> price, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<bool> highest, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1960,7 +1920,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
         /// <param name="allocateTickets"></param>
@@ -1986,10 +1945,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="highest"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        private void OnErrorUpdatePackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<long> packOrder, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<int> price, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<bool> highest, Option<string> ticketType, Option<long> points)
+        private void OnErrorUpdatePackDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<long> packOrder, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<int> price, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<bool> highest, Option<string> ticketType, Option<long> points)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdatePack(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
+            OnErrorUpdatePack(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2001,7 +1960,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="packId"></param>
         /// <param name="allocateTickets"></param>
@@ -2027,12 +1985,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="highest"></param>
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
-        partial void OnErrorUpdatePack(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<long> packOrder, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<int> price, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<bool> highest, Option<string> ticketType, Option<long> points);
+        partial void OnErrorUpdatePack(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title, Option<string> description, Option<string> searchTags, Option<bool> active, Option<string> gameType, Option<string> appKey, Option<string> packType, Option<long> packOrder, Option<string> sequenceType, Option<long> backgroundId, Option<long> imageId, Option<long> startDate, Option<long> endDate, Option<string> authorOverride, Option<int> price, Option<string> priceType, Option<string> gameLevelIds, Option<bool> inGame, Option<bool> highest, Option<string> ticketType, Option<long> points);
 
         /// <summary>
         /// Update Pack Update a pack.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="packId">The id of the pack to update.</param>
         /// <param name="allocateTickets">Flag to indicate owner should receive tickets for completed packs</param>
@@ -2060,11 +2017,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a pack (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePackApiResponse"/>&gt;</returns>
-        public async Task<IUpdatePackApiResponse?> UpdatePackOrDefaultAsync(decimal version, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title = default, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<long> packOrder = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<int> price = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<bool> highest = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdatePackApiResponse?> UpdatePackOrDefaultAsync(long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title = default, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<long> packOrder = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<int> price = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<bool> highest = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdatePackAsync(version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points, cancellationToken).ConfigureAwait(false);
+                return await UpdatePackAsync(accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2076,7 +2033,6 @@ namespace Org.OpenAPITools.Api
         /// Update Pack Update a pack.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="packId">The id of the pack to update.</param>
         /// <param name="allocateTickets">Flag to indicate owner should receive tickets for completed packs</param>
@@ -2104,7 +2060,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="points">The number of points to award for completing a pack (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePackApiResponse"/>&gt;</returns>
-        public async Task<IUpdatePackApiResponse> UpdatePackAsync(decimal version, long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title = default, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<long> packOrder = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<int> price = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<bool> highest = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdatePackApiResponse> UpdatePackAsync(long accountId, long packId, bool allocateTickets, long ticketCount, Option<string> title = default, Option<string> description = default, Option<string> searchTags = default, Option<bool> active = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> packType = default, Option<long> packOrder = default, Option<string> sequenceType = default, Option<long> backgroundId = default, Option<long> imageId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> authorOverride = default, Option<int> price = default, Option<string> priceType = default, Option<string> gameLevelIds = default, Option<bool> inGame = default, Option<bool> highest = default, Option<string> ticketType = default, Option<long> points = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2112,7 +2068,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdatePack(title, description, searchTags, gameType, appKey, packType, sequenceType, authorOverride, priceType, gameLevelIds, ticketType);
 
-                FormatUpdatePack(ref version, ref accountId, ref packId, ref allocateTickets, ref ticketCount, ref title, ref description, ref searchTags, ref active, ref gameType, ref appKey, ref packType, ref packOrder, ref sequenceType, ref backgroundId, ref imageId, ref startDate, ref endDate, ref authorOverride, ref price, ref priceType, ref gameLevelIds, ref inGame, ref highest, ref ticketType, ref points);
+                FormatUpdatePack(ref accountId, ref packId, ref allocateTickets, ref ticketCount, ref title, ref description, ref searchTags, ref active, ref gameType, ref appKey, ref packType, ref packOrder, ref sequenceType, ref backgroundId, ref imageId, ref startDate, ref endDate, ref authorOverride, ref price, ref priceType, ref gameLevelIds, ref inGame, ref highest, ref ticketType, ref points);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2120,9 +2076,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/pack/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/pack/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/pack/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/pack/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2219,13 +2174,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/pack/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/pack/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdatePackDefaultImplementation(apiResponseLocalVar, version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
+                        AfterUpdatePackDefaultImplementation(apiResponseLocalVar, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
 
                         Events.ExecuteOnUpdatePack(apiResponseLocalVar);
 
@@ -2235,7 +2190,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdatePackDefaultImplementation(e, "/api/{version}/pack/update", uriBuilderLocalVar.Path, version, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
+                OnErrorUpdatePackDefaultImplementation(e, "/pack/update", uriBuilderLocalVar.Path, accountId, packId, allocateTickets, ticketCount, title, description, searchTags, active, gameType, appKey, packType, packOrder, sequenceType, backgroundId, imageId, startDate, endDate, authorOverride, price, priceType, gameLevelIds, inGame, highest, ticketType, points);
                 Events.ExecuteOnErrorUpdatePack(e);
                 throw;
             }

@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
         /// <param name="flagableId">The flagable object id</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -55,7 +54,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFlagApiResponse"/>&gt;</returns>
-        Task<ICreateFlagApiResponse> CreateFlagAsync(decimal version, string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> flagDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateFlagApiResponse> CreateFlagAsync(string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> flagDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Flag
@@ -63,7 +62,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
         /// <param name="flagableId">The flagable object id</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -73,7 +71,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFlagApiResponse"/>?&gt;</returns>
-        Task<ICreateFlagApiResponse?> CreateFlagOrDefaultAsync(decimal version, string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> flagDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateFlagApiResponse?> CreateFlagOrDefaultAsync(string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> flagDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Flag
@@ -82,7 +80,6 @@ namespace Org.OpenAPITools.Api
         /// Deletes a flag.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="itemBeingFlaggedType">This parameter is deprecated. (optional)</param>
@@ -91,7 +88,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagableId">The flagable object id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFlagApiResponse"/>&gt;</returns>
-        Task<IDeleteFlagApiResponse> DeleteFlagAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> itemBeingFlaggedType = default, Option<long> itemBeingFlaggedId = default, Option<string> flagableType = default, Option<long> flagableId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFlagApiResponse> DeleteFlagAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> itemBeingFlaggedType = default, Option<long> itemBeingFlaggedId = default, Option<string> flagableType = default, Option<long> flagableId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Flag
@@ -99,7 +96,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes a flag.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="itemBeingFlaggedType">This parameter is deprecated. (optional)</param>
@@ -108,7 +104,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagableId">The flagable object id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFlagApiResponse"/>?&gt;</returns>
-        Task<IDeleteFlagApiResponse?> DeleteFlagOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> itemBeingFlaggedType = default, Option<long> itemBeingFlaggedId = default, Option<string> flagableType = default, Option<long> flagableId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFlagApiResponse?> DeleteFlagOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> itemBeingFlaggedType = default, Option<long> itemBeingFlaggedId = default, Option<string> flagableType = default, Option<long> flagableId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Flag
@@ -117,7 +113,6 @@ namespace Org.OpenAPITools.Api
         /// Gets the details on whether the user has flagged a particular flagable object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
         /// <param name="flagableId">The flagable object id</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -126,7 +121,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFlagApiResponse"/>&gt;</returns>
-        Task<IGetFlagApiResponse> GetFlagAsync(decimal version, string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFlagApiResponse> GetFlagAsync(string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Flag
@@ -134,7 +129,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the details on whether the user has flagged a particular flagable object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
         /// <param name="flagableId">The flagable object id</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -143,7 +137,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFlagApiResponse"/>?&gt;</returns>
-        Task<IGetFlagApiResponse?> GetFlagOrDefaultAsync(decimal version, string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFlagApiResponse?> GetFlagOrDefaultAsync(string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Flag Threshold
@@ -152,12 +146,11 @@ namespace Org.OpenAPITools.Api
         /// Get the flag threshold value on an object type for a particular application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
         /// <param name="appKey">The application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFlagThresholdApiResponse"/>&gt;</returns>
-        Task<IGetFlagThresholdApiResponse> GetFlagThresholdAsync(decimal version, string itemBeingFlaggedType, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFlagThresholdApiResponse> GetFlagThresholdAsync(string itemBeingFlaggedType, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Flag Threshold
@@ -165,12 +158,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the flag threshold value on an object type for a particular application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
         /// <param name="appKey">The application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFlagThresholdApiResponse"/>?&gt;</returns>
-        Task<IGetFlagThresholdApiResponse?> GetFlagThresholdOrDefaultAsync(decimal version, string itemBeingFlaggedType, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFlagThresholdApiResponse?> GetFlagThresholdOrDefaultAsync(string itemBeingFlaggedType, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Flag Threshold
@@ -179,7 +171,6 @@ namespace Org.OpenAPITools.Api
         /// Update the flag threshold on an object type for a particular application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
         /// <param name="threshold">The threshold value</param>
         /// <param name="appKey">The application key</param>
@@ -187,7 +178,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateFlagThresholdApiResponse"/>&gt;</returns>
-        Task<IUpdateFlagThresholdApiResponse> UpdateFlagThresholdAsync(decimal version, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateFlagThresholdApiResponse> UpdateFlagThresholdAsync(string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Flag Threshold
@@ -195,7 +186,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the flag threshold on an object type for a particular application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
         /// <param name="threshold">The threshold value</param>
         /// <param name="appKey">The application key</param>
@@ -203,7 +193,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateFlagThresholdApiResponse"/>?&gt;</returns>
-        Task<IUpdateFlagThresholdApiResponse?> UpdateFlagThresholdOrDefaultAsync(decimal version, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateFlagThresholdApiResponse?> UpdateFlagThresholdOrDefaultAsync(string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -419,7 +409,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateFlag(ref decimal version, ref string flagableType, ref long flagableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> flagDescription, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatCreateFlag(ref string flagableType, ref long flagableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> flagDescription, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -444,7 +434,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
         /// <param name="deviceId"></param>
@@ -452,10 +441,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterCreateFlagDefaultImplementation(ICreateFlagApiResponse apiResponseLocalVar, decimal version, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<string> flagDescription, Option<double> latitude, Option<double> longitude)
+        private void AfterCreateFlagDefaultImplementation(ICreateFlagApiResponse apiResponseLocalVar, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<string> flagDescription, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterCreateFlag(ref suppressDefaultLog, apiResponseLocalVar, version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
+            AfterCreateFlag(ref suppressDefaultLog, apiResponseLocalVar, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -465,7 +454,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
         /// <param name="deviceId"></param>
@@ -473,7 +461,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterCreateFlag(ref bool suppressDefaultLog, ICreateFlagApiResponse apiResponseLocalVar, decimal version, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<string> flagDescription, Option<double> latitude, Option<double> longitude);
+        partial void AfterCreateFlag(ref bool suppressDefaultLog, ICreateFlagApiResponse apiResponseLocalVar, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<string> flagDescription, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -481,7 +469,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
         /// <param name="deviceId"></param>
@@ -489,10 +476,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorCreateFlagDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<string> flagDescription, Option<double> latitude, Option<double> longitude)
+        private void OnErrorCreateFlagDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<string> flagDescription, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateFlag(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
+            OnErrorCreateFlag(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -504,7 +491,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
         /// <param name="deviceId"></param>
@@ -512,12 +498,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorCreateFlag(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<string> flagDescription, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorCreateFlag(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<string> flagDescription, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create Flag Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
         /// <param name="flagableId">The flagable object id</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -527,11 +512,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFlagApiResponse"/>&gt;</returns>
-        public async Task<ICreateFlagApiResponse?> CreateFlagOrDefaultAsync(decimal version, string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> flagDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateFlagApiResponse?> CreateFlagOrDefaultAsync(string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> flagDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateFlagAsync(version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await CreateFlagAsync(flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -543,7 +528,6 @@ namespace Org.OpenAPITools.Api
         /// Create Flag Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
         /// <param name="flagableId">The flagable object id</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -553,7 +537,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFlagApiResponse"/>&gt;</returns>
-        public async Task<ICreateFlagApiResponse> CreateFlagAsync(decimal version, string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> flagDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateFlagApiResponse> CreateFlagAsync(string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> flagDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -561,7 +545,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateFlag(flagableType, deviceId, flagDescription);
 
-                FormatCreateFlag(ref version, ref flagableType, ref flagableId, ref deviceId, ref accountId, ref flagDescription, ref latitude, ref longitude);
+                FormatCreateFlag(ref flagableType, ref flagableId, ref deviceId, ref accountId, ref flagDescription, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -569,9 +553,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/flag/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/flag/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/flag/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/flag/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -618,13 +601,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/flag/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/flag/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateFlagDefaultImplementation(apiResponseLocalVar, version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
+                        AfterCreateFlagDefaultImplementation(apiResponseLocalVar, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
 
                         Events.ExecuteOnCreateFlag(apiResponseLocalVar);
 
@@ -634,7 +617,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateFlagDefaultImplementation(e, "/api/{version}/flag/create", uriBuilderLocalVar.Path, version, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
+                OnErrorCreateFlagDefaultImplementation(e, "/flag/create", uriBuilderLocalVar.Path, flagableType, flagableId, deviceId, accountId, flagDescription, latitude, longitude);
                 Events.ExecuteOnErrorCreateFlag(e);
                 throw;
             }
@@ -733,7 +716,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteFlag(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> itemBeingFlaggedType, ref Option<long> itemBeingFlaggedId, ref Option<string> flagableType, ref Option<long> flagableId);
+        partial void FormatDeleteFlag(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> itemBeingFlaggedType, ref Option<long> itemBeingFlaggedId, ref Option<string> flagableType, ref Option<long> flagableId);
 
         /// <summary>
         /// Validates the request parameters
@@ -758,17 +741,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="itemBeingFlaggedId"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
-        private void AfterDeleteFlagDefaultImplementation(IDeleteFlagApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> itemBeingFlaggedType, Option<long> itemBeingFlaggedId, Option<string> flagableType, Option<long> flagableId)
+        private void AfterDeleteFlagDefaultImplementation(IDeleteFlagApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> itemBeingFlaggedType, Option<long> itemBeingFlaggedId, Option<string> flagableType, Option<long> flagableId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteFlag(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
+            AfterDeleteFlag(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -778,14 +760,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="itemBeingFlaggedId"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
-        partial void AfterDeleteFlag(ref bool suppressDefaultLog, IDeleteFlagApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> itemBeingFlaggedType, Option<long> itemBeingFlaggedId, Option<string> flagableType, Option<long> flagableId);
+        partial void AfterDeleteFlag(ref bool suppressDefaultLog, IDeleteFlagApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> itemBeingFlaggedType, Option<long> itemBeingFlaggedId, Option<string> flagableType, Option<long> flagableId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -793,17 +774,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="itemBeingFlaggedId"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
-        private void OnErrorDeleteFlagDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> itemBeingFlaggedType, Option<long> itemBeingFlaggedId, Option<string> flagableType, Option<long> flagableId)
+        private void OnErrorDeleteFlagDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> itemBeingFlaggedType, Option<long> itemBeingFlaggedId, Option<string> flagableType, Option<long> flagableId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteFlag(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
+            OnErrorDeleteFlag(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -815,19 +795,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="itemBeingFlaggedId"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
-        partial void OnErrorDeleteFlag(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> itemBeingFlaggedType, Option<long> itemBeingFlaggedId, Option<string> flagableType, Option<long> flagableId);
+        partial void OnErrorDeleteFlag(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> itemBeingFlaggedType, Option<long> itemBeingFlaggedId, Option<string> flagableType, Option<long> flagableId);
 
         /// <summary>
         /// Delete Flag Deletes a flag.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="itemBeingFlaggedType">This parameter is deprecated. (optional)</param>
@@ -836,11 +814,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagableId">The flagable object id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFlagApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFlagApiResponse?> DeleteFlagOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> itemBeingFlaggedType = default, Option<long> itemBeingFlaggedId = default, Option<string> flagableType = default, Option<long> flagableId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFlagApiResponse?> DeleteFlagOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> itemBeingFlaggedType = default, Option<long> itemBeingFlaggedId = default, Option<string> flagableType = default, Option<long> flagableId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteFlagAsync(version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId, cancellationToken).ConfigureAwait(false);
+                return await DeleteFlagAsync(deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -852,7 +830,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Flag Deletes a flag.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="itemBeingFlaggedType">This parameter is deprecated. (optional)</param>
@@ -861,7 +838,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagableId">The flagable object id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFlagApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFlagApiResponse> DeleteFlagAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> itemBeingFlaggedType = default, Option<long> itemBeingFlaggedId = default, Option<string> flagableType = default, Option<long> flagableId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFlagApiResponse> DeleteFlagAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> itemBeingFlaggedType = default, Option<long> itemBeingFlaggedId = default, Option<string> flagableType = default, Option<long> flagableId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -869,7 +846,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteFlag(deviceId, itemBeingFlaggedType, flagableType);
 
-                FormatDeleteFlag(ref version, ref deviceId, ref accountId, ref itemBeingFlaggedType, ref itemBeingFlaggedId, ref flagableType, ref flagableId);
+                FormatDeleteFlag(ref deviceId, ref accountId, ref itemBeingFlaggedType, ref itemBeingFlaggedId, ref flagableType, ref flagableId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -877,9 +854,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/flag/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/flag/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/flag/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/flag/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -926,13 +902,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/flag/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/flag/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteFlagDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
+                        AfterDeleteFlagDefaultImplementation(apiResponseLocalVar, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
 
                         Events.ExecuteOnDeleteFlag(apiResponseLocalVar);
 
@@ -942,7 +918,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteFlagDefaultImplementation(e, "/api/{version}/flag/delete", uriBuilderLocalVar.Path, version, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
+                OnErrorDeleteFlagDefaultImplementation(e, "/flag/delete", uriBuilderLocalVar.Path, deviceId, accountId, itemBeingFlaggedType, itemBeingFlaggedId, flagableType, flagableId);
                 Events.ExecuteOnErrorDeleteFlag(e);
                 throw;
             }
@@ -1041,7 +1017,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetFlag(ref decimal version, ref string flagableType, ref long flagableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetFlag(ref string flagableType, ref long flagableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1062,17 +1038,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetFlagDefaultImplementation(IGetFlagApiResponse apiResponseLocalVar, decimal version, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterGetFlagDefaultImplementation(IGetFlagApiResponse apiResponseLocalVar, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetFlag(ref suppressDefaultLog, apiResponseLocalVar, version, flagableType, flagableId, deviceId, accountId, latitude, longitude);
+            AfterGetFlag(ref suppressDefaultLog, apiResponseLocalVar, flagableType, flagableId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1082,14 +1057,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetFlag(ref bool suppressDefaultLog, IGetFlagApiResponse apiResponseLocalVar, decimal version, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetFlag(ref bool suppressDefaultLog, IGetFlagApiResponse apiResponseLocalVar, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1097,17 +1071,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetFlagDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetFlagDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetFlag(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, flagableType, flagableId, deviceId, accountId, latitude, longitude);
+            OnErrorGetFlag(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, flagableType, flagableId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1119,19 +1092,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="flagableType"></param>
         /// <param name="flagableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetFlag(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetFlag(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string flagableType, long flagableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Flag Gets the details on whether the user has flagged a particular flagable object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
         /// <param name="flagableId">The flagable object id</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -1140,11 +1111,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFlagApiResponse"/>&gt;</returns>
-        public async Task<IGetFlagApiResponse?> GetFlagOrDefaultAsync(decimal version, string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFlagApiResponse?> GetFlagOrDefaultAsync(string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetFlagAsync(version, flagableType, flagableId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetFlagAsync(flagableType, flagableId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1156,7 +1127,6 @@ namespace Org.OpenAPITools.Api
         /// Get Flag Gets the details on whether the user has flagged a particular flagable object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
         /// <param name="flagableId">The flagable object id</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -1165,7 +1135,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFlagApiResponse"/>&gt;</returns>
-        public async Task<IGetFlagApiResponse> GetFlagAsync(decimal version, string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFlagApiResponse> GetFlagAsync(string flagableType, long flagableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1173,7 +1143,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetFlag(flagableType, deviceId);
 
-                FormatGetFlag(ref version, ref flagableType, ref flagableId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatGetFlag(ref flagableType, ref flagableId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1181,9 +1151,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/flag/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/flag/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/flag/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/flag/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1227,13 +1196,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/flag/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/flag/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetFlagDefaultImplementation(apiResponseLocalVar, version, flagableType, flagableId, deviceId, accountId, latitude, longitude);
+                        AfterGetFlagDefaultImplementation(apiResponseLocalVar, flagableType, flagableId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnGetFlag(apiResponseLocalVar);
 
@@ -1243,7 +1212,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetFlagDefaultImplementation(e, "/api/{version}/flag/get", uriBuilderLocalVar.Path, version, flagableType, flagableId, deviceId, accountId, latitude, longitude);
+                OnErrorGetFlagDefaultImplementation(e, "/flag/get", uriBuilderLocalVar.Path, flagableType, flagableId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorGetFlag(e);
                 throw;
             }
@@ -1342,7 +1311,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetFlagThreshold(ref decimal version, ref string itemBeingFlaggedType, ref string appKey);
+        partial void FormatGetFlagThreshold(ref string itemBeingFlaggedType, ref string appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1363,13 +1332,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="appKey"></param>
-        private void AfterGetFlagThresholdDefaultImplementation(IGetFlagThresholdApiResponse apiResponseLocalVar, decimal version, string itemBeingFlaggedType, string appKey)
+        private void AfterGetFlagThresholdDefaultImplementation(IGetFlagThresholdApiResponse apiResponseLocalVar, string itemBeingFlaggedType, string appKey)
         {
             bool suppressDefaultLog = false;
-            AfterGetFlagThreshold(ref suppressDefaultLog, apiResponseLocalVar, version, itemBeingFlaggedType, appKey);
+            AfterGetFlagThreshold(ref suppressDefaultLog, apiResponseLocalVar, itemBeingFlaggedType, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1379,10 +1347,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="appKey"></param>
-        partial void AfterGetFlagThreshold(ref bool suppressDefaultLog, IGetFlagThresholdApiResponse apiResponseLocalVar, decimal version, string itemBeingFlaggedType, string appKey);
+        partial void AfterGetFlagThreshold(ref bool suppressDefaultLog, IGetFlagThresholdApiResponse apiResponseLocalVar, string itemBeingFlaggedType, string appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1390,13 +1357,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="appKey"></param>
-        private void OnErrorGetFlagThresholdDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string itemBeingFlaggedType, string appKey)
+        private void OnErrorGetFlagThresholdDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string itemBeingFlaggedType, string appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetFlagThreshold(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, itemBeingFlaggedType, appKey);
+            OnErrorGetFlagThreshold(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, itemBeingFlaggedType, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1408,24 +1374,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorGetFlagThreshold(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string itemBeingFlaggedType, string appKey);
+        partial void OnErrorGetFlagThreshold(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string itemBeingFlaggedType, string appKey);
 
         /// <summary>
         /// Get Flag Threshold Get the flag threshold value on an object type for a particular application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
         /// <param name="appKey">The application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFlagThresholdApiResponse"/>&gt;</returns>
-        public async Task<IGetFlagThresholdApiResponse?> GetFlagThresholdOrDefaultAsync(decimal version, string itemBeingFlaggedType, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFlagThresholdApiResponse?> GetFlagThresholdOrDefaultAsync(string itemBeingFlaggedType, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetFlagThresholdAsync(version, itemBeingFlaggedType, appKey, cancellationToken).ConfigureAwait(false);
+                return await GetFlagThresholdAsync(itemBeingFlaggedType, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1437,12 +1401,11 @@ namespace Org.OpenAPITools.Api
         /// Get Flag Threshold Get the flag threshold value on an object type for a particular application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
         /// <param name="appKey">The application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFlagThresholdApiResponse"/>&gt;</returns>
-        public async Task<IGetFlagThresholdApiResponse> GetFlagThresholdAsync(decimal version, string itemBeingFlaggedType, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFlagThresholdApiResponse> GetFlagThresholdAsync(string itemBeingFlaggedType, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1450,7 +1413,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetFlagThreshold(itemBeingFlaggedType, appKey);
 
-                FormatGetFlagThreshold(ref version, ref itemBeingFlaggedType, ref appKey);
+                FormatGetFlagThreshold(ref itemBeingFlaggedType, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1458,9 +1421,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/flag/threshold/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/flag/threshold/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/flag/threshold/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/flag/threshold/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1492,13 +1454,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/flag/threshold/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/flag/threshold/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetFlagThresholdDefaultImplementation(apiResponseLocalVar, version, itemBeingFlaggedType, appKey);
+                        AfterGetFlagThresholdDefaultImplementation(apiResponseLocalVar, itemBeingFlaggedType, appKey);
 
                         Events.ExecuteOnGetFlagThreshold(apiResponseLocalVar);
 
@@ -1508,7 +1470,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetFlagThresholdDefaultImplementation(e, "/api/{version}/flag/threshold/get", uriBuilderLocalVar.Path, version, itemBeingFlaggedType, appKey);
+                OnErrorGetFlagThresholdDefaultImplementation(e, "/flag/threshold/get", uriBuilderLocalVar.Path, itemBeingFlaggedType, appKey);
                 Events.ExecuteOnErrorGetFlagThreshold(e);
                 throw;
             }
@@ -1607,7 +1569,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateFlagThreshold(ref decimal version, ref string itemBeingFlaggedType, ref long threshold, ref string appKey, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatUpdateFlagThreshold(ref string itemBeingFlaggedType, ref long threshold, ref string appKey, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1632,16 +1594,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="threshold"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterUpdateFlagThresholdDefaultImplementation(IUpdateFlagThresholdApiResponse apiResponseLocalVar, decimal version, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId, Option<long> accountId)
+        private void AfterUpdateFlagThresholdDefaultImplementation(IUpdateFlagThresholdApiResponse apiResponseLocalVar, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateFlagThreshold(ref suppressDefaultLog, apiResponseLocalVar, version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
+            AfterUpdateFlagThreshold(ref suppressDefaultLog, apiResponseLocalVar, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1651,13 +1612,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="threshold"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterUpdateFlagThreshold(ref bool suppressDefaultLog, IUpdateFlagThresholdApiResponse apiResponseLocalVar, decimal version, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId, Option<long> accountId);
+        partial void AfterUpdateFlagThreshold(ref bool suppressDefaultLog, IUpdateFlagThresholdApiResponse apiResponseLocalVar, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1665,16 +1625,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="threshold"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorUpdateFlagThresholdDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorUpdateFlagThresholdDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateFlagThreshold(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
+            OnErrorUpdateFlagThreshold(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1686,18 +1645,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType"></param>
         /// <param name="threshold"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorUpdateFlagThreshold(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorUpdateFlagThreshold(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Update Flag Threshold Update the flag threshold on an object type for a particular application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
         /// <param name="threshold">The threshold value</param>
         /// <param name="appKey">The application key</param>
@@ -1705,11 +1662,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateFlagThresholdApiResponse"/>&gt;</returns>
-        public async Task<IUpdateFlagThresholdApiResponse?> UpdateFlagThresholdOrDefaultAsync(decimal version, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateFlagThresholdApiResponse?> UpdateFlagThresholdOrDefaultAsync(string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateFlagThresholdAsync(version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await UpdateFlagThresholdAsync(itemBeingFlaggedType, threshold, appKey, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1721,7 +1678,6 @@ namespace Org.OpenAPITools.Api
         /// Update Flag Threshold Update the flag threshold on an object type for a particular application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
         /// <param name="threshold">The threshold value</param>
         /// <param name="appKey">The application key</param>
@@ -1729,7 +1685,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateFlagThresholdApiResponse"/>&gt;</returns>
-        public async Task<IUpdateFlagThresholdApiResponse> UpdateFlagThresholdAsync(decimal version, string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateFlagThresholdApiResponse> UpdateFlagThresholdAsync(string itemBeingFlaggedType, long threshold, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1737,7 +1693,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateFlagThreshold(itemBeingFlaggedType, appKey, deviceId);
 
-                FormatUpdateFlagThreshold(ref version, ref itemBeingFlaggedType, ref threshold, ref appKey, ref deviceId, ref accountId);
+                FormatUpdateFlagThreshold(ref itemBeingFlaggedType, ref threshold, ref appKey, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1745,9 +1701,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/flag/threshold/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/flag/threshold/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/flag/threshold/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/flag/threshold/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1786,13 +1741,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/flag/threshold/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/flag/threshold/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateFlagThresholdDefaultImplementation(apiResponseLocalVar, version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
+                        AfterUpdateFlagThresholdDefaultImplementation(apiResponseLocalVar, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
 
                         Events.ExecuteOnUpdateFlagThreshold(apiResponseLocalVar);
 
@@ -1802,7 +1757,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateFlagThresholdDefaultImplementation(e, "/api/{version}/flag/threshold/update", uriBuilderLocalVar.Path, version, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
+                OnErrorUpdateFlagThresholdDefaultImplementation(e, "/flag/threshold/update", uriBuilderLocalVar.Path, itemBeingFlaggedType, threshold, appKey, deviceId, accountId);
                 Events.ExecuteOnErrorUpdateFlagThreshold(e);
                 throw;
             }

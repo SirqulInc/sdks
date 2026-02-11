@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Runs a published executable workflow
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="workflowId">the workflow to run</param>
         /// <param name="skuId">this runs a particular sku on the workflow (optional)</param>
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="parameters">Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRunWorkflowApiResponse"/>&gt;</returns>
-        Task<IRunWorkflowApiResponse> RunWorkflowAsync(decimal version, long accountId, long workflowId, Option<long> skuId = default, Option<int> versionCode = default, Option<string> parameters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRunWorkflowApiResponse> RunWorkflowAsync(long accountId, long workflowId, Option<long> skuId = default, Option<int> versionCode = default, Option<string> parameters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Run Workflow
@@ -61,7 +60,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Runs a published executable workflow
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="workflowId">the workflow to run</param>
         /// <param name="skuId">this runs a particular sku on the workflow (optional)</param>
@@ -69,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="parameters">Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRunWorkflowApiResponse"/>?&gt;</returns>
-        Task<IRunWorkflowApiResponse?> RunWorkflowOrDefaultAsync(decimal version, long accountId, long workflowId, Option<long> skuId = default, Option<int> versionCode = default, Option<string> parameters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRunWorkflowApiResponse?> RunWorkflowOrDefaultAsync(long accountId, long workflowId, Option<long> skuId = default, Option<int> versionCode = default, Option<string> parameters = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -157,7 +155,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatRunWorkflow(ref decimal version, ref long accountId, ref long workflowId, ref Option<long> skuId, ref Option<int> versionCode, ref Option<string> parameters);
+        partial void FormatRunWorkflow(ref long accountId, ref long workflowId, ref Option<long> skuId, ref Option<int> versionCode, ref Option<string> parameters);
 
         /// <summary>
         /// Validates the request parameters
@@ -174,16 +172,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="workflowId"></param>
         /// <param name="skuId"></param>
         /// <param name="versionCode"></param>
         /// <param name="parameters"></param>
-        private void AfterRunWorkflowDefaultImplementation(IRunWorkflowApiResponse apiResponseLocalVar, decimal version, long accountId, long workflowId, Option<long> skuId, Option<int> versionCode, Option<string> parameters)
+        private void AfterRunWorkflowDefaultImplementation(IRunWorkflowApiResponse apiResponseLocalVar, long accountId, long workflowId, Option<long> skuId, Option<int> versionCode, Option<string> parameters)
         {
             bool suppressDefaultLog = false;
-            AfterRunWorkflow(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, workflowId, skuId, versionCode, parameters);
+            AfterRunWorkflow(ref suppressDefaultLog, apiResponseLocalVar, accountId, workflowId, skuId, versionCode, parameters);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -193,13 +190,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="workflowId"></param>
         /// <param name="skuId"></param>
         /// <param name="versionCode"></param>
         /// <param name="parameters"></param>
-        partial void AfterRunWorkflow(ref bool suppressDefaultLog, IRunWorkflowApiResponse apiResponseLocalVar, decimal version, long accountId, long workflowId, Option<long> skuId, Option<int> versionCode, Option<string> parameters);
+        partial void AfterRunWorkflow(ref bool suppressDefaultLog, IRunWorkflowApiResponse apiResponseLocalVar, long accountId, long workflowId, Option<long> skuId, Option<int> versionCode, Option<string> parameters);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -207,16 +203,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="workflowId"></param>
         /// <param name="skuId"></param>
         /// <param name="versionCode"></param>
         /// <param name="parameters"></param>
-        private void OnErrorRunWorkflowDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long workflowId, Option<long> skuId, Option<int> versionCode, Option<string> parameters)
+        private void OnErrorRunWorkflowDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long workflowId, Option<long> skuId, Option<int> versionCode, Option<string> parameters)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRunWorkflow(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, workflowId, skuId, versionCode, parameters);
+            OnErrorRunWorkflow(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, workflowId, skuId, versionCode, parameters);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -228,18 +223,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="workflowId"></param>
         /// <param name="skuId"></param>
         /// <param name="versionCode"></param>
         /// <param name="parameters"></param>
-        partial void OnErrorRunWorkflow(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long workflowId, Option<long> skuId, Option<int> versionCode, Option<string> parameters);
+        partial void OnErrorRunWorkflow(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long workflowId, Option<long> skuId, Option<int> versionCode, Option<string> parameters);
 
         /// <summary>
         /// Run Workflow Runs a published executable workflow
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="workflowId">the workflow to run</param>
         /// <param name="skuId">this runs a particular sku on the workflow (optional)</param>
@@ -247,11 +240,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="parameters">Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRunWorkflowApiResponse"/>&gt;</returns>
-        public async Task<IRunWorkflowApiResponse?> RunWorkflowOrDefaultAsync(decimal version, long accountId, long workflowId, Option<long> skuId = default, Option<int> versionCode = default, Option<string> parameters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRunWorkflowApiResponse?> RunWorkflowOrDefaultAsync(long accountId, long workflowId, Option<long> skuId = default, Option<int> versionCode = default, Option<string> parameters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RunWorkflowAsync(version, accountId, workflowId, skuId, versionCode, parameters, cancellationToken).ConfigureAwait(false);
+                return await RunWorkflowAsync(accountId, workflowId, skuId, versionCode, parameters, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -263,7 +256,6 @@ namespace Org.OpenAPITools.Api
         /// Run Workflow Runs a published executable workflow
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="workflowId">the workflow to run</param>
         /// <param name="skuId">this runs a particular sku on the workflow (optional)</param>
@@ -271,7 +263,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="parameters">Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60;  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRunWorkflowApiResponse"/>&gt;</returns>
-        public async Task<IRunWorkflowApiResponse> RunWorkflowAsync(decimal version, long accountId, long workflowId, Option<long> skuId = default, Option<int> versionCode = default, Option<string> parameters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRunWorkflowApiResponse> RunWorkflowAsync(long accountId, long workflowId, Option<long> skuId = default, Option<int> versionCode = default, Option<string> parameters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -279,7 +271,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRunWorkflow(parameters);
 
-                FormatRunWorkflow(ref version, ref accountId, ref workflowId, ref skuId, ref versionCode, ref parameters);
+                FormatRunWorkflow(ref accountId, ref workflowId, ref skuId, ref versionCode, ref parameters);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -287,9 +279,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/workflow/run"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/workflow/run");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/workflow/run"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/workflow/run");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -330,13 +321,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/workflow/run", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/workflow/run", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRunWorkflowDefaultImplementation(apiResponseLocalVar, version, accountId, workflowId, skuId, versionCode, parameters);
+                        AfterRunWorkflowDefaultImplementation(apiResponseLocalVar, accountId, workflowId, skuId, versionCode, parameters);
 
                         Events.ExecuteOnRunWorkflow(apiResponseLocalVar);
 
@@ -346,7 +337,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRunWorkflowDefaultImplementation(e, "/api/{version}/workflow/run", uriBuilderLocalVar.Path, version, accountId, workflowId, skuId, versionCode, parameters);
+                OnErrorRunWorkflowDefaultImplementation(e, "/workflow/run", uriBuilderLocalVar.Path, accountId, workflowId, skuId, versionCode, parameters);
                 Events.ExecuteOnErrorRunWorkflow(e);
                 throw;
             }

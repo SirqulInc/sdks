@@ -45,13 +45,12 @@ namespace Org.OpenAPITools.Api
         /// Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the create, must be the responsible manager</param>
         /// <param name="planId">The plan to subscribe to, if null use default plan (optional)</param>
         /// <param name="promoCode">Set a promo code for a discount. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSubscriptionApiResponse"/>&gt;</returns>
-        Task<ICreateSubscriptionApiResponse> CreateSubscriptionAsync(decimal version, long accountId, Option<long> planId = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateSubscriptionApiResponse> CreateSubscriptionAsync(long accountId, Option<long> planId = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Subscription
@@ -59,13 +58,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the create, must be the responsible manager</param>
         /// <param name="planId">The plan to subscribe to, if null use default plan (optional)</param>
         /// <param name="promoCode">Set a promo code for a discount. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSubscriptionApiResponse"/>?&gt;</returns>
-        Task<ICreateSubscriptionApiResponse?> CreateSubscriptionOrDefaultAsync(decimal version, long accountId, Option<long> planId = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateSubscriptionApiResponse?> CreateSubscriptionOrDefaultAsync(long accountId, Option<long> planId = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Subscription
@@ -74,11 +72,10 @@ namespace Org.OpenAPITools.Api
         /// Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must be the responsible manager</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSubscriptionApiResponse"/>&gt;</returns>
-        Task<IDeleteSubscriptionApiResponse> DeleteSubscriptionAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteSubscriptionApiResponse> DeleteSubscriptionAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Subscription
@@ -86,11 +83,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must be the responsible manager</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSubscriptionApiResponse"/>?&gt;</returns>
-        Task<IDeleteSubscriptionApiResponse?> DeleteSubscriptionOrDefaultAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteSubscriptionApiResponse?> DeleteSubscriptionOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Subscription
@@ -99,11 +95,10 @@ namespace Org.OpenAPITools.Api
         /// Use the accountId to determine the associated BillableEntity.  Then get the subscription.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the lookup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionApiResponse"/>&gt;</returns>
-        Task<IGetSubscriptionApiResponse> GetSubscriptionAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSubscriptionApiResponse> GetSubscriptionAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Subscription
@@ -111,11 +106,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Use the accountId to determine the associated BillableEntity.  Then get the subscription.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the lookup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionApiResponse"/>?&gt;</returns>
-        Task<IGetSubscriptionApiResponse?> GetSubscriptionOrDefaultAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSubscriptionApiResponse?> GetSubscriptionOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Subscription Plan
@@ -124,11 +118,10 @@ namespace Org.OpenAPITools.Api
         /// Get the matched subscription plan
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="planId">The ID of the plan to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionPlanApiResponse"/>&gt;</returns>
-        Task<IGetSubscriptionPlanApiResponse> GetSubscriptionPlanAsync(decimal version, long planId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSubscriptionPlanApiResponse> GetSubscriptionPlanAsync(long planId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Subscription Plan
@@ -136,11 +129,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the matched subscription plan
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="planId">The ID of the plan to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionPlanApiResponse"/>?&gt;</returns>
-        Task<IGetSubscriptionPlanApiResponse?> GetSubscriptionPlanOrDefaultAsync(decimal version, long planId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSubscriptionPlanApiResponse?> GetSubscriptionPlanOrDefaultAsync(long planId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Subscription Plans
@@ -149,12 +141,11 @@ namespace Org.OpenAPITools.Api
         /// Get the matched subscription plan
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="visible">Include visible only (true), hidden only (false), or all (null) (optional)</param>
         /// <param name="role">The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionPlansApiResponse"/>&gt;</returns>
-        Task<IGetSubscriptionPlansApiResponse> GetSubscriptionPlansAsync(decimal version, Option<bool> visible = default, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSubscriptionPlansApiResponse> GetSubscriptionPlansAsync(Option<bool> visible = default, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Subscription Plans
@@ -162,12 +153,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the matched subscription plan
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="visible">Include visible only (true), hidden only (false), or all (null) (optional)</param>
         /// <param name="role">The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionPlansApiResponse"/>?&gt;</returns>
-        Task<IGetSubscriptionPlansApiResponse?> GetSubscriptionPlansOrDefaultAsync(decimal version, Option<bool> visible = default, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSubscriptionPlansApiResponse?> GetSubscriptionPlansOrDefaultAsync(Option<bool> visible = default, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Subscription Usage
@@ -176,14 +166,13 @@ namespace Org.OpenAPITools.Api
         /// Use the accountId to determine the associated BillableEntity.  Then get the application usage.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the lookup</param>
         /// <param name="applicationId">Get for just 1 application instead of the BillableEntity (optional)</param>
         /// <param name="start">The start time frame (optional)</param>
         /// <param name="end">The end time frame (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionUsageApiResponse"/>&gt;</returns>
-        Task<IGetSubscriptionUsageApiResponse> GetSubscriptionUsageAsync(decimal version, long accountId, Option<long> applicationId = default, Option<long> start = default, Option<long> end = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSubscriptionUsageApiResponse> GetSubscriptionUsageAsync(long accountId, Option<long> applicationId = default, Option<long> start = default, Option<long> end = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Subscription Usage
@@ -191,14 +180,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Use the accountId to determine the associated BillableEntity.  Then get the application usage.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the lookup</param>
         /// <param name="applicationId">Get for just 1 application instead of the BillableEntity (optional)</param>
         /// <param name="start">The start time frame (optional)</param>
         /// <param name="end">The end time frame (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionUsageApiResponse"/>?&gt;</returns>
-        Task<IGetSubscriptionUsageApiResponse?> GetSubscriptionUsageOrDefaultAsync(decimal version, long accountId, Option<long> applicationId = default, Option<long> start = default, Option<long> end = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSubscriptionUsageApiResponse?> GetSubscriptionUsageOrDefaultAsync(long accountId, Option<long> applicationId = default, Option<long> start = default, Option<long> end = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Subscription
@@ -207,14 +195,13 @@ namespace Org.OpenAPITools.Api
         /// Updates the subscription for the billable entity for an account
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the update, must be the responsible manager</param>
         /// <param name="planId">The plan to subscribe to (optional)</param>
         /// <param name="promoCode">Set a promo code for a discount. (optional)</param>
         /// <param name="active">Set active status (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSubscriptionApiResponse"/>&gt;</returns>
-        Task<IUpdateSubscriptionApiResponse> UpdateSubscriptionAsync(decimal version, long accountId, Option<long> planId = default, Option<string> promoCode = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateSubscriptionApiResponse> UpdateSubscriptionAsync(long accountId, Option<long> planId = default, Option<string> promoCode = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Subscription
@@ -222,14 +209,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates the subscription for the billable entity for an account
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the update, must be the responsible manager</param>
         /// <param name="planId">The plan to subscribe to (optional)</param>
         /// <param name="promoCode">Set a promo code for a discount. (optional)</param>
         /// <param name="active">Set active status (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSubscriptionApiResponse"/>?&gt;</returns>
-        Task<IUpdateSubscriptionApiResponse?> UpdateSubscriptionOrDefaultAsync(decimal version, long accountId, Option<long> planId = default, Option<string> promoCode = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateSubscriptionApiResponse?> UpdateSubscriptionOrDefaultAsync(long accountId, Option<long> planId = default, Option<string> promoCode = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -509,7 +495,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateSubscription(ref decimal version, ref long accountId, ref Option<long> planId, ref Option<string> promoCode);
+        partial void FormatCreateSubscription(ref long accountId, ref Option<long> planId, ref Option<string> promoCode);
 
         /// <summary>
         /// Validates the request parameters
@@ -526,14 +512,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="planId"></param>
         /// <param name="promoCode"></param>
-        private void AfterCreateSubscriptionDefaultImplementation(ICreateSubscriptionApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> planId, Option<string> promoCode)
+        private void AfterCreateSubscriptionDefaultImplementation(ICreateSubscriptionApiResponse apiResponseLocalVar, long accountId, Option<long> planId, Option<string> promoCode)
         {
             bool suppressDefaultLog = false;
-            AfterCreateSubscription(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, planId, promoCode);
+            AfterCreateSubscription(ref suppressDefaultLog, apiResponseLocalVar, accountId, planId, promoCode);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -543,11 +528,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="planId"></param>
         /// <param name="promoCode"></param>
-        partial void AfterCreateSubscription(ref bool suppressDefaultLog, ICreateSubscriptionApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> planId, Option<string> promoCode);
+        partial void AfterCreateSubscription(ref bool suppressDefaultLog, ICreateSubscriptionApiResponse apiResponseLocalVar, long accountId, Option<long> planId, Option<string> promoCode);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -555,14 +539,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="planId"></param>
         /// <param name="promoCode"></param>
-        private void OnErrorCreateSubscriptionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> planId, Option<string> promoCode)
+        private void OnErrorCreateSubscriptionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> planId, Option<string> promoCode)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateSubscription(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, planId, promoCode);
+            OnErrorCreateSubscription(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, planId, promoCode);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -574,26 +557,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="planId"></param>
         /// <param name="promoCode"></param>
-        partial void OnErrorCreateSubscription(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> planId, Option<string> promoCode);
+        partial void OnErrorCreateSubscription(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> planId, Option<string> promoCode);
 
         /// <summary>
         /// Create Subscription Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the create, must be the responsible manager</param>
         /// <param name="planId">The plan to subscribe to, if null use default plan (optional)</param>
         /// <param name="promoCode">Set a promo code for a discount. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSubscriptionApiResponse"/>&gt;</returns>
-        public async Task<ICreateSubscriptionApiResponse?> CreateSubscriptionOrDefaultAsync(decimal version, long accountId, Option<long> planId = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateSubscriptionApiResponse?> CreateSubscriptionOrDefaultAsync(long accountId, Option<long> planId = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateSubscriptionAsync(version, accountId, planId, promoCode, cancellationToken).ConfigureAwait(false);
+                return await CreateSubscriptionAsync(accountId, planId, promoCode, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -605,13 +586,12 @@ namespace Org.OpenAPITools.Api
         /// Create Subscription Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the create, must be the responsible manager</param>
         /// <param name="planId">The plan to subscribe to, if null use default plan (optional)</param>
         /// <param name="promoCode">Set a promo code for a discount. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSubscriptionApiResponse"/>&gt;</returns>
-        public async Task<ICreateSubscriptionApiResponse> CreateSubscriptionAsync(decimal version, long accountId, Option<long> planId = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateSubscriptionApiResponse> CreateSubscriptionAsync(long accountId, Option<long> planId = default, Option<string> promoCode = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -619,7 +599,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateSubscription(promoCode);
 
-                FormatCreateSubscription(ref version, ref accountId, ref planId, ref promoCode);
+                FormatCreateSubscription(ref accountId, ref planId, ref promoCode);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -627,9 +607,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/subscription/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/subscription/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/subscription/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/subscription/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -666,13 +645,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/subscription/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/subscription/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateSubscriptionDefaultImplementation(apiResponseLocalVar, version, accountId, planId, promoCode);
+                        AfterCreateSubscriptionDefaultImplementation(apiResponseLocalVar, accountId, planId, promoCode);
 
                         Events.ExecuteOnCreateSubscription(apiResponseLocalVar);
 
@@ -682,7 +661,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateSubscriptionDefaultImplementation(e, "/api/{version}/subscription/create", uriBuilderLocalVar.Path, version, accountId, planId, promoCode);
+                OnErrorCreateSubscriptionDefaultImplementation(e, "/subscription/create", uriBuilderLocalVar.Path, accountId, planId, promoCode);
                 Events.ExecuteOnErrorCreateSubscription(e);
                 throw;
             }
@@ -781,18 +760,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteSubscription(ref decimal version, ref long accountId);
+        partial void FormatDeleteSubscription(ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteSubscriptionDefaultImplementation(IDeleteSubscriptionApiResponse apiResponseLocalVar, decimal version, long accountId)
+        private void AfterDeleteSubscriptionDefaultImplementation(IDeleteSubscriptionApiResponse apiResponseLocalVar, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteSubscription(ref suppressDefaultLog, apiResponseLocalVar, version, accountId);
+            AfterDeleteSubscription(ref suppressDefaultLog, apiResponseLocalVar, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -802,9 +780,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteSubscription(ref bool suppressDefaultLog, IDeleteSubscriptionApiResponse apiResponseLocalVar, decimal version, long accountId);
+        partial void AfterDeleteSubscription(ref bool suppressDefaultLog, IDeleteSubscriptionApiResponse apiResponseLocalVar, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -812,12 +789,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteSubscriptionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId)
+        private void OnErrorDeleteSubscriptionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteSubscription(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId);
+            OnErrorDeleteSubscription(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -829,22 +805,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteSubscription(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId);
+        partial void OnErrorDeleteSubscription(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
         /// Delete Subscription Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must be the responsible manager</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSubscriptionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteSubscriptionApiResponse?> DeleteSubscriptionOrDefaultAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteSubscriptionApiResponse?> DeleteSubscriptionOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteSubscriptionAsync(version, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteSubscriptionAsync(accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -856,17 +830,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Subscription Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must be the responsible manager</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSubscriptionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteSubscriptionApiResponse> DeleteSubscriptionAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteSubscriptionApiResponse> DeleteSubscriptionAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteSubscription(ref version, ref accountId);
+                FormatDeleteSubscription(ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -874,9 +847,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/subscription/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/subscription/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/subscription/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/subscription/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -907,13 +879,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/subscription/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/subscription/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteSubscriptionDefaultImplementation(apiResponseLocalVar, version, accountId);
+                        AfterDeleteSubscriptionDefaultImplementation(apiResponseLocalVar, accountId);
 
                         Events.ExecuteOnDeleteSubscription(apiResponseLocalVar);
 
@@ -923,7 +895,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteSubscriptionDefaultImplementation(e, "/api/{version}/subscription/delete", uriBuilderLocalVar.Path, version, accountId);
+                OnErrorDeleteSubscriptionDefaultImplementation(e, "/subscription/delete", uriBuilderLocalVar.Path, accountId);
                 Events.ExecuteOnErrorDeleteSubscription(e);
                 throw;
             }
@@ -1022,18 +994,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSubscription(ref decimal version, ref long accountId);
+        partial void FormatGetSubscription(ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        private void AfterGetSubscriptionDefaultImplementation(IGetSubscriptionApiResponse apiResponseLocalVar, decimal version, long accountId)
+        private void AfterGetSubscriptionDefaultImplementation(IGetSubscriptionApiResponse apiResponseLocalVar, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetSubscription(ref suppressDefaultLog, apiResponseLocalVar, version, accountId);
+            AfterGetSubscription(ref suppressDefaultLog, apiResponseLocalVar, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1043,9 +1014,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetSubscription(ref bool suppressDefaultLog, IGetSubscriptionApiResponse apiResponseLocalVar, decimal version, long accountId);
+        partial void AfterGetSubscription(ref bool suppressDefaultLog, IGetSubscriptionApiResponse apiResponseLocalVar, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1053,12 +1023,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetSubscriptionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId)
+        private void OnErrorGetSubscriptionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetSubscription(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId);
+            OnErrorGetSubscription(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1070,22 +1039,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetSubscription(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId);
+        partial void OnErrorGetSubscription(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
         /// Get Subscription Use the accountId to determine the associated BillableEntity.  Then get the subscription.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the lookup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionApiResponse"/>&gt;</returns>
-        public async Task<IGetSubscriptionApiResponse?> GetSubscriptionOrDefaultAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSubscriptionApiResponse?> GetSubscriptionOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetSubscriptionAsync(version, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetSubscriptionAsync(accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1097,17 +1064,16 @@ namespace Org.OpenAPITools.Api
         /// Get Subscription Use the accountId to determine the associated BillableEntity.  Then get the subscription.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the lookup</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionApiResponse"/>&gt;</returns>
-        public async Task<IGetSubscriptionApiResponse> GetSubscriptionAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSubscriptionApiResponse> GetSubscriptionAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetSubscription(ref version, ref accountId);
+                FormatGetSubscription(ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1115,9 +1081,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/subscription/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/subscription/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/subscription/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/subscription/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1148,13 +1113,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/subscription/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/subscription/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetSubscriptionDefaultImplementation(apiResponseLocalVar, version, accountId);
+                        AfterGetSubscriptionDefaultImplementation(apiResponseLocalVar, accountId);
 
                         Events.ExecuteOnGetSubscription(apiResponseLocalVar);
 
@@ -1164,7 +1129,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetSubscriptionDefaultImplementation(e, "/api/{version}/subscription/get", uriBuilderLocalVar.Path, version, accountId);
+                OnErrorGetSubscriptionDefaultImplementation(e, "/subscription/get", uriBuilderLocalVar.Path, accountId);
                 Events.ExecuteOnErrorGetSubscription(e);
                 throw;
             }
@@ -1263,18 +1228,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSubscriptionPlan(ref decimal version, ref long planId);
+        partial void FormatGetSubscriptionPlan(ref long planId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="planId"></param>
-        private void AfterGetSubscriptionPlanDefaultImplementation(IGetSubscriptionPlanApiResponse apiResponseLocalVar, decimal version, long planId)
+        private void AfterGetSubscriptionPlanDefaultImplementation(IGetSubscriptionPlanApiResponse apiResponseLocalVar, long planId)
         {
             bool suppressDefaultLog = false;
-            AfterGetSubscriptionPlan(ref suppressDefaultLog, apiResponseLocalVar, version, planId);
+            AfterGetSubscriptionPlan(ref suppressDefaultLog, apiResponseLocalVar, planId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1284,9 +1248,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="planId"></param>
-        partial void AfterGetSubscriptionPlan(ref bool suppressDefaultLog, IGetSubscriptionPlanApiResponse apiResponseLocalVar, decimal version, long planId);
+        partial void AfterGetSubscriptionPlan(ref bool suppressDefaultLog, IGetSubscriptionPlanApiResponse apiResponseLocalVar, long planId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1294,12 +1257,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="planId"></param>
-        private void OnErrorGetSubscriptionPlanDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long planId)
+        private void OnErrorGetSubscriptionPlanDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long planId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetSubscriptionPlan(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, planId);
+            OnErrorGetSubscriptionPlan(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, planId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1311,22 +1273,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="planId"></param>
-        partial void OnErrorGetSubscriptionPlan(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long planId);
+        partial void OnErrorGetSubscriptionPlan(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long planId);
 
         /// <summary>
         /// Get Subscription Plan Get the matched subscription plan
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="planId">The ID of the plan to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionPlanApiResponse"/>&gt;</returns>
-        public async Task<IGetSubscriptionPlanApiResponse?> GetSubscriptionPlanOrDefaultAsync(decimal version, long planId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSubscriptionPlanApiResponse?> GetSubscriptionPlanOrDefaultAsync(long planId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetSubscriptionPlanAsync(version, planId, cancellationToken).ConfigureAwait(false);
+                return await GetSubscriptionPlanAsync(planId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1338,17 +1298,16 @@ namespace Org.OpenAPITools.Api
         /// Get Subscription Plan Get the matched subscription plan
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="planId">The ID of the plan to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionPlanApiResponse"/>&gt;</returns>
-        public async Task<IGetSubscriptionPlanApiResponse> GetSubscriptionPlanAsync(decimal version, long planId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSubscriptionPlanApiResponse> GetSubscriptionPlanAsync(long planId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetSubscriptionPlan(ref version, ref planId);
+                FormatGetSubscriptionPlan(ref planId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1356,9 +1315,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/subscription/plan/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/subscription/plan/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/subscription/plan/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/subscription/plan/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1389,13 +1347,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/subscription/plan/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/subscription/plan/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetSubscriptionPlanDefaultImplementation(apiResponseLocalVar, version, planId);
+                        AfterGetSubscriptionPlanDefaultImplementation(apiResponseLocalVar, planId);
 
                         Events.ExecuteOnGetSubscriptionPlan(apiResponseLocalVar);
 
@@ -1405,7 +1363,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetSubscriptionPlanDefaultImplementation(e, "/api/{version}/subscription/plan/get", uriBuilderLocalVar.Path, version, planId);
+                OnErrorGetSubscriptionPlanDefaultImplementation(e, "/subscription/plan/get", uriBuilderLocalVar.Path, planId);
                 Events.ExecuteOnErrorGetSubscriptionPlan(e);
                 throw;
             }
@@ -1504,7 +1462,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSubscriptionPlans(ref decimal version, ref Option<bool> visible, ref Option<string> role);
+        partial void FormatGetSubscriptionPlans(ref Option<bool> visible, ref Option<string> role);
 
         /// <summary>
         /// Validates the request parameters
@@ -1521,13 +1479,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="visible"></param>
         /// <param name="role"></param>
-        private void AfterGetSubscriptionPlansDefaultImplementation(IGetSubscriptionPlansApiResponse apiResponseLocalVar, decimal version, Option<bool> visible, Option<string> role)
+        private void AfterGetSubscriptionPlansDefaultImplementation(IGetSubscriptionPlansApiResponse apiResponseLocalVar, Option<bool> visible, Option<string> role)
         {
             bool suppressDefaultLog = false;
-            AfterGetSubscriptionPlans(ref suppressDefaultLog, apiResponseLocalVar, version, visible, role);
+            AfterGetSubscriptionPlans(ref suppressDefaultLog, apiResponseLocalVar, visible, role);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1537,10 +1494,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="visible"></param>
         /// <param name="role"></param>
-        partial void AfterGetSubscriptionPlans(ref bool suppressDefaultLog, IGetSubscriptionPlansApiResponse apiResponseLocalVar, decimal version, Option<bool> visible, Option<string> role);
+        partial void AfterGetSubscriptionPlans(ref bool suppressDefaultLog, IGetSubscriptionPlansApiResponse apiResponseLocalVar, Option<bool> visible, Option<string> role);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1548,13 +1504,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="visible"></param>
         /// <param name="role"></param>
-        private void OnErrorGetSubscriptionPlansDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<bool> visible, Option<string> role)
+        private void OnErrorGetSubscriptionPlansDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> visible, Option<string> role)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetSubscriptionPlans(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, visible, role);
+            OnErrorGetSubscriptionPlans(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, visible, role);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1566,24 +1521,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="visible"></param>
         /// <param name="role"></param>
-        partial void OnErrorGetSubscriptionPlans(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<bool> visible, Option<string> role);
+        partial void OnErrorGetSubscriptionPlans(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> visible, Option<string> role);
 
         /// <summary>
         /// List Subscription Plans Get the matched subscription plan
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="visible">Include visible only (true), hidden only (false), or all (null) (optional)</param>
         /// <param name="role">The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionPlansApiResponse"/>&gt;</returns>
-        public async Task<IGetSubscriptionPlansApiResponse?> GetSubscriptionPlansOrDefaultAsync(decimal version, Option<bool> visible = default, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSubscriptionPlansApiResponse?> GetSubscriptionPlansOrDefaultAsync(Option<bool> visible = default, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetSubscriptionPlansAsync(version, visible, role, cancellationToken).ConfigureAwait(false);
+                return await GetSubscriptionPlansAsync(visible, role, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1595,12 +1548,11 @@ namespace Org.OpenAPITools.Api
         /// List Subscription Plans Get the matched subscription plan
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="visible">Include visible only (true), hidden only (false), or all (null) (optional)</param>
         /// <param name="role">The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionPlansApiResponse"/>&gt;</returns>
-        public async Task<IGetSubscriptionPlansApiResponse> GetSubscriptionPlansAsync(decimal version, Option<bool> visible = default, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSubscriptionPlansApiResponse> GetSubscriptionPlansAsync(Option<bool> visible = default, Option<string> role = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1608,7 +1560,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetSubscriptionPlans(role);
 
-                FormatGetSubscriptionPlans(ref version, ref visible, ref role);
+                FormatGetSubscriptionPlans(ref visible, ref role);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1616,9 +1568,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/subscription/plan/list"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/subscription/plan/list");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/subscription/plan/list"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/subscription/plan/list");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1653,13 +1604,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/subscription/plan/list", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/subscription/plan/list", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetSubscriptionPlansDefaultImplementation(apiResponseLocalVar, version, visible, role);
+                        AfterGetSubscriptionPlansDefaultImplementation(apiResponseLocalVar, visible, role);
 
                         Events.ExecuteOnGetSubscriptionPlans(apiResponseLocalVar);
 
@@ -1669,7 +1620,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetSubscriptionPlansDefaultImplementation(e, "/api/{version}/subscription/plan/list", uriBuilderLocalVar.Path, version, visible, role);
+                OnErrorGetSubscriptionPlansDefaultImplementation(e, "/subscription/plan/list", uriBuilderLocalVar.Path, visible, role);
                 Events.ExecuteOnErrorGetSubscriptionPlans(e);
                 throw;
             }
@@ -1768,21 +1719,20 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSubscriptionUsage(ref decimal version, ref long accountId, ref Option<long> applicationId, ref Option<long> start, ref Option<long> end);
+        partial void FormatGetSubscriptionUsage(ref long accountId, ref Option<long> applicationId, ref Option<long> start, ref Option<long> end);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
         /// <param name="start"></param>
         /// <param name="end"></param>
-        private void AfterGetSubscriptionUsageDefaultImplementation(IGetSubscriptionUsageApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> applicationId, Option<long> start, Option<long> end)
+        private void AfterGetSubscriptionUsageDefaultImplementation(IGetSubscriptionUsageApiResponse apiResponseLocalVar, long accountId, Option<long> applicationId, Option<long> start, Option<long> end)
         {
             bool suppressDefaultLog = false;
-            AfterGetSubscriptionUsage(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, applicationId, start, end);
+            AfterGetSubscriptionUsage(ref suppressDefaultLog, apiResponseLocalVar, accountId, applicationId, start, end);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1792,12 +1742,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
         /// <param name="start"></param>
         /// <param name="end"></param>
-        partial void AfterGetSubscriptionUsage(ref bool suppressDefaultLog, IGetSubscriptionUsageApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> applicationId, Option<long> start, Option<long> end);
+        partial void AfterGetSubscriptionUsage(ref bool suppressDefaultLog, IGetSubscriptionUsageApiResponse apiResponseLocalVar, long accountId, Option<long> applicationId, Option<long> start, Option<long> end);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1805,15 +1754,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
         /// <param name="start"></param>
         /// <param name="end"></param>
-        private void OnErrorGetSubscriptionUsageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> applicationId, Option<long> start, Option<long> end)
+        private void OnErrorGetSubscriptionUsageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> applicationId, Option<long> start, Option<long> end)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetSubscriptionUsage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, applicationId, start, end);
+            OnErrorGetSubscriptionUsage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, applicationId, start, end);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1825,28 +1773,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="applicationId"></param>
         /// <param name="start"></param>
         /// <param name="end"></param>
-        partial void OnErrorGetSubscriptionUsage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> applicationId, Option<long> start, Option<long> end);
+        partial void OnErrorGetSubscriptionUsage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> applicationId, Option<long> start, Option<long> end);
 
         /// <summary>
         /// Get Subscription Usage Use the accountId to determine the associated BillableEntity.  Then get the application usage.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the lookup</param>
         /// <param name="applicationId">Get for just 1 application instead of the BillableEntity (optional)</param>
         /// <param name="start">The start time frame (optional)</param>
         /// <param name="end">The end time frame (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionUsageApiResponse"/>&gt;</returns>
-        public async Task<IGetSubscriptionUsageApiResponse?> GetSubscriptionUsageOrDefaultAsync(decimal version, long accountId, Option<long> applicationId = default, Option<long> start = default, Option<long> end = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSubscriptionUsageApiResponse?> GetSubscriptionUsageOrDefaultAsync(long accountId, Option<long> applicationId = default, Option<long> start = default, Option<long> end = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetSubscriptionUsageAsync(version, accountId, applicationId, start, end, cancellationToken).ConfigureAwait(false);
+                return await GetSubscriptionUsageAsync(accountId, applicationId, start, end, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1858,20 +1804,19 @@ namespace Org.OpenAPITools.Api
         /// Get Subscription Usage Use the accountId to determine the associated BillableEntity.  Then get the application usage.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the lookup</param>
         /// <param name="applicationId">Get for just 1 application instead of the BillableEntity (optional)</param>
         /// <param name="start">The start time frame (optional)</param>
         /// <param name="end">The end time frame (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSubscriptionUsageApiResponse"/>&gt;</returns>
-        public async Task<IGetSubscriptionUsageApiResponse> GetSubscriptionUsageAsync(decimal version, long accountId, Option<long> applicationId = default, Option<long> start = default, Option<long> end = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSubscriptionUsageApiResponse> GetSubscriptionUsageAsync(long accountId, Option<long> applicationId = default, Option<long> start = default, Option<long> end = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetSubscriptionUsage(ref version, ref accountId, ref applicationId, ref start, ref end);
+                FormatGetSubscriptionUsage(ref accountId, ref applicationId, ref start, ref end);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1879,9 +1824,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/subscription/usage/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/subscription/usage/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/subscription/usage/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/subscription/usage/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1921,13 +1865,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/subscription/usage/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/subscription/usage/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetSubscriptionUsageDefaultImplementation(apiResponseLocalVar, version, accountId, applicationId, start, end);
+                        AfterGetSubscriptionUsageDefaultImplementation(apiResponseLocalVar, accountId, applicationId, start, end);
 
                         Events.ExecuteOnGetSubscriptionUsage(apiResponseLocalVar);
 
@@ -1937,7 +1881,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetSubscriptionUsageDefaultImplementation(e, "/api/{version}/subscription/usage/get", uriBuilderLocalVar.Path, version, accountId, applicationId, start, end);
+                OnErrorGetSubscriptionUsageDefaultImplementation(e, "/subscription/usage/get", uriBuilderLocalVar.Path, accountId, applicationId, start, end);
                 Events.ExecuteOnErrorGetSubscriptionUsage(e);
                 throw;
             }
@@ -2036,7 +1980,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateSubscription(ref decimal version, ref long accountId, ref Option<long> planId, ref Option<string> promoCode, ref Option<bool> active);
+        partial void FormatUpdateSubscription(ref long accountId, ref Option<long> planId, ref Option<string> promoCode, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -2053,15 +1997,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="planId"></param>
         /// <param name="promoCode"></param>
         /// <param name="active"></param>
-        private void AfterUpdateSubscriptionDefaultImplementation(IUpdateSubscriptionApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> planId, Option<string> promoCode, Option<bool> active)
+        private void AfterUpdateSubscriptionDefaultImplementation(IUpdateSubscriptionApiResponse apiResponseLocalVar, long accountId, Option<long> planId, Option<string> promoCode, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateSubscription(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, planId, promoCode, active);
+            AfterUpdateSubscription(ref suppressDefaultLog, apiResponseLocalVar, accountId, planId, promoCode, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2071,12 +2014,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="planId"></param>
         /// <param name="promoCode"></param>
         /// <param name="active"></param>
-        partial void AfterUpdateSubscription(ref bool suppressDefaultLog, IUpdateSubscriptionApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> planId, Option<string> promoCode, Option<bool> active);
+        partial void AfterUpdateSubscription(ref bool suppressDefaultLog, IUpdateSubscriptionApiResponse apiResponseLocalVar, long accountId, Option<long> planId, Option<string> promoCode, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2084,15 +2026,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="planId"></param>
         /// <param name="promoCode"></param>
         /// <param name="active"></param>
-        private void OnErrorUpdateSubscriptionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> planId, Option<string> promoCode, Option<bool> active)
+        private void OnErrorUpdateSubscriptionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> planId, Option<string> promoCode, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateSubscription(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, planId, promoCode, active);
+            OnErrorUpdateSubscription(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, planId, promoCode, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2104,28 +2045,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="planId"></param>
         /// <param name="promoCode"></param>
         /// <param name="active"></param>
-        partial void OnErrorUpdateSubscription(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> planId, Option<string> promoCode, Option<bool> active);
+        partial void OnErrorUpdateSubscription(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> planId, Option<string> promoCode, Option<bool> active);
 
         /// <summary>
         /// Update Subscription Updates the subscription for the billable entity for an account
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the update, must be the responsible manager</param>
         /// <param name="planId">The plan to subscribe to (optional)</param>
         /// <param name="promoCode">Set a promo code for a discount. (optional)</param>
         /// <param name="active">Set active status (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSubscriptionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateSubscriptionApiResponse?> UpdateSubscriptionOrDefaultAsync(decimal version, long accountId, Option<long> planId = default, Option<string> promoCode = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateSubscriptionApiResponse?> UpdateSubscriptionOrDefaultAsync(long accountId, Option<long> planId = default, Option<string> promoCode = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateSubscriptionAsync(version, accountId, planId, promoCode, active, cancellationToken).ConfigureAwait(false);
+                return await UpdateSubscriptionAsync(accountId, planId, promoCode, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2137,14 +2076,13 @@ namespace Org.OpenAPITools.Api
         /// Update Subscription Updates the subscription for the billable entity for an account
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the update, must be the responsible manager</param>
         /// <param name="planId">The plan to subscribe to (optional)</param>
         /// <param name="promoCode">Set a promo code for a discount. (optional)</param>
         /// <param name="active">Set active status (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSubscriptionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateSubscriptionApiResponse> UpdateSubscriptionAsync(decimal version, long accountId, Option<long> planId = default, Option<string> promoCode = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateSubscriptionApiResponse> UpdateSubscriptionAsync(long accountId, Option<long> planId = default, Option<string> promoCode = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2152,7 +2090,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateSubscription(promoCode);
 
-                FormatUpdateSubscription(ref version, ref accountId, ref planId, ref promoCode, ref active);
+                FormatUpdateSubscription(ref accountId, ref planId, ref promoCode, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2160,9 +2098,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/subscription/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/subscription/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/subscription/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/subscription/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2202,13 +2139,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/subscription/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/subscription/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateSubscriptionDefaultImplementation(apiResponseLocalVar, version, accountId, planId, promoCode, active);
+                        AfterUpdateSubscriptionDefaultImplementation(apiResponseLocalVar, accountId, planId, promoCode, active);
 
                         Events.ExecuteOnUpdateSubscription(apiResponseLocalVar);
 
@@ -2218,7 +2155,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateSubscriptionDefaultImplementation(e, "/api/{version}/subscription/update", uriBuilderLocalVar.Path, version, accountId, planId, promoCode, active);
+                OnErrorUpdateSubscriptionDefaultImplementation(e, "/subscription/update", uriBuilderLocalVar.Path, accountId, planId, promoCode, active);
                 Events.ExecuteOnErrorUpdateSubscription(e);
                 throw;
             }

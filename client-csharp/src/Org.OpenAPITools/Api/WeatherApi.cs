@@ -45,14 +45,13 @@ namespace Org.OpenAPITools.Api
         /// Search the weather forcast for the next 5 days
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="regionId">Region Id (optional)</param>
         /// <param name="latitude">Latitude (optional)</param>
         /// <param name="longitude">Longitude (optional)</param>
         /// <param name="timezoneOffset">Timezone Offset (optional, default to -6)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchWeatherApiResponse"/>&gt;</returns>
-        Task<ISearchWeatherApiResponse> SearchWeatherAsync(decimal version, Option<long> regionId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> timezoneOffset = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchWeatherApiResponse> SearchWeatherAsync(Option<long> regionId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> timezoneOffset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Weather
@@ -60,14 +59,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search the weather forcast for the next 5 days
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="regionId">Region Id (optional)</param>
         /// <param name="latitude">Latitude (optional)</param>
         /// <param name="longitude">Longitude (optional)</param>
         /// <param name="timezoneOffset">Timezone Offset (optional, default to -6)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchWeatherApiResponse"/>?&gt;</returns>
-        Task<ISearchWeatherApiResponse?> SearchWeatherOrDefaultAsync(decimal version, Option<long> regionId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> timezoneOffset = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchWeatherApiResponse?> SearchWeatherOrDefaultAsync(Option<long> regionId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> timezoneOffset = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -155,21 +153,20 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatSearchWeather(ref decimal version, ref Option<long> regionId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> timezoneOffset);
+        partial void FormatSearchWeather(ref Option<long> regionId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> timezoneOffset);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="regionId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="timezoneOffset"></param>
-        private void AfterSearchWeatherDefaultImplementation(ISearchWeatherApiResponse apiResponseLocalVar, decimal version, Option<long> regionId, Option<double> latitude, Option<double> longitude, Option<long> timezoneOffset)
+        private void AfterSearchWeatherDefaultImplementation(ISearchWeatherApiResponse apiResponseLocalVar, Option<long> regionId, Option<double> latitude, Option<double> longitude, Option<long> timezoneOffset)
         {
             bool suppressDefaultLog = false;
-            AfterSearchWeather(ref suppressDefaultLog, apiResponseLocalVar, version, regionId, latitude, longitude, timezoneOffset);
+            AfterSearchWeather(ref suppressDefaultLog, apiResponseLocalVar, regionId, latitude, longitude, timezoneOffset);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -179,12 +176,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="regionId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="timezoneOffset"></param>
-        partial void AfterSearchWeather(ref bool suppressDefaultLog, ISearchWeatherApiResponse apiResponseLocalVar, decimal version, Option<long> regionId, Option<double> latitude, Option<double> longitude, Option<long> timezoneOffset);
+        partial void AfterSearchWeather(ref bool suppressDefaultLog, ISearchWeatherApiResponse apiResponseLocalVar, Option<long> regionId, Option<double> latitude, Option<double> longitude, Option<long> timezoneOffset);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -192,15 +188,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="regionId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="timezoneOffset"></param>
-        private void OnErrorSearchWeatherDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> regionId, Option<double> latitude, Option<double> longitude, Option<long> timezoneOffset)
+        private void OnErrorSearchWeatherDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> regionId, Option<double> latitude, Option<double> longitude, Option<long> timezoneOffset)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchWeather(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, regionId, latitude, longitude, timezoneOffset);
+            OnErrorSearchWeather(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, regionId, latitude, longitude, timezoneOffset);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -212,28 +207,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="regionId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="timezoneOffset"></param>
-        partial void OnErrorSearchWeather(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> regionId, Option<double> latitude, Option<double> longitude, Option<long> timezoneOffset);
+        partial void OnErrorSearchWeather(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> regionId, Option<double> latitude, Option<double> longitude, Option<long> timezoneOffset);
 
         /// <summary>
         /// Search Weather Search the weather forcast for the next 5 days
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="regionId">Region Id (optional)</param>
         /// <param name="latitude">Latitude (optional)</param>
         /// <param name="longitude">Longitude (optional)</param>
         /// <param name="timezoneOffset">Timezone Offset (optional, default to -6)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchWeatherApiResponse"/>&gt;</returns>
-        public async Task<ISearchWeatherApiResponse?> SearchWeatherOrDefaultAsync(decimal version, Option<long> regionId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> timezoneOffset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchWeatherApiResponse?> SearchWeatherOrDefaultAsync(Option<long> regionId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> timezoneOffset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchWeatherAsync(version, regionId, latitude, longitude, timezoneOffset, cancellationToken).ConfigureAwait(false);
+                return await SearchWeatherAsync(regionId, latitude, longitude, timezoneOffset, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -245,20 +238,19 @@ namespace Org.OpenAPITools.Api
         /// Search Weather Search the weather forcast for the next 5 days
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="regionId">Region Id (optional)</param>
         /// <param name="latitude">Latitude (optional)</param>
         /// <param name="longitude">Longitude (optional)</param>
         /// <param name="timezoneOffset">Timezone Offset (optional, default to -6)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchWeatherApiResponse"/>&gt;</returns>
-        public async Task<ISearchWeatherApiResponse> SearchWeatherAsync(decimal version, Option<long> regionId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> timezoneOffset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchWeatherApiResponse> SearchWeatherAsync(Option<long> regionId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> timezoneOffset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatSearchWeather(ref version, ref regionId, ref latitude, ref longitude, ref timezoneOffset);
+                FormatSearchWeather(ref regionId, ref latitude, ref longitude, ref timezoneOffset);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -266,9 +258,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/weather/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/weather/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/weather/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/weather/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -309,13 +300,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/weather/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/weather/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchWeatherDefaultImplementation(apiResponseLocalVar, version, regionId, latitude, longitude, timezoneOffset);
+                        AfterSearchWeatherDefaultImplementation(apiResponseLocalVar, regionId, latitude, longitude, timezoneOffset);
 
                         Events.ExecuteOnSearchWeather(apiResponseLocalVar);
 
@@ -325,7 +316,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchWeatherDefaultImplementation(e, "/api/{version}/weather/search", uriBuilderLocalVar.Path, version, regionId, latitude, longitude, timezoneOffset);
+                OnErrorSearchWeatherDefaultImplementation(e, "/weather/search", uriBuilderLocalVar.Path, regionId, latitude, longitude, timezoneOffset);
                 Events.ExecuteOnErrorSearchWeather(e);
                 throw;
             }

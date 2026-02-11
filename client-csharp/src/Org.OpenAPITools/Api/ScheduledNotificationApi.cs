@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the scheduled notification</param>
         /// <param name="type">The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages</param>
@@ -82,7 +81,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateScheduledNotificationApiResponse"/>&gt;</returns>
-        Task<ICreateScheduledNotificationApiResponse> CreateScheduledNotificationAsync(decimal version, long accountId, string name, string type, string message, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateScheduledNotificationApiResponse> CreateScheduledNotificationAsync(long accountId, string name, string type, string message, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Scheduled Notification
@@ -90,7 +89,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the scheduled notification</param>
         /// <param name="type">The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages</param>
@@ -127,7 +125,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateScheduledNotificationApiResponse"/>?&gt;</returns>
-        Task<ICreateScheduledNotificationApiResponse?> CreateScheduledNotificationOrDefaultAsync(decimal version, long accountId, string name, string type, string message, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateScheduledNotificationApiResponse?> CreateScheduledNotificationOrDefaultAsync(long accountId, string name, string type, string message, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Scheduled Notification
@@ -136,13 +134,12 @@ namespace Org.OpenAPITools.Api
         /// This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="scheduledNotificationId">the id of the scheduled notification to delete</param>
         /// <param name="deleteByGroupingId">If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteScheduledNotificationApiResponse"/>&gt;</returns>
-        Task<IDeleteScheduledNotificationApiResponse> DeleteScheduledNotificationAsync(decimal version, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteScheduledNotificationApiResponse> DeleteScheduledNotificationAsync(long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Scheduled Notification
@@ -150,13 +147,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="scheduledNotificationId">the id of the scheduled notification to delete</param>
         /// <param name="deleteByGroupingId">If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteScheduledNotificationApiResponse"/>?&gt;</returns>
-        Task<IDeleteScheduledNotificationApiResponse?> DeleteScheduledNotificationOrDefaultAsync(decimal version, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteScheduledNotificationApiResponse?> DeleteScheduledNotificationOrDefaultAsync(long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Scheduled Notification
@@ -165,12 +161,11 @@ namespace Org.OpenAPITools.Api
         /// Get a ScheduledNotification
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="scheduledNotificationId">the id of the scheduled notification to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetScheduledNotificationApiResponse"/>&gt;</returns>
-        Task<IGetScheduledNotificationApiResponse> GetScheduledNotificationAsync(decimal version, long accountId, long scheduledNotificationId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetScheduledNotificationApiResponse> GetScheduledNotificationAsync(long accountId, long scheduledNotificationId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Scheduled Notification
@@ -178,12 +173,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a ScheduledNotification
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="scheduledNotificationId">the id of the scheduled notification to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetScheduledNotificationApiResponse"/>?&gt;</returns>
-        Task<IGetScheduledNotificationApiResponse?> GetScheduledNotificationOrDefaultAsync(decimal version, long accountId, long scheduledNotificationId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetScheduledNotificationApiResponse?> GetScheduledNotificationOrDefaultAsync(long accountId, long scheduledNotificationId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Generate Schedule Notifications
@@ -192,7 +186,6 @@ namespace Org.OpenAPITools.Api
         /// Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application to target</param>
         /// <param name="reportName">The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail</param>
@@ -203,7 +196,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="type">The type of scheduled notification; supported values are: MOBILE_NOTIFICATION (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IScheduleNotificationListingsApiResponse"/>&gt;</returns>
-        Task<IScheduleNotificationListingsApiResponse> ScheduleNotificationListingsAsync(decimal version, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams = default, Option<string> type = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IScheduleNotificationListingsApiResponse> ScheduleNotificationListingsAsync(long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams = default, Option<string> type = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Generate Schedule Notifications
@@ -211,7 +204,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application to target</param>
         /// <param name="reportName">The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail</param>
@@ -222,7 +214,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="type">The type of scheduled notification; supported values are: MOBILE_NOTIFICATION (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IScheduleNotificationListingsApiResponse"/>?&gt;</returns>
-        Task<IScheduleNotificationListingsApiResponse?> ScheduleNotificationListingsOrDefaultAsync(decimal version, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams = default, Option<string> type = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IScheduleNotificationListingsApiResponse?> ScheduleNotificationListingsOrDefaultAsync(long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams = default, Option<string> type = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Scheduled Notifications
@@ -231,7 +223,6 @@ namespace Org.OpenAPITools.Api
         /// This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="audienceId">Filter results by audience (optional)</param>
@@ -254,7 +245,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnAudienceAccountCount">If true, include audience account counts in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScheduledNotificationsApiResponse"/>&gt;</returns>
-        Task<ISearchScheduledNotificationsApiResponse> SearchScheduledNotificationsAsync(decimal version, long accountId, Option<string> groupingId = default, Option<long> audienceId = default, Option<string> filter = default, Option<string> types = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<bool> returnAudienceAccountCount = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchScheduledNotificationsApiResponse> SearchScheduledNotificationsAsync(long accountId, Option<string> groupingId = default, Option<long> audienceId = default, Option<string> filter = default, Option<string> types = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<bool> returnAudienceAccountCount = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Scheduled Notifications
@@ -262,7 +253,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="audienceId">Filter results by audience (optional)</param>
@@ -285,7 +275,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnAudienceAccountCount">If true, include audience account counts in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScheduledNotificationsApiResponse"/>?&gt;</returns>
-        Task<ISearchScheduledNotificationsApiResponse?> SearchScheduledNotificationsOrDefaultAsync(decimal version, long accountId, Option<string> groupingId = default, Option<long> audienceId = default, Option<string> filter = default, Option<string> types = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<bool> returnAudienceAccountCount = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchScheduledNotificationsApiResponse?> SearchScheduledNotificationsOrDefaultAsync(long accountId, Option<string> groupingId = default, Option<long> audienceId = default, Option<string> filter = default, Option<string> types = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<bool> returnAudienceAccountCount = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Scheduled Notification
@@ -294,7 +284,6 @@ namespace Org.OpenAPITools.Api
         /// This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="scheduledNotificationId">The id of scheduled notification to update</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the scheduled notification (optional)</param>
@@ -335,7 +324,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateScheduledNotificationApiResponse"/>&gt;</returns>
-        Task<IUpdateScheduledNotificationApiResponse> UpdateScheduledNotificationAsync(decimal version, long scheduledNotificationId, long accountId, Option<string> name = default, Option<string> type = default, Option<string> message = default, Option<string> payload = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> errorMessage = default, Option<string> status = default, Option<bool> updateByGroupingId = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateScheduledNotificationApiResponse> UpdateScheduledNotificationAsync(long scheduledNotificationId, long accountId, Option<string> name = default, Option<string> type = default, Option<string> message = default, Option<string> payload = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> errorMessage = default, Option<string> status = default, Option<bool> updateByGroupingId = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Scheduled Notification
@@ -343,7 +332,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="scheduledNotificationId">The id of scheduled notification to update</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the scheduled notification (optional)</param>
@@ -384,7 +372,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateScheduledNotificationApiResponse"/>?&gt;</returns>
-        Task<IUpdateScheduledNotificationApiResponse?> UpdateScheduledNotificationOrDefaultAsync(decimal version, long scheduledNotificationId, long accountId, Option<string> name = default, Option<string> type = default, Option<string> message = default, Option<string> payload = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> errorMessage = default, Option<string> status = default, Option<bool> updateByGroupingId = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateScheduledNotificationApiResponse?> UpdateScheduledNotificationOrDefaultAsync(long scheduledNotificationId, long accountId, Option<string> name = default, Option<string> type = default, Option<string> message = default, Option<string> payload = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> errorMessage = default, Option<string> status = default, Option<bool> updateByGroupingId = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -632,7 +620,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateScheduledNotification(ref decimal version, ref long accountId, ref string name, ref string type, ref string message, ref Option<long> contentId, ref Option<string> contentName, ref Option<string> contentType, ref Option<long> parentId, ref Option<string> parentType, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> connectionGroupIds, ref Option<string> connectionAccountIds, ref Option<long> audienceId, ref Option<string> audienceIds, ref Option<string> albumIds, ref Option<long> reportId, ref Option<string> reportParams, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> cronType, ref Option<string> metaData, ref Option<string> conditionalInput, ref Option<string> templateType, ref Option<string> visibility, ref Option<bool> active, ref Option<bool> sendNow, ref Option<string> eventType, ref Option<string> deepLinkURI, ref Option<bool> sendToAll);
+        partial void FormatCreateScheduledNotification(ref long accountId, ref string name, ref string type, ref string message, ref Option<long> contentId, ref Option<string> contentName, ref Option<string> contentType, ref Option<long> parentId, ref Option<string> parentType, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> connectionGroupIds, ref Option<string> connectionAccountIds, ref Option<long> audienceId, ref Option<string> audienceIds, ref Option<string> albumIds, ref Option<long> reportId, ref Option<string> reportParams, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> cronType, ref Option<string> metaData, ref Option<string> conditionalInput, ref Option<string> templateType, ref Option<string> visibility, ref Option<bool> active, ref Option<bool> sendNow, ref Option<string> eventType, ref Option<string> deepLinkURI, ref Option<bool> sendToAll);
 
         /// <summary>
         /// Validates the request parameters
@@ -737,7 +725,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="type"></param>
@@ -772,10 +759,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="eventType"></param>
         /// <param name="deepLinkURI"></param>
         /// <param name="sendToAll"></param>
-        private void AfterCreateScheduledNotificationDefaultImplementation(ICreateScheduledNotificationApiResponse apiResponseLocalVar, decimal version, long accountId, string name, string type, string message, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll)
+        private void AfterCreateScheduledNotificationDefaultImplementation(ICreateScheduledNotificationApiResponse apiResponseLocalVar, long accountId, string name, string type, string message, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll)
         {
             bool suppressDefaultLog = false;
-            AfterCreateScheduledNotification(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
+            AfterCreateScheduledNotification(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -785,7 +772,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="type"></param>
@@ -820,7 +806,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="eventType"></param>
         /// <param name="deepLinkURI"></param>
         /// <param name="sendToAll"></param>
-        partial void AfterCreateScheduledNotification(ref bool suppressDefaultLog, ICreateScheduledNotificationApiResponse apiResponseLocalVar, decimal version, long accountId, string name, string type, string message, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll);
+        partial void AfterCreateScheduledNotification(ref bool suppressDefaultLog, ICreateScheduledNotificationApiResponse apiResponseLocalVar, long accountId, string name, string type, string message, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -828,7 +814,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="type"></param>
@@ -863,10 +848,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="eventType"></param>
         /// <param name="deepLinkURI"></param>
         /// <param name="sendToAll"></param>
-        private void OnErrorCreateScheduledNotificationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, string type, string message, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll)
+        private void OnErrorCreateScheduledNotificationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, string type, string message, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateScheduledNotification(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
+            OnErrorCreateScheduledNotification(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -878,7 +863,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="type"></param>
@@ -913,12 +897,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="eventType"></param>
         /// <param name="deepLinkURI"></param>
         /// <param name="sendToAll"></param>
-        partial void OnErrorCreateScheduledNotification(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, string type, string message, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll);
+        partial void OnErrorCreateScheduledNotification(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, string type, string message, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll);
 
         /// <summary>
         /// Create Scheduled Notification This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the scheduled notification</param>
         /// <param name="type">The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages</param>
@@ -955,11 +938,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateScheduledNotificationApiResponse"/>&gt;</returns>
-        public async Task<ICreateScheduledNotificationApiResponse?> CreateScheduledNotificationOrDefaultAsync(decimal version, long accountId, string name, string type, string message, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateScheduledNotificationApiResponse?> CreateScheduledNotificationOrDefaultAsync(long accountId, string name, string type, string message, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateScheduledNotificationAsync(version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll, cancellationToken).ConfigureAwait(false);
+                return await CreateScheduledNotificationAsync(accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -971,7 +954,6 @@ namespace Org.OpenAPITools.Api
         /// Create Scheduled Notification This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the scheduled notification</param>
         /// <param name="type">The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages</param>
@@ -1008,7 +990,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateScheduledNotificationApiResponse"/>&gt;</returns>
-        public async Task<ICreateScheduledNotificationApiResponse> CreateScheduledNotificationAsync(decimal version, long accountId, string name, string type, string message, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateScheduledNotificationApiResponse> CreateScheduledNotificationAsync(long accountId, string name, string type, string message, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1016,7 +998,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateScheduledNotification(name, type, message, contentName, contentType, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceIds, albumIds, reportParams, endpointURL, payload, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, eventType, deepLinkURI);
 
-                FormatCreateScheduledNotification(ref version, ref accountId, ref name, ref type, ref message, ref contentId, ref contentName, ref contentType, ref parentId, ref parentType, ref appKey, ref groupingId, ref connectionGroupIds, ref connectionAccountIds, ref audienceId, ref audienceIds, ref albumIds, ref reportId, ref reportParams, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref cronType, ref metaData, ref conditionalInput, ref templateType, ref visibility, ref active, ref sendNow, ref eventType, ref deepLinkURI, ref sendToAll);
+                FormatCreateScheduledNotification(ref accountId, ref name, ref type, ref message, ref contentId, ref contentName, ref contentType, ref parentId, ref parentType, ref appKey, ref groupingId, ref connectionGroupIds, ref connectionAccountIds, ref audienceId, ref audienceIds, ref albumIds, ref reportId, ref reportParams, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref cronType, ref metaData, ref conditionalInput, ref templateType, ref visibility, ref active, ref sendNow, ref eventType, ref deepLinkURI, ref sendToAll);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1024,9 +1006,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/schedule/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/schedule/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/schedule/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/schedule/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1150,13 +1131,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/schedule/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/schedule/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateScheduledNotificationDefaultImplementation(apiResponseLocalVar, version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
+                        AfterCreateScheduledNotificationDefaultImplementation(apiResponseLocalVar, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
 
                         Events.ExecuteOnCreateScheduledNotification(apiResponseLocalVar);
 
@@ -1166,7 +1147,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateScheduledNotificationDefaultImplementation(e, "/api/{version}/notification/schedule/create", uriBuilderLocalVar.Path, version, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
+                OnErrorCreateScheduledNotificationDefaultImplementation(e, "/notification/schedule/create", uriBuilderLocalVar.Path, accountId, name, type, message, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, sendNow, eventType, deepLinkURI, sendToAll);
                 Events.ExecuteOnErrorCreateScheduledNotification(e);
                 throw;
             }
@@ -1265,20 +1246,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteScheduledNotification(ref decimal version, ref long accountId, ref long scheduledNotificationId, ref Option<bool> deleteByGroupingId);
+        partial void FormatDeleteScheduledNotification(ref long accountId, ref long scheduledNotificationId, ref Option<bool> deleteByGroupingId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="scheduledNotificationId"></param>
         /// <param name="deleteByGroupingId"></param>
-        private void AfterDeleteScheduledNotificationDefaultImplementation(IDeleteScheduledNotificationApiResponse apiResponseLocalVar, decimal version, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId)
+        private void AfterDeleteScheduledNotificationDefaultImplementation(IDeleteScheduledNotificationApiResponse apiResponseLocalVar, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteScheduledNotification(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, scheduledNotificationId, deleteByGroupingId);
+            AfterDeleteScheduledNotification(ref suppressDefaultLog, apiResponseLocalVar, accountId, scheduledNotificationId, deleteByGroupingId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1288,11 +1268,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="scheduledNotificationId"></param>
         /// <param name="deleteByGroupingId"></param>
-        partial void AfterDeleteScheduledNotification(ref bool suppressDefaultLog, IDeleteScheduledNotificationApiResponse apiResponseLocalVar, decimal version, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId);
+        partial void AfterDeleteScheduledNotification(ref bool suppressDefaultLog, IDeleteScheduledNotificationApiResponse apiResponseLocalVar, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1300,14 +1279,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="scheduledNotificationId"></param>
         /// <param name="deleteByGroupingId"></param>
-        private void OnErrorDeleteScheduledNotificationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId)
+        private void OnErrorDeleteScheduledNotificationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteScheduledNotification(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, scheduledNotificationId, deleteByGroupingId);
+            OnErrorDeleteScheduledNotification(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, scheduledNotificationId, deleteByGroupingId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1319,26 +1297,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="scheduledNotificationId"></param>
         /// <param name="deleteByGroupingId"></param>
-        partial void OnErrorDeleteScheduledNotification(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId);
+        partial void OnErrorDeleteScheduledNotification(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId);
 
         /// <summary>
         /// Delete Scheduled Notification This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="scheduledNotificationId">the id of the scheduled notification to delete</param>
         /// <param name="deleteByGroupingId">If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteScheduledNotificationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteScheduledNotificationApiResponse?> DeleteScheduledNotificationOrDefaultAsync(decimal version, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteScheduledNotificationApiResponse?> DeleteScheduledNotificationOrDefaultAsync(long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteScheduledNotificationAsync(version, accountId, scheduledNotificationId, deleteByGroupingId, cancellationToken).ConfigureAwait(false);
+                return await DeleteScheduledNotificationAsync(accountId, scheduledNotificationId, deleteByGroupingId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1350,19 +1326,18 @@ namespace Org.OpenAPITools.Api
         /// Delete Scheduled Notification This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="scheduledNotificationId">the id of the scheduled notification to delete</param>
         /// <param name="deleteByGroupingId">If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteScheduledNotificationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteScheduledNotificationApiResponse> DeleteScheduledNotificationAsync(decimal version, long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteScheduledNotificationApiResponse> DeleteScheduledNotificationAsync(long accountId, long scheduledNotificationId, Option<bool> deleteByGroupingId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteScheduledNotification(ref version, ref accountId, ref scheduledNotificationId, ref deleteByGroupingId);
+                FormatDeleteScheduledNotification(ref accountId, ref scheduledNotificationId, ref deleteByGroupingId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1370,9 +1345,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/schedule/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/schedule/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/schedule/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/schedule/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1407,13 +1381,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/schedule/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/schedule/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteScheduledNotificationDefaultImplementation(apiResponseLocalVar, version, accountId, scheduledNotificationId, deleteByGroupingId);
+                        AfterDeleteScheduledNotificationDefaultImplementation(apiResponseLocalVar, accountId, scheduledNotificationId, deleteByGroupingId);
 
                         Events.ExecuteOnDeleteScheduledNotification(apiResponseLocalVar);
 
@@ -1423,7 +1397,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteScheduledNotificationDefaultImplementation(e, "/api/{version}/notification/schedule/delete", uriBuilderLocalVar.Path, version, accountId, scheduledNotificationId, deleteByGroupingId);
+                OnErrorDeleteScheduledNotificationDefaultImplementation(e, "/notification/schedule/delete", uriBuilderLocalVar.Path, accountId, scheduledNotificationId, deleteByGroupingId);
                 Events.ExecuteOnErrorDeleteScheduledNotification(e);
                 throw;
             }
@@ -1522,19 +1496,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetScheduledNotification(ref decimal version, ref long accountId, ref long scheduledNotificationId);
+        partial void FormatGetScheduledNotification(ref long accountId, ref long scheduledNotificationId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="scheduledNotificationId"></param>
-        private void AfterGetScheduledNotificationDefaultImplementation(IGetScheduledNotificationApiResponse apiResponseLocalVar, decimal version, long accountId, long scheduledNotificationId)
+        private void AfterGetScheduledNotificationDefaultImplementation(IGetScheduledNotificationApiResponse apiResponseLocalVar, long accountId, long scheduledNotificationId)
         {
             bool suppressDefaultLog = false;
-            AfterGetScheduledNotification(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, scheduledNotificationId);
+            AfterGetScheduledNotification(ref suppressDefaultLog, apiResponseLocalVar, accountId, scheduledNotificationId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1544,10 +1517,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="scheduledNotificationId"></param>
-        partial void AfterGetScheduledNotification(ref bool suppressDefaultLog, IGetScheduledNotificationApiResponse apiResponseLocalVar, decimal version, long accountId, long scheduledNotificationId);
+        partial void AfterGetScheduledNotification(ref bool suppressDefaultLog, IGetScheduledNotificationApiResponse apiResponseLocalVar, long accountId, long scheduledNotificationId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1555,13 +1527,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="scheduledNotificationId"></param>
-        private void OnErrorGetScheduledNotificationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long scheduledNotificationId)
+        private void OnErrorGetScheduledNotificationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long scheduledNotificationId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetScheduledNotification(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, scheduledNotificationId);
+            OnErrorGetScheduledNotification(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, scheduledNotificationId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1573,24 +1544,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="scheduledNotificationId"></param>
-        partial void OnErrorGetScheduledNotification(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long scheduledNotificationId);
+        partial void OnErrorGetScheduledNotification(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long scheduledNotificationId);
 
         /// <summary>
         /// Get Scheduled Notification Get a ScheduledNotification
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="scheduledNotificationId">the id of the scheduled notification to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetScheduledNotificationApiResponse"/>&gt;</returns>
-        public async Task<IGetScheduledNotificationApiResponse?> GetScheduledNotificationOrDefaultAsync(decimal version, long accountId, long scheduledNotificationId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetScheduledNotificationApiResponse?> GetScheduledNotificationOrDefaultAsync(long accountId, long scheduledNotificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetScheduledNotificationAsync(version, accountId, scheduledNotificationId, cancellationToken).ConfigureAwait(false);
+                return await GetScheduledNotificationAsync(accountId, scheduledNotificationId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1602,18 +1571,17 @@ namespace Org.OpenAPITools.Api
         /// Get Scheduled Notification Get a ScheduledNotification
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="scheduledNotificationId">the id of the scheduled notification to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetScheduledNotificationApiResponse"/>&gt;</returns>
-        public async Task<IGetScheduledNotificationApiResponse> GetScheduledNotificationAsync(decimal version, long accountId, long scheduledNotificationId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetScheduledNotificationApiResponse> GetScheduledNotificationAsync(long accountId, long scheduledNotificationId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetScheduledNotification(ref version, ref accountId, ref scheduledNotificationId);
+                FormatGetScheduledNotification(ref accountId, ref scheduledNotificationId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1621,9 +1589,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/schedule/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/schedule/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/schedule/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/schedule/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1655,13 +1622,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/schedule/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/schedule/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetScheduledNotificationDefaultImplementation(apiResponseLocalVar, version, accountId, scheduledNotificationId);
+                        AfterGetScheduledNotificationDefaultImplementation(apiResponseLocalVar, accountId, scheduledNotificationId);
 
                         Events.ExecuteOnGetScheduledNotification(apiResponseLocalVar);
 
@@ -1671,7 +1638,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetScheduledNotificationDefaultImplementation(e, "/api/{version}/notification/schedule/get", uriBuilderLocalVar.Path, version, accountId, scheduledNotificationId);
+                OnErrorGetScheduledNotificationDefaultImplementation(e, "/notification/schedule/get", uriBuilderLocalVar.Path, accountId, scheduledNotificationId);
                 Events.ExecuteOnErrorGetScheduledNotification(e);
                 throw;
             }
@@ -1770,7 +1737,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatScheduleNotificationListings(ref decimal version, ref long accountId, ref string appKey, ref string reportName, ref string message, ref int offset, ref long recipientReportId, ref Option<string> reportParams, ref Option<string> type);
+        partial void FormatScheduleNotificationListings(ref long accountId, ref string appKey, ref string reportName, ref string message, ref int offset, ref long recipientReportId, ref Option<string> reportParams, ref Option<string> type);
 
         /// <summary>
         /// Validates the request parameters
@@ -1803,7 +1770,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="reportName"></param>
@@ -1812,10 +1778,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="recipientReportId"></param>
         /// <param name="reportParams"></param>
         /// <param name="type"></param>
-        private void AfterScheduleNotificationListingsDefaultImplementation(IScheduleNotificationListingsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams, Option<string> type)
+        private void AfterScheduleNotificationListingsDefaultImplementation(IScheduleNotificationListingsApiResponse apiResponseLocalVar, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams, Option<string> type)
         {
             bool suppressDefaultLog = false;
-            AfterScheduleNotificationListings(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
+            AfterScheduleNotificationListings(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1825,7 +1791,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="reportName"></param>
@@ -1834,7 +1799,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="recipientReportId"></param>
         /// <param name="reportParams"></param>
         /// <param name="type"></param>
-        partial void AfterScheduleNotificationListings(ref bool suppressDefaultLog, IScheduleNotificationListingsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams, Option<string> type);
+        partial void AfterScheduleNotificationListings(ref bool suppressDefaultLog, IScheduleNotificationListingsApiResponse apiResponseLocalVar, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams, Option<string> type);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1842,7 +1807,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="reportName"></param>
@@ -1851,10 +1815,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="recipientReportId"></param>
         /// <param name="reportParams"></param>
         /// <param name="type"></param>
-        private void OnErrorScheduleNotificationListingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams, Option<string> type)
+        private void OnErrorScheduleNotificationListingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams, Option<string> type)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorScheduleNotificationListings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
+            OnErrorScheduleNotificationListings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1866,7 +1830,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="reportName"></param>
@@ -1875,12 +1838,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="recipientReportId"></param>
         /// <param name="reportParams"></param>
         /// <param name="type"></param>
-        partial void OnErrorScheduleNotificationListings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams, Option<string> type);
+        partial void OnErrorScheduleNotificationListings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams, Option<string> type);
 
         /// <summary>
         /// Generate Schedule Notifications Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application to target</param>
         /// <param name="reportName">The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail</param>
@@ -1891,11 +1853,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="type">The type of scheduled notification; supported values are: MOBILE_NOTIFICATION (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IScheduleNotificationListingsApiResponse"/>&gt;</returns>
-        public async Task<IScheduleNotificationListingsApiResponse?> ScheduleNotificationListingsOrDefaultAsync(decimal version, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams = default, Option<string> type = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IScheduleNotificationListingsApiResponse?> ScheduleNotificationListingsOrDefaultAsync(long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams = default, Option<string> type = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ScheduleNotificationListingsAsync(version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type, cancellationToken).ConfigureAwait(false);
+                return await ScheduleNotificationListingsAsync(accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1907,7 +1869,6 @@ namespace Org.OpenAPITools.Api
         /// Generate Schedule Notifications Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application to target</param>
         /// <param name="reportName">The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail</param>
@@ -1918,7 +1879,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="type">The type of scheduled notification; supported values are: MOBILE_NOTIFICATION (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IScheduleNotificationListingsApiResponse"/>&gt;</returns>
-        public async Task<IScheduleNotificationListingsApiResponse> ScheduleNotificationListingsAsync(decimal version, long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams = default, Option<string> type = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IScheduleNotificationListingsApiResponse> ScheduleNotificationListingsAsync(long accountId, string appKey, string reportName, string message, int offset, long recipientReportId, Option<string> reportParams = default, Option<string> type = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1926,7 +1887,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateScheduleNotificationListings(appKey, reportName, message, reportParams, type);
 
-                FormatScheduleNotificationListings(ref version, ref accountId, ref appKey, ref reportName, ref message, ref offset, ref recipientReportId, ref reportParams, ref type);
+                FormatScheduleNotificationListings(ref accountId, ref appKey, ref reportName, ref message, ref offset, ref recipientReportId, ref reportParams, ref type);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1934,9 +1895,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/schedule/generate"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/schedule/generate");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/schedule/generate"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/schedule/generate");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1978,13 +1938,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/schedule/generate", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/schedule/generate", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterScheduleNotificationListingsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
+                        AfterScheduleNotificationListingsDefaultImplementation(apiResponseLocalVar, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
 
                         Events.ExecuteOnScheduleNotificationListings(apiResponseLocalVar);
 
@@ -1994,7 +1954,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorScheduleNotificationListingsDefaultImplementation(e, "/api/{version}/notification/schedule/generate", uriBuilderLocalVar.Path, version, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
+                OnErrorScheduleNotificationListingsDefaultImplementation(e, "/notification/schedule/generate", uriBuilderLocalVar.Path, accountId, appKey, reportName, message, offset, recipientReportId, reportParams, type);
                 Events.ExecuteOnErrorScheduleNotificationListings(e);
                 throw;
             }
@@ -2093,7 +2053,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchScheduledNotifications(ref decimal version, ref long accountId, ref Option<string> groupingId, ref Option<long> audienceId, ref Option<string> filter, ref Option<string> types, ref Option<string> contentIds, ref Option<string> contentTypes, ref Option<string> parentIds, ref Option<string> parentTypes, ref Option<string> statuses, ref Option<string> templateTypes, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<bool> groupByGroupingId, ref Option<bool> returnAudienceAccountCount);
+        partial void FormatSearchScheduledNotifications(ref long accountId, ref Option<string> groupingId, ref Option<long> audienceId, ref Option<string> filter, ref Option<string> types, ref Option<string> contentIds, ref Option<string> contentTypes, ref Option<string> parentIds, ref Option<string> parentTypes, ref Option<string> statuses, ref Option<string> templateTypes, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<bool> groupByGroupingId, ref Option<bool> returnAudienceAccountCount);
 
         /// <summary>
         /// Validates the request parameters
@@ -2154,7 +2114,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="audienceId"></param>
@@ -2175,10 +2134,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="groupByGroupingId"></param>
         /// <param name="returnAudienceAccountCount"></param>
-        private void AfterSearchScheduledNotificationsDefaultImplementation(ISearchScheduledNotificationsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> groupingId, Option<long> audienceId, Option<string> filter, Option<string> types, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<bool> returnAudienceAccountCount)
+        private void AfterSearchScheduledNotificationsDefaultImplementation(ISearchScheduledNotificationsApiResponse apiResponseLocalVar, long accountId, Option<string> groupingId, Option<long> audienceId, Option<string> filter, Option<string> types, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<bool> returnAudienceAccountCount)
         {
             bool suppressDefaultLog = false;
-            AfterSearchScheduledNotifications(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
+            AfterSearchScheduledNotifications(ref suppressDefaultLog, apiResponseLocalVar, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2188,7 +2147,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="audienceId"></param>
@@ -2209,7 +2167,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="groupByGroupingId"></param>
         /// <param name="returnAudienceAccountCount"></param>
-        partial void AfterSearchScheduledNotifications(ref bool suppressDefaultLog, ISearchScheduledNotificationsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> groupingId, Option<long> audienceId, Option<string> filter, Option<string> types, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<bool> returnAudienceAccountCount);
+        partial void AfterSearchScheduledNotifications(ref bool suppressDefaultLog, ISearchScheduledNotificationsApiResponse apiResponseLocalVar, long accountId, Option<string> groupingId, Option<long> audienceId, Option<string> filter, Option<string> types, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<bool> returnAudienceAccountCount);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2217,7 +2175,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="audienceId"></param>
@@ -2238,10 +2195,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="groupByGroupingId"></param>
         /// <param name="returnAudienceAccountCount"></param>
-        private void OnErrorSearchScheduledNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> groupingId, Option<long> audienceId, Option<string> filter, Option<string> types, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<bool> returnAudienceAccountCount)
+        private void OnErrorSearchScheduledNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> groupingId, Option<long> audienceId, Option<string> filter, Option<string> types, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<bool> returnAudienceAccountCount)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchScheduledNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
+            OnErrorSearchScheduledNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2253,7 +2210,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="audienceId"></param>
@@ -2274,12 +2230,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="groupByGroupingId"></param>
         /// <param name="returnAudienceAccountCount"></param>
-        partial void OnErrorSearchScheduledNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> groupingId, Option<long> audienceId, Option<string> filter, Option<string> types, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<bool> returnAudienceAccountCount);
+        partial void OnErrorSearchScheduledNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> groupingId, Option<long> audienceId, Option<string> filter, Option<string> types, Option<string> contentIds, Option<string> contentTypes, Option<string> parentIds, Option<string> parentTypes, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<bool> returnAudienceAccountCount);
 
         /// <summary>
         /// Search Scheduled Notifications This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="audienceId">Filter results by audience (optional)</param>
@@ -2302,11 +2257,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnAudienceAccountCount">If true, include audience account counts in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScheduledNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchScheduledNotificationsApiResponse?> SearchScheduledNotificationsOrDefaultAsync(decimal version, long accountId, Option<string> groupingId = default, Option<long> audienceId = default, Option<string> filter = default, Option<string> types = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<bool> returnAudienceAccountCount = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchScheduledNotificationsApiResponse?> SearchScheduledNotificationsOrDefaultAsync(long accountId, Option<string> groupingId = default, Option<long> audienceId = default, Option<string> filter = default, Option<string> types = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<bool> returnAudienceAccountCount = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchScheduledNotificationsAsync(version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount, cancellationToken).ConfigureAwait(false);
+                return await SearchScheduledNotificationsAsync(accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2318,7 +2273,6 @@ namespace Org.OpenAPITools.Api
         /// Search Scheduled Notifications This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="audienceId">Filter results by audience (optional)</param>
@@ -2341,7 +2295,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnAudienceAccountCount">If true, include audience account counts in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScheduledNotificationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchScheduledNotificationsApiResponse> SearchScheduledNotificationsAsync(decimal version, long accountId, Option<string> groupingId = default, Option<long> audienceId = default, Option<string> filter = default, Option<string> types = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<bool> returnAudienceAccountCount = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchScheduledNotificationsApiResponse> SearchScheduledNotificationsAsync(long accountId, Option<string> groupingId = default, Option<long> audienceId = default, Option<string> filter = default, Option<string> types = default, Option<string> contentIds = default, Option<string> contentTypes = default, Option<string> parentIds = default, Option<string> parentTypes = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<bool> returnAudienceAccountCount = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2349,7 +2303,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchScheduledNotifications(groupingId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField);
 
-                FormatSearchScheduledNotifications(ref version, ref accountId, ref groupingId, ref audienceId, ref filter, ref types, ref contentIds, ref contentTypes, ref parentIds, ref parentTypes, ref statuses, ref templateTypes, ref appKey, ref keyword, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref groupByGroupingId, ref returnAudienceAccountCount);
+                FormatSearchScheduledNotifications(ref accountId, ref groupingId, ref audienceId, ref filter, ref types, ref contentIds, ref contentTypes, ref parentIds, ref parentTypes, ref statuses, ref templateTypes, ref appKey, ref keyword, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref groupByGroupingId, ref returnAudienceAccountCount);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2357,9 +2311,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/schedule/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/schedule/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/schedule/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/schedule/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2447,13 +2400,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/schedule/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/schedule/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchScheduledNotificationsDefaultImplementation(apiResponseLocalVar, version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
+                        AfterSearchScheduledNotificationsDefaultImplementation(apiResponseLocalVar, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
 
                         Events.ExecuteOnSearchScheduledNotifications(apiResponseLocalVar);
 
@@ -2463,7 +2416,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchScheduledNotificationsDefaultImplementation(e, "/api/{version}/notification/schedule/search", uriBuilderLocalVar.Path, version, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
+                OnErrorSearchScheduledNotificationsDefaultImplementation(e, "/notification/schedule/search", uriBuilderLocalVar.Path, accountId, groupingId, audienceId, filter, types, contentIds, contentTypes, parentIds, parentTypes, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, groupByGroupingId, returnAudienceAccountCount);
                 Events.ExecuteOnErrorSearchScheduledNotifications(e);
                 throw;
             }
@@ -2562,7 +2515,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateScheduledNotification(ref decimal version, ref long scheduledNotificationId, ref long accountId, ref Option<string> name, ref Option<string> type, ref Option<string> message, ref Option<string> payload, ref Option<long> contentId, ref Option<string> contentName, ref Option<string> contentType, ref Option<long> parentId, ref Option<string> parentType, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> connectionGroupIds, ref Option<string> connectionAccountIds, ref Option<long> audienceId, ref Option<string> audienceIds, ref Option<string> albumIds, ref Option<long> reportId, ref Option<string> reportParams, ref Option<string> endpointURL, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> cronType, ref Option<string> metaData, ref Option<string> conditionalInput, ref Option<string> templateType, ref Option<string> visibility, ref Option<bool> active, ref Option<string> errorMessage, ref Option<string> status, ref Option<bool> updateByGroupingId, ref Option<bool> sendNow, ref Option<string> eventType, ref Option<string> deepLinkURI, ref Option<bool> sendToAll);
+        partial void FormatUpdateScheduledNotification(ref long scheduledNotificationId, ref long accountId, ref Option<string> name, ref Option<string> type, ref Option<string> message, ref Option<string> payload, ref Option<long> contentId, ref Option<string> contentName, ref Option<string> contentType, ref Option<long> parentId, ref Option<string> parentType, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> connectionGroupIds, ref Option<string> connectionAccountIds, ref Option<long> audienceId, ref Option<string> audienceIds, ref Option<string> albumIds, ref Option<long> reportId, ref Option<string> reportParams, ref Option<string> endpointURL, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> cronType, ref Option<string> metaData, ref Option<string> conditionalInput, ref Option<string> templateType, ref Option<string> visibility, ref Option<bool> active, ref Option<string> errorMessage, ref Option<string> status, ref Option<bool> updateByGroupingId, ref Option<bool> sendNow, ref Option<string> eventType, ref Option<string> deepLinkURI, ref Option<bool> sendToAll);
 
         /// <summary>
         /// Validates the request parameters
@@ -2675,7 +2628,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="scheduledNotificationId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -2714,10 +2666,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="eventType"></param>
         /// <param name="deepLinkURI"></param>
         /// <param name="sendToAll"></param>
-        private void AfterUpdateScheduledNotificationDefaultImplementation(IUpdateScheduledNotificationApiResponse apiResponseLocalVar, decimal version, long scheduledNotificationId, long accountId, Option<string> name, Option<string> type, Option<string> message, Option<string> payload, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<string> errorMessage, Option<string> status, Option<bool> updateByGroupingId, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll)
+        private void AfterUpdateScheduledNotificationDefaultImplementation(IUpdateScheduledNotificationApiResponse apiResponseLocalVar, long scheduledNotificationId, long accountId, Option<string> name, Option<string> type, Option<string> message, Option<string> payload, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<string> errorMessage, Option<string> status, Option<bool> updateByGroupingId, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateScheduledNotification(ref suppressDefaultLog, apiResponseLocalVar, version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
+            AfterUpdateScheduledNotification(ref suppressDefaultLog, apiResponseLocalVar, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2727,7 +2679,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="scheduledNotificationId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -2766,7 +2717,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="eventType"></param>
         /// <param name="deepLinkURI"></param>
         /// <param name="sendToAll"></param>
-        partial void AfterUpdateScheduledNotification(ref bool suppressDefaultLog, IUpdateScheduledNotificationApiResponse apiResponseLocalVar, decimal version, long scheduledNotificationId, long accountId, Option<string> name, Option<string> type, Option<string> message, Option<string> payload, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<string> errorMessage, Option<string> status, Option<bool> updateByGroupingId, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll);
+        partial void AfterUpdateScheduledNotification(ref bool suppressDefaultLog, IUpdateScheduledNotificationApiResponse apiResponseLocalVar, long scheduledNotificationId, long accountId, Option<string> name, Option<string> type, Option<string> message, Option<string> payload, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<string> errorMessage, Option<string> status, Option<bool> updateByGroupingId, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2774,7 +2725,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="scheduledNotificationId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -2813,10 +2763,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="eventType"></param>
         /// <param name="deepLinkURI"></param>
         /// <param name="sendToAll"></param>
-        private void OnErrorUpdateScheduledNotificationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long scheduledNotificationId, long accountId, Option<string> name, Option<string> type, Option<string> message, Option<string> payload, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<string> errorMessage, Option<string> status, Option<bool> updateByGroupingId, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll)
+        private void OnErrorUpdateScheduledNotificationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long scheduledNotificationId, long accountId, Option<string> name, Option<string> type, Option<string> message, Option<string> payload, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<string> errorMessage, Option<string> status, Option<bool> updateByGroupingId, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateScheduledNotification(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
+            OnErrorUpdateScheduledNotification(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2828,7 +2778,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="scheduledNotificationId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -2867,12 +2816,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="eventType"></param>
         /// <param name="deepLinkURI"></param>
         /// <param name="sendToAll"></param>
-        partial void OnErrorUpdateScheduledNotification(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long scheduledNotificationId, long accountId, Option<string> name, Option<string> type, Option<string> message, Option<string> payload, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<string> errorMessage, Option<string> status, Option<bool> updateByGroupingId, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll);
+        partial void OnErrorUpdateScheduledNotification(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long scheduledNotificationId, long accountId, Option<string> name, Option<string> type, Option<string> message, Option<string> payload, Option<long> contentId, Option<string> contentName, Option<string> contentType, Option<long> parentId, Option<string> parentType, Option<string> appKey, Option<string> groupingId, Option<string> connectionGroupIds, Option<string> connectionAccountIds, Option<long> audienceId, Option<string> audienceIds, Option<string> albumIds, Option<long> reportId, Option<string> reportParams, Option<string> endpointURL, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> cronType, Option<string> metaData, Option<string> conditionalInput, Option<string> templateType, Option<string> visibility, Option<bool> active, Option<string> errorMessage, Option<string> status, Option<bool> updateByGroupingId, Option<bool> sendNow, Option<string> eventType, Option<string> deepLinkURI, Option<bool> sendToAll);
 
         /// <summary>
         /// Update Scheduled Notification This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="scheduledNotificationId">The id of scheduled notification to update</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the scheduled notification (optional)</param>
@@ -2913,11 +2861,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateScheduledNotificationApiResponse"/>&gt;</returns>
-        public async Task<IUpdateScheduledNotificationApiResponse?> UpdateScheduledNotificationOrDefaultAsync(decimal version, long scheduledNotificationId, long accountId, Option<string> name = default, Option<string> type = default, Option<string> message = default, Option<string> payload = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> errorMessage = default, Option<string> status = default, Option<bool> updateByGroupingId = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateScheduledNotificationApiResponse?> UpdateScheduledNotificationOrDefaultAsync(long scheduledNotificationId, long accountId, Option<string> name = default, Option<string> type = default, Option<string> message = default, Option<string> payload = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> errorMessage = default, Option<string> status = default, Option<bool> updateByGroupingId = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateScheduledNotificationAsync(version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll, cancellationToken).ConfigureAwait(false);
+                return await UpdateScheduledNotificationAsync(scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2929,7 +2877,6 @@ namespace Org.OpenAPITools.Api
         /// Update Scheduled Notification This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="scheduledNotificationId">The id of scheduled notification to update</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the scheduled notification (optional)</param>
@@ -2970,7 +2917,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateScheduledNotificationApiResponse"/>&gt;</returns>
-        public async Task<IUpdateScheduledNotificationApiResponse> UpdateScheduledNotificationAsync(decimal version, long scheduledNotificationId, long accountId, Option<string> name = default, Option<string> type = default, Option<string> message = default, Option<string> payload = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> errorMessage = default, Option<string> status = default, Option<bool> updateByGroupingId = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateScheduledNotificationApiResponse> UpdateScheduledNotificationAsync(long scheduledNotificationId, long accountId, Option<string> name = default, Option<string> type = default, Option<string> message = default, Option<string> payload = default, Option<long> contentId = default, Option<string> contentName = default, Option<string> contentType = default, Option<long> parentId = default, Option<string> parentType = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> connectionGroupIds = default, Option<string> connectionAccountIds = default, Option<long> audienceId = default, Option<string> audienceIds = default, Option<string> albumIds = default, Option<long> reportId = default, Option<string> reportParams = default, Option<string> endpointURL = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> cronType = default, Option<string> metaData = default, Option<string> conditionalInput = default, Option<string> templateType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> errorMessage = default, Option<string> status = default, Option<bool> updateByGroupingId = default, Option<bool> sendNow = default, Option<string> eventType = default, Option<string> deepLinkURI = default, Option<bool> sendToAll = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2978,7 +2925,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateScheduledNotification(name, type, message, payload, contentName, contentType, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceIds, albumIds, reportParams, endpointURL, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, errorMessage, status, eventType, deepLinkURI);
 
-                FormatUpdateScheduledNotification(ref version, ref scheduledNotificationId, ref accountId, ref name, ref type, ref message, ref payload, ref contentId, ref contentName, ref contentType, ref parentId, ref parentType, ref appKey, ref groupingId, ref connectionGroupIds, ref connectionAccountIds, ref audienceId, ref audienceIds, ref albumIds, ref reportId, ref reportParams, ref endpointURL, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref cronType, ref metaData, ref conditionalInput, ref templateType, ref visibility, ref active, ref errorMessage, ref status, ref updateByGroupingId, ref sendNow, ref eventType, ref deepLinkURI, ref sendToAll);
+                FormatUpdateScheduledNotification(ref scheduledNotificationId, ref accountId, ref name, ref type, ref message, ref payload, ref contentId, ref contentName, ref contentType, ref parentId, ref parentType, ref appKey, ref groupingId, ref connectionGroupIds, ref connectionAccountIds, ref audienceId, ref audienceIds, ref albumIds, ref reportId, ref reportParams, ref endpointURL, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref cronType, ref metaData, ref conditionalInput, ref templateType, ref visibility, ref active, ref errorMessage, ref status, ref updateByGroupingId, ref sendNow, ref eventType, ref deepLinkURI, ref sendToAll);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2986,9 +2933,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/notification/schedule/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/notification/schedule/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/notification/schedule/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/notification/schedule/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3128,13 +3074,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/notification/schedule/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/notification/schedule/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateScheduledNotificationDefaultImplementation(apiResponseLocalVar, version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
+                        AfterUpdateScheduledNotificationDefaultImplementation(apiResponseLocalVar, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
 
                         Events.ExecuteOnUpdateScheduledNotification(apiResponseLocalVar);
 
@@ -3144,7 +3090,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateScheduledNotificationDefaultImplementation(e, "/api/{version}/notification/schedule/update", uriBuilderLocalVar.Path, version, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
+                OnErrorUpdateScheduledNotificationDefaultImplementation(e, "/notification/schedule/update", uriBuilderLocalVar.Path, scheduledNotificationId, accountId, name, type, message, payload, contentId, contentName, contentType, parentId, parentType, appKey, groupingId, connectionGroupIds, connectionAccountIds, audienceId, audienceIds, albumIds, reportId, reportParams, endpointURL, scheduledDate, startDate, endDate, cronExpression, cronType, metaData, conditionalInput, templateType, visibility, active, errorMessage, status, updateByGroupingId, sendNow, eventType, deepLinkURI, sendToAll);
                 Events.ExecuteOnErrorUpdateScheduledNotification(e);
                 throw;
             }

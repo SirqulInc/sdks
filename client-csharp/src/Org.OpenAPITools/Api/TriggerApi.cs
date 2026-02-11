@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a trigger
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user</param>
         /// <param name="name">The name of the trigger</param>
         /// <param name="appKey">The application to target (optional)</param>
@@ -61,7 +60,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTriggerApiResponse"/>&gt;</returns>
-        Task<ICreateTriggerApiResponse> CreateTriggerAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTriggerApiResponse> CreateTriggerAsync(long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Trigger
@@ -69,7 +68,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a trigger
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user</param>
         /// <param name="name">The name of the trigger</param>
         /// <param name="appKey">The application to target (optional)</param>
@@ -85,7 +83,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTriggerApiResponse"/>?&gt;</returns>
-        Task<ICreateTriggerApiResponse?> CreateTriggerOrDefaultAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTriggerApiResponse?> CreateTriggerOrDefaultAsync(long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Trigger
@@ -94,12 +92,11 @@ namespace Org.OpenAPITools.Api
         /// Mark a trigger as deleted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="triggerId">The id of the trigger to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTriggerApiResponse"/>&gt;</returns>
-        Task<IDeleteTriggerApiResponse> DeleteTriggerAsync(decimal version, long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteTriggerApiResponse> DeleteTriggerAsync(long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Trigger
@@ -107,12 +104,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Mark a trigger as deleted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="triggerId">The id of the trigger to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTriggerApiResponse"/>?&gt;</returns>
-        Task<IDeleteTriggerApiResponse?> DeleteTriggerOrDefaultAsync(decimal version, long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteTriggerApiResponse?> DeleteTriggerOrDefaultAsync(long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Trigger
@@ -121,12 +117,11 @@ namespace Org.OpenAPITools.Api
         /// Get a trigger
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="triggerId">The id of the Trigger to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTriggerApiResponse"/>&gt;</returns>
-        Task<IGetTriggerApiResponse> GetTriggerAsync(decimal version, long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTriggerApiResponse> GetTriggerAsync(long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Trigger
@@ -134,12 +129,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a trigger
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="triggerId">The id of the Trigger to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTriggerApiResponse"/>?&gt;</returns>
-        Task<IGetTriggerApiResponse?> GetTriggerOrDefaultAsync(decimal version, long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTriggerApiResponse?> GetTriggerOrDefaultAsync(long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Triggers
@@ -148,7 +142,6 @@ namespace Org.OpenAPITools.Api
         /// Search for triggers
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="filter">A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to &quot;MINE&quot;)</param>
@@ -163,7 +156,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTriggersApiResponse"/>&gt;</returns>
-        Task<ISearchTriggersApiResponse> SearchTriggersAsync(decimal version, long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTriggersApiResponse> SearchTriggersAsync(long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Triggers
@@ -171,7 +164,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for triggers
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="filter">A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to &quot;MINE&quot;)</param>
@@ -186,7 +178,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTriggersApiResponse"/>?&gt;</returns>
-        Task<ISearchTriggersApiResponse?> SearchTriggersOrDefaultAsync(decimal version, long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTriggersApiResponse?> SearchTriggersOrDefaultAsync(long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Trigger
@@ -195,7 +187,6 @@ namespace Org.OpenAPITools.Api
         /// Update a trigger
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="triggerId">The trigger to update</param>
         /// <param name="accountId">The logged in user</param>
         /// <param name="name">The name of the trigger (optional)</param>
@@ -212,7 +203,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTriggerApiResponse"/>&gt;</returns>
-        Task<IUpdateTriggerApiResponse> UpdateTriggerAsync(decimal version, long triggerId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTriggerApiResponse> UpdateTriggerAsync(long triggerId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Trigger
@@ -220,7 +211,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a trigger
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="triggerId">The trigger to update</param>
         /// <param name="accountId">The logged in user</param>
         /// <param name="name">The name of the trigger (optional)</param>
@@ -237,7 +227,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTriggerApiResponse"/>?&gt;</returns>
-        Task<IUpdateTriggerApiResponse?> UpdateTriggerOrDefaultAsync(decimal version, long triggerId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTriggerApiResponse?> UpdateTriggerOrDefaultAsync(long triggerId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -453,7 +443,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateTrigger(ref decimal version, ref long accountId, ref string name, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> conditionalInput, ref Option<string> visibility, ref Option<bool> active);
+        partial void FormatCreateTrigger(ref long accountId, ref string name, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> conditionalInput, ref Option<string> visibility, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -498,7 +488,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -512,10 +501,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="conditionalInput"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        private void AfterCreateTriggerDefaultImplementation(ICreateTriggerApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active)
+        private void AfterCreateTriggerDefaultImplementation(ICreateTriggerApiResponse apiResponseLocalVar, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterCreateTrigger(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+            AfterCreateTrigger(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -525,7 +514,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -539,7 +527,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="conditionalInput"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        partial void AfterCreateTrigger(ref bool suppressDefaultLog, ICreateTriggerApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active);
+        partial void AfterCreateTrigger(ref bool suppressDefaultLog, ICreateTriggerApiResponse apiResponseLocalVar, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -547,7 +535,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -561,10 +548,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="conditionalInput"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        private void OnErrorCreateTriggerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active)
+        private void OnErrorCreateTriggerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateTrigger(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+            OnErrorCreateTrigger(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -576,7 +563,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -590,12 +576,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="conditionalInput"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        partial void OnErrorCreateTrigger(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active);
+        partial void OnErrorCreateTrigger(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active);
 
         /// <summary>
         /// Create Trigger Create a trigger
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user</param>
         /// <param name="name">The name of the trigger</param>
         /// <param name="appKey">The application to target (optional)</param>
@@ -611,11 +596,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTriggerApiResponse"/>&gt;</returns>
-        public async Task<ICreateTriggerApiResponse?> CreateTriggerOrDefaultAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTriggerApiResponse?> CreateTriggerOrDefaultAsync(long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateTriggerAsync(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, cancellationToken).ConfigureAwait(false);
+                return await CreateTriggerAsync(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -627,7 +612,6 @@ namespace Org.OpenAPITools.Api
         /// Create Trigger Create a trigger
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user</param>
         /// <param name="name">The name of the trigger</param>
         /// <param name="appKey">The application to target (optional)</param>
@@ -643,7 +627,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTriggerApiResponse"/>&gt;</returns>
-        public async Task<ICreateTriggerApiResponse> CreateTriggerAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTriggerApiResponse> CreateTriggerAsync(long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -651,7 +635,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateTrigger(name, appKey, groupingId, endpointURL, payload, cronExpression, conditionalInput, visibility);
 
-                FormatCreateTrigger(ref version, ref accountId, ref name, ref appKey, ref groupingId, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref conditionalInput, ref visibility, ref active);
+                FormatCreateTrigger(ref accountId, ref name, ref appKey, ref groupingId, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref conditionalInput, ref visibility, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -659,9 +643,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trigger/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trigger/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trigger/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trigger/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -726,13 +709,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trigger/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trigger/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateTriggerDefaultImplementation(apiResponseLocalVar, version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+                        AfterCreateTriggerDefaultImplementation(apiResponseLocalVar, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
 
                         Events.ExecuteOnCreateTrigger(apiResponseLocalVar);
 
@@ -742,7 +725,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateTriggerDefaultImplementation(e, "/api/{version}/trigger/create", uriBuilderLocalVar.Path, version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+                OnErrorCreateTriggerDefaultImplementation(e, "/trigger/create", uriBuilderLocalVar.Path, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
                 Events.ExecuteOnErrorCreateTrigger(e);
                 throw;
             }
@@ -841,19 +824,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteTrigger(ref decimal version, ref long accountId, ref long triggerId);
+        partial void FormatDeleteTrigger(ref long accountId, ref long triggerId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="triggerId"></param>
-        private void AfterDeleteTriggerDefaultImplementation(IDeleteTriggerApiResponse apiResponseLocalVar, decimal version, long accountId, long triggerId)
+        private void AfterDeleteTriggerDefaultImplementation(IDeleteTriggerApiResponse apiResponseLocalVar, long accountId, long triggerId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteTrigger(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, triggerId);
+            AfterDeleteTrigger(ref suppressDefaultLog, apiResponseLocalVar, accountId, triggerId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -863,10 +845,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="triggerId"></param>
-        partial void AfterDeleteTrigger(ref bool suppressDefaultLog, IDeleteTriggerApiResponse apiResponseLocalVar, decimal version, long accountId, long triggerId);
+        partial void AfterDeleteTrigger(ref bool suppressDefaultLog, IDeleteTriggerApiResponse apiResponseLocalVar, long accountId, long triggerId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -874,13 +855,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="triggerId"></param>
-        private void OnErrorDeleteTriggerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long triggerId)
+        private void OnErrorDeleteTriggerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long triggerId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteTrigger(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, triggerId);
+            OnErrorDeleteTrigger(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, triggerId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -892,24 +872,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="triggerId"></param>
-        partial void OnErrorDeleteTrigger(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long triggerId);
+        partial void OnErrorDeleteTrigger(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long triggerId);
 
         /// <summary>
         /// Delete Trigger Mark a trigger as deleted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="triggerId">The id of the trigger to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTriggerApiResponse"/>&gt;</returns>
-        public async Task<IDeleteTriggerApiResponse?> DeleteTriggerOrDefaultAsync(decimal version, long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteTriggerApiResponse?> DeleteTriggerOrDefaultAsync(long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteTriggerAsync(version, accountId, triggerId, cancellationToken).ConfigureAwait(false);
+                return await DeleteTriggerAsync(accountId, triggerId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -921,18 +899,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Trigger Mark a trigger as deleted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="triggerId">The id of the trigger to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTriggerApiResponse"/>&gt;</returns>
-        public async Task<IDeleteTriggerApiResponse> DeleteTriggerAsync(decimal version, long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteTriggerApiResponse> DeleteTriggerAsync(long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteTrigger(ref version, ref accountId, ref triggerId);
+                FormatDeleteTrigger(ref accountId, ref triggerId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -940,9 +917,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trigger/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trigger/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trigger/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trigger/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -974,13 +950,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trigger/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trigger/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteTriggerDefaultImplementation(apiResponseLocalVar, version, accountId, triggerId);
+                        AfterDeleteTriggerDefaultImplementation(apiResponseLocalVar, accountId, triggerId);
 
                         Events.ExecuteOnDeleteTrigger(apiResponseLocalVar);
 
@@ -990,7 +966,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteTriggerDefaultImplementation(e, "/api/{version}/trigger/delete", uriBuilderLocalVar.Path, version, accountId, triggerId);
+                OnErrorDeleteTriggerDefaultImplementation(e, "/trigger/delete", uriBuilderLocalVar.Path, accountId, triggerId);
                 Events.ExecuteOnErrorDeleteTrigger(e);
                 throw;
             }
@@ -1089,19 +1065,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTrigger(ref decimal version, ref long accountId, ref long triggerId);
+        partial void FormatGetTrigger(ref long accountId, ref long triggerId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="triggerId"></param>
-        private void AfterGetTriggerDefaultImplementation(IGetTriggerApiResponse apiResponseLocalVar, decimal version, long accountId, long triggerId)
+        private void AfterGetTriggerDefaultImplementation(IGetTriggerApiResponse apiResponseLocalVar, long accountId, long triggerId)
         {
             bool suppressDefaultLog = false;
-            AfterGetTrigger(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, triggerId);
+            AfterGetTrigger(ref suppressDefaultLog, apiResponseLocalVar, accountId, triggerId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1111,10 +1086,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="triggerId"></param>
-        partial void AfterGetTrigger(ref bool suppressDefaultLog, IGetTriggerApiResponse apiResponseLocalVar, decimal version, long accountId, long triggerId);
+        partial void AfterGetTrigger(ref bool suppressDefaultLog, IGetTriggerApiResponse apiResponseLocalVar, long accountId, long triggerId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1122,13 +1096,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="triggerId"></param>
-        private void OnErrorGetTriggerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long triggerId)
+        private void OnErrorGetTriggerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long triggerId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTrigger(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, triggerId);
+            OnErrorGetTrigger(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, triggerId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1140,24 +1113,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="triggerId"></param>
-        partial void OnErrorGetTrigger(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long triggerId);
+        partial void OnErrorGetTrigger(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long triggerId);
 
         /// <summary>
         /// Get Trigger Get a trigger
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="triggerId">The id of the Trigger to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTriggerApiResponse"/>&gt;</returns>
-        public async Task<IGetTriggerApiResponse?> GetTriggerOrDefaultAsync(decimal version, long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTriggerApiResponse?> GetTriggerOrDefaultAsync(long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTriggerAsync(version, accountId, triggerId, cancellationToken).ConfigureAwait(false);
+                return await GetTriggerAsync(accountId, triggerId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1169,18 +1140,17 @@ namespace Org.OpenAPITools.Api
         /// Get Trigger Get a trigger
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="triggerId">The id of the Trigger to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTriggerApiResponse"/>&gt;</returns>
-        public async Task<IGetTriggerApiResponse> GetTriggerAsync(decimal version, long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTriggerApiResponse> GetTriggerAsync(long accountId, long triggerId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetTrigger(ref version, ref accountId, ref triggerId);
+                FormatGetTrigger(ref accountId, ref triggerId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1188,9 +1158,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trigger/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trigger/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trigger/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trigger/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1222,13 +1191,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trigger/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trigger/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTriggerDefaultImplementation(apiResponseLocalVar, version, accountId, triggerId);
+                        AfterGetTriggerDefaultImplementation(apiResponseLocalVar, accountId, triggerId);
 
                         Events.ExecuteOnGetTrigger(apiResponseLocalVar);
 
@@ -1238,7 +1207,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTriggerDefaultImplementation(e, "/api/{version}/trigger/get", uriBuilderLocalVar.Path, version, accountId, triggerId);
+                OnErrorGetTriggerDefaultImplementation(e, "/trigger/get", uriBuilderLocalVar.Path, accountId, triggerId);
                 Events.ExecuteOnErrorGetTrigger(e);
                 throw;
             }
@@ -1337,7 +1306,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchTriggers(ref decimal version, ref long accountId, ref Option<string> groupingId, ref Option<string> filter, ref Option<string> statuses, ref Option<string> templateTypes, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
+        partial void FormatSearchTriggers(ref long accountId, ref Option<string> groupingId, ref Option<string> filter, ref Option<string> statuses, ref Option<string> templateTypes, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -1378,7 +1347,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="filter"></param>
@@ -1391,10 +1359,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchTriggersDefaultImplementation(ISearchTriggersApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void AfterSearchTriggersDefaultImplementation(ISearchTriggersApiResponse apiResponseLocalVar, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchTriggers(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+            AfterSearchTriggers(ref suppressDefaultLog, apiResponseLocalVar, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1404,7 +1372,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="filter"></param>
@@ -1417,7 +1384,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchTriggers(ref bool suppressDefaultLog, ISearchTriggersApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void AfterSearchTriggers(ref bool suppressDefaultLog, ISearchTriggersApiResponse apiResponseLocalVar, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1425,7 +1392,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="filter"></param>
@@ -1438,10 +1404,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchTriggersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void OnErrorSearchTriggersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchTriggers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+            OnErrorSearchTriggers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1453,7 +1419,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="filter"></param>
@@ -1466,12 +1431,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchTriggers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void OnErrorSearchTriggers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Search Triggers Search for triggers
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="filter">A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to &quot;MINE&quot;)</param>
@@ -1486,11 +1450,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTriggersApiResponse"/>&gt;</returns>
-        public async Task<ISearchTriggersApiResponse?> SearchTriggersOrDefaultAsync(decimal version, long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTriggersApiResponse?> SearchTriggersOrDefaultAsync(long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchTriggersAsync(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchTriggersAsync(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1502,7 +1466,6 @@ namespace Org.OpenAPITools.Api
         /// Search Triggers Search for triggers
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="filter">A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to &quot;MINE&quot;)</param>
@@ -1517,7 +1480,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTriggersApiResponse"/>&gt;</returns>
-        public async Task<ISearchTriggersApiResponse> SearchTriggersAsync(decimal version, long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTriggersApiResponse> SearchTriggersAsync(long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1525,7 +1488,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchTriggers(groupingId, filter, statuses, templateTypes, appKey, keyword, sortField);
 
-                FormatSearchTriggers(ref version, ref accountId, ref groupingId, ref filter, ref statuses, ref templateTypes, ref appKey, ref keyword, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
+                FormatSearchTriggers(ref accountId, ref groupingId, ref filter, ref statuses, ref templateTypes, ref appKey, ref keyword, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1533,9 +1496,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trigger/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trigger/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trigger/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trigger/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1599,13 +1561,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trigger/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trigger/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchTriggersDefaultImplementation(apiResponseLocalVar, version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+                        AfterSearchTriggersDefaultImplementation(apiResponseLocalVar, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
 
                         Events.ExecuteOnSearchTriggers(apiResponseLocalVar);
 
@@ -1615,7 +1577,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchTriggersDefaultImplementation(e, "/api/{version}/trigger/search", uriBuilderLocalVar.Path, version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+                OnErrorSearchTriggersDefaultImplementation(e, "/trigger/search", uriBuilderLocalVar.Path, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
                 Events.ExecuteOnErrorSearchTriggers(e);
                 throw;
             }
@@ -1714,7 +1676,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateTrigger(ref decimal version, ref long triggerId, ref long accountId, ref Option<string> name, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> conditionalInput, ref Option<string> visibility, ref Option<bool> active);
+        partial void FormatUpdateTrigger(ref long triggerId, ref long accountId, ref Option<string> name, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> conditionalInput, ref Option<string> visibility, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -1759,7 +1721,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="triggerId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1774,10 +1735,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="conditionalInput"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        private void AfterUpdateTriggerDefaultImplementation(IUpdateTriggerApiResponse apiResponseLocalVar, decimal version, long triggerId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active)
+        private void AfterUpdateTriggerDefaultImplementation(IUpdateTriggerApiResponse apiResponseLocalVar, long triggerId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateTrigger(ref suppressDefaultLog, apiResponseLocalVar, version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+            AfterUpdateTrigger(ref suppressDefaultLog, apiResponseLocalVar, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1787,7 +1748,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="triggerId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1802,7 +1762,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="conditionalInput"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        partial void AfterUpdateTrigger(ref bool suppressDefaultLog, IUpdateTriggerApiResponse apiResponseLocalVar, decimal version, long triggerId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active);
+        partial void AfterUpdateTrigger(ref bool suppressDefaultLog, IUpdateTriggerApiResponse apiResponseLocalVar, long triggerId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1810,7 +1770,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="triggerId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1825,10 +1784,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="conditionalInput"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        private void OnErrorUpdateTriggerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long triggerId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active)
+        private void OnErrorUpdateTriggerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long triggerId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateTrigger(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+            OnErrorUpdateTrigger(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1840,7 +1799,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="triggerId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1855,12 +1813,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="conditionalInput"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        partial void OnErrorUpdateTrigger(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long triggerId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active);
+        partial void OnErrorUpdateTrigger(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long triggerId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> conditionalInput, Option<string> visibility, Option<bool> active);
 
         /// <summary>
         /// Update Trigger Update a trigger
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="triggerId">The trigger to update</param>
         /// <param name="accountId">The logged in user</param>
         /// <param name="name">The name of the trigger (optional)</param>
@@ -1877,11 +1834,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTriggerApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTriggerApiResponse?> UpdateTriggerOrDefaultAsync(decimal version, long triggerId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTriggerApiResponse?> UpdateTriggerOrDefaultAsync(long triggerId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateTriggerAsync(version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, cancellationToken).ConfigureAwait(false);
+                return await UpdateTriggerAsync(triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1893,7 +1850,6 @@ namespace Org.OpenAPITools.Api
         /// Update Trigger Update a trigger
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="triggerId">The trigger to update</param>
         /// <param name="accountId">The logged in user</param>
         /// <param name="name">The name of the trigger (optional)</param>
@@ -1910,7 +1866,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTriggerApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTriggerApiResponse> UpdateTriggerAsync(decimal version, long triggerId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTriggerApiResponse> UpdateTriggerAsync(long triggerId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> conditionalInput = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1918,7 +1874,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateTrigger(name, appKey, groupingId, endpointURL, payload, cronExpression, conditionalInput, visibility);
 
-                FormatUpdateTrigger(ref version, ref triggerId, ref accountId, ref name, ref appKey, ref groupingId, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref conditionalInput, ref visibility, ref active);
+                FormatUpdateTrigger(ref triggerId, ref accountId, ref name, ref appKey, ref groupingId, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref conditionalInput, ref visibility, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1926,9 +1882,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trigger/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trigger/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trigger/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trigger/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1996,13 +1951,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trigger/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trigger/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateTriggerDefaultImplementation(apiResponseLocalVar, version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+                        AfterUpdateTriggerDefaultImplementation(apiResponseLocalVar, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
 
                         Events.ExecuteOnUpdateTrigger(apiResponseLocalVar);
 
@@ -2012,7 +1967,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateTriggerDefaultImplementation(e, "/api/{version}/trigger/update", uriBuilderLocalVar.Path, version, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
+                OnErrorUpdateTriggerDefaultImplementation(e, "/trigger/update", uriBuilderLocalVar.Path, triggerId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, conditionalInput, visibility, active);
                 Events.ExecuteOnErrorUpdateTrigger(e);
                 throw;
             }

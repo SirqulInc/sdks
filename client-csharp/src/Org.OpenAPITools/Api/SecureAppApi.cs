@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a secure application record.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="keyCert"></param>
@@ -58,7 +57,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional, default to UNKNOWN)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSecureApplicationApiResponse"/>&gt;</returns>
-        Task<ICreateSecureApplicationApiResponse> CreateSecureApplicationAsync(decimal version, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateSecureApplicationApiResponse> CreateSecureApplicationAsync(long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Secure Application
@@ -66,7 +65,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a secure application record.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="keyCert"></param>
@@ -79,7 +77,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional, default to UNKNOWN)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSecureApplicationApiResponse"/>?&gt;</returns>
-        Task<ICreateSecureApplicationApiResponse?> CreateSecureApplicationOrDefaultAsync(decimal version, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateSecureApplicationApiResponse?> CreateSecureApplicationOrDefaultAsync(long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Secure Application
@@ -88,12 +86,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a secure application record.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSecureApplicationApiResponse"/>&gt;</returns>
-        Task<IDeleteSecureApplicationApiResponse> DeleteSecureApplicationAsync(decimal version, long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteSecureApplicationApiResponse> DeleteSecureApplicationAsync(long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Secure Application
@@ -101,12 +98,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a secure application record.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSecureApplicationApiResponse"/>?&gt;</returns>
-        Task<IDeleteSecureApplicationApiResponse?> DeleteSecureApplicationOrDefaultAsync(decimal version, long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteSecureApplicationApiResponse?> DeleteSecureApplicationOrDefaultAsync(long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Clear
@@ -115,7 +111,6 @@ namespace Org.OpenAPITools.Api
         /// Login via Clear.me. Creates a new account if logging in for the first time.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application making the request, defines what type and position is required to make a secure login the request.</param>
         /// <param name="biometricFile">The data file used to perform authentication</param>
         /// <param name="deviceId">The unique id of the device making the request (optional)</param>
@@ -127,7 +122,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginSecureApiResponse"/>&gt;</returns>
-        Task<ILoginSecureApiResponse> LoginSecureAsync(decimal version, string appKey, System.IO.Stream biometricFile, Option<string> deviceId = default, Option<System.IO.Stream> biometricFile2 = default, Option<int> ageRestriction = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginSecureApiResponse> LoginSecureAsync(string appKey, System.IO.Stream biometricFile, Option<string> deviceId = default, Option<System.IO.Stream> biometricFile2 = default, Option<int> ageRestriction = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Clear
@@ -135,7 +130,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Login via Clear.me. Creates a new account if logging in for the first time.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application making the request, defines what type and position is required to make a secure login the request.</param>
         /// <param name="biometricFile">The data file used to perform authentication</param>
         /// <param name="deviceId">The unique id of the device making the request (optional)</param>
@@ -147,7 +141,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginSecureApiResponse"/>?&gt;</returns>
-        Task<ILoginSecureApiResponse?> LoginSecureOrDefaultAsync(decimal version, string appKey, System.IO.Stream biometricFile, Option<string> deviceId = default, Option<System.IO.Stream> biometricFile2 = default, Option<int> ageRestriction = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginSecureApiResponse?> LoginSecureOrDefaultAsync(string appKey, System.IO.Stream biometricFile, Option<string> deviceId = default, Option<System.IO.Stream> biometricFile2 = default, Option<int> ageRestriction = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Purchase Clear
@@ -156,11 +150,10 @@ namespace Org.OpenAPITools.Api
         /// Purchase via Clear.me. Creates a new account if purchasing for the first time.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body">The payment request object</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPurchaseSecureApiResponse"/>&gt;</returns>
-        Task<IPurchaseSecureApiResponse> PurchaseSecureAsync(decimal version, PaymentRequest body, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPurchaseSecureApiResponse> PurchaseSecureAsync(PaymentRequest body, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Purchase Clear
@@ -168,11 +161,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Purchase via Clear.me. Creates a new account if purchasing for the first time.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body">The payment request object</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPurchaseSecureApiResponse"/>?&gt;</returns>
-        Task<IPurchaseSecureApiResponse?> PurchaseSecureOrDefaultAsync(decimal version, PaymentRequest body, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPurchaseSecureApiResponse?> PurchaseSecureOrDefaultAsync(PaymentRequest body, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rest Secure Application
@@ -181,12 +173,11 @@ namespace Org.OpenAPITools.Api
         /// Reset a secure application client.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IResetSecureApiResponse"/>&gt;</returns>
-        Task<IResetSecureApiResponse> ResetSecureAsync(decimal version, long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IResetSecureApiResponse> ResetSecureAsync(long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Rest Secure Application
@@ -194,12 +185,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Reset a secure application client.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IResetSecureApiResponse"/>?&gt;</returns>
-        Task<IResetSecureApiResponse?> ResetSecureOrDefaultAsync(decimal version, long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IResetSecureApiResponse?> ResetSecureOrDefaultAsync(long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Secure Application
@@ -208,7 +198,6 @@ namespace Org.OpenAPITools.Api
         /// Update a secure application record.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="active"> (optional)</param>
@@ -221,7 +210,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSecureApplicationApiResponse"/>&gt;</returns>
-        Task<IUpdateSecureApplicationApiResponse> UpdateSecureApplicationAsync(decimal version, long accountId, string appKey, Option<bool> active = default, Option<System.IO.Stream> keyCert = default, Option<System.IO.Stream> trustStore = default, Option<string> username = default, Option<string> password = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateSecureApplicationApiResponse> UpdateSecureApplicationAsync(long accountId, string appKey, Option<bool> active = default, Option<System.IO.Stream> keyCert = default, Option<System.IO.Stream> trustStore = default, Option<string> username = default, Option<string> password = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Secure Application
@@ -229,7 +218,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a secure application record.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="active"> (optional)</param>
@@ -242,7 +230,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSecureApplicationApiResponse"/>?&gt;</returns>
-        Task<IUpdateSecureApplicationApiResponse?> UpdateSecureApplicationOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> active = default, Option<System.IO.Stream> keyCert = default, Option<System.IO.Stream> trustStore = default, Option<string> username = default, Option<string> password = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateSecureApplicationApiResponse?> UpdateSecureApplicationOrDefaultAsync(long accountId, string appKey, Option<bool> active = default, Option<System.IO.Stream> keyCert = default, Option<System.IO.Stream> trustStore = default, Option<string> username = default, Option<string> password = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -490,7 +478,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateSecureApplication(ref decimal version, ref long accountId, ref string appKey, ref System.IO.Stream keyCert, ref System.IO.Stream trustStore, ref string username, ref string password, ref Option<bool> active, ref Option<string> biometricType, ref Option<string> biometricPosition, ref Option<string> biometricPosition2);
+        partial void FormatCreateSecureApplication(ref long accountId, ref string appKey, ref System.IO.Stream keyCert, ref System.IO.Stream trustStore, ref string username, ref string password, ref Option<bool> active, ref Option<string> biometricType, ref Option<string> biometricPosition, ref Option<string> biometricPosition2);
 
         /// <summary>
         /// Validates the request parameters
@@ -535,7 +523,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyCert"></param>
@@ -546,10 +533,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricType"></param>
         /// <param name="biometricPosition"></param>
         /// <param name="biometricPosition2"></param>
-        private void AfterCreateSecureApplicationDefaultImplementation(ICreateSecureApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2)
+        private void AfterCreateSecureApplicationDefaultImplementation(ICreateSecureApplicationApiResponse apiResponseLocalVar, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2)
         {
             bool suppressDefaultLog = false;
-            AfterCreateSecureApplication(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
+            AfterCreateSecureApplication(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -559,7 +546,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyCert"></param>
@@ -570,7 +556,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricType"></param>
         /// <param name="biometricPosition"></param>
         /// <param name="biometricPosition2"></param>
-        partial void AfterCreateSecureApplication(ref bool suppressDefaultLog, ICreateSecureApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2);
+        partial void AfterCreateSecureApplication(ref bool suppressDefaultLog, ICreateSecureApplicationApiResponse apiResponseLocalVar, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -578,7 +564,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyCert"></param>
@@ -589,10 +574,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricType"></param>
         /// <param name="biometricPosition"></param>
         /// <param name="biometricPosition2"></param>
-        private void OnErrorCreateSecureApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2)
+        private void OnErrorCreateSecureApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateSecureApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
+            OnErrorCreateSecureApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -604,7 +589,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyCert"></param>
@@ -615,12 +599,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricType"></param>
         /// <param name="biometricPosition"></param>
         /// <param name="biometricPosition2"></param>
-        partial void OnErrorCreateSecureApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2);
+        partial void OnErrorCreateSecureApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2);
 
         /// <summary>
         /// Create Secure Application Create a secure application record.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="keyCert"></param>
@@ -633,11 +616,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional, default to UNKNOWN)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSecureApplicationApiResponse"/>&gt;</returns>
-        public async Task<ICreateSecureApplicationApiResponse?> CreateSecureApplicationOrDefaultAsync(decimal version, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateSecureApplicationApiResponse?> CreateSecureApplicationOrDefaultAsync(long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateSecureApplicationAsync(version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2, cancellationToken).ConfigureAwait(false);
+                return await CreateSecureApplicationAsync(accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -649,7 +632,6 @@ namespace Org.OpenAPITools.Api
         /// Create Secure Application Create a secure application record.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="keyCert"></param>
@@ -662,7 +644,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional, default to UNKNOWN)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSecureApplicationApiResponse"/>&gt;</returns>
-        public async Task<ICreateSecureApplicationApiResponse> CreateSecureApplicationAsync(decimal version, long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateSecureApplicationApiResponse> CreateSecureApplicationAsync(long accountId, string appKey, System.IO.Stream keyCert, System.IO.Stream trustStore, string username, string password, Option<bool> active = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -670,7 +652,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateSecureApplication(appKey, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
 
-                FormatCreateSecureApplication(ref version, ref accountId, ref appKey, ref keyCert, ref trustStore, ref username, ref password, ref active, ref biometricType, ref biometricPosition, ref biometricPosition2);
+                FormatCreateSecureApplication(ref accountId, ref appKey, ref keyCert, ref trustStore, ref username, ref password, ref active, ref biometricType, ref biometricPosition, ref biometricPosition2);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -678,9 +660,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/secure/application/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/secure/application/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/secure/application/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/secure/application/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -728,13 +709,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/secure/application/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/secure/application/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateSecureApplicationDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
+                        AfterCreateSecureApplicationDefaultImplementation(apiResponseLocalVar, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
 
                         Events.ExecuteOnCreateSecureApplication(apiResponseLocalVar);
 
@@ -744,7 +725,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateSecureApplicationDefaultImplementation(e, "/api/{version}/secure/application/create", uriBuilderLocalVar.Path, version, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
+                OnErrorCreateSecureApplicationDefaultImplementation(e, "/secure/application/create", uriBuilderLocalVar.Path, accountId, appKey, keyCert, trustStore, username, password, active, biometricType, biometricPosition, biometricPosition2);
                 Events.ExecuteOnErrorCreateSecureApplication(e);
                 throw;
             }
@@ -843,7 +824,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteSecureApplication(ref decimal version, ref long accountId, ref string appKey);
+        partial void FormatDeleteSecureApplication(ref long accountId, ref string appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -860,13 +841,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        private void AfterDeleteSecureApplicationDefaultImplementation(IDeleteSecureApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey)
+        private void AfterDeleteSecureApplicationDefaultImplementation(IDeleteSecureApplicationApiResponse apiResponseLocalVar, long accountId, string appKey)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteSecureApplication(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey);
+            AfterDeleteSecureApplication(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -876,10 +856,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        partial void AfterDeleteSecureApplication(ref bool suppressDefaultLog, IDeleteSecureApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey);
+        partial void AfterDeleteSecureApplication(ref bool suppressDefaultLog, IDeleteSecureApplicationApiResponse apiResponseLocalVar, long accountId, string appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -887,13 +866,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorDeleteSecureApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey)
+        private void OnErrorDeleteSecureApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteSecureApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey);
+            OnErrorDeleteSecureApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -905,24 +883,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorDeleteSecureApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey);
+        partial void OnErrorDeleteSecureApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey);
 
         /// <summary>
         /// Delete Secure Application Delete a secure application record.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSecureApplicationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteSecureApplicationApiResponse?> DeleteSecureApplicationOrDefaultAsync(decimal version, long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteSecureApplicationApiResponse?> DeleteSecureApplicationOrDefaultAsync(long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteSecureApplicationAsync(version, accountId, appKey, cancellationToken).ConfigureAwait(false);
+                return await DeleteSecureApplicationAsync(accountId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -934,12 +910,11 @@ namespace Org.OpenAPITools.Api
         /// Delete Secure Application Delete a secure application record.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSecureApplicationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteSecureApplicationApiResponse> DeleteSecureApplicationAsync(decimal version, long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteSecureApplicationApiResponse> DeleteSecureApplicationAsync(long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -947,7 +922,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteSecureApplication(appKey);
 
-                FormatDeleteSecureApplication(ref version, ref accountId, ref appKey);
+                FormatDeleteSecureApplication(ref accountId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -955,9 +930,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/secure/application/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/secure/application/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/secure/application/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/secure/application/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -989,13 +963,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/secure/application/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/secure/application/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteSecureApplicationDefaultImplementation(apiResponseLocalVar, version, accountId, appKey);
+                        AfterDeleteSecureApplicationDefaultImplementation(apiResponseLocalVar, accountId, appKey);
 
                         Events.ExecuteOnDeleteSecureApplication(apiResponseLocalVar);
 
@@ -1005,7 +979,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteSecureApplicationDefaultImplementation(e, "/api/{version}/secure/application/delete", uriBuilderLocalVar.Path, version, accountId, appKey);
+                OnErrorDeleteSecureApplicationDefaultImplementation(e, "/secure/application/delete", uriBuilderLocalVar.Path, accountId, appKey);
                 Events.ExecuteOnErrorDeleteSecureApplication(e);
                 throw;
             }
@@ -1104,7 +1078,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLoginSecure(ref decimal version, ref string appKey, ref System.IO.Stream biometricFile, ref Option<string> deviceId, ref Option<System.IO.Stream> biometricFile2, ref Option<int> ageRestriction, ref Option<bool> returnProfile, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatLoginSecure(ref string appKey, ref System.IO.Stream biometricFile, ref Option<string> deviceId, ref Option<System.IO.Stream> biometricFile2, ref Option<int> ageRestriction, ref Option<bool> returnProfile, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1137,7 +1111,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="biometricFile"></param>
         /// <param name="deviceId"></param>
@@ -1147,10 +1120,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterLoginSecureDefaultImplementation(ILoginSecureApiResponse apiResponseLocalVar, decimal version, string appKey, System.IO.Stream biometricFile, Option<string> deviceId, Option<System.IO.Stream> biometricFile2, Option<int> ageRestriction, Option<bool> returnProfile, Option<string> responseFilters, Option<double> latitude, Option<double> longitude)
+        private void AfterLoginSecureDefaultImplementation(ILoginSecureApiResponse apiResponseLocalVar, string appKey, System.IO.Stream biometricFile, Option<string> deviceId, Option<System.IO.Stream> biometricFile2, Option<int> ageRestriction, Option<bool> returnProfile, Option<string> responseFilters, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterLoginSecure(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
+            AfterLoginSecure(ref suppressDefaultLog, apiResponseLocalVar, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1160,7 +1133,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="biometricFile"></param>
         /// <param name="deviceId"></param>
@@ -1170,7 +1142,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterLoginSecure(ref bool suppressDefaultLog, ILoginSecureApiResponse apiResponseLocalVar, decimal version, string appKey, System.IO.Stream biometricFile, Option<string> deviceId, Option<System.IO.Stream> biometricFile2, Option<int> ageRestriction, Option<bool> returnProfile, Option<string> responseFilters, Option<double> latitude, Option<double> longitude);
+        partial void AfterLoginSecure(ref bool suppressDefaultLog, ILoginSecureApiResponse apiResponseLocalVar, string appKey, System.IO.Stream biometricFile, Option<string> deviceId, Option<System.IO.Stream> biometricFile2, Option<int> ageRestriction, Option<bool> returnProfile, Option<string> responseFilters, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1178,7 +1150,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="biometricFile"></param>
         /// <param name="deviceId"></param>
@@ -1188,10 +1159,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorLoginSecureDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, System.IO.Stream biometricFile, Option<string> deviceId, Option<System.IO.Stream> biometricFile2, Option<int> ageRestriction, Option<bool> returnProfile, Option<string> responseFilters, Option<double> latitude, Option<double> longitude)
+        private void OnErrorLoginSecureDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, System.IO.Stream biometricFile, Option<string> deviceId, Option<System.IO.Stream> biometricFile2, Option<int> ageRestriction, Option<bool> returnProfile, Option<string> responseFilters, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLoginSecure(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
+            OnErrorLoginSecure(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1203,7 +1174,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="biometricFile"></param>
         /// <param name="deviceId"></param>
@@ -1213,12 +1183,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorLoginSecure(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, System.IO.Stream biometricFile, Option<string> deviceId, Option<System.IO.Stream> biometricFile2, Option<int> ageRestriction, Option<bool> returnProfile, Option<string> responseFilters, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorLoginSecure(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, System.IO.Stream biometricFile, Option<string> deviceId, Option<System.IO.Stream> biometricFile2, Option<int> ageRestriction, Option<bool> returnProfile, Option<string> responseFilters, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Login Clear Login via Clear.me. Creates a new account if logging in for the first time.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application making the request, defines what type and position is required to make a secure login the request.</param>
         /// <param name="biometricFile">The data file used to perform authentication</param>
         /// <param name="deviceId">The unique id of the device making the request (optional)</param>
@@ -1230,11 +1199,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginSecureApiResponse"/>&gt;</returns>
-        public async Task<ILoginSecureApiResponse?> LoginSecureOrDefaultAsync(decimal version, string appKey, System.IO.Stream biometricFile, Option<string> deviceId = default, Option<System.IO.Stream> biometricFile2 = default, Option<int> ageRestriction = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginSecureApiResponse?> LoginSecureOrDefaultAsync(string appKey, System.IO.Stream biometricFile, Option<string> deviceId = default, Option<System.IO.Stream> biometricFile2 = default, Option<int> ageRestriction = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LoginSecureAsync(version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await LoginSecureAsync(appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1246,7 +1215,6 @@ namespace Org.OpenAPITools.Api
         /// Login Clear Login via Clear.me. Creates a new account if logging in for the first time.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application making the request, defines what type and position is required to make a secure login the request.</param>
         /// <param name="biometricFile">The data file used to perform authentication</param>
         /// <param name="deviceId">The unique id of the device making the request (optional)</param>
@@ -1258,7 +1226,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginSecureApiResponse"/>&gt;</returns>
-        public async Task<ILoginSecureApiResponse> LoginSecureAsync(decimal version, string appKey, System.IO.Stream biometricFile, Option<string> deviceId = default, Option<System.IO.Stream> biometricFile2 = default, Option<int> ageRestriction = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginSecureApiResponse> LoginSecureAsync(string appKey, System.IO.Stream biometricFile, Option<string> deviceId = default, Option<System.IO.Stream> biometricFile2 = default, Option<int> ageRestriction = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1266,7 +1234,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateLoginSecure(appKey, biometricFile, deviceId, biometricFile2, responseFilters);
 
-                FormatLoginSecure(ref version, ref appKey, ref biometricFile, ref deviceId, ref biometricFile2, ref ageRestriction, ref returnProfile, ref responseFilters, ref latitude, ref longitude);
+                FormatLoginSecure(ref appKey, ref biometricFile, ref deviceId, ref biometricFile2, ref ageRestriction, ref returnProfile, ref responseFilters, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1274,9 +1242,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/secure/login"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/secure/login");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/secure/login"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/secure/login");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1329,13 +1296,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/secure/login", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/secure/login", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterLoginSecureDefaultImplementation(apiResponseLocalVar, version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
+                        AfterLoginSecureDefaultImplementation(apiResponseLocalVar, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
 
                         Events.ExecuteOnLoginSecure(apiResponseLocalVar);
 
@@ -1345,7 +1312,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorLoginSecureDefaultImplementation(e, "/api/{version}/secure/login", uriBuilderLocalVar.Path, version, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
+                OnErrorLoginSecureDefaultImplementation(e, "/secure/login", uriBuilderLocalVar.Path, appKey, biometricFile, deviceId, biometricFile2, ageRestriction, returnProfile, responseFilters, latitude, longitude);
                 Events.ExecuteOnErrorLoginSecure(e);
                 throw;
             }
@@ -1444,7 +1411,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPurchaseSecure(ref decimal version, PaymentRequest body);
+        partial void FormatPurchaseSecure(PaymentRequest body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1461,12 +1428,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterPurchaseSecureDefaultImplementation(IPurchaseSecureApiResponse apiResponseLocalVar, decimal version, PaymentRequest body)
+        private void AfterPurchaseSecureDefaultImplementation(IPurchaseSecureApiResponse apiResponseLocalVar, PaymentRequest body)
         {
             bool suppressDefaultLog = false;
-            AfterPurchaseSecure(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterPurchaseSecure(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1476,9 +1442,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterPurchaseSecure(ref bool suppressDefaultLog, IPurchaseSecureApiResponse apiResponseLocalVar, decimal version, PaymentRequest body);
+        partial void AfterPurchaseSecure(ref bool suppressDefaultLog, IPurchaseSecureApiResponse apiResponseLocalVar, PaymentRequest body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1486,12 +1451,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorPurchaseSecureDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, PaymentRequest body)
+        private void OnErrorPurchaseSecureDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, PaymentRequest body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPurchaseSecure(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorPurchaseSecure(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1503,22 +1467,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorPurchaseSecure(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, PaymentRequest body);
+        partial void OnErrorPurchaseSecure(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, PaymentRequest body);
 
         /// <summary>
         /// Purchase Clear Purchase via Clear.me. Creates a new account if purchasing for the first time.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body">The payment request object</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPurchaseSecureApiResponse"/>&gt;</returns>
-        public async Task<IPurchaseSecureApiResponse?> PurchaseSecureOrDefaultAsync(decimal version, PaymentRequest body, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPurchaseSecureApiResponse?> PurchaseSecureOrDefaultAsync(PaymentRequest body, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PurchaseSecureAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await PurchaseSecureAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1530,11 +1492,10 @@ namespace Org.OpenAPITools.Api
         /// Purchase Clear Purchase via Clear.me. Creates a new account if purchasing for the first time.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body">The payment request object</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPurchaseSecureApiResponse"/>&gt;</returns>
-        public async Task<IPurchaseSecureApiResponse> PurchaseSecureAsync(decimal version, PaymentRequest body, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPurchaseSecureApiResponse> PurchaseSecureAsync(PaymentRequest body, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1542,7 +1503,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePurchaseSecure(body);
 
-                FormatPurchaseSecure(ref version, body);
+                FormatPurchaseSecure(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1550,9 +1511,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/secure/purchase"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/secure/purchase");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/secure/purchase"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/secure/purchase");
 
                     httpRequestMessageLocalVar.Content = (body as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -1590,13 +1550,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/secure/purchase", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/secure/purchase", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPurchaseSecureDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterPurchaseSecureDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnPurchaseSecure(apiResponseLocalVar);
 
@@ -1606,7 +1566,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPurchaseSecureDefaultImplementation(e, "/api/{version}/secure/purchase", uriBuilderLocalVar.Path, version, body);
+                OnErrorPurchaseSecureDefaultImplementation(e, "/secure/purchase", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorPurchaseSecure(e);
                 throw;
             }
@@ -1705,7 +1665,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatResetSecure(ref decimal version, ref long accountId, ref string appKey);
+        partial void FormatResetSecure(ref long accountId, ref string appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1722,13 +1682,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        private void AfterResetSecureDefaultImplementation(IResetSecureApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey)
+        private void AfterResetSecureDefaultImplementation(IResetSecureApiResponse apiResponseLocalVar, long accountId, string appKey)
         {
             bool suppressDefaultLog = false;
-            AfterResetSecure(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey);
+            AfterResetSecure(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1738,10 +1697,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        partial void AfterResetSecure(ref bool suppressDefaultLog, IResetSecureApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey);
+        partial void AfterResetSecure(ref bool suppressDefaultLog, IResetSecureApiResponse apiResponseLocalVar, long accountId, string appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1749,13 +1707,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorResetSecureDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey)
+        private void OnErrorResetSecureDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorResetSecure(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey);
+            OnErrorResetSecure(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1767,24 +1724,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorResetSecure(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey);
+        partial void OnErrorResetSecure(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey);
 
         /// <summary>
         /// Rest Secure Application Reset a secure application client.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IResetSecureApiResponse"/>&gt;</returns>
-        public async Task<IResetSecureApiResponse?> ResetSecureOrDefaultAsync(decimal version, long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IResetSecureApiResponse?> ResetSecureOrDefaultAsync(long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ResetSecureAsync(version, accountId, appKey, cancellationToken).ConfigureAwait(false);
+                return await ResetSecureAsync(accountId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1796,12 +1751,11 @@ namespace Org.OpenAPITools.Api
         /// Rest Secure Application Reset a secure application client.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IResetSecureApiResponse"/>&gt;</returns>
-        public async Task<IResetSecureApiResponse> ResetSecureAsync(decimal version, long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IResetSecureApiResponse> ResetSecureAsync(long accountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1809,7 +1763,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateResetSecure(appKey);
 
-                FormatResetSecure(ref version, ref accountId, ref appKey);
+                FormatResetSecure(ref accountId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1817,9 +1771,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/secure/application/reset"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/secure/application/reset");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/secure/application/reset"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/secure/application/reset");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1851,13 +1804,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/secure/application/reset", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/secure/application/reset", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterResetSecureDefaultImplementation(apiResponseLocalVar, version, accountId, appKey);
+                        AfterResetSecureDefaultImplementation(apiResponseLocalVar, accountId, appKey);
 
                         Events.ExecuteOnResetSecure(apiResponseLocalVar);
 
@@ -1867,7 +1820,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorResetSecureDefaultImplementation(e, "/api/{version}/secure/application/reset", uriBuilderLocalVar.Path, version, accountId, appKey);
+                OnErrorResetSecureDefaultImplementation(e, "/secure/application/reset", uriBuilderLocalVar.Path, accountId, appKey);
                 Events.ExecuteOnErrorResetSecure(e);
                 throw;
             }
@@ -1966,7 +1919,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateSecureApplication(ref decimal version, ref long accountId, ref string appKey, ref Option<bool> active, ref Option<System.IO.Stream> keyCert, ref Option<System.IO.Stream> trustStore, ref Option<string> username, ref Option<string> password, ref Option<string> biometricType, ref Option<string> biometricPosition, ref Option<string> biometricPosition2);
+        partial void FormatUpdateSecureApplication(ref long accountId, ref string appKey, ref Option<bool> active, ref Option<System.IO.Stream> keyCert, ref Option<System.IO.Stream> trustStore, ref Option<string> username, ref Option<string> password, ref Option<string> biometricType, ref Option<string> biometricPosition, ref Option<string> biometricPosition2);
 
         /// <summary>
         /// Validates the request parameters
@@ -2011,7 +1964,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="active"></param>
@@ -2022,10 +1974,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricType"></param>
         /// <param name="biometricPosition"></param>
         /// <param name="biometricPosition2"></param>
-        private void AfterUpdateSecureApplicationDefaultImplementation(IUpdateSecureApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> active, Option<System.IO.Stream> keyCert, Option<System.IO.Stream> trustStore, Option<string> username, Option<string> password, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2)
+        private void AfterUpdateSecureApplicationDefaultImplementation(IUpdateSecureApplicationApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> active, Option<System.IO.Stream> keyCert, Option<System.IO.Stream> trustStore, Option<string> username, Option<string> password, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateSecureApplication(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
+            AfterUpdateSecureApplication(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2035,7 +1987,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="active"></param>
@@ -2046,7 +1997,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricType"></param>
         /// <param name="biometricPosition"></param>
         /// <param name="biometricPosition2"></param>
-        partial void AfterUpdateSecureApplication(ref bool suppressDefaultLog, IUpdateSecureApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> active, Option<System.IO.Stream> keyCert, Option<System.IO.Stream> trustStore, Option<string> username, Option<string> password, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2);
+        partial void AfterUpdateSecureApplication(ref bool suppressDefaultLog, IUpdateSecureApplicationApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> active, Option<System.IO.Stream> keyCert, Option<System.IO.Stream> trustStore, Option<string> username, Option<string> password, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2054,7 +2005,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="active"></param>
@@ -2065,10 +2015,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricType"></param>
         /// <param name="biometricPosition"></param>
         /// <param name="biometricPosition2"></param>
-        private void OnErrorUpdateSecureApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> active, Option<System.IO.Stream> keyCert, Option<System.IO.Stream> trustStore, Option<string> username, Option<string> password, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2)
+        private void OnErrorUpdateSecureApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> active, Option<System.IO.Stream> keyCert, Option<System.IO.Stream> trustStore, Option<string> username, Option<string> password, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateSecureApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
+            OnErrorUpdateSecureApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2080,7 +2030,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="active"></param>
@@ -2091,12 +2040,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricType"></param>
         /// <param name="biometricPosition"></param>
         /// <param name="biometricPosition2"></param>
-        partial void OnErrorUpdateSecureApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> active, Option<System.IO.Stream> keyCert, Option<System.IO.Stream> trustStore, Option<string> username, Option<string> password, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2);
+        partial void OnErrorUpdateSecureApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> active, Option<System.IO.Stream> keyCert, Option<System.IO.Stream> trustStore, Option<string> username, Option<string> password, Option<string> biometricType, Option<string> biometricPosition, Option<string> biometricPosition2);
 
         /// <summary>
         /// Update Secure Application Update a secure application record.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="active"> (optional)</param>
@@ -2109,11 +2057,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSecureApplicationApiResponse"/>&gt;</returns>
-        public async Task<IUpdateSecureApplicationApiResponse?> UpdateSecureApplicationOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> active = default, Option<System.IO.Stream> keyCert = default, Option<System.IO.Stream> trustStore = default, Option<string> username = default, Option<string> password = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateSecureApplicationApiResponse?> UpdateSecureApplicationOrDefaultAsync(long accountId, string appKey, Option<bool> active = default, Option<System.IO.Stream> keyCert = default, Option<System.IO.Stream> trustStore = default, Option<string> username = default, Option<string> password = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateSecureApplicationAsync(version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2, cancellationToken).ConfigureAwait(false);
+                return await UpdateSecureApplicationAsync(accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2125,7 +2073,6 @@ namespace Org.OpenAPITools.Api
         /// Update Secure Application Update a secure application record.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The unique id of the user making the request</param>
         /// <param name="appKey">The application to secure</param>
         /// <param name="active"> (optional)</param>
@@ -2138,7 +2085,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSecureApplicationApiResponse"/>&gt;</returns>
-        public async Task<IUpdateSecureApplicationApiResponse> UpdateSecureApplicationAsync(decimal version, long accountId, string appKey, Option<bool> active = default, Option<System.IO.Stream> keyCert = default, Option<System.IO.Stream> trustStore = default, Option<string> username = default, Option<string> password = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateSecureApplicationApiResponse> UpdateSecureApplicationAsync(long accountId, string appKey, Option<bool> active = default, Option<System.IO.Stream> keyCert = default, Option<System.IO.Stream> trustStore = default, Option<string> username = default, Option<string> password = default, Option<string> biometricType = default, Option<string> biometricPosition = default, Option<string> biometricPosition2 = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2146,7 +2093,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateSecureApplication(appKey, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
 
-                FormatUpdateSecureApplication(ref version, ref accountId, ref appKey, ref active, ref keyCert, ref trustStore, ref username, ref password, ref biometricType, ref biometricPosition, ref biometricPosition2);
+                FormatUpdateSecureApplication(ref accountId, ref appKey, ref active, ref keyCert, ref trustStore, ref username, ref password, ref biometricType, ref biometricPosition, ref biometricPosition2);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2154,9 +2101,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/secure/application/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/secure/application/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/secure/application/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/secure/application/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2212,13 +2158,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/secure/application/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/secure/application/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateSecureApplicationDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
+                        AfterUpdateSecureApplicationDefaultImplementation(apiResponseLocalVar, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
 
                         Events.ExecuteOnUpdateSecureApplication(apiResponseLocalVar);
 
@@ -2228,7 +2174,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateSecureApplicationDefaultImplementation(e, "/api/{version}/secure/application/update", uriBuilderLocalVar.Path, version, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
+                OnErrorUpdateSecureApplicationDefaultImplementation(e, "/secure/application/update", uriBuilderLocalVar.Path, accountId, appKey, active, keyCert, trustStore, username, password, biometricType, biometricPosition, biometricPosition2);
                 Events.ExecuteOnErrorUpdateSecureApplication(e);
                 throw;
             }

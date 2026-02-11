@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Adds offers to the wallet
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional)</param>
@@ -59,7 +58,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="status">Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferTransactionApiResponse"/>&gt;</returns>
-        Task<ICreateOfferTransactionApiResponse> CreateOfferTransactionAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, Option<int> status = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOfferTransactionApiResponse> CreateOfferTransactionAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, Option<int> status = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Wallet Offers
@@ -67,7 +66,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Adds offers to the wallet
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional)</param>
@@ -81,7 +79,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="status">Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferTransactionApiResponse"/>?&gt;</returns>
-        Task<ICreateOfferTransactionApiResponse?> CreateOfferTransactionOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, Option<int> status = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOfferTransactionApiResponse?> CreateOfferTransactionOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, Option<int> status = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Wallet Offer
@@ -90,13 +88,12 @@ namespace Org.OpenAPITools.Api
         /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to remove</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferTransactionApiResponse"/>&gt;</returns>
-        Task<IDeleteOfferTransactionApiResponse> DeleteOfferTransactionAsync(decimal version, long transactionId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOfferTransactionApiResponse> DeleteOfferTransactionAsync(long transactionId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Wallet Offer
@@ -104,13 +101,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to remove</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferTransactionApiResponse"/>?&gt;</returns>
-        Task<IDeleteOfferTransactionApiResponse?> DeleteOfferTransactionOrDefaultAsync(decimal version, long transactionId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOfferTransactionApiResponse?> DeleteOfferTransactionOrDefaultAsync(long transactionId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Wallet Offer
@@ -119,7 +115,6 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to get details of</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -129,7 +124,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnFullResponse">Determines whether to return a detailed version of the response (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferTransactionApiResponse"/>&gt;</returns>
-        Task<IGetOfferTransactionApiResponse> GetOfferTransactionAsync(decimal version, long transactionId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeMission = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferTransactionApiResponse> GetOfferTransactionAsync(long transactionId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeMission = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Wallet Offer
@@ -137,7 +132,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to get details of</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -147,7 +141,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnFullResponse">Determines whether to return a detailed version of the response (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferTransactionApiResponse"/>?&gt;</returns>
-        Task<IGetOfferTransactionApiResponse?> GetOfferTransactionOrDefaultAsync(decimal version, long transactionId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeMission = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferTransactionApiResponse?> GetOfferTransactionOrDefaultAsync(long transactionId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeMission = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Preview Wallet Offers
@@ -156,7 +150,6 @@ namespace Org.OpenAPITools.Api
         /// Preview the final cost of a transaction without charging the user
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional)</param>
@@ -169,7 +162,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application requesting the purchase, required when currencyType is TICKETS (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPreviewOfferTransactionApiResponse"/>&gt;</returns>
-        Task<IPreviewOfferTransactionApiResponse> PreviewOfferTransactionAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPreviewOfferTransactionApiResponse> PreviewOfferTransactionAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Preview Wallet Offers
@@ -177,7 +170,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Preview the final cost of a transaction without charging the user
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional)</param>
@@ -190,7 +182,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application requesting the purchase, required when currencyType is TICKETS (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPreviewOfferTransactionApiResponse"/>?&gt;</returns>
-        Task<IPreviewOfferTransactionApiResponse?> PreviewOfferTransactionOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPreviewOfferTransactionApiResponse?> PreviewOfferTransactionOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Wallet Offers
@@ -199,7 +191,6 @@ namespace Org.OpenAPITools.Api
         /// Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="keyword">The keyword to search for (optional)</param>
@@ -243,7 +234,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="recurringExpirationBefore">Filter results by the recurring billing expiration date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionsApiResponse"/>&gt;</returns>
-        Task<ISearchOfferTransactionsApiResponse> SearchOfferTransactionsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<string> retailerIds = default, Option<long> retailerLocationId = default, Option<string> retailerLocationIds = default, Option<string> excludeRetailerLocationIds = default, Option<long> offerId = default, Option<string> offerIds = default, Option<long> offerLocationId = default, Option<string> offerLocationIds = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<bool> filterByParentOffer = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<bool> redeemed = default, Option<string> statuses = default, Option<bool> reservationsOnly = default, Option<bool> activeOnly = default, Option<bool> returnFullResponse = default, Option<long> recurringStartedSince = default, Option<long> recurringStartedBefore = default, Option<long> recurringExpirationSince = default, Option<long> recurringExpirationBefore = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOfferTransactionsApiResponse> SearchOfferTransactionsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<string> retailerIds = default, Option<long> retailerLocationId = default, Option<string> retailerLocationIds = default, Option<string> excludeRetailerLocationIds = default, Option<long> offerId = default, Option<string> offerIds = default, Option<long> offerLocationId = default, Option<string> offerLocationIds = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<bool> filterByParentOffer = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<bool> redeemed = default, Option<string> statuses = default, Option<bool> reservationsOnly = default, Option<bool> activeOnly = default, Option<bool> returnFullResponse = default, Option<long> recurringStartedSince = default, Option<long> recurringStartedBefore = default, Option<long> recurringExpirationSince = default, Option<long> recurringExpirationBefore = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Wallet Offers
@@ -251,7 +242,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="keyword">The keyword to search for (optional)</param>
@@ -295,7 +285,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="recurringExpirationBefore">Filter results by the recurring billing expiration date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionsApiResponse"/>?&gt;</returns>
-        Task<ISearchOfferTransactionsApiResponse?> SearchOfferTransactionsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<string> retailerIds = default, Option<long> retailerLocationId = default, Option<string> retailerLocationIds = default, Option<string> excludeRetailerLocationIds = default, Option<long> offerId = default, Option<string> offerIds = default, Option<long> offerLocationId = default, Option<string> offerLocationIds = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<bool> filterByParentOffer = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<bool> redeemed = default, Option<string> statuses = default, Option<bool> reservationsOnly = default, Option<bool> activeOnly = default, Option<bool> returnFullResponse = default, Option<long> recurringStartedSince = default, Option<long> recurringStartedBefore = default, Option<long> recurringExpirationSince = default, Option<long> recurringExpirationBefore = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOfferTransactionsApiResponse?> SearchOfferTransactionsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<string> retailerIds = default, Option<long> retailerLocationId = default, Option<string> retailerLocationIds = default, Option<string> excludeRetailerLocationIds = default, Option<long> offerId = default, Option<string> offerIds = default, Option<long> offerLocationId = default, Option<string> offerLocationIds = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<bool> filterByParentOffer = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<bool> redeemed = default, Option<string> statuses = default, Option<bool> reservationsOnly = default, Option<bool> activeOnly = default, Option<bool> returnFullResponse = default, Option<long> recurringStartedSince = default, Option<long> recurringStartedBefore = default, Option<long> recurringExpirationSince = default, Option<long> recurringExpirationBefore = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Wallet Offer
@@ -304,7 +294,6 @@ namespace Org.OpenAPITools.Api
         /// Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to remove</param>
         /// <param name="status">The status value to change to (0 or 1)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -320,7 +309,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionMembershipOfferIds">Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferTransactionApiResponse"/>&gt;</returns>
-        Task<IUpdateOfferTransactionApiResponse> UpdateOfferTransactionAsync(decimal version, long transactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<string> exceptionMembershipOfferIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOfferTransactionApiResponse> UpdateOfferTransactionAsync(long transactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<string> exceptionMembershipOfferIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Wallet Offer
@@ -328,7 +317,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to remove</param>
         /// <param name="status">The status value to change to (0 or 1)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -344,7 +332,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionMembershipOfferIds">Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferTransactionApiResponse"/>?&gt;</returns>
-        Task<IUpdateOfferTransactionApiResponse?> UpdateOfferTransactionOrDefaultAsync(decimal version, long transactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<string> exceptionMembershipOfferIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOfferTransactionApiResponse?> UpdateOfferTransactionOrDefaultAsync(long transactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<string> exceptionMembershipOfferIds = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -592,7 +580,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateOfferTransaction(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<string> offerCart, ref Option<string> promoCode, ref Option<string> currencyType, ref Option<bool> usePoints, ref Option<string> metaData, ref Option<string> appKey, ref Option<int> status);
+        partial void FormatCreateOfferTransaction(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<string> offerCart, ref Option<string> promoCode, ref Option<string> currencyType, ref Option<bool> usePoints, ref Option<string> metaData, ref Option<string> appKey, ref Option<int> status);
 
         /// <summary>
         /// Validates the request parameters
@@ -629,7 +617,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -641,10 +628,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
         /// <param name="status"></param>
-        private void AfterCreateOfferTransactionDefaultImplementation(ICreateOfferTransactionApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey, Option<int> status)
+        private void AfterCreateOfferTransactionDefaultImplementation(ICreateOfferTransactionApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey, Option<int> status)
         {
             bool suppressDefaultLog = false;
-            AfterCreateOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
+            AfterCreateOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -654,7 +641,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -666,7 +652,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
         /// <param name="status"></param>
-        partial void AfterCreateOfferTransaction(ref bool suppressDefaultLog, ICreateOfferTransactionApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey, Option<int> status);
+        partial void AfterCreateOfferTransaction(ref bool suppressDefaultLog, ICreateOfferTransactionApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey, Option<int> status);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -674,7 +660,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -686,10 +671,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
         /// <param name="status"></param>
-        private void OnErrorCreateOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey, Option<int> status)
+        private void OnErrorCreateOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey, Option<int> status)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
+            OnErrorCreateOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -701,7 +686,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -713,12 +697,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
         /// <param name="status"></param>
-        partial void OnErrorCreateOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey, Option<int> status);
+        partial void OnErrorCreateOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey, Option<int> status);
 
         /// <summary>
         /// Create Wallet Offers Adds offers to the wallet
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional)</param>
@@ -732,11 +715,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="status">Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<ICreateOfferTransactionApiResponse?> CreateOfferTransactionOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, Option<int> status = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOfferTransactionApiResponse?> CreateOfferTransactionOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, Option<int> status = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateOfferTransactionAsync(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status, cancellationToken).ConfigureAwait(false);
+                return await CreateOfferTransactionAsync(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -748,7 +731,6 @@ namespace Org.OpenAPITools.Api
         /// Create Wallet Offers Adds offers to the wallet
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional)</param>
@@ -762,7 +744,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="status">Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<ICreateOfferTransactionApiResponse> CreateOfferTransactionAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, Option<int> status = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOfferTransactionApiResponse> CreateOfferTransactionAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, Option<int> status = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -770,7 +752,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateOfferTransaction(deviceId, offerCart, promoCode, currencyType, metaData, appKey);
 
-                FormatCreateOfferTransaction(ref version, ref deviceId, ref accountId, ref offerId, ref offerLocationId, ref offerCart, ref promoCode, ref currencyType, ref usePoints, ref metaData, ref appKey, ref status);
+                FormatCreateOfferTransaction(ref deviceId, ref accountId, ref offerId, ref offerLocationId, ref offerCart, ref promoCode, ref currencyType, ref usePoints, ref metaData, ref appKey, ref status);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -778,9 +760,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/wallet/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/wallet/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/wallet/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/wallet/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -842,13 +823,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/wallet/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/wallet/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateOfferTransactionDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
+                        AfterCreateOfferTransactionDefaultImplementation(apiResponseLocalVar, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
 
                         Events.ExecuteOnCreateOfferTransaction(apiResponseLocalVar);
 
@@ -858,7 +839,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateOfferTransactionDefaultImplementation(e, "/api/{version}/wallet/create", uriBuilderLocalVar.Path, version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
+                OnErrorCreateOfferTransactionDefaultImplementation(e, "/wallet/create", uriBuilderLocalVar.Path, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, status);
                 Events.ExecuteOnErrorCreateOfferTransaction(e);
                 throw;
             }
@@ -957,7 +938,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteOfferTransaction(ref decimal version, ref long transactionId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteOfferTransaction(ref long transactionId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -974,14 +955,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteOfferTransactionDefaultImplementation(IDeleteOfferTransactionApiResponse apiResponseLocalVar, decimal version, long transactionId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteOfferTransactionDefaultImplementation(IDeleteOfferTransactionApiResponse apiResponseLocalVar, long transactionId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, version, transactionId, deviceId, accountId);
+            AfterDeleteOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, transactionId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -991,11 +971,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteOfferTransaction(ref bool suppressDefaultLog, IDeleteOfferTransactionApiResponse apiResponseLocalVar, decimal version, long transactionId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteOfferTransaction(ref bool suppressDefaultLog, IDeleteOfferTransactionApiResponse apiResponseLocalVar, long transactionId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1003,14 +982,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long transactionId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long transactionId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, transactionId, deviceId, accountId);
+            OnErrorDeleteOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, transactionId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1022,26 +1000,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long transactionId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long transactionId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Wallet Offer Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to remove</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOfferTransactionApiResponse?> DeleteOfferTransactionOrDefaultAsync(decimal version, long transactionId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOfferTransactionApiResponse?> DeleteOfferTransactionOrDefaultAsync(long transactionId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteOfferTransactionAsync(version, transactionId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteOfferTransactionAsync(transactionId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1053,13 +1029,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Wallet Offer Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to remove</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOfferTransactionApiResponse> DeleteOfferTransactionAsync(decimal version, long transactionId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOfferTransactionApiResponse> DeleteOfferTransactionAsync(long transactionId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1067,7 +1042,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteOfferTransaction(deviceId);
 
-                FormatDeleteOfferTransaction(ref version, ref transactionId, ref deviceId, ref accountId);
+                FormatDeleteOfferTransaction(ref transactionId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1075,9 +1050,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/wallet/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/wallet/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/wallet/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/wallet/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1114,13 +1088,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/wallet/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/wallet/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteOfferTransactionDefaultImplementation(apiResponseLocalVar, version, transactionId, deviceId, accountId);
+                        AfterDeleteOfferTransactionDefaultImplementation(apiResponseLocalVar, transactionId, deviceId, accountId);
 
                         Events.ExecuteOnDeleteOfferTransaction(apiResponseLocalVar);
 
@@ -1130,7 +1104,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteOfferTransactionDefaultImplementation(e, "/api/{version}/wallet/delete", uriBuilderLocalVar.Path, version, transactionId, deviceId, accountId);
+                OnErrorDeleteOfferTransactionDefaultImplementation(e, "/wallet/delete", uriBuilderLocalVar.Path, transactionId, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteOfferTransaction(e);
                 throw;
             }
@@ -1229,7 +1203,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOfferTransaction(ref decimal version, ref long transactionId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> includeMission, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnFullResponse);
+        partial void FormatGetOfferTransaction(ref long transactionId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> includeMission, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnFullResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -1246,7 +1220,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1254,10 +1227,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="returnFullResponse"></param>
-        private void AfterGetOfferTransactionDefaultImplementation(IGetOfferTransactionApiResponse apiResponseLocalVar, decimal version, long transactionId, Option<string> deviceId, Option<long> accountId, Option<bool> includeMission, Option<double> latitude, Option<double> longitude, Option<bool> returnFullResponse)
+        private void AfterGetOfferTransactionDefaultImplementation(IGetOfferTransactionApiResponse apiResponseLocalVar, long transactionId, Option<string> deviceId, Option<long> accountId, Option<bool> includeMission, Option<double> latitude, Option<double> longitude, Option<bool> returnFullResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
+            AfterGetOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1267,7 +1240,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1275,7 +1247,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="returnFullResponse"></param>
-        partial void AfterGetOfferTransaction(ref bool suppressDefaultLog, IGetOfferTransactionApiResponse apiResponseLocalVar, decimal version, long transactionId, Option<string> deviceId, Option<long> accountId, Option<bool> includeMission, Option<double> latitude, Option<double> longitude, Option<bool> returnFullResponse);
+        partial void AfterGetOfferTransaction(ref bool suppressDefaultLog, IGetOfferTransactionApiResponse apiResponseLocalVar, long transactionId, Option<string> deviceId, Option<long> accountId, Option<bool> includeMission, Option<double> latitude, Option<double> longitude, Option<bool> returnFullResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1283,7 +1255,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1291,10 +1262,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="returnFullResponse"></param>
-        private void OnErrorGetOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long transactionId, Option<string> deviceId, Option<long> accountId, Option<bool> includeMission, Option<double> latitude, Option<double> longitude, Option<bool> returnFullResponse)
+        private void OnErrorGetOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long transactionId, Option<string> deviceId, Option<long> accountId, Option<bool> includeMission, Option<double> latitude, Option<double> longitude, Option<bool> returnFullResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
+            OnErrorGetOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1306,7 +1277,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1314,12 +1284,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="returnFullResponse"></param>
-        partial void OnErrorGetOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long transactionId, Option<string> deviceId, Option<long> accountId, Option<bool> includeMission, Option<double> latitude, Option<double> longitude, Option<bool> returnFullResponse);
+        partial void OnErrorGetOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long transactionId, Option<string> deviceId, Option<long> accountId, Option<bool> includeMission, Option<double> latitude, Option<double> longitude, Option<bool> returnFullResponse);
 
         /// <summary>
         /// Get Wallet Offer 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to get details of</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -1329,11 +1298,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnFullResponse">Determines whether to return a detailed version of the response (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferTransactionApiResponse?> GetOfferTransactionOrDefaultAsync(decimal version, long transactionId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeMission = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferTransactionApiResponse?> GetOfferTransactionOrDefaultAsync(long transactionId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeMission = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOfferTransactionAsync(version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse, cancellationToken).ConfigureAwait(false);
+                return await GetOfferTransactionAsync(transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1345,7 +1314,6 @@ namespace Org.OpenAPITools.Api
         /// Get Wallet Offer 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to get details of</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -1355,7 +1323,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnFullResponse">Determines whether to return a detailed version of the response (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferTransactionApiResponse> GetOfferTransactionAsync(decimal version, long transactionId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeMission = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferTransactionApiResponse> GetOfferTransactionAsync(long transactionId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeMission = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnFullResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1363,7 +1331,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOfferTransaction(deviceId);
 
-                FormatGetOfferTransaction(ref version, ref transactionId, ref deviceId, ref accountId, ref includeMission, ref latitude, ref longitude, ref returnFullResponse);
+                FormatGetOfferTransaction(ref transactionId, ref deviceId, ref accountId, ref includeMission, ref latitude, ref longitude, ref returnFullResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1371,9 +1339,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/wallet/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/wallet/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/wallet/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/wallet/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1422,13 +1389,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/wallet/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/wallet/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOfferTransactionDefaultImplementation(apiResponseLocalVar, version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
+                        AfterGetOfferTransactionDefaultImplementation(apiResponseLocalVar, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
 
                         Events.ExecuteOnGetOfferTransaction(apiResponseLocalVar);
 
@@ -1438,7 +1405,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOfferTransactionDefaultImplementation(e, "/api/{version}/wallet/get", uriBuilderLocalVar.Path, version, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
+                OnErrorGetOfferTransactionDefaultImplementation(e, "/wallet/get", uriBuilderLocalVar.Path, transactionId, deviceId, accountId, includeMission, latitude, longitude, returnFullResponse);
                 Events.ExecuteOnErrorGetOfferTransaction(e);
                 throw;
             }
@@ -1537,7 +1504,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPreviewOfferTransaction(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<string> offerCart, ref Option<string> promoCode, ref Option<string> currencyType, ref Option<bool> usePoints, ref Option<string> metaData, ref Option<string> appKey);
+        partial void FormatPreviewOfferTransaction(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<string> offerCart, ref Option<string> promoCode, ref Option<string> currencyType, ref Option<bool> usePoints, ref Option<string> metaData, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1574,7 +1541,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -1585,10 +1551,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="usePoints"></param>
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
-        private void AfterPreviewOfferTransactionDefaultImplementation(IPreviewOfferTransactionApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey)
+        private void AfterPreviewOfferTransactionDefaultImplementation(IPreviewOfferTransactionApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterPreviewOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
+            AfterPreviewOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1598,7 +1564,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -1609,7 +1574,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="usePoints"></param>
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
-        partial void AfterPreviewOfferTransaction(ref bool suppressDefaultLog, IPreviewOfferTransactionApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey);
+        partial void AfterPreviewOfferTransaction(ref bool suppressDefaultLog, IPreviewOfferTransactionApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1617,7 +1582,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -1628,10 +1592,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="usePoints"></param>
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
-        private void OnErrorPreviewOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey)
+        private void OnErrorPreviewOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPreviewOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
+            OnErrorPreviewOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1643,7 +1607,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -1654,12 +1617,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="usePoints"></param>
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorPreviewOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey);
+        partial void OnErrorPreviewOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<string> offerCart, Option<string> promoCode, Option<string> currencyType, Option<bool> usePoints, Option<string> metaData, Option<string> appKey);
 
         /// <summary>
         /// Preview Wallet Offers Preview the final cost of a transaction without charging the user
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional)</param>
@@ -1672,11 +1634,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application requesting the purchase, required when currencyType is TICKETS (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPreviewOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IPreviewOfferTransactionApiResponse?> PreviewOfferTransactionOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPreviewOfferTransactionApiResponse?> PreviewOfferTransactionOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PreviewOfferTransactionAsync(version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, cancellationToken).ConfigureAwait(false);
+                return await PreviewOfferTransactionAsync(deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1688,7 +1650,6 @@ namespace Org.OpenAPITools.Api
         /// Preview Wallet Offers Preview the final cost of a transaction without charging the user
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional)</param>
@@ -1701,7 +1662,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">The application requesting the purchase, required when currencyType is TICKETS (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPreviewOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IPreviewOfferTransactionApiResponse> PreviewOfferTransactionAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPreviewOfferTransactionApiResponse> PreviewOfferTransactionAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> offerCart = default, Option<string> promoCode = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1709,7 +1670,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePreviewOfferTransaction(deviceId, offerCart, promoCode, currencyType, metaData, appKey);
 
-                FormatPreviewOfferTransaction(ref version, ref deviceId, ref accountId, ref offerId, ref offerLocationId, ref offerCart, ref promoCode, ref currencyType, ref usePoints, ref metaData, ref appKey);
+                FormatPreviewOfferTransaction(ref deviceId, ref accountId, ref offerId, ref offerLocationId, ref offerCart, ref promoCode, ref currencyType, ref usePoints, ref metaData, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1717,9 +1678,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/wallet/preview"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/wallet/preview");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/wallet/preview"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/wallet/preview");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1778,13 +1738,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/wallet/preview", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/wallet/preview", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPreviewOfferTransactionDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
+                        AfterPreviewOfferTransactionDefaultImplementation(apiResponseLocalVar, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
 
                         Events.ExecuteOnPreviewOfferTransaction(apiResponseLocalVar);
 
@@ -1794,7 +1754,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPreviewOfferTransactionDefaultImplementation(e, "/api/{version}/wallet/preview", uriBuilderLocalVar.Path, version, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
+                OnErrorPreviewOfferTransactionDefaultImplementation(e, "/wallet/preview", uriBuilderLocalVar.Path, deviceId, accountId, offerId, offerLocationId, offerCart, promoCode, currencyType, usePoints, metaData, appKey);
                 Events.ExecuteOnErrorPreviewOfferTransaction(e);
                 throw;
             }
@@ -1893,7 +1853,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchOfferTransactions(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> keyword, ref Option<long> retailerId, ref Option<string> retailerIds, ref Option<long> retailerLocationId, ref Option<string> retailerLocationIds, ref Option<string> excludeRetailerLocationIds, ref Option<long> offerId, ref Option<string> offerIds, ref Option<long> offerLocationId, ref Option<string> offerLocationIds, ref Option<string> offerType, ref Option<string> offerTypes, ref Option<string> specialOfferType, ref Option<string> specialOfferTypes, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> offerAudienceIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> redeemableStartDate, ref Option<long> redeemableEndDate, ref Option<bool> filterByParentOffer, ref Option<long> startedSince, ref Option<long> startedBefore, ref Option<long> endedSince, ref Option<long> endedBefore, ref Option<bool> redeemed, ref Option<string> statuses, ref Option<bool> reservationsOnly, ref Option<bool> activeOnly, ref Option<bool> returnFullResponse, ref Option<long> recurringStartedSince, ref Option<long> recurringStartedBefore, ref Option<long> recurringExpirationSince, ref Option<long> recurringExpirationBefore);
+        partial void FormatSearchOfferTransactions(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> keyword, ref Option<long> retailerId, ref Option<string> retailerIds, ref Option<long> retailerLocationId, ref Option<string> retailerLocationIds, ref Option<string> excludeRetailerLocationIds, ref Option<long> offerId, ref Option<string> offerIds, ref Option<long> offerLocationId, ref Option<string> offerLocationIds, ref Option<string> offerType, ref Option<string> offerTypes, ref Option<string> specialOfferType, ref Option<string> specialOfferTypes, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> offerAudienceIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> redeemableStartDate, ref Option<long> redeemableEndDate, ref Option<bool> filterByParentOffer, ref Option<long> startedSince, ref Option<long> startedBefore, ref Option<long> endedSince, ref Option<long> endedBefore, ref Option<bool> redeemed, ref Option<string> statuses, ref Option<bool> reservationsOnly, ref Option<bool> activeOnly, ref Option<bool> returnFullResponse, ref Option<long> recurringStartedSince, ref Option<long> recurringStartedBefore, ref Option<long> recurringExpirationSince, ref Option<long> recurringExpirationBefore);
 
         /// <summary>
         /// Validates the request parameters
@@ -1970,7 +1930,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
@@ -2012,10 +1971,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="recurringStartedBefore"></param>
         /// <param name="recurringExpirationSince"></param>
         /// <param name="recurringExpirationBefore"></param>
-        private void AfterSearchOfferTransactionsDefaultImplementation(ISearchOfferTransactionsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<string> retailerIds, Option<long> retailerLocationId, Option<string> retailerLocationIds, Option<string> excludeRetailerLocationIds, Option<long> offerId, Option<string> offerIds, Option<long> offerLocationId, Option<string> offerLocationIds, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<bool> filterByParentOffer, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<bool> redeemed, Option<string> statuses, Option<bool> reservationsOnly, Option<bool> activeOnly, Option<bool> returnFullResponse, Option<long> recurringStartedSince, Option<long> recurringStartedBefore, Option<long> recurringExpirationSince, Option<long> recurringExpirationBefore)
+        private void AfterSearchOfferTransactionsDefaultImplementation(ISearchOfferTransactionsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<string> retailerIds, Option<long> retailerLocationId, Option<string> retailerLocationIds, Option<string> excludeRetailerLocationIds, Option<long> offerId, Option<string> offerIds, Option<long> offerLocationId, Option<string> offerLocationIds, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<bool> filterByParentOffer, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<bool> redeemed, Option<string> statuses, Option<bool> reservationsOnly, Option<bool> activeOnly, Option<bool> returnFullResponse, Option<long> recurringStartedSince, Option<long> recurringStartedBefore, Option<long> recurringExpirationSince, Option<long> recurringExpirationBefore)
         {
             bool suppressDefaultLog = false;
-            AfterSearchOfferTransactions(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
+            AfterSearchOfferTransactions(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2025,7 +1984,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
@@ -2067,7 +2025,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="recurringStartedBefore"></param>
         /// <param name="recurringExpirationSince"></param>
         /// <param name="recurringExpirationBefore"></param>
-        partial void AfterSearchOfferTransactions(ref bool suppressDefaultLog, ISearchOfferTransactionsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<string> retailerIds, Option<long> retailerLocationId, Option<string> retailerLocationIds, Option<string> excludeRetailerLocationIds, Option<long> offerId, Option<string> offerIds, Option<long> offerLocationId, Option<string> offerLocationIds, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<bool> filterByParentOffer, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<bool> redeemed, Option<string> statuses, Option<bool> reservationsOnly, Option<bool> activeOnly, Option<bool> returnFullResponse, Option<long> recurringStartedSince, Option<long> recurringStartedBefore, Option<long> recurringExpirationSince, Option<long> recurringExpirationBefore);
+        partial void AfterSearchOfferTransactions(ref bool suppressDefaultLog, ISearchOfferTransactionsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<string> retailerIds, Option<long> retailerLocationId, Option<string> retailerLocationIds, Option<string> excludeRetailerLocationIds, Option<long> offerId, Option<string> offerIds, Option<long> offerLocationId, Option<string> offerLocationIds, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<bool> filterByParentOffer, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<bool> redeemed, Option<string> statuses, Option<bool> reservationsOnly, Option<bool> activeOnly, Option<bool> returnFullResponse, Option<long> recurringStartedSince, Option<long> recurringStartedBefore, Option<long> recurringExpirationSince, Option<long> recurringExpirationBefore);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2075,7 +2033,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
@@ -2117,10 +2074,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="recurringStartedBefore"></param>
         /// <param name="recurringExpirationSince"></param>
         /// <param name="recurringExpirationBefore"></param>
-        private void OnErrorSearchOfferTransactionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<string> retailerIds, Option<long> retailerLocationId, Option<string> retailerLocationIds, Option<string> excludeRetailerLocationIds, Option<long> offerId, Option<string> offerIds, Option<long> offerLocationId, Option<string> offerLocationIds, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<bool> filterByParentOffer, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<bool> redeemed, Option<string> statuses, Option<bool> reservationsOnly, Option<bool> activeOnly, Option<bool> returnFullResponse, Option<long> recurringStartedSince, Option<long> recurringStartedBefore, Option<long> recurringExpirationSince, Option<long> recurringExpirationBefore)
+        private void OnErrorSearchOfferTransactionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<string> retailerIds, Option<long> retailerLocationId, Option<string> retailerLocationIds, Option<string> excludeRetailerLocationIds, Option<long> offerId, Option<string> offerIds, Option<long> offerLocationId, Option<string> offerLocationIds, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<bool> filterByParentOffer, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<bool> redeemed, Option<string> statuses, Option<bool> reservationsOnly, Option<bool> activeOnly, Option<bool> returnFullResponse, Option<long> recurringStartedSince, Option<long> recurringStartedBefore, Option<long> recurringExpirationSince, Option<long> recurringExpirationBefore)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchOfferTransactions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
+            OnErrorSearchOfferTransactions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2132,7 +2089,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
@@ -2174,12 +2130,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="recurringStartedBefore"></param>
         /// <param name="recurringExpirationSince"></param>
         /// <param name="recurringExpirationBefore"></param>
-        partial void OnErrorSearchOfferTransactions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<string> retailerIds, Option<long> retailerLocationId, Option<string> retailerLocationIds, Option<string> excludeRetailerLocationIds, Option<long> offerId, Option<string> offerIds, Option<long> offerLocationId, Option<string> offerLocationIds, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<bool> filterByParentOffer, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<bool> redeemed, Option<string> statuses, Option<bool> reservationsOnly, Option<bool> activeOnly, Option<bool> returnFullResponse, Option<long> recurringStartedSince, Option<long> recurringStartedBefore, Option<long> recurringExpirationSince, Option<long> recurringExpirationBefore);
+        partial void OnErrorSearchOfferTransactions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<string> retailerIds, Option<long> retailerLocationId, Option<string> retailerLocationIds, Option<string> excludeRetailerLocationIds, Option<long> offerId, Option<string> offerIds, Option<long> offerLocationId, Option<string> offerLocationIds, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<string> specialOfferTypes, Option<string> categoryIds, Option<string> filterIds, Option<string> offerAudienceIds, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> latitude, Option<double> longitude, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<bool> filterByParentOffer, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<bool> redeemed, Option<string> statuses, Option<bool> reservationsOnly, Option<bool> activeOnly, Option<bool> returnFullResponse, Option<long> recurringStartedSince, Option<long> recurringStartedBefore, Option<long> recurringExpirationSince, Option<long> recurringExpirationBefore);
 
         /// <summary>
         /// Search Wallet Offers Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="keyword">The keyword to search for (optional)</param>
@@ -2223,11 +2178,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="recurringExpirationBefore">Filter results by the recurring billing expiration date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchOfferTransactionsApiResponse?> SearchOfferTransactionsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<string> retailerIds = default, Option<long> retailerLocationId = default, Option<string> retailerLocationIds = default, Option<string> excludeRetailerLocationIds = default, Option<long> offerId = default, Option<string> offerIds = default, Option<long> offerLocationId = default, Option<string> offerLocationIds = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<bool> filterByParentOffer = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<bool> redeemed = default, Option<string> statuses = default, Option<bool> reservationsOnly = default, Option<bool> activeOnly = default, Option<bool> returnFullResponse = default, Option<long> recurringStartedSince = default, Option<long> recurringStartedBefore = default, Option<long> recurringExpirationSince = default, Option<long> recurringExpirationBefore = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOfferTransactionsApiResponse?> SearchOfferTransactionsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<string> retailerIds = default, Option<long> retailerLocationId = default, Option<string> retailerLocationIds = default, Option<string> excludeRetailerLocationIds = default, Option<long> offerId = default, Option<string> offerIds = default, Option<long> offerLocationId = default, Option<string> offerLocationIds = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<bool> filterByParentOffer = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<bool> redeemed = default, Option<string> statuses = default, Option<bool> reservationsOnly = default, Option<bool> activeOnly = default, Option<bool> returnFullResponse = default, Option<long> recurringStartedSince = default, Option<long> recurringStartedBefore = default, Option<long> recurringExpirationSince = default, Option<long> recurringExpirationBefore = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchOfferTransactionsAsync(version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore, cancellationToken).ConfigureAwait(false);
+                return await SearchOfferTransactionsAsync(deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2239,7 +2194,6 @@ namespace Org.OpenAPITools.Api
         /// Search Wallet Offers Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="keyword">The keyword to search for (optional)</param>
@@ -2283,7 +2237,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="recurringExpirationBefore">Filter results by the recurring billing expiration date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchOfferTransactionsApiResponse> SearchOfferTransactionsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<string> retailerIds = default, Option<long> retailerLocationId = default, Option<string> retailerLocationIds = default, Option<string> excludeRetailerLocationIds = default, Option<long> offerId = default, Option<string> offerIds = default, Option<long> offerLocationId = default, Option<string> offerLocationIds = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<bool> filterByParentOffer = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<bool> redeemed = default, Option<string> statuses = default, Option<bool> reservationsOnly = default, Option<bool> activeOnly = default, Option<bool> returnFullResponse = default, Option<long> recurringStartedSince = default, Option<long> recurringStartedBefore = default, Option<long> recurringExpirationSince = default, Option<long> recurringExpirationBefore = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOfferTransactionsApiResponse> SearchOfferTransactionsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<string> retailerIds = default, Option<long> retailerLocationId = default, Option<string> retailerLocationIds = default, Option<string> excludeRetailerLocationIds = default, Option<long> offerId = default, Option<string> offerIds = default, Option<long> offerLocationId = default, Option<string> offerLocationIds = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<string> specialOfferTypes = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> offerAudienceIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<bool> filterByParentOffer = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<bool> redeemed = default, Option<string> statuses = default, Option<bool> reservationsOnly = default, Option<bool> activeOnly = default, Option<bool> returnFullResponse = default, Option<long> recurringStartedSince = default, Option<long> recurringStartedBefore = default, Option<long> recurringExpirationSince = default, Option<long> recurringExpirationBefore = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2291,7 +2245,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchOfferTransactions(deviceId, keyword, retailerIds, retailerLocationIds, excludeRetailerLocationIds, offerIds, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, statuses);
 
-                FormatSearchOfferTransactions(ref version, ref deviceId, ref accountId, ref keyword, ref retailerId, ref retailerIds, ref retailerLocationId, ref retailerLocationIds, ref excludeRetailerLocationIds, ref offerId, ref offerIds, ref offerLocationId, ref offerLocationIds, ref offerType, ref offerTypes, ref specialOfferType, ref specialOfferTypes, ref categoryIds, ref filterIds, ref offerAudienceIds, ref sortField, ref descending, ref start, ref limit, ref latitude, ref longitude, ref redeemableStartDate, ref redeemableEndDate, ref filterByParentOffer, ref startedSince, ref startedBefore, ref endedSince, ref endedBefore, ref redeemed, ref statuses, ref reservationsOnly, ref activeOnly, ref returnFullResponse, ref recurringStartedSince, ref recurringStartedBefore, ref recurringExpirationSince, ref recurringExpirationBefore);
+                FormatSearchOfferTransactions(ref deviceId, ref accountId, ref keyword, ref retailerId, ref retailerIds, ref retailerLocationId, ref retailerLocationIds, ref excludeRetailerLocationIds, ref offerId, ref offerIds, ref offerLocationId, ref offerLocationIds, ref offerType, ref offerTypes, ref specialOfferType, ref specialOfferTypes, ref categoryIds, ref filterIds, ref offerAudienceIds, ref sortField, ref descending, ref start, ref limit, ref latitude, ref longitude, ref redeemableStartDate, ref redeemableEndDate, ref filterByParentOffer, ref startedSince, ref startedBefore, ref endedSince, ref endedBefore, ref redeemed, ref statuses, ref reservationsOnly, ref activeOnly, ref returnFullResponse, ref recurringStartedSince, ref recurringStartedBefore, ref recurringExpirationSince, ref recurringExpirationBefore);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2299,9 +2253,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/wallet/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/wallet/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/wallet/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/wallet/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2453,13 +2406,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/wallet/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/wallet/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchOfferTransactionsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
+                        AfterSearchOfferTransactionsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
 
                         Events.ExecuteOnSearchOfferTransactions(apiResponseLocalVar);
 
@@ -2469,7 +2422,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchOfferTransactionsDefaultImplementation(e, "/api/{version}/wallet/search", uriBuilderLocalVar.Path, version, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
+                OnErrorSearchOfferTransactionsDefaultImplementation(e, "/wallet/search", uriBuilderLocalVar.Path, deviceId, accountId, keyword, retailerId, retailerIds, retailerLocationId, retailerLocationIds, excludeRetailerLocationIds, offerId, offerIds, offerLocationId, offerLocationIds, offerType, offerTypes, specialOfferType, specialOfferTypes, categoryIds, filterIds, offerAudienceIds, sortField, descending, start, limit, latitude, longitude, redeemableStartDate, redeemableEndDate, filterByParentOffer, startedSince, startedBefore, endedSince, endedBefore, redeemed, statuses, reservationsOnly, activeOnly, returnFullResponse, recurringStartedSince, recurringStartedBefore, recurringExpirationSince, recurringExpirationBefore);
                 Events.ExecuteOnErrorSearchOfferTransactions(e);
                 throw;
             }
@@ -2568,7 +2521,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateOfferTransaction(ref decimal version, ref long transactionId, ref int status, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerLocationId, ref Option<string> currencyType, ref Option<bool> usePoints, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<bool> returnFullResponse, ref Option<string> exceptionMembershipOfferIds);
+        partial void FormatUpdateOfferTransaction(ref long transactionId, ref int status, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerLocationId, ref Option<string> currencyType, ref Option<bool> usePoints, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<bool> returnFullResponse, ref Option<string> exceptionMembershipOfferIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -2601,7 +2554,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="status"></param>
         /// <param name="deviceId"></param>
@@ -2615,10 +2567,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="returnFullResponse"></param>
         /// <param name="exceptionMembershipOfferIds"></param>
-        private void AfterUpdateOfferTransactionDefaultImplementation(IUpdateOfferTransactionApiResponse apiResponseLocalVar, decimal version, long transactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId, Option<string> currencyType, Option<bool> usePoints, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<string> exceptionMembershipOfferIds)
+        private void AfterUpdateOfferTransactionDefaultImplementation(IUpdateOfferTransactionApiResponse apiResponseLocalVar, long transactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId, Option<string> currencyType, Option<bool> usePoints, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<string> exceptionMembershipOfferIds)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
+            AfterUpdateOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2628,7 +2580,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="status"></param>
         /// <param name="deviceId"></param>
@@ -2642,7 +2593,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="returnFullResponse"></param>
         /// <param name="exceptionMembershipOfferIds"></param>
-        partial void AfterUpdateOfferTransaction(ref bool suppressDefaultLog, IUpdateOfferTransactionApiResponse apiResponseLocalVar, decimal version, long transactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId, Option<string> currencyType, Option<bool> usePoints, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<string> exceptionMembershipOfferIds);
+        partial void AfterUpdateOfferTransaction(ref bool suppressDefaultLog, IUpdateOfferTransactionApiResponse apiResponseLocalVar, long transactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId, Option<string> currencyType, Option<bool> usePoints, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<string> exceptionMembershipOfferIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2650,7 +2601,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="status"></param>
         /// <param name="deviceId"></param>
@@ -2664,10 +2614,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="returnFullResponse"></param>
         /// <param name="exceptionMembershipOfferIds"></param>
-        private void OnErrorUpdateOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long transactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId, Option<string> currencyType, Option<bool> usePoints, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<string> exceptionMembershipOfferIds)
+        private void OnErrorUpdateOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long transactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId, Option<string> currencyType, Option<bool> usePoints, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<string> exceptionMembershipOfferIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
+            OnErrorUpdateOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2679,7 +2629,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="transactionId"></param>
         /// <param name="status"></param>
         /// <param name="deviceId"></param>
@@ -2693,12 +2642,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="returnFullResponse"></param>
         /// <param name="exceptionMembershipOfferIds"></param>
-        partial void OnErrorUpdateOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long transactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId, Option<string> currencyType, Option<bool> usePoints, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<string> exceptionMembershipOfferIds);
+        partial void OnErrorUpdateOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long transactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId, Option<string> currencyType, Option<bool> usePoints, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<bool> returnFullResponse, Option<string> exceptionMembershipOfferIds);
 
         /// <summary>
         /// Update Wallet Offer Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to remove</param>
         /// <param name="status">The status value to change to (0 or 1)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -2714,11 +2662,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionMembershipOfferIds">Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOfferTransactionApiResponse?> UpdateOfferTransactionOrDefaultAsync(decimal version, long transactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<string> exceptionMembershipOfferIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOfferTransactionApiResponse?> UpdateOfferTransactionOrDefaultAsync(long transactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<string> exceptionMembershipOfferIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateOfferTransactionAsync(version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds, cancellationToken).ConfigureAwait(false);
+                return await UpdateOfferTransactionAsync(transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2730,7 +2678,6 @@ namespace Org.OpenAPITools.Api
         /// Update Wallet Offer Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="transactionId">The offer transaction id to remove</param>
         /// <param name="status">The status value to change to (0 or 1)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -2746,7 +2693,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionMembershipOfferIds">Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOfferTransactionApiResponse> UpdateOfferTransactionAsync(decimal version, long transactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<string> exceptionMembershipOfferIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOfferTransactionApiResponse> UpdateOfferTransactionAsync(long transactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, Option<string> currencyType = default, Option<bool> usePoints = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<bool> returnFullResponse = default, Option<string> exceptionMembershipOfferIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2754,7 +2701,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateOfferTransaction(deviceId, currencyType, appKey, metaData, exceptionMembershipOfferIds);
 
-                FormatUpdateOfferTransaction(ref version, ref transactionId, ref status, ref deviceId, ref accountId, ref offerLocationId, ref currencyType, ref usePoints, ref appKey, ref latitude, ref longitude, ref metaData, ref returnFullResponse, ref exceptionMembershipOfferIds);
+                FormatUpdateOfferTransaction(ref transactionId, ref status, ref deviceId, ref accountId, ref offerLocationId, ref currencyType, ref usePoints, ref appKey, ref latitude, ref longitude, ref metaData, ref returnFullResponse, ref exceptionMembershipOfferIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2762,9 +2709,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/wallet/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/wallet/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/wallet/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/wallet/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2829,13 +2775,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/wallet/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/wallet/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateOfferTransactionDefaultImplementation(apiResponseLocalVar, version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
+                        AfterUpdateOfferTransactionDefaultImplementation(apiResponseLocalVar, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
 
                         Events.ExecuteOnUpdateOfferTransaction(apiResponseLocalVar);
 
@@ -2845,7 +2791,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateOfferTransactionDefaultImplementation(e, "/api/{version}/wallet/update", uriBuilderLocalVar.Path, version, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
+                OnErrorUpdateOfferTransactionDefaultImplementation(e, "/wallet/update", uriBuilderLocalVar.Path, transactionId, status, deviceId, accountId, offerLocationId, currencyType, usePoints, appKey, latitude, longitude, metaData, returnFullResponse, exceptionMembershipOfferIds);
                 Events.ExecuteOnErrorUpdateOfferTransaction(e);
                 throw;
             }

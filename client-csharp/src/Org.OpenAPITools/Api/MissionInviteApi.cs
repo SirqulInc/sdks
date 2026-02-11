@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for. (optional)</param>
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMissionInviteApiResponse"/>&gt;</returns>
-        Task<ICreateMissionInviteApiResponse> CreateMissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<string> joinCode = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateMissionInviteApiResponse> CreateMissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<string> joinCode = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Mission Invite
@@ -61,7 +60,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for. (optional)</param>
@@ -69,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMissionInviteApiResponse"/>?&gt;</returns>
-        Task<ICreateMissionInviteApiResponse?> CreateMissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<string> joinCode = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateMissionInviteApiResponse?> CreateMissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<string> joinCode = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Mission Invite
@@ -78,7 +76,6 @@ namespace Org.OpenAPITools.Api
         /// Update the mission invite status to quit.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional)</param>
@@ -86,7 +83,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMissionInviteApiResponse"/>&gt;</returns>
-        Task<IDeleteMissionInviteApiResponse> DeleteMissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteMissionInviteApiResponse> DeleteMissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Mission Invite
@@ -94,7 +91,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the mission invite status to quit.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional)</param>
@@ -102,7 +98,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMissionInviteApiResponse"/>?&gt;</returns>
-        Task<IDeleteMissionInviteApiResponse?> DeleteMissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteMissionInviteApiResponse?> DeleteMissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Mission Invite
@@ -111,7 +107,6 @@ namespace Org.OpenAPITools.Api
         /// Get the mission invite. An account can only be invited to a mission one time.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional)</param>
@@ -120,7 +115,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeScores">include the scores with the mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMissionInviteApiResponse"/>&gt;</returns>
-        Task<IGetMissionInviteApiResponse> GetMissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, Option<string> includeScores = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMissionInviteApiResponse> GetMissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, Option<string> includeScores = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Mission Invite
@@ -128,7 +123,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the mission invite. An account can only be invited to a mission one time.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional)</param>
@@ -137,7 +131,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeScores">include the scores with the mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMissionInviteApiResponse"/>?&gt;</returns>
-        Task<IGetMissionInviteApiResponse?> GetMissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, Option<string> includeScores = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMissionInviteApiResponse?> GetMissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, Option<string> includeScores = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Mission Invites
@@ -146,7 +140,6 @@ namespace Org.OpenAPITools.Api
         /// Get a list of mission invites that the account has.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="appKey">the app to retrieve the data for, use your application key. (optional)</param>
@@ -162,7 +155,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionInvitesApiResponse"/>&gt;</returns>
-        Task<ISearchMissionInvitesApiResponse> SearchMissionInvitesAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<long> missionId = default, Option<string> status = default, Option<long> lastUpdated = default, Option<int> start = default, Option<int> limit = default, Option<string> keyword = default, Option<string> missionTypes = default, Option<bool> filterByBillable = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMissionInvitesApiResponse> SearchMissionInvitesAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<long> missionId = default, Option<string> status = default, Option<long> lastUpdated = default, Option<int> start = default, Option<int> limit = default, Option<string> keyword = default, Option<string> missionTypes = default, Option<bool> filterByBillable = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Mission Invites
@@ -170,7 +163,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list of mission invites that the account has.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="appKey">the app to retrieve the data for, use your application key. (optional)</param>
@@ -186,7 +178,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionInvitesApiResponse"/>?&gt;</returns>
-        Task<ISearchMissionInvitesApiResponse?> SearchMissionInvitesOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<long> missionId = default, Option<string> status = default, Option<long> lastUpdated = default, Option<int> start = default, Option<int> limit = default, Option<string> keyword = default, Option<string> missionTypes = default, Option<bool> filterByBillable = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchMissionInvitesApiResponse?> SearchMissionInvitesOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<long> missionId = default, Option<string> status = default, Option<long> lastUpdated = default, Option<int> start = default, Option<int> limit = default, Option<string> keyword = default, Option<string> missionTypes = default, Option<bool> filterByBillable = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Mission Invite
@@ -195,7 +187,6 @@ namespace Org.OpenAPITools.Api
         /// Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="appKey">the application key (optional)</param>
@@ -209,7 +200,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMissionInviteApiResponse"/>&gt;</returns>
-        Task<IUpdateMissionInviteApiResponse> UpdateMissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<string> status = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateMissionInviteApiResponse> UpdateMissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<string> status = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Mission Invite
@@ -217,7 +208,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="appKey">the application key (optional)</param>
@@ -231,7 +221,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMissionInviteApiResponse"/>?&gt;</returns>
-        Task<IUpdateMissionInviteApiResponse?> UpdateMissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<string> status = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateMissionInviteApiResponse?> UpdateMissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<string> status = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -447,7 +437,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateMissionInvite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> missionId, ref Option<string> joinCode, ref Option<bool> includeGameData);
+        partial void FormatCreateMissionInvite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> missionId, ref Option<string> joinCode, ref Option<bool> includeGameData);
 
         /// <summary>
         /// Validates the request parameters
@@ -468,16 +458,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="joinCode"></param>
         /// <param name="includeGameData"></param>
-        private void AfterCreateMissionInviteDefaultImplementation(ICreateMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<string> joinCode, Option<bool> includeGameData)
+        private void AfterCreateMissionInviteDefaultImplementation(ICreateMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<string> joinCode, Option<bool> includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterCreateMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, missionId, joinCode, includeGameData);
+            AfterCreateMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, missionId, joinCode, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -487,13 +476,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="joinCode"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterCreateMissionInvite(ref bool suppressDefaultLog, ICreateMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<string> joinCode, Option<bool> includeGameData);
+        partial void AfterCreateMissionInvite(ref bool suppressDefaultLog, ICreateMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<string> joinCode, Option<bool> includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -501,16 +489,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="joinCode"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorCreateMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<string> joinCode, Option<bool> includeGameData)
+        private void OnErrorCreateMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<string> joinCode, Option<bool> includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, missionId, joinCode, includeGameData);
+            OnErrorCreateMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, missionId, joinCode, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -522,18 +509,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="joinCode"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorCreateMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<string> joinCode, Option<bool> includeGameData);
+        partial void OnErrorCreateMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<string> joinCode, Option<bool> includeGameData);
 
         /// <summary>
         /// Create Mission Invite Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for. (optional)</param>
@@ -541,11 +526,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<ICreateMissionInviteApiResponse?> CreateMissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<string> joinCode = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateMissionInviteApiResponse?> CreateMissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<string> joinCode = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateMissionInviteAsync(version, deviceId, accountId, missionId, joinCode, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await CreateMissionInviteAsync(deviceId, accountId, missionId, joinCode, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -557,7 +542,6 @@ namespace Org.OpenAPITools.Api
         /// Create Mission Invite Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for. (optional)</param>
@@ -565,7 +549,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<ICreateMissionInviteApiResponse> CreateMissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<string> joinCode = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateMissionInviteApiResponse> CreateMissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<string> joinCode = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -573,7 +557,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateMissionInvite(deviceId, joinCode);
 
-                FormatCreateMissionInvite(ref version, ref deviceId, ref accountId, ref missionId, ref joinCode, ref includeGameData);
+                FormatCreateMissionInvite(ref deviceId, ref accountId, ref missionId, ref joinCode, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -581,9 +565,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/invite/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/invite/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/invite/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/invite/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -627,13 +610,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/invite/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/invite/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateMissionInviteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, missionId, joinCode, includeGameData);
+                        AfterCreateMissionInviteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, missionId, joinCode, includeGameData);
 
                         Events.ExecuteOnCreateMissionInvite(apiResponseLocalVar);
 
@@ -643,7 +626,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateMissionInviteDefaultImplementation(e, "/api/{version}/mission/invite/create", uriBuilderLocalVar.Path, version, deviceId, accountId, missionId, joinCode, includeGameData);
+                OnErrorCreateMissionInviteDefaultImplementation(e, "/mission/invite/create", uriBuilderLocalVar.Path, deviceId, accountId, missionId, joinCode, includeGameData);
                 Events.ExecuteOnErrorCreateMissionInvite(e);
                 throw;
             }
@@ -742,7 +725,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteMissionInvite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> missionId, ref Option<long> missionInviteId, ref Option<bool> includeGameData);
+        partial void FormatDeleteMissionInvite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> missionId, ref Option<long> missionInviteId, ref Option<bool> includeGameData);
 
         /// <summary>
         /// Validates the request parameters
@@ -759,16 +742,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="missionInviteId"></param>
         /// <param name="includeGameData"></param>
-        private void AfterDeleteMissionInviteDefaultImplementation(IDeleteMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData)
+        private void AfterDeleteMissionInviteDefaultImplementation(IDeleteMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, missionId, missionInviteId, includeGameData);
+            AfterDeleteMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, missionId, missionInviteId, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -778,13 +760,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="missionInviteId"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterDeleteMissionInvite(ref bool suppressDefaultLog, IDeleteMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData);
+        partial void AfterDeleteMissionInvite(ref bool suppressDefaultLog, IDeleteMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -792,16 +773,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="missionInviteId"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorDeleteMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData)
+        private void OnErrorDeleteMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, missionId, missionInviteId, includeGameData);
+            OnErrorDeleteMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, missionId, missionInviteId, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -813,18 +793,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="missionInviteId"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorDeleteMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData);
+        partial void OnErrorDeleteMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData);
 
         /// <summary>
         /// Delete Mission Invite Update the mission invite status to quit.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional)</param>
@@ -832,11 +810,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<IDeleteMissionInviteApiResponse?> DeleteMissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteMissionInviteApiResponse?> DeleteMissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteMissionInviteAsync(version, deviceId, accountId, missionId, missionInviteId, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await DeleteMissionInviteAsync(deviceId, accountId, missionId, missionInviteId, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -848,7 +826,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Mission Invite Update the mission invite status to quit.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional)</param>
@@ -856,7 +833,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<IDeleteMissionInviteApiResponse> DeleteMissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteMissionInviteApiResponse> DeleteMissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -864,7 +841,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteMissionInvite(deviceId);
 
-                FormatDeleteMissionInvite(ref version, ref deviceId, ref accountId, ref missionId, ref missionInviteId, ref includeGameData);
+                FormatDeleteMissionInvite(ref deviceId, ref accountId, ref missionId, ref missionInviteId, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -872,9 +849,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/invite/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/invite/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/invite/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/invite/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -918,13 +894,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/invite/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/invite/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteMissionInviteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, missionId, missionInviteId, includeGameData);
+                        AfterDeleteMissionInviteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, missionId, missionInviteId, includeGameData);
 
                         Events.ExecuteOnDeleteMissionInvite(apiResponseLocalVar);
 
@@ -934,7 +910,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteMissionInviteDefaultImplementation(e, "/api/{version}/mission/invite/delete", uriBuilderLocalVar.Path, version, deviceId, accountId, missionId, missionInviteId, includeGameData);
+                OnErrorDeleteMissionInviteDefaultImplementation(e, "/mission/invite/delete", uriBuilderLocalVar.Path, deviceId, accountId, missionId, missionInviteId, includeGameData);
                 Events.ExecuteOnErrorDeleteMissionInvite(e);
                 throw;
             }
@@ -1033,7 +1009,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetMissionInvite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> missionId, ref Option<long> missionInviteId, ref Option<bool> includeGameData, ref Option<string> includeScores);
+        partial void FormatGetMissionInvite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> missionId, ref Option<long> missionInviteId, ref Option<bool> includeGameData, ref Option<string> includeScores);
 
         /// <summary>
         /// Validates the request parameters
@@ -1054,17 +1030,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="missionInviteId"></param>
         /// <param name="includeGameData"></param>
         /// <param name="includeScores"></param>
-        private void AfterGetMissionInviteDefaultImplementation(IGetMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData, Option<string> includeScores)
+        private void AfterGetMissionInviteDefaultImplementation(IGetMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData, Option<string> includeScores)
         {
             bool suppressDefaultLog = false;
-            AfterGetMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
+            AfterGetMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1074,14 +1049,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="missionInviteId"></param>
         /// <param name="includeGameData"></param>
         /// <param name="includeScores"></param>
-        partial void AfterGetMissionInvite(ref bool suppressDefaultLog, IGetMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData, Option<string> includeScores);
+        partial void AfterGetMissionInvite(ref bool suppressDefaultLog, IGetMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData, Option<string> includeScores);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1089,17 +1063,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="missionInviteId"></param>
         /// <param name="includeGameData"></param>
         /// <param name="includeScores"></param>
-        private void OnErrorGetMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData, Option<string> includeScores)
+        private void OnErrorGetMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData, Option<string> includeScores)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
+            OnErrorGetMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1111,19 +1084,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="missionInviteId"></param>
         /// <param name="includeGameData"></param>
         /// <param name="includeScores"></param>
-        partial void OnErrorGetMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData, Option<string> includeScores);
+        partial void OnErrorGetMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> missionId, Option<long> missionInviteId, Option<bool> includeGameData, Option<string> includeScores);
 
         /// <summary>
         /// Get Mission Invite Get the mission invite. An account can only be invited to a mission one time.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional)</param>
@@ -1132,11 +1103,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeScores">include the scores with the mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<IGetMissionInviteApiResponse?> GetMissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, Option<string> includeScores = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMissionInviteApiResponse?> GetMissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, Option<string> includeScores = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetMissionInviteAsync(version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores, cancellationToken).ConfigureAwait(false);
+                return await GetMissionInviteAsync(deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1148,7 +1119,6 @@ namespace Org.OpenAPITools.Api
         /// Get Mission Invite Get the mission invite. An account can only be invited to a mission one time.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional)</param>
@@ -1157,7 +1127,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeScores">include the scores with the mission (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<IGetMissionInviteApiResponse> GetMissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, Option<string> includeScores = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMissionInviteApiResponse> GetMissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<bool> includeGameData = default, Option<string> includeScores = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1165,7 +1135,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetMissionInvite(deviceId, includeScores);
 
-                FormatGetMissionInvite(ref version, ref deviceId, ref accountId, ref missionId, ref missionInviteId, ref includeGameData, ref includeScores);
+                FormatGetMissionInvite(ref deviceId, ref accountId, ref missionId, ref missionInviteId, ref includeGameData, ref includeScores);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1173,9 +1143,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/invite/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/invite/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/invite/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/invite/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1222,13 +1191,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/invite/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/invite/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetMissionInviteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
+                        AfterGetMissionInviteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
 
                         Events.ExecuteOnGetMissionInvite(apiResponseLocalVar);
 
@@ -1238,7 +1207,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetMissionInviteDefaultImplementation(e, "/api/{version}/mission/invite/get", uriBuilderLocalVar.Path, version, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
+                OnErrorGetMissionInviteDefaultImplementation(e, "/mission/invite/get", uriBuilderLocalVar.Path, deviceId, accountId, missionId, missionInviteId, includeGameData, includeScores);
                 Events.ExecuteOnErrorGetMissionInvite(e);
                 throw;
             }
@@ -1337,7 +1306,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchMissionInvites(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> appVersion, ref Option<long> missionId, ref Option<string> status, ref Option<long> lastUpdated, ref Option<int> start, ref Option<int> limit, ref Option<string> keyword, ref Option<string> missionTypes, ref Option<bool> filterByBillable, ref Option<bool> includeGameData);
+        partial void FormatSearchMissionInvites(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> appVersion, ref Option<long> missionId, ref Option<string> status, ref Option<long> lastUpdated, ref Option<int> start, ref Option<int> limit, ref Option<string> keyword, ref Option<string> missionTypes, ref Option<bool> filterByBillable, ref Option<bool> includeGameData);
 
         /// <summary>
         /// Validates the request parameters
@@ -1374,7 +1343,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1388,10 +1356,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionTypes"></param>
         /// <param name="filterByBillable"></param>
         /// <param name="includeGameData"></param>
-        private void AfterSearchMissionInvitesDefaultImplementation(ISearchMissionInvitesApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> appVersion, Option<long> missionId, Option<string> status, Option<long> lastUpdated, Option<int> start, Option<int> limit, Option<string> keyword, Option<string> missionTypes, Option<bool> filterByBillable, Option<bool> includeGameData)
+        private void AfterSearchMissionInvitesDefaultImplementation(ISearchMissionInvitesApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> appVersion, Option<long> missionId, Option<string> status, Option<long> lastUpdated, Option<int> start, Option<int> limit, Option<string> keyword, Option<string> missionTypes, Option<bool> filterByBillable, Option<bool> includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterSearchMissionInvites(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
+            AfterSearchMissionInvites(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1401,7 +1369,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1415,7 +1382,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionTypes"></param>
         /// <param name="filterByBillable"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterSearchMissionInvites(ref bool suppressDefaultLog, ISearchMissionInvitesApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> appVersion, Option<long> missionId, Option<string> status, Option<long> lastUpdated, Option<int> start, Option<int> limit, Option<string> keyword, Option<string> missionTypes, Option<bool> filterByBillable, Option<bool> includeGameData);
+        partial void AfterSearchMissionInvites(ref bool suppressDefaultLog, ISearchMissionInvitesApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> appVersion, Option<long> missionId, Option<string> status, Option<long> lastUpdated, Option<int> start, Option<int> limit, Option<string> keyword, Option<string> missionTypes, Option<bool> filterByBillable, Option<bool> includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1423,7 +1390,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1437,10 +1403,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionTypes"></param>
         /// <param name="filterByBillable"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorSearchMissionInvitesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> appVersion, Option<long> missionId, Option<string> status, Option<long> lastUpdated, Option<int> start, Option<int> limit, Option<string> keyword, Option<string> missionTypes, Option<bool> filterByBillable, Option<bool> includeGameData)
+        private void OnErrorSearchMissionInvitesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> appVersion, Option<long> missionId, Option<string> status, Option<long> lastUpdated, Option<int> start, Option<int> limit, Option<string> keyword, Option<string> missionTypes, Option<bool> filterByBillable, Option<bool> includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchMissionInvites(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
+            OnErrorSearchMissionInvites(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1452,7 +1418,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1466,12 +1431,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="missionTypes"></param>
         /// <param name="filterByBillable"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorSearchMissionInvites(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> appVersion, Option<long> missionId, Option<string> status, Option<long> lastUpdated, Option<int> start, Option<int> limit, Option<string> keyword, Option<string> missionTypes, Option<bool> filterByBillable, Option<bool> includeGameData);
+        partial void OnErrorSearchMissionInvites(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> appVersion, Option<long> missionId, Option<string> status, Option<long> lastUpdated, Option<int> start, Option<int> limit, Option<string> keyword, Option<string> missionTypes, Option<bool> filterByBillable, Option<bool> includeGameData);
 
         /// <summary>
         /// Search Mission Invites Get a list of mission invites that the account has.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="appKey">the app to retrieve the data for, use your application key. (optional)</param>
@@ -1487,11 +1451,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionInvitesApiResponse"/>&gt;</returns>
-        public async Task<ISearchMissionInvitesApiResponse?> SearchMissionInvitesOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<long> missionId = default, Option<string> status = default, Option<long> lastUpdated = default, Option<int> start = default, Option<int> limit = default, Option<string> keyword = default, Option<string> missionTypes = default, Option<bool> filterByBillable = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMissionInvitesApiResponse?> SearchMissionInvitesOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<long> missionId = default, Option<string> status = default, Option<long> lastUpdated = default, Option<int> start = default, Option<int> limit = default, Option<string> keyword = default, Option<string> missionTypes = default, Option<bool> filterByBillable = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchMissionInvitesAsync(version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await SearchMissionInvitesAsync(deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1503,7 +1467,6 @@ namespace Org.OpenAPITools.Api
         /// Search Mission Invites Get a list of mission invites that the account has.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="appKey">the app to retrieve the data for, use your application key. (optional)</param>
@@ -1519,7 +1482,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchMissionInvitesApiResponse"/>&gt;</returns>
-        public async Task<ISearchMissionInvitesApiResponse> SearchMissionInvitesAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<long> missionId = default, Option<string> status = default, Option<long> lastUpdated = default, Option<int> start = default, Option<int> limit = default, Option<string> keyword = default, Option<string> missionTypes = default, Option<bool> filterByBillable = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchMissionInvitesApiResponse> SearchMissionInvitesAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> appVersion = default, Option<long> missionId = default, Option<string> status = default, Option<long> lastUpdated = default, Option<int> start = default, Option<int> limit = default, Option<string> keyword = default, Option<string> missionTypes = default, Option<bool> filterByBillable = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1527,7 +1490,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchMissionInvites(deviceId, appKey, appVersion, status, keyword, missionTypes);
 
-                FormatSearchMissionInvites(ref version, ref deviceId, ref accountId, ref appKey, ref appVersion, ref missionId, ref status, ref lastUpdated, ref start, ref limit, ref keyword, ref missionTypes, ref filterByBillable, ref includeGameData);
+                FormatSearchMissionInvites(ref deviceId, ref accountId, ref appKey, ref appVersion, ref missionId, ref status, ref lastUpdated, ref start, ref limit, ref keyword, ref missionTypes, ref filterByBillable, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1535,9 +1498,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/invite/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/invite/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/invite/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/invite/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1605,13 +1567,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/invite/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/invite/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchMissionInvitesDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
+                        AfterSearchMissionInvitesDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
 
                         Events.ExecuteOnSearchMissionInvites(apiResponseLocalVar);
 
@@ -1621,7 +1583,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchMissionInvitesDefaultImplementation(e, "/api/{version}/mission/invite/search", uriBuilderLocalVar.Path, version, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
+                OnErrorSearchMissionInvitesDefaultImplementation(e, "/mission/invite/search", uriBuilderLocalVar.Path, deviceId, accountId, appKey, appVersion, missionId, status, lastUpdated, start, limit, keyword, missionTypes, filterByBillable, includeGameData);
                 Events.ExecuteOnErrorSearchMissionInvites(e);
                 throw;
             }
@@ -1720,7 +1682,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateMissionInvite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<long> missionId, ref Option<long> missionInviteId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<string> status, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<bool> includeGameData);
+        partial void FormatUpdateMissionInvite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<long> missionId, ref Option<long> missionInviteId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<string> status, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<bool> includeGameData);
 
         /// <summary>
         /// Validates the request parameters
@@ -1749,7 +1711,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1761,10 +1722,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="includeGameData"></param>
-        private void AfterUpdateMissionInviteDefaultImplementation(IUpdateMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> missionId, Option<long> missionInviteId, Option<long> packId, Option<long> gameLevelId, Option<string> status, Option<string> permissionableType, Option<long> permissionableId, Option<bool> includeGameData)
+        private void AfterUpdateMissionInviteDefaultImplementation(IUpdateMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> missionId, Option<long> missionInviteId, Option<long> packId, Option<long> gameLevelId, Option<string> status, Option<string> permissionableType, Option<long> permissionableId, Option<bool> includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
+            AfterUpdateMissionInvite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1774,7 +1735,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1786,7 +1746,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterUpdateMissionInvite(ref bool suppressDefaultLog, IUpdateMissionInviteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> missionId, Option<long> missionInviteId, Option<long> packId, Option<long> gameLevelId, Option<string> status, Option<string> permissionableType, Option<long> permissionableId, Option<bool> includeGameData);
+        partial void AfterUpdateMissionInvite(ref bool suppressDefaultLog, IUpdateMissionInviteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> missionId, Option<long> missionInviteId, Option<long> packId, Option<long> gameLevelId, Option<string> status, Option<string> permissionableType, Option<long> permissionableId, Option<bool> includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1794,7 +1754,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1806,10 +1765,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorUpdateMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> missionId, Option<long> missionInviteId, Option<long> packId, Option<long> gameLevelId, Option<string> status, Option<string> permissionableType, Option<long> permissionableId, Option<bool> includeGameData)
+        private void OnErrorUpdateMissionInviteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> missionId, Option<long> missionInviteId, Option<long> packId, Option<long> gameLevelId, Option<string> status, Option<string> permissionableType, Option<long> permissionableId, Option<bool> includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
+            OnErrorUpdateMissionInvite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1821,7 +1780,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1833,12 +1791,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorUpdateMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> missionId, Option<long> missionInviteId, Option<long> packId, Option<long> gameLevelId, Option<string> status, Option<string> permissionableType, Option<long> permissionableId, Option<bool> includeGameData);
+        partial void OnErrorUpdateMissionInvite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<long> missionId, Option<long> missionInviteId, Option<long> packId, Option<long> gameLevelId, Option<string> status, Option<string> permissionableType, Option<long> permissionableId, Option<bool> includeGameData);
 
         /// <summary>
         /// Update Mission Invite Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="appKey">the application key (optional)</param>
@@ -1852,11 +1809,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<IUpdateMissionInviteApiResponse?> UpdateMissionInviteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<string> status = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateMissionInviteApiResponse?> UpdateMissionInviteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<string> status = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateMissionInviteAsync(version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await UpdateMissionInviteAsync(deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1868,7 +1825,6 @@ namespace Org.OpenAPITools.Api
         /// Update Mission Invite Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="appKey">the application key (optional)</param>
@@ -1882,7 +1838,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Include the game level data with the mission. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateMissionInviteApiResponse"/>&gt;</returns>
-        public async Task<IUpdateMissionInviteApiResponse> UpdateMissionInviteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<string> status = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateMissionInviteApiResponse> UpdateMissionInviteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<long> missionId = default, Option<long> missionInviteId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<string> status = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1890,7 +1846,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateMissionInvite(deviceId, appKey, status, permissionableType);
 
-                FormatUpdateMissionInvite(ref version, ref deviceId, ref accountId, ref appKey, ref missionId, ref missionInviteId, ref packId, ref gameLevelId, ref status, ref permissionableType, ref permissionableId, ref includeGameData);
+                FormatUpdateMissionInvite(ref deviceId, ref accountId, ref appKey, ref missionId, ref missionInviteId, ref packId, ref gameLevelId, ref status, ref permissionableType, ref permissionableId, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1898,9 +1854,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/mission/invite/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/mission/invite/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/mission/invite/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mission/invite/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1962,13 +1917,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/mission/invite/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mission/invite/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateMissionInviteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
+                        AfterUpdateMissionInviteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
 
                         Events.ExecuteOnUpdateMissionInvite(apiResponseLocalVar);
 
@@ -1978,7 +1933,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateMissionInviteDefaultImplementation(e, "/api/{version}/mission/invite/update", uriBuilderLocalVar.Path, version, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
+                OnErrorUpdateMissionInviteDefaultImplementation(e, "/mission/invite/update", uriBuilderLocalVar.Path, deviceId, accountId, appKey, missionId, missionInviteId, packId, gameLevelId, status, permissionableType, permissionableId, includeGameData);
                 Events.ExecuteOnErrorUpdateMissionInvite(e);
                 throw;
             }

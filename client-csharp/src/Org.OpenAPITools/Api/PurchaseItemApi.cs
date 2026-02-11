@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a purchase item for in app purchases
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key that the purchase can be used in</param>
         /// <param name="name">The name of the purchase item</param>
         /// <param name="purchaseType">The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;</param>
@@ -68,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePurchaseItemApiResponse"/>&gt;</returns>
-        Task<ICreatePurchaseItemApiResponse> CreatePurchaseItemAsync(decimal version, string appKey, string name, string purchaseType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePurchaseItemApiResponse> CreatePurchaseItemAsync(string appKey, string name, string purchaseType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Purchase
@@ -76,7 +75,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a purchase item for in app purchases
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key that the purchase can be used in</param>
         /// <param name="name">The name of the purchase item</param>
         /// <param name="purchaseType">The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;</param>
@@ -99,7 +97,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePurchaseItemApiResponse"/>?&gt;</returns>
-        Task<ICreatePurchaseItemApiResponse?> CreatePurchaseItemOrDefaultAsync(decimal version, string appKey, string name, string purchaseType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePurchaseItemApiResponse?> CreatePurchaseItemOrDefaultAsync(string appKey, string name, string purchaseType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Purchase
@@ -108,13 +106,12 @@ namespace Org.OpenAPITools.Api
         /// Marks the purchase item as deleted
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePurchaseItemApiResponse"/>&gt;</returns>
-        Task<IDeletePurchaseItemApiResponse> DeletePurchaseItemAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePurchaseItemApiResponse> DeletePurchaseItemAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Purchase
@@ -122,13 +119,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Marks the purchase item as deleted
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePurchaseItemApiResponse"/>?&gt;</returns>
-        Task<IDeletePurchaseItemApiResponse?> DeletePurchaseItemOrDefaultAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePurchaseItemApiResponse?> DeletePurchaseItemOrDefaultAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Purchase
@@ -137,13 +133,12 @@ namespace Org.OpenAPITools.Api
         /// Get detailed information about a purchase item
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPurchaseItemApiResponse"/>&gt;</returns>
-        Task<IGetPurchaseItemApiResponse> GetPurchaseItemAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPurchaseItemApiResponse> GetPurchaseItemAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Purchase
@@ -151,13 +146,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get detailed information about a purchase item
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPurchaseItemApiResponse"/>?&gt;</returns>
-        Task<IGetPurchaseItemApiResponse?> GetPurchaseItemOrDefaultAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPurchaseItemApiResponse?> GetPurchaseItemOrDefaultAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Purchases
@@ -166,7 +160,6 @@ namespace Org.OpenAPITools.Api
         /// Search for purchasable items from the system
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key to filter results by application (optional)</param>
@@ -181,7 +174,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPurchaseItemsApiResponse"/>&gt;</returns>
-        Task<ISearchPurchaseItemsApiResponse> SearchPurchaseItemsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<bool> filterByBillable = default, Option<string> purchaseType = default, Option<string> serviceAction = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPurchaseItemsApiResponse> SearchPurchaseItemsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<bool> filterByBillable = default, Option<string> purchaseType = default, Option<string> serviceAction = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Purchases
@@ -189,7 +182,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for purchasable items from the system
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key to filter results by application (optional)</param>
@@ -204,7 +196,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPurchaseItemsApiResponse"/>?&gt;</returns>
-        Task<ISearchPurchaseItemsApiResponse?> SearchPurchaseItemsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<bool> filterByBillable = default, Option<string> purchaseType = default, Option<string> serviceAction = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPurchaseItemsApiResponse?> SearchPurchaseItemsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<bool> filterByBillable = default, Option<string> purchaseType = default, Option<string> serviceAction = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Purchase
@@ -213,7 +205,6 @@ namespace Org.OpenAPITools.Api
         /// Updates a purchase item for in app purchases
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -237,7 +228,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePurchaseItemApiResponse"/>&gt;</returns>
-        Task<IUpdatePurchaseItemApiResponse> UpdatePurchaseItemAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseType = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdatePurchaseItemApiResponse> UpdatePurchaseItemAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseType = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Purchase
@@ -245,7 +236,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a purchase item for in app purchases
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -269,7 +259,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePurchaseItemApiResponse"/>?&gt;</returns>
-        Task<IUpdatePurchaseItemApiResponse?> UpdatePurchaseItemOrDefaultAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseType = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdatePurchaseItemApiResponse?> UpdatePurchaseItemOrDefaultAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseType = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -485,7 +475,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreatePurchaseItem(ref decimal version, ref string appKey, ref string name, ref string purchaseType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> description, ref Option<int> tickets, ref Option<float> price, ref Option<string> purchaseCode, ref Option<string> secretKey, ref Option<int> purchaseLimit, ref Option<string> serviceAction, ref Option<long> coverAssetId, ref Option<long> promoAssetId, ref Option<bool> giftable, ref Option<bool> assetable, ref Option<bool> allocateTickets, ref Option<string> ticketType, ref Option<long> points, ref Option<long> offerLocationId);
+        partial void FormatCreatePurchaseItem(ref string appKey, ref string name, ref string purchaseType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> description, ref Option<int> tickets, ref Option<float> price, ref Option<string> purchaseCode, ref Option<string> secretKey, ref Option<int> purchaseLimit, ref Option<string> serviceAction, ref Option<long> coverAssetId, ref Option<long> promoAssetId, ref Option<bool> giftable, ref Option<bool> assetable, ref Option<bool> allocateTickets, ref Option<string> ticketType, ref Option<long> points, ref Option<long> offerLocationId);
 
         /// <summary>
         /// Validates the request parameters
@@ -534,7 +524,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="purchaseType"></param>
@@ -555,10 +544,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
         /// <param name="offerLocationId"></param>
-        private void AfterCreatePurchaseItemDefaultImplementation(ICreatePurchaseItemApiResponse apiResponseLocalVar, decimal version, string appKey, string name, string purchaseType, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId)
+        private void AfterCreatePurchaseItemDefaultImplementation(ICreatePurchaseItemApiResponse apiResponseLocalVar, string appKey, string name, string purchaseType, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId)
         {
             bool suppressDefaultLog = false;
-            AfterCreatePurchaseItem(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
+            AfterCreatePurchaseItem(ref suppressDefaultLog, apiResponseLocalVar, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -568,7 +557,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="purchaseType"></param>
@@ -589,7 +577,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
         /// <param name="offerLocationId"></param>
-        partial void AfterCreatePurchaseItem(ref bool suppressDefaultLog, ICreatePurchaseItemApiResponse apiResponseLocalVar, decimal version, string appKey, string name, string purchaseType, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId);
+        partial void AfterCreatePurchaseItem(ref bool suppressDefaultLog, ICreatePurchaseItemApiResponse apiResponseLocalVar, string appKey, string name, string purchaseType, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -597,7 +585,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="purchaseType"></param>
@@ -618,10 +605,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
         /// <param name="offerLocationId"></param>
-        private void OnErrorCreatePurchaseItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string name, string purchaseType, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId)
+        private void OnErrorCreatePurchaseItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string name, string purchaseType, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreatePurchaseItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
+            OnErrorCreatePurchaseItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -633,7 +620,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="purchaseType"></param>
@@ -654,12 +640,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
         /// <param name="offerLocationId"></param>
-        partial void OnErrorCreatePurchaseItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string name, string purchaseType, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId);
+        partial void OnErrorCreatePurchaseItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string name, string purchaseType, Option<string> deviceId, Option<long> accountId, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId);
 
         /// <summary>
         /// Create Purchase Creates a purchase item for in app purchases
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key that the purchase can be used in</param>
         /// <param name="name">The name of the purchase item</param>
         /// <param name="purchaseType">The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;</param>
@@ -682,11 +667,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePurchaseItemApiResponse"/>&gt;</returns>
-        public async Task<ICreatePurchaseItemApiResponse?> CreatePurchaseItemOrDefaultAsync(decimal version, string appKey, string name, string purchaseType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePurchaseItemApiResponse?> CreatePurchaseItemOrDefaultAsync(string appKey, string name, string purchaseType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreatePurchaseItemAsync(version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId, cancellationToken).ConfigureAwait(false);
+                return await CreatePurchaseItemAsync(appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -698,7 +683,6 @@ namespace Org.OpenAPITools.Api
         /// Create Purchase Creates a purchase item for in app purchases
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key that the purchase can be used in</param>
         /// <param name="name">The name of the purchase item</param>
         /// <param name="purchaseType">The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;</param>
@@ -721,7 +705,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePurchaseItemApiResponse"/>&gt;</returns>
-        public async Task<ICreatePurchaseItemApiResponse> CreatePurchaseItemAsync(decimal version, string appKey, string name, string purchaseType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePurchaseItemApiResponse> CreatePurchaseItemAsync(string appKey, string name, string purchaseType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -729,7 +713,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreatePurchaseItem(appKey, name, purchaseType, deviceId, description, purchaseCode, secretKey, serviceAction, ticketType);
 
-                FormatCreatePurchaseItem(ref version, ref appKey, ref name, ref purchaseType, ref deviceId, ref accountId, ref description, ref tickets, ref price, ref purchaseCode, ref secretKey, ref purchaseLimit, ref serviceAction, ref coverAssetId, ref promoAssetId, ref giftable, ref assetable, ref allocateTickets, ref ticketType, ref points, ref offerLocationId);
+                FormatCreatePurchaseItem(ref appKey, ref name, ref purchaseType, ref deviceId, ref accountId, ref description, ref tickets, ref price, ref purchaseCode, ref secretKey, ref purchaseLimit, ref serviceAction, ref coverAssetId, ref promoAssetId, ref giftable, ref assetable, ref allocateTickets, ref ticketType, ref points, ref offerLocationId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -737,9 +721,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/purchase/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/purchase/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/purchase/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/purchase/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -823,13 +806,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/purchase/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/purchase/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreatePurchaseItemDefaultImplementation(apiResponseLocalVar, version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
+                        AfterCreatePurchaseItemDefaultImplementation(apiResponseLocalVar, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
 
                         Events.ExecuteOnCreatePurchaseItem(apiResponseLocalVar);
 
@@ -839,7 +822,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreatePurchaseItemDefaultImplementation(e, "/api/{version}/purchase/create", uriBuilderLocalVar.Path, version, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
+                OnErrorCreatePurchaseItemDefaultImplementation(e, "/purchase/create", uriBuilderLocalVar.Path, appKey, name, purchaseType, deviceId, accountId, description, tickets, price, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, allocateTickets, ticketType, points, offerLocationId);
                 Events.ExecuteOnErrorCreatePurchaseItem(e);
                 throw;
             }
@@ -938,7 +921,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeletePurchaseItem(ref decimal version, ref long purchaseItemId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeletePurchaseItem(ref long purchaseItemId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -955,14 +938,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeletePurchaseItemDefaultImplementation(IDeletePurchaseItemApiResponse apiResponseLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeletePurchaseItemDefaultImplementation(IDeletePurchaseItemApiResponse apiResponseLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeletePurchaseItem(ref suppressDefaultLog, apiResponseLocalVar, version, purchaseItemId, deviceId, accountId);
+            AfterDeletePurchaseItem(ref suppressDefaultLog, apiResponseLocalVar, purchaseItemId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -972,11 +954,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeletePurchaseItem(ref bool suppressDefaultLog, IDeletePurchaseItemApiResponse apiResponseLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeletePurchaseItem(ref bool suppressDefaultLog, IDeletePurchaseItemApiResponse apiResponseLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -984,14 +965,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeletePurchaseItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeletePurchaseItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeletePurchaseItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, purchaseItemId, deviceId, accountId);
+            OnErrorDeletePurchaseItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, purchaseItemId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1003,26 +983,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeletePurchaseItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeletePurchaseItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Purchase Marks the purchase item as deleted
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePurchaseItemApiResponse"/>&gt;</returns>
-        public async Task<IDeletePurchaseItemApiResponse?> DeletePurchaseItemOrDefaultAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePurchaseItemApiResponse?> DeletePurchaseItemOrDefaultAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeletePurchaseItemAsync(version, purchaseItemId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeletePurchaseItemAsync(purchaseItemId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1034,13 +1012,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Purchase Marks the purchase item as deleted
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePurchaseItemApiResponse"/>&gt;</returns>
-        public async Task<IDeletePurchaseItemApiResponse> DeletePurchaseItemAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePurchaseItemApiResponse> DeletePurchaseItemAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1048,7 +1025,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeletePurchaseItem(deviceId);
 
-                FormatDeletePurchaseItem(ref version, ref purchaseItemId, ref deviceId, ref accountId);
+                FormatDeletePurchaseItem(ref purchaseItemId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1056,9 +1033,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/purchase/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/purchase/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/purchase/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/purchase/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1095,13 +1071,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/purchase/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/purchase/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeletePurchaseItemDefaultImplementation(apiResponseLocalVar, version, purchaseItemId, deviceId, accountId);
+                        AfterDeletePurchaseItemDefaultImplementation(apiResponseLocalVar, purchaseItemId, deviceId, accountId);
 
                         Events.ExecuteOnDeletePurchaseItem(apiResponseLocalVar);
 
@@ -1111,7 +1087,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeletePurchaseItemDefaultImplementation(e, "/api/{version}/purchase/delete", uriBuilderLocalVar.Path, version, purchaseItemId, deviceId, accountId);
+                OnErrorDeletePurchaseItemDefaultImplementation(e, "/purchase/delete", uriBuilderLocalVar.Path, purchaseItemId, deviceId, accountId);
                 Events.ExecuteOnErrorDeletePurchaseItem(e);
                 throw;
             }
@@ -1210,7 +1186,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPurchaseItem(ref decimal version, ref long purchaseItemId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatGetPurchaseItem(ref long purchaseItemId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1227,14 +1203,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetPurchaseItemDefaultImplementation(IGetPurchaseItemApiResponse apiResponseLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId)
+        private void AfterGetPurchaseItemDefaultImplementation(IGetPurchaseItemApiResponse apiResponseLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetPurchaseItem(ref suppressDefaultLog, apiResponseLocalVar, version, purchaseItemId, deviceId, accountId);
+            AfterGetPurchaseItem(ref suppressDefaultLog, apiResponseLocalVar, purchaseItemId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1244,11 +1219,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetPurchaseItem(ref bool suppressDefaultLog, IGetPurchaseItemApiResponse apiResponseLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterGetPurchaseItem(ref bool suppressDefaultLog, IGetPurchaseItemApiResponse apiResponseLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1256,14 +1230,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetPurchaseItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorGetPurchaseItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPurchaseItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, purchaseItemId, deviceId, accountId);
+            OnErrorGetPurchaseItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, purchaseItemId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1275,26 +1248,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetPurchaseItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorGetPurchaseItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Get Purchase Get detailed information about a purchase item
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPurchaseItemApiResponse"/>&gt;</returns>
-        public async Task<IGetPurchaseItemApiResponse?> GetPurchaseItemOrDefaultAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPurchaseItemApiResponse?> GetPurchaseItemOrDefaultAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPurchaseItemAsync(version, purchaseItemId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetPurchaseItemAsync(purchaseItemId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1306,13 +1277,12 @@ namespace Org.OpenAPITools.Api
         /// Get Purchase Get detailed information about a purchase item
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPurchaseItemApiResponse"/>&gt;</returns>
-        public async Task<IGetPurchaseItemApiResponse> GetPurchaseItemAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPurchaseItemApiResponse> GetPurchaseItemAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1320,7 +1290,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetPurchaseItem(deviceId);
 
-                FormatGetPurchaseItem(ref version, ref purchaseItemId, ref deviceId, ref accountId);
+                FormatGetPurchaseItem(ref purchaseItemId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1328,9 +1298,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/purchase/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/purchase/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/purchase/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/purchase/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1367,13 +1336,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/purchase/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/purchase/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPurchaseItemDefaultImplementation(apiResponseLocalVar, version, purchaseItemId, deviceId, accountId);
+                        AfterGetPurchaseItemDefaultImplementation(apiResponseLocalVar, purchaseItemId, deviceId, accountId);
 
                         Events.ExecuteOnGetPurchaseItem(apiResponseLocalVar);
 
@@ -1383,7 +1352,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPurchaseItemDefaultImplementation(e, "/api/{version}/purchase/get", uriBuilderLocalVar.Path, version, purchaseItemId, deviceId, accountId);
+                OnErrorGetPurchaseItemDefaultImplementation(e, "/purchase/get", uriBuilderLocalVar.Path, purchaseItemId, deviceId, accountId);
                 Events.ExecuteOnErrorGetPurchaseItem(e);
                 throw;
             }
@@ -1482,7 +1451,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchPurchaseItems(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<bool> filterByBillable, ref Option<string> purchaseType, ref Option<string> serviceAction, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
+        partial void FormatSearchPurchaseItems(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<bool> filterByBillable, ref Option<string> purchaseType, ref Option<string> serviceAction, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -1519,7 +1488,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1532,10 +1500,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchPurchaseItemsDefaultImplementation(ISearchPurchaseItemsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<bool> filterByBillable, Option<string> purchaseType, Option<string> serviceAction, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void AfterSearchPurchaseItemsDefaultImplementation(ISearchPurchaseItemsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<bool> filterByBillable, Option<string> purchaseType, Option<string> serviceAction, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchPurchaseItems(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
+            AfterSearchPurchaseItems(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1545,7 +1513,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1558,7 +1525,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchPurchaseItems(ref bool suppressDefaultLog, ISearchPurchaseItemsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<bool> filterByBillable, Option<string> purchaseType, Option<string> serviceAction, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void AfterSearchPurchaseItems(ref bool suppressDefaultLog, ISearchPurchaseItemsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<bool> filterByBillable, Option<string> purchaseType, Option<string> serviceAction, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1566,7 +1533,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1579,10 +1545,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchPurchaseItemsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<bool> filterByBillable, Option<string> purchaseType, Option<string> serviceAction, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void OnErrorSearchPurchaseItemsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<bool> filterByBillable, Option<string> purchaseType, Option<string> serviceAction, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchPurchaseItems(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
+            OnErrorSearchPurchaseItems(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1594,7 +1560,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1607,12 +1572,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchPurchaseItems(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<bool> filterByBillable, Option<string> purchaseType, Option<string> serviceAction, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void OnErrorSearchPurchaseItems(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<bool> filterByBillable, Option<string> purchaseType, Option<string> serviceAction, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Search Purchases Search for purchasable items from the system
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key to filter results by application (optional)</param>
@@ -1627,11 +1591,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPurchaseItemsApiResponse"/>&gt;</returns>
-        public async Task<ISearchPurchaseItemsApiResponse?> SearchPurchaseItemsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<bool> filterByBillable = default, Option<string> purchaseType = default, Option<string> serviceAction = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPurchaseItemsApiResponse?> SearchPurchaseItemsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<bool> filterByBillable = default, Option<string> purchaseType = default, Option<string> serviceAction = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchPurchaseItemsAsync(version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchPurchaseItemsAsync(deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1643,7 +1607,6 @@ namespace Org.OpenAPITools.Api
         /// Search Purchases Search for purchasable items from the system
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key to filter results by application (optional)</param>
@@ -1658,7 +1621,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPurchaseItemsApiResponse"/>&gt;</returns>
-        public async Task<ISearchPurchaseItemsApiResponse> SearchPurchaseItemsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<bool> filterByBillable = default, Option<string> purchaseType = default, Option<string> serviceAction = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPurchaseItemsApiResponse> SearchPurchaseItemsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<bool> filterByBillable = default, Option<string> purchaseType = default, Option<string> serviceAction = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1666,7 +1629,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchPurchaseItems(deviceId, appKey, purchaseType, serviceAction, keyword, sortField);
 
-                FormatSearchPurchaseItems(ref version, ref deviceId, ref accountId, ref appKey, ref filterByBillable, ref purchaseType, ref serviceAction, ref keyword, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
+                FormatSearchPurchaseItems(ref deviceId, ref accountId, ref appKey, ref filterByBillable, ref purchaseType, ref serviceAction, ref keyword, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1674,9 +1637,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/purchase/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/purchase/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/purchase/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/purchase/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1741,13 +1703,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/purchase/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/purchase/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchPurchaseItemsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
+                        AfterSearchPurchaseItemsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
 
                         Events.ExecuteOnSearchPurchaseItems(apiResponseLocalVar);
 
@@ -1757,7 +1719,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchPurchaseItemsDefaultImplementation(e, "/api/{version}/purchase/search", uriBuilderLocalVar.Path, version, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
+                OnErrorSearchPurchaseItemsDefaultImplementation(e, "/purchase/search", uriBuilderLocalVar.Path, deviceId, accountId, appKey, filterByBillable, purchaseType, serviceAction, keyword, sortField, descending, start, limit, activeOnly);
                 Events.ExecuteOnErrorSearchPurchaseItems(e);
                 throw;
             }
@@ -1856,7 +1818,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdatePurchaseItem(ref decimal version, ref long purchaseItemId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> description, ref Option<int> tickets, ref Option<float> price, ref Option<string> purchaseType, ref Option<string> purchaseCode, ref Option<string> secretKey, ref Option<int> purchaseLimit, ref Option<string> serviceAction, ref Option<long> coverAssetId, ref Option<long> promoAssetId, ref Option<bool> giftable, ref Option<bool> assetable, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<string> ticketType, ref Option<long> points, ref Option<long> offerLocationId);
+        partial void FormatUpdatePurchaseItem(ref long purchaseItemId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> description, ref Option<int> tickets, ref Option<float> price, ref Option<string> purchaseType, ref Option<string> purchaseCode, ref Option<string> secretKey, ref Option<int> purchaseLimit, ref Option<string> serviceAction, ref Option<long> coverAssetId, ref Option<long> promoAssetId, ref Option<bool> giftable, ref Option<bool> assetable, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<string> ticketType, ref Option<long> points, ref Option<long> offerLocationId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1901,7 +1863,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1923,10 +1884,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
         /// <param name="offerLocationId"></param>
-        private void AfterUpdatePurchaseItemDefaultImplementation(IUpdatePurchaseItemApiResponse apiResponseLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseType, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId)
+        private void AfterUpdatePurchaseItemDefaultImplementation(IUpdatePurchaseItemApiResponse apiResponseLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseType, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId)
         {
             bool suppressDefaultLog = false;
-            AfterUpdatePurchaseItem(ref suppressDefaultLog, apiResponseLocalVar, version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
+            AfterUpdatePurchaseItem(ref suppressDefaultLog, apiResponseLocalVar, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1936,7 +1897,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1958,7 +1918,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
         /// <param name="offerLocationId"></param>
-        partial void AfterUpdatePurchaseItem(ref bool suppressDefaultLog, IUpdatePurchaseItemApiResponse apiResponseLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseType, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId);
+        partial void AfterUpdatePurchaseItem(ref bool suppressDefaultLog, IUpdatePurchaseItemApiResponse apiResponseLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseType, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1966,7 +1926,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1988,10 +1947,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
         /// <param name="offerLocationId"></param>
-        private void OnErrorUpdatePurchaseItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseType, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId)
+        private void OnErrorUpdatePurchaseItemDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseType, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdatePurchaseItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
+            OnErrorUpdatePurchaseItem(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2003,7 +1962,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2025,12 +1983,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType"></param>
         /// <param name="points"></param>
         /// <param name="offerLocationId"></param>
-        partial void OnErrorUpdatePurchaseItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long purchaseItemId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseType, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId);
+        partial void OnErrorUpdatePurchaseItem(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long purchaseItemId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> tickets, Option<float> price, Option<string> purchaseType, Option<string> purchaseCode, Option<string> secretKey, Option<int> purchaseLimit, Option<string> serviceAction, Option<long> coverAssetId, Option<long> promoAssetId, Option<bool> giftable, Option<bool> assetable, Option<bool> active, Option<bool> allocateTickets, Option<string> ticketType, Option<long> points, Option<long> offerLocationId);
 
         /// <summary>
         /// Update Purchase Updates a purchase item for in app purchases
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -2054,11 +2011,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePurchaseItemApiResponse"/>&gt;</returns>
-        public async Task<IUpdatePurchaseItemApiResponse?> UpdatePurchaseItemOrDefaultAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseType = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdatePurchaseItemApiResponse?> UpdatePurchaseItemOrDefaultAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseType = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdatePurchaseItemAsync(version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId, cancellationToken).ConfigureAwait(false);
+                return await UpdatePurchaseItemAsync(purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2070,7 +2027,6 @@ namespace Org.OpenAPITools.Api
         /// Update Purchase Updates a purchase item for in app purchases
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="purchaseItemId">The purchase item id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -2094,7 +2050,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePurchaseItemApiResponse"/>&gt;</returns>
-        public async Task<IUpdatePurchaseItemApiResponse> UpdatePurchaseItemAsync(decimal version, long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseType = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdatePurchaseItemApiResponse> UpdatePurchaseItemAsync(long purchaseItemId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> tickets = default, Option<float> price = default, Option<string> purchaseType = default, Option<string> purchaseCode = default, Option<string> secretKey = default, Option<int> purchaseLimit = default, Option<string> serviceAction = default, Option<long> coverAssetId = default, Option<long> promoAssetId = default, Option<bool> giftable = default, Option<bool> assetable = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<string> ticketType = default, Option<long> points = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2102,7 +2058,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdatePurchaseItem(deviceId, name, description, purchaseType, purchaseCode, secretKey, serviceAction, ticketType);
 
-                FormatUpdatePurchaseItem(ref version, ref purchaseItemId, ref deviceId, ref accountId, ref name, ref description, ref tickets, ref price, ref purchaseType, ref purchaseCode, ref secretKey, ref purchaseLimit, ref serviceAction, ref coverAssetId, ref promoAssetId, ref giftable, ref assetable, ref active, ref allocateTickets, ref ticketType, ref points, ref offerLocationId);
+                FormatUpdatePurchaseItem(ref purchaseItemId, ref deviceId, ref accountId, ref name, ref description, ref tickets, ref price, ref purchaseType, ref purchaseCode, ref secretKey, ref purchaseLimit, ref serviceAction, ref coverAssetId, ref promoAssetId, ref giftable, ref assetable, ref active, ref allocateTickets, ref ticketType, ref points, ref offerLocationId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2110,9 +2066,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/purchase/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/purchase/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/purchase/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/purchase/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2203,13 +2158,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/purchase/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/purchase/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdatePurchaseItemDefaultImplementation(apiResponseLocalVar, version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
+                        AfterUpdatePurchaseItemDefaultImplementation(apiResponseLocalVar, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
 
                         Events.ExecuteOnUpdatePurchaseItem(apiResponseLocalVar);
 
@@ -2219,7 +2174,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdatePurchaseItemDefaultImplementation(e, "/api/{version}/purchase/update", uriBuilderLocalVar.Path, version, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
+                OnErrorUpdatePurchaseItemDefaultImplementation(e, "/purchase/update", uriBuilderLocalVar.Path, purchaseItemId, deviceId, accountId, name, description, tickets, price, purchaseType, purchaseCode, secretKey, purchaseLimit, serviceAction, coverAssetId, promoAssetId, giftable, assetable, active, allocateTickets, ticketType, points, offerLocationId);
                 Events.ExecuteOnErrorUpdatePurchaseItem(e);
                 throw;
             }

@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="start">start the search results at a record.</param>
         /// <param name="limit">limit the search results to some number.</param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
@@ -73,7 +72,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAppDataApiResponse"/>&gt;</returns>
-        Task<IGetAppDataApiResponse> GetAppDataAsync(decimal version, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAppDataApiResponse> GetAppDataAsync(int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get App Data
@@ -81,7 +80,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="start">start the search results at a record.</param>
         /// <param name="limit">limit the search results to some number.</param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
@@ -109,7 +107,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAppDataApiResponse"/>?&gt;</returns>
-        Task<IGetAppDataApiResponse?> GetAppDataOrDefaultAsync(decimal version, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAppDataApiResponse?> GetAppDataOrDefaultAsync(int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create App Data
@@ -118,7 +116,6 @@ namespace Org.OpenAPITools.Api
         /// Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="gameType">the game to retrieve the data for, use your application key.</param>
         /// <param name="start">start the search results at a record.</param>
         /// <param name="limit">limit the search results to some number.</param>
@@ -147,7 +144,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostAppDataApiResponse"/>&gt;</returns>
-        Task<IPostAppDataApiResponse> PostAppDataAsync(decimal version, string gameType, int start, int limit, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPostAppDataApiResponse> PostAppDataAsync(string gameType, int start, int limit, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create App Data
@@ -155,7 +152,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="gameType">the game to retrieve the data for, use your application key.</param>
         /// <param name="start">start the search results at a record.</param>
         /// <param name="limit">limit the search results to some number.</param>
@@ -184,7 +180,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostAppDataApiResponse"/>?&gt;</returns>
-        Task<IPostAppDataApiResponse?> PostAppDataOrDefaultAsync(decimal version, string gameType, int start, int limit, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPostAppDataApiResponse?> PostAppDataOrDefaultAsync(string gameType, int start, int limit, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Regenerate App Data
@@ -193,14 +189,13 @@ namespace Org.OpenAPITools.Api
         /// Regenerate the app data cache for apps
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="appKey">process a specific application, if null process all apps with caches (optional)</param>
         /// <param name="buildVersion">create a specific version, if null use current version. Be careful if processing all (optional)</param>
         /// <param name="apiVersion">create a specific version, if null use current version. Be careful if processing all (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegenAppDataApiResponse"/>&gt;</returns>
-        Task<IRegenAppDataApiResponse> RegenAppDataAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> buildVersion = default, Option<string> apiVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegenAppDataApiResponse> RegenAppDataAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> buildVersion = default, Option<string> apiVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Regenerate App Data
@@ -208,14 +203,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Regenerate the app data cache for apps
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="appKey">process a specific application, if null process all apps with caches (optional)</param>
         /// <param name="buildVersion">create a specific version, if null use current version. Be careful if processing all (optional)</param>
         /// <param name="apiVersion">create a specific version, if null use current version. Be careful if processing all (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegenAppDataApiResponse"/>?&gt;</returns>
-        Task<IRegenAppDataApiResponse?> RegenAppDataOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> buildVersion = default, Option<string> apiVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegenAppDataApiResponse?> RegenAppDataOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> buildVersion = default, Option<string> apiVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -367,7 +361,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetAppData(ref decimal version, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<bool> includeGameData, ref Option<string> q, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> l, ref Option<bool> gameObjectCount, ref Option<string> filter, ref Option<long> dateCreated, ref Option<long> ownerId, ref Option<string> missionIds, ref Option<string> gameIds, ref Option<string> packIds, ref Option<string> gameLevelIds, ref Option<string> appVersion, ref Option<bool> includeHigherVersionPacks, ref Option<bool> includeHigherVersionLevels, ref Option<string> responseGroups, ref Option<string> purchaseType);
+        partial void FormatGetAppData(ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<bool> includeGameData, ref Option<string> q, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> l, ref Option<bool> gameObjectCount, ref Option<string> filter, ref Option<long> dateCreated, ref Option<long> ownerId, ref Option<string> missionIds, ref Option<string> gameIds, ref Option<string> packIds, ref Option<string> gameLevelIds, ref Option<string> appVersion, ref Option<bool> includeHigherVersionPacks, ref Option<bool> includeHigherVersionLevels, ref Option<string> responseGroups, ref Option<string> purchaseType);
 
         /// <summary>
         /// Validates the request parameters
@@ -432,7 +426,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="deviceId"></param>
@@ -458,10 +451,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeHigherVersionLevels"></param>
         /// <param name="responseGroups"></param>
         /// <param name="purchaseType"></param>
-        private void AfterGetAppDataDefaultImplementation(IGetAppDataApiResponse apiResponseLocalVar, decimal version, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType)
+        private void AfterGetAppDataDefaultImplementation(IGetAppDataApiResponse apiResponseLocalVar, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType)
         {
             bool suppressDefaultLog = false;
-            AfterGetAppData(ref suppressDefaultLog, apiResponseLocalVar, version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+            AfterGetAppData(ref suppressDefaultLog, apiResponseLocalVar, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -471,7 +464,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="deviceId"></param>
@@ -497,7 +489,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeHigherVersionLevels"></param>
         /// <param name="responseGroups"></param>
         /// <param name="purchaseType"></param>
-        partial void AfterGetAppData(ref bool suppressDefaultLog, IGetAppDataApiResponse apiResponseLocalVar, decimal version, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType);
+        partial void AfterGetAppData(ref bool suppressDefaultLog, IGetAppDataApiResponse apiResponseLocalVar, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -505,7 +497,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="deviceId"></param>
@@ -531,10 +522,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeHigherVersionLevels"></param>
         /// <param name="responseGroups"></param>
         /// <param name="purchaseType"></param>
-        private void OnErrorGetAppDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType)
+        private void OnErrorGetAppDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAppData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+            OnErrorGetAppData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -546,7 +537,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="deviceId"></param>
@@ -572,12 +562,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeHigherVersionLevels"></param>
         /// <param name="responseGroups"></param>
         /// <param name="purchaseType"></param>
-        partial void OnErrorGetAppData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType);
+        partial void OnErrorGetAppData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType);
 
         /// <summary>
         /// Get App Data Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="start">start the search results at a record.</param>
         /// <param name="limit">limit the search results to some number.</param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
@@ -605,11 +594,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAppDataApiResponse"/>&gt;</returns>
-        public async Task<IGetAppDataApiResponse?> GetAppDataOrDefaultAsync(decimal version, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAppDataApiResponse?> GetAppDataOrDefaultAsync(int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAppDataAsync(version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, cancellationToken).ConfigureAwait(false);
+                return await GetAppDataAsync(start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -621,7 +610,6 @@ namespace Org.OpenAPITools.Api
         /// Get App Data Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="start">start the search results at a record.</param>
         /// <param name="limit">limit the search results to some number.</param>
         /// <param name="deviceId">the device id (deviceId or accountId required). (optional)</param>
@@ -649,7 +637,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAppDataApiResponse"/>&gt;</returns>
-        public async Task<IGetAppDataApiResponse> GetAppDataAsync(decimal version, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAppDataApiResponse> GetAppDataAsync(int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -657,7 +645,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAppData(deviceId, gameType, q, keyword, sortField, filter, missionIds, gameIds, packIds, gameLevelIds, appVersion, responseGroups, purchaseType);
 
-                FormatGetAppData(ref version, ref start, ref limit, ref deviceId, ref accountId, ref gameType, ref includeGameData, ref q, ref keyword, ref sortField, ref descending, ref i, ref l, ref gameObjectCount, ref filter, ref dateCreated, ref ownerId, ref missionIds, ref gameIds, ref packIds, ref gameLevelIds, ref appVersion, ref includeHigherVersionPacks, ref includeHigherVersionLevels, ref responseGroups, ref purchaseType);
+                FormatGetAppData(ref start, ref limit, ref deviceId, ref accountId, ref gameType, ref includeGameData, ref q, ref keyword, ref sortField, ref descending, ref i, ref l, ref gameObjectCount, ref filter, ref dateCreated, ref ownerId, ref missionIds, ref gameIds, ref packIds, ref gameLevelIds, ref appVersion, ref includeHigherVersionPacks, ref includeHigherVersionLevels, ref responseGroups, ref purchaseType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -665,9 +653,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/app/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/app/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/app/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/app/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -768,13 +755,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/app/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/app/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAppDataDefaultImplementation(apiResponseLocalVar, version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+                        AfterGetAppDataDefaultImplementation(apiResponseLocalVar, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
 
                         Events.ExecuteOnGetAppData(apiResponseLocalVar);
 
@@ -784,7 +771,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAppDataDefaultImplementation(e, "/api/{version}/app/get", uriBuilderLocalVar.Path, version, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+                OnErrorGetAppDataDefaultImplementation(e, "/app/get", uriBuilderLocalVar.Path, start, limit, deviceId, accountId, gameType, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
                 Events.ExecuteOnErrorGetAppData(e);
                 throw;
             }
@@ -883,7 +870,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPostAppData(ref decimal version, ref string gameType, ref int start, ref int limit, ref string data, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> includeGameData, ref Option<string> q, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> l, ref Option<bool> gameObjectCount, ref Option<string> filter, ref Option<long> dateCreated, ref Option<long> ownerId, ref Option<string> missionIds, ref Option<string> gameIds, ref Option<string> packIds, ref Option<string> gameLevelIds, ref Option<string> appVersion, ref Option<bool> includeHigherVersionPacks, ref Option<bool> includeHigherVersionLevels, ref Option<string> responseGroups, ref Option<string> purchaseType);
+        partial void FormatPostAppData(ref string gameType, ref int start, ref int limit, ref string data, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> includeGameData, ref Option<string> q, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> l, ref Option<bool> gameObjectCount, ref Option<string> filter, ref Option<long> dateCreated, ref Option<long> ownerId, ref Option<string> missionIds, ref Option<string> gameIds, ref Option<string> packIds, ref Option<string> gameLevelIds, ref Option<string> appVersion, ref Option<bool> includeHigherVersionPacks, ref Option<bool> includeHigherVersionLevels, ref Option<string> responseGroups, ref Option<string> purchaseType);
 
         /// <summary>
         /// Validates the request parameters
@@ -952,7 +939,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="gameType"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -979,10 +965,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeHigherVersionLevels"></param>
         /// <param name="responseGroups"></param>
         /// <param name="purchaseType"></param>
-        private void AfterPostAppDataDefaultImplementation(IPostAppDataApiResponse apiResponseLocalVar, decimal version, string gameType, int start, int limit, string data, Option<string> deviceId, Option<long> accountId, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType)
+        private void AfterPostAppDataDefaultImplementation(IPostAppDataApiResponse apiResponseLocalVar, string gameType, int start, int limit, string data, Option<string> deviceId, Option<long> accountId, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType)
         {
             bool suppressDefaultLog = false;
-            AfterPostAppData(ref suppressDefaultLog, apiResponseLocalVar, version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+            AfterPostAppData(ref suppressDefaultLog, apiResponseLocalVar, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -992,7 +978,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="gameType"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -1019,7 +1004,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeHigherVersionLevels"></param>
         /// <param name="responseGroups"></param>
         /// <param name="purchaseType"></param>
-        partial void AfterPostAppData(ref bool suppressDefaultLog, IPostAppDataApiResponse apiResponseLocalVar, decimal version, string gameType, int start, int limit, string data, Option<string> deviceId, Option<long> accountId, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType);
+        partial void AfterPostAppData(ref bool suppressDefaultLog, IPostAppDataApiResponse apiResponseLocalVar, string gameType, int start, int limit, string data, Option<string> deviceId, Option<long> accountId, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1027,7 +1012,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="gameType"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -1054,10 +1038,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeHigherVersionLevels"></param>
         /// <param name="responseGroups"></param>
         /// <param name="purchaseType"></param>
-        private void OnErrorPostAppDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string gameType, int start, int limit, string data, Option<string> deviceId, Option<long> accountId, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType)
+        private void OnErrorPostAppDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string gameType, int start, int limit, string data, Option<string> deviceId, Option<long> accountId, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPostAppData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+            OnErrorPostAppData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1069,7 +1053,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="gameType"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -1096,12 +1079,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeHigherVersionLevels"></param>
         /// <param name="responseGroups"></param>
         /// <param name="purchaseType"></param>
-        partial void OnErrorPostAppData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string gameType, int start, int limit, string data, Option<string> deviceId, Option<long> accountId, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType);
+        partial void OnErrorPostAppData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string gameType, int start, int limit, string data, Option<string> deviceId, Option<long> accountId, Option<bool> includeGameData, Option<string> q, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> l, Option<bool> gameObjectCount, Option<string> filter, Option<long> dateCreated, Option<long> ownerId, Option<string> missionIds, Option<string> gameIds, Option<string> packIds, Option<string> gameLevelIds, Option<string> appVersion, Option<bool> includeHigherVersionPacks, Option<bool> includeHigherVersionLevels, Option<string> responseGroups, Option<string> purchaseType);
 
         /// <summary>
         /// Create App Data Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="gameType">the game to retrieve the data for, use your application key.</param>
         /// <param name="start">start the search results at a record.</param>
         /// <param name="limit">limit the search results to some number.</param>
@@ -1130,11 +1112,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostAppDataApiResponse"/>&gt;</returns>
-        public async Task<IPostAppDataApiResponse?> PostAppDataOrDefaultAsync(decimal version, string gameType, int start, int limit, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPostAppDataApiResponse?> PostAppDataOrDefaultAsync(string gameType, int start, int limit, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PostAppDataAsync(version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, cancellationToken).ConfigureAwait(false);
+                return await PostAppDataAsync(gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1146,7 +1128,6 @@ namespace Org.OpenAPITools.Api
         /// Create App Data Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="gameType">the game to retrieve the data for, use your application key.</param>
         /// <param name="start">start the search results at a record.</param>
         /// <param name="limit">limit the search results to some number.</param>
@@ -1175,7 +1156,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostAppDataApiResponse"/>&gt;</returns>
-        public async Task<IPostAppDataApiResponse> PostAppDataAsync(decimal version, string gameType, int start, int limit, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPostAppDataApiResponse> PostAppDataAsync(string gameType, int start, int limit, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeGameData = default, Option<string> q = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> l = default, Option<bool> gameObjectCount = default, Option<string> filter = default, Option<long> dateCreated = default, Option<long> ownerId = default, Option<string> missionIds = default, Option<string> gameIds = default, Option<string> packIds = default, Option<string> gameLevelIds = default, Option<string> appVersion = default, Option<bool> includeHigherVersionPacks = default, Option<bool> includeHigherVersionLevels = default, Option<string> responseGroups = default, Option<string> purchaseType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1183,7 +1164,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePostAppData(gameType, data, deviceId, q, keyword, sortField, filter, missionIds, gameIds, packIds, gameLevelIds, appVersion, responseGroups, purchaseType);
 
-                FormatPostAppData(ref version, ref gameType, ref start, ref limit, ref data, ref deviceId, ref accountId, ref includeGameData, ref q, ref keyword, ref sortField, ref descending, ref i, ref l, ref gameObjectCount, ref filter, ref dateCreated, ref ownerId, ref missionIds, ref gameIds, ref packIds, ref gameLevelIds, ref appVersion, ref includeHigherVersionPacks, ref includeHigherVersionLevels, ref responseGroups, ref purchaseType);
+                FormatPostAppData(ref gameType, ref start, ref limit, ref data, ref deviceId, ref accountId, ref includeGameData, ref q, ref keyword, ref sortField, ref descending, ref i, ref l, ref gameObjectCount, ref filter, ref dateCreated, ref ownerId, ref missionIds, ref gameIds, ref packIds, ref gameLevelIds, ref appVersion, ref includeHigherVersionPacks, ref includeHigherVersionLevels, ref responseGroups, ref purchaseType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1191,9 +1172,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/app/post"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/app/post");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/app/post"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/app/post");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1293,13 +1273,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/app/post", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/app/post", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPostAppDataDefaultImplementation(apiResponseLocalVar, version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+                        AfterPostAppDataDefaultImplementation(apiResponseLocalVar, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
 
                         Events.ExecuteOnPostAppData(apiResponseLocalVar);
 
@@ -1309,7 +1289,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPostAppDataDefaultImplementation(e, "/api/{version}/app/post", uriBuilderLocalVar.Path, version, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
+                OnErrorPostAppDataDefaultImplementation(e, "/app/post", uriBuilderLocalVar.Path, gameType, start, limit, data, deviceId, accountId, includeGameData, q, keyword, sortField, descending, i, l, gameObjectCount, filter, dateCreated, ownerId, missionIds, gameIds, packIds, gameLevelIds, appVersion, includeHigherVersionPacks, includeHigherVersionLevels, responseGroups, purchaseType);
                 Events.ExecuteOnErrorPostAppData(e);
                 throw;
             }
@@ -1408,7 +1388,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRegenAppData(ref decimal version, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> buildVersion, ref Option<string> apiVersion);
+        partial void FormatRegenAppData(ref Option<long> accountId, ref Option<string> appKey, ref Option<string> buildVersion, ref Option<string> apiVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -1433,15 +1413,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="buildVersion"></param>
         /// <param name="apiVersion"></param>
-        private void AfterRegenAppDataDefaultImplementation(IRegenAppDataApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> buildVersion, Option<string> apiVersion)
+        private void AfterRegenAppDataDefaultImplementation(IRegenAppDataApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<string> buildVersion, Option<string> apiVersion)
         {
             bool suppressDefaultLog = false;
-            AfterRegenAppData(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, buildVersion, apiVersion);
+            AfterRegenAppData(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, buildVersion, apiVersion);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1451,12 +1430,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="buildVersion"></param>
         /// <param name="apiVersion"></param>
-        partial void AfterRegenAppData(ref bool suppressDefaultLog, IRegenAppDataApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> buildVersion, Option<string> apiVersion);
+        partial void AfterRegenAppData(ref bool suppressDefaultLog, IRegenAppDataApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<string> buildVersion, Option<string> apiVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1464,15 +1442,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="buildVersion"></param>
         /// <param name="apiVersion"></param>
-        private void OnErrorRegenAppDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> buildVersion, Option<string> apiVersion)
+        private void OnErrorRegenAppDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<string> buildVersion, Option<string> apiVersion)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRegenAppData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, buildVersion, apiVersion);
+            OnErrorRegenAppData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, buildVersion, apiVersion);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1484,28 +1461,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="buildVersion"></param>
         /// <param name="apiVersion"></param>
-        partial void OnErrorRegenAppData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> buildVersion, Option<string> apiVersion);
+        partial void OnErrorRegenAppData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<string> buildVersion, Option<string> apiVersion);
 
         /// <summary>
         /// Regenerate App Data Regenerate the app data cache for apps
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="appKey">process a specific application, if null process all apps with caches (optional)</param>
         /// <param name="buildVersion">create a specific version, if null use current version. Be careful if processing all (optional)</param>
         /// <param name="apiVersion">create a specific version, if null use current version. Be careful if processing all (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegenAppDataApiResponse"/>&gt;</returns>
-        public async Task<IRegenAppDataApiResponse?> RegenAppDataOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> buildVersion = default, Option<string> apiVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegenAppDataApiResponse?> RegenAppDataOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> buildVersion = default, Option<string> apiVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RegenAppDataAsync(version, accountId, appKey, buildVersion, apiVersion, cancellationToken).ConfigureAwait(false);
+                return await RegenAppDataAsync(accountId, appKey, buildVersion, apiVersion, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1517,14 +1492,13 @@ namespace Org.OpenAPITools.Api
         /// Regenerate App Data Regenerate the app data cache for apps
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="appKey">process a specific application, if null process all apps with caches (optional)</param>
         /// <param name="buildVersion">create a specific version, if null use current version. Be careful if processing all (optional)</param>
         /// <param name="apiVersion">create a specific version, if null use current version. Be careful if processing all (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegenAppDataApiResponse"/>&gt;</returns>
-        public async Task<IRegenAppDataApiResponse> RegenAppDataAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> buildVersion = default, Option<string> apiVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegenAppDataApiResponse> RegenAppDataAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> buildVersion = default, Option<string> apiVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1532,7 +1506,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRegenAppData(appKey, buildVersion, apiVersion);
 
-                FormatRegenAppData(ref version, ref accountId, ref appKey, ref buildVersion, ref apiVersion);
+                FormatRegenAppData(ref accountId, ref appKey, ref buildVersion, ref apiVersion);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1540,9 +1514,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/app/regen"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/app/regen");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/app/regen"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/app/regen");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1583,13 +1556,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/app/regen", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/app/regen", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRegenAppDataDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, buildVersion, apiVersion);
+                        AfterRegenAppDataDefaultImplementation(apiResponseLocalVar, accountId, appKey, buildVersion, apiVersion);
 
                         Events.ExecuteOnRegenAppData(apiResponseLocalVar);
 
@@ -1599,7 +1572,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRegenAppDataDefaultImplementation(e, "/api/{version}/app/regen", uriBuilderLocalVar.Path, version, accountId, appKey, buildVersion, apiVersion);
+                OnErrorRegenAppDataDefaultImplementation(e, "/app/regen", uriBuilderLocalVar.Path, accountId, appKey, buildVersion, apiVersion);
                 Events.ExecuteOnErrorRegenAppData(e);
                 throw;
             }

@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a tournament.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The appKey the tournament is created for.</param>
         /// <param name="title">The title of the tournament</param>
@@ -83,7 +82,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tieTag">This sets what analytic tag is used when a tie has occurred (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTournamentApiResponse"/>&gt;</returns>
-        Task<ICreateTournamentApiResponse> CreateTournamentAsync(decimal version, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> missionType = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTournamentApiResponse> CreateTournamentAsync(long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> missionType = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Tournament
@@ -91,7 +90,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a tournament.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The appKey the tournament is created for.</param>
         /// <param name="title">The title of the tournament</param>
@@ -129,7 +127,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tieTag">This sets what analytic tag is used when a tie has occurred (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTournamentApiResponse"/>?&gt;</returns>
-        Task<ICreateTournamentApiResponse?> CreateTournamentOrDefaultAsync(decimal version, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> missionType = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTournamentApiResponse?> CreateTournamentOrDefaultAsync(long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> missionType = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Tournament
@@ -138,12 +136,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a tournament.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTournamentApiResponse"/>&gt;</returns>
-        Task<IDeleteTournamentApiResponse> DeleteTournamentAsync(decimal version, long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteTournamentApiResponse> DeleteTournamentAsync(long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Tournament
@@ -151,12 +148,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a tournament.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTournamentApiResponse"/>?&gt;</returns>
-        Task<IDeleteTournamentApiResponse?> DeleteTournamentOrDefaultAsync(decimal version, long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteTournamentApiResponse?> DeleteTournamentOrDefaultAsync(long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Tournament
@@ -165,7 +161,6 @@ namespace Org.OpenAPITools.Api
         /// Get a tournament.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the logged in user</param>
         /// <param name="missionId">The id of the mission to return (either missionId or joinCode is required) (optional)</param>
         /// <param name="joinCode">Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)</param>
@@ -173,7 +168,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="objectPreviewSize">Determines the max number of game objects that will get returned for each game level response (optional, default to 50)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTournamentApiResponse"/>&gt;</returns>
-        Task<IGetTournamentApiResponse> GetTournamentAsync(decimal version, long accountId, Option<long> missionId = default, Option<string> joinCode = default, Option<string> includeScores = default, Option<int> objectPreviewSize = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTournamentApiResponse> GetTournamentAsync(long accountId, Option<long> missionId = default, Option<string> joinCode = default, Option<string> includeScores = default, Option<int> objectPreviewSize = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Tournament
@@ -181,7 +176,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a tournament.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the logged in user</param>
         /// <param name="missionId">The id of the mission to return (either missionId or joinCode is required) (optional)</param>
         /// <param name="joinCode">Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)</param>
@@ -189,7 +183,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="objectPreviewSize">Determines the max number of game objects that will get returned for each game level response (optional, default to 50)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTournamentApiResponse"/>?&gt;</returns>
-        Task<IGetTournamentApiResponse?> GetTournamentOrDefaultAsync(decimal version, long accountId, Option<long> missionId = default, Option<string> joinCode = default, Option<string> includeScores = default, Option<int> objectPreviewSize = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTournamentApiResponse?> GetTournamentOrDefaultAsync(long accountId, Option<long> missionId = default, Option<string> joinCode = default, Option<string> includeScores = default, Option<int> objectPreviewSize = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tournament Objects
@@ -198,7 +192,6 @@ namespace Org.OpenAPITools.Api
         /// Search on game objects of tournaments
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID</param>
         /// <param name="gameLevelId">the game level id to filter results by</param>
         /// <param name="sortField">the field to sort by (optional, default to PLAYER_SCORE_COUNT)</param>
@@ -207,7 +200,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchObjectsApiResponse"/>&gt;</returns>
-        Task<ISearchObjectsApiResponse> SearchObjectsAsync(decimal version, long accountId, long gameLevelId, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchObjectsApiResponse> SearchObjectsAsync(long accountId, long gameLevelId, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tournament Objects
@@ -215,7 +208,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on game objects of tournaments
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID</param>
         /// <param name="gameLevelId">the game level id to filter results by</param>
         /// <param name="sortField">the field to sort by (optional, default to PLAYER_SCORE_COUNT)</param>
@@ -224,7 +216,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchObjectsApiResponse"/>?&gt;</returns>
-        Task<ISearchObjectsApiResponse?> SearchObjectsOrDefaultAsync(decimal version, long accountId, long gameLevelId, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchObjectsApiResponse?> SearchObjectsOrDefaultAsync(long accountId, long gameLevelId, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tournament Rounds
@@ -233,7 +225,6 @@ namespace Org.OpenAPITools.Api
         /// Search for the user&#39;s tournament games.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID</param>
         /// <param name="appKey">the application key</param>
         /// <param name="status">comma separated list of statuses to filter results by (optional, default to &quot;ACCEPTED,ACTIVE&quot;)</param>
@@ -244,7 +235,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRoundsApiResponse"/>&gt;</returns>
-        Task<ISearchRoundsApiResponse> SearchRoundsAsync(decimal version, long accountId, string appKey, Option<string> status = default, Option<string> missionType = default, Option<bool> currentOnly = default, Option<string> visibilities = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRoundsApiResponse> SearchRoundsAsync(long accountId, string appKey, Option<string> status = default, Option<string> missionType = default, Option<bool> currentOnly = default, Option<string> visibilities = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tournament Rounds
@@ -252,7 +243,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for the user&#39;s tournament games.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID</param>
         /// <param name="appKey">the application key</param>
         /// <param name="status">comma separated list of statuses to filter results by (optional, default to &quot;ACCEPTED,ACTIVE&quot;)</param>
@@ -263,7 +253,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRoundsApiResponse"/>?&gt;</returns>
-        Task<ISearchRoundsApiResponse?> SearchRoundsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> status = default, Option<string> missionType = default, Option<bool> currentOnly = default, Option<string> visibilities = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRoundsApiResponse?> SearchRoundsOrDefaultAsync(long accountId, string appKey, Option<string> status = default, Option<string> missionType = default, Option<bool> currentOnly = default, Option<string> visibilities = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tournaments
@@ -272,7 +262,6 @@ namespace Org.OpenAPITools.Api
         /// Search for tournaments
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application key</param>
         /// <param name="keyword">the keyword to search tournament on (optional)</param>
@@ -287,7 +276,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit the result to some number (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTournamentsApiResponse"/>&gt;</returns>
-        Task<ISearchTournamentsApiResponse> SearchTournamentsAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<string> subType = default, Option<bool> includeInactive = default, Option<string> missionTypes = default, Option<string> filter = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> visibility = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTournamentsApiResponse> SearchTournamentsAsync(long accountId, string appKey, Option<string> keyword = default, Option<string> subType = default, Option<bool> includeInactive = default, Option<string> missionTypes = default, Option<string> filter = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> visibility = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tournaments
@@ -295,7 +284,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for tournaments
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application key</param>
         /// <param name="keyword">the keyword to search tournament on (optional)</param>
@@ -310,7 +298,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit the result to some number (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTournamentsApiResponse"/>?&gt;</returns>
-        Task<ISearchTournamentsApiResponse?> SearchTournamentsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<string> subType = default, Option<bool> includeInactive = default, Option<string> missionTypes = default, Option<string> filter = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> visibility = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTournamentsApiResponse?> SearchTournamentsOrDefaultAsync(long accountId, string appKey, Option<string> keyword = default, Option<string> subType = default, Option<bool> includeInactive = default, Option<string> missionTypes = default, Option<string> filter = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> visibility = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Submit Tournament Score
@@ -319,7 +307,6 @@ namespace Org.OpenAPITools.Api
         /// Submit an array of scores for a tournament match. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user account ID.</param>
         /// <param name="appKey">The application key.</param>
         /// <param name="missionId">The missionId to score for</param>
@@ -329,7 +316,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId">The gameLevelId to score for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitTournamentScoreApiResponse"/>&gt;</returns>
-        Task<ISubmitTournamentScoreApiResponse> SubmitTournamentScoreAsync(decimal version, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISubmitTournamentScoreApiResponse> SubmitTournamentScoreAsync(long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Submit Tournament Score
@@ -337,7 +324,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Submit an array of scores for a tournament match. 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user account ID.</param>
         /// <param name="appKey">The application key.</param>
         /// <param name="missionId">The missionId to score for</param>
@@ -347,7 +333,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId">The gameLevelId to score for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitTournamentScoreApiResponse"/>?&gt;</returns>
-        Task<ISubmitTournamentScoreApiResponse?> SubmitTournamentScoreOrDefaultAsync(decimal version, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISubmitTournamentScoreApiResponse?> SubmitTournamentScoreOrDefaultAsync(long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Submit a vote for a multi-stage album tournament.
@@ -356,7 +342,6 @@ namespace Org.OpenAPITools.Api
         /// Submit a vote for a multi-stage album tournament.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application to target</param>
         /// <param name="missionId">The tournament&#39;s primary id</param>
@@ -365,7 +350,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="checkIfDeviceAlreadyVoted">When true, check if the device already voted to prevent duplicate votes from the same device (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitTournamentVoteApiResponse"/>&gt;</returns>
-        Task<ISubmitTournamentVoteApiResponse> SubmitTournamentVoteAsync(decimal version, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId = default, Option<bool> checkIfDeviceAlreadyVoted = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISubmitTournamentVoteApiResponse> SubmitTournamentVoteAsync(long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId = default, Option<bool> checkIfDeviceAlreadyVoted = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Submit a vote for a multi-stage album tournament.
@@ -373,7 +358,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Submit a vote for a multi-stage album tournament.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application to target</param>
         /// <param name="missionId">The tournament&#39;s primary id</param>
@@ -382,7 +366,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="checkIfDeviceAlreadyVoted">When true, check if the device already voted to prevent duplicate votes from the same device (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitTournamentVoteApiResponse"/>?&gt;</returns>
-        Task<ISubmitTournamentVoteApiResponse?> SubmitTournamentVoteOrDefaultAsync(decimal version, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId = default, Option<bool> checkIfDeviceAlreadyVoted = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISubmitTournamentVoteApiResponse?> SubmitTournamentVoteOrDefaultAsync(long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId = default, Option<bool> checkIfDeviceAlreadyVoted = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Substitute Tournament Player
@@ -391,14 +375,13 @@ namespace Org.OpenAPITools.Api
         /// Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission</param>
         /// <param name="packId">the id of the pack</param>
         /// <param name="gameLevelId">the id of the game level</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubstituteTournamentPlayerApiResponse"/>&gt;</returns>
-        Task<ISubstituteTournamentPlayerApiResponse> SubstituteTournamentPlayerAsync(decimal version, long accountId, long missionId, long packId, long gameLevelId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISubstituteTournamentPlayerApiResponse> SubstituteTournamentPlayerAsync(long accountId, long missionId, long packId, long gameLevelId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Substitute Tournament Player
@@ -406,14 +389,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission</param>
         /// <param name="packId">the id of the pack</param>
         /// <param name="gameLevelId">the id of the game level</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubstituteTournamentPlayerApiResponse"/>?&gt;</returns>
-        Task<ISubstituteTournamentPlayerApiResponse?> SubstituteTournamentPlayerOrDefaultAsync(decimal version, long accountId, long missionId, long packId, long gameLevelId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISubstituteTournamentPlayerApiResponse?> SubstituteTournamentPlayerOrDefaultAsync(long accountId, long missionId, long packId, long gameLevelId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Tournament
@@ -422,7 +404,6 @@ namespace Org.OpenAPITools.Api
         /// Update a tournament.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The mission/tournament to update</param>
         /// <param name="title">The title of the tournament (optional)</param>
@@ -459,7 +440,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tieTag">This sets what analytic tag is used when a winner is determined (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTournamentApiResponse"/>&gt;</returns>
-        Task<IUpdateTournamentApiResponse> UpdateTournamentAsync(decimal version, long accountId, long missionId, Option<string> title = default, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<int> costToPlay = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<long> startDate = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTournamentApiResponse> UpdateTournamentAsync(long accountId, long missionId, Option<string> title = default, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<int> costToPlay = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<long> startDate = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Tournament
@@ -467,7 +448,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a tournament.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The mission/tournament to update</param>
         /// <param name="title">The title of the tournament (optional)</param>
@@ -504,7 +484,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tieTag">This sets what analytic tag is used when a winner is determined (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTournamentApiResponse"/>?&gt;</returns>
-        Task<IUpdateTournamentApiResponse?> UpdateTournamentOrDefaultAsync(decimal version, long accountId, long missionId, Option<string> title = default, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<int> costToPlay = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<long> startDate = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTournamentApiResponse?> UpdateTournamentOrDefaultAsync(long accountId, long missionId, Option<string> title = default, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<int> costToPlay = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<long> startDate = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -880,7 +860,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateTournament(ref decimal version, ref long accountId, ref string appKey, ref string title, ref int costToPlay, ref long startDate, ref Option<string> subType, ref Option<long> imageAssetId, ref Option<int> secondsBetweenLevels, ref Option<int> secondsForTieBreaker, ref Option<int> secondsBetweenPacks, ref Option<int> maximumLevelLength, ref Option<string> costToPlayType, ref Option<int> minimumToPlay, ref Option<int> startingLimit, ref Option<int> availableLimit, ref Option<string> description, ref Option<string> metaData, ref Option<string> audienceIds, ref Option<bool> active, ref Option<bool> enableBuyBack, ref Option<string> offerIds, ref Option<long> offerAssetId, ref Option<bool> fixedReward, ref Option<string> splitReward, ref Option<bool> allocateTickets, ref Option<string> tournamentData, ref Option<string> missionType, ref Option<string> visibility, ref Option<int> preliminaryGroups, ref Option<string> preliminaryGroupAdvancements, ref Option<bool> enableMultipleEntries, ref Option<bool> enableMultipleVotes, ref Option<bool> featured, ref Option<string> winnerTag, ref Option<string> tieTag);
+        partial void FormatCreateTournament(ref long accountId, ref string appKey, ref string title, ref int costToPlay, ref long startDate, ref Option<string> subType, ref Option<long> imageAssetId, ref Option<int> secondsBetweenLevels, ref Option<int> secondsForTieBreaker, ref Option<int> secondsBetweenPacks, ref Option<int> maximumLevelLength, ref Option<string> costToPlayType, ref Option<int> minimumToPlay, ref Option<int> startingLimit, ref Option<int> availableLimit, ref Option<string> description, ref Option<string> metaData, ref Option<string> audienceIds, ref Option<bool> active, ref Option<bool> enableBuyBack, ref Option<string> offerIds, ref Option<long> offerAssetId, ref Option<bool> fixedReward, ref Option<string> splitReward, ref Option<bool> allocateTickets, ref Option<string> tournamentData, ref Option<string> missionType, ref Option<string> visibility, ref Option<int> preliminaryGroups, ref Option<string> preliminaryGroupAdvancements, ref Option<bool> enableMultipleEntries, ref Option<bool> enableMultipleVotes, ref Option<bool> featured, ref Option<string> winnerTag, ref Option<string> tieTag);
 
         /// <summary>
         /// Validates the request parameters
@@ -953,7 +933,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
@@ -989,10 +968,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="featured"></param>
         /// <param name="winnerTag"></param>
         /// <param name="tieTag"></param>
-        private void AfterCreateTournamentDefaultImplementation(ICreateTournamentApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> missionType, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag)
+        private void AfterCreateTournamentDefaultImplementation(ICreateTournamentApiResponse apiResponseLocalVar, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> missionType, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag)
         {
             bool suppressDefaultLog = false;
-            AfterCreateTournament(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+            AfterCreateTournament(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1002,7 +981,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
@@ -1038,7 +1016,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="featured"></param>
         /// <param name="winnerTag"></param>
         /// <param name="tieTag"></param>
-        partial void AfterCreateTournament(ref bool suppressDefaultLog, ICreateTournamentApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> missionType, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag);
+        partial void AfterCreateTournament(ref bool suppressDefaultLog, ICreateTournamentApiResponse apiResponseLocalVar, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> missionType, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1046,7 +1024,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
@@ -1082,10 +1059,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="featured"></param>
         /// <param name="winnerTag"></param>
         /// <param name="tieTag"></param>
-        private void OnErrorCreateTournamentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> missionType, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag)
+        private void OnErrorCreateTournamentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> missionType, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateTournament(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+            OnErrorCreateTournament(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1097,7 +1074,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
@@ -1133,12 +1109,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="featured"></param>
         /// <param name="winnerTag"></param>
         /// <param name="tieTag"></param>
-        partial void OnErrorCreateTournament(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> missionType, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag);
+        partial void OnErrorCreateTournament(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> missionType, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag);
 
         /// <summary>
         /// Create Tournament Create a tournament.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The appKey the tournament is created for.</param>
         /// <param name="title">The title of the tournament</param>
@@ -1176,11 +1151,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tieTag">This sets what analytic tag is used when a tie has occurred (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTournamentApiResponse"/>&gt;</returns>
-        public async Task<ICreateTournamentApiResponse?> CreateTournamentOrDefaultAsync(decimal version, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> missionType = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTournamentApiResponse?> CreateTournamentOrDefaultAsync(long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> missionType = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateTournamentAsync(version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, cancellationToken).ConfigureAwait(false);
+                return await CreateTournamentAsync(accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1192,7 +1167,6 @@ namespace Org.OpenAPITools.Api
         /// Create Tournament Create a tournament.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The appKey the tournament is created for.</param>
         /// <param name="title">The title of the tournament</param>
@@ -1230,7 +1204,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tieTag">This sets what analytic tag is used when a tie has occurred (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTournamentApiResponse"/>&gt;</returns>
-        public async Task<ICreateTournamentApiResponse> CreateTournamentAsync(decimal version, long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> missionType = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTournamentApiResponse> CreateTournamentAsync(long accountId, string appKey, string title, int costToPlay, long startDate, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> missionType = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1238,7 +1212,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateTournament(appKey, title, subType, costToPlayType, description, metaData, audienceIds, offerIds, splitReward, tournamentData, missionType, visibility, preliminaryGroupAdvancements, winnerTag, tieTag);
 
-                FormatCreateTournament(ref version, ref accountId, ref appKey, ref title, ref costToPlay, ref startDate, ref subType, ref imageAssetId, ref secondsBetweenLevels, ref secondsForTieBreaker, ref secondsBetweenPacks, ref maximumLevelLength, ref costToPlayType, ref minimumToPlay, ref startingLimit, ref availableLimit, ref description, ref metaData, ref audienceIds, ref active, ref enableBuyBack, ref offerIds, ref offerAssetId, ref fixedReward, ref splitReward, ref allocateTickets, ref tournamentData, ref missionType, ref visibility, ref preliminaryGroups, ref preliminaryGroupAdvancements, ref enableMultipleEntries, ref enableMultipleVotes, ref featured, ref winnerTag, ref tieTag);
+                FormatCreateTournament(ref accountId, ref appKey, ref title, ref costToPlay, ref startDate, ref subType, ref imageAssetId, ref secondsBetweenLevels, ref secondsForTieBreaker, ref secondsBetweenPacks, ref maximumLevelLength, ref costToPlayType, ref minimumToPlay, ref startingLimit, ref availableLimit, ref description, ref metaData, ref audienceIds, ref active, ref enableBuyBack, ref offerIds, ref offerAssetId, ref fixedReward, ref splitReward, ref allocateTickets, ref tournamentData, ref missionType, ref visibility, ref preliminaryGroups, ref preliminaryGroupAdvancements, ref enableMultipleEntries, ref enableMultipleVotes, ref featured, ref winnerTag, ref tieTag);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1246,9 +1220,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1373,13 +1346,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateTournamentDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+                        AfterCreateTournamentDefaultImplementation(apiResponseLocalVar, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
 
                         Events.ExecuteOnCreateTournament(apiResponseLocalVar);
 
@@ -1389,7 +1362,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateTournamentDefaultImplementation(e, "/api/{version}/tournament/create", uriBuilderLocalVar.Path, version, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+                OnErrorCreateTournamentDefaultImplementation(e, "/tournament/create", uriBuilderLocalVar.Path, accountId, appKey, title, costToPlay, startDate, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, missionType, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
                 Events.ExecuteOnErrorCreateTournament(e);
                 throw;
             }
@@ -1488,19 +1461,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteTournament(ref decimal version, ref long accountId, ref long missionId);
+        partial void FormatDeleteTournament(ref long accountId, ref long missionId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
-        private void AfterDeleteTournamentDefaultImplementation(IDeleteTournamentApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId)
+        private void AfterDeleteTournamentDefaultImplementation(IDeleteTournamentApiResponse apiResponseLocalVar, long accountId, long missionId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteTournament(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, missionId);
+            AfterDeleteTournament(ref suppressDefaultLog, apiResponseLocalVar, accountId, missionId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1510,10 +1482,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
-        partial void AfterDeleteTournament(ref bool suppressDefaultLog, IDeleteTournamentApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId);
+        partial void AfterDeleteTournament(ref bool suppressDefaultLog, IDeleteTournamentApiResponse apiResponseLocalVar, long accountId, long missionId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1521,13 +1492,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
-        private void OnErrorDeleteTournamentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId)
+        private void OnErrorDeleteTournamentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteTournament(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, missionId);
+            OnErrorDeleteTournament(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, missionId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1539,24 +1509,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
-        partial void OnErrorDeleteTournament(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId);
+        partial void OnErrorDeleteTournament(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId);
 
         /// <summary>
         /// Delete Tournament Delete a tournament.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTournamentApiResponse"/>&gt;</returns>
-        public async Task<IDeleteTournamentApiResponse?> DeleteTournamentOrDefaultAsync(decimal version, long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteTournamentApiResponse?> DeleteTournamentOrDefaultAsync(long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteTournamentAsync(version, accountId, missionId, cancellationToken).ConfigureAwait(false);
+                return await DeleteTournamentAsync(accountId, missionId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1568,18 +1536,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Tournament Delete a tournament.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTournamentApiResponse"/>&gt;</returns>
-        public async Task<IDeleteTournamentApiResponse> DeleteTournamentAsync(decimal version, long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteTournamentApiResponse> DeleteTournamentAsync(long accountId, long missionId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteTournament(ref version, ref accountId, ref missionId);
+                FormatDeleteTournament(ref accountId, ref missionId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1587,9 +1554,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1621,13 +1587,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteTournamentDefaultImplementation(apiResponseLocalVar, version, accountId, missionId);
+                        AfterDeleteTournamentDefaultImplementation(apiResponseLocalVar, accountId, missionId);
 
                         Events.ExecuteOnDeleteTournament(apiResponseLocalVar);
 
@@ -1637,7 +1603,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteTournamentDefaultImplementation(e, "/api/{version}/tournament/delete", uriBuilderLocalVar.Path, version, accountId, missionId);
+                OnErrorDeleteTournamentDefaultImplementation(e, "/tournament/delete", uriBuilderLocalVar.Path, accountId, missionId);
                 Events.ExecuteOnErrorDeleteTournament(e);
                 throw;
             }
@@ -1736,7 +1702,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTournament(ref decimal version, ref long accountId, ref Option<long> missionId, ref Option<string> joinCode, ref Option<string> includeScores, ref Option<int> objectPreviewSize);
+        partial void FormatGetTournament(ref long accountId, ref Option<long> missionId, ref Option<string> joinCode, ref Option<string> includeScores, ref Option<int> objectPreviewSize);
 
         /// <summary>
         /// Validates the request parameters
@@ -1757,16 +1723,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="joinCode"></param>
         /// <param name="includeScores"></param>
         /// <param name="objectPreviewSize"></param>
-        private void AfterGetTournamentDefaultImplementation(IGetTournamentApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> missionId, Option<string> joinCode, Option<string> includeScores, Option<int> objectPreviewSize)
+        private void AfterGetTournamentDefaultImplementation(IGetTournamentApiResponse apiResponseLocalVar, long accountId, Option<long> missionId, Option<string> joinCode, Option<string> includeScores, Option<int> objectPreviewSize)
         {
             bool suppressDefaultLog = false;
-            AfterGetTournament(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, missionId, joinCode, includeScores, objectPreviewSize);
+            AfterGetTournament(ref suppressDefaultLog, apiResponseLocalVar, accountId, missionId, joinCode, includeScores, objectPreviewSize);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1776,13 +1741,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="joinCode"></param>
         /// <param name="includeScores"></param>
         /// <param name="objectPreviewSize"></param>
-        partial void AfterGetTournament(ref bool suppressDefaultLog, IGetTournamentApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> missionId, Option<string> joinCode, Option<string> includeScores, Option<int> objectPreviewSize);
+        partial void AfterGetTournament(ref bool suppressDefaultLog, IGetTournamentApiResponse apiResponseLocalVar, long accountId, Option<long> missionId, Option<string> joinCode, Option<string> includeScores, Option<int> objectPreviewSize);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1790,16 +1754,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="joinCode"></param>
         /// <param name="includeScores"></param>
         /// <param name="objectPreviewSize"></param>
-        private void OnErrorGetTournamentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> missionId, Option<string> joinCode, Option<string> includeScores, Option<int> objectPreviewSize)
+        private void OnErrorGetTournamentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> missionId, Option<string> joinCode, Option<string> includeScores, Option<int> objectPreviewSize)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTournament(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, missionId, joinCode, includeScores, objectPreviewSize);
+            OnErrorGetTournament(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, missionId, joinCode, includeScores, objectPreviewSize);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1811,18 +1774,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="joinCode"></param>
         /// <param name="includeScores"></param>
         /// <param name="objectPreviewSize"></param>
-        partial void OnErrorGetTournament(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> missionId, Option<string> joinCode, Option<string> includeScores, Option<int> objectPreviewSize);
+        partial void OnErrorGetTournament(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> missionId, Option<string> joinCode, Option<string> includeScores, Option<int> objectPreviewSize);
 
         /// <summary>
         /// Get Tournament Get a tournament.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the logged in user</param>
         /// <param name="missionId">The id of the mission to return (either missionId or joinCode is required) (optional)</param>
         /// <param name="joinCode">Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)</param>
@@ -1830,11 +1791,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="objectPreviewSize">Determines the max number of game objects that will get returned for each game level response (optional, default to 50)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTournamentApiResponse"/>&gt;</returns>
-        public async Task<IGetTournamentApiResponse?> GetTournamentOrDefaultAsync(decimal version, long accountId, Option<long> missionId = default, Option<string> joinCode = default, Option<string> includeScores = default, Option<int> objectPreviewSize = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTournamentApiResponse?> GetTournamentOrDefaultAsync(long accountId, Option<long> missionId = default, Option<string> joinCode = default, Option<string> includeScores = default, Option<int> objectPreviewSize = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTournamentAsync(version, accountId, missionId, joinCode, includeScores, objectPreviewSize, cancellationToken).ConfigureAwait(false);
+                return await GetTournamentAsync(accountId, missionId, joinCode, includeScores, objectPreviewSize, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1846,7 +1807,6 @@ namespace Org.OpenAPITools.Api
         /// Get Tournament Get a tournament.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the logged in user</param>
         /// <param name="missionId">The id of the mission to return (either missionId or joinCode is required) (optional)</param>
         /// <param name="joinCode">Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)</param>
@@ -1854,7 +1814,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="objectPreviewSize">Determines the max number of game objects that will get returned for each game level response (optional, default to 50)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTournamentApiResponse"/>&gt;</returns>
-        public async Task<IGetTournamentApiResponse> GetTournamentAsync(decimal version, long accountId, Option<long> missionId = default, Option<string> joinCode = default, Option<string> includeScores = default, Option<int> objectPreviewSize = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTournamentApiResponse> GetTournamentAsync(long accountId, Option<long> missionId = default, Option<string> joinCode = default, Option<string> includeScores = default, Option<int> objectPreviewSize = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1862,7 +1822,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetTournament(joinCode, includeScores);
 
-                FormatGetTournament(ref version, ref accountId, ref missionId, ref joinCode, ref includeScores, ref objectPreviewSize);
+                FormatGetTournament(ref accountId, ref missionId, ref joinCode, ref includeScores, ref objectPreviewSize);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1870,9 +1830,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1915,13 +1874,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTournamentDefaultImplementation(apiResponseLocalVar, version, accountId, missionId, joinCode, includeScores, objectPreviewSize);
+                        AfterGetTournamentDefaultImplementation(apiResponseLocalVar, accountId, missionId, joinCode, includeScores, objectPreviewSize);
 
                         Events.ExecuteOnGetTournament(apiResponseLocalVar);
 
@@ -1931,7 +1890,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTournamentDefaultImplementation(e, "/api/{version}/tournament/get", uriBuilderLocalVar.Path, version, accountId, missionId, joinCode, includeScores, objectPreviewSize);
+                OnErrorGetTournamentDefaultImplementation(e, "/tournament/get", uriBuilderLocalVar.Path, accountId, missionId, joinCode, includeScores, objectPreviewSize);
                 Events.ExecuteOnErrorGetTournament(e);
                 throw;
             }
@@ -2030,7 +1989,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchObjects(ref decimal version, ref long accountId, ref long gameLevelId, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchObjects(ref long accountId, ref long gameLevelId, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2047,17 +2006,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchObjectsDefaultImplementation(ISearchObjectsApiResponse apiResponseLocalVar, decimal version, long accountId, long gameLevelId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchObjectsDefaultImplementation(ISearchObjectsApiResponse apiResponseLocalVar, long accountId, long gameLevelId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchObjects(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, gameLevelId, sortField, descending, start, limit);
+            AfterSearchObjects(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameLevelId, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2067,14 +2025,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchObjects(ref bool suppressDefaultLog, ISearchObjectsApiResponse apiResponseLocalVar, decimal version, long accountId, long gameLevelId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchObjects(ref bool suppressDefaultLog, ISearchObjectsApiResponse apiResponseLocalVar, long accountId, long gameLevelId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2082,17 +2039,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchObjectsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long gameLevelId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchObjectsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long gameLevelId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchObjects(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, gameLevelId, sortField, descending, start, limit);
+            OnErrorSearchObjects(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameLevelId, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2104,19 +2060,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchObjects(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long gameLevelId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchObjects(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long gameLevelId, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Tournament Objects Search on game objects of tournaments
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID</param>
         /// <param name="gameLevelId">the game level id to filter results by</param>
         /// <param name="sortField">the field to sort by (optional, default to PLAYER_SCORE_COUNT)</param>
@@ -2125,11 +2079,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchObjectsApiResponse"/>&gt;</returns>
-        public async Task<ISearchObjectsApiResponse?> SearchObjectsOrDefaultAsync(decimal version, long accountId, long gameLevelId, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchObjectsApiResponse?> SearchObjectsOrDefaultAsync(long accountId, long gameLevelId, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchObjectsAsync(version, accountId, gameLevelId, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchObjectsAsync(accountId, gameLevelId, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2141,7 +2095,6 @@ namespace Org.OpenAPITools.Api
         /// Search Tournament Objects Search on game objects of tournaments
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID</param>
         /// <param name="gameLevelId">the game level id to filter results by</param>
         /// <param name="sortField">the field to sort by (optional, default to PLAYER_SCORE_COUNT)</param>
@@ -2150,7 +2103,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchObjectsApiResponse"/>&gt;</returns>
-        public async Task<ISearchObjectsApiResponse> SearchObjectsAsync(decimal version, long accountId, long gameLevelId, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchObjectsApiResponse> SearchObjectsAsync(long accountId, long gameLevelId, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2158,7 +2111,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchObjects(sortField);
 
-                FormatSearchObjects(ref version, ref accountId, ref gameLevelId, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchObjects(ref accountId, ref gameLevelId, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2166,9 +2119,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/object/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/object/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/object/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/object/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2212,13 +2164,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/object/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/object/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchObjectsDefaultImplementation(apiResponseLocalVar, version, accountId, gameLevelId, sortField, descending, start, limit);
+                        AfterSearchObjectsDefaultImplementation(apiResponseLocalVar, accountId, gameLevelId, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchObjects(apiResponseLocalVar);
 
@@ -2228,7 +2180,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchObjectsDefaultImplementation(e, "/api/{version}/tournament/object/search", uriBuilderLocalVar.Path, version, accountId, gameLevelId, sortField, descending, start, limit);
+                OnErrorSearchObjectsDefaultImplementation(e, "/tournament/object/search", uriBuilderLocalVar.Path, accountId, gameLevelId, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchObjects(e);
                 throw;
             }
@@ -2327,7 +2279,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchRounds(ref decimal version, ref long accountId, ref string appKey, ref Option<string> status, ref Option<string> missionType, ref Option<bool> currentOnly, ref Option<string> visibilities, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchRounds(ref long accountId, ref string appKey, ref Option<string> status, ref Option<string> missionType, ref Option<bool> currentOnly, ref Option<string> visibilities, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2356,7 +2308,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="status"></param>
@@ -2365,10 +2316,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibilities"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchRoundsDefaultImplementation(ISearchRoundsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> status, Option<string> missionType, Option<bool> currentOnly, Option<string> visibilities, Option<int> start, Option<int> limit)
+        private void AfterSearchRoundsDefaultImplementation(ISearchRoundsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> status, Option<string> missionType, Option<bool> currentOnly, Option<string> visibilities, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchRounds(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
+            AfterSearchRounds(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2378,7 +2329,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="status"></param>
@@ -2387,7 +2337,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibilities"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchRounds(ref bool suppressDefaultLog, ISearchRoundsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> status, Option<string> missionType, Option<bool> currentOnly, Option<string> visibilities, Option<int> start, Option<int> limit);
+        partial void AfterSearchRounds(ref bool suppressDefaultLog, ISearchRoundsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> status, Option<string> missionType, Option<bool> currentOnly, Option<string> visibilities, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2395,7 +2345,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="status"></param>
@@ -2404,10 +2353,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibilities"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchRoundsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> status, Option<string> missionType, Option<bool> currentOnly, Option<string> visibilities, Option<int> start, Option<int> limit)
+        private void OnErrorSearchRoundsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> status, Option<string> missionType, Option<bool> currentOnly, Option<string> visibilities, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchRounds(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
+            OnErrorSearchRounds(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2419,7 +2368,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="status"></param>
@@ -2428,12 +2376,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibilities"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchRounds(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> status, Option<string> missionType, Option<bool> currentOnly, Option<string> visibilities, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchRounds(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> status, Option<string> missionType, Option<bool> currentOnly, Option<string> visibilities, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Tournament Rounds Search for the user&#39;s tournament games.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID</param>
         /// <param name="appKey">the application key</param>
         /// <param name="status">comma separated list of statuses to filter results by (optional, default to &quot;ACCEPTED,ACTIVE&quot;)</param>
@@ -2444,11 +2391,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRoundsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRoundsApiResponse?> SearchRoundsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> status = default, Option<string> missionType = default, Option<bool> currentOnly = default, Option<string> visibilities = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRoundsApiResponse?> SearchRoundsOrDefaultAsync(long accountId, string appKey, Option<string> status = default, Option<string> missionType = default, Option<bool> currentOnly = default, Option<string> visibilities = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchRoundsAsync(version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchRoundsAsync(accountId, appKey, status, missionType, currentOnly, visibilities, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2460,7 +2407,6 @@ namespace Org.OpenAPITools.Api
         /// Search Tournament Rounds Search for the user&#39;s tournament games.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID</param>
         /// <param name="appKey">the application key</param>
         /// <param name="status">comma separated list of statuses to filter results by (optional, default to &quot;ACCEPTED,ACTIVE&quot;)</param>
@@ -2471,7 +2417,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRoundsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRoundsApiResponse> SearchRoundsAsync(decimal version, long accountId, string appKey, Option<string> status = default, Option<string> missionType = default, Option<bool> currentOnly = default, Option<string> visibilities = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRoundsApiResponse> SearchRoundsAsync(long accountId, string appKey, Option<string> status = default, Option<string> missionType = default, Option<bool> currentOnly = default, Option<string> visibilities = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2479,7 +2425,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchRounds(appKey, status, missionType, visibilities);
 
-                FormatSearchRounds(ref version, ref accountId, ref appKey, ref status, ref missionType, ref currentOnly, ref visibilities, ref start, ref limit);
+                FormatSearchRounds(ref accountId, ref appKey, ref status, ref missionType, ref currentOnly, ref visibilities, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2487,9 +2433,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/round/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/round/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/round/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/round/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2539,13 +2484,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/round/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/round/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchRoundsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
+                        AfterSearchRoundsDefaultImplementation(apiResponseLocalVar, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
 
                         Events.ExecuteOnSearchRounds(apiResponseLocalVar);
 
@@ -2555,7 +2500,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchRoundsDefaultImplementation(e, "/api/{version}/tournament/round/search", uriBuilderLocalVar.Path, version, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
+                OnErrorSearchRoundsDefaultImplementation(e, "/tournament/round/search", uriBuilderLocalVar.Path, accountId, appKey, status, missionType, currentOnly, visibilities, start, limit);
                 Events.ExecuteOnErrorSearchRounds(e);
                 throw;
             }
@@ -2654,7 +2599,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchTournaments(ref decimal version, ref long accountId, ref string appKey, ref Option<string> keyword, ref Option<string> subType, ref Option<bool> includeInactive, ref Option<string> missionTypes, ref Option<string> filter, ref Option<string> sortField, ref Option<bool> descending, ref Option<string> visibility, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchTournaments(ref long accountId, ref string appKey, ref Option<string> keyword, ref Option<string> subType, ref Option<bool> includeInactive, ref Option<string> missionTypes, ref Option<string> filter, ref Option<string> sortField, ref Option<bool> descending, ref Option<string> visibility, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2695,7 +2640,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -2708,10 +2652,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchTournamentsDefaultImplementation(ISearchTournamentsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<string> subType, Option<bool> includeInactive, Option<string> missionTypes, Option<string> filter, Option<string> sortField, Option<bool> descending, Option<string> visibility, Option<int> start, Option<int> limit)
+        private void AfterSearchTournamentsDefaultImplementation(ISearchTournamentsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> keyword, Option<string> subType, Option<bool> includeInactive, Option<string> missionTypes, Option<string> filter, Option<string> sortField, Option<bool> descending, Option<string> visibility, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchTournaments(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
+            AfterSearchTournaments(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2721,7 +2665,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -2734,7 +2677,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchTournaments(ref bool suppressDefaultLog, ISearchTournamentsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<string> subType, Option<bool> includeInactive, Option<string> missionTypes, Option<string> filter, Option<string> sortField, Option<bool> descending, Option<string> visibility, Option<int> start, Option<int> limit);
+        partial void AfterSearchTournaments(ref bool suppressDefaultLog, ISearchTournamentsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> keyword, Option<string> subType, Option<bool> includeInactive, Option<string> missionTypes, Option<string> filter, Option<string> sortField, Option<bool> descending, Option<string> visibility, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2742,7 +2685,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -2755,10 +2697,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchTournamentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<string> subType, Option<bool> includeInactive, Option<string> missionTypes, Option<string> filter, Option<string> sortField, Option<bool> descending, Option<string> visibility, Option<int> start, Option<int> limit)
+        private void OnErrorSearchTournamentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> keyword, Option<string> subType, Option<bool> includeInactive, Option<string> missionTypes, Option<string> filter, Option<string> sortField, Option<bool> descending, Option<string> visibility, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchTournaments(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
+            OnErrorSearchTournaments(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2770,7 +2712,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -2783,12 +2724,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchTournaments(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<string> subType, Option<bool> includeInactive, Option<string> missionTypes, Option<string> filter, Option<string> sortField, Option<bool> descending, Option<string> visibility, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchTournaments(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> keyword, Option<string> subType, Option<bool> includeInactive, Option<string> missionTypes, Option<string> filter, Option<string> sortField, Option<bool> descending, Option<string> visibility, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Tournaments Search for tournaments
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application key</param>
         /// <param name="keyword">the keyword to search tournament on (optional)</param>
@@ -2803,11 +2743,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit the result to some number (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTournamentsApiResponse"/>&gt;</returns>
-        public async Task<ISearchTournamentsApiResponse?> SearchTournamentsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<string> subType = default, Option<bool> includeInactive = default, Option<string> missionTypes = default, Option<string> filter = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> visibility = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTournamentsApiResponse?> SearchTournamentsOrDefaultAsync(long accountId, string appKey, Option<string> keyword = default, Option<string> subType = default, Option<bool> includeInactive = default, Option<string> missionTypes = default, Option<string> filter = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> visibility = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchTournamentsAsync(version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchTournamentsAsync(accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2819,7 +2759,6 @@ namespace Org.OpenAPITools.Api
         /// Search Tournaments Search for tournaments
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application key</param>
         /// <param name="keyword">the keyword to search tournament on (optional)</param>
@@ -2834,7 +2773,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit the result to some number (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTournamentsApiResponse"/>&gt;</returns>
-        public async Task<ISearchTournamentsApiResponse> SearchTournamentsAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<string> subType = default, Option<bool> includeInactive = default, Option<string> missionTypes = default, Option<string> filter = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> visibility = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTournamentsApiResponse> SearchTournamentsAsync(long accountId, string appKey, Option<string> keyword = default, Option<string> subType = default, Option<bool> includeInactive = default, Option<string> missionTypes = default, Option<string> filter = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> visibility = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2842,7 +2781,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchTournaments(appKey, keyword, subType, missionTypes, filter, sortField, visibility);
 
-                FormatSearchTournaments(ref version, ref accountId, ref appKey, ref keyword, ref subType, ref includeInactive, ref missionTypes, ref filter, ref sortField, ref descending, ref visibility, ref start, ref limit);
+                FormatSearchTournaments(ref accountId, ref appKey, ref keyword, ref subType, ref includeInactive, ref missionTypes, ref filter, ref sortField, ref descending, ref visibility, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2850,9 +2789,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2914,13 +2852,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchTournamentsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
+                        AfterSearchTournamentsDefaultImplementation(apiResponseLocalVar, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
 
                         Events.ExecuteOnSearchTournaments(apiResponseLocalVar);
 
@@ -2930,7 +2868,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchTournamentsDefaultImplementation(e, "/api/{version}/tournament/search", uriBuilderLocalVar.Path, version, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
+                OnErrorSearchTournamentsDefaultImplementation(e, "/tournament/search", uriBuilderLocalVar.Path, accountId, appKey, keyword, subType, includeInactive, missionTypes, filter, sortField, descending, visibility, start, limit);
                 Events.ExecuteOnErrorSearchTournaments(e);
                 throw;
             }
@@ -3029,7 +2967,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSubmitTournamentScore(ref decimal version, ref long accountId, ref string appKey, ref long missionId, ref long gameId, ref long packId, ref string scores, ref Option<long> gameLevelId);
+        partial void FormatSubmitTournamentScore(ref long accountId, ref string appKey, ref long missionId, ref long gameId, ref long packId, ref string scores, ref Option<long> gameLevelId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3050,7 +2988,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -3058,10 +2995,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="scores"></param>
         /// <param name="gameLevelId"></param>
-        private void AfterSubmitTournamentScoreDefaultImplementation(ISubmitTournamentScoreApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId)
+        private void AfterSubmitTournamentScoreDefaultImplementation(ISubmitTournamentScoreApiResponse apiResponseLocalVar, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId)
         {
             bool suppressDefaultLog = false;
-            AfterSubmitTournamentScore(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
+            AfterSubmitTournamentScore(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3071,7 +3008,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -3079,7 +3015,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="scores"></param>
         /// <param name="gameLevelId"></param>
-        partial void AfterSubmitTournamentScore(ref bool suppressDefaultLog, ISubmitTournamentScoreApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId);
+        partial void AfterSubmitTournamentScore(ref bool suppressDefaultLog, ISubmitTournamentScoreApiResponse apiResponseLocalVar, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3087,7 +3023,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -3095,10 +3030,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="scores"></param>
         /// <param name="gameLevelId"></param>
-        private void OnErrorSubmitTournamentScoreDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId)
+        private void OnErrorSubmitTournamentScoreDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSubmitTournamentScore(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
+            OnErrorSubmitTournamentScore(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3110,7 +3045,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -3118,12 +3052,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="scores"></param>
         /// <param name="gameLevelId"></param>
-        partial void OnErrorSubmitTournamentScore(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId);
+        partial void OnErrorSubmitTournamentScore(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId);
 
         /// <summary>
         /// Submit Tournament Score Submit an array of scores for a tournament match. 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user account ID.</param>
         /// <param name="appKey">The application key.</param>
         /// <param name="missionId">The missionId to score for</param>
@@ -3133,11 +3066,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId">The gameLevelId to score for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitTournamentScoreApiResponse"/>&gt;</returns>
-        public async Task<ISubmitTournamentScoreApiResponse?> SubmitTournamentScoreOrDefaultAsync(decimal version, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISubmitTournamentScoreApiResponse?> SubmitTournamentScoreOrDefaultAsync(long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SubmitTournamentScoreAsync(version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId, cancellationToken).ConfigureAwait(false);
+                return await SubmitTournamentScoreAsync(accountId, appKey, missionId, gameId, packId, scores, gameLevelId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3149,7 +3082,6 @@ namespace Org.OpenAPITools.Api
         /// Submit Tournament Score Submit an array of scores for a tournament match. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user account ID.</param>
         /// <param name="appKey">The application key.</param>
         /// <param name="missionId">The missionId to score for</param>
@@ -3159,7 +3091,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId">The gameLevelId to score for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitTournamentScoreApiResponse"/>&gt;</returns>
-        public async Task<ISubmitTournamentScoreApiResponse> SubmitTournamentScoreAsync(decimal version, long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISubmitTournamentScoreApiResponse> SubmitTournamentScoreAsync(long accountId, string appKey, long missionId, long gameId, long packId, string scores, Option<long> gameLevelId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3167,7 +3099,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSubmitTournamentScore(appKey, scores);
 
-                FormatSubmitTournamentScore(ref version, ref accountId, ref appKey, ref missionId, ref gameId, ref packId, ref scores, ref gameLevelId);
+                FormatSubmitTournamentScore(ref accountId, ref appKey, ref missionId, ref gameId, ref packId, ref scores, ref gameLevelId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3175,9 +3107,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/score"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/score");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/score"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/score");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3216,13 +3147,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/score", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/score", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSubmitTournamentScoreDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
+                        AfterSubmitTournamentScoreDefaultImplementation(apiResponseLocalVar, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
 
                         Events.ExecuteOnSubmitTournamentScore(apiResponseLocalVar);
 
@@ -3232,7 +3163,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitTournamentScoreDefaultImplementation(e, "/api/{version}/tournament/score", uriBuilderLocalVar.Path, version, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
+                OnErrorSubmitTournamentScoreDefaultImplementation(e, "/tournament/score", uriBuilderLocalVar.Path, accountId, appKey, missionId, gameId, packId, scores, gameLevelId);
                 Events.ExecuteOnErrorSubmitTournamentScore(e);
                 throw;
             }
@@ -3331,7 +3262,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSubmitTournamentVote(ref decimal version, ref long accountId, ref string appKey, ref long missionId, ref long gameObjectId, ref Option<string> deviceId, ref Option<bool> checkIfDeviceAlreadyVoted);
+        partial void FormatSubmitTournamentVote(ref long accountId, ref string appKey, ref long missionId, ref long gameObjectId, ref Option<string> deviceId, ref Option<bool> checkIfDeviceAlreadyVoted);
 
         /// <summary>
         /// Validates the request parameters
@@ -3352,17 +3283,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
         /// <param name="gameObjectId"></param>
         /// <param name="deviceId"></param>
         /// <param name="checkIfDeviceAlreadyVoted"></param>
-        private void AfterSubmitTournamentVoteDefaultImplementation(ISubmitTournamentVoteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId, Option<bool> checkIfDeviceAlreadyVoted)
+        private void AfterSubmitTournamentVoteDefaultImplementation(ISubmitTournamentVoteApiResponse apiResponseLocalVar, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId, Option<bool> checkIfDeviceAlreadyVoted)
         {
             bool suppressDefaultLog = false;
-            AfterSubmitTournamentVote(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
+            AfterSubmitTournamentVote(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3372,14 +3302,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
         /// <param name="gameObjectId"></param>
         /// <param name="deviceId"></param>
         /// <param name="checkIfDeviceAlreadyVoted"></param>
-        partial void AfterSubmitTournamentVote(ref bool suppressDefaultLog, ISubmitTournamentVoteApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId, Option<bool> checkIfDeviceAlreadyVoted);
+        partial void AfterSubmitTournamentVote(ref bool suppressDefaultLog, ISubmitTournamentVoteApiResponse apiResponseLocalVar, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId, Option<bool> checkIfDeviceAlreadyVoted);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3387,17 +3316,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
         /// <param name="gameObjectId"></param>
         /// <param name="deviceId"></param>
         /// <param name="checkIfDeviceAlreadyVoted"></param>
-        private void OnErrorSubmitTournamentVoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId, Option<bool> checkIfDeviceAlreadyVoted)
+        private void OnErrorSubmitTournamentVoteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId, Option<bool> checkIfDeviceAlreadyVoted)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSubmitTournamentVote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
+            OnErrorSubmitTournamentVote(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3409,19 +3337,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
         /// <param name="gameObjectId"></param>
         /// <param name="deviceId"></param>
         /// <param name="checkIfDeviceAlreadyVoted"></param>
-        partial void OnErrorSubmitTournamentVote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId, Option<bool> checkIfDeviceAlreadyVoted);
+        partial void OnErrorSubmitTournamentVote(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId, Option<bool> checkIfDeviceAlreadyVoted);
 
         /// <summary>
         /// Submit a vote for a multi-stage album tournament. Submit a vote for a multi-stage album tournament.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application to target</param>
         /// <param name="missionId">The tournament&#39;s primary id</param>
@@ -3430,11 +3356,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="checkIfDeviceAlreadyVoted">When true, check if the device already voted to prevent duplicate votes from the same device (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitTournamentVoteApiResponse"/>&gt;</returns>
-        public async Task<ISubmitTournamentVoteApiResponse?> SubmitTournamentVoteOrDefaultAsync(decimal version, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId = default, Option<bool> checkIfDeviceAlreadyVoted = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISubmitTournamentVoteApiResponse?> SubmitTournamentVoteOrDefaultAsync(long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId = default, Option<bool> checkIfDeviceAlreadyVoted = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SubmitTournamentVoteAsync(version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted, cancellationToken).ConfigureAwait(false);
+                return await SubmitTournamentVoteAsync(accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3446,7 +3372,6 @@ namespace Org.OpenAPITools.Api
         /// Submit a vote for a multi-stage album tournament. Submit a vote for a multi-stage album tournament.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The application to target</param>
         /// <param name="missionId">The tournament&#39;s primary id</param>
@@ -3455,7 +3380,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="checkIfDeviceAlreadyVoted">When true, check if the device already voted to prevent duplicate votes from the same device (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubmitTournamentVoteApiResponse"/>&gt;</returns>
-        public async Task<ISubmitTournamentVoteApiResponse> SubmitTournamentVoteAsync(decimal version, long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId = default, Option<bool> checkIfDeviceAlreadyVoted = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISubmitTournamentVoteApiResponse> SubmitTournamentVoteAsync(long accountId, string appKey, long missionId, long gameObjectId, Option<string> deviceId = default, Option<bool> checkIfDeviceAlreadyVoted = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3463,7 +3388,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSubmitTournamentVote(appKey, deviceId);
 
-                FormatSubmitTournamentVote(ref version, ref accountId, ref appKey, ref missionId, ref gameObjectId, ref deviceId, ref checkIfDeviceAlreadyVoted);
+                FormatSubmitTournamentVote(ref accountId, ref appKey, ref missionId, ref gameObjectId, ref deviceId, ref checkIfDeviceAlreadyVoted);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3471,9 +3396,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/vote"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/vote");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/vote"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/vote");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3513,13 +3437,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/vote", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/vote", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSubmitTournamentVoteDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
+                        AfterSubmitTournamentVoteDefaultImplementation(apiResponseLocalVar, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
 
                         Events.ExecuteOnSubmitTournamentVote(apiResponseLocalVar);
 
@@ -3529,7 +3453,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitTournamentVoteDefaultImplementation(e, "/api/{version}/tournament/vote", uriBuilderLocalVar.Path, version, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
+                OnErrorSubmitTournamentVoteDefaultImplementation(e, "/tournament/vote", uriBuilderLocalVar.Path, accountId, appKey, missionId, gameObjectId, deviceId, checkIfDeviceAlreadyVoted);
                 Events.ExecuteOnErrorSubmitTournamentVote(e);
                 throw;
             }
@@ -3628,21 +3552,20 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSubstituteTournamentPlayer(ref decimal version, ref long accountId, ref long missionId, ref long packId, ref long gameLevelId);
+        partial void FormatSubstituteTournamentPlayer(ref long accountId, ref long missionId, ref long packId, ref long gameLevelId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
-        private void AfterSubstituteTournamentPlayerDefaultImplementation(ISubstituteTournamentPlayerApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId, long packId, long gameLevelId)
+        private void AfterSubstituteTournamentPlayerDefaultImplementation(ISubstituteTournamentPlayerApiResponse apiResponseLocalVar, long accountId, long missionId, long packId, long gameLevelId)
         {
             bool suppressDefaultLog = false;
-            AfterSubstituteTournamentPlayer(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, missionId, packId, gameLevelId);
+            AfterSubstituteTournamentPlayer(ref suppressDefaultLog, apiResponseLocalVar, accountId, missionId, packId, gameLevelId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3652,12 +3575,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
-        partial void AfterSubstituteTournamentPlayer(ref bool suppressDefaultLog, ISubstituteTournamentPlayerApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId, long packId, long gameLevelId);
+        partial void AfterSubstituteTournamentPlayer(ref bool suppressDefaultLog, ISubstituteTournamentPlayerApiResponse apiResponseLocalVar, long accountId, long missionId, long packId, long gameLevelId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3665,15 +3587,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
-        private void OnErrorSubstituteTournamentPlayerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId, long packId, long gameLevelId)
+        private void OnErrorSubstituteTournamentPlayerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId, long packId, long gameLevelId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSubstituteTournamentPlayer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, missionId, packId, gameLevelId);
+            OnErrorSubstituteTournamentPlayer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, missionId, packId, gameLevelId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3685,28 +3606,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
-        partial void OnErrorSubstituteTournamentPlayer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId, long packId, long gameLevelId);
+        partial void OnErrorSubstituteTournamentPlayer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId, long packId, long gameLevelId);
 
         /// <summary>
         /// Substitute Tournament Player Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission</param>
         /// <param name="packId">the id of the pack</param>
         /// <param name="gameLevelId">the id of the game level</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubstituteTournamentPlayerApiResponse"/>&gt;</returns>
-        public async Task<ISubstituteTournamentPlayerApiResponse?> SubstituteTournamentPlayerOrDefaultAsync(decimal version, long accountId, long missionId, long packId, long gameLevelId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISubstituteTournamentPlayerApiResponse?> SubstituteTournamentPlayerOrDefaultAsync(long accountId, long missionId, long packId, long gameLevelId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SubstituteTournamentPlayerAsync(version, accountId, missionId, packId, gameLevelId, cancellationToken).ConfigureAwait(false);
+                return await SubstituteTournamentPlayerAsync(accountId, missionId, packId, gameLevelId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3718,20 +3637,19 @@ namespace Org.OpenAPITools.Api
         /// Substitute Tournament Player Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="missionId">the id of the mission</param>
         /// <param name="packId">the id of the pack</param>
         /// <param name="gameLevelId">the id of the game level</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISubstituteTournamentPlayerApiResponse"/>&gt;</returns>
-        public async Task<ISubstituteTournamentPlayerApiResponse> SubstituteTournamentPlayerAsync(decimal version, long accountId, long missionId, long packId, long gameLevelId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISubstituteTournamentPlayerApiResponse> SubstituteTournamentPlayerAsync(long accountId, long missionId, long packId, long gameLevelId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatSubstituteTournamentPlayer(ref version, ref accountId, ref missionId, ref packId, ref gameLevelId);
+                FormatSubstituteTournamentPlayer(ref accountId, ref missionId, ref packId, ref gameLevelId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3739,9 +3657,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/substitute"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/substitute");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/substitute"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/substitute");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3775,13 +3692,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/substitute", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/substitute", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSubstituteTournamentPlayerDefaultImplementation(apiResponseLocalVar, version, accountId, missionId, packId, gameLevelId);
+                        AfterSubstituteTournamentPlayerDefaultImplementation(apiResponseLocalVar, accountId, missionId, packId, gameLevelId);
 
                         Events.ExecuteOnSubstituteTournamentPlayer(apiResponseLocalVar);
 
@@ -3791,7 +3708,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSubstituteTournamentPlayerDefaultImplementation(e, "/api/{version}/tournament/substitute", uriBuilderLocalVar.Path, version, accountId, missionId, packId, gameLevelId);
+                OnErrorSubstituteTournamentPlayerDefaultImplementation(e, "/tournament/substitute", uriBuilderLocalVar.Path, accountId, missionId, packId, gameLevelId);
                 Events.ExecuteOnErrorSubstituteTournamentPlayer(e);
                 throw;
             }
@@ -3890,7 +3807,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateTournament(ref decimal version, ref long accountId, ref long missionId, ref Option<string> title, ref Option<string> subType, ref Option<long> imageAssetId, ref Option<int> secondsBetweenLevels, ref Option<int> secondsForTieBreaker, ref Option<int> secondsBetweenPacks, ref Option<int> maximumLevelLength, ref Option<int> costToPlay, ref Option<string> costToPlayType, ref Option<int> minimumToPlay, ref Option<int> startingLimit, ref Option<int> availableLimit, ref Option<string> description, ref Option<string> metaData, ref Option<long> startDate, ref Option<string> audienceIds, ref Option<bool> active, ref Option<bool> enableBuyBack, ref Option<string> offerIds, ref Option<long> offerAssetId, ref Option<bool> fixedReward, ref Option<string> splitReward, ref Option<bool> allocateTickets, ref Option<string> tournamentData, ref Option<string> visibility, ref Option<int> preliminaryGroups, ref Option<string> preliminaryGroupAdvancements, ref Option<bool> enableMultipleEntries, ref Option<bool> enableMultipleVotes, ref Option<bool> featured, ref Option<string> winnerTag, ref Option<string> tieTag);
+        partial void FormatUpdateTournament(ref long accountId, ref long missionId, ref Option<string> title, ref Option<string> subType, ref Option<long> imageAssetId, ref Option<int> secondsBetweenLevels, ref Option<int> secondsForTieBreaker, ref Option<int> secondsBetweenPacks, ref Option<int> maximumLevelLength, ref Option<int> costToPlay, ref Option<string> costToPlayType, ref Option<int> minimumToPlay, ref Option<int> startingLimit, ref Option<int> availableLimit, ref Option<string> description, ref Option<string> metaData, ref Option<long> startDate, ref Option<string> audienceIds, ref Option<bool> active, ref Option<bool> enableBuyBack, ref Option<string> offerIds, ref Option<long> offerAssetId, ref Option<bool> fixedReward, ref Option<string> splitReward, ref Option<bool> allocateTickets, ref Option<string> tournamentData, ref Option<string> visibility, ref Option<int> preliminaryGroups, ref Option<string> preliminaryGroupAdvancements, ref Option<bool> enableMultipleEntries, ref Option<bool> enableMultipleVotes, ref Option<bool> featured, ref Option<string> winnerTag, ref Option<string> tieTag);
 
         /// <summary>
         /// Validates the request parameters
@@ -3955,7 +3872,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="title"></param>
@@ -3990,10 +3906,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="featured"></param>
         /// <param name="winnerTag"></param>
         /// <param name="tieTag"></param>
-        private void AfterUpdateTournamentDefaultImplementation(IUpdateTournamentApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId, Option<string> title, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<int> costToPlay, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<long> startDate, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag)
+        private void AfterUpdateTournamentDefaultImplementation(IUpdateTournamentApiResponse apiResponseLocalVar, long accountId, long missionId, Option<string> title, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<int> costToPlay, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<long> startDate, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateTournament(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+            AfterUpdateTournament(ref suppressDefaultLog, apiResponseLocalVar, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4003,7 +3919,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="title"></param>
@@ -4038,7 +3953,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="featured"></param>
         /// <param name="winnerTag"></param>
         /// <param name="tieTag"></param>
-        partial void AfterUpdateTournament(ref bool suppressDefaultLog, IUpdateTournamentApiResponse apiResponseLocalVar, decimal version, long accountId, long missionId, Option<string> title, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<int> costToPlay, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<long> startDate, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag);
+        partial void AfterUpdateTournament(ref bool suppressDefaultLog, IUpdateTournamentApiResponse apiResponseLocalVar, long accountId, long missionId, Option<string> title, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<int> costToPlay, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<long> startDate, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4046,7 +3961,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="title"></param>
@@ -4081,10 +3995,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="featured"></param>
         /// <param name="winnerTag"></param>
         /// <param name="tieTag"></param>
-        private void OnErrorUpdateTournamentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId, Option<string> title, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<int> costToPlay, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<long> startDate, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag)
+        private void OnErrorUpdateTournamentDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId, Option<string> title, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<int> costToPlay, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<long> startDate, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateTournament(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+            OnErrorUpdateTournament(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4096,7 +4010,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="missionId"></param>
         /// <param name="title"></param>
@@ -4131,12 +4044,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="featured"></param>
         /// <param name="winnerTag"></param>
         /// <param name="tieTag"></param>
-        partial void OnErrorUpdateTournament(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long missionId, Option<string> title, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<int> costToPlay, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<long> startDate, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag);
+        partial void OnErrorUpdateTournament(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long missionId, Option<string> title, Option<string> subType, Option<long> imageAssetId, Option<int> secondsBetweenLevels, Option<int> secondsForTieBreaker, Option<int> secondsBetweenPacks, Option<int> maximumLevelLength, Option<int> costToPlay, Option<string> costToPlayType, Option<int> minimumToPlay, Option<int> startingLimit, Option<int> availableLimit, Option<string> description, Option<string> metaData, Option<long> startDate, Option<string> audienceIds, Option<bool> active, Option<bool> enableBuyBack, Option<string> offerIds, Option<long> offerAssetId, Option<bool> fixedReward, Option<string> splitReward, Option<bool> allocateTickets, Option<string> tournamentData, Option<string> visibility, Option<int> preliminaryGroups, Option<string> preliminaryGroupAdvancements, Option<bool> enableMultipleEntries, Option<bool> enableMultipleVotes, Option<bool> featured, Option<string> winnerTag, Option<string> tieTag);
 
         /// <summary>
         /// Update Tournament Update a tournament.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The mission/tournament to update</param>
         /// <param name="title">The title of the tournament (optional)</param>
@@ -4173,11 +4085,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tieTag">This sets what analytic tag is used when a winner is determined (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTournamentApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTournamentApiResponse?> UpdateTournamentOrDefaultAsync(decimal version, long accountId, long missionId, Option<string> title = default, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<int> costToPlay = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<long> startDate = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTournamentApiResponse?> UpdateTournamentOrDefaultAsync(long accountId, long missionId, Option<string> title = default, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<int> costToPlay = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<long> startDate = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateTournamentAsync(version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, cancellationToken).ConfigureAwait(false);
+                return await UpdateTournamentAsync(accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4189,7 +4101,6 @@ namespace Org.OpenAPITools.Api
         /// Update Tournament Update a tournament.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="missionId">The mission/tournament to update</param>
         /// <param name="title">The title of the tournament (optional)</param>
@@ -4226,7 +4137,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tieTag">This sets what analytic tag is used when a winner is determined (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTournamentApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTournamentApiResponse> UpdateTournamentAsync(decimal version, long accountId, long missionId, Option<string> title = default, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<int> costToPlay = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<long> startDate = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTournamentApiResponse> UpdateTournamentAsync(long accountId, long missionId, Option<string> title = default, Option<string> subType = default, Option<long> imageAssetId = default, Option<int> secondsBetweenLevels = default, Option<int> secondsForTieBreaker = default, Option<int> secondsBetweenPacks = default, Option<int> maximumLevelLength = default, Option<int> costToPlay = default, Option<string> costToPlayType = default, Option<int> minimumToPlay = default, Option<int> startingLimit = default, Option<int> availableLimit = default, Option<string> description = default, Option<string> metaData = default, Option<long> startDate = default, Option<string> audienceIds = default, Option<bool> active = default, Option<bool> enableBuyBack = default, Option<string> offerIds = default, Option<long> offerAssetId = default, Option<bool> fixedReward = default, Option<string> splitReward = default, Option<bool> allocateTickets = default, Option<string> tournamentData = default, Option<string> visibility = default, Option<int> preliminaryGroups = default, Option<string> preliminaryGroupAdvancements = default, Option<bool> enableMultipleEntries = default, Option<bool> enableMultipleVotes = default, Option<bool> featured = default, Option<string> winnerTag = default, Option<string> tieTag = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4234,7 +4145,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateTournament(title, subType, costToPlayType, description, metaData, audienceIds, offerIds, splitReward, tournamentData, visibility, preliminaryGroupAdvancements, winnerTag, tieTag);
 
-                FormatUpdateTournament(ref version, ref accountId, ref missionId, ref title, ref subType, ref imageAssetId, ref secondsBetweenLevels, ref secondsForTieBreaker, ref secondsBetweenPacks, ref maximumLevelLength, ref costToPlay, ref costToPlayType, ref minimumToPlay, ref startingLimit, ref availableLimit, ref description, ref metaData, ref startDate, ref audienceIds, ref active, ref enableBuyBack, ref offerIds, ref offerAssetId, ref fixedReward, ref splitReward, ref allocateTickets, ref tournamentData, ref visibility, ref preliminaryGroups, ref preliminaryGroupAdvancements, ref enableMultipleEntries, ref enableMultipleVotes, ref featured, ref winnerTag, ref tieTag);
+                FormatUpdateTournament(ref accountId, ref missionId, ref title, ref subType, ref imageAssetId, ref secondsBetweenLevels, ref secondsForTieBreaker, ref secondsBetweenPacks, ref maximumLevelLength, ref costToPlay, ref costToPlayType, ref minimumToPlay, ref startingLimit, ref availableLimit, ref description, ref metaData, ref startDate, ref audienceIds, ref active, ref enableBuyBack, ref offerIds, ref offerAssetId, ref fixedReward, ref splitReward, ref allocateTickets, ref tournamentData, ref visibility, ref preliminaryGroups, ref preliminaryGroupAdvancements, ref enableMultipleEntries, ref enableMultipleVotes, ref featured, ref winnerTag, ref tieTag);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4242,9 +4153,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tournament/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tournament/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tournament/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tournament/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4372,13 +4282,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tournament/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tournament/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateTournamentDefaultImplementation(apiResponseLocalVar, version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+                        AfterUpdateTournamentDefaultImplementation(apiResponseLocalVar, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
 
                         Events.ExecuteOnUpdateTournament(apiResponseLocalVar);
 
@@ -4388,7 +4298,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateTournamentDefaultImplementation(e, "/api/{version}/tournament/update", uriBuilderLocalVar.Path, version, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
+                OnErrorUpdateTournamentDefaultImplementation(e, "/tournament/update", uriBuilderLocalVar.Path, accountId, missionId, title, subType, imageAssetId, secondsBetweenLevels, secondsForTieBreaker, secondsBetweenPacks, maximumLevelLength, costToPlay, costToPlayType, minimumToPlay, startingLimit, availableLimit, description, metaData, startDate, audienceIds, active, enableBuyBack, offerIds, offerAssetId, fixedReward, splitReward, allocateTickets, tournamentData, visibility, preliminaryGroups, preliminaryGroupAdvancements, enableMultipleEntries, enableMultipleVotes, featured, winnerTag, tieTag);
                 Events.ExecuteOnErrorUpdateTournament(e);
                 throw;
             }

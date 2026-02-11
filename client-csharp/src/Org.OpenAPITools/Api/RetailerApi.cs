@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a retailer record. A billable entity must be created first before a retailer record can be made.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="name">The name of the retailer</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -81,7 +80,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerApiResponse"/>&gt;</returns>
-        Task<ICreateRetailerApiResponse> CreateRetailerAsync(decimal version, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> categoryIdsToAdd = default, Option<string> categoryIdsToRemove = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> createDefaultLocation = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRetailerApiResponse> CreateRetailerAsync(string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> categoryIdsToAdd = default, Option<string> categoryIdsToRemove = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> createDefaultLocation = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Retailer
@@ -89,7 +88,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a retailer record. A billable entity must be created first before a retailer record can be made.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="name">The name of the retailer</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -125,7 +123,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerApiResponse"/>?&gt;</returns>
-        Task<ICreateRetailerApiResponse?> CreateRetailerOrDefaultAsync(decimal version, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> categoryIdsToAdd = default, Option<string> categoryIdsToRemove = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> createDefaultLocation = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRetailerApiResponse?> CreateRetailerOrDefaultAsync(string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> categoryIdsToAdd = default, Option<string> categoryIdsToRemove = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> createDefaultLocation = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Retailer
@@ -134,13 +132,12 @@ namespace Org.OpenAPITools.Api
         /// Set the deleted timestamp to current time.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the retailer. (optional)</param>
         /// <param name="retailerId">The ID of the retailer to be deleted (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRetailerApiResponse"/>&gt;</returns>
-        Task<IDeleteRetailerApiResponse> DeleteRetailerAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRetailerApiResponse> DeleteRetailerAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Retailer
@@ -148,13 +145,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Set the deleted timestamp to current time.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the retailer. (optional)</param>
         /// <param name="retailerId">The ID of the retailer to be deleted (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRetailerApiResponse"/>?&gt;</returns>
-        Task<IDeleteRetailerApiResponse?> DeleteRetailerOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRetailerApiResponse?> DeleteRetailerOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Retailer
@@ -163,14 +159,13 @@ namespace Org.OpenAPITools.Api
         /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerId">the ID of the retailer</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="includeCounts">Determines whether to include counts in the response (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerApiResponse"/>&gt;</returns>
-        Task<IGetRetailerApiResponse> GetRetailerAsync(decimal version, long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetailerApiResponse> GetRetailerAsync(long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Retailer
@@ -178,14 +173,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="retailerId">the ID of the retailer</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="includeCounts">Determines whether to include counts in the response (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerApiResponse"/>?&gt;</returns>
-        Task<IGetRetailerApiResponse?> GetRetailerOrDefaultAsync(decimal version, long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetailerApiResponse?> GetRetailerOrDefaultAsync(long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Retailers
@@ -194,7 +188,6 @@ namespace Org.OpenAPITools.Api
         /// earches on retailers that the account has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="visibility"></param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -211,7 +204,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="l">This parameter is deprecated. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailersApiResponse"/>&gt;</returns>
-        Task<IGetRetailersApiResponse> GetRetailersAsync(decimal version, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetailersApiResponse> GetRetailersAsync(string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Retailers
@@ -219,7 +212,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// earches on retailers that the account has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="visibility"></param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -236,7 +228,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="l">This parameter is deprecated. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailersApiResponse"/>?&gt;</returns>
-        Task<IGetRetailersApiResponse?> GetRetailersOrDefaultAsync(decimal version, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetailersApiResponse?> GetRetailersOrDefaultAsync(string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Retailer
@@ -245,7 +237,6 @@ namespace Org.OpenAPITools.Api
         /// Retailer login check.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="username">the user&#39;s email address they used to sign-up</param>
         /// <param name="password">the password</param>
         /// <param name="deviceId">the device id (optional) (optional)</param>
@@ -254,7 +245,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRetailerLoginCheckApiResponse"/>&gt;</returns>
-        Task<IRetailerLoginCheckApiResponse> RetailerLoginCheckAsync(decimal version, string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRetailerLoginCheckApiResponse> RetailerLoginCheckAsync(string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Retailer
@@ -262,7 +253,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Retailer login check.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="username">the user&#39;s email address they used to sign-up</param>
         /// <param name="password">the password</param>
         /// <param name="deviceId">the device id (optional) (optional)</param>
@@ -271,7 +261,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRetailerLoginCheckApiResponse"/>?&gt;</returns>
-        Task<IRetailerLoginCheckApiResponse?> RetailerLoginCheckOrDefaultAsync(decimal version, string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRetailerLoginCheckApiResponse?> RetailerLoginCheckOrDefaultAsync(string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Retailer
@@ -280,7 +270,6 @@ namespace Org.OpenAPITools.Api
         /// Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerId">The ID of the retailer to update</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -315,7 +304,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRetailerApiResponse"/>&gt;</returns>
-        Task<IUpdateRetailerApiResponse> UpdateRetailerAsync(decimal version, long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRetailerApiResponse> UpdateRetailerAsync(long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Retailer
@@ -323,7 +312,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="retailerId">The ID of the retailer to update</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -358,7 +346,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRetailerApiResponse"/>?&gt;</returns>
-        Task<IUpdateRetailerApiResponse?> UpdateRetailerOrDefaultAsync(decimal version, long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRetailerApiResponse?> UpdateRetailerOrDefaultAsync(long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -606,7 +594,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateRetailer(ref decimal version, ref string name, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> facebookUrl, ref Option<string> twitterUrl, ref Option<System.IO.Stream> logo, ref Option<long> logoAssetId, ref Option<System.IO.Stream> picture1, ref Option<long> picture1AssetId, ref Option<System.IO.Stream> picture2, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> categoryIdsToAdd, ref Option<string> categoryIdsToRemove, ref Option<string> filterIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<string> searchTags, ref Option<string> retailerType, ref Option<string> visibility, ref Option<bool> createDefaultLocation, ref Option<string> responseFormat);
+        partial void FormatCreateRetailer(ref string name, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> facebookUrl, ref Option<string> twitterUrl, ref Option<System.IO.Stream> logo, ref Option<long> logoAssetId, ref Option<System.IO.Stream> picture1, ref Option<long> picture1AssetId, ref Option<System.IO.Stream> picture2, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> categoryIdsToAdd, ref Option<string> categoryIdsToRemove, ref Option<string> filterIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<string> searchTags, ref Option<string> retailerType, ref Option<string> visibility, ref Option<bool> createDefaultLocation, ref Option<string> responseFormat);
 
         /// <summary>
         /// Validates the request parameters
@@ -723,7 +711,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -757,10 +744,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="createDefaultLocation"></param>
         /// <param name="responseFormat"></param>
-        private void AfterCreateRetailerDefaultImplementation(ICreateRetailerApiResponse apiResponseLocalVar, decimal version, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> categoryIdsToAdd, Option<string> categoryIdsToRemove, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> createDefaultLocation, Option<string> responseFormat)
+        private void AfterCreateRetailerDefaultImplementation(ICreateRetailerApiResponse apiResponseLocalVar, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> categoryIdsToAdd, Option<string> categoryIdsToRemove, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> createDefaultLocation, Option<string> responseFormat)
         {
             bool suppressDefaultLog = false;
-            AfterCreateRetailer(ref suppressDefaultLog, apiResponseLocalVar, version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
+            AfterCreateRetailer(ref suppressDefaultLog, apiResponseLocalVar, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -770,7 +757,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -804,7 +790,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="createDefaultLocation"></param>
         /// <param name="responseFormat"></param>
-        partial void AfterCreateRetailer(ref bool suppressDefaultLog, ICreateRetailerApiResponse apiResponseLocalVar, decimal version, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> categoryIdsToAdd, Option<string> categoryIdsToRemove, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> createDefaultLocation, Option<string> responseFormat);
+        partial void AfterCreateRetailer(ref bool suppressDefaultLog, ICreateRetailerApiResponse apiResponseLocalVar, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> categoryIdsToAdd, Option<string> categoryIdsToRemove, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> createDefaultLocation, Option<string> responseFormat);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -812,7 +798,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -846,10 +831,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="createDefaultLocation"></param>
         /// <param name="responseFormat"></param>
-        private void OnErrorCreateRetailerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> categoryIdsToAdd, Option<string> categoryIdsToRemove, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> createDefaultLocation, Option<string> responseFormat)
+        private void OnErrorCreateRetailerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> categoryIdsToAdd, Option<string> categoryIdsToRemove, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> createDefaultLocation, Option<string> responseFormat)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateRetailer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
+            OnErrorCreateRetailer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -861,7 +846,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -895,12 +879,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="createDefaultLocation"></param>
         /// <param name="responseFormat"></param>
-        partial void OnErrorCreateRetailer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> categoryIdsToAdd, Option<string> categoryIdsToRemove, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> createDefaultLocation, Option<string> responseFormat);
+        partial void OnErrorCreateRetailer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> categoryIdsToAdd, Option<string> categoryIdsToRemove, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> createDefaultLocation, Option<string> responseFormat);
 
         /// <summary>
         /// Create Retailer Create a retailer record. A billable entity must be created first before a retailer record can be made.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="name">The name of the retailer</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -936,11 +919,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerApiResponse"/>&gt;</returns>
-        public async Task<ICreateRetailerApiResponse?> CreateRetailerOrDefaultAsync(decimal version, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> categoryIdsToAdd = default, Option<string> categoryIdsToRemove = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> createDefaultLocation = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRetailerApiResponse?> CreateRetailerOrDefaultAsync(string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> categoryIdsToAdd = default, Option<string> categoryIdsToRemove = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> createDefaultLocation = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateRetailerAsync(version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat, cancellationToken).ConfigureAwait(false);
+                return await CreateRetailerAsync(name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -952,7 +935,6 @@ namespace Org.OpenAPITools.Api
         /// Create Retailer Create a retailer record. A billable entity must be created first before a retailer record can be made.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="name">The name of the retailer</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -988,7 +970,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerApiResponse"/>&gt;</returns>
-        public async Task<ICreateRetailerApiResponse> CreateRetailerAsync(decimal version, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> categoryIdsToAdd = default, Option<string> categoryIdsToRemove = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> createDefaultLocation = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRetailerApiResponse> CreateRetailerAsync(string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> categoryIdsToAdd = default, Option<string> categoryIdsToRemove = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> createDefaultLocation = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -996,7 +978,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateRetailer(name, deviceId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, picture1, picture2, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, metaData, searchTags, retailerType, visibility, responseFormat);
 
-                FormatCreateRetailer(ref version, ref name, ref deviceId, ref accountId, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref facebookUrl, ref twitterUrl, ref logo, ref logoAssetId, ref picture1, ref picture1AssetId, ref picture2, ref picture2AssetId, ref categoryIds, ref categoryIdsToAdd, ref categoryIdsToRemove, ref filterIds, ref latitude, ref longitude, ref metaData, ref searchTags, ref retailerType, ref visibility, ref createDefaultLocation, ref responseFormat);
+                FormatCreateRetailer(ref name, ref deviceId, ref accountId, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref facebookUrl, ref twitterUrl, ref logo, ref logoAssetId, ref picture1, ref picture1AssetId, ref picture2, ref picture2AssetId, ref categoryIds, ref categoryIdsToAdd, ref categoryIdsToRemove, ref filterIds, ref latitude, ref longitude, ref metaData, ref searchTags, ref retailerType, ref visibility, ref createDefaultLocation, ref responseFormat);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1004,9 +986,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1133,13 +1114,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateRetailerDefaultImplementation(apiResponseLocalVar, version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
+                        AfterCreateRetailerDefaultImplementation(apiResponseLocalVar, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
 
                         Events.ExecuteOnCreateRetailer(apiResponseLocalVar);
 
@@ -1149,7 +1130,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateRetailerDefaultImplementation(e, "/api/{version}/retailer/create", uriBuilderLocalVar.Path, version, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
+                OnErrorCreateRetailerDefaultImplementation(e, "/retailer/create", uriBuilderLocalVar.Path, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, categoryIdsToAdd, categoryIdsToRemove, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, createDefaultLocation, responseFormat);
                 Events.ExecuteOnErrorCreateRetailer(e);
                 throw;
             }
@@ -1248,7 +1229,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteRetailer(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> retailerId);
+        partial void FormatDeleteRetailer(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> retailerId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1265,14 +1246,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerId"></param>
-        private void AfterDeleteRetailerDefaultImplementation(IDeleteRetailerApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> retailerId)
+        private void AfterDeleteRetailerDefaultImplementation(IDeleteRetailerApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> retailerId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteRetailer(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, retailerId);
+            AfterDeleteRetailer(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, retailerId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1282,11 +1262,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerId"></param>
-        partial void AfterDeleteRetailer(ref bool suppressDefaultLog, IDeleteRetailerApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> retailerId);
+        partial void AfterDeleteRetailer(ref bool suppressDefaultLog, IDeleteRetailerApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> retailerId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1294,14 +1273,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerId"></param>
-        private void OnErrorDeleteRetailerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> retailerId)
+        private void OnErrorDeleteRetailerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> retailerId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteRetailer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, retailerId);
+            OnErrorDeleteRetailer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, retailerId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1313,26 +1291,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerId"></param>
-        partial void OnErrorDeleteRetailer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> retailerId);
+        partial void OnErrorDeleteRetailer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> retailerId);
 
         /// <summary>
         /// Delete Retailer Set the deleted timestamp to current time.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the retailer. (optional)</param>
         /// <param name="retailerId">The ID of the retailer to be deleted (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRetailerApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRetailerApiResponse?> DeleteRetailerOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRetailerApiResponse?> DeleteRetailerOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteRetailerAsync(version, deviceId, accountId, retailerId, cancellationToken).ConfigureAwait(false);
+                return await DeleteRetailerAsync(deviceId, accountId, retailerId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1344,13 +1320,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Retailer Set the deleted timestamp to current time.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the retailer. (optional)</param>
         /// <param name="retailerId">The ID of the retailer to be deleted (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRetailerApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRetailerApiResponse> DeleteRetailerAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRetailerApiResponse> DeleteRetailerAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1358,7 +1333,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteRetailer(deviceId);
 
-                FormatDeleteRetailer(ref version, ref deviceId, ref accountId, ref retailerId);
+                FormatDeleteRetailer(ref deviceId, ref accountId, ref retailerId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1366,9 +1341,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1406,13 +1380,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteRetailerDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, retailerId);
+                        AfterDeleteRetailerDefaultImplementation(apiResponseLocalVar, deviceId, accountId, retailerId);
 
                         Events.ExecuteOnDeleteRetailer(apiResponseLocalVar);
 
@@ -1422,7 +1396,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteRetailerDefaultImplementation(e, "/api/{version}/retailer/delete", uriBuilderLocalVar.Path, version, deviceId, accountId, retailerId);
+                OnErrorDeleteRetailerDefaultImplementation(e, "/retailer/delete", uriBuilderLocalVar.Path, deviceId, accountId, retailerId);
                 Events.ExecuteOnErrorDeleteRetailer(e);
                 throw;
             }
@@ -1521,7 +1495,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetRetailer(ref decimal version, ref long retailerId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> includeCounts);
+        partial void FormatGetRetailer(ref long retailerId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> includeCounts);
 
         /// <summary>
         /// Validates the request parameters
@@ -1538,15 +1512,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeCounts"></param>
-        private void AfterGetRetailerDefaultImplementation(IGetRetailerApiResponse apiResponseLocalVar, decimal version, long retailerId, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts)
+        private void AfterGetRetailerDefaultImplementation(IGetRetailerApiResponse apiResponseLocalVar, long retailerId, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts)
         {
             bool suppressDefaultLog = false;
-            AfterGetRetailer(ref suppressDefaultLog, apiResponseLocalVar, version, retailerId, deviceId, accountId, includeCounts);
+            AfterGetRetailer(ref suppressDefaultLog, apiResponseLocalVar, retailerId, deviceId, accountId, includeCounts);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1556,12 +1529,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeCounts"></param>
-        partial void AfterGetRetailer(ref bool suppressDefaultLog, IGetRetailerApiResponse apiResponseLocalVar, decimal version, long retailerId, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts);
+        partial void AfterGetRetailer(ref bool suppressDefaultLog, IGetRetailerApiResponse apiResponseLocalVar, long retailerId, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1569,15 +1541,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeCounts"></param>
-        private void OnErrorGetRetailerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerId, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts)
+        private void OnErrorGetRetailerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerId, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRetailer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, retailerId, deviceId, accountId, includeCounts);
+            OnErrorGetRetailer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, retailerId, deviceId, accountId, includeCounts);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1589,28 +1560,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeCounts"></param>
-        partial void OnErrorGetRetailer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerId, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts);
+        partial void OnErrorGetRetailer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerId, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts);
 
         /// <summary>
         /// Get Retailer Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="retailerId">the ID of the retailer</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="includeCounts">Determines whether to include counts in the response (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerApiResponse"/>&gt;</returns>
-        public async Task<IGetRetailerApiResponse?> GetRetailerOrDefaultAsync(decimal version, long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetailerApiResponse?> GetRetailerOrDefaultAsync(long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRetailerAsync(version, retailerId, deviceId, accountId, includeCounts, cancellationToken).ConfigureAwait(false);
+                return await GetRetailerAsync(retailerId, deviceId, accountId, includeCounts, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1622,14 +1591,13 @@ namespace Org.OpenAPITools.Api
         /// Get Retailer Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerId">the ID of the retailer</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="includeCounts">Determines whether to include counts in the response (default true) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerApiResponse"/>&gt;</returns>
-        public async Task<IGetRetailerApiResponse> GetRetailerAsync(decimal version, long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetailerApiResponse> GetRetailerAsync(long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1637,7 +1605,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetRetailer(deviceId);
 
-                FormatGetRetailer(ref version, ref retailerId, ref deviceId, ref accountId, ref includeCounts);
+                FormatGetRetailer(ref retailerId, ref deviceId, ref accountId, ref includeCounts);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1645,9 +1613,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1687,13 +1654,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRetailerDefaultImplementation(apiResponseLocalVar, version, retailerId, deviceId, accountId, includeCounts);
+                        AfterGetRetailerDefaultImplementation(apiResponseLocalVar, retailerId, deviceId, accountId, includeCounts);
 
                         Events.ExecuteOnGetRetailer(apiResponseLocalVar);
 
@@ -1703,7 +1670,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRetailerDefaultImplementation(e, "/api/{version}/retailer/get", uriBuilderLocalVar.Path, version, retailerId, deviceId, accountId, includeCounts);
+                OnErrorGetRetailerDefaultImplementation(e, "/retailer/get", uriBuilderLocalVar.Path, retailerId, deviceId, accountId, includeCounts);
                 Events.ExecuteOnErrorGetRetailer(e);
                 throw;
             }
@@ -1802,7 +1769,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetRetailers(ref decimal version, ref string visibility, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<int> i, ref Option<int> l);
+        partial void FormatGetRetailers(ref string visibility, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<int> i, ref Option<int> l);
 
         /// <summary>
         /// Validates the request parameters
@@ -1843,7 +1810,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="visibility"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1858,10 +1824,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterIds"></param>
         /// <param name="i"></param>
         /// <param name="l"></param>
-        private void AfterGetRetailersDefaultImplementation(IGetRetailersApiResponse apiResponseLocalVar, decimal version, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> i, Option<int> l)
+        private void AfterGetRetailersDefaultImplementation(IGetRetailersApiResponse apiResponseLocalVar, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> i, Option<int> l)
         {
             bool suppressDefaultLog = false;
-            AfterGetRetailers(ref suppressDefaultLog, apiResponseLocalVar, version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
+            AfterGetRetailers(ref suppressDefaultLog, apiResponseLocalVar, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1871,7 +1837,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="visibility"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1886,7 +1851,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterIds"></param>
         /// <param name="i"></param>
         /// <param name="l"></param>
-        partial void AfterGetRetailers(ref bool suppressDefaultLog, IGetRetailersApiResponse apiResponseLocalVar, decimal version, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> i, Option<int> l);
+        partial void AfterGetRetailers(ref bool suppressDefaultLog, IGetRetailersApiResponse apiResponseLocalVar, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> i, Option<int> l);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1894,7 +1859,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="visibility"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1909,10 +1873,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterIds"></param>
         /// <param name="i"></param>
         /// <param name="l"></param>
-        private void OnErrorGetRetailersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> i, Option<int> l)
+        private void OnErrorGetRetailersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> i, Option<int> l)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRetailers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
+            OnErrorGetRetailers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1924,7 +1888,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="visibility"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1939,12 +1902,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="filterIds"></param>
         /// <param name="i"></param>
         /// <param name="l"></param>
-        partial void OnErrorGetRetailers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> i, Option<int> l);
+        partial void OnErrorGetRetailers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> categoryIds, Option<string> filterIds, Option<int> i, Option<int> l);
 
         /// <summary>
         /// Search Retailers earches on retailers that the account has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="visibility"></param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -1961,11 +1923,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="l">This parameter is deprecated. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailersApiResponse"/>&gt;</returns>
-        public async Task<IGetRetailersApiResponse?> GetRetailersOrDefaultAsync(decimal version, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetailersApiResponse?> GetRetailersOrDefaultAsync(string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRetailersAsync(version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l, cancellationToken).ConfigureAwait(false);
+                return await GetRetailersAsync(visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1977,7 +1939,6 @@ namespace Org.OpenAPITools.Api
         /// Search Retailers earches on retailers that the account has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="visibility"></param>
         /// <param name="sortField">The column to sort the search on</param>
         /// <param name="descending">The order to return the search results</param>
@@ -1994,7 +1955,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="l">This parameter is deprecated. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailersApiResponse"/>&gt;</returns>
-        public async Task<IGetRetailersApiResponse> GetRetailersAsync(decimal version, string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetailersApiResponse> GetRetailersAsync(string visibility, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2002,7 +1963,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetRetailers(visibility, sortField, deviceId, q, keyword, categoryIds, filterIds);
 
-                FormatGetRetailers(ref version, ref visibility, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref deviceId, ref accountId, ref q, ref keyword, ref categoryIds, ref filterIds, ref i, ref l);
+                FormatGetRetailers(ref visibility, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref deviceId, ref accountId, ref q, ref keyword, ref categoryIds, ref filterIds, ref i, ref l);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2010,9 +1971,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2072,13 +2032,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRetailersDefaultImplementation(apiResponseLocalVar, version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
+                        AfterGetRetailersDefaultImplementation(apiResponseLocalVar, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
 
                         Events.ExecuteOnGetRetailers(apiResponseLocalVar);
 
@@ -2088,7 +2048,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRetailersDefaultImplementation(e, "/api/{version}/retailer/search", uriBuilderLocalVar.Path, version, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
+                OnErrorGetRetailersDefaultImplementation(e, "/retailer/search", uriBuilderLocalVar.Path, visibility, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, categoryIds, filterIds, i, l);
                 Events.ExecuteOnErrorGetRetailers(e);
                 throw;
             }
@@ -2187,7 +2147,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRetailerLoginCheck(ref decimal version, ref string username, ref string password, ref Option<string> deviceId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> appKey);
+        partial void FormatRetailerLoginCheck(ref string username, ref string password, ref Option<string> deviceId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -2216,17 +2176,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="deviceId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="appKey"></param>
-        private void AfterRetailerLoginCheckDefaultImplementation(IRetailerLoginCheckApiResponse apiResponseLocalVar, decimal version, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> appKey)
+        private void AfterRetailerLoginCheckDefaultImplementation(IRetailerLoginCheckApiResponse apiResponseLocalVar, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterRetailerLoginCheck(ref suppressDefaultLog, apiResponseLocalVar, version, username, password, deviceId, latitude, longitude, appKey);
+            AfterRetailerLoginCheck(ref suppressDefaultLog, apiResponseLocalVar, username, password, deviceId, latitude, longitude, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2236,14 +2195,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="deviceId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="appKey"></param>
-        partial void AfterRetailerLoginCheck(ref bool suppressDefaultLog, IRetailerLoginCheckApiResponse apiResponseLocalVar, decimal version, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> appKey);
+        partial void AfterRetailerLoginCheck(ref bool suppressDefaultLog, IRetailerLoginCheckApiResponse apiResponseLocalVar, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2251,17 +2209,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="deviceId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="appKey"></param>
-        private void OnErrorRetailerLoginCheckDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> appKey)
+        private void OnErrorRetailerLoginCheckDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRetailerLoginCheck(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, username, password, deviceId, latitude, longitude, appKey);
+            OnErrorRetailerLoginCheck(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, username, password, deviceId, latitude, longitude, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2273,19 +2230,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="deviceId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorRetailerLoginCheck(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> appKey);
+        partial void OnErrorRetailerLoginCheck(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> appKey);
 
         /// <summary>
         /// Login Retailer Retailer login check.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="username">the user&#39;s email address they used to sign-up</param>
         /// <param name="password">the password</param>
         /// <param name="deviceId">the device id (optional) (optional)</param>
@@ -2294,11 +2249,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRetailerLoginCheckApiResponse"/>&gt;</returns>
-        public async Task<IRetailerLoginCheckApiResponse?> RetailerLoginCheckOrDefaultAsync(decimal version, string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRetailerLoginCheckApiResponse?> RetailerLoginCheckOrDefaultAsync(string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RetailerLoginCheckAsync(version, username, password, deviceId, latitude, longitude, appKey, cancellationToken).ConfigureAwait(false);
+                return await RetailerLoginCheckAsync(username, password, deviceId, latitude, longitude, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2310,7 +2265,6 @@ namespace Org.OpenAPITools.Api
         /// Login Retailer Retailer login check.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="username">the user&#39;s email address they used to sign-up</param>
         /// <param name="password">the password</param>
         /// <param name="deviceId">the device id (optional) (optional)</param>
@@ -2319,7 +2273,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRetailerLoginCheckApiResponse"/>&gt;</returns>
-        public async Task<IRetailerLoginCheckApiResponse> RetailerLoginCheckAsync(decimal version, string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRetailerLoginCheckApiResponse> RetailerLoginCheckAsync(string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2327,7 +2281,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRetailerLoginCheck(username, password, deviceId, appKey);
 
-                FormatRetailerLoginCheck(ref version, ref username, ref password, ref deviceId, ref latitude, ref longitude, ref appKey);
+                FormatRetailerLoginCheck(ref username, ref password, ref deviceId, ref latitude, ref longitude, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2335,9 +2289,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/login"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/login");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/login"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/login");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2381,13 +2334,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/login", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/login", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRetailerLoginCheckDefaultImplementation(apiResponseLocalVar, version, username, password, deviceId, latitude, longitude, appKey);
+                        AfterRetailerLoginCheckDefaultImplementation(apiResponseLocalVar, username, password, deviceId, latitude, longitude, appKey);
 
                         Events.ExecuteOnRetailerLoginCheck(apiResponseLocalVar);
 
@@ -2397,7 +2350,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRetailerLoginCheckDefaultImplementation(e, "/api/{version}/retailer/login", uriBuilderLocalVar.Path, version, username, password, deviceId, latitude, longitude, appKey);
+                OnErrorRetailerLoginCheckDefaultImplementation(e, "/retailer/login", uriBuilderLocalVar.Path, username, password, deviceId, latitude, longitude, appKey);
                 Events.ExecuteOnErrorRetailerLoginCheck(e);
                 throw;
             }
@@ -2496,7 +2449,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateRetailer(ref decimal version, ref long retailerId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> facebookUrl, ref Option<string> twitterUrl, ref Option<System.IO.Stream> logo, ref Option<long> logoAssetId, ref Option<System.IO.Stream> picture1, ref Option<long> picture1AssetId, ref Option<System.IO.Stream> picture2, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<string> searchTags, ref Option<string> retailerType, ref Option<string> visibility, ref Option<bool> active, ref Option<string> responseFormat);
+        partial void FormatUpdateRetailer(ref long retailerId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> facebookUrl, ref Option<string> twitterUrl, ref Option<System.IO.Stream> logo, ref Option<long> logoAssetId, ref Option<System.IO.Stream> picture1, ref Option<long> picture1AssetId, ref Option<System.IO.Stream> picture2, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> metaData, ref Option<string> searchTags, ref Option<string> retailerType, ref Option<string> visibility, ref Option<bool> active, ref Option<string> responseFormat);
 
         /// <summary>
         /// Validates the request parameters
@@ -2605,7 +2558,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2638,10 +2590,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="active"></param>
         /// <param name="responseFormat"></param>
-        private void AfterUpdateRetailerDefaultImplementation(IUpdateRetailerApiResponse apiResponseLocalVar, decimal version, long retailerId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> active, Option<string> responseFormat)
+        private void AfterUpdateRetailerDefaultImplementation(IUpdateRetailerApiResponse apiResponseLocalVar, long retailerId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> active, Option<string> responseFormat)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateRetailer(ref suppressDefaultLog, apiResponseLocalVar, version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
+            AfterUpdateRetailer(ref suppressDefaultLog, apiResponseLocalVar, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2651,7 +2603,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2684,7 +2635,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="active"></param>
         /// <param name="responseFormat"></param>
-        partial void AfterUpdateRetailer(ref bool suppressDefaultLog, IUpdateRetailerApiResponse apiResponseLocalVar, decimal version, long retailerId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> active, Option<string> responseFormat);
+        partial void AfterUpdateRetailer(ref bool suppressDefaultLog, IUpdateRetailerApiResponse apiResponseLocalVar, long retailerId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> active, Option<string> responseFormat);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2692,7 +2643,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2725,10 +2675,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="active"></param>
         /// <param name="responseFormat"></param>
-        private void OnErrorUpdateRetailerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> active, Option<string> responseFormat)
+        private void OnErrorUpdateRetailerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> active, Option<string> responseFormat)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateRetailer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
+            OnErrorUpdateRetailer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2740,7 +2690,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2773,12 +2722,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="visibility"></param>
         /// <param name="active"></param>
         /// <param name="responseFormat"></param>
-        partial void OnErrorUpdateRetailer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> active, Option<string> responseFormat);
+        partial void OnErrorUpdateRetailer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> facebookUrl, Option<string> twitterUrl, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> metaData, Option<string> searchTags, Option<string> retailerType, Option<string> visibility, Option<bool> active, Option<string> responseFormat);
 
         /// <summary>
         /// Update Retailer Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="retailerId">The ID of the retailer to update</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -2813,11 +2761,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRetailerApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRetailerApiResponse?> UpdateRetailerOrDefaultAsync(decimal version, long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRetailerApiResponse?> UpdateRetailerOrDefaultAsync(long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateRetailerAsync(version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat, cancellationToken).ConfigureAwait(false);
+                return await UpdateRetailerAsync(retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2829,7 +2777,6 @@ namespace Org.OpenAPITools.Api
         /// Update Retailer Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerId">The ID of the retailer to update</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -2864,7 +2811,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRetailerApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRetailerApiResponse> UpdateRetailerAsync(decimal version, long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRetailerApiResponse> UpdateRetailerAsync(long retailerId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> facebookUrl = default, Option<string> twitterUrl = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> metaData = default, Option<string> searchTags = default, Option<string> retailerType = default, Option<string> visibility = default, Option<bool> active = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2872,7 +2819,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateRetailer(deviceId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, picture1, picture2, categoryIds, filterIds, metaData, searchTags, retailerType, visibility, responseFormat);
 
-                FormatUpdateRetailer(ref version, ref retailerId, ref deviceId, ref accountId, ref name, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref facebookUrl, ref twitterUrl, ref logo, ref logoAssetId, ref picture1, ref picture1AssetId, ref picture2, ref picture2AssetId, ref categoryIds, ref filterIds, ref latitude, ref longitude, ref metaData, ref searchTags, ref retailerType, ref visibility, ref active, ref responseFormat);
+                FormatUpdateRetailer(ref retailerId, ref deviceId, ref accountId, ref name, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref facebookUrl, ref twitterUrl, ref logo, ref logoAssetId, ref picture1, ref picture1AssetId, ref picture2, ref picture2AssetId, ref categoryIds, ref filterIds, ref latitude, ref longitude, ref metaData, ref searchTags, ref retailerType, ref visibility, ref active, ref responseFormat);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2880,9 +2827,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3006,13 +2952,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateRetailerDefaultImplementation(apiResponseLocalVar, version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
+                        AfterUpdateRetailerDefaultImplementation(apiResponseLocalVar, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
 
                         Events.ExecuteOnUpdateRetailer(apiResponseLocalVar);
 
@@ -3022,7 +2968,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateRetailerDefaultImplementation(e, "/api/{version}/retailer/update", uriBuilderLocalVar.Path, version, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
+                OnErrorUpdateRetailerDefaultImplementation(e, "/retailer/update", uriBuilderLocalVar.Path, retailerId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, facebookUrl, twitterUrl, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, metaData, searchTags, retailerType, visibility, active, responseFormat);
                 Events.ExecuteOnErrorUpdateRetailer(e);
                 throw;
             }

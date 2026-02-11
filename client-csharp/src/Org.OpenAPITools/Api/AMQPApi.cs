@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a connection to an existing amqp queue and register as a consumer.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
         /// <param name="name">The name of the queue to connect to</param>
         /// <param name="hostname">The hostname of the server the queue is hosted on</param>
@@ -62,7 +61,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IConsumerCreateApiResponse"/>&gt;</returns>
-        Task<IConsumerCreateApiResponse> ConsumerCreateAsync(decimal version, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<int> port = default, Option<string> virtualHost = default, Option<string> exchanger = default, Option<string> exchangerType = default, Option<int> workers = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IConsumerCreateApiResponse> ConsumerCreateAsync(string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<int> port = default, Option<string> virtualHost = default, Option<string> exchanger = default, Option<string> exchangerType = default, Option<int> workers = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Consumer
@@ -70,7 +69,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a connection to an existing amqp queue and register as a consumer.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
         /// <param name="name">The name of the queue to connect to</param>
         /// <param name="hostname">The hostname of the server the queue is hosted on</param>
@@ -87,7 +85,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IConsumerCreateApiResponse"/>?&gt;</returns>
-        Task<IConsumerCreateApiResponse?> ConsumerCreateOrDefaultAsync(decimal version, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<int> port = default, Option<string> virtualHost = default, Option<string> exchanger = default, Option<string> exchangerType = default, Option<int> workers = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IConsumerCreateApiResponse?> ConsumerCreateOrDefaultAsync(string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<int> port = default, Option<string> virtualHost = default, Option<string> exchanger = default, Option<string> exchangerType = default, Option<int> workers = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Consumer
@@ -96,7 +94,6 @@ namespace Org.OpenAPITools.Api
         /// Update an existing amqp queue&#39;s data mapping.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
         /// <param name="queueId">The queue to update</param>
         /// <param name="dataMapping">The data mapping information in the format of AMQPRequest</param>
@@ -105,7 +102,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IConsumerUpdateApiResponse"/>&gt;</returns>
-        Task<IConsumerUpdateApiResponse> ConsumerUpdateAsync(decimal version, string appKey, long queueId, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IConsumerUpdateApiResponse> ConsumerUpdateAsync(string appKey, long queueId, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Consumer
@@ -113,7 +110,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing amqp queue&#39;s data mapping.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
         /// <param name="queueId">The queue to update</param>
         /// <param name="dataMapping">The data mapping information in the format of AMQPRequest</param>
@@ -122,7 +118,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IConsumerUpdateApiResponse"/>?&gt;</returns>
-        Task<IConsumerUpdateApiResponse?> ConsumerUpdateOrDefaultAsync(decimal version, string appKey, long queueId, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IConsumerUpdateApiResponse?> ConsumerUpdateOrDefaultAsync(string appKey, long queueId, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Queue
@@ -131,7 +127,6 @@ namespace Org.OpenAPITools.Api
         /// Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key unique to each application.</param>
         /// <param name="name">The name of the queue to create</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
@@ -146,7 +141,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueCreateApiResponse"/>&gt;</returns>
-        Task<IQueueCreateApiResponse> QueueCreateAsync(decimal version, string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueCreateApiResponse> QueueCreateAsync(string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Queue
@@ -154,7 +149,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key unique to each application.</param>
         /// <param name="name">The name of the queue to create</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
@@ -169,7 +163,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueCreateApiResponse"/>?&gt;</returns>
-        Task<IQueueCreateApiResponse?> QueueCreateOrDefaultAsync(decimal version, string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueCreateApiResponse?> QueueCreateOrDefaultAsync(string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Queue
@@ -178,13 +172,12 @@ namespace Org.OpenAPITools.Api
         /// Delete the stored queue record and close any active connections to the AMQP servers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to find</param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueDeleteApiResponse"/>&gt;</returns>
-        Task<IQueueDeleteApiResponse> QueueDeleteAsync(decimal version, long queueId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueDeleteApiResponse> QueueDeleteAsync(long queueId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Queue
@@ -192,13 +185,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete the stored queue record and close any active connections to the AMQP servers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to find</param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueDeleteApiResponse"/>?&gt;</returns>
-        Task<IQueueDeleteApiResponse?> QueueDeleteOrDefaultAsync(decimal version, long queueId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueDeleteApiResponse?> QueueDeleteOrDefaultAsync(long queueId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Queue
@@ -207,7 +199,6 @@ namespace Org.OpenAPITools.Api
         /// Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
         /// <param name="queueId">The id of the queue to find (optional)</param>
@@ -217,7 +208,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="virtualHost">The virtual host of the queue to find (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueGetApiResponse"/>&gt;</returns>
-        Task<IQueueGetApiResponse> QueueGetAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueGetApiResponse> QueueGetAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Queue
@@ -225,7 +216,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
         /// <param name="queueId">The id of the queue to find (optional)</param>
@@ -235,7 +225,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="virtualHost">The virtual host of the queue to find (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueGetApiResponse"/>?&gt;</returns>
-        Task<IQueueGetApiResponse?> QueueGetOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueGetApiResponse?> QueueGetOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Publish Queue
@@ -244,7 +234,6 @@ namespace Org.OpenAPITools.Api
         /// Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="message">The payload to send to the queue</param>
         /// <param name="queueId">The id of the queue to publish to (optional)</param>
         /// <param name="appKey">The application key the queue was assigned to (optional)</param>
@@ -253,7 +242,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="virtualHost">The virtual host defined on the server to queue (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueuePublishApiResponse"/>&gt;</returns>
-        Task<IQueuePublishApiResponse> QueuePublishAsync(decimal version, string message, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueuePublishApiResponse> QueuePublishAsync(string message, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Publish Queue
@@ -261,7 +250,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="message">The payload to send to the queue</param>
         /// <param name="queueId">The id of the queue to publish to (optional)</param>
         /// <param name="appKey">The application key the queue was assigned to (optional)</param>
@@ -270,7 +258,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="virtualHost">The virtual host defined on the server to queue (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueuePublishApiResponse"/>?&gt;</returns>
-        Task<IQueuePublishApiResponse?> QueuePublishOrDefaultAsync(decimal version, string message, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueuePublishApiResponse?> QueuePublishOrDefaultAsync(string message, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Queue
@@ -279,7 +267,6 @@ namespace Org.OpenAPITools.Api
         /// Get the queues setup for the BillableEntity&#39;s applications.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to find (optional)</param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -288,7 +275,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit of the index (optional, default to 10)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueSearchApiResponse"/>&gt;</returns>
-        Task<IQueueSearchApiResponse> QueueSearchAsync(decimal version, Option<long> queueId = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueSearchApiResponse> QueueSearchAsync(Option<long> queueId = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Queue
@@ -296,7 +283,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the queues setup for the BillableEntity&#39;s applications.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to find (optional)</param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -305,7 +291,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit of the index (optional, default to 10)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueSearchApiResponse"/>?&gt;</returns>
-        Task<IQueueSearchApiResponse?> QueueSearchOrDefaultAsync(decimal version, Option<long> queueId = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueSearchApiResponse?> QueueSearchOrDefaultAsync(Option<long> queueId = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Queue
@@ -314,7 +300,6 @@ namespace Org.OpenAPITools.Api
         /// Update the basic AMQP queue.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to update</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -329,7 +314,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">the SSL to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueUpdateApiResponse"/>&gt;</returns>
-        Task<IQueueUpdateApiResponse> QueueUpdateAsync(decimal version, long queueId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueUpdateApiResponse> QueueUpdateAsync(long queueId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Queue
@@ -337,7 +322,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the basic AMQP queue.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to update</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -352,7 +336,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">the SSL to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueUpdateApiResponse"/>?&gt;</returns>
-        Task<IQueueUpdateApiResponse?> QueueUpdateOrDefaultAsync(decimal version, long queueId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IQueueUpdateApiResponse?> QueueUpdateOrDefaultAsync(long queueId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -664,7 +648,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatConsumerCreate(ref decimal version, ref string appKey, ref string name, ref string hostname, ref string username, ref string password, ref string dataMapping, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> port, ref Option<string> virtualHost, ref Option<string> exchanger, ref Option<string> exchangerType, ref Option<int> workers, ref Option<bool> useSSL);
+        partial void FormatConsumerCreate(ref string appKey, ref string name, ref string hostname, ref string username, ref string password, ref string dataMapping, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> port, ref Option<string> virtualHost, ref Option<string> exchanger, ref Option<string> exchangerType, ref Option<int> workers, ref Option<bool> useSSL);
 
         /// <summary>
         /// Validates the request parameters
@@ -717,7 +701,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="hostname"></param>
@@ -732,10 +715,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="exchangerType"></param>
         /// <param name="workers"></param>
         /// <param name="useSSL"></param>
-        private void AfterConsumerCreateDefaultImplementation(IConsumerCreateApiResponse apiResponseLocalVar, decimal version, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<int> port, Option<string> virtualHost, Option<string> exchanger, Option<string> exchangerType, Option<int> workers, Option<bool> useSSL)
+        private void AfterConsumerCreateDefaultImplementation(IConsumerCreateApiResponse apiResponseLocalVar, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<int> port, Option<string> virtualHost, Option<string> exchanger, Option<string> exchangerType, Option<int> workers, Option<bool> useSSL)
         {
             bool suppressDefaultLog = false;
-            AfterConsumerCreate(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
+            AfterConsumerCreate(ref suppressDefaultLog, apiResponseLocalVar, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -745,7 +728,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="hostname"></param>
@@ -760,7 +742,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="exchangerType"></param>
         /// <param name="workers"></param>
         /// <param name="useSSL"></param>
-        partial void AfterConsumerCreate(ref bool suppressDefaultLog, IConsumerCreateApiResponse apiResponseLocalVar, decimal version, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<int> port, Option<string> virtualHost, Option<string> exchanger, Option<string> exchangerType, Option<int> workers, Option<bool> useSSL);
+        partial void AfterConsumerCreate(ref bool suppressDefaultLog, IConsumerCreateApiResponse apiResponseLocalVar, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<int> port, Option<string> virtualHost, Option<string> exchanger, Option<string> exchangerType, Option<int> workers, Option<bool> useSSL);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -768,7 +750,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="hostname"></param>
@@ -783,10 +764,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="exchangerType"></param>
         /// <param name="workers"></param>
         /// <param name="useSSL"></param>
-        private void OnErrorConsumerCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<int> port, Option<string> virtualHost, Option<string> exchanger, Option<string> exchangerType, Option<int> workers, Option<bool> useSSL)
+        private void OnErrorConsumerCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<int> port, Option<string> virtualHost, Option<string> exchanger, Option<string> exchangerType, Option<int> workers, Option<bool> useSSL)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorConsumerCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
+            OnErrorConsumerCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -798,7 +779,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="hostname"></param>
@@ -813,12 +793,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exchangerType"></param>
         /// <param name="workers"></param>
         /// <param name="useSSL"></param>
-        partial void OnErrorConsumerCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<int> port, Option<string> virtualHost, Option<string> exchanger, Option<string> exchangerType, Option<int> workers, Option<bool> useSSL);
+        partial void OnErrorConsumerCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<int> port, Option<string> virtualHost, Option<string> exchanger, Option<string> exchangerType, Option<int> workers, Option<bool> useSSL);
 
         /// <summary>
         /// Create Consumer Create a connection to an existing amqp queue and register as a consumer.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
         /// <param name="name">The name of the queue to connect to</param>
         /// <param name="hostname">The hostname of the server the queue is hosted on</param>
@@ -835,11 +814,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IConsumerCreateApiResponse"/>&gt;</returns>
-        public async Task<IConsumerCreateApiResponse?> ConsumerCreateOrDefaultAsync(decimal version, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<int> port = default, Option<string> virtualHost = default, Option<string> exchanger = default, Option<string> exchangerType = default, Option<int> workers = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IConsumerCreateApiResponse?> ConsumerCreateOrDefaultAsync(string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<int> port = default, Option<string> virtualHost = default, Option<string> exchanger = default, Option<string> exchangerType = default, Option<int> workers = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ConsumerCreateAsync(version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL, cancellationToken).ConfigureAwait(false);
+                return await ConsumerCreateAsync(appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -851,7 +830,6 @@ namespace Org.OpenAPITools.Api
         /// Create Consumer Create a connection to an existing amqp queue and register as a consumer.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
         /// <param name="name">The name of the queue to connect to</param>
         /// <param name="hostname">The hostname of the server the queue is hosted on</param>
@@ -868,7 +846,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IConsumerCreateApiResponse"/>&gt;</returns>
-        public async Task<IConsumerCreateApiResponse> ConsumerCreateAsync(decimal version, string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<int> port = default, Option<string> virtualHost = default, Option<string> exchanger = default, Option<string> exchangerType = default, Option<int> workers = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IConsumerCreateApiResponse> ConsumerCreateAsync(string appKey, string name, string hostname, string username, string password, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<int> port = default, Option<string> virtualHost = default, Option<string> exchanger = default, Option<string> exchangerType = default, Option<int> workers = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -876,7 +854,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateConsumerCreate(appKey, name, hostname, username, password, dataMapping, deviceId, virtualHost, exchanger, exchangerType);
 
-                FormatConsumerCreate(ref version, ref appKey, ref name, ref hostname, ref username, ref password, ref dataMapping, ref deviceId, ref accountId, ref port, ref virtualHost, ref exchanger, ref exchangerType, ref workers, ref useSSL);
+                FormatConsumerCreate(ref appKey, ref name, ref hostname, ref username, ref password, ref dataMapping, ref deviceId, ref accountId, ref port, ref virtualHost, ref exchanger, ref exchangerType, ref workers, ref useSSL);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -884,9 +862,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/queue/consumer/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/queue/consumer/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/queue/consumer/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/queue/consumer/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -946,13 +923,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/queue/consumer/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/queue/consumer/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterConsumerCreateDefaultImplementation(apiResponseLocalVar, version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
+                        AfterConsumerCreateDefaultImplementation(apiResponseLocalVar, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
 
                         Events.ExecuteOnConsumerCreate(apiResponseLocalVar);
 
@@ -962,7 +939,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorConsumerCreateDefaultImplementation(e, "/api/{version}/queue/consumer/create", uriBuilderLocalVar.Path, version, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
+                OnErrorConsumerCreateDefaultImplementation(e, "/queue/consumer/create", uriBuilderLocalVar.Path, appKey, name, hostname, username, password, dataMapping, deviceId, accountId, port, virtualHost, exchanger, exchangerType, workers, useSSL);
                 Events.ExecuteOnErrorConsumerCreate(e);
                 throw;
             }
@@ -1061,7 +1038,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatConsumerUpdate(ref decimal version, ref string appKey, ref long queueId, ref string dataMapping, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> useSSL);
+        partial void FormatConsumerUpdate(ref string appKey, ref long queueId, ref string dataMapping, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> useSSL);
 
         /// <summary>
         /// Validates the request parameters
@@ -1086,17 +1063,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="queueId"></param>
         /// <param name="dataMapping"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="useSSL"></param>
-        private void AfterConsumerUpdateDefaultImplementation(IConsumerUpdateApiResponse apiResponseLocalVar, decimal version, string appKey, long queueId, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<bool> useSSL)
+        private void AfterConsumerUpdateDefaultImplementation(IConsumerUpdateApiResponse apiResponseLocalVar, string appKey, long queueId, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<bool> useSSL)
         {
             bool suppressDefaultLog = false;
-            AfterConsumerUpdate(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
+            AfterConsumerUpdate(ref suppressDefaultLog, apiResponseLocalVar, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1106,14 +1082,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="queueId"></param>
         /// <param name="dataMapping"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="useSSL"></param>
-        partial void AfterConsumerUpdate(ref bool suppressDefaultLog, IConsumerUpdateApiResponse apiResponseLocalVar, decimal version, string appKey, long queueId, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<bool> useSSL);
+        partial void AfterConsumerUpdate(ref bool suppressDefaultLog, IConsumerUpdateApiResponse apiResponseLocalVar, string appKey, long queueId, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<bool> useSSL);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1121,17 +1096,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="queueId"></param>
         /// <param name="dataMapping"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="useSSL"></param>
-        private void OnErrorConsumerUpdateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, long queueId, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<bool> useSSL)
+        private void OnErrorConsumerUpdateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, long queueId, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<bool> useSSL)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorConsumerUpdate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
+            OnErrorConsumerUpdate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1143,19 +1117,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="queueId"></param>
         /// <param name="dataMapping"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="useSSL"></param>
-        partial void OnErrorConsumerUpdate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, long queueId, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<bool> useSSL);
+        partial void OnErrorConsumerUpdate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, long queueId, string dataMapping, Option<string> deviceId, Option<long> accountId, Option<bool> useSSL);
 
         /// <summary>
         /// Update Consumer Update an existing amqp queue&#39;s data mapping.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
         /// <param name="queueId">The queue to update</param>
         /// <param name="dataMapping">The data mapping information in the format of AMQPRequest</param>
@@ -1164,11 +1136,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IConsumerUpdateApiResponse"/>&gt;</returns>
-        public async Task<IConsumerUpdateApiResponse?> ConsumerUpdateOrDefaultAsync(decimal version, string appKey, long queueId, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IConsumerUpdateApiResponse?> ConsumerUpdateOrDefaultAsync(string appKey, long queueId, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ConsumerUpdateAsync(version, appKey, queueId, dataMapping, deviceId, accountId, useSSL, cancellationToken).ConfigureAwait(false);
+                return await ConsumerUpdateAsync(appKey, queueId, dataMapping, deviceId, accountId, useSSL, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1180,7 +1152,6 @@ namespace Org.OpenAPITools.Api
         /// Update Consumer Update an existing amqp queue&#39;s data mapping.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
         /// <param name="queueId">The queue to update</param>
         /// <param name="dataMapping">The data mapping information in the format of AMQPRequest</param>
@@ -1189,7 +1160,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IConsumerUpdateApiResponse"/>&gt;</returns>
-        public async Task<IConsumerUpdateApiResponse> ConsumerUpdateAsync(decimal version, string appKey, long queueId, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IConsumerUpdateApiResponse> ConsumerUpdateAsync(string appKey, long queueId, string dataMapping, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1197,7 +1168,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateConsumerUpdate(appKey, dataMapping, deviceId);
 
-                FormatConsumerUpdate(ref version, ref appKey, ref queueId, ref dataMapping, ref deviceId, ref accountId, ref useSSL);
+                FormatConsumerUpdate(ref appKey, ref queueId, ref dataMapping, ref deviceId, ref accountId, ref useSSL);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1205,9 +1176,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/queue/consumer/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/queue/consumer/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/queue/consumer/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/queue/consumer/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1249,13 +1219,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/queue/consumer/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/queue/consumer/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterConsumerUpdateDefaultImplementation(apiResponseLocalVar, version, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
+                        AfterConsumerUpdateDefaultImplementation(apiResponseLocalVar, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
 
                         Events.ExecuteOnConsumerUpdate(apiResponseLocalVar);
 
@@ -1265,7 +1235,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorConsumerUpdateDefaultImplementation(e, "/api/{version}/queue/consumer/update", uriBuilderLocalVar.Path, version, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
+                OnErrorConsumerUpdateDefaultImplementation(e, "/queue/consumer/update", uriBuilderLocalVar.Path, appKey, queueId, dataMapping, deviceId, accountId, useSSL);
                 Events.ExecuteOnErrorConsumerUpdate(e);
                 throw;
             }
@@ -1364,7 +1334,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatQueueCreate(ref decimal version, ref string appKey, ref string name, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> workers, ref Option<string> analyticTags, ref Option<string> hostname, ref Option<int> port, ref Option<string> username, ref Option<string> password, ref Option<string> virtualHost, ref Option<bool> useSSL);
+        partial void FormatQueueCreate(ref string appKey, ref string name, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> workers, ref Option<string> analyticTags, ref Option<string> hostname, ref Option<int> port, ref Option<string> username, ref Option<string> password, ref Option<string> virtualHost, ref Option<bool> useSSL);
 
         /// <summary>
         /// Validates the request parameters
@@ -1409,7 +1379,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
@@ -1422,10 +1391,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="password"></param>
         /// <param name="virtualHost"></param>
         /// <param name="useSSL"></param>
-        private void AfterQueueCreateDefaultImplementation(IQueueCreateApiResponse apiResponseLocalVar, decimal version, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL)
+        private void AfterQueueCreateDefaultImplementation(IQueueCreateApiResponse apiResponseLocalVar, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL)
         {
             bool suppressDefaultLog = false;
-            AfterQueueCreate(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+            AfterQueueCreate(ref suppressDefaultLog, apiResponseLocalVar, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1435,7 +1404,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
@@ -1448,7 +1416,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="password"></param>
         /// <param name="virtualHost"></param>
         /// <param name="useSSL"></param>
-        partial void AfterQueueCreate(ref bool suppressDefaultLog, IQueueCreateApiResponse apiResponseLocalVar, decimal version, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL);
+        partial void AfterQueueCreate(ref bool suppressDefaultLog, IQueueCreateApiResponse apiResponseLocalVar, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1456,7 +1424,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
@@ -1469,10 +1436,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="password"></param>
         /// <param name="virtualHost"></param>
         /// <param name="useSSL"></param>
-        private void OnErrorQueueCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL)
+        private void OnErrorQueueCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorQueueCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+            OnErrorQueueCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1484,7 +1451,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
@@ -1497,12 +1463,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="password"></param>
         /// <param name="virtualHost"></param>
         /// <param name="useSSL"></param>
-        partial void OnErrorQueueCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL);
+        partial void OnErrorQueueCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL);
 
         /// <summary>
         /// Create Queue Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key unique to each application.</param>
         /// <param name="name">The name of the queue to create</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
@@ -1517,11 +1482,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueCreateApiResponse"/>&gt;</returns>
-        public async Task<IQueueCreateApiResponse?> QueueCreateOrDefaultAsync(decimal version, string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueCreateApiResponse?> QueueCreateOrDefaultAsync(string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await QueueCreateAsync(version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, cancellationToken).ConfigureAwait(false);
+                return await QueueCreateAsync(appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1533,7 +1498,6 @@ namespace Org.OpenAPITools.Api
         /// Create Queue Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key unique to each application.</param>
         /// <param name="name">The name of the queue to create</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
@@ -1548,7 +1512,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">Use SSL (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueCreateApiResponse"/>&gt;</returns>
-        public async Task<IQueueCreateApiResponse> QueueCreateAsync(decimal version, string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueCreateApiResponse> QueueCreateAsync(string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1556,7 +1520,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateQueueCreate(appKey, name, deviceId, analyticTags, hostname, username, password, virtualHost);
 
-                FormatQueueCreate(ref version, ref appKey, ref name, ref deviceId, ref accountId, ref workers, ref analyticTags, ref hostname, ref port, ref username, ref password, ref virtualHost, ref useSSL);
+                FormatQueueCreate(ref appKey, ref name, ref deviceId, ref accountId, ref workers, ref analyticTags, ref hostname, ref port, ref username, ref password, ref virtualHost, ref useSSL);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1564,9 +1528,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/queue/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/queue/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/queue/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/queue/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1628,13 +1591,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/queue/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/queue/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterQueueCreateDefaultImplementation(apiResponseLocalVar, version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+                        AfterQueueCreateDefaultImplementation(apiResponseLocalVar, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
 
                         Events.ExecuteOnQueueCreate(apiResponseLocalVar);
 
@@ -1644,7 +1607,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorQueueCreateDefaultImplementation(e, "/api/{version}/queue/create", uriBuilderLocalVar.Path, version, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+                OnErrorQueueCreateDefaultImplementation(e, "/queue/create", uriBuilderLocalVar.Path, appKey, name, deviceId, accountId, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
                 Events.ExecuteOnErrorQueueCreate(e);
                 throw;
             }
@@ -1743,7 +1706,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatQueueDelete(ref decimal version, ref long queueId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatQueueDelete(ref long queueId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1760,14 +1723,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterQueueDeleteDefaultImplementation(IQueueDeleteApiResponse apiResponseLocalVar, decimal version, long queueId, Option<string> deviceId, Option<long> accountId)
+        private void AfterQueueDeleteDefaultImplementation(IQueueDeleteApiResponse apiResponseLocalVar, long queueId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterQueueDelete(ref suppressDefaultLog, apiResponseLocalVar, version, queueId, deviceId, accountId);
+            AfterQueueDelete(ref suppressDefaultLog, apiResponseLocalVar, queueId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1777,11 +1739,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterQueueDelete(ref bool suppressDefaultLog, IQueueDeleteApiResponse apiResponseLocalVar, decimal version, long queueId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterQueueDelete(ref bool suppressDefaultLog, IQueueDeleteApiResponse apiResponseLocalVar, long queueId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1789,14 +1750,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorQueueDeleteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long queueId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorQueueDeleteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long queueId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorQueueDelete(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, queueId, deviceId, accountId);
+            OnErrorQueueDelete(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, queueId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1808,26 +1768,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorQueueDelete(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long queueId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorQueueDelete(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long queueId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Queue Delete the stored queue record and close any active connections to the AMQP servers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to find</param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueDeleteApiResponse"/>&gt;</returns>
-        public async Task<IQueueDeleteApiResponse?> QueueDeleteOrDefaultAsync(decimal version, long queueId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueDeleteApiResponse?> QueueDeleteOrDefaultAsync(long queueId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await QueueDeleteAsync(version, queueId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await QueueDeleteAsync(queueId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1839,13 +1797,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Queue Delete the stored queue record and close any active connections to the AMQP servers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to find</param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueDeleteApiResponse"/>&gt;</returns>
-        public async Task<IQueueDeleteApiResponse> QueueDeleteAsync(decimal version, long queueId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueDeleteApiResponse> QueueDeleteAsync(long queueId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1853,7 +1810,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateQueueDelete(deviceId);
 
-                FormatQueueDelete(ref version, ref queueId, ref deviceId, ref accountId);
+                FormatQueueDelete(ref queueId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1861,9 +1818,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/queue/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/queue/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/queue/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/queue/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1900,13 +1856,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/queue/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/queue/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterQueueDeleteDefaultImplementation(apiResponseLocalVar, version, queueId, deviceId, accountId);
+                        AfterQueueDeleteDefaultImplementation(apiResponseLocalVar, queueId, deviceId, accountId);
 
                         Events.ExecuteOnQueueDelete(apiResponseLocalVar);
 
@@ -1916,7 +1872,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorQueueDeleteDefaultImplementation(e, "/api/{version}/queue/delete", uriBuilderLocalVar.Path, version, queueId, deviceId, accountId);
+                OnErrorQueueDeleteDefaultImplementation(e, "/queue/delete", uriBuilderLocalVar.Path, queueId, deviceId, accountId);
                 Events.ExecuteOnErrorQueueDelete(e);
                 throw;
             }
@@ -2015,7 +1971,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatQueueGet(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> queueId, ref Option<string> appKey, ref Option<string> name, ref Option<string> hostname, ref Option<string> virtualHost);
+        partial void FormatQueueGet(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> queueId, ref Option<string> appKey, ref Option<string> name, ref Option<string> hostname, ref Option<string> virtualHost);
 
         /// <summary>
         /// Validates the request parameters
@@ -2048,7 +2004,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="queueId"></param>
@@ -2056,10 +2011,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="name"></param>
         /// <param name="hostname"></param>
         /// <param name="virtualHost"></param>
-        private void AfterQueueGetDefaultImplementation(IQueueGetApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost)
+        private void AfterQueueGetDefaultImplementation(IQueueGetApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost)
         {
             bool suppressDefaultLog = false;
-            AfterQueueGet(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
+            AfterQueueGet(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2069,7 +2024,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="queueId"></param>
@@ -2077,7 +2031,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="name"></param>
         /// <param name="hostname"></param>
         /// <param name="virtualHost"></param>
-        partial void AfterQueueGet(ref bool suppressDefaultLog, IQueueGetApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost);
+        partial void AfterQueueGet(ref bool suppressDefaultLog, IQueueGetApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2085,7 +2039,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="queueId"></param>
@@ -2093,10 +2046,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="name"></param>
         /// <param name="hostname"></param>
         /// <param name="virtualHost"></param>
-        private void OnErrorQueueGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost)
+        private void OnErrorQueueGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorQueueGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
+            OnErrorQueueGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2108,7 +2061,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="queueId"></param>
@@ -2116,12 +2068,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="name"></param>
         /// <param name="hostname"></param>
         /// <param name="virtualHost"></param>
-        partial void OnErrorQueueGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost);
+        partial void OnErrorQueueGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost);
 
         /// <summary>
         /// Get Queue Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
         /// <param name="queueId">The id of the queue to find (optional)</param>
@@ -2131,11 +2082,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="virtualHost">The virtual host of the queue to find (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueGetApiResponse"/>&gt;</returns>
-        public async Task<IQueueGetApiResponse?> QueueGetOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueGetApiResponse?> QueueGetOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await QueueGetAsync(version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost, cancellationToken).ConfigureAwait(false);
+                return await QueueGetAsync(deviceId, accountId, queueId, appKey, name, hostname, virtualHost, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2147,7 +2098,6 @@ namespace Org.OpenAPITools.Api
         /// Get Queue Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
         /// <param name="queueId">The id of the queue to find (optional)</param>
@@ -2157,7 +2107,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="virtualHost">The virtual host of the queue to find (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueGetApiResponse"/>&gt;</returns>
-        public async Task<IQueueGetApiResponse> QueueGetAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueGetApiResponse> QueueGetAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2165,7 +2115,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateQueueGet(deviceId, appKey, name, hostname, virtualHost);
 
-                FormatQueueGet(ref version, ref deviceId, ref accountId, ref queueId, ref appKey, ref name, ref hostname, ref virtualHost);
+                FormatQueueGet(ref deviceId, ref accountId, ref queueId, ref appKey, ref name, ref hostname, ref virtualHost);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2173,9 +2123,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/queue/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/queue/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/queue/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/queue/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2225,13 +2174,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/queue/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/queue/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterQueueGetDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
+                        AfterQueueGetDefaultImplementation(apiResponseLocalVar, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
 
                         Events.ExecuteOnQueueGet(apiResponseLocalVar);
 
@@ -2241,7 +2190,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorQueueGetDefaultImplementation(e, "/api/{version}/queue/get", uriBuilderLocalVar.Path, version, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
+                OnErrorQueueGetDefaultImplementation(e, "/queue/get", uriBuilderLocalVar.Path, deviceId, accountId, queueId, appKey, name, hostname, virtualHost);
                 Events.ExecuteOnErrorQueueGet(e);
                 throw;
             }
@@ -2340,7 +2289,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatQueuePublish(ref decimal version, ref string message, ref Option<long> queueId, ref Option<string> appKey, ref Option<string> name, ref Option<string> hostname, ref Option<string> virtualHost);
+        partial void FormatQueuePublish(ref string message, ref Option<long> queueId, ref Option<string> appKey, ref Option<string> name, ref Option<string> hostname, ref Option<string> virtualHost);
 
         /// <summary>
         /// Validates the request parameters
@@ -2373,17 +2322,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="message"></param>
         /// <param name="queueId"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="hostname"></param>
         /// <param name="virtualHost"></param>
-        private void AfterQueuePublishDefaultImplementation(IQueuePublishApiResponse apiResponseLocalVar, decimal version, string message, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost)
+        private void AfterQueuePublishDefaultImplementation(IQueuePublishApiResponse apiResponseLocalVar, string message, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost)
         {
             bool suppressDefaultLog = false;
-            AfterQueuePublish(ref suppressDefaultLog, apiResponseLocalVar, version, message, queueId, appKey, name, hostname, virtualHost);
+            AfterQueuePublish(ref suppressDefaultLog, apiResponseLocalVar, message, queueId, appKey, name, hostname, virtualHost);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2393,14 +2341,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="message"></param>
         /// <param name="queueId"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="hostname"></param>
         /// <param name="virtualHost"></param>
-        partial void AfterQueuePublish(ref bool suppressDefaultLog, IQueuePublishApiResponse apiResponseLocalVar, decimal version, string message, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost);
+        partial void AfterQueuePublish(ref bool suppressDefaultLog, IQueuePublishApiResponse apiResponseLocalVar, string message, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2408,17 +2355,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="message"></param>
         /// <param name="queueId"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="hostname"></param>
         /// <param name="virtualHost"></param>
-        private void OnErrorQueuePublishDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string message, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost)
+        private void OnErrorQueuePublishDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string message, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorQueuePublish(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, message, queueId, appKey, name, hostname, virtualHost);
+            OnErrorQueuePublish(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, message, queueId, appKey, name, hostname, virtualHost);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2430,19 +2376,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="message"></param>
         /// <param name="queueId"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="hostname"></param>
         /// <param name="virtualHost"></param>
-        partial void OnErrorQueuePublish(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string message, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost);
+        partial void OnErrorQueuePublish(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string message, Option<long> queueId, Option<string> appKey, Option<string> name, Option<string> hostname, Option<string> virtualHost);
 
         /// <summary>
         /// Publish Queue Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="message">The payload to send to the queue</param>
         /// <param name="queueId">The id of the queue to publish to (optional)</param>
         /// <param name="appKey">The application key the queue was assigned to (optional)</param>
@@ -2451,11 +2395,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="virtualHost">The virtual host defined on the server to queue (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueuePublishApiResponse"/>&gt;</returns>
-        public async Task<IQueuePublishApiResponse?> QueuePublishOrDefaultAsync(decimal version, string message, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueuePublishApiResponse?> QueuePublishOrDefaultAsync(string message, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await QueuePublishAsync(version, message, queueId, appKey, name, hostname, virtualHost, cancellationToken).ConfigureAwait(false);
+                return await QueuePublishAsync(message, queueId, appKey, name, hostname, virtualHost, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2467,7 +2411,6 @@ namespace Org.OpenAPITools.Api
         /// Publish Queue Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="message">The payload to send to the queue</param>
         /// <param name="queueId">The id of the queue to publish to (optional)</param>
         /// <param name="appKey">The application key the queue was assigned to (optional)</param>
@@ -2476,7 +2419,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="virtualHost">The virtual host defined on the server to queue (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueuePublishApiResponse"/>&gt;</returns>
-        public async Task<IQueuePublishApiResponse> QueuePublishAsync(decimal version, string message, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueuePublishApiResponse> QueuePublishAsync(string message, Option<long> queueId = default, Option<string> appKey = default, Option<string> name = default, Option<string> hostname = default, Option<string> virtualHost = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2484,7 +2427,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateQueuePublish(message, appKey, name, hostname, virtualHost);
 
-                FormatQueuePublish(ref version, ref message, ref queueId, ref appKey, ref name, ref hostname, ref virtualHost);
+                FormatQueuePublish(ref message, ref queueId, ref appKey, ref name, ref hostname, ref virtualHost);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2492,9 +2435,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/queue/publish"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/queue/publish");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/queue/publish"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/queue/publish");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2540,13 +2482,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/queue/publish", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/queue/publish", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterQueuePublishDefaultImplementation(apiResponseLocalVar, version, message, queueId, appKey, name, hostname, virtualHost);
+                        AfterQueuePublishDefaultImplementation(apiResponseLocalVar, message, queueId, appKey, name, hostname, virtualHost);
 
                         Events.ExecuteOnQueuePublish(apiResponseLocalVar);
 
@@ -2556,7 +2498,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorQueuePublishDefaultImplementation(e, "/api/{version}/queue/publish", uriBuilderLocalVar.Path, version, message, queueId, appKey, name, hostname, virtualHost);
+                OnErrorQueuePublishDefaultImplementation(e, "/queue/publish", uriBuilderLocalVar.Path, message, queueId, appKey, name, hostname, virtualHost);
                 Events.ExecuteOnErrorQueuePublish(e);
                 throw;
             }
@@ -2655,7 +2597,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatQueueSearch(ref decimal version, ref Option<long> queueId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<int> start, ref Option<int> limit);
+        partial void FormatQueueSearch(ref Option<long> queueId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2676,17 +2618,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterQueueSearchDefaultImplementation(IQueueSearchApiResponse apiResponseLocalVar, decimal version, Option<long> queueId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<int> start, Option<int> limit)
+        private void AfterQueueSearchDefaultImplementation(IQueueSearchApiResponse apiResponseLocalVar, Option<long> queueId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterQueueSearch(ref suppressDefaultLog, apiResponseLocalVar, version, queueId, deviceId, accountId, name, start, limit);
+            AfterQueueSearch(ref suppressDefaultLog, apiResponseLocalVar, queueId, deviceId, accountId, name, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2696,14 +2637,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterQueueSearch(ref bool suppressDefaultLog, IQueueSearchApiResponse apiResponseLocalVar, decimal version, Option<long> queueId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<int> start, Option<int> limit);
+        partial void AfterQueueSearch(ref bool suppressDefaultLog, IQueueSearchApiResponse apiResponseLocalVar, Option<long> queueId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2711,17 +2651,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorQueueSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> queueId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<int> start, Option<int> limit)
+        private void OnErrorQueueSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> queueId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorQueueSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, queueId, deviceId, accountId, name, start, limit);
+            OnErrorQueueSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, queueId, deviceId, accountId, name, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2733,19 +2672,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorQueueSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> queueId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<int> start, Option<int> limit);
+        partial void OnErrorQueueSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> queueId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Queue Get the queues setup for the BillableEntity&#39;s applications.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to find (optional)</param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -2754,11 +2691,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit of the index (optional, default to 10)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueSearchApiResponse"/>&gt;</returns>
-        public async Task<IQueueSearchApiResponse?> QueueSearchOrDefaultAsync(decimal version, Option<long> queueId = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueSearchApiResponse?> QueueSearchOrDefaultAsync(Option<long> queueId = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await QueueSearchAsync(version, queueId, deviceId, accountId, name, start, limit, cancellationToken).ConfigureAwait(false);
+                return await QueueSearchAsync(queueId, deviceId, accountId, name, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2770,7 +2707,6 @@ namespace Org.OpenAPITools.Api
         /// Search Queue Get the queues setup for the BillableEntity&#39;s applications.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to find (optional)</param>
         /// <param name="deviceId">The client device ID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -2779,7 +2715,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit of the index (optional, default to 10)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueSearchApiResponse"/>&gt;</returns>
-        public async Task<IQueueSearchApiResponse> QueueSearchAsync(decimal version, Option<long> queueId = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueSearchApiResponse> QueueSearchAsync(Option<long> queueId = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2787,7 +2723,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateQueueSearch(deviceId, name);
 
-                FormatQueueSearch(ref version, ref queueId, ref deviceId, ref accountId, ref name, ref start, ref limit);
+                FormatQueueSearch(ref queueId, ref deviceId, ref accountId, ref name, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2795,9 +2731,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/queue/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/queue/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/queue/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/queue/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2844,13 +2779,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/queue/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/queue/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterQueueSearchDefaultImplementation(apiResponseLocalVar, version, queueId, deviceId, accountId, name, start, limit);
+                        AfterQueueSearchDefaultImplementation(apiResponseLocalVar, queueId, deviceId, accountId, name, start, limit);
 
                         Events.ExecuteOnQueueSearch(apiResponseLocalVar);
 
@@ -2860,7 +2795,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorQueueSearchDefaultImplementation(e, "/api/{version}/queue/search", uriBuilderLocalVar.Path, version, queueId, deviceId, accountId, name, start, limit);
+                OnErrorQueueSearchDefaultImplementation(e, "/queue/search", uriBuilderLocalVar.Path, queueId, deviceId, accountId, name, start, limit);
                 Events.ExecuteOnErrorQueueSearch(e);
                 throw;
             }
@@ -2959,7 +2894,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatQueueUpdate(ref decimal version, ref long queueId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<int> workers, ref Option<string> analyticTags, ref Option<string> hostname, ref Option<int> port, ref Option<string> username, ref Option<string> password, ref Option<string> virtualHost, ref Option<bool> useSSL);
+        partial void FormatQueueUpdate(ref long queueId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<int> workers, ref Option<string> analyticTags, ref Option<string> hostname, ref Option<int> port, ref Option<string> username, ref Option<string> password, ref Option<string> virtualHost, ref Option<bool> useSSL);
 
         /// <summary>
         /// Validates the request parameters
@@ -3000,7 +2935,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3013,10 +2947,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="password"></param>
         /// <param name="virtualHost"></param>
         /// <param name="useSSL"></param>
-        private void AfterQueueUpdateDefaultImplementation(IQueueUpdateApiResponse apiResponseLocalVar, decimal version, long queueId, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL)
+        private void AfterQueueUpdateDefaultImplementation(IQueueUpdateApiResponse apiResponseLocalVar, long queueId, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL)
         {
             bool suppressDefaultLog = false;
-            AfterQueueUpdate(ref suppressDefaultLog, apiResponseLocalVar, version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+            AfterQueueUpdate(ref suppressDefaultLog, apiResponseLocalVar, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3026,7 +2960,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3039,7 +2972,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="password"></param>
         /// <param name="virtualHost"></param>
         /// <param name="useSSL"></param>
-        partial void AfterQueueUpdate(ref bool suppressDefaultLog, IQueueUpdateApiResponse apiResponseLocalVar, decimal version, long queueId, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL);
+        partial void AfterQueueUpdate(ref bool suppressDefaultLog, IQueueUpdateApiResponse apiResponseLocalVar, long queueId, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3047,7 +2980,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3060,10 +2992,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="password"></param>
         /// <param name="virtualHost"></param>
         /// <param name="useSSL"></param>
-        private void OnErrorQueueUpdateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long queueId, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL)
+        private void OnErrorQueueUpdateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long queueId, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorQueueUpdate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+            OnErrorQueueUpdate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3075,7 +3007,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="queueId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3088,12 +3019,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="password"></param>
         /// <param name="virtualHost"></param>
         /// <param name="useSSL"></param>
-        partial void OnErrorQueueUpdate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long queueId, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL);
+        partial void OnErrorQueueUpdate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long queueId, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<int> workers, Option<string> analyticTags, Option<string> hostname, Option<int> port, Option<string> username, Option<string> password, Option<string> virtualHost, Option<bool> useSSL);
 
         /// <summary>
         /// Update Queue Update the basic AMQP queue.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to update</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -3108,11 +3038,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">the SSL to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueUpdateApiResponse"/>&gt;</returns>
-        public async Task<IQueueUpdateApiResponse?> QueueUpdateOrDefaultAsync(decimal version, long queueId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueUpdateApiResponse?> QueueUpdateOrDefaultAsync(long queueId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await QueueUpdateAsync(version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, cancellationToken).ConfigureAwait(false);
+                return await QueueUpdateAsync(queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3124,7 +3054,6 @@ namespace Org.OpenAPITools.Api
         /// Update Queue Update the basic AMQP queue.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="queueId">The id of the queue to update</param>
         /// <param name="deviceId">The client deviceID (optional)</param>
         /// <param name="accountId">The logged in user ID (optional)</param>
@@ -3139,7 +3068,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useSSL">the SSL to use (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IQueueUpdateApiResponse"/>&gt;</returns>
-        public async Task<IQueueUpdateApiResponse> QueueUpdateAsync(decimal version, long queueId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IQueueUpdateApiResponse> QueueUpdateAsync(long queueId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<int> workers = default, Option<string> analyticTags = default, Option<string> hostname = default, Option<int> port = default, Option<string> username = default, Option<string> password = default, Option<string> virtualHost = default, Option<bool> useSSL = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3147,7 +3076,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateQueueUpdate(deviceId, appKey, analyticTags, hostname, username, password, virtualHost);
 
-                FormatQueueUpdate(ref version, ref queueId, ref deviceId, ref accountId, ref appKey, ref workers, ref analyticTags, ref hostname, ref port, ref username, ref password, ref virtualHost, ref useSSL);
+                FormatQueueUpdate(ref queueId, ref deviceId, ref accountId, ref appKey, ref workers, ref analyticTags, ref hostname, ref port, ref username, ref password, ref virtualHost, ref useSSL);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3155,9 +3084,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/queue/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/queue/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/queue/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/queue/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3221,13 +3149,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/queue/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/queue/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterQueueUpdateDefaultImplementation(apiResponseLocalVar, version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+                        AfterQueueUpdateDefaultImplementation(apiResponseLocalVar, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
 
                         Events.ExecuteOnQueueUpdate(apiResponseLocalVar);
 
@@ -3237,7 +3165,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorQueueUpdateDefaultImplementation(e, "/api/{version}/queue/update", uriBuilderLocalVar.Path, version, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
+                OnErrorQueueUpdateDefaultImplementation(e, "/queue/update", uriBuilderLocalVar.Path, queueId, deviceId, accountId, appKey, workers, analyticTags, hostname, port, username, password, virtualHost, useSSL);
                 Events.ExecuteOnErrorQueueUpdate(e);
                 throw;
             }

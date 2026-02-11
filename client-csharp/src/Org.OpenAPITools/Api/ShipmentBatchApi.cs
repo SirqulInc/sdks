@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Create a new shipment batch
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateShipmentBatchApiResponse"/>&gt;</returns>
-        Task<ICreateShipmentBatchApiResponse> CreateShipmentBatchAsync(decimal version, Option<ShipmentBatch> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateShipmentBatchApiResponse> CreateShipmentBatchAsync(Option<ShipmentBatch> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Shipment Batch
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new shipment batch
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateShipmentBatchApiResponse"/>?&gt;</returns>
-        Task<ICreateShipmentBatchApiResponse?> CreateShipmentBatchOrDefaultAsync(decimal version, Option<ShipmentBatch> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateShipmentBatchApiResponse?> CreateShipmentBatchOrDefaultAsync(Option<ShipmentBatch> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Shipment Batch
@@ -70,11 +68,10 @@ namespace Org.OpenAPITools.Api
         /// Search for shipment batches
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="batchId">the id of the shipment batch to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteShipmentBatchApiResponse"/>&gt;</returns>
-        Task<IDeleteShipmentBatchApiResponse> DeleteShipmentBatchAsync(decimal version, long batchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteShipmentBatchApiResponse> DeleteShipmentBatchAsync(long batchId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Shipment Batch
@@ -82,11 +79,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for shipment batches
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="batchId">the id of the shipment batch to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteShipmentBatchApiResponse"/>?&gt;</returns>
-        Task<IDeleteShipmentBatchApiResponse?> DeleteShipmentBatchOrDefaultAsync(decimal version, long batchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteShipmentBatchApiResponse?> DeleteShipmentBatchOrDefaultAsync(long batchId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Shipment Batch
@@ -95,11 +91,10 @@ namespace Org.OpenAPITools.Api
         /// Get an existing shipment batch
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="batchId">the id of the shipment batch to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentBatchApiResponse"/>&gt;</returns>
-        Task<IGetShipmentBatchApiResponse> GetShipmentBatchAsync(decimal version, long batchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetShipmentBatchApiResponse> GetShipmentBatchAsync(long batchId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Shipment Batch
@@ -107,11 +102,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an existing shipment batch
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="batchId">the id of the shipment batch to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentBatchApiResponse"/>?&gt;</returns>
-        Task<IGetShipmentBatchApiResponse?> GetShipmentBatchOrDefaultAsync(decimal version, long batchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetShipmentBatchApiResponse?> GetShipmentBatchOrDefaultAsync(long batchId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Shipment Batch Status
@@ -120,7 +114,6 @@ namespace Org.OpenAPITools.Api
         /// Get the import status list of the import shipment batch
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="batchId">The id of the requested shipment batch</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="sortField">The field to sort by</param>
@@ -135,7 +128,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to search for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentBatchStatusApiResponse"/>&gt;</returns>
-        Task<IGetShipmentBatchStatusApiResponse> GetShipmentBatchStatusAsync(decimal version, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid = default, Option<bool> started = default, Option<bool> completed = default, Option<bool> hasShipment = default, Option<bool> hasRoute = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetShipmentBatchStatusApiResponse> GetShipmentBatchStatusAsync(long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid = default, Option<bool> started = default, Option<bool> completed = default, Option<bool> hasShipment = default, Option<bool> hasRoute = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Shipment Batch Status
@@ -143,7 +136,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the import status list of the import shipment batch
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="batchId">The id of the requested shipment batch</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="sortField">The field to sort by</param>
@@ -158,7 +150,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to search for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentBatchStatusApiResponse"/>?&gt;</returns>
-        Task<IGetShipmentBatchStatusApiResponse?> GetShipmentBatchStatusOrDefaultAsync(decimal version, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid = default, Option<bool> started = default, Option<bool> completed = default, Option<bool> hasShipment = default, Option<bool> hasRoute = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetShipmentBatchStatusApiResponse?> GetShipmentBatchStatusOrDefaultAsync(long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid = default, Option<bool> started = default, Option<bool> completed = default, Option<bool> hasShipment = default, Option<bool> hasRoute = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Shipment Batch
@@ -167,7 +159,6 @@ namespace Org.OpenAPITools.Api
         /// Search for shipment batches
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="hubId">The associated service hub</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -175,7 +166,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchShipmentBatchApiResponse"/>&gt;</returns>
-        Task<ISearchShipmentBatchApiResponse> SearchShipmentBatchAsync(decimal version, long hubId, string sortField, bool descending, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchShipmentBatchApiResponse> SearchShipmentBatchAsync(long hubId, string sortField, bool descending, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Shipment Batch
@@ -183,7 +174,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for shipment batches
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="hubId">The associated service hub</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -191,7 +181,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchShipmentBatchApiResponse"/>?&gt;</returns>
-        Task<ISearchShipmentBatchApiResponse?> SearchShipmentBatchOrDefaultAsync(decimal version, long hubId, string sortField, bool descending, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchShipmentBatchApiResponse?> SearchShipmentBatchOrDefaultAsync(long hubId, string sortField, bool descending, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -407,7 +397,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateShipmentBatch(ref decimal version, Option<ShipmentBatch> body);
+        partial void FormatCreateShipmentBatch(Option<ShipmentBatch> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -424,12 +414,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateShipmentBatchDefaultImplementation(ICreateShipmentBatchApiResponse apiResponseLocalVar, decimal version, Option<ShipmentBatch> body)
+        private void AfterCreateShipmentBatchDefaultImplementation(ICreateShipmentBatchApiResponse apiResponseLocalVar, Option<ShipmentBatch> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateShipmentBatch(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateShipmentBatch(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -439,9 +428,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateShipmentBatch(ref bool suppressDefaultLog, ICreateShipmentBatchApiResponse apiResponseLocalVar, decimal version, Option<ShipmentBatch> body);
+        partial void AfterCreateShipmentBatch(ref bool suppressDefaultLog, ICreateShipmentBatchApiResponse apiResponseLocalVar, Option<ShipmentBatch> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -449,12 +437,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateShipmentBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<ShipmentBatch> body)
+        private void OnErrorCreateShipmentBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<ShipmentBatch> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateShipmentBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateShipmentBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -466,22 +453,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateShipmentBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<ShipmentBatch> body);
+        partial void OnErrorCreateShipmentBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<ShipmentBatch> body);
 
         /// <summary>
         /// Create Shipment Batch Create a new shipment batch
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateShipmentBatchApiResponse"/>&gt;</returns>
-        public async Task<ICreateShipmentBatchApiResponse?> CreateShipmentBatchOrDefaultAsync(decimal version, Option<ShipmentBatch> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateShipmentBatchApiResponse?> CreateShipmentBatchOrDefaultAsync(Option<ShipmentBatch> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateShipmentBatchAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateShipmentBatchAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -493,11 +478,10 @@ namespace Org.OpenAPITools.Api
         /// Create Shipment Batch Create a new shipment batch
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateShipmentBatchApiResponse"/>&gt;</returns>
-        public async Task<ICreateShipmentBatchApiResponse> CreateShipmentBatchAsync(decimal version, Option<ShipmentBatch> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateShipmentBatchApiResponse> CreateShipmentBatchAsync(Option<ShipmentBatch> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -505,7 +489,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateShipmentBatch(body);
 
-                FormatCreateShipmentBatch(ref version, body);
+                FormatCreateShipmentBatch(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -513,9 +497,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/batch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/batch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/batch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/batch");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -545,13 +528,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/batch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/batch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateShipmentBatchDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateShipmentBatchDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateShipmentBatch(apiResponseLocalVar);
 
@@ -561,7 +544,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateShipmentBatchDefaultImplementation(e, "/api/{version}/shipment/batch", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateShipmentBatchDefaultImplementation(e, "/shipment/batch", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateShipmentBatch(e);
                 throw;
             }
@@ -660,18 +643,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteShipmentBatch(ref decimal version, ref long batchId);
+        partial void FormatDeleteShipmentBatch(ref long batchId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
-        private void AfterDeleteShipmentBatchDefaultImplementation(IDeleteShipmentBatchApiResponse apiResponseLocalVar, decimal version, long batchId)
+        private void AfterDeleteShipmentBatchDefaultImplementation(IDeleteShipmentBatchApiResponse apiResponseLocalVar, long batchId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteShipmentBatch(ref suppressDefaultLog, apiResponseLocalVar, version, batchId);
+            AfterDeleteShipmentBatch(ref suppressDefaultLog, apiResponseLocalVar, batchId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -681,9 +663,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
-        partial void AfterDeleteShipmentBatch(ref bool suppressDefaultLog, IDeleteShipmentBatchApiResponse apiResponseLocalVar, decimal version, long batchId);
+        partial void AfterDeleteShipmentBatch(ref bool suppressDefaultLog, IDeleteShipmentBatchApiResponse apiResponseLocalVar, long batchId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -691,12 +672,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
-        private void OnErrorDeleteShipmentBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long batchId)
+        private void OnErrorDeleteShipmentBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long batchId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteShipmentBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, batchId);
+            OnErrorDeleteShipmentBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, batchId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -708,22 +688,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
-        partial void OnErrorDeleteShipmentBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long batchId);
+        partial void OnErrorDeleteShipmentBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long batchId);
 
         /// <summary>
         /// Delete Shipment Batch Search for shipment batches
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="batchId">the id of the shipment batch to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteShipmentBatchApiResponse"/>&gt;</returns>
-        public async Task<IDeleteShipmentBatchApiResponse?> DeleteShipmentBatchOrDefaultAsync(decimal version, long batchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteShipmentBatchApiResponse?> DeleteShipmentBatchOrDefaultAsync(long batchId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteShipmentBatchAsync(version, batchId, cancellationToken).ConfigureAwait(false);
+                return await DeleteShipmentBatchAsync(batchId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -735,17 +713,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Shipment Batch Search for shipment batches
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="batchId">the id of the shipment batch to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteShipmentBatchApiResponse"/>&gt;</returns>
-        public async Task<IDeleteShipmentBatchApiResponse> DeleteShipmentBatchAsync(decimal version, long batchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteShipmentBatchApiResponse> DeleteShipmentBatchAsync(long batchId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteShipmentBatch(ref version, ref batchId);
+                FormatDeleteShipmentBatch(ref batchId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -753,9 +730,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/batch/{batchId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/batch/{batchId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/batch/{batchId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/batch/{batchId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BbatchId%7D", Uri.EscapeDataString(batchId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -772,13 +748,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/batch/{batchId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/batch/{batchId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteShipmentBatchDefaultImplementation(apiResponseLocalVar, version, batchId);
+                        AfterDeleteShipmentBatchDefaultImplementation(apiResponseLocalVar, batchId);
 
                         Events.ExecuteOnDeleteShipmentBatch(apiResponseLocalVar);
 
@@ -788,7 +764,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteShipmentBatchDefaultImplementation(e, "/api/{version}/shipment/batch/{batchId}", uriBuilderLocalVar.Path, version, batchId);
+                OnErrorDeleteShipmentBatchDefaultImplementation(e, "/shipment/batch/{batchId}", uriBuilderLocalVar.Path, batchId);
                 Events.ExecuteOnErrorDeleteShipmentBatch(e);
                 throw;
             }
@@ -855,18 +831,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetShipmentBatch(ref decimal version, ref long batchId);
+        partial void FormatGetShipmentBatch(ref long batchId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
-        private void AfterGetShipmentBatchDefaultImplementation(IGetShipmentBatchApiResponse apiResponseLocalVar, decimal version, long batchId)
+        private void AfterGetShipmentBatchDefaultImplementation(IGetShipmentBatchApiResponse apiResponseLocalVar, long batchId)
         {
             bool suppressDefaultLog = false;
-            AfterGetShipmentBatch(ref suppressDefaultLog, apiResponseLocalVar, version, batchId);
+            AfterGetShipmentBatch(ref suppressDefaultLog, apiResponseLocalVar, batchId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -876,9 +851,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
-        partial void AfterGetShipmentBatch(ref bool suppressDefaultLog, IGetShipmentBatchApiResponse apiResponseLocalVar, decimal version, long batchId);
+        partial void AfterGetShipmentBatch(ref bool suppressDefaultLog, IGetShipmentBatchApiResponse apiResponseLocalVar, long batchId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -886,12 +860,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
-        private void OnErrorGetShipmentBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long batchId)
+        private void OnErrorGetShipmentBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long batchId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetShipmentBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, batchId);
+            OnErrorGetShipmentBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, batchId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -903,22 +876,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
-        partial void OnErrorGetShipmentBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long batchId);
+        partial void OnErrorGetShipmentBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long batchId);
 
         /// <summary>
         /// Get Shipment Batch Get an existing shipment batch
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="batchId">the id of the shipment batch to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentBatchApiResponse"/>&gt;</returns>
-        public async Task<IGetShipmentBatchApiResponse?> GetShipmentBatchOrDefaultAsync(decimal version, long batchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetShipmentBatchApiResponse?> GetShipmentBatchOrDefaultAsync(long batchId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetShipmentBatchAsync(version, batchId, cancellationToken).ConfigureAwait(false);
+                return await GetShipmentBatchAsync(batchId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -930,17 +901,16 @@ namespace Org.OpenAPITools.Api
         /// Get Shipment Batch Get an existing shipment batch
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="batchId">the id of the shipment batch to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentBatchApiResponse"/>&gt;</returns>
-        public async Task<IGetShipmentBatchApiResponse> GetShipmentBatchAsync(decimal version, long batchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetShipmentBatchApiResponse> GetShipmentBatchAsync(long batchId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetShipmentBatch(ref version, ref batchId);
+                FormatGetShipmentBatch(ref batchId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -948,9 +918,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/batch/{batchId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/batch/{batchId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/batch/{batchId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/batch/{batchId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BbatchId%7D", Uri.EscapeDataString(batchId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -976,13 +945,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/batch/{batchId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/batch/{batchId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetShipmentBatchDefaultImplementation(apiResponseLocalVar, version, batchId);
+                        AfterGetShipmentBatchDefaultImplementation(apiResponseLocalVar, batchId);
 
                         Events.ExecuteOnGetShipmentBatch(apiResponseLocalVar);
 
@@ -992,7 +961,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetShipmentBatchDefaultImplementation(e, "/api/{version}/shipment/batch/{batchId}", uriBuilderLocalVar.Path, version, batchId);
+                OnErrorGetShipmentBatchDefaultImplementation(e, "/shipment/batch/{batchId}", uriBuilderLocalVar.Path, batchId);
                 Events.ExecuteOnErrorGetShipmentBatch(e);
                 throw;
             }
@@ -1091,7 +1060,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetShipmentBatchStatus(ref decimal version, ref long batchId, ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<bool> valid, ref Option<bool> started, ref Option<bool> completed, ref Option<bool> hasShipment, ref Option<bool> hasRoute, ref Option<string> keyword);
+        partial void FormatGetShipmentBatchStatus(ref long batchId, ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<bool> valid, ref Option<bool> started, ref Option<bool> completed, ref Option<bool> hasShipment, ref Option<bool> hasRoute, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -1112,7 +1081,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
@@ -1125,10 +1093,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasShipment"></param>
         /// <param name="hasRoute"></param>
         /// <param name="keyword"></param>
-        private void AfterGetShipmentBatchStatusDefaultImplementation(IGetShipmentBatchStatusApiResponse apiResponseLocalVar, decimal version, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid, Option<bool> started, Option<bool> completed, Option<bool> hasShipment, Option<bool> hasRoute, Option<string> keyword)
+        private void AfterGetShipmentBatchStatusDefaultImplementation(IGetShipmentBatchStatusApiResponse apiResponseLocalVar, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid, Option<bool> started, Option<bool> completed, Option<bool> hasShipment, Option<bool> hasRoute, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterGetShipmentBatchStatus(ref suppressDefaultLog, apiResponseLocalVar, version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
+            AfterGetShipmentBatchStatus(ref suppressDefaultLog, apiResponseLocalVar, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1138,7 +1106,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
@@ -1151,7 +1118,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasShipment"></param>
         /// <param name="hasRoute"></param>
         /// <param name="keyword"></param>
-        partial void AfterGetShipmentBatchStatus(ref bool suppressDefaultLog, IGetShipmentBatchStatusApiResponse apiResponseLocalVar, decimal version, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid, Option<bool> started, Option<bool> completed, Option<bool> hasShipment, Option<bool> hasRoute, Option<string> keyword);
+        partial void AfterGetShipmentBatchStatus(ref bool suppressDefaultLog, IGetShipmentBatchStatusApiResponse apiResponseLocalVar, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid, Option<bool> started, Option<bool> completed, Option<bool> hasShipment, Option<bool> hasRoute, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1159,7 +1126,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
@@ -1172,10 +1138,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasShipment"></param>
         /// <param name="hasRoute"></param>
         /// <param name="keyword"></param>
-        private void OnErrorGetShipmentBatchStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid, Option<bool> started, Option<bool> completed, Option<bool> hasShipment, Option<bool> hasRoute, Option<string> keyword)
+        private void OnErrorGetShipmentBatchStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid, Option<bool> started, Option<bool> completed, Option<bool> hasShipment, Option<bool> hasRoute, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetShipmentBatchStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
+            OnErrorGetShipmentBatchStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1187,7 +1153,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchId"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
@@ -1200,12 +1165,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasShipment"></param>
         /// <param name="hasRoute"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorGetShipmentBatchStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid, Option<bool> started, Option<bool> completed, Option<bool> hasShipment, Option<bool> hasRoute, Option<string> keyword);
+        partial void OnErrorGetShipmentBatchStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid, Option<bool> started, Option<bool> completed, Option<bool> hasShipment, Option<bool> hasRoute, Option<string> keyword);
 
         /// <summary>
         /// Get Shipment Batch Status Get the import status list of the import shipment batch
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="batchId">The id of the requested shipment batch</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="sortField">The field to sort by</param>
@@ -1220,11 +1184,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to search for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentBatchStatusApiResponse"/>&gt;</returns>
-        public async Task<IGetShipmentBatchStatusApiResponse?> GetShipmentBatchStatusOrDefaultAsync(decimal version, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid = default, Option<bool> started = default, Option<bool> completed = default, Option<bool> hasShipment = default, Option<bool> hasRoute = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetShipmentBatchStatusApiResponse?> GetShipmentBatchStatusOrDefaultAsync(long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid = default, Option<bool> started = default, Option<bool> completed = default, Option<bool> hasShipment = default, Option<bool> hasRoute = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetShipmentBatchStatusAsync(version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword, cancellationToken).ConfigureAwait(false);
+                return await GetShipmentBatchStatusAsync(batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1236,7 +1200,6 @@ namespace Org.OpenAPITools.Api
         /// Get Shipment Batch Status Get the import status list of the import shipment batch
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="batchId">The id of the requested shipment batch</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="sortField">The field to sort by</param>
@@ -1251,7 +1214,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to search for (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetShipmentBatchStatusApiResponse"/>&gt;</returns>
-        public async Task<IGetShipmentBatchStatusApiResponse> GetShipmentBatchStatusAsync(decimal version, long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid = default, Option<bool> started = default, Option<bool> completed = default, Option<bool> hasShipment = default, Option<bool> hasRoute = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetShipmentBatchStatusApiResponse> GetShipmentBatchStatusAsync(long batchId, long accountId, string sortField, bool descending, int start, int limit, Option<bool> valid = default, Option<bool> started = default, Option<bool> completed = default, Option<bool> hasShipment = default, Option<bool> hasRoute = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1259,7 +1222,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetShipmentBatchStatus(sortField, keyword);
 
-                FormatGetShipmentBatchStatus(ref version, ref batchId, ref accountId, ref sortField, ref descending, ref start, ref limit, ref valid, ref started, ref completed, ref hasShipment, ref hasRoute, ref keyword);
+                FormatGetShipmentBatchStatus(ref batchId, ref accountId, ref sortField, ref descending, ref start, ref limit, ref valid, ref started, ref completed, ref hasShipment, ref hasRoute, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1267,9 +1230,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/batch/{batchId}/status"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/batch/{batchId}/status");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/batch/{batchId}/status"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/batch/{batchId}/status");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BbatchId%7D", Uri.EscapeDataString(batchId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1323,13 +1285,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/batch/{batchId}/status", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/batch/{batchId}/status", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetShipmentBatchStatusDefaultImplementation(apiResponseLocalVar, version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
+                        AfterGetShipmentBatchStatusDefaultImplementation(apiResponseLocalVar, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
 
                         Events.ExecuteOnGetShipmentBatchStatus(apiResponseLocalVar);
 
@@ -1339,7 +1301,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetShipmentBatchStatusDefaultImplementation(e, "/api/{version}/shipment/batch/{batchId}/status", uriBuilderLocalVar.Path, version, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
+                OnErrorGetShipmentBatchStatusDefaultImplementation(e, "/shipment/batch/{batchId}/status", uriBuilderLocalVar.Path, batchId, accountId, sortField, descending, start, limit, valid, started, completed, hasShipment, hasRoute, keyword);
                 Events.ExecuteOnErrorGetShipmentBatchStatus(e);
                 throw;
             }
@@ -1438,7 +1400,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchShipmentBatch(ref decimal version, ref long hubId, ref string sortField, ref bool descending, ref int start, ref int limit);
+        partial void FormatSearchShipmentBatch(ref long hubId, ref string sortField, ref bool descending, ref int start, ref int limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1455,16 +1417,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="hubId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchShipmentBatchDefaultImplementation(ISearchShipmentBatchApiResponse apiResponseLocalVar, decimal version, long hubId, string sortField, bool descending, int start, int limit)
+        private void AfterSearchShipmentBatchDefaultImplementation(ISearchShipmentBatchApiResponse apiResponseLocalVar, long hubId, string sortField, bool descending, int start, int limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchShipmentBatch(ref suppressDefaultLog, apiResponseLocalVar, version, hubId, sortField, descending, start, limit);
+            AfterSearchShipmentBatch(ref suppressDefaultLog, apiResponseLocalVar, hubId, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1474,13 +1435,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="hubId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchShipmentBatch(ref bool suppressDefaultLog, ISearchShipmentBatchApiResponse apiResponseLocalVar, decimal version, long hubId, string sortField, bool descending, int start, int limit);
+        partial void AfterSearchShipmentBatch(ref bool suppressDefaultLog, ISearchShipmentBatchApiResponse apiResponseLocalVar, long hubId, string sortField, bool descending, int start, int limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1488,16 +1448,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="hubId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchShipmentBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long hubId, string sortField, bool descending, int start, int limit)
+        private void OnErrorSearchShipmentBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long hubId, string sortField, bool descending, int start, int limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchShipmentBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, hubId, sortField, descending, start, limit);
+            OnErrorSearchShipmentBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, hubId, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1509,18 +1468,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="hubId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchShipmentBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long hubId, string sortField, bool descending, int start, int limit);
+        partial void OnErrorSearchShipmentBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long hubId, string sortField, bool descending, int start, int limit);
 
         /// <summary>
         /// Search Shipment Batch Search for shipment batches
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="hubId">The associated service hub</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -1528,11 +1485,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchShipmentBatchApiResponse"/>&gt;</returns>
-        public async Task<ISearchShipmentBatchApiResponse?> SearchShipmentBatchOrDefaultAsync(decimal version, long hubId, string sortField, bool descending, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchShipmentBatchApiResponse?> SearchShipmentBatchOrDefaultAsync(long hubId, string sortField, bool descending, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchShipmentBatchAsync(version, hubId, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchShipmentBatchAsync(hubId, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1544,7 +1501,6 @@ namespace Org.OpenAPITools.Api
         /// Search Shipment Batch Search for shipment batches
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="hubId">The associated service hub</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -1552,7 +1508,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchShipmentBatchApiResponse"/>&gt;</returns>
-        public async Task<ISearchShipmentBatchApiResponse> SearchShipmentBatchAsync(decimal version, long hubId, string sortField, bool descending, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchShipmentBatchApiResponse> SearchShipmentBatchAsync(long hubId, string sortField, bool descending, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1560,7 +1516,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchShipmentBatch(sortField);
 
-                FormatSearchShipmentBatch(ref version, ref hubId, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchShipmentBatch(ref hubId, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1568,9 +1524,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/shipment/batch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/shipment/batch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/shipment/batch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/shipment/batch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1605,13 +1560,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/shipment/batch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/shipment/batch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchShipmentBatchDefaultImplementation(apiResponseLocalVar, version, hubId, sortField, descending, start, limit);
+                        AfterSearchShipmentBatchDefaultImplementation(apiResponseLocalVar, hubId, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchShipmentBatch(apiResponseLocalVar);
 
@@ -1621,7 +1576,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchShipmentBatchDefaultImplementation(e, "/api/{version}/shipment/batch", uriBuilderLocalVar.Path, version, hubId, sortField, descending, start, limit);
+                OnErrorSearchShipmentBatchDefaultImplementation(e, "/shipment/batch", uriBuilderLocalVar.Path, hubId, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchShipmentBatch(e);
                 throw;
             }

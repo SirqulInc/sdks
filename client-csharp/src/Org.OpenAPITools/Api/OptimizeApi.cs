@@ -45,13 +45,12 @@ namespace Org.OpenAPITools.Api
         /// Get the results of the import batch.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="batchID">The batchID for getting the import status of.</param>
         /// <param name="start">The start index for pagination</param>
         /// <param name="limit">The limit for pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOptimizationResultApiResponse"/>&gt;</returns>
-        Task<IGetOptimizationResultApiResponse> GetOptimizationResultAsync(decimal version, string batchID, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOptimizationResultApiResponse> GetOptimizationResultAsync(string batchID, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Optimization Result
@@ -59,13 +58,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the results of the import batch.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="batchID">The batchID for getting the import status of.</param>
         /// <param name="start">The start index for pagination</param>
         /// <param name="limit">The limit for pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOptimizationResultApiResponse"/>?&gt;</returns>
-        Task<IGetOptimizationResultApiResponse?> GetOptimizationResultOrDefaultAsync(decimal version, string batchID, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOptimizationResultApiResponse?> GetOptimizationResultOrDefaultAsync(string batchID, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Request Optimization
@@ -74,11 +72,10 @@ namespace Org.OpenAPITools.Api
         /// Request and upload of shipment orders and create ShipmentImportBatch for optimization.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestOptimizationApiResponse"/>&gt;</returns>
-        Task<IRequestOptimizationApiResponse> RequestOptimizationAsync(decimal version, Option<Orders> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRequestOptimizationApiResponse> RequestOptimizationAsync(Option<Orders> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Request Optimization
@@ -86,11 +83,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Request and upload of shipment orders and create ShipmentImportBatch for optimization.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestOptimizationApiResponse"/>?&gt;</returns>
-        Task<IRequestOptimizationApiResponse?> RequestOptimizationOrDefaultAsync(decimal version, Option<Orders> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRequestOptimizationApiResponse?> RequestOptimizationOrDefaultAsync(Option<Orders> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -210,7 +206,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetOptimizationResult(ref decimal version, ref string batchID, ref int start, ref int limit);
+        partial void FormatGetOptimizationResult(ref string batchID, ref int start, ref int limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -227,14 +223,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchID"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterGetOptimizationResultDefaultImplementation(IGetOptimizationResultApiResponse apiResponseLocalVar, decimal version, string batchID, int start, int limit)
+        private void AfterGetOptimizationResultDefaultImplementation(IGetOptimizationResultApiResponse apiResponseLocalVar, string batchID, int start, int limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetOptimizationResult(ref suppressDefaultLog, apiResponseLocalVar, version, batchID, start, limit);
+            AfterGetOptimizationResult(ref suppressDefaultLog, apiResponseLocalVar, batchID, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -244,11 +239,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchID"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterGetOptimizationResult(ref bool suppressDefaultLog, IGetOptimizationResultApiResponse apiResponseLocalVar, decimal version, string batchID, int start, int limit);
+        partial void AfterGetOptimizationResult(ref bool suppressDefaultLog, IGetOptimizationResultApiResponse apiResponseLocalVar, string batchID, int start, int limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -256,14 +250,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchID"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetOptimizationResultDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string batchID, int start, int limit)
+        private void OnErrorGetOptimizationResultDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string batchID, int start, int limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOptimizationResult(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, batchID, start, limit);
+            OnErrorGetOptimizationResult(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, batchID, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -275,26 +268,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="batchID"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetOptimizationResult(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string batchID, int start, int limit);
+        partial void OnErrorGetOptimizationResult(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string batchID, int start, int limit);
 
         /// <summary>
         /// Get Optimization Result Get the results of the import batch.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="batchID">The batchID for getting the import status of.</param>
         /// <param name="start">The start index for pagination</param>
         /// <param name="limit">The limit for pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOptimizationResultApiResponse"/>&gt;</returns>
-        public async Task<IGetOptimizationResultApiResponse?> GetOptimizationResultOrDefaultAsync(decimal version, string batchID, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOptimizationResultApiResponse?> GetOptimizationResultOrDefaultAsync(string batchID, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOptimizationResultAsync(version, batchID, start, limit, cancellationToken).ConfigureAwait(false);
+                return await GetOptimizationResultAsync(batchID, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -306,13 +297,12 @@ namespace Org.OpenAPITools.Api
         /// Get Optimization Result Get the results of the import batch.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="batchID">The batchID for getting the import status of.</param>
         /// <param name="start">The start index for pagination</param>
         /// <param name="limit">The limit for pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOptimizationResultApiResponse"/>&gt;</returns>
-        public async Task<IGetOptimizationResultApiResponse> GetOptimizationResultAsync(decimal version, string batchID, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOptimizationResultApiResponse> GetOptimizationResultAsync(string batchID, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -320,7 +310,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOptimizationResult(batchID);
 
-                FormatGetOptimizationResult(ref version, ref batchID, ref start, ref limit);
+                FormatGetOptimizationResult(ref batchID, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -328,9 +318,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/optimize/result/{batchID}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/optimize/result/{batchID}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/optimize/result/{batchID}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/optimize/result/{batchID}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BbatchID%7D", Uri.EscapeDataString(batchID.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -363,13 +352,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/optimize/result/{batchID}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/optimize/result/{batchID}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOptimizationResultDefaultImplementation(apiResponseLocalVar, version, batchID, start, limit);
+                        AfterGetOptimizationResultDefaultImplementation(apiResponseLocalVar, batchID, start, limit);
 
                         Events.ExecuteOnGetOptimizationResult(apiResponseLocalVar);
 
@@ -379,7 +368,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOptimizationResultDefaultImplementation(e, "/api/{version}/optimize/result/{batchID}", uriBuilderLocalVar.Path, version, batchID, start, limit);
+                OnErrorGetOptimizationResultDefaultImplementation(e, "/optimize/result/{batchID}", uriBuilderLocalVar.Path, batchID, start, limit);
                 Events.ExecuteOnErrorGetOptimizationResult(e);
                 throw;
             }
@@ -478,7 +467,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRequestOptimization(ref decimal version, Option<Orders> body);
+        partial void FormatRequestOptimization(Option<Orders> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -495,12 +484,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterRequestOptimizationDefaultImplementation(IRequestOptimizationApiResponse apiResponseLocalVar, decimal version, Option<Orders> body)
+        private void AfterRequestOptimizationDefaultImplementation(IRequestOptimizationApiResponse apiResponseLocalVar, Option<Orders> body)
         {
             bool suppressDefaultLog = false;
-            AfterRequestOptimization(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterRequestOptimization(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -510,9 +498,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterRequestOptimization(ref bool suppressDefaultLog, IRequestOptimizationApiResponse apiResponseLocalVar, decimal version, Option<Orders> body);
+        partial void AfterRequestOptimization(ref bool suppressDefaultLog, IRequestOptimizationApiResponse apiResponseLocalVar, Option<Orders> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -520,12 +507,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorRequestOptimizationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Orders> body)
+        private void OnErrorRequestOptimizationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Orders> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRequestOptimization(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorRequestOptimization(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -537,22 +523,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorRequestOptimization(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Orders> body);
+        partial void OnErrorRequestOptimization(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Orders> body);
 
         /// <summary>
         /// Request Optimization Request and upload of shipment orders and create ShipmentImportBatch for optimization.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestOptimizationApiResponse"/>&gt;</returns>
-        public async Task<IRequestOptimizationApiResponse?> RequestOptimizationOrDefaultAsync(decimal version, Option<Orders> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRequestOptimizationApiResponse?> RequestOptimizationOrDefaultAsync(Option<Orders> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RequestOptimizationAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await RequestOptimizationAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -564,11 +548,10 @@ namespace Org.OpenAPITools.Api
         /// Request Optimization Request and upload of shipment orders and create ShipmentImportBatch for optimization.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestOptimizationApiResponse"/>&gt;</returns>
-        public async Task<IRequestOptimizationApiResponse> RequestOptimizationAsync(decimal version, Option<Orders> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRequestOptimizationApiResponse> RequestOptimizationAsync(Option<Orders> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -576,7 +559,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRequestOptimization(body);
 
-                FormatRequestOptimization(ref version, body);
+                FormatRequestOptimization(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -584,9 +567,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/optimize/request"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/optimize/request");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/optimize/request"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/optimize/request");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -616,13 +598,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/optimize/request", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/optimize/request", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRequestOptimizationDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterRequestOptimizationDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnRequestOptimization(apiResponseLocalVar);
 
@@ -632,7 +614,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRequestOptimizationDefaultImplementation(e, "/api/{version}/optimize/request", uriBuilderLocalVar.Path, version, body);
+                OnErrorRequestOptimizationDefaultImplementation(e, "/optimize/request", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorRequestOptimization(e);
                 throw;
             }

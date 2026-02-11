@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerId">the id of the retailer</param>
         /// <param name="activeOnly">whether to return results that are active only or all</param>
         /// <param name="keyword">the keyword to search on to get retailer (optional)</param>
@@ -54,7 +53,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetaokilerApiResponse"/>&gt;</returns>
-        Task<IGetRetaokilerApiResponse> GetRetaokilerAsync(decimal version, long retailerId, bool activeOnly, Option<string> keyword = default, Option<string> sortField = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetaokilerApiResponse> GetRetaokilerAsync(long retailerId, bool activeOnly, Option<string> keyword = default, Option<string> sortField = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Retailer
@@ -62,7 +61,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="retailerId">the id of the retailer</param>
         /// <param name="activeOnly">whether to return results that are active only or all</param>
         /// <param name="keyword">the keyword to search on to get retailer (optional)</param>
@@ -71,7 +69,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetaokilerApiResponse"/>?&gt;</returns>
-        Task<IGetRetaokilerApiResponse?> GetRetaokilerOrDefaultAsync(decimal version, long retailerId, bool activeOnly, Option<string> keyword = default, Option<string> sortField = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetaokilerApiResponse?> GetRetaokilerOrDefaultAsync(long retailerId, bool activeOnly, Option<string> keyword = default, Option<string> sortField = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -159,7 +157,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetRetaokiler(ref decimal version, ref long retailerId, ref bool activeOnly, ref Option<string> keyword, ref Option<string> sortField, ref Option<long> start, ref Option<long> limit);
+        partial void FormatGetRetaokiler(ref long retailerId, ref bool activeOnly, ref Option<string> keyword, ref Option<string> sortField, ref Option<long> start, ref Option<long> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -180,17 +178,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="sortField"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterGetRetaokilerDefaultImplementation(IGetRetaokilerApiResponse apiResponseLocalVar, decimal version, long retailerId, bool activeOnly, Option<string> keyword, Option<string> sortField, Option<long> start, Option<long> limit)
+        private void AfterGetRetaokilerDefaultImplementation(IGetRetaokilerApiResponse apiResponseLocalVar, long retailerId, bool activeOnly, Option<string> keyword, Option<string> sortField, Option<long> start, Option<long> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetRetaokiler(ref suppressDefaultLog, apiResponseLocalVar, version, retailerId, activeOnly, keyword, sortField, start, limit);
+            AfterGetRetaokiler(ref suppressDefaultLog, apiResponseLocalVar, retailerId, activeOnly, keyword, sortField, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -200,14 +197,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="sortField"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterGetRetaokiler(ref bool suppressDefaultLog, IGetRetaokilerApiResponse apiResponseLocalVar, decimal version, long retailerId, bool activeOnly, Option<string> keyword, Option<string> sortField, Option<long> start, Option<long> limit);
+        partial void AfterGetRetaokiler(ref bool suppressDefaultLog, IGetRetaokilerApiResponse apiResponseLocalVar, long retailerId, bool activeOnly, Option<string> keyword, Option<string> sortField, Option<long> start, Option<long> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -215,17 +211,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="sortField"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetRetaokilerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerId, bool activeOnly, Option<string> keyword, Option<string> sortField, Option<long> start, Option<long> limit)
+        private void OnErrorGetRetaokilerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerId, bool activeOnly, Option<string> keyword, Option<string> sortField, Option<long> start, Option<long> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRetaokiler(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, retailerId, activeOnly, keyword, sortField, start, limit);
+            OnErrorGetRetaokiler(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, retailerId, activeOnly, keyword, sortField, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -237,19 +232,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="sortField"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetRetaokiler(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerId, bool activeOnly, Option<string> keyword, Option<string> sortField, Option<long> start, Option<long> limit);
+        partial void OnErrorGetRetaokiler(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerId, bool activeOnly, Option<string> keyword, Option<string> sortField, Option<long> start, Option<long> limit);
 
         /// <summary>
         /// Get Retailer Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="retailerId">the id of the retailer</param>
         /// <param name="activeOnly">whether to return results that are active only or all</param>
         /// <param name="keyword">the keyword to search on to get retailer (optional)</param>
@@ -258,11 +251,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetaokilerApiResponse"/>&gt;</returns>
-        public async Task<IGetRetaokilerApiResponse?> GetRetaokilerOrDefaultAsync(decimal version, long retailerId, bool activeOnly, Option<string> keyword = default, Option<string> sortField = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetaokilerApiResponse?> GetRetaokilerOrDefaultAsync(long retailerId, bool activeOnly, Option<string> keyword = default, Option<string> sortField = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRetaokilerAsync(version, retailerId, activeOnly, keyword, sortField, start, limit, cancellationToken).ConfigureAwait(false);
+                return await GetRetaokilerAsync(retailerId, activeOnly, keyword, sortField, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -274,7 +267,6 @@ namespace Org.OpenAPITools.Api
         /// Get Retailer Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerId">the id of the retailer</param>
         /// <param name="activeOnly">whether to return results that are active only or all</param>
         /// <param name="keyword">the keyword to search on to get retailer (optional)</param>
@@ -283,7 +275,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetaokilerApiResponse"/>&gt;</returns>
-        public async Task<IGetRetaokilerApiResponse> GetRetaokilerAsync(decimal version, long retailerId, bool activeOnly, Option<string> keyword = default, Option<string> sortField = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetaokilerApiResponse> GetRetaokilerAsync(long retailerId, bool activeOnly, Option<string> keyword = default, Option<string> sortField = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -291,7 +283,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetRetaokiler(keyword, sortField);
 
-                FormatGetRetaokiler(ref version, ref retailerId, ref activeOnly, ref keyword, ref sortField, ref start, ref limit);
+                FormatGetRetaokiler(ref retailerId, ref activeOnly, ref keyword, ref sortField, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -299,9 +291,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -345,13 +336,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRetaokilerDefaultImplementation(apiResponseLocalVar, version, retailerId, activeOnly, keyword, sortField, start, limit);
+                        AfterGetRetaokilerDefaultImplementation(apiResponseLocalVar, retailerId, activeOnly, keyword, sortField, start, limit);
 
                         Events.ExecuteOnGetRetaokiler(apiResponseLocalVar);
 
@@ -361,7 +352,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRetaokilerDefaultImplementation(e, "/api/{version}/retailer", uriBuilderLocalVar.Path, version, retailerId, activeOnly, keyword, sortField, start, limit);
+                OnErrorGetRetaokilerDefaultImplementation(e, "/retailer", uriBuilderLocalVar.Path, retailerId, activeOnly, keyword, sortField, start, limit);
                 Events.ExecuteOnErrorGetRetaokiler(e);
                 throw;
             }

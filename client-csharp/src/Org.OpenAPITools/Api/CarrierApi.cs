@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="keyword">The keyword to search on (optional)</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order (optional, default to false)</param>
         /// <param name="start">The start index for pagination (optional, default to 0)</param>
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return inactive results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCarriersApiResponse"/>&gt;</returns>
-        Task<ISearchCarriersApiResponse> SearchCarriersAsync(decimal version, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCarriersApiResponse> SearchCarriersAsync(Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Carriers
@@ -61,7 +60,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="keyword">The keyword to search on (optional)</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order (optional, default to false)</param>
         /// <param name="start">The start index for pagination (optional, default to 0)</param>
@@ -69,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return inactive results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCarriersApiResponse"/>?&gt;</returns>
-        Task<ISearchCarriersApiResponse?> SearchCarriersOrDefaultAsync(decimal version, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCarriersApiResponse?> SearchCarriersOrDefaultAsync(Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -157,7 +155,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatSearchCarriers(ref decimal version, ref Option<string> keyword, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
+        partial void FormatSearchCarriers(ref Option<string> keyword, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -174,16 +172,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="keyword"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchCarriersDefaultImplementation(ISearchCarriersApiResponse apiResponseLocalVar, decimal version, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void AfterSearchCarriersDefaultImplementation(ISearchCarriersApiResponse apiResponseLocalVar, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchCarriers(ref suppressDefaultLog, apiResponseLocalVar, version, keyword, descending, start, limit, activeOnly);
+            AfterSearchCarriers(ref suppressDefaultLog, apiResponseLocalVar, keyword, descending, start, limit, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -193,13 +190,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="keyword"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchCarriers(ref bool suppressDefaultLog, ISearchCarriersApiResponse apiResponseLocalVar, decimal version, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void AfterSearchCarriers(ref bool suppressDefaultLog, ISearchCarriersApiResponse apiResponseLocalVar, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -207,16 +203,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="keyword"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchCarriersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void OnErrorSearchCarriersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchCarriers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, keyword, descending, start, limit, activeOnly);
+            OnErrorSearchCarriers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, keyword, descending, start, limit, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -228,18 +223,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="keyword"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchCarriers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void OnErrorSearchCarriers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> keyword, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Search Carriers Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="keyword">The keyword to search on (optional)</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order (optional, default to false)</param>
         /// <param name="start">The start index for pagination (optional, default to 0)</param>
@@ -247,11 +240,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return inactive results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCarriersApiResponse"/>&gt;</returns>
-        public async Task<ISearchCarriersApiResponse?> SearchCarriersOrDefaultAsync(decimal version, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCarriersApiResponse?> SearchCarriersOrDefaultAsync(Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchCarriersAsync(version, keyword, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchCarriersAsync(keyword, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -263,7 +256,6 @@ namespace Org.OpenAPITools.Api
         /// Search Carriers Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="keyword">The keyword to search on (optional)</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order (optional, default to false)</param>
         /// <param name="start">The start index for pagination (optional, default to 0)</param>
@@ -271,7 +263,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return inactive results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCarriersApiResponse"/>&gt;</returns>
-        public async Task<ISearchCarriersApiResponse> SearchCarriersAsync(decimal version, Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCarriersApiResponse> SearchCarriersAsync(Option<string> keyword = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -279,7 +271,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchCarriers(keyword);
 
-                FormatSearchCarriers(ref version, ref keyword, ref descending, ref start, ref limit, ref activeOnly);
+                FormatSearchCarriers(ref keyword, ref descending, ref start, ref limit, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -287,9 +279,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/carrier/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/carrier/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/carrier/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/carrier/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -333,13 +324,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/carrier/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/carrier/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchCarriersDefaultImplementation(apiResponseLocalVar, version, keyword, descending, start, limit, activeOnly);
+                        AfterSearchCarriersDefaultImplementation(apiResponseLocalVar, keyword, descending, start, limit, activeOnly);
 
                         Events.ExecuteOnSearchCarriers(apiResponseLocalVar);
 
@@ -349,7 +340,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchCarriersDefaultImplementation(e, "/api/{version}/carrier/search", uriBuilderLocalVar.Path, version, keyword, descending, start, limit, activeOnly);
+                OnErrorSearchCarriersDefaultImplementation(e, "/carrier/search", uriBuilderLocalVar.Path, keyword, descending, start, limit, activeOnly);
                 Events.ExecuteOnErrorSearchCarriers(e);
                 throw;
             }

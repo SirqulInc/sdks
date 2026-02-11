@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create an entry for the batch for offline report
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user for passing account related params</param>
         /// <param name="status">the status of the report</param>
         /// <param name="previewLimit">the limit on how much you can preview of the batch report</param>
@@ -59,7 +58,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="pageUrl"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBatchApiResponse"/>&gt;</returns>
-        Task<ICreateBatchApiResponse> CreateBatchAsync(decimal version, long accountId, string status, int previewLimit, Option<string> appKey = default, Option<string> endpoint = default, Option<string> parameters = default, Option<string> name = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> description = default, Option<string> pageUrl = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateBatchApiResponse> CreateBatchAsync(long accountId, string status, int previewLimit, Option<string> appKey = default, Option<string> endpoint = default, Option<string> parameters = default, Option<string> name = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> description = default, Option<string> pageUrl = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Offline Report
@@ -67,7 +66,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an entry for the batch for offline report
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user for passing account related params</param>
         /// <param name="status">the status of the report</param>
         /// <param name="previewLimit">the limit on how much you can preview of the batch report</param>
@@ -81,7 +79,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="pageUrl"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBatchApiResponse"/>?&gt;</returns>
-        Task<ICreateBatchApiResponse?> CreateBatchOrDefaultAsync(decimal version, long accountId, string status, int previewLimit, Option<string> appKey = default, Option<string> endpoint = default, Option<string> parameters = default, Option<string> name = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> description = default, Option<string> pageUrl = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateBatchApiResponse?> CreateBatchOrDefaultAsync(long accountId, string status, int previewLimit, Option<string> appKey = default, Option<string> endpoint = default, Option<string> parameters = default, Option<string> name = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> description = default, Option<string> pageUrl = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Offline Report
@@ -90,11 +88,10 @@ namespace Org.OpenAPITools.Api
         /// Create an entry for the batch for offline report
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRegionLegSummaryBatchApiResponse"/>&gt;</returns>
-        Task<ICreateRegionLegSummaryBatchApiResponse> CreateRegionLegSummaryBatchAsync(decimal version, Option<List<RegionLegSummary>> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRegionLegSummaryBatchApiResponse> CreateRegionLegSummaryBatchAsync(Option<List<RegionLegSummary>> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Offline Report
@@ -102,11 +99,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an entry for the batch for offline report
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRegionLegSummaryBatchApiResponse"/>?&gt;</returns>
-        Task<ICreateRegionLegSummaryBatchApiResponse?> CreateRegionLegSummaryBatchOrDefaultAsync(decimal version, Option<List<RegionLegSummary>> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRegionLegSummaryBatchApiResponse?> CreateRegionLegSummaryBatchOrDefaultAsync(Option<List<RegionLegSummary>> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Offline Report
@@ -115,12 +111,11 @@ namespace Org.OpenAPITools.Api
         /// Deletes a batch report.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="batchId">the id of the batch to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBatchApiResponse"/>&gt;</returns>
-        Task<IDeleteBatchApiResponse> DeleteBatchAsync(decimal version, long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteBatchApiResponse> DeleteBatchAsync(long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Offline Report
@@ -128,12 +123,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes a batch report.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="batchId">the id of the batch to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBatchApiResponse"/>?&gt;</returns>
-        Task<IDeleteBatchApiResponse?> DeleteBatchOrDefaultAsync(decimal version, long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteBatchApiResponse?> DeleteBatchOrDefaultAsync(long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offline Report
@@ -142,13 +136,12 @@ namespace Org.OpenAPITools.Api
         /// Checks status of batch report.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="batchId">returned by /report/batch/create</param>
         /// <param name="allResults">whether to return all batch results or not</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetReportBatchApiResponse"/>&gt;</returns>
-        Task<IGetReportBatchApiResponse> GetReportBatchAsync(decimal version, long accountId, long batchId, bool allResults, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetReportBatchApiResponse> GetReportBatchAsync(long accountId, long batchId, bool allResults, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offline Report
@@ -156,13 +149,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Checks status of batch report.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="batchId">returned by /report/batch/create</param>
         /// <param name="allResults">whether to return all batch results or not</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetReportBatchApiResponse"/>?&gt;</returns>
-        Task<IGetReportBatchApiResponse?> GetReportBatchOrDefaultAsync(decimal version, long accountId, long batchId, bool allResults, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetReportBatchApiResponse?> GetReportBatchOrDefaultAsync(long accountId, long batchId, bool allResults, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Run Report
@@ -171,7 +163,6 @@ namespace Org.OpenAPITools.Api
         ///  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="desc">If true then descending order, false is ascending</param>
         /// <param name="accountId">The account id of the user for passing account related params (optional)</param>
         /// <param name="query">The named identifier of the query (optional)</param>
@@ -182,7 +173,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">Determines what response format to return. Options are: JSON or CSV (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRunReportApiResponse"/>&gt;</returns>
-        Task<IRunReportApiResponse> RunReportAsync(decimal version, bool desc, Option<long> accountId = default, Option<string> query = default, Option<string> parameters = default, Option<string> order = default, Option<long> start = default, Option<long> limit = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRunReportApiResponse> RunReportAsync(bool desc, Option<long> accountId = default, Option<string> query = default, Option<string> parameters = default, Option<string> order = default, Option<long> start = default, Option<long> limit = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Run Report
@@ -190,7 +181,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         ///  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="desc">If true then descending order, false is ascending</param>
         /// <param name="accountId">The account id of the user for passing account related params (optional)</param>
         /// <param name="query">The named identifier of the query (optional)</param>
@@ -201,7 +191,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">Determines what response format to return. Options are: JSON or CSV (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRunReportApiResponse"/>?&gt;</returns>
-        Task<IRunReportApiResponse?> RunReportOrDefaultAsync(decimal version, bool desc, Option<long> accountId = default, Option<string> query = default, Option<string> parameters = default, Option<string> order = default, Option<long> start = default, Option<long> limit = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRunReportApiResponse?> RunReportOrDefaultAsync(bool desc, Option<long> accountId = default, Option<string> query = default, Option<string> parameters = default, Option<string> order = default, Option<long> start = default, Option<long> limit = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offline Reports
@@ -210,7 +200,6 @@ namespace Org.OpenAPITools.Api
         /// Retrieves batches for a user..
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="start">the start of the index and/or pagination</param>
         /// <param name="limit">the limit of the index and/or pagination</param>
@@ -222,7 +211,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate">the end date of the report batch to search on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBatchApiResponse"/>&gt;</returns>
-        Task<ISearchBatchApiResponse> SearchBatchAsync(decimal version, long accountId, int start, int limit, Option<string> names = default, Option<string> appKey = default, Option<string> status = default, Option<bool> globalAppSearch = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchBatchApiResponse> SearchBatchAsync(long accountId, int start, int limit, Option<string> names = default, Option<string> appKey = default, Option<string> status = default, Option<bool> globalAppSearch = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offline Reports
@@ -230,7 +219,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Retrieves batches for a user..
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="start">the start of the index and/or pagination</param>
         /// <param name="limit">the limit of the index and/or pagination</param>
@@ -242,7 +230,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate">the end date of the report batch to search on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBatchApiResponse"/>?&gt;</returns>
-        Task<ISearchBatchApiResponse?> SearchBatchOrDefaultAsync(decimal version, long accountId, int start, int limit, Option<string> names = default, Option<string> appKey = default, Option<string> status = default, Option<bool> globalAppSearch = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchBatchApiResponse?> SearchBatchOrDefaultAsync(long accountId, int start, int limit, Option<string> names = default, Option<string> appKey = default, Option<string> status = default, Option<bool> globalAppSearch = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -490,7 +478,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateBatch(ref decimal version, ref long accountId, ref string status, ref int previewLimit, ref Option<string> appKey, ref Option<string> endpoint, ref Option<string> parameters, ref Option<string> name, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> description, ref Option<string> pageUrl);
+        partial void FormatCreateBatch(ref long accountId, ref string status, ref int previewLimit, ref Option<string> appKey, ref Option<string> endpoint, ref Option<string> parameters, ref Option<string> name, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> description, ref Option<string> pageUrl);
 
         /// <summary>
         /// Validates the request parameters
@@ -531,7 +519,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="status"></param>
         /// <param name="previewLimit"></param>
@@ -543,10 +530,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="description"></param>
         /// <param name="pageUrl"></param>
-        private void AfterCreateBatchDefaultImplementation(ICreateBatchApiResponse apiResponseLocalVar, decimal version, long accountId, string status, int previewLimit, Option<string> appKey, Option<string> endpoint, Option<string> parameters, Option<string> name, Option<long> startDate, Option<long> endDate, Option<string> description, Option<string> pageUrl)
+        private void AfterCreateBatchDefaultImplementation(ICreateBatchApiResponse apiResponseLocalVar, long accountId, string status, int previewLimit, Option<string> appKey, Option<string> endpoint, Option<string> parameters, Option<string> name, Option<long> startDate, Option<long> endDate, Option<string> description, Option<string> pageUrl)
         {
             bool suppressDefaultLog = false;
-            AfterCreateBatch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
+            AfterCreateBatch(ref suppressDefaultLog, apiResponseLocalVar, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -556,7 +543,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="status"></param>
         /// <param name="previewLimit"></param>
@@ -568,7 +554,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="description"></param>
         /// <param name="pageUrl"></param>
-        partial void AfterCreateBatch(ref bool suppressDefaultLog, ICreateBatchApiResponse apiResponseLocalVar, decimal version, long accountId, string status, int previewLimit, Option<string> appKey, Option<string> endpoint, Option<string> parameters, Option<string> name, Option<long> startDate, Option<long> endDate, Option<string> description, Option<string> pageUrl);
+        partial void AfterCreateBatch(ref bool suppressDefaultLog, ICreateBatchApiResponse apiResponseLocalVar, long accountId, string status, int previewLimit, Option<string> appKey, Option<string> endpoint, Option<string> parameters, Option<string> name, Option<long> startDate, Option<long> endDate, Option<string> description, Option<string> pageUrl);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -576,7 +562,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="status"></param>
         /// <param name="previewLimit"></param>
@@ -588,10 +573,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="description"></param>
         /// <param name="pageUrl"></param>
-        private void OnErrorCreateBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string status, int previewLimit, Option<string> appKey, Option<string> endpoint, Option<string> parameters, Option<string> name, Option<long> startDate, Option<long> endDate, Option<string> description, Option<string> pageUrl)
+        private void OnErrorCreateBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string status, int previewLimit, Option<string> appKey, Option<string> endpoint, Option<string> parameters, Option<string> name, Option<long> startDate, Option<long> endDate, Option<string> description, Option<string> pageUrl)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
+            OnErrorCreateBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -603,7 +588,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="status"></param>
         /// <param name="previewLimit"></param>
@@ -615,12 +599,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="description"></param>
         /// <param name="pageUrl"></param>
-        partial void OnErrorCreateBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string status, int previewLimit, Option<string> appKey, Option<string> endpoint, Option<string> parameters, Option<string> name, Option<long> startDate, Option<long> endDate, Option<string> description, Option<string> pageUrl);
+        partial void OnErrorCreateBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string status, int previewLimit, Option<string> appKey, Option<string> endpoint, Option<string> parameters, Option<string> name, Option<long> startDate, Option<long> endDate, Option<string> description, Option<string> pageUrl);
 
         /// <summary>
         /// Create Offline Report Create an entry for the batch for offline report
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user for passing account related params</param>
         /// <param name="status">the status of the report</param>
         /// <param name="previewLimit">the limit on how much you can preview of the batch report</param>
@@ -634,11 +617,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="pageUrl"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBatchApiResponse"/>&gt;</returns>
-        public async Task<ICreateBatchApiResponse?> CreateBatchOrDefaultAsync(decimal version, long accountId, string status, int previewLimit, Option<string> appKey = default, Option<string> endpoint = default, Option<string> parameters = default, Option<string> name = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> description = default, Option<string> pageUrl = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateBatchApiResponse?> CreateBatchOrDefaultAsync(long accountId, string status, int previewLimit, Option<string> appKey = default, Option<string> endpoint = default, Option<string> parameters = default, Option<string> name = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> description = default, Option<string> pageUrl = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateBatchAsync(version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl, cancellationToken).ConfigureAwait(false);
+                return await CreateBatchAsync(accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -650,7 +633,6 @@ namespace Org.OpenAPITools.Api
         /// Create Offline Report Create an entry for the batch for offline report
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user for passing account related params</param>
         /// <param name="status">the status of the report</param>
         /// <param name="previewLimit">the limit on how much you can preview of the batch report</param>
@@ -664,7 +646,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="pageUrl"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBatchApiResponse"/>&gt;</returns>
-        public async Task<ICreateBatchApiResponse> CreateBatchAsync(decimal version, long accountId, string status, int previewLimit, Option<string> appKey = default, Option<string> endpoint = default, Option<string> parameters = default, Option<string> name = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> description = default, Option<string> pageUrl = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateBatchApiResponse> CreateBatchAsync(long accountId, string status, int previewLimit, Option<string> appKey = default, Option<string> endpoint = default, Option<string> parameters = default, Option<string> name = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> description = default, Option<string> pageUrl = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -672,7 +654,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateBatch(status, appKey, endpoint, parameters, name, description, pageUrl);
 
-                FormatCreateBatch(ref version, ref accountId, ref status, ref previewLimit, ref appKey, ref endpoint, ref parameters, ref name, ref startDate, ref endDate, ref description, ref pageUrl);
+                FormatCreateBatch(ref accountId, ref status, ref previewLimit, ref appKey, ref endpoint, ref parameters, ref name, ref startDate, ref endDate, ref description, ref pageUrl);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -680,9 +662,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/report/batch/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/report/batch/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/report/batch/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/report/batch/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -739,13 +720,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/report/batch/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/report/batch/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateBatchDefaultImplementation(apiResponseLocalVar, version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
+                        AfterCreateBatchDefaultImplementation(apiResponseLocalVar, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
 
                         Events.ExecuteOnCreateBatch(apiResponseLocalVar);
 
@@ -755,7 +736,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateBatchDefaultImplementation(e, "/api/{version}/report/batch/create", uriBuilderLocalVar.Path, version, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
+                OnErrorCreateBatchDefaultImplementation(e, "/report/batch/create", uriBuilderLocalVar.Path, accountId, status, previewLimit, appKey, endpoint, parameters, name, startDate, endDate, description, pageUrl);
                 Events.ExecuteOnErrorCreateBatch(e);
                 throw;
             }
@@ -854,7 +835,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateRegionLegSummaryBatch(ref decimal version, Option<List<RegionLegSummary>> body);
+        partial void FormatCreateRegionLegSummaryBatch(Option<List<RegionLegSummary>> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -871,12 +852,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateRegionLegSummaryBatchDefaultImplementation(ICreateRegionLegSummaryBatchApiResponse apiResponseLocalVar, decimal version, Option<List<RegionLegSummary>> body)
+        private void AfterCreateRegionLegSummaryBatchDefaultImplementation(ICreateRegionLegSummaryBatchApiResponse apiResponseLocalVar, Option<List<RegionLegSummary>> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateRegionLegSummaryBatch(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateRegionLegSummaryBatch(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -886,9 +866,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateRegionLegSummaryBatch(ref bool suppressDefaultLog, ICreateRegionLegSummaryBatchApiResponse apiResponseLocalVar, decimal version, Option<List<RegionLegSummary>> body);
+        partial void AfterCreateRegionLegSummaryBatch(ref bool suppressDefaultLog, ICreateRegionLegSummaryBatchApiResponse apiResponseLocalVar, Option<List<RegionLegSummary>> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -896,12 +875,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateRegionLegSummaryBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<List<RegionLegSummary>> body)
+        private void OnErrorCreateRegionLegSummaryBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<List<RegionLegSummary>> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateRegionLegSummaryBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateRegionLegSummaryBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -913,22 +891,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateRegionLegSummaryBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<List<RegionLegSummary>> body);
+        partial void OnErrorCreateRegionLegSummaryBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<List<RegionLegSummary>> body);
 
         /// <summary>
         /// Create Offline Report Create an entry for the batch for offline report
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRegionLegSummaryBatchApiResponse"/>&gt;</returns>
-        public async Task<ICreateRegionLegSummaryBatchApiResponse?> CreateRegionLegSummaryBatchOrDefaultAsync(decimal version, Option<List<RegionLegSummary>> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRegionLegSummaryBatchApiResponse?> CreateRegionLegSummaryBatchOrDefaultAsync(Option<List<RegionLegSummary>> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateRegionLegSummaryBatchAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateRegionLegSummaryBatchAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -940,11 +916,10 @@ namespace Org.OpenAPITools.Api
         /// Create Offline Report Create an entry for the batch for offline report
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRegionLegSummaryBatchApiResponse"/>&gt;</returns>
-        public async Task<ICreateRegionLegSummaryBatchApiResponse> CreateRegionLegSummaryBatchAsync(decimal version, Option<List<RegionLegSummary>> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRegionLegSummaryBatchApiResponse> CreateRegionLegSummaryBatchAsync(Option<List<RegionLegSummary>> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -952,7 +927,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateRegionLegSummaryBatch(body);
 
-                FormatCreateRegionLegSummaryBatch(ref version, body);
+                FormatCreateRegionLegSummaryBatch(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -960,9 +935,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/report/region/summary/batch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/report/region/summary/batch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/report/region/summary/batch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/report/region/summary/batch");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -992,13 +966,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/report/region/summary/batch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/report/region/summary/batch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateRegionLegSummaryBatchDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateRegionLegSummaryBatchDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateRegionLegSummaryBatch(apiResponseLocalVar);
 
@@ -1008,7 +982,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateRegionLegSummaryBatchDefaultImplementation(e, "/api/{version}/report/region/summary/batch", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateRegionLegSummaryBatchDefaultImplementation(e, "/report/region/summary/batch", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateRegionLegSummaryBatch(e);
                 throw;
             }
@@ -1107,19 +1081,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteBatch(ref decimal version, ref long accountId, ref long batchId);
+        partial void FormatDeleteBatch(ref long accountId, ref long batchId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
-        private void AfterDeleteBatchDefaultImplementation(IDeleteBatchApiResponse apiResponseLocalVar, decimal version, long accountId, long batchId)
+        private void AfterDeleteBatchDefaultImplementation(IDeleteBatchApiResponse apiResponseLocalVar, long accountId, long batchId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteBatch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, batchId);
+            AfterDeleteBatch(ref suppressDefaultLog, apiResponseLocalVar, accountId, batchId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1129,10 +1102,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
-        partial void AfterDeleteBatch(ref bool suppressDefaultLog, IDeleteBatchApiResponse apiResponseLocalVar, decimal version, long accountId, long batchId);
+        partial void AfterDeleteBatch(ref bool suppressDefaultLog, IDeleteBatchApiResponse apiResponseLocalVar, long accountId, long batchId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1140,13 +1112,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
-        private void OnErrorDeleteBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long batchId)
+        private void OnErrorDeleteBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long batchId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, batchId);
+            OnErrorDeleteBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, batchId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1158,24 +1129,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
-        partial void OnErrorDeleteBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long batchId);
+        partial void OnErrorDeleteBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long batchId);
 
         /// <summary>
         /// Delete Offline Report Deletes a batch report.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="batchId">the id of the batch to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBatchApiResponse"/>&gt;</returns>
-        public async Task<IDeleteBatchApiResponse?> DeleteBatchOrDefaultAsync(decimal version, long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteBatchApiResponse?> DeleteBatchOrDefaultAsync(long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteBatchAsync(version, accountId, batchId, cancellationToken).ConfigureAwait(false);
+                return await DeleteBatchAsync(accountId, batchId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1187,18 +1156,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Offline Report Deletes a batch report.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="batchId">the id of the batch to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBatchApiResponse"/>&gt;</returns>
-        public async Task<IDeleteBatchApiResponse> DeleteBatchAsync(decimal version, long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteBatchApiResponse> DeleteBatchAsync(long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteBatch(ref version, ref accountId, ref batchId);
+                FormatDeleteBatch(ref accountId, ref batchId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1206,9 +1174,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/report/batch/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/report/batch/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/report/batch/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/report/batch/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1240,13 +1207,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/report/batch/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/report/batch/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteBatchDefaultImplementation(apiResponseLocalVar, version, accountId, batchId);
+                        AfterDeleteBatchDefaultImplementation(apiResponseLocalVar, accountId, batchId);
 
                         Events.ExecuteOnDeleteBatch(apiResponseLocalVar);
 
@@ -1256,7 +1223,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteBatchDefaultImplementation(e, "/api/{version}/report/batch/delete", uriBuilderLocalVar.Path, version, accountId, batchId);
+                OnErrorDeleteBatchDefaultImplementation(e, "/report/batch/delete", uriBuilderLocalVar.Path, accountId, batchId);
                 Events.ExecuteOnErrorDeleteBatch(e);
                 throw;
             }
@@ -1355,20 +1322,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetReportBatch(ref decimal version, ref long accountId, ref long batchId, ref bool allResults);
+        partial void FormatGetReportBatch(ref long accountId, ref long batchId, ref bool allResults);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
         /// <param name="allResults"></param>
-        private void AfterGetReportBatchDefaultImplementation(IGetReportBatchApiResponse apiResponseLocalVar, decimal version, long accountId, long batchId, bool allResults)
+        private void AfterGetReportBatchDefaultImplementation(IGetReportBatchApiResponse apiResponseLocalVar, long accountId, long batchId, bool allResults)
         {
             bool suppressDefaultLog = false;
-            AfterGetReportBatch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, batchId, allResults);
+            AfterGetReportBatch(ref suppressDefaultLog, apiResponseLocalVar, accountId, batchId, allResults);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1378,11 +1344,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
         /// <param name="allResults"></param>
-        partial void AfterGetReportBatch(ref bool suppressDefaultLog, IGetReportBatchApiResponse apiResponseLocalVar, decimal version, long accountId, long batchId, bool allResults);
+        partial void AfterGetReportBatch(ref bool suppressDefaultLog, IGetReportBatchApiResponse apiResponseLocalVar, long accountId, long batchId, bool allResults);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1390,14 +1355,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
         /// <param name="allResults"></param>
-        private void OnErrorGetReportBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long batchId, bool allResults)
+        private void OnErrorGetReportBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long batchId, bool allResults)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetReportBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, batchId, allResults);
+            OnErrorGetReportBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, batchId, allResults);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1409,26 +1373,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
         /// <param name="allResults"></param>
-        partial void OnErrorGetReportBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long batchId, bool allResults);
+        partial void OnErrorGetReportBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long batchId, bool allResults);
 
         /// <summary>
         /// Get Offline Report Checks status of batch report.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="batchId">returned by /report/batch/create</param>
         /// <param name="allResults">whether to return all batch results or not</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetReportBatchApiResponse"/>&gt;</returns>
-        public async Task<IGetReportBatchApiResponse?> GetReportBatchOrDefaultAsync(decimal version, long accountId, long batchId, bool allResults, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetReportBatchApiResponse?> GetReportBatchOrDefaultAsync(long accountId, long batchId, bool allResults, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetReportBatchAsync(version, accountId, batchId, allResults, cancellationToken).ConfigureAwait(false);
+                return await GetReportBatchAsync(accountId, batchId, allResults, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1440,19 +1402,18 @@ namespace Org.OpenAPITools.Api
         /// Get Offline Report Checks status of batch report.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="batchId">returned by /report/batch/create</param>
         /// <param name="allResults">whether to return all batch results or not</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetReportBatchApiResponse"/>&gt;</returns>
-        public async Task<IGetReportBatchApiResponse> GetReportBatchAsync(decimal version, long accountId, long batchId, bool allResults, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetReportBatchApiResponse> GetReportBatchAsync(long accountId, long batchId, bool allResults, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetReportBatch(ref version, ref accountId, ref batchId, ref allResults);
+                FormatGetReportBatch(ref accountId, ref batchId, ref allResults);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1460,9 +1421,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/report/batch/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/report/batch/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/report/batch/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/report/batch/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1495,13 +1455,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/report/batch/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/report/batch/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetReportBatchDefaultImplementation(apiResponseLocalVar, version, accountId, batchId, allResults);
+                        AfterGetReportBatchDefaultImplementation(apiResponseLocalVar, accountId, batchId, allResults);
 
                         Events.ExecuteOnGetReportBatch(apiResponseLocalVar);
 
@@ -1511,7 +1471,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetReportBatchDefaultImplementation(e, "/api/{version}/report/batch/get", uriBuilderLocalVar.Path, version, accountId, batchId, allResults);
+                OnErrorGetReportBatchDefaultImplementation(e, "/report/batch/get", uriBuilderLocalVar.Path, accountId, batchId, allResults);
                 Events.ExecuteOnErrorGetReportBatch(e);
                 throw;
             }
@@ -1610,7 +1570,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRunReport(ref decimal version, ref bool desc, ref Option<long> accountId, ref Option<string> query, ref Option<string> parameters, ref Option<string> order, ref Option<long> start, ref Option<long> limit, ref Option<string> responseFormat);
+        partial void FormatRunReport(ref bool desc, ref Option<long> accountId, ref Option<string> query, ref Option<string> parameters, ref Option<string> order, ref Option<long> start, ref Option<long> limit, ref Option<string> responseFormat);
 
         /// <summary>
         /// Validates the request parameters
@@ -1639,7 +1599,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="desc"></param>
         /// <param name="accountId"></param>
         /// <param name="query"></param>
@@ -1648,10 +1607,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="responseFormat"></param>
-        private void AfterRunReportDefaultImplementation(IRunReportApiResponse apiResponseLocalVar, decimal version, bool desc, Option<long> accountId, Option<string> query, Option<string> parameters, Option<string> order, Option<long> start, Option<long> limit, Option<string> responseFormat)
+        private void AfterRunReportDefaultImplementation(IRunReportApiResponse apiResponseLocalVar, bool desc, Option<long> accountId, Option<string> query, Option<string> parameters, Option<string> order, Option<long> start, Option<long> limit, Option<string> responseFormat)
         {
             bool suppressDefaultLog = false;
-            AfterRunReport(ref suppressDefaultLog, apiResponseLocalVar, version, desc, accountId, query, parameters, order, start, limit, responseFormat);
+            AfterRunReport(ref suppressDefaultLog, apiResponseLocalVar, desc, accountId, query, parameters, order, start, limit, responseFormat);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1661,7 +1620,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="desc"></param>
         /// <param name="accountId"></param>
         /// <param name="query"></param>
@@ -1670,7 +1628,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="responseFormat"></param>
-        partial void AfterRunReport(ref bool suppressDefaultLog, IRunReportApiResponse apiResponseLocalVar, decimal version, bool desc, Option<long> accountId, Option<string> query, Option<string> parameters, Option<string> order, Option<long> start, Option<long> limit, Option<string> responseFormat);
+        partial void AfterRunReport(ref bool suppressDefaultLog, IRunReportApiResponse apiResponseLocalVar, bool desc, Option<long> accountId, Option<string> query, Option<string> parameters, Option<string> order, Option<long> start, Option<long> limit, Option<string> responseFormat);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1678,7 +1636,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="desc"></param>
         /// <param name="accountId"></param>
         /// <param name="query"></param>
@@ -1687,10 +1644,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="responseFormat"></param>
-        private void OnErrorRunReportDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool desc, Option<long> accountId, Option<string> query, Option<string> parameters, Option<string> order, Option<long> start, Option<long> limit, Option<string> responseFormat)
+        private void OnErrorRunReportDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool desc, Option<long> accountId, Option<string> query, Option<string> parameters, Option<string> order, Option<long> start, Option<long> limit, Option<string> responseFormat)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRunReport(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, desc, accountId, query, parameters, order, start, limit, responseFormat);
+            OnErrorRunReport(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, desc, accountId, query, parameters, order, start, limit, responseFormat);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1702,7 +1659,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="desc"></param>
         /// <param name="accountId"></param>
         /// <param name="query"></param>
@@ -1711,12 +1667,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="responseFormat"></param>
-        partial void OnErrorRunReport(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool desc, Option<long> accountId, Option<string> query, Option<string> parameters, Option<string> order, Option<long> start, Option<long> limit, Option<string> responseFormat);
+        partial void OnErrorRunReport(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool desc, Option<long> accountId, Option<string> query, Option<string> parameters, Option<string> order, Option<long> start, Option<long> limit, Option<string> responseFormat);
 
         /// <summary>
         /// Run Report  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="desc">If true then descending order, false is ascending</param>
         /// <param name="accountId">The account id of the user for passing account related params (optional)</param>
         /// <param name="query">The named identifier of the query (optional)</param>
@@ -1727,11 +1682,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">Determines what response format to return. Options are: JSON or CSV (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRunReportApiResponse"/>&gt;</returns>
-        public async Task<IRunReportApiResponse?> RunReportOrDefaultAsync(decimal version, bool desc, Option<long> accountId = default, Option<string> query = default, Option<string> parameters = default, Option<string> order = default, Option<long> start = default, Option<long> limit = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRunReportApiResponse?> RunReportOrDefaultAsync(bool desc, Option<long> accountId = default, Option<string> query = default, Option<string> parameters = default, Option<string> order = default, Option<long> start = default, Option<long> limit = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RunReportAsync(version, desc, accountId, query, parameters, order, start, limit, responseFormat, cancellationToken).ConfigureAwait(false);
+                return await RunReportAsync(desc, accountId, query, parameters, order, start, limit, responseFormat, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1743,7 +1698,6 @@ namespace Org.OpenAPITools.Api
         /// Run Report  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="desc">If true then descending order, false is ascending</param>
         /// <param name="accountId">The account id of the user for passing account related params (optional)</param>
         /// <param name="query">The named identifier of the query (optional)</param>
@@ -1754,7 +1708,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFormat">Determines what response format to return. Options are: JSON or CSV (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRunReportApiResponse"/>&gt;</returns>
-        public async Task<IRunReportApiResponse> RunReportAsync(decimal version, bool desc, Option<long> accountId = default, Option<string> query = default, Option<string> parameters = default, Option<string> order = default, Option<long> start = default, Option<long> limit = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRunReportApiResponse> RunReportAsync(bool desc, Option<long> accountId = default, Option<string> query = default, Option<string> parameters = default, Option<string> order = default, Option<long> start = default, Option<long> limit = default, Option<string> responseFormat = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1762,7 +1716,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRunReport(query, parameters, order, responseFormat);
 
-                FormatRunReport(ref version, ref desc, ref accountId, ref query, ref parameters, ref order, ref start, ref limit, ref responseFormat);
+                FormatRunReport(ref desc, ref accountId, ref query, ref parameters, ref order, ref start, ref limit, ref responseFormat);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1770,9 +1724,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/report/run"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/report/run");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/report/run"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/report/run");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1824,13 +1777,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/report/run", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/report/run", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRunReportDefaultImplementation(apiResponseLocalVar, version, desc, accountId, query, parameters, order, start, limit, responseFormat);
+                        AfterRunReportDefaultImplementation(apiResponseLocalVar, desc, accountId, query, parameters, order, start, limit, responseFormat);
 
                         Events.ExecuteOnRunReport(apiResponseLocalVar);
 
@@ -1840,7 +1793,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRunReportDefaultImplementation(e, "/api/{version}/report/run", uriBuilderLocalVar.Path, version, desc, accountId, query, parameters, order, start, limit, responseFormat);
+                OnErrorRunReportDefaultImplementation(e, "/report/run", uriBuilderLocalVar.Path, desc, accountId, query, parameters, order, start, limit, responseFormat);
                 Events.ExecuteOnErrorRunReport(e);
                 throw;
             }
@@ -1939,7 +1892,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchBatch(ref decimal version, ref long accountId, ref int start, ref int limit, ref Option<string> names, ref Option<string> appKey, ref Option<string> status, ref Option<bool> globalAppSearch, ref Option<long> startDate, ref Option<long> endDate);
+        partial void FormatSearchBatch(ref long accountId, ref int start, ref int limit, ref Option<string> names, ref Option<string> appKey, ref Option<string> status, ref Option<bool> globalAppSearch, ref Option<long> startDate, ref Option<long> endDate);
 
         /// <summary>
         /// Validates the request parameters
@@ -1964,7 +1917,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -1974,10 +1926,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="globalAppSearch"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
-        private void AfterSearchBatchDefaultImplementation(ISearchBatchApiResponse apiResponseLocalVar, decimal version, long accountId, int start, int limit, Option<string> names, Option<string> appKey, Option<string> status, Option<bool> globalAppSearch, Option<long> startDate, Option<long> endDate)
+        private void AfterSearchBatchDefaultImplementation(ISearchBatchApiResponse apiResponseLocalVar, long accountId, int start, int limit, Option<string> names, Option<string> appKey, Option<string> status, Option<bool> globalAppSearch, Option<long> startDate, Option<long> endDate)
         {
             bool suppressDefaultLog = false;
-            AfterSearchBatch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
+            AfterSearchBatch(ref suppressDefaultLog, apiResponseLocalVar, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1987,7 +1939,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -1997,7 +1948,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="globalAppSearch"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
-        partial void AfterSearchBatch(ref bool suppressDefaultLog, ISearchBatchApiResponse apiResponseLocalVar, decimal version, long accountId, int start, int limit, Option<string> names, Option<string> appKey, Option<string> status, Option<bool> globalAppSearch, Option<long> startDate, Option<long> endDate);
+        partial void AfterSearchBatch(ref bool suppressDefaultLog, ISearchBatchApiResponse apiResponseLocalVar, long accountId, int start, int limit, Option<string> names, Option<string> appKey, Option<string> status, Option<bool> globalAppSearch, Option<long> startDate, Option<long> endDate);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2005,7 +1956,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -2015,10 +1965,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="globalAppSearch"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
-        private void OnErrorSearchBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int start, int limit, Option<string> names, Option<string> appKey, Option<string> status, Option<bool> globalAppSearch, Option<long> startDate, Option<long> endDate)
+        private void OnErrorSearchBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int start, int limit, Option<string> names, Option<string> appKey, Option<string> status, Option<bool> globalAppSearch, Option<long> startDate, Option<long> endDate)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
+            OnErrorSearchBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2030,7 +1980,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -2040,12 +1989,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="globalAppSearch"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
-        partial void OnErrorSearchBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int start, int limit, Option<string> names, Option<string> appKey, Option<string> status, Option<bool> globalAppSearch, Option<long> startDate, Option<long> endDate);
+        partial void OnErrorSearchBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int start, int limit, Option<string> names, Option<string> appKey, Option<string> status, Option<bool> globalAppSearch, Option<long> startDate, Option<long> endDate);
 
         /// <summary>
         /// Search Offline Reports Retrieves batches for a user..
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="start">the start of the index and/or pagination</param>
         /// <param name="limit">the limit of the index and/or pagination</param>
@@ -2057,11 +2005,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate">the end date of the report batch to search on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBatchApiResponse"/>&gt;</returns>
-        public async Task<ISearchBatchApiResponse?> SearchBatchOrDefaultAsync(decimal version, long accountId, int start, int limit, Option<string> names = default, Option<string> appKey = default, Option<string> status = default, Option<bool> globalAppSearch = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchBatchApiResponse?> SearchBatchOrDefaultAsync(long accountId, int start, int limit, Option<string> names = default, Option<string> appKey = default, Option<string> status = default, Option<bool> globalAppSearch = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchBatchAsync(version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate, cancellationToken).ConfigureAwait(false);
+                return await SearchBatchAsync(accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2073,7 +2021,6 @@ namespace Org.OpenAPITools.Api
         /// Search Offline Reports Retrieves batches for a user..
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account logged in</param>
         /// <param name="start">the start of the index and/or pagination</param>
         /// <param name="limit">the limit of the index and/or pagination</param>
@@ -2085,7 +2032,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate">the end date of the report batch to search on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBatchApiResponse"/>&gt;</returns>
-        public async Task<ISearchBatchApiResponse> SearchBatchAsync(decimal version, long accountId, int start, int limit, Option<string> names = default, Option<string> appKey = default, Option<string> status = default, Option<bool> globalAppSearch = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchBatchApiResponse> SearchBatchAsync(long accountId, int start, int limit, Option<string> names = default, Option<string> appKey = default, Option<string> status = default, Option<bool> globalAppSearch = default, Option<long> startDate = default, Option<long> endDate = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2093,7 +2040,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchBatch(names, appKey, status);
 
-                FormatSearchBatch(ref version, ref accountId, ref start, ref limit, ref names, ref appKey, ref status, ref globalAppSearch, ref startDate, ref endDate);
+                FormatSearchBatch(ref accountId, ref start, ref limit, ref names, ref appKey, ref status, ref globalAppSearch, ref startDate, ref endDate);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2101,9 +2048,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/report/batch/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/report/batch/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/report/batch/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/report/batch/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2154,13 +2100,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/report/batch/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/report/batch/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchBatchDefaultImplementation(apiResponseLocalVar, version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
+                        AfterSearchBatchDefaultImplementation(apiResponseLocalVar, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
 
                         Events.ExecuteOnSearchBatch(apiResponseLocalVar);
 
@@ -2170,7 +2116,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchBatchDefaultImplementation(e, "/api/{version}/report/batch/search", uriBuilderLocalVar.Path, version, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
+                OnErrorSearchBatchDefaultImplementation(e, "/report/batch/search", uriBuilderLocalVar.Path, accountId, start, limit, names, appKey, status, globalAppSearch, startDate, endDate);
                 Events.ExecuteOnErrorSearchBatch(e);
                 throw;
             }

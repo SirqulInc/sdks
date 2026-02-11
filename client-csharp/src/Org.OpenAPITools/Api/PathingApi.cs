@@ -45,14 +45,13 @@ namespace Org.OpenAPITools.Api
         /// Calculates the shortest path from point to point on a grid
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="data">the data to with start, end point and exclusion points</param>
         /// <param name="units">the system of measurement for directions: {METRIC, IMPERIAL}</param>
         /// <param name="reducePath">determines whether to reduce the path to go in diagonal lines</param>
         /// <param name="directions">determines whether to return text directions</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IComputePathApiResponse"/>&gt;</returns>
-        Task<IComputePathApiResponse> ComputePathAsync(decimal version, string data, string units, bool reducePath, bool directions, System.Threading.CancellationToken cancellationToken = default);
+        Task<IComputePathApiResponse> ComputePathAsync(string data, string units, bool reducePath, bool directions, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Calculate Path
@@ -60,14 +59,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Calculates the shortest path from point to point on a grid
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="data">the data to with start, end point and exclusion points</param>
         /// <param name="units">the system of measurement for directions: {METRIC, IMPERIAL}</param>
         /// <param name="reducePath">determines whether to reduce the path to go in diagonal lines</param>
         /// <param name="directions">determines whether to return text directions</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IComputePathApiResponse"/>?&gt;</returns>
-        Task<IComputePathApiResponse?> ComputePathOrDefaultAsync(decimal version, string data, string units, bool reducePath, bool directions, System.Threading.CancellationToken cancellationToken = default);
+        Task<IComputePathApiResponse?> ComputePathOrDefaultAsync(string data, string units, bool reducePath, bool directions, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -155,7 +153,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatComputePath(ref decimal version, ref string data, ref string units, ref bool reducePath, ref bool directions);
+        partial void FormatComputePath(ref string data, ref string units, ref bool reducePath, ref bool directions);
 
         /// <summary>
         /// Validates the request parameters
@@ -176,15 +174,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="units"></param>
         /// <param name="reducePath"></param>
         /// <param name="directions"></param>
-        private void AfterComputePathDefaultImplementation(IComputePathApiResponse apiResponseLocalVar, decimal version, string data, string units, bool reducePath, bool directions)
+        private void AfterComputePathDefaultImplementation(IComputePathApiResponse apiResponseLocalVar, string data, string units, bool reducePath, bool directions)
         {
             bool suppressDefaultLog = false;
-            AfterComputePath(ref suppressDefaultLog, apiResponseLocalVar, version, data, units, reducePath, directions);
+            AfterComputePath(ref suppressDefaultLog, apiResponseLocalVar, data, units, reducePath, directions);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -194,12 +191,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="units"></param>
         /// <param name="reducePath"></param>
         /// <param name="directions"></param>
-        partial void AfterComputePath(ref bool suppressDefaultLog, IComputePathApiResponse apiResponseLocalVar, decimal version, string data, string units, bool reducePath, bool directions);
+        partial void AfterComputePath(ref bool suppressDefaultLog, IComputePathApiResponse apiResponseLocalVar, string data, string units, bool reducePath, bool directions);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -207,15 +203,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="units"></param>
         /// <param name="reducePath"></param>
         /// <param name="directions"></param>
-        private void OnErrorComputePathDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string data, string units, bool reducePath, bool directions)
+        private void OnErrorComputePathDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string data, string units, bool reducePath, bool directions)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorComputePath(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, data, units, reducePath, directions);
+            OnErrorComputePath(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, data, units, reducePath, directions);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -227,28 +222,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="units"></param>
         /// <param name="reducePath"></param>
         /// <param name="directions"></param>
-        partial void OnErrorComputePath(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string data, string units, bool reducePath, bool directions);
+        partial void OnErrorComputePath(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string data, string units, bool reducePath, bool directions);
 
         /// <summary>
         /// Calculate Path Calculates the shortest path from point to point on a grid
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="data">the data to with start, end point and exclusion points</param>
         /// <param name="units">the system of measurement for directions: {METRIC, IMPERIAL}</param>
         /// <param name="reducePath">determines whether to reduce the path to go in diagonal lines</param>
         /// <param name="directions">determines whether to return text directions</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IComputePathApiResponse"/>&gt;</returns>
-        public async Task<IComputePathApiResponse?> ComputePathOrDefaultAsync(decimal version, string data, string units, bool reducePath, bool directions, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IComputePathApiResponse?> ComputePathOrDefaultAsync(string data, string units, bool reducePath, bool directions, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ComputePathAsync(version, data, units, reducePath, directions, cancellationToken).ConfigureAwait(false);
+                return await ComputePathAsync(data, units, reducePath, directions, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -260,14 +253,13 @@ namespace Org.OpenAPITools.Api
         /// Calculate Path Calculates the shortest path from point to point on a grid
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="data">the data to with start, end point and exclusion points</param>
         /// <param name="units">the system of measurement for directions: {METRIC, IMPERIAL}</param>
         /// <param name="reducePath">determines whether to reduce the path to go in diagonal lines</param>
         /// <param name="directions">determines whether to return text directions</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IComputePathApiResponse"/>&gt;</returns>
-        public async Task<IComputePathApiResponse> ComputePathAsync(decimal version, string data, string units, bool reducePath, bool directions, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IComputePathApiResponse> ComputePathAsync(string data, string units, bool reducePath, bool directions, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -275,7 +267,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateComputePath(data, units);
 
-                FormatComputePath(ref version, ref data, ref units, ref reducePath, ref directions);
+                FormatComputePath(ref data, ref units, ref reducePath, ref directions);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -283,9 +275,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/pathing/compute"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/pathing/compute");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/pathing/compute"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/pathing/compute");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -319,13 +310,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/pathing/compute", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/pathing/compute", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterComputePathDefaultImplementation(apiResponseLocalVar, version, data, units, reducePath, directions);
+                        AfterComputePathDefaultImplementation(apiResponseLocalVar, data, units, reducePath, directions);
 
                         Events.ExecuteOnComputePath(apiResponseLocalVar);
 
@@ -335,7 +326,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorComputePathDefaultImplementation(e, "/api/{version}/pathing/compute", uriBuilderLocalVar.Path, version, data, units, reducePath, directions);
+                OnErrorComputePathDefaultImplementation(e, "/pathing/compute", uriBuilderLocalVar.Path, data, units, reducePath, directions);
                 Events.ExecuteOnErrorComputePath(e);
                 throw;
             }

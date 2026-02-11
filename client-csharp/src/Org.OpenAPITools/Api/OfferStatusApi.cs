@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create an offer status record
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="name">The name of the status</param>
         /// <param name="code">The status code, must be unique </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -58,7 +57,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferTransactionStatusApiResponse"/>&gt;</returns>
-        Task<ICreateOfferTransactionStatusApiResponse> CreateOfferTransactionStatusAsync(decimal version, string name, int code, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> description = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOfferTransactionStatusApiResponse> CreateOfferTransactionStatusAsync(string name, int code, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> description = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Offer Status
@@ -66,7 +65,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an offer status record
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="name">The name of the status</param>
         /// <param name="code">The status code, must be unique </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -79,7 +77,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferTransactionStatusApiResponse"/>?&gt;</returns>
-        Task<ICreateOfferTransactionStatusApiResponse?> CreateOfferTransactionStatusOrDefaultAsync(decimal version, string name, int code, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> description = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOfferTransactionStatusApiResponse?> CreateOfferTransactionStatusOrDefaultAsync(string name, int code, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> description = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Offer Status
@@ -88,7 +86,6 @@ namespace Org.OpenAPITools.Api
         /// Mark an offer status record as deleted
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="statusId">The id of the record to delete</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -96,7 +93,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferTransactionStatusApiResponse"/>&gt;</returns>
-        Task<IDeleteOfferTransactionStatusApiResponse> DeleteOfferTransactionStatusAsync(decimal version, long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOfferTransactionStatusApiResponse> DeleteOfferTransactionStatusAsync(long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Offer Status
@@ -104,7 +101,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Mark an offer status record as deleted
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="statusId">The id of the record to delete</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -112,7 +108,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferTransactionStatusApiResponse"/>?&gt;</returns>
-        Task<IDeleteOfferTransactionStatusApiResponse?> DeleteOfferTransactionStatusOrDefaultAsync(decimal version, long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOfferTransactionStatusApiResponse?> DeleteOfferTransactionStatusOrDefaultAsync(long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offer Status
@@ -121,7 +117,6 @@ namespace Org.OpenAPITools.Api
         /// Get an offer status record
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="statusId">The id of the record to get </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -129,7 +124,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferTransactionStatusApiResponse"/>&gt;</returns>
-        Task<IGetOfferTransactionStatusApiResponse> GetOfferTransactionStatusAsync(decimal version, long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferTransactionStatusApiResponse> GetOfferTransactionStatusAsync(long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offer Status
@@ -137,7 +132,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an offer status record
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="statusId">The id of the record to get </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -145,7 +139,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferTransactionStatusApiResponse"/>?&gt;</returns>
-        Task<IGetOfferTransactionStatusApiResponse?> GetOfferTransactionStatusOrDefaultAsync(decimal version, long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferTransactionStatusApiResponse?> GetOfferTransactionStatusOrDefaultAsync(long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offer Status
@@ -154,7 +148,6 @@ namespace Org.OpenAPITools.Api
         /// Search for the available offer statuses
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">Used to update the user&#39;s current location (optional)</param>
@@ -169,7 +162,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeInactive">If true include inactive items (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionStatusesApiResponse"/>&gt;</returns>
-        Task<ISearchOfferTransactionStatusesApiResponse> SearchOfferTransactionStatusesAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<string> role = default, Option<string> appKey = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOfferTransactionStatusesApiResponse> SearchOfferTransactionStatusesAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<string> role = default, Option<string> appKey = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offer Status
@@ -177,7 +170,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for the available offer statuses
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">Used to update the user&#39;s current location (optional)</param>
@@ -192,7 +184,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeInactive">If true include inactive items (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionStatusesApiResponse"/>?&gt;</returns>
-        Task<ISearchOfferTransactionStatusesApiResponse?> SearchOfferTransactionStatusesOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<string> role = default, Option<string> appKey = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOfferTransactionStatusesApiResponse?> SearchOfferTransactionStatusesOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<string> role = default, Option<string> appKey = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Offer Status
@@ -201,7 +193,6 @@ namespace Org.OpenAPITools.Api
         /// Update an offer status record
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">Used to update the user&#39;s current location (optional)</param>
@@ -215,7 +206,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferTransactionStatusApiResponse"/>&gt;</returns>
-        Task<IUpdateOfferTransactionStatusApiResponse> UpdateOfferTransactionStatusAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> statusId = default, Option<string> name = default, Option<string> description = default, Option<int> code = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOfferTransactionStatusApiResponse> UpdateOfferTransactionStatusAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> statusId = default, Option<string> name = default, Option<string> description = default, Option<int> code = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Offer Status
@@ -223,7 +214,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an offer status record
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">Used to update the user&#39;s current location (optional)</param>
@@ -237,7 +227,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferTransactionStatusApiResponse"/>?&gt;</returns>
-        Task<IUpdateOfferTransactionStatusApiResponse?> UpdateOfferTransactionStatusOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> statusId = default, Option<string> name = default, Option<string> description = default, Option<int> code = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOfferTransactionStatusApiResponse?> UpdateOfferTransactionStatusOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> statusId = default, Option<string> name = default, Option<string> description = default, Option<int> code = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -453,7 +443,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateOfferTransactionStatus(ref decimal version, ref string name, ref int code, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> description, ref Option<string> role, ref Option<bool> active, ref Option<string> applicationIds);
+        partial void FormatCreateOfferTransactionStatus(ref string name, ref int code, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> description, ref Option<string> role, ref Option<bool> active, ref Option<string> applicationIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -486,7 +476,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="name"></param>
         /// <param name="code"></param>
         /// <param name="deviceId"></param>
@@ -497,10 +486,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="role"></param>
         /// <param name="active"></param>
         /// <param name="applicationIds"></param>
-        private void AfterCreateOfferTransactionStatusDefaultImplementation(ICreateOfferTransactionStatusApiResponse apiResponseLocalVar, decimal version, string name, int code, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> description, Option<string> role, Option<bool> active, Option<string> applicationIds)
+        private void AfterCreateOfferTransactionStatusDefaultImplementation(ICreateOfferTransactionStatusApiResponse apiResponseLocalVar, string name, int code, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> description, Option<string> role, Option<bool> active, Option<string> applicationIds)
         {
             bool suppressDefaultLog = false;
-            AfterCreateOfferTransactionStatus(ref suppressDefaultLog, apiResponseLocalVar, version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
+            AfterCreateOfferTransactionStatus(ref suppressDefaultLog, apiResponseLocalVar, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -510,7 +499,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="name"></param>
         /// <param name="code"></param>
         /// <param name="deviceId"></param>
@@ -521,7 +509,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="role"></param>
         /// <param name="active"></param>
         /// <param name="applicationIds"></param>
-        partial void AfterCreateOfferTransactionStatus(ref bool suppressDefaultLog, ICreateOfferTransactionStatusApiResponse apiResponseLocalVar, decimal version, string name, int code, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> description, Option<string> role, Option<bool> active, Option<string> applicationIds);
+        partial void AfterCreateOfferTransactionStatus(ref bool suppressDefaultLog, ICreateOfferTransactionStatusApiResponse apiResponseLocalVar, string name, int code, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> description, Option<string> role, Option<bool> active, Option<string> applicationIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -529,7 +517,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="name"></param>
         /// <param name="code"></param>
         /// <param name="deviceId"></param>
@@ -540,10 +527,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="role"></param>
         /// <param name="active"></param>
         /// <param name="applicationIds"></param>
-        private void OnErrorCreateOfferTransactionStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string name, int code, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> description, Option<string> role, Option<bool> active, Option<string> applicationIds)
+        private void OnErrorCreateOfferTransactionStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, int code, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> description, Option<string> role, Option<bool> active, Option<string> applicationIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateOfferTransactionStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
+            OnErrorCreateOfferTransactionStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -555,7 +542,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="name"></param>
         /// <param name="code"></param>
         /// <param name="deviceId"></param>
@@ -566,12 +552,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="role"></param>
         /// <param name="active"></param>
         /// <param name="applicationIds"></param>
-        partial void OnErrorCreateOfferTransactionStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string name, int code, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> description, Option<string> role, Option<bool> active, Option<string> applicationIds);
+        partial void OnErrorCreateOfferTransactionStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string name, int code, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> description, Option<string> role, Option<bool> active, Option<string> applicationIds);
 
         /// <summary>
         /// Create Offer Status Create an offer status record
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="name">The name of the status</param>
         /// <param name="code">The status code, must be unique </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -584,11 +569,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferTransactionStatusApiResponse"/>&gt;</returns>
-        public async Task<ICreateOfferTransactionStatusApiResponse?> CreateOfferTransactionStatusOrDefaultAsync(decimal version, string name, int code, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> description = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOfferTransactionStatusApiResponse?> CreateOfferTransactionStatusOrDefaultAsync(string name, int code, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> description = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateOfferTransactionStatusAsync(version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds, cancellationToken).ConfigureAwait(false);
+                return await CreateOfferTransactionStatusAsync(name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -600,7 +585,6 @@ namespace Org.OpenAPITools.Api
         /// Create Offer Status Create an offer status record
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="name">The name of the status</param>
         /// <param name="code">The status code, must be unique </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -613,7 +597,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferTransactionStatusApiResponse"/>&gt;</returns>
-        public async Task<ICreateOfferTransactionStatusApiResponse> CreateOfferTransactionStatusAsync(decimal version, string name, int code, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> description = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOfferTransactionStatusApiResponse> CreateOfferTransactionStatusAsync(string name, int code, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> description = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -621,7 +605,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateOfferTransactionStatus(name, deviceId, description, role, applicationIds);
 
-                FormatCreateOfferTransactionStatus(ref version, ref name, ref code, ref deviceId, ref accountId, ref latitude, ref longitude, ref description, ref role, ref active, ref applicationIds);
+                FormatCreateOfferTransactionStatus(ref name, ref code, ref deviceId, ref accountId, ref latitude, ref longitude, ref description, ref role, ref active, ref applicationIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -629,9 +613,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/status/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/status/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/status/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/status/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -687,13 +670,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/status/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/status/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateOfferTransactionStatusDefaultImplementation(apiResponseLocalVar, version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
+                        AfterCreateOfferTransactionStatusDefaultImplementation(apiResponseLocalVar, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
 
                         Events.ExecuteOnCreateOfferTransactionStatus(apiResponseLocalVar);
 
@@ -703,7 +686,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateOfferTransactionStatusDefaultImplementation(e, "/api/{version}/offer/status/create", uriBuilderLocalVar.Path, version, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
+                OnErrorCreateOfferTransactionStatusDefaultImplementation(e, "/offer/status/create", uriBuilderLocalVar.Path, name, code, deviceId, accountId, latitude, longitude, description, role, active, applicationIds);
                 Events.ExecuteOnErrorCreateOfferTransactionStatus(e);
                 throw;
             }
@@ -802,7 +785,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteOfferTransactionStatus(ref decimal version, ref long statusId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatDeleteOfferTransactionStatus(ref long statusId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -819,16 +802,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="statusId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterDeleteOfferTransactionStatusDefaultImplementation(IDeleteOfferTransactionStatusApiResponse apiResponseLocalVar, decimal version, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterDeleteOfferTransactionStatusDefaultImplementation(IDeleteOfferTransactionStatusApiResponse apiResponseLocalVar, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteOfferTransactionStatus(ref suppressDefaultLog, apiResponseLocalVar, version, statusId, deviceId, accountId, latitude, longitude);
+            AfterDeleteOfferTransactionStatus(ref suppressDefaultLog, apiResponseLocalVar, statusId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -838,13 +820,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="statusId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterDeleteOfferTransactionStatus(ref bool suppressDefaultLog, IDeleteOfferTransactionStatusApiResponse apiResponseLocalVar, decimal version, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterDeleteOfferTransactionStatus(ref bool suppressDefaultLog, IDeleteOfferTransactionStatusApiResponse apiResponseLocalVar, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -852,16 +833,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="statusId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorDeleteOfferTransactionStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorDeleteOfferTransactionStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteOfferTransactionStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, statusId, deviceId, accountId, latitude, longitude);
+            OnErrorDeleteOfferTransactionStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, statusId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -873,18 +853,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="statusId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorDeleteOfferTransactionStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorDeleteOfferTransactionStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Delete Offer Status Mark an offer status record as deleted
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="statusId">The id of the record to delete</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -892,11 +870,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferTransactionStatusApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOfferTransactionStatusApiResponse?> DeleteOfferTransactionStatusOrDefaultAsync(decimal version, long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOfferTransactionStatusApiResponse?> DeleteOfferTransactionStatusOrDefaultAsync(long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteOfferTransactionStatusAsync(version, statusId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await DeleteOfferTransactionStatusAsync(statusId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -908,7 +886,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Offer Status Mark an offer status record as deleted
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="statusId">The id of the record to delete</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -916,7 +893,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferTransactionStatusApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOfferTransactionStatusApiResponse> DeleteOfferTransactionStatusAsync(decimal version, long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOfferTransactionStatusApiResponse> DeleteOfferTransactionStatusAsync(long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -924,7 +901,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteOfferTransactionStatus(deviceId);
 
-                FormatDeleteOfferTransactionStatus(ref version, ref statusId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatDeleteOfferTransactionStatus(ref statusId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -932,9 +909,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/status/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/status/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/status/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/status/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -977,13 +953,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/status/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/status/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteOfferTransactionStatusDefaultImplementation(apiResponseLocalVar, version, statusId, deviceId, accountId, latitude, longitude);
+                        AfterDeleteOfferTransactionStatusDefaultImplementation(apiResponseLocalVar, statusId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnDeleteOfferTransactionStatus(apiResponseLocalVar);
 
@@ -993,7 +969,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteOfferTransactionStatusDefaultImplementation(e, "/api/{version}/offer/status/delete", uriBuilderLocalVar.Path, version, statusId, deviceId, accountId, latitude, longitude);
+                OnErrorDeleteOfferTransactionStatusDefaultImplementation(e, "/offer/status/delete", uriBuilderLocalVar.Path, statusId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorDeleteOfferTransactionStatus(e);
                 throw;
             }
@@ -1092,7 +1068,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOfferTransactionStatus(ref decimal version, ref long statusId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetOfferTransactionStatus(ref long statusId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1109,16 +1085,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="statusId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetOfferTransactionStatusDefaultImplementation(IGetOfferTransactionStatusApiResponse apiResponseLocalVar, decimal version, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterGetOfferTransactionStatusDefaultImplementation(IGetOfferTransactionStatusApiResponse apiResponseLocalVar, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetOfferTransactionStatus(ref suppressDefaultLog, apiResponseLocalVar, version, statusId, deviceId, accountId, latitude, longitude);
+            AfterGetOfferTransactionStatus(ref suppressDefaultLog, apiResponseLocalVar, statusId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1128,13 +1103,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="statusId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetOfferTransactionStatus(ref bool suppressDefaultLog, IGetOfferTransactionStatusApiResponse apiResponseLocalVar, decimal version, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetOfferTransactionStatus(ref bool suppressDefaultLog, IGetOfferTransactionStatusApiResponse apiResponseLocalVar, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1142,16 +1116,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="statusId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetOfferTransactionStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetOfferTransactionStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOfferTransactionStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, statusId, deviceId, accountId, latitude, longitude);
+            OnErrorGetOfferTransactionStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, statusId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1163,18 +1136,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="statusId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetOfferTransactionStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetOfferTransactionStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long statusId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Offer Status Get an offer status record
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="statusId">The id of the record to get </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -1182,11 +1153,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferTransactionStatusApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferTransactionStatusApiResponse?> GetOfferTransactionStatusOrDefaultAsync(decimal version, long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferTransactionStatusApiResponse?> GetOfferTransactionStatusOrDefaultAsync(long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOfferTransactionStatusAsync(version, statusId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetOfferTransactionStatusAsync(statusId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1198,7 +1169,6 @@ namespace Org.OpenAPITools.Api
         /// Get Offer Status Get an offer status record
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="statusId">The id of the record to get </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -1206,7 +1176,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferTransactionStatusApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferTransactionStatusApiResponse> GetOfferTransactionStatusAsync(decimal version, long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferTransactionStatusApiResponse> GetOfferTransactionStatusAsync(long statusId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1214,7 +1184,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOfferTransactionStatus(deviceId);
 
-                FormatGetOfferTransactionStatus(ref version, ref statusId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatGetOfferTransactionStatus(ref statusId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1222,9 +1192,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/status/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/status/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/status/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/status/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1267,13 +1236,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/status/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/status/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOfferTransactionStatusDefaultImplementation(apiResponseLocalVar, version, statusId, deviceId, accountId, latitude, longitude);
+                        AfterGetOfferTransactionStatusDefaultImplementation(apiResponseLocalVar, statusId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnGetOfferTransactionStatus(apiResponseLocalVar);
 
@@ -1283,7 +1252,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOfferTransactionStatusDefaultImplementation(e, "/api/{version}/offer/status/get", uriBuilderLocalVar.Path, version, statusId, deviceId, accountId, latitude, longitude);
+                OnErrorGetOfferTransactionStatusDefaultImplementation(e, "/offer/status/get", uriBuilderLocalVar.Path, statusId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorGetOfferTransactionStatus(e);
                 throw;
             }
@@ -1382,7 +1351,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchOfferTransactionStatuses(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> keyword, ref Option<string> role, ref Option<string> appKey, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeInactive);
+        partial void FormatSearchOfferTransactionStatuses(ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> keyword, ref Option<string> role, ref Option<string> appKey, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> includeInactive);
 
         /// <summary>
         /// Validates the request parameters
@@ -1415,7 +1384,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -1428,10 +1396,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="includeInactive"></param>
-        private void AfterSearchOfferTransactionStatusesDefaultImplementation(ISearchOfferTransactionStatusesApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<string> role, Option<string> appKey, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> includeInactive)
+        private void AfterSearchOfferTransactionStatusesDefaultImplementation(ISearchOfferTransactionStatusesApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<string> role, Option<string> appKey, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> includeInactive)
         {
             bool suppressDefaultLog = false;
-            AfterSearchOfferTransactionStatuses(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
+            AfterSearchOfferTransactionStatuses(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1441,7 +1409,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -1454,7 +1421,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="includeInactive"></param>
-        partial void AfterSearchOfferTransactionStatuses(ref bool suppressDefaultLog, ISearchOfferTransactionStatusesApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<string> role, Option<string> appKey, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> includeInactive);
+        partial void AfterSearchOfferTransactionStatuses(ref bool suppressDefaultLog, ISearchOfferTransactionStatusesApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<string> role, Option<string> appKey, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> includeInactive);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1462,7 +1429,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -1475,10 +1441,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="includeInactive"></param>
-        private void OnErrorSearchOfferTransactionStatusesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<string> role, Option<string> appKey, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> includeInactive)
+        private void OnErrorSearchOfferTransactionStatusesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<string> role, Option<string> appKey, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> includeInactive)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchOfferTransactionStatuses(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
+            OnErrorSearchOfferTransactionStatuses(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1490,7 +1456,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -1503,12 +1468,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="includeInactive"></param>
-        partial void OnErrorSearchOfferTransactionStatuses(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<string> role, Option<string> appKey, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> includeInactive);
+        partial void OnErrorSearchOfferTransactionStatuses(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<string> role, Option<string> appKey, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> includeInactive);
 
         /// <summary>
         /// Search Offer Status Search for the available offer statuses
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">Used to update the user&#39;s current location (optional)</param>
@@ -1523,11 +1487,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeInactive">If true include inactive items (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionStatusesApiResponse"/>&gt;</returns>
-        public async Task<ISearchOfferTransactionStatusesApiResponse?> SearchOfferTransactionStatusesOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<string> role = default, Option<string> appKey = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOfferTransactionStatusesApiResponse?> SearchOfferTransactionStatusesOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<string> role = default, Option<string> appKey = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchOfferTransactionStatusesAsync(version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive, cancellationToken).ConfigureAwait(false);
+                return await SearchOfferTransactionStatusesAsync(deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1539,7 +1503,6 @@ namespace Org.OpenAPITools.Api
         /// Search Offer Status Search for the available offer statuses
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">Used to update the user&#39;s current location (optional)</param>
@@ -1554,7 +1517,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeInactive">If true include inactive items (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionStatusesApiResponse"/>&gt;</returns>
-        public async Task<ISearchOfferTransactionStatusesApiResponse> SearchOfferTransactionStatusesAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<string> role = default, Option<string> appKey = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOfferTransactionStatusesApiResponse> SearchOfferTransactionStatusesAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<string> role = default, Option<string> appKey = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1562,7 +1525,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchOfferTransactionStatuses(deviceId, keyword, role, appKey, sortField);
 
-                FormatSearchOfferTransactionStatuses(ref version, ref deviceId, ref accountId, ref latitude, ref longitude, ref keyword, ref role, ref appKey, ref sortField, ref descending, ref start, ref limit, ref includeInactive);
+                FormatSearchOfferTransactionStatuses(ref deviceId, ref accountId, ref latitude, ref longitude, ref keyword, ref role, ref appKey, ref sortField, ref descending, ref start, ref limit, ref includeInactive);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1570,9 +1533,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/status/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/status/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/status/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/status/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1637,13 +1599,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/status/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/status/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchOfferTransactionStatusesDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
+                        AfterSearchOfferTransactionStatusesDefaultImplementation(apiResponseLocalVar, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
 
                         Events.ExecuteOnSearchOfferTransactionStatuses(apiResponseLocalVar);
 
@@ -1653,7 +1615,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchOfferTransactionStatusesDefaultImplementation(e, "/api/{version}/offer/status/search", uriBuilderLocalVar.Path, version, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
+                OnErrorSearchOfferTransactionStatusesDefaultImplementation(e, "/offer/status/search", uriBuilderLocalVar.Path, deviceId, accountId, latitude, longitude, keyword, role, appKey, sortField, descending, start, limit, includeInactive);
                 Events.ExecuteOnErrorSearchOfferTransactionStatuses(e);
                 throw;
             }
@@ -1752,7 +1714,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateOfferTransactionStatus(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> statusId, ref Option<string> name, ref Option<string> description, ref Option<int> code, ref Option<string> role, ref Option<bool> active, ref Option<string> applicationIds);
+        partial void FormatUpdateOfferTransactionStatus(ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> statusId, ref Option<string> name, ref Option<string> description, ref Option<int> code, ref Option<string> role, ref Option<bool> active, ref Option<string> applicationIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -1785,7 +1747,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -1797,10 +1758,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="role"></param>
         /// <param name="active"></param>
         /// <param name="applicationIds"></param>
-        private void AfterUpdateOfferTransactionStatusDefaultImplementation(IUpdateOfferTransactionStatusApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> statusId, Option<string> name, Option<string> description, Option<int> code, Option<string> role, Option<bool> active, Option<string> applicationIds)
+        private void AfterUpdateOfferTransactionStatusDefaultImplementation(IUpdateOfferTransactionStatusApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> statusId, Option<string> name, Option<string> description, Option<int> code, Option<string> role, Option<bool> active, Option<string> applicationIds)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateOfferTransactionStatus(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
+            AfterUpdateOfferTransactionStatus(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1810,7 +1771,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -1822,7 +1782,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="role"></param>
         /// <param name="active"></param>
         /// <param name="applicationIds"></param>
-        partial void AfterUpdateOfferTransactionStatus(ref bool suppressDefaultLog, IUpdateOfferTransactionStatusApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> statusId, Option<string> name, Option<string> description, Option<int> code, Option<string> role, Option<bool> active, Option<string> applicationIds);
+        partial void AfterUpdateOfferTransactionStatus(ref bool suppressDefaultLog, IUpdateOfferTransactionStatusApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> statusId, Option<string> name, Option<string> description, Option<int> code, Option<string> role, Option<bool> active, Option<string> applicationIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1830,7 +1790,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -1842,10 +1801,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="role"></param>
         /// <param name="active"></param>
         /// <param name="applicationIds"></param>
-        private void OnErrorUpdateOfferTransactionStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> statusId, Option<string> name, Option<string> description, Option<int> code, Option<string> role, Option<bool> active, Option<string> applicationIds)
+        private void OnErrorUpdateOfferTransactionStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> statusId, Option<string> name, Option<string> description, Option<int> code, Option<string> role, Option<bool> active, Option<string> applicationIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateOfferTransactionStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
+            OnErrorUpdateOfferTransactionStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1857,7 +1816,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -1869,12 +1827,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="role"></param>
         /// <param name="active"></param>
         /// <param name="applicationIds"></param>
-        partial void OnErrorUpdateOfferTransactionStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> statusId, Option<string> name, Option<string> description, Option<int> code, Option<string> role, Option<bool> active, Option<string> applicationIds);
+        partial void OnErrorUpdateOfferTransactionStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> statusId, Option<string> name, Option<string> description, Option<int> code, Option<string> role, Option<bool> active, Option<string> applicationIds);
 
         /// <summary>
         /// Update Offer Status Update an offer status record
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">Used to update the user&#39;s current location (optional)</param>
@@ -1888,11 +1845,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferTransactionStatusApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOfferTransactionStatusApiResponse?> UpdateOfferTransactionStatusOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> statusId = default, Option<string> name = default, Option<string> description = default, Option<int> code = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOfferTransactionStatusApiResponse?> UpdateOfferTransactionStatusOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> statusId = default, Option<string> name = default, Option<string> description = default, Option<int> code = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateOfferTransactionStatusAsync(version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds, cancellationToken).ConfigureAwait(false);
+                return await UpdateOfferTransactionStatusAsync(deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1904,7 +1861,6 @@ namespace Org.OpenAPITools.Api
         /// Update Offer Status Update an offer status record
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">Used to update the user&#39;s current location (optional)</param>
@@ -1918,7 +1874,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferTransactionStatusApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOfferTransactionStatusApiResponse> UpdateOfferTransactionStatusAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> statusId = default, Option<string> name = default, Option<string> description = default, Option<int> code = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOfferTransactionStatusApiResponse> UpdateOfferTransactionStatusAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> statusId = default, Option<string> name = default, Option<string> description = default, Option<int> code = default, Option<string> role = default, Option<bool> active = default, Option<string> applicationIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1926,7 +1882,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateOfferTransactionStatus(deviceId, name, description, role, applicationIds);
 
-                FormatUpdateOfferTransactionStatus(ref version, ref deviceId, ref accountId, ref latitude, ref longitude, ref statusId, ref name, ref description, ref code, ref role, ref active, ref applicationIds);
+                FormatUpdateOfferTransactionStatus(ref deviceId, ref accountId, ref latitude, ref longitude, ref statusId, ref name, ref description, ref code, ref role, ref active, ref applicationIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1934,9 +1890,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/status/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/status/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/status/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/status/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1998,13 +1953,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/status/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/status/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateOfferTransactionStatusDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
+                        AfterUpdateOfferTransactionStatusDefaultImplementation(apiResponseLocalVar, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
 
                         Events.ExecuteOnUpdateOfferTransactionStatus(apiResponseLocalVar);
 
@@ -2014,7 +1969,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateOfferTransactionStatusDefaultImplementation(e, "/api/{version}/offer/status/update", uriBuilderLocalVar.Path, version, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
+                OnErrorUpdateOfferTransactionStatusDefaultImplementation(e, "/offer/status/update", uriBuilderLocalVar.Path, deviceId, accountId, latitude, longitude, statusId, name, description, code, role, active, applicationIds);
                 Events.ExecuteOnErrorUpdateOfferTransactionStatus(e);
                 throw;
             }

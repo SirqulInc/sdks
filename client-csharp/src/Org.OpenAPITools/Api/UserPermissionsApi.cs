@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Adds a user to a permissionable object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type of the object</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -65,7 +64,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIds">comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddUsersToPermissionableApiResponse"/>&gt;</returns>
-        Task<IAddUsersToPermissionableApiResponse> AddUsersToPermissionableAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> pending = default, Option<bool> admin = default, Option<bool> includeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddUsersToPermissionableApiResponse> AddUsersToPermissionableAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> pending = default, Option<bool> admin = default, Option<bool> includeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add User
@@ -73,7 +72,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Adds a user to a permissionable object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type of the object</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -93,7 +91,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIds">comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddUsersToPermissionableApiResponse"/>?&gt;</returns>
-        Task<IAddUsersToPermissionableApiResponse?> AddUsersToPermissionableOrDefaultAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> pending = default, Option<bool> admin = default, Option<bool> includeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddUsersToPermissionableApiResponse?> AddUsersToPermissionableOrDefaultAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> pending = default, Option<bool> admin = default, Option<bool> includeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Approve Permissionable
@@ -102,7 +100,6 @@ namespace Org.OpenAPITools.Api
         /// Sets the approval status of a permissionable object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="permissionableType">The permissionable type of the object</param>
         /// <param name="permissionableId">The id of the permissionable object</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -110,7 +107,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to APPROVED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApprovePermissionableApiResponse"/>&gt;</returns>
-        Task<IApprovePermissionableApiResponse> ApprovePermissionableAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IApprovePermissionableApiResponse> ApprovePermissionableAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Approve Permissionable
@@ -118,7 +115,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sets the approval status of a permissionable object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="permissionableType">The permissionable type of the object</param>
         /// <param name="permissionableId">The id of the permissionable object</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -126,7 +122,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to APPROVED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApprovePermissionableApiResponse"/>?&gt;</returns>
-        Task<IApprovePermissionableApiResponse?> ApprovePermissionableOrDefaultAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IApprovePermissionableApiResponse?> ApprovePermissionableOrDefaultAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Leave
@@ -135,7 +131,6 @@ namespace Org.OpenAPITools.Api
         /// Used when the user wants to leave from someone else&#39;s permissionable object
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type PermissionableType</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -144,7 +139,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaveFromPermissionableApiResponse"/>&gt;</returns>
-        Task<ILeaveFromPermissionableApiResponse> LeaveFromPermissionableAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaveFromPermissionableApiResponse> LeaveFromPermissionableAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Leave
@@ -152,7 +147,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Used when the user wants to leave from someone else&#39;s permissionable object
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type PermissionableType</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -161,7 +155,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaveFromPermissionableApiResponse"/>?&gt;</returns>
-        Task<ILeaveFromPermissionableApiResponse?> LeaveFromPermissionableOrDefaultAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaveFromPermissionableApiResponse?> LeaveFromPermissionableOrDefaultAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove User
@@ -170,7 +164,6 @@ namespace Org.OpenAPITools.Api
         /// Used to remove someone (assuming they have permission) from a permissionable object
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type of the object</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -184,7 +177,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIds">comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveUsersFromPermissionableApiResponse"/>&gt;</returns>
-        Task<IRemoveUsersFromPermissionableApiResponse> RemoveUsersFromPermissionableAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> removeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveUsersFromPermissionableApiResponse> RemoveUsersFromPermissionableAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> removeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove User
@@ -192,7 +185,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Used to remove someone (assuming they have permission) from a permissionable object
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type of the object</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -206,7 +198,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIds">comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveUsersFromPermissionableApiResponse"/>?&gt;</returns>
-        Task<IRemoveUsersFromPermissionableApiResponse?> RemoveUsersFromPermissionableOrDefaultAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> removeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveUsersFromPermissionableApiResponse?> RemoveUsersFromPermissionableOrDefaultAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> removeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Permissionables
@@ -215,7 +207,6 @@ namespace Org.OpenAPITools.Api
         /// Search on UserPermissions
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">Filter results for a specific user account (optional)</param>
@@ -231,7 +222,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPermissionablesApiResponse"/>&gt;</returns>
-        Task<ISearchPermissionablesApiResponse> SearchPermissionablesAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPermissionablesApiResponse> SearchPermissionablesAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Permissionables
@@ -239,7 +230,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on UserPermissions
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">Filter results for a specific user account (optional)</param>
@@ -255,7 +245,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPermissionablesApiResponse"/>?&gt;</returns>
-        Task<ISearchPermissionablesApiResponse?> SearchPermissionablesOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPermissionablesApiResponse?> SearchPermissionablesOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Permissionables by Distnace
@@ -264,7 +254,6 @@ namespace Org.OpenAPITools.Api
         /// Search on UserPermissions by distance
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of the current account</param>
         /// <param name="longitude">The longitude of the current account</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -281,7 +270,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPermissionablesFollowingDistanceApiResponse"/>&gt;</returns>
-        Task<ISearchPermissionablesFollowingDistanceApiResponse> SearchPermissionablesFollowingDistanceAsync(decimal version, double latitude, double longitude, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<double> searchRange = default, Option<string> keyword = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPermissionablesFollowingDistanceApiResponse> SearchPermissionablesFollowingDistanceAsync(double latitude, double longitude, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<double> searchRange = default, Option<string> keyword = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Permissionables by Distnace
@@ -289,7 +278,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on UserPermissions by distance
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of the current account</param>
         /// <param name="longitude">The longitude of the current account</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -306,7 +294,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPermissionablesFollowingDistanceApiResponse"/>?&gt;</returns>
-        Task<ISearchPermissionablesFollowingDistanceApiResponse?> SearchPermissionablesFollowingDistanceOrDefaultAsync(decimal version, double latitude, double longitude, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<double> searchRange = default, Option<string> keyword = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPermissionablesFollowingDistanceApiResponse?> SearchPermissionablesFollowingDistanceOrDefaultAsync(double latitude, double longitude, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<double> searchRange = default, Option<string> keyword = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -554,7 +542,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddUsersToPermissionable(ref decimal version, ref string permissionableType, ref long permissionableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> read, ref Option<bool> write, ref Option<bool> delete, ref Option<bool> add, ref Option<string> connectionIds, ref Option<string> connectionAccountIds, ref Option<string> connectionGroupIds, ref Option<bool> pending, ref Option<bool> admin, ref Option<bool> includeFriendGroup, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> audienceIds);
+        partial void FormatAddUsersToPermissionable(ref string permissionableType, ref long permissionableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> read, ref Option<bool> write, ref Option<bool> delete, ref Option<bool> add, ref Option<string> connectionIds, ref Option<string> connectionAccountIds, ref Option<string> connectionGroupIds, ref Option<bool> pending, ref Option<bool> admin, ref Option<bool> includeFriendGroup, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> audienceIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -591,7 +579,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
@@ -609,10 +596,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="audienceIds"></param>
-        private void AfterAddUsersToPermissionableDefaultImplementation(IAddUsersToPermissionableApiResponse apiResponseLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> pending, Option<bool> admin, Option<bool> includeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds)
+        private void AfterAddUsersToPermissionableDefaultImplementation(IAddUsersToPermissionableApiResponse apiResponseLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> pending, Option<bool> admin, Option<bool> includeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds)
         {
             bool suppressDefaultLog = false;
-            AfterAddUsersToPermissionable(ref suppressDefaultLog, apiResponseLocalVar, version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
+            AfterAddUsersToPermissionable(ref suppressDefaultLog, apiResponseLocalVar, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -622,7 +609,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
@@ -640,7 +626,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="audienceIds"></param>
-        partial void AfterAddUsersToPermissionable(ref bool suppressDefaultLog, IAddUsersToPermissionableApiResponse apiResponseLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> pending, Option<bool> admin, Option<bool> includeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds);
+        partial void AfterAddUsersToPermissionable(ref bool suppressDefaultLog, IAddUsersToPermissionableApiResponse apiResponseLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> pending, Option<bool> admin, Option<bool> includeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -648,7 +634,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
@@ -666,10 +651,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="audienceIds"></param>
-        private void OnErrorAddUsersToPermissionableDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> pending, Option<bool> admin, Option<bool> includeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds)
+        private void OnErrorAddUsersToPermissionableDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> pending, Option<bool> admin, Option<bool> includeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddUsersToPermissionable(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
+            OnErrorAddUsersToPermissionable(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -681,7 +666,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
@@ -699,12 +683,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="audienceIds"></param>
-        partial void OnErrorAddUsersToPermissionable(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> pending, Option<bool> admin, Option<bool> includeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds);
+        partial void OnErrorAddUsersToPermissionable(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> pending, Option<bool> admin, Option<bool> includeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds);
 
         /// <summary>
         /// Add User Adds a user to a permissionable object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type of the object</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -724,11 +707,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIds">comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddUsersToPermissionableApiResponse"/>&gt;</returns>
-        public async Task<IAddUsersToPermissionableApiResponse?> AddUsersToPermissionableOrDefaultAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> pending = default, Option<bool> admin = default, Option<bool> includeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddUsersToPermissionableApiResponse?> AddUsersToPermissionableOrDefaultAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> pending = default, Option<bool> admin = default, Option<bool> includeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddUsersToPermissionableAsync(version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds, cancellationToken).ConfigureAwait(false);
+                return await AddUsersToPermissionableAsync(permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -740,7 +723,6 @@ namespace Org.OpenAPITools.Api
         /// Add User Adds a user to a permissionable object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type of the object</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -760,7 +742,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIds">comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddUsersToPermissionableApiResponse"/>&gt;</returns>
-        public async Task<IAddUsersToPermissionableApiResponse> AddUsersToPermissionableAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> pending = default, Option<bool> admin = default, Option<bool> includeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddUsersToPermissionableApiResponse> AddUsersToPermissionableAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> pending = default, Option<bool> admin = default, Option<bool> includeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -768,7 +750,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddUsersToPermissionable(permissionableType, deviceId, connectionIds, connectionAccountIds, connectionGroupIds, audienceIds);
 
-                FormatAddUsersToPermissionable(ref version, ref permissionableType, ref permissionableId, ref deviceId, ref accountId, ref read, ref write, ref delete, ref add, ref connectionIds, ref connectionAccountIds, ref connectionGroupIds, ref pending, ref admin, ref includeFriendGroup, ref latitude, ref longitude, ref audienceIds);
+                FormatAddUsersToPermissionable(ref permissionableType, ref permissionableId, ref deviceId, ref accountId, ref read, ref write, ref delete, ref add, ref connectionIds, ref connectionAccountIds, ref connectionGroupIds, ref pending, ref admin, ref includeFriendGroup, ref latitude, ref longitude, ref audienceIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -776,9 +758,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/permissions/add"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/permissions/add");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/permissions/add"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/permissions/add");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -855,13 +836,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/permissions/add", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/permissions/add", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddUsersToPermissionableDefaultImplementation(apiResponseLocalVar, version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
+                        AfterAddUsersToPermissionableDefaultImplementation(apiResponseLocalVar, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
 
                         Events.ExecuteOnAddUsersToPermissionable(apiResponseLocalVar);
 
@@ -871,7 +852,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddUsersToPermissionableDefaultImplementation(e, "/api/{version}/consumer/permissions/add", uriBuilderLocalVar.Path, version, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
+                OnErrorAddUsersToPermissionableDefaultImplementation(e, "/consumer/permissions/add", uriBuilderLocalVar.Path, permissionableType, permissionableId, deviceId, accountId, read, write, delete, add, connectionIds, connectionAccountIds, connectionGroupIds, pending, admin, includeFriendGroup, latitude, longitude, audienceIds);
                 Events.ExecuteOnErrorAddUsersToPermissionable(e);
                 throw;
             }
@@ -970,7 +951,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatApprovePermissionable(ref decimal version, ref string permissionableType, ref long permissionableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> approvalStatus);
+        partial void FormatApprovePermissionable(ref string permissionableType, ref long permissionableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> approvalStatus);
 
         /// <summary>
         /// Validates the request parameters
@@ -995,16 +976,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="approvalStatus"></param>
-        private void AfterApprovePermissionableDefaultImplementation(IApprovePermissionableApiResponse apiResponseLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus)
+        private void AfterApprovePermissionableDefaultImplementation(IApprovePermissionableApiResponse apiResponseLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus)
         {
             bool suppressDefaultLog = false;
-            AfterApprovePermissionable(ref suppressDefaultLog, apiResponseLocalVar, version, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
+            AfterApprovePermissionable(ref suppressDefaultLog, apiResponseLocalVar, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1014,13 +994,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="approvalStatus"></param>
-        partial void AfterApprovePermissionable(ref bool suppressDefaultLog, IApprovePermissionableApiResponse apiResponseLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus);
+        partial void AfterApprovePermissionable(ref bool suppressDefaultLog, IApprovePermissionableApiResponse apiResponseLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1028,16 +1007,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="approvalStatus"></param>
-        private void OnErrorApprovePermissionableDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus)
+        private void OnErrorApprovePermissionableDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorApprovePermissionable(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
+            OnErrorApprovePermissionable(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1049,18 +1027,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="approvalStatus"></param>
-        partial void OnErrorApprovePermissionable(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus);
+        partial void OnErrorApprovePermissionable(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus);
 
         /// <summary>
         /// Approve Permissionable Sets the approval status of a permissionable object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="permissionableType">The permissionable type of the object</param>
         /// <param name="permissionableId">The id of the permissionable object</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -1068,11 +1044,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to APPROVED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApprovePermissionableApiResponse"/>&gt;</returns>
-        public async Task<IApprovePermissionableApiResponse?> ApprovePermissionableOrDefaultAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IApprovePermissionableApiResponse?> ApprovePermissionableOrDefaultAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ApprovePermissionableAsync(version, permissionableType, permissionableId, deviceId, accountId, approvalStatus, cancellationToken).ConfigureAwait(false);
+                return await ApprovePermissionableAsync(permissionableType, permissionableId, deviceId, accountId, approvalStatus, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1084,7 +1060,6 @@ namespace Org.OpenAPITools.Api
         /// Approve Permissionable Sets the approval status of a permissionable object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="permissionableType">The permissionable type of the object</param>
         /// <param name="permissionableId">The id of the permissionable object</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -1092,7 +1067,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to APPROVED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApprovePermissionableApiResponse"/>&gt;</returns>
-        public async Task<IApprovePermissionableApiResponse> ApprovePermissionableAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IApprovePermissionableApiResponse> ApprovePermissionableAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1100,7 +1075,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateApprovePermissionable(permissionableType, deviceId, approvalStatus);
 
-                FormatApprovePermissionable(ref version, ref permissionableType, ref permissionableId, ref deviceId, ref accountId, ref approvalStatus);
+                FormatApprovePermissionable(ref permissionableType, ref permissionableId, ref deviceId, ref accountId, ref approvalStatus);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1108,9 +1083,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/permissionable/approve"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/permissionable/approve");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/permissionable/approve"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/permissionable/approve");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1151,13 +1125,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/permissionable/approve", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/permissionable/approve", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterApprovePermissionableDefaultImplementation(apiResponseLocalVar, version, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
+                        AfterApprovePermissionableDefaultImplementation(apiResponseLocalVar, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
 
                         Events.ExecuteOnApprovePermissionable(apiResponseLocalVar);
 
@@ -1167,7 +1141,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorApprovePermissionableDefaultImplementation(e, "/api/{version}/permissionable/approve", uriBuilderLocalVar.Path, version, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
+                OnErrorApprovePermissionableDefaultImplementation(e, "/permissionable/approve", uriBuilderLocalVar.Path, permissionableType, permissionableId, deviceId, accountId, approvalStatus);
                 Events.ExecuteOnErrorApprovePermissionable(e);
                 throw;
             }
@@ -1266,7 +1240,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLeaveFromPermissionable(ref decimal version, ref string permissionableType, ref long permissionableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatLeaveFromPermissionable(ref string permissionableType, ref long permissionableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1287,17 +1261,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterLeaveFromPermissionableDefaultImplementation(ILeaveFromPermissionableApiResponse apiResponseLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterLeaveFromPermissionableDefaultImplementation(ILeaveFromPermissionableApiResponse apiResponseLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterLeaveFromPermissionable(ref suppressDefaultLog, apiResponseLocalVar, version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
+            AfterLeaveFromPermissionable(ref suppressDefaultLog, apiResponseLocalVar, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1307,14 +1280,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterLeaveFromPermissionable(ref bool suppressDefaultLog, ILeaveFromPermissionableApiResponse apiResponseLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterLeaveFromPermissionable(ref bool suppressDefaultLog, ILeaveFromPermissionableApiResponse apiResponseLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1322,17 +1294,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorLeaveFromPermissionableDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorLeaveFromPermissionableDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLeaveFromPermissionable(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
+            OnErrorLeaveFromPermissionable(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1344,19 +1315,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorLeaveFromPermissionable(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorLeaveFromPermissionable(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Leave Used when the user wants to leave from someone else&#39;s permissionable object
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type PermissionableType</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -1365,11 +1334,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaveFromPermissionableApiResponse"/>&gt;</returns>
-        public async Task<ILeaveFromPermissionableApiResponse?> LeaveFromPermissionableOrDefaultAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaveFromPermissionableApiResponse?> LeaveFromPermissionableOrDefaultAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LeaveFromPermissionableAsync(version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await LeaveFromPermissionableAsync(permissionableType, permissionableId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1381,7 +1350,6 @@ namespace Org.OpenAPITools.Api
         /// Leave Used when the user wants to leave from someone else&#39;s permissionable object
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type PermissionableType</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -1390,7 +1358,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaveFromPermissionableApiResponse"/>&gt;</returns>
-        public async Task<ILeaveFromPermissionableApiResponse> LeaveFromPermissionableAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaveFromPermissionableApiResponse> LeaveFromPermissionableAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1398,7 +1366,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateLeaveFromPermissionable(permissionableType, deviceId);
 
-                FormatLeaveFromPermissionable(ref version, ref permissionableType, ref permissionableId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatLeaveFromPermissionable(ref permissionableType, ref permissionableId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1406,9 +1374,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/permissions/leave"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/permissions/leave");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/permissions/leave"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/permissions/leave");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1452,13 +1419,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/permissions/leave", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/permissions/leave", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterLeaveFromPermissionableDefaultImplementation(apiResponseLocalVar, version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
+                        AfterLeaveFromPermissionableDefaultImplementation(apiResponseLocalVar, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnLeaveFromPermissionable(apiResponseLocalVar);
 
@@ -1468,7 +1435,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorLeaveFromPermissionableDefaultImplementation(e, "/api/{version}/consumer/permissions/leave", uriBuilderLocalVar.Path, version, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
+                OnErrorLeaveFromPermissionableDefaultImplementation(e, "/consumer/permissions/leave", uriBuilderLocalVar.Path, permissionableType, permissionableId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorLeaveFromPermissionable(e);
                 throw;
             }
@@ -1567,7 +1534,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveUsersFromPermissionable(ref decimal version, ref string permissionableType, ref long permissionableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionIds, ref Option<string> connectionAccountIds, ref Option<string> connectionGroupIds, ref Option<bool> removeFriendGroup, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> audienceIds);
+        partial void FormatRemoveUsersFromPermissionable(ref string permissionableType, ref long permissionableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionIds, ref Option<string> connectionAccountIds, ref Option<string> connectionGroupIds, ref Option<bool> removeFriendGroup, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> audienceIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -1604,7 +1571,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
@@ -1616,10 +1582,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="audienceIds"></param>
-        private void AfterRemoveUsersFromPermissionableDefaultImplementation(IRemoveUsersFromPermissionableApiResponse apiResponseLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> removeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds)
+        private void AfterRemoveUsersFromPermissionableDefaultImplementation(IRemoveUsersFromPermissionableApiResponse apiResponseLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> removeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveUsersFromPermissionable(ref suppressDefaultLog, apiResponseLocalVar, version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
+            AfterRemoveUsersFromPermissionable(ref suppressDefaultLog, apiResponseLocalVar, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1629,7 +1595,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
@@ -1641,7 +1606,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="audienceIds"></param>
-        partial void AfterRemoveUsersFromPermissionable(ref bool suppressDefaultLog, IRemoveUsersFromPermissionableApiResponse apiResponseLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> removeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds);
+        partial void AfterRemoveUsersFromPermissionable(ref bool suppressDefaultLog, IRemoveUsersFromPermissionableApiResponse apiResponseLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> removeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1649,7 +1614,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
@@ -1661,10 +1625,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="audienceIds"></param>
-        private void OnErrorRemoveUsersFromPermissionableDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> removeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds)
+        private void OnErrorRemoveUsersFromPermissionableDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> removeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveUsersFromPermissionable(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
+            OnErrorRemoveUsersFromPermissionable(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1676,7 +1640,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="permissionableType"></param>
         /// <param name="permissionableId"></param>
         /// <param name="deviceId"></param>
@@ -1688,12 +1651,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="audienceIds"></param>
-        partial void OnErrorRemoveUsersFromPermissionable(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> removeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds);
+        partial void OnErrorRemoveUsersFromPermissionable(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string permissionableType, long permissionableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<string> connectionGroupIds, Option<bool> removeFriendGroup, Option<double> latitude, Option<double> longitude, Option<string> audienceIds);
 
         /// <summary>
         /// Remove User Used to remove someone (assuming they have permission) from a permissionable object
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type of the object</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -1707,11 +1669,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIds">comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveUsersFromPermissionableApiResponse"/>&gt;</returns>
-        public async Task<IRemoveUsersFromPermissionableApiResponse?> RemoveUsersFromPermissionableOrDefaultAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> removeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveUsersFromPermissionableApiResponse?> RemoveUsersFromPermissionableOrDefaultAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> removeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveUsersFromPermissionableAsync(version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds, cancellationToken).ConfigureAwait(false);
+                return await RemoveUsersFromPermissionableAsync(permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1723,7 +1685,6 @@ namespace Org.OpenAPITools.Api
         /// Remove User Used to remove someone (assuming they have permission) from a permissionable object
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="permissionableType">the permissionable type of the object</param>
         /// <param name="permissionableId">the id of the permissionable object</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -1737,7 +1698,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIds">comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveUsersFromPermissionableApiResponse"/>&gt;</returns>
-        public async Task<IRemoveUsersFromPermissionableApiResponse> RemoveUsersFromPermissionableAsync(decimal version, string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> removeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveUsersFromPermissionableApiResponse> RemoveUsersFromPermissionableAsync(string permissionableType, long permissionableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<string> connectionGroupIds = default, Option<bool> removeFriendGroup = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> audienceIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1745,7 +1706,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveUsersFromPermissionable(permissionableType, deviceId, connectionIds, connectionAccountIds, connectionGroupIds, audienceIds);
 
-                FormatRemoveUsersFromPermissionable(ref version, ref permissionableType, ref permissionableId, ref deviceId, ref accountId, ref connectionIds, ref connectionAccountIds, ref connectionGroupIds, ref removeFriendGroup, ref latitude, ref longitude, ref audienceIds);
+                FormatRemoveUsersFromPermissionable(ref permissionableType, ref permissionableId, ref deviceId, ref accountId, ref connectionIds, ref connectionAccountIds, ref connectionGroupIds, ref removeFriendGroup, ref latitude, ref longitude, ref audienceIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1753,9 +1714,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/permissions/remove"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/permissions/remove");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/permissions/remove"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/permissions/remove");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1814,13 +1774,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/permissions/remove", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/permissions/remove", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveUsersFromPermissionableDefaultImplementation(apiResponseLocalVar, version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
+                        AfterRemoveUsersFromPermissionableDefaultImplementation(apiResponseLocalVar, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
 
                         Events.ExecuteOnRemoveUsersFromPermissionable(apiResponseLocalVar);
 
@@ -1830,7 +1790,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveUsersFromPermissionableDefaultImplementation(e, "/api/{version}/consumer/permissions/remove", uriBuilderLocalVar.Path, version, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
+                OnErrorRemoveUsersFromPermissionableDefaultImplementation(e, "/consumer/permissions/remove", uriBuilderLocalVar.Path, permissionableType, permissionableId, deviceId, accountId, connectionIds, connectionAccountIds, connectionGroupIds, removeFriendGroup, latitude, longitude, audienceIds);
                 Events.ExecuteOnErrorRemoveUsersFromPermissionable(e);
                 throw;
             }
@@ -1929,7 +1889,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchPermissionables(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> connectionAccountIds, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> pending, ref Option<bool> admin, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchPermissionables(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> connectionAccountIds, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> pending, ref Option<bool> admin, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1962,7 +1922,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -1976,10 +1935,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="admin"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchPermissionablesDefaultImplementation(ISearchPermissionablesApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit)
+        private void AfterSearchPermissionablesDefaultImplementation(ISearchPermissionablesApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchPermissionables(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
+            AfterSearchPermissionables(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1989,7 +1948,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -2003,7 +1961,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="admin"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchPermissionables(ref bool suppressDefaultLog, ISearchPermissionablesApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit);
+        partial void AfterSearchPermissionables(ref bool suppressDefaultLog, ISearchPermissionablesApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2011,7 +1969,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -2025,10 +1982,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="admin"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchPermissionablesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit)
+        private void OnErrorSearchPermissionablesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchPermissionables(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
+            OnErrorSearchPermissionables(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2040,7 +1997,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -2054,12 +2010,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="admin"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchPermissionables(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchPermissionables(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Permissionables Search on UserPermissions
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">Filter results for a specific user account (optional)</param>
@@ -2075,11 +2030,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPermissionablesApiResponse"/>&gt;</returns>
-        public async Task<ISearchPermissionablesApiResponse?> SearchPermissionablesOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPermissionablesApiResponse?> SearchPermissionablesOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchPermissionablesAsync(version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchPermissionablesAsync(deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2091,7 +2046,6 @@ namespace Org.OpenAPITools.Api
         /// Search Permissionables Search on UserPermissions
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">Filter results for a specific user account (optional)</param>
@@ -2107,7 +2061,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPermissionablesApiResponse"/>&gt;</returns>
-        public async Task<ISearchPermissionablesApiResponse> SearchPermissionablesAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPermissionablesApiResponse> SearchPermissionablesAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2115,7 +2069,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchPermissionables(deviceId, connectionAccountIds, permissionableType, keyword, sortField);
 
-                FormatSearchPermissionables(ref version, ref deviceId, ref accountId, ref connectionAccountId, ref connectionAccountIds, ref permissionableType, ref permissionableId, ref keyword, ref sortField, ref descending, ref pending, ref admin, ref start, ref limit);
+                FormatSearchPermissionables(ref deviceId, ref accountId, ref connectionAccountId, ref connectionAccountIds, ref permissionableType, ref permissionableId, ref keyword, ref sortField, ref descending, ref pending, ref admin, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2123,9 +2077,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/permissions/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/permissions/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/permissions/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/permissions/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2193,13 +2146,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/permissions/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/permissions/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchPermissionablesDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
+                        AfterSearchPermissionablesDefaultImplementation(apiResponseLocalVar, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
 
                         Events.ExecuteOnSearchPermissionables(apiResponseLocalVar);
 
@@ -2209,7 +2162,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchPermissionablesDefaultImplementation(e, "/api/{version}/permissions/search", uriBuilderLocalVar.Path, version, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
+                OnErrorSearchPermissionablesDefaultImplementation(e, "/permissions/search", uriBuilderLocalVar.Path, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, keyword, sortField, descending, pending, admin, start, limit);
                 Events.ExecuteOnErrorSearchPermissionables(e);
                 throw;
             }
@@ -2308,7 +2261,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchPermissionablesFollowingDistance(ref decimal version, ref double latitude, ref double longitude, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> connectionAccountIds, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<double> searchRange, ref Option<string> keyword, ref Option<bool> pending, ref Option<bool> admin, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchPermissionablesFollowingDistance(ref double latitude, ref double longitude, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> connectionAccountIds, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<double> searchRange, ref Option<string> keyword, ref Option<bool> pending, ref Option<bool> admin, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2337,7 +2290,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="deviceId"></param>
@@ -2352,10 +2304,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="admin"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchPermissionablesFollowingDistanceDefaultImplementation(ISearchPermissionablesFollowingDistanceApiResponse apiResponseLocalVar, decimal version, double latitude, double longitude, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<double> searchRange, Option<string> keyword, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit)
+        private void AfterSearchPermissionablesFollowingDistanceDefaultImplementation(ISearchPermissionablesFollowingDistanceApiResponse apiResponseLocalVar, double latitude, double longitude, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<double> searchRange, Option<string> keyword, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchPermissionablesFollowingDistance(ref suppressDefaultLog, apiResponseLocalVar, version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
+            AfterSearchPermissionablesFollowingDistance(ref suppressDefaultLog, apiResponseLocalVar, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2365,7 +2317,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="deviceId"></param>
@@ -2380,7 +2331,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="admin"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchPermissionablesFollowingDistance(ref bool suppressDefaultLog, ISearchPermissionablesFollowingDistanceApiResponse apiResponseLocalVar, decimal version, double latitude, double longitude, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<double> searchRange, Option<string> keyword, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit);
+        partial void AfterSearchPermissionablesFollowingDistance(ref bool suppressDefaultLog, ISearchPermissionablesFollowingDistanceApiResponse apiResponseLocalVar, double latitude, double longitude, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<double> searchRange, Option<string> keyword, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2388,7 +2339,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="deviceId"></param>
@@ -2403,10 +2353,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="admin"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchPermissionablesFollowingDistanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double latitude, double longitude, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<double> searchRange, Option<string> keyword, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit)
+        private void OnErrorSearchPermissionablesFollowingDistanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double latitude, double longitude, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<double> searchRange, Option<string> keyword, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchPermissionablesFollowingDistance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
+            OnErrorSearchPermissionablesFollowingDistance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2418,7 +2368,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="deviceId"></param>
@@ -2433,12 +2382,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="admin"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchPermissionablesFollowingDistance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double latitude, double longitude, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<double> searchRange, Option<string> keyword, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchPermissionablesFollowingDistance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double latitude, double longitude, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> connectionAccountIds, Option<string> permissionableType, Option<long> permissionableId, Option<double> searchRange, Option<string> keyword, Option<bool> pending, Option<bool> admin, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Permissionables by Distnace Search on UserPermissions by distance
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of the current account</param>
         /// <param name="longitude">The longitude of the current account</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -2455,11 +2403,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPermissionablesFollowingDistanceApiResponse"/>&gt;</returns>
-        public async Task<ISearchPermissionablesFollowingDistanceApiResponse?> SearchPermissionablesFollowingDistanceOrDefaultAsync(decimal version, double latitude, double longitude, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<double> searchRange = default, Option<string> keyword = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPermissionablesFollowingDistanceApiResponse?> SearchPermissionablesFollowingDistanceOrDefaultAsync(double latitude, double longitude, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<double> searchRange = default, Option<string> keyword = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchPermissionablesFollowingDistanceAsync(version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchPermissionablesFollowingDistanceAsync(latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2471,7 +2419,6 @@ namespace Org.OpenAPITools.Api
         /// Search Permissionables by Distnace Search on UserPermissions by distance
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of the current account</param>
         /// <param name="longitude">The longitude of the current account</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -2488,7 +2435,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPermissionablesFollowingDistanceApiResponse"/>&gt;</returns>
-        public async Task<ISearchPermissionablesFollowingDistanceApiResponse> SearchPermissionablesFollowingDistanceAsync(decimal version, double latitude, double longitude, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<double> searchRange = default, Option<string> keyword = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPermissionablesFollowingDistanceApiResponse> SearchPermissionablesFollowingDistanceAsync(double latitude, double longitude, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> connectionAccountIds = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<double> searchRange = default, Option<string> keyword = default, Option<bool> pending = default, Option<bool> admin = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2496,7 +2443,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchPermissionablesFollowingDistance(deviceId, connectionAccountIds, permissionableType, keyword);
 
-                FormatSearchPermissionablesFollowingDistance(ref version, ref latitude, ref longitude, ref deviceId, ref accountId, ref connectionAccountId, ref connectionAccountIds, ref permissionableType, ref permissionableId, ref searchRange, ref keyword, ref pending, ref admin, ref start, ref limit);
+                FormatSearchPermissionablesFollowingDistance(ref latitude, ref longitude, ref deviceId, ref accountId, ref connectionAccountId, ref connectionAccountIds, ref permissionableType, ref permissionableId, ref searchRange, ref keyword, ref pending, ref admin, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2504,9 +2451,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/permissions/distancesearch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/permissions/distancesearch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/permissions/distancesearch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/permissions/distancesearch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2574,13 +2520,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/permissions/distancesearch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/permissions/distancesearch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchPermissionablesFollowingDistanceDefaultImplementation(apiResponseLocalVar, version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
+                        AfterSearchPermissionablesFollowingDistanceDefaultImplementation(apiResponseLocalVar, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
 
                         Events.ExecuteOnSearchPermissionablesFollowingDistance(apiResponseLocalVar);
 
@@ -2590,7 +2536,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchPermissionablesFollowingDistanceDefaultImplementation(e, "/api/{version}/permissions/distancesearch", uriBuilderLocalVar.Path, version, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
+                OnErrorSearchPermissionablesFollowingDistanceDefaultImplementation(e, "/permissions/distancesearch", uriBuilderLocalVar.Path, latitude, longitude, deviceId, accountId, connectionAccountId, connectionAccountIds, permissionableType, permissionableId, searchRange, keyword, pending, admin, start, limit);
                 Events.ExecuteOnErrorSearchPermissionablesFollowingDistance(e);
                 throw;
             }

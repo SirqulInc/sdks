@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Create new cargo type
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCargoTypeApiResponse"/>&gt;</returns>
-        Task<ICreateCargoTypeApiResponse> CreateCargoTypeAsync(decimal version, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateCargoTypeApiResponse> CreateCargoTypeAsync(Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Cargo Type
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create new cargo type
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCargoTypeApiResponse"/>?&gt;</returns>
-        Task<ICreateCargoTypeApiResponse?> CreateCargoTypeOrDefaultAsync(decimal version, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateCargoTypeApiResponse?> CreateCargoTypeOrDefaultAsync(Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Cargo Type
@@ -70,11 +68,10 @@ namespace Org.OpenAPITools.Api
         /// Delete a type of cargo
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the ID of the cargo type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCargoTypeApiResponse"/>&gt;</returns>
-        Task<IDeleteCargoTypeApiResponse> DeleteCargoTypeAsync(decimal version, long cargoTypeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteCargoTypeApiResponse> DeleteCargoTypeAsync(long cargoTypeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Cargo Type
@@ -82,11 +79,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a type of cargo
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the ID of the cargo type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCargoTypeApiResponse"/>?&gt;</returns>
-        Task<IDeleteCargoTypeApiResponse?> DeleteCargoTypeOrDefaultAsync(decimal version, long cargoTypeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteCargoTypeApiResponse?> DeleteCargoTypeOrDefaultAsync(long cargoTypeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Cargo Type
@@ -95,11 +91,10 @@ namespace Org.OpenAPITools.Api
         /// Get an existing cargo type
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the cargo type ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCargoTypeApiResponse"/>&gt;</returns>
-        Task<IGetCargoTypeApiResponse> GetCargoTypeAsync(decimal version, long cargoTypeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCargoTypeApiResponse> GetCargoTypeAsync(long cargoTypeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Cargo Type
@@ -107,11 +102,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an existing cargo type
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the cargo type ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCargoTypeApiResponse"/>?&gt;</returns>
-        Task<IGetCargoTypeApiResponse?> GetCargoTypeOrDefaultAsync(decimal version, long cargoTypeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCargoTypeApiResponse?> GetCargoTypeOrDefaultAsync(long cargoTypeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Cargo Type
@@ -120,7 +114,6 @@ namespace Org.OpenAPITools.Api
         /// Search for types of cargo
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the sort field to use for the cargo type</param>
         /// <param name="descending">if the cargo type should be should be in descending order</param>
         /// <param name="start">the start of the search</param>
@@ -130,7 +123,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId">the ID of the hub (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCargoTypesApiResponse"/>&gt;</returns>
-        Task<ISearchCargoTypesApiResponse> SearchCargoTypesAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCargoTypesApiResponse> SearchCargoTypesAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Cargo Type
@@ -138,7 +131,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for types of cargo
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">the sort field to use for the cargo type</param>
         /// <param name="descending">if the cargo type should be should be in descending order</param>
         /// <param name="start">the start of the search</param>
@@ -148,7 +140,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId">the ID of the hub (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCargoTypesApiResponse"/>?&gt;</returns>
-        Task<ISearchCargoTypesApiResponse?> SearchCargoTypesOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCargoTypesApiResponse?> SearchCargoTypesOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Cargo Type
@@ -157,12 +149,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing cargo type
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the ID of the cargo type</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCargoTypeApiResponse"/>&gt;</returns>
-        Task<IUpdateCargoTypeApiResponse> UpdateCargoTypeAsync(decimal version, long cargoTypeId, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateCargoTypeApiResponse> UpdateCargoTypeAsync(long cargoTypeId, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Cargo Type
@@ -170,12 +161,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing cargo type
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the ID of the cargo type</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCargoTypeApiResponse"/>?&gt;</returns>
-        Task<IUpdateCargoTypeApiResponse?> UpdateCargoTypeOrDefaultAsync(decimal version, long cargoTypeId, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateCargoTypeApiResponse?> UpdateCargoTypeOrDefaultAsync(long cargoTypeId, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -391,7 +381,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateCargoType(ref decimal version, Option<CargoType> body);
+        partial void FormatCreateCargoType(Option<CargoType> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -408,12 +398,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateCargoTypeDefaultImplementation(ICreateCargoTypeApiResponse apiResponseLocalVar, decimal version, Option<CargoType> body)
+        private void AfterCreateCargoTypeDefaultImplementation(ICreateCargoTypeApiResponse apiResponseLocalVar, Option<CargoType> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateCargoType(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateCargoType(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -423,9 +412,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateCargoType(ref bool suppressDefaultLog, ICreateCargoTypeApiResponse apiResponseLocalVar, decimal version, Option<CargoType> body);
+        partial void AfterCreateCargoType(ref bool suppressDefaultLog, ICreateCargoTypeApiResponse apiResponseLocalVar, Option<CargoType> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -433,12 +421,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateCargoTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<CargoType> body)
+        private void OnErrorCreateCargoTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<CargoType> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateCargoType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateCargoType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -450,22 +437,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateCargoType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<CargoType> body);
+        partial void OnErrorCreateCargoType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<CargoType> body);
 
         /// <summary>
         /// Create Cargo Type Create new cargo type
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCargoTypeApiResponse"/>&gt;</returns>
-        public async Task<ICreateCargoTypeApiResponse?> CreateCargoTypeOrDefaultAsync(decimal version, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateCargoTypeApiResponse?> CreateCargoTypeOrDefaultAsync(Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateCargoTypeAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateCargoTypeAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -477,11 +462,10 @@ namespace Org.OpenAPITools.Api
         /// Create Cargo Type Create new cargo type
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateCargoTypeApiResponse"/>&gt;</returns>
-        public async Task<ICreateCargoTypeApiResponse> CreateCargoTypeAsync(decimal version, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateCargoTypeApiResponse> CreateCargoTypeAsync(Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -489,7 +473,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateCargoType(body);
 
-                FormatCreateCargoType(ref version, body);
+                FormatCreateCargoType(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -497,9 +481,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/cargo/type"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/cargo/type");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/cargo/type"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/cargo/type");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -529,13 +512,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/cargo/type", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/cargo/type", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateCargoTypeDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateCargoTypeDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateCargoType(apiResponseLocalVar);
 
@@ -545,7 +528,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateCargoTypeDefaultImplementation(e, "/api/{version}/cargo/type", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateCargoTypeDefaultImplementation(e, "/cargo/type", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateCargoType(e);
                 throw;
             }
@@ -644,18 +627,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteCargoType(ref decimal version, ref long cargoTypeId);
+        partial void FormatDeleteCargoType(ref long cargoTypeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
-        private void AfterDeleteCargoTypeDefaultImplementation(IDeleteCargoTypeApiResponse apiResponseLocalVar, decimal version, long cargoTypeId)
+        private void AfterDeleteCargoTypeDefaultImplementation(IDeleteCargoTypeApiResponse apiResponseLocalVar, long cargoTypeId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteCargoType(ref suppressDefaultLog, apiResponseLocalVar, version, cargoTypeId);
+            AfterDeleteCargoType(ref suppressDefaultLog, apiResponseLocalVar, cargoTypeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -665,9 +647,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
-        partial void AfterDeleteCargoType(ref bool suppressDefaultLog, IDeleteCargoTypeApiResponse apiResponseLocalVar, decimal version, long cargoTypeId);
+        partial void AfterDeleteCargoType(ref bool suppressDefaultLog, IDeleteCargoTypeApiResponse apiResponseLocalVar, long cargoTypeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -675,12 +656,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
-        private void OnErrorDeleteCargoTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long cargoTypeId)
+        private void OnErrorDeleteCargoTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long cargoTypeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteCargoType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, cargoTypeId);
+            OnErrorDeleteCargoType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, cargoTypeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -692,22 +672,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
-        partial void OnErrorDeleteCargoType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long cargoTypeId);
+        partial void OnErrorDeleteCargoType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long cargoTypeId);
 
         /// <summary>
         /// Delete Cargo Type Delete a type of cargo
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the ID of the cargo type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCargoTypeApiResponse"/>&gt;</returns>
-        public async Task<IDeleteCargoTypeApiResponse?> DeleteCargoTypeOrDefaultAsync(decimal version, long cargoTypeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteCargoTypeApiResponse?> DeleteCargoTypeOrDefaultAsync(long cargoTypeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteCargoTypeAsync(version, cargoTypeId, cancellationToken).ConfigureAwait(false);
+                return await DeleteCargoTypeAsync(cargoTypeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -719,17 +697,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Cargo Type Delete a type of cargo
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the ID of the cargo type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteCargoTypeApiResponse"/>&gt;</returns>
-        public async Task<IDeleteCargoTypeApiResponse> DeleteCargoTypeAsync(decimal version, long cargoTypeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteCargoTypeApiResponse> DeleteCargoTypeAsync(long cargoTypeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteCargoType(ref version, ref cargoTypeId);
+                FormatDeleteCargoType(ref cargoTypeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -737,9 +714,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/cargo/type/{cargoTypeId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/cargo/type/{cargoTypeId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/cargo/type/{cargoTypeId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/cargo/type/{cargoTypeId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BcargoTypeId%7D", Uri.EscapeDataString(cargoTypeId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -756,13 +732,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/cargo/type/{cargoTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/cargo/type/{cargoTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteCargoTypeDefaultImplementation(apiResponseLocalVar, version, cargoTypeId);
+                        AfterDeleteCargoTypeDefaultImplementation(apiResponseLocalVar, cargoTypeId);
 
                         Events.ExecuteOnDeleteCargoType(apiResponseLocalVar);
 
@@ -772,7 +748,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteCargoTypeDefaultImplementation(e, "/api/{version}/cargo/type/{cargoTypeId}", uriBuilderLocalVar.Path, version, cargoTypeId);
+                OnErrorDeleteCargoTypeDefaultImplementation(e, "/cargo/type/{cargoTypeId}", uriBuilderLocalVar.Path, cargoTypeId);
                 Events.ExecuteOnErrorDeleteCargoType(e);
                 throw;
             }
@@ -839,18 +815,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCargoType(ref decimal version, ref long cargoTypeId);
+        partial void FormatGetCargoType(ref long cargoTypeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
-        private void AfterGetCargoTypeDefaultImplementation(IGetCargoTypeApiResponse apiResponseLocalVar, decimal version, long cargoTypeId)
+        private void AfterGetCargoTypeDefaultImplementation(IGetCargoTypeApiResponse apiResponseLocalVar, long cargoTypeId)
         {
             bool suppressDefaultLog = false;
-            AfterGetCargoType(ref suppressDefaultLog, apiResponseLocalVar, version, cargoTypeId);
+            AfterGetCargoType(ref suppressDefaultLog, apiResponseLocalVar, cargoTypeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -860,9 +835,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
-        partial void AfterGetCargoType(ref bool suppressDefaultLog, IGetCargoTypeApiResponse apiResponseLocalVar, decimal version, long cargoTypeId);
+        partial void AfterGetCargoType(ref bool suppressDefaultLog, IGetCargoTypeApiResponse apiResponseLocalVar, long cargoTypeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -870,12 +844,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
-        private void OnErrorGetCargoTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long cargoTypeId)
+        private void OnErrorGetCargoTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long cargoTypeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCargoType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, cargoTypeId);
+            OnErrorGetCargoType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, cargoTypeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -887,22 +860,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
-        partial void OnErrorGetCargoType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long cargoTypeId);
+        partial void OnErrorGetCargoType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long cargoTypeId);
 
         /// <summary>
         /// Get Cargo Type Get an existing cargo type
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the cargo type ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCargoTypeApiResponse"/>&gt;</returns>
-        public async Task<IGetCargoTypeApiResponse?> GetCargoTypeOrDefaultAsync(decimal version, long cargoTypeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCargoTypeApiResponse?> GetCargoTypeOrDefaultAsync(long cargoTypeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCargoTypeAsync(version, cargoTypeId, cancellationToken).ConfigureAwait(false);
+                return await GetCargoTypeAsync(cargoTypeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -914,17 +885,16 @@ namespace Org.OpenAPITools.Api
         /// Get Cargo Type Get an existing cargo type
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the cargo type ID</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCargoTypeApiResponse"/>&gt;</returns>
-        public async Task<IGetCargoTypeApiResponse> GetCargoTypeAsync(decimal version, long cargoTypeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCargoTypeApiResponse> GetCargoTypeAsync(long cargoTypeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetCargoType(ref version, ref cargoTypeId);
+                FormatGetCargoType(ref cargoTypeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -932,9 +902,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/cargo/type/{cargoTypeId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/cargo/type/{cargoTypeId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/cargo/type/{cargoTypeId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/cargo/type/{cargoTypeId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BcargoTypeId%7D", Uri.EscapeDataString(cargoTypeId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -960,13 +929,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/cargo/type/{cargoTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/cargo/type/{cargoTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCargoTypeDefaultImplementation(apiResponseLocalVar, version, cargoTypeId);
+                        AfterGetCargoTypeDefaultImplementation(apiResponseLocalVar, cargoTypeId);
 
                         Events.ExecuteOnGetCargoType(apiResponseLocalVar);
 
@@ -976,7 +945,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCargoTypeDefaultImplementation(e, "/api/{version}/cargo/type/{cargoTypeId}", uriBuilderLocalVar.Path, version, cargoTypeId);
+                OnErrorGetCargoTypeDefaultImplementation(e, "/cargo/type/{cargoTypeId}", uriBuilderLocalVar.Path, cargoTypeId);
                 Events.ExecuteOnErrorGetCargoType(e);
                 throw;
             }
@@ -1075,7 +1044,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchCargoTypes(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> retailerId, ref Option<long> hubId);
+        partial void FormatSearchCargoTypes(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> retailerId, ref Option<long> hubId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1092,7 +1061,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1100,10 +1068,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="retailerId"></param>
         /// <param name="hubId"></param>
-        private void AfterSearchCargoTypesDefaultImplementation(ISearchCargoTypesApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId)
+        private void AfterSearchCargoTypesDefaultImplementation(ISearchCargoTypesApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId)
         {
             bool suppressDefaultLog = false;
-            AfterSearchCargoTypes(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+            AfterSearchCargoTypes(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, retailerId, hubId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1113,7 +1081,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1121,7 +1088,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="retailerId"></param>
         /// <param name="hubId"></param>
-        partial void AfterSearchCargoTypes(ref bool suppressDefaultLog, ISearchCargoTypesApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId);
+        partial void AfterSearchCargoTypes(ref bool suppressDefaultLog, ISearchCargoTypesApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1129,7 +1096,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1137,10 +1103,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="retailerId"></param>
         /// <param name="hubId"></param>
-        private void OnErrorSearchCargoTypesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId)
+        private void OnErrorSearchCargoTypesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchCargoTypes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+            OnErrorSearchCargoTypes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, retailerId, hubId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1152,7 +1118,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1160,12 +1125,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="retailerId"></param>
         /// <param name="hubId"></param>
-        partial void OnErrorSearchCargoTypes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId);
+        partial void OnErrorSearchCargoTypes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId);
 
         /// <summary>
         /// Search Cargo Type Search for types of cargo
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">the sort field to use for the cargo type</param>
         /// <param name="descending">if the cargo type should be should be in descending order</param>
         /// <param name="start">the start of the search</param>
@@ -1175,11 +1139,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId">the ID of the hub (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCargoTypesApiResponse"/>&gt;</returns>
-        public async Task<ISearchCargoTypesApiResponse?> SearchCargoTypesOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCargoTypesApiResponse?> SearchCargoTypesOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchCargoTypesAsync(version, sortField, descending, start, limit, activeOnly, retailerId, hubId, cancellationToken).ConfigureAwait(false);
+                return await SearchCargoTypesAsync(sortField, descending, start, limit, activeOnly, retailerId, hubId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1191,7 +1155,6 @@ namespace Org.OpenAPITools.Api
         /// Search Cargo Type Search for types of cargo
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the sort field to use for the cargo type</param>
         /// <param name="descending">if the cargo type should be should be in descending order</param>
         /// <param name="start">the start of the search</param>
@@ -1201,7 +1164,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId">the ID of the hub (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCargoTypesApiResponse"/>&gt;</returns>
-        public async Task<ISearchCargoTypesApiResponse> SearchCargoTypesAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCargoTypesApiResponse> SearchCargoTypesAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1209,7 +1172,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchCargoTypes(sortField);
 
-                FormatSearchCargoTypes(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref retailerId, ref hubId);
+                FormatSearchCargoTypes(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref retailerId, ref hubId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1217,9 +1180,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/cargo/type"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/cargo/type");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/cargo/type"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/cargo/type");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1260,13 +1222,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/cargo/type", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/cargo/type", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchCargoTypesDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+                        AfterSearchCargoTypesDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, retailerId, hubId);
 
                         Events.ExecuteOnSearchCargoTypes(apiResponseLocalVar);
 
@@ -1276,7 +1238,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchCargoTypesDefaultImplementation(e, "/api/{version}/cargo/type", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+                OnErrorSearchCargoTypesDefaultImplementation(e, "/cargo/type", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, retailerId, hubId);
                 Events.ExecuteOnErrorSearchCargoTypes(e);
                 throw;
             }
@@ -1375,7 +1337,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateCargoType(ref decimal version, ref long cargoTypeId, Option<CargoType> body);
+        partial void FormatUpdateCargoType(ref long cargoTypeId, Option<CargoType> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1392,13 +1354,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
         /// <param name="body"></param>
-        private void AfterUpdateCargoTypeDefaultImplementation(IUpdateCargoTypeApiResponse apiResponseLocalVar, decimal version, long cargoTypeId, Option<CargoType> body)
+        private void AfterUpdateCargoTypeDefaultImplementation(IUpdateCargoTypeApiResponse apiResponseLocalVar, long cargoTypeId, Option<CargoType> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateCargoType(ref suppressDefaultLog, apiResponseLocalVar, version, cargoTypeId, body);
+            AfterUpdateCargoType(ref suppressDefaultLog, apiResponseLocalVar, cargoTypeId, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1408,10 +1369,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateCargoType(ref bool suppressDefaultLog, IUpdateCargoTypeApiResponse apiResponseLocalVar, decimal version, long cargoTypeId, Option<CargoType> body);
+        partial void AfterUpdateCargoType(ref bool suppressDefaultLog, IUpdateCargoTypeApiResponse apiResponseLocalVar, long cargoTypeId, Option<CargoType> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1419,13 +1379,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateCargoTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long cargoTypeId, Option<CargoType> body)
+        private void OnErrorUpdateCargoTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long cargoTypeId, Option<CargoType> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateCargoType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, cargoTypeId, body);
+            OnErrorUpdateCargoType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, cargoTypeId, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1437,24 +1396,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateCargoType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long cargoTypeId, Option<CargoType> body);
+        partial void OnErrorUpdateCargoType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long cargoTypeId, Option<CargoType> body);
 
         /// <summary>
         /// Update Cargo Type Update an existing cargo type
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the ID of the cargo type</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCargoTypeApiResponse"/>&gt;</returns>
-        public async Task<IUpdateCargoTypeApiResponse?> UpdateCargoTypeOrDefaultAsync(decimal version, long cargoTypeId, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateCargoTypeApiResponse?> UpdateCargoTypeOrDefaultAsync(long cargoTypeId, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateCargoTypeAsync(version, cargoTypeId, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateCargoTypeAsync(cargoTypeId, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1466,12 +1423,11 @@ namespace Org.OpenAPITools.Api
         /// Update Cargo Type Update an existing cargo type
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cargoTypeId">the ID of the cargo type</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateCargoTypeApiResponse"/>&gt;</returns>
-        public async Task<IUpdateCargoTypeApiResponse> UpdateCargoTypeAsync(decimal version, long cargoTypeId, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateCargoTypeApiResponse> UpdateCargoTypeAsync(long cargoTypeId, Option<CargoType> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1479,7 +1435,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateCargoType(body);
 
-                FormatUpdateCargoType(ref version, ref cargoTypeId, body);
+                FormatUpdateCargoType(ref cargoTypeId, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1487,9 +1443,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/cargo/type/{cargoTypeId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/cargo/type/{cargoTypeId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/cargo/type/{cargoTypeId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/cargo/type/{cargoTypeId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BcargoTypeId%7D", Uri.EscapeDataString(cargoTypeId.ToString()));
 
                     if (body.IsSet)
@@ -1520,13 +1475,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/cargo/type/{cargoTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/cargo/type/{cargoTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateCargoTypeDefaultImplementation(apiResponseLocalVar, version, cargoTypeId, body);
+                        AfterUpdateCargoTypeDefaultImplementation(apiResponseLocalVar, cargoTypeId, body);
 
                         Events.ExecuteOnUpdateCargoType(apiResponseLocalVar);
 
@@ -1536,7 +1491,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateCargoTypeDefaultImplementation(e, "/api/{version}/cargo/type/{cargoTypeId}", uriBuilderLocalVar.Path, version, cargoTypeId, body);
+                OnErrorUpdateCargoTypeDefaultImplementation(e, "/cargo/type/{cargoTypeId}", uriBuilderLocalVar.Path, cargoTypeId, body);
                 Events.ExecuteOnErrorUpdateCargoType(e);
                 throw;
             }

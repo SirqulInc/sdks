@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Create a new location from a real object location.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateLocationV2ApiResponse"/>&gt;</returns>
-        Task<ICreateLocationV2ApiResponse> CreateLocationV2Async(decimal version, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateLocationV2ApiResponse> CreateLocationV2Async(Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create new location
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new location from a real object location.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateLocationV2ApiResponse"/>?&gt;</returns>
-        Task<ICreateLocationV2ApiResponse?> CreateLocationV2OrDefaultAsync(decimal version, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateLocationV2ApiResponse?> CreateLocationV2OrDefaultAsync(Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update an existing location
@@ -70,12 +68,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing location
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the location to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationV2ApiResponse"/>&gt;</returns>
-        Task<IUpdateLocationV2ApiResponse> UpdateLocationV2Async(decimal version, long id, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateLocationV2ApiResponse> UpdateLocationV2Async(long id, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update an existing location
@@ -83,12 +80,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing location
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the location to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationV2ApiResponse"/>?&gt;</returns>
-        Task<IUpdateLocationV2ApiResponse?> UpdateLocationV2OrDefaultAsync(decimal version, long id, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateLocationV2ApiResponse?> UpdateLocationV2OrDefaultAsync(long id, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -208,7 +204,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateLocationV2(ref decimal version, Option<Location> body);
+        partial void FormatCreateLocationV2(Option<Location> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -225,12 +221,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateLocationV2DefaultImplementation(ICreateLocationV2ApiResponse apiResponseLocalVar, decimal version, Option<Location> body)
+        private void AfterCreateLocationV2DefaultImplementation(ICreateLocationV2ApiResponse apiResponseLocalVar, Option<Location> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateLocationV2(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateLocationV2(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -240,9 +235,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateLocationV2(ref bool suppressDefaultLog, ICreateLocationV2ApiResponse apiResponseLocalVar, decimal version, Option<Location> body);
+        partial void AfterCreateLocationV2(ref bool suppressDefaultLog, ICreateLocationV2ApiResponse apiResponseLocalVar, Option<Location> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -250,12 +244,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateLocationV2DefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Location> body)
+        private void OnErrorCreateLocationV2DefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Location> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateLocationV2(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateLocationV2(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -267,22 +260,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateLocationV2(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Location> body);
+        partial void OnErrorCreateLocationV2(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Location> body);
 
         /// <summary>
         /// Create new location Create a new location from a real object location.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateLocationV2ApiResponse"/>&gt;</returns>
-        public async Task<ICreateLocationV2ApiResponse?> CreateLocationV2OrDefaultAsync(decimal version, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateLocationV2ApiResponse?> CreateLocationV2OrDefaultAsync(Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateLocationV2Async(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateLocationV2Async(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -294,11 +285,10 @@ namespace Org.OpenAPITools.Api
         /// Create new location Create a new location from a real object location.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateLocationV2ApiResponse"/>&gt;</returns>
-        public async Task<ICreateLocationV2ApiResponse> CreateLocationV2Async(decimal version, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateLocationV2ApiResponse> CreateLocationV2Async(Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -306,7 +296,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateLocationV2(body);
 
-                FormatCreateLocationV2(ref version, body);
+                FormatCreateLocationV2(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -314,9 +304,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -346,13 +335,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateLocationV2DefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateLocationV2DefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateLocationV2(apiResponseLocalVar);
 
@@ -362,7 +351,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateLocationV2DefaultImplementation(e, "/api/{version}/location", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateLocationV2DefaultImplementation(e, "/location", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateLocationV2(e);
                 throw;
             }
@@ -461,7 +450,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateLocationV2(ref decimal version, ref long id, Option<Location> body);
+        partial void FormatUpdateLocationV2(ref long id, Option<Location> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -478,13 +467,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateLocationV2DefaultImplementation(IUpdateLocationV2ApiResponse apiResponseLocalVar, decimal version, long id, Option<Location> body)
+        private void AfterUpdateLocationV2DefaultImplementation(IUpdateLocationV2ApiResponse apiResponseLocalVar, long id, Option<Location> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateLocationV2(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateLocationV2(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -494,10 +482,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateLocationV2(ref bool suppressDefaultLog, IUpdateLocationV2ApiResponse apiResponseLocalVar, decimal version, long id, Option<Location> body);
+        partial void AfterUpdateLocationV2(ref bool suppressDefaultLog, IUpdateLocationV2ApiResponse apiResponseLocalVar, long id, Option<Location> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -505,13 +492,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateLocationV2DefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Location> body)
+        private void OnErrorUpdateLocationV2DefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Location> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateLocationV2(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateLocationV2(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -523,24 +509,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateLocationV2(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Location> body);
+        partial void OnErrorUpdateLocationV2(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Location> body);
 
         /// <summary>
         /// Update an existing location Update an existing location
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the location to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationV2ApiResponse"/>&gt;</returns>
-        public async Task<IUpdateLocationV2ApiResponse?> UpdateLocationV2OrDefaultAsync(decimal version, long id, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateLocationV2ApiResponse?> UpdateLocationV2OrDefaultAsync(long id, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateLocationV2Async(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateLocationV2Async(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -552,12 +536,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing location Update an existing location
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the location to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationV2ApiResponse"/>&gt;</returns>
-        public async Task<IUpdateLocationV2ApiResponse> UpdateLocationV2Async(decimal version, long id, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateLocationV2ApiResponse> UpdateLocationV2Async(long id, Option<Location> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -565,7 +548,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateLocationV2(body);
 
-                FormatUpdateLocationV2(ref version, ref id, body);
+                FormatUpdateLocationV2(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -573,9 +556,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -606,13 +588,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateLocationV2DefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateLocationV2DefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateLocationV2(apiResponseLocalVar);
 
@@ -622,7 +604,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateLocationV2DefaultImplementation(e, "/api/{version}/location/{id}", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateLocationV2DefaultImplementation(e, "/location/{id}", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateLocationV2(e);
                 throw;
             }

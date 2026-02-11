@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="data">Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IComputeRoutingApiResponse"/>&gt;</returns>
-        Task<IComputeRoutingApiResponse> ComputeRoutingAsync(decimal version, string data, System.Threading.CancellationToken cancellationToken = default);
+        Task<IComputeRoutingApiResponse> ComputeRoutingAsync(string data, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Compute Route
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="data">Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IComputeRoutingApiResponse"/>?&gt;</returns>
-        Task<IComputeRoutingApiResponse?> ComputeRoutingOrDefaultAsync(decimal version, string data, System.Threading.CancellationToken cancellationToken = default);
+        Task<IComputeRoutingApiResponse?> ComputeRoutingOrDefaultAsync(string data, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -149,7 +147,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatComputeRouting(ref decimal version, ref string data);
+        partial void FormatComputeRouting(ref string data);
 
         /// <summary>
         /// Validates the request parameters
@@ -166,12 +164,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
-        private void AfterComputeRoutingDefaultImplementation(IComputeRoutingApiResponse apiResponseLocalVar, decimal version, string data)
+        private void AfterComputeRoutingDefaultImplementation(IComputeRoutingApiResponse apiResponseLocalVar, string data)
         {
             bool suppressDefaultLog = false;
-            AfterComputeRouting(ref suppressDefaultLog, apiResponseLocalVar, version, data);
+            AfterComputeRouting(ref suppressDefaultLog, apiResponseLocalVar, data);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -181,9 +178,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
-        partial void AfterComputeRouting(ref bool suppressDefaultLog, IComputeRoutingApiResponse apiResponseLocalVar, decimal version, string data);
+        partial void AfterComputeRouting(ref bool suppressDefaultLog, IComputeRoutingApiResponse apiResponseLocalVar, string data);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -191,12 +187,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
-        private void OnErrorComputeRoutingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string data)
+        private void OnErrorComputeRoutingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string data)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorComputeRouting(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, data);
+            OnErrorComputeRouting(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, data);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -208,22 +203,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
-        partial void OnErrorComputeRouting(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string data);
+        partial void OnErrorComputeRouting(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string data);
 
         /// <summary>
         /// Compute Route This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="data">Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IComputeRoutingApiResponse"/>&gt;</returns>
-        public async Task<IComputeRoutingApiResponse?> ComputeRoutingOrDefaultAsync(decimal version, string data, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IComputeRoutingApiResponse?> ComputeRoutingOrDefaultAsync(string data, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ComputeRoutingAsync(version, data, cancellationToken).ConfigureAwait(false);
+                return await ComputeRoutingAsync(data, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -235,11 +228,10 @@ namespace Org.OpenAPITools.Api
         /// Compute Route This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="data">Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IComputeRoutingApiResponse"/>&gt;</returns>
-        public async Task<IComputeRoutingApiResponse> ComputeRoutingAsync(decimal version, string data, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IComputeRoutingApiResponse> ComputeRoutingAsync(string data, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -247,7 +239,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateComputeRouting(data);
 
-                FormatComputeRouting(ref version, ref data);
+                FormatComputeRouting(ref data);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -255,9 +247,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/routing/compute"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/routing/compute");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/routing/compute"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/routing/compute");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -288,13 +279,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/routing/compute", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/routing/compute", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterComputeRoutingDefaultImplementation(apiResponseLocalVar, version, data);
+                        AfterComputeRoutingDefaultImplementation(apiResponseLocalVar, data);
 
                         Events.ExecuteOnComputeRouting(apiResponseLocalVar);
 
@@ -304,7 +295,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorComputeRoutingDefaultImplementation(e, "/api/{version}/routing/compute", uriBuilderLocalVar.Path, version, data);
+                OnErrorComputeRoutingDefaultImplementation(e, "/routing/compute", uriBuilderLocalVar.Path, data);
                 Events.ExecuteOnErrorComputeRouting(e);
                 throw;
             }

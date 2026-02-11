@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="q">Deprecated - legacy query parameter (optional)</param>
@@ -82,7 +81,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="contentAdminOnly">Returns only content admin users (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAccountLocationSearchApiResponse"/>&gt;</returns>
-        Task<IAccountLocationSearchApiResponse> AccountLocationSearchAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> postalCode = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<double> range = default, Option<long> locationLastUpdated = default, Option<string> gender = default, Option<int> minAge = default, Option<int> maxAge = default, Option<int> companionshipIndex = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> roles = default, Option<string> tags = default, Option<string> experience = default, Option<string> categoryIds = default, Option<string> audienceIds = default, Option<string> audienceOperator = default, Option<bool> updateCurrentLocation = default, Option<bool> updatePreferredSettings = default, Option<bool> showExactLocations = default, Option<bool> showConnectionToSearcher = default, Option<long> flagCountMinimum = default, Option<bool> verifiedUserOnly = default, Option<bool> contentAdminOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAccountLocationSearchApiResponse> AccountLocationSearchAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> postalCode = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<double> range = default, Option<long> locationLastUpdated = default, Option<string> gender = default, Option<int> minAge = default, Option<int> maxAge = default, Option<int> companionshipIndex = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> roles = default, Option<string> tags = default, Option<string> experience = default, Option<string> categoryIds = default, Option<string> audienceIds = default, Option<string> audienceOperator = default, Option<bool> updateCurrentLocation = default, Option<bool> updatePreferredSettings = default, Option<bool> showExactLocations = default, Option<bool> showConnectionToSearcher = default, Option<long> flagCountMinimum = default, Option<bool> verifiedUserOnly = default, Option<bool> contentAdminOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Accounts by Location
@@ -90,7 +89,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="q">Deprecated - legacy query parameter (optional)</param>
@@ -127,7 +125,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="contentAdminOnly">Returns only content admin users (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAccountLocationSearchApiResponse"/>?&gt;</returns>
-        Task<IAccountLocationSearchApiResponse?> AccountLocationSearchOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> postalCode = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<double> range = default, Option<long> locationLastUpdated = default, Option<string> gender = default, Option<int> minAge = default, Option<int> maxAge = default, Option<int> companionshipIndex = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> roles = default, Option<string> tags = default, Option<string> experience = default, Option<string> categoryIds = default, Option<string> audienceIds = default, Option<string> audienceOperator = default, Option<bool> updateCurrentLocation = default, Option<bool> updatePreferredSettings = default, Option<bool> showExactLocations = default, Option<bool> showConnectionToSearcher = default, Option<long> flagCountMinimum = default, Option<bool> verifiedUserOnly = default, Option<bool> contentAdminOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAccountLocationSearchApiResponse?> AccountLocationSearchOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> postalCode = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<double> range = default, Option<long> locationLastUpdated = default, Option<string> gender = default, Option<int> minAge = default, Option<int> maxAge = default, Option<int> companionshipIndex = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> roles = default, Option<string> tags = default, Option<string> experience = default, Option<string> categoryIds = default, Option<string> audienceIds = default, Option<string> audienceOperator = default, Option<bool> updateCurrentLocation = default, Option<bool> updatePreferredSettings = default, Option<bool> showExactLocations = default, Option<bool> showConnectionToSearcher = default, Option<long> flagCountMinimum = default, Option<bool> verifiedUserOnly = default, Option<bool> contentAdminOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Block Account
@@ -136,7 +134,6 @@ namespace Org.OpenAPITools.Api
         /// Moves or removes an account into the user&#39;s blocked group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountIdBeingBlocked">The id of the account to be blocked/unblocked</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -146,7 +143,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBlockAccountApiResponse"/>&gt;</returns>
-        Task<IBlockAccountApiResponse> BlockAccountAsync(decimal version, long accountIdBeingBlocked, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> blockFlagValue = default, Option<bool> removeFromGroupsIfBlocked = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBlockAccountApiResponse> BlockAccountAsync(long accountIdBeingBlocked, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> blockFlagValue = default, Option<bool> removeFromGroupsIfBlocked = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Block Account
@@ -154,7 +151,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Moves or removes an account into the user&#39;s blocked group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountIdBeingBlocked">The id of the account to be blocked/unblocked</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -164,7 +160,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBlockAccountApiResponse"/>?&gt;</returns>
-        Task<IBlockAccountApiResponse?> BlockAccountOrDefaultAsync(decimal version, long accountIdBeingBlocked, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> blockFlagValue = default, Option<bool> removeFromGroupsIfBlocked = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBlockAccountApiResponse?> BlockAccountOrDefaultAsync(long accountIdBeingBlocked, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> blockFlagValue = default, Option<bool> removeFromGroupsIfBlocked = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Account
@@ -173,7 +169,6 @@ namespace Org.OpenAPITools.Api
         /// Create a new account by role.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="username">The access token to authenticate with (ex: username)</param>
         /// <param name="password">The secret to authenticate with (ex: password)</param>
         /// <param name="name">The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)</param>
@@ -248,7 +243,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="personalAudienceId">Personal audience id to associate with this account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAccountApiResponse"/>&gt;</returns>
-        Task<ICreateAccountApiResponse> CreateAccountAsync(decimal version, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> streetAddress = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> inviteToken = default, Option<long> referralAccountId = default, Option<bool> sendValidation = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, Option<string> audienceIdsToAdd = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> locationVisibility = default, Option<double> homeLatitude = default, Option<double> homeLongitude = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAccountApiResponse> CreateAccountAsync(string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> streetAddress = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> inviteToken = default, Option<long> referralAccountId = default, Option<bool> sendValidation = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, Option<string> audienceIdsToAdd = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> locationVisibility = default, Option<double> homeLatitude = default, Option<double> homeLongitude = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Account
@@ -256,7 +251,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new account by role.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="username">The access token to authenticate with (ex: username)</param>
         /// <param name="password">The secret to authenticate with (ex: password)</param>
         /// <param name="name">The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)</param>
@@ -331,7 +325,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="personalAudienceId">Personal audience id to associate with this account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAccountApiResponse"/>?&gt;</returns>
-        Task<ICreateAccountApiResponse?> CreateAccountOrDefaultAsync(decimal version, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> streetAddress = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> inviteToken = default, Option<long> referralAccountId = default, Option<bool> sendValidation = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, Option<string> audienceIdsToAdd = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> locationVisibility = default, Option<double> homeLatitude = default, Option<double> homeLongitude = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAccountApiResponse?> CreateAccountOrDefaultAsync(string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> streetAddress = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> inviteToken = default, Option<long> referralAccountId = default, Option<bool> sendValidation = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, Option<string> audienceIdsToAdd = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> locationVisibility = default, Option<double> homeLatitude = default, Option<double> homeLongitude = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Account
@@ -340,7 +334,6 @@ namespace Org.OpenAPITools.Api
         /// Edit the user&#39;s profile information
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">The account id used to edit another person&#39;s account (optional)</param>
@@ -425,7 +418,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="nonGuestUsername">The user&#39;s username to update with if they currently have a guest username (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEditAccountApiResponse"/>&gt;</returns>
-        Task<IEditAccountApiResponse> EditAccountAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> role = default, Option<long> assetId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> gender = default, Option<int> age = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<bool> makeProfileInfoPublic = default, Option<bool> makeGameInfoPublic = default, Option<bool> makeFriendsInfoPublic = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> matchToken = default, Option<string> gameExperience = default, Option<string> categories = default, Option<string> categoryIds = default, Option<string> responseFilters = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<bool> showOthersExactLocation = default, Option<bool> acceptedTerms = default, Option<string> locationVisibility = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, Option<string> nonGuestUsername = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEditAccountApiResponse> EditAccountAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> role = default, Option<long> assetId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> gender = default, Option<int> age = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<bool> makeProfileInfoPublic = default, Option<bool> makeGameInfoPublic = default, Option<bool> makeFriendsInfoPublic = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> matchToken = default, Option<string> gameExperience = default, Option<string> categories = default, Option<string> categoryIds = default, Option<string> responseFilters = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<bool> showOthersExactLocation = default, Option<bool> acceptedTerms = default, Option<string> locationVisibility = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, Option<string> nonGuestUsername = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Account
@@ -433,7 +426,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Edit the user&#39;s profile information
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">The account id used to edit another person&#39;s account (optional)</param>
@@ -518,7 +510,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="nonGuestUsername">The user&#39;s username to update with if they currently have a guest username (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEditAccountApiResponse"/>?&gt;</returns>
-        Task<IEditAccountApiResponse?> EditAccountOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> role = default, Option<long> assetId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> gender = default, Option<int> age = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<bool> makeProfileInfoPublic = default, Option<bool> makeGameInfoPublic = default, Option<bool> makeFriendsInfoPublic = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> matchToken = default, Option<string> gameExperience = default, Option<string> categories = default, Option<string> categoryIds = default, Option<string> responseFilters = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<bool> showOthersExactLocation = default, Option<bool> acceptedTerms = default, Option<string> locationVisibility = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, Option<string> nonGuestUsername = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEditAccountApiResponse?> EditAccountOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> role = default, Option<long> assetId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> gender = default, Option<int> age = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<bool> makeProfileInfoPublic = default, Option<bool> makeGameInfoPublic = default, Option<bool> makeFriendsInfoPublic = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> matchToken = default, Option<string> gameExperience = default, Option<string> categories = default, Option<string> categoryIds = default, Option<string> responseFilters = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<bool> showOthersExactLocation = default, Option<bool> acceptedTerms = default, Option<string> locationVisibility = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, Option<string> nonGuestUsername = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Username and Email
@@ -527,14 +519,13 @@ namespace Org.OpenAPITools.Api
         /// Update account&#39;s own username and/or emailAddress
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="emailAddress">the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)</param>
         /// <param name="username">the user&#39;s username to update with if they currently have a guest username (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEditUsernameApiResponse"/>&gt;</returns>
-        Task<IEditUsernameApiResponse> EditUsernameAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> emailAddress = default, Option<string> username = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEditUsernameApiResponse> EditUsernameAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> emailAddress = default, Option<string> username = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Username and Email
@@ -542,14 +533,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update account&#39;s own username and/or emailAddress
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="emailAddress">the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)</param>
         /// <param name="username">the user&#39;s username to update with if they currently have a guest username (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEditUsernameApiResponse"/>?&gt;</returns>
-        Task<IEditUsernameApiResponse?> EditUsernameOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> emailAddress = default, Option<string> username = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEditUsernameApiResponse?> EditUsernameOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> emailAddress = default, Option<string> username = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Account
@@ -558,7 +548,6 @@ namespace Org.OpenAPITools.Api
         /// Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">Return Nulls (optional, default to false)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -573,7 +562,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccountApiResponse"/>&gt;</returns>
-        Task<IGetAccountApiResponse> GetAccountAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> responseFilters = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> purchaseType = default, Option<bool> updateViewedDate = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAccountApiResponse> GetAccountAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> responseFilters = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> purchaseType = default, Option<bool> updateViewedDate = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Account
@@ -581,7 +570,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">Return Nulls (optional, default to false)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -596,7 +584,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccountApiResponse"/>?&gt;</returns>
-        Task<IGetAccountApiResponse?> GetAccountOrDefaultAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> responseFilters = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> purchaseType = default, Option<bool> updateViewedDate = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAccountApiResponse?> GetAccountOrDefaultAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> responseFilters = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> purchaseType = default, Option<bool> updateViewedDate = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Profile Assets
@@ -605,7 +593,6 @@ namespace Org.OpenAPITools.Api
         /// Get a list of assets a person has ever uploaded. Filters the list based on parameters.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">Determines whether to return null fields in the response (optional, default to false)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -622,7 +609,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit of the pagination (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetProfileAssetsApiResponse"/>&gt;</returns>
-        Task<IGetProfileAssetsApiResponse> GetProfileAssetsAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> mediaTypes = default, Option<string> mimeTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetProfileAssetsApiResponse> GetProfileAssetsAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> mediaTypes = default, Option<string> mimeTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Profile Assets
@@ -630,7 +617,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list of assets a person has ever uploaded. Filters the list based on parameters.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">Determines whether to return null fields in the response (optional, default to false)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -647,7 +633,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit of the pagination (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetProfileAssetsApiResponse"/>?&gt;</returns>
-        Task<IGetProfileAssetsApiResponse?> GetProfileAssetsOrDefaultAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> mediaTypes = default, Option<string> mimeTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetProfileAssetsApiResponse?> GetProfileAssetsOrDefaultAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> mediaTypes = default, Option<string> mimeTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Accounts
@@ -656,7 +642,6 @@ namespace Org.OpenAPITools.Api
         /// Gets a user&#39;s account profile and their referral List.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
         /// <param name="retrieveType">one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)</param>
@@ -670,7 +655,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="childrenChildren">if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetReferralListApiResponse"/>&gt;</returns>
-        Task<IGetReferralListApiResponse> GetReferralListAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> retrieveType = default, Option<decimal> levelLimit = default, Option<decimal> ancestorLevelLimit = default, Option<decimal> childrenLevelLimit = default, Option<decimal> ancestorListStart = default, Option<decimal> ancestorListLimit = default, Option<decimal> childrenListStart = default, Option<decimal> childrenListLimit = default, Option<bool> childrenChildren = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetReferralListApiResponse> GetReferralListAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> retrieveType = default, Option<decimal> levelLimit = default, Option<decimal> ancestorLevelLimit = default, Option<decimal> childrenLevelLimit = default, Option<decimal> ancestorListStart = default, Option<decimal> ancestorListLimit = default, Option<decimal> childrenListStart = default, Option<decimal> childrenListLimit = default, Option<bool> childrenChildren = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Accounts
@@ -678,7 +663,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a user&#39;s account profile and their referral List.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
         /// <param name="retrieveType">one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)</param>
@@ -692,7 +676,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="childrenChildren">if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetReferralListApiResponse"/>?&gt;</returns>
-        Task<IGetReferralListApiResponse?> GetReferralListOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> retrieveType = default, Option<decimal> levelLimit = default, Option<decimal> ancestorLevelLimit = default, Option<decimal> childrenLevelLimit = default, Option<decimal> ancestorListStart = default, Option<decimal> ancestorListLimit = default, Option<decimal> childrenListStart = default, Option<decimal> childrenListLimit = default, Option<bool> childrenChildren = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetReferralListApiResponse?> GetReferralListOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> retrieveType = default, Option<decimal> levelLimit = default, Option<decimal> ancestorLevelLimit = default, Option<decimal> childrenLevelLimit = default, Option<decimal> ancestorListStart = default, Option<decimal> ancestorListLimit = default, Option<decimal> childrenListStart = default, Option<decimal> childrenListLimit = default, Option<bool> childrenChildren = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Account Settings
@@ -701,14 +685,13 @@ namespace Org.OpenAPITools.Api
         /// Get the account settings for a user
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The current latitude of the user (optional)</param>
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSettingsApiResponse"/>&gt;</returns>
-        Task<IGetSettingsApiResponse> GetSettingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSettingsApiResponse> GetSettingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Account Settings
@@ -716,14 +699,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the account settings for a user
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The current latitude of the user (optional)</param>
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSettingsApiResponse"/>?&gt;</returns>
-        Task<IGetSettingsApiResponse?> GetSettingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSettingsApiResponse?> GetSettingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login as Account
@@ -732,7 +714,6 @@ namespace Org.OpenAPITools.Api
         /// A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"> (optional)</param>
@@ -746,7 +727,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginDelegateApiResponse"/>&gt;</returns>
-        Task<ILoginDelegateApiResponse> LoginDelegateAsync(decimal version, string accessToken, string appKey, Option<string> deviceId = default, Option<string> accessTokenSecret = default, Option<long> delegatedAccountId = default, Option<string> delegatedUsername = default, Option<string> networkUID = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginDelegateApiResponse> LoginDelegateAsync(string accessToken, string appKey, Option<string> deviceId = default, Option<string> accessTokenSecret = default, Option<long> delegatedAccountId = default, Option<string> delegatedUsername = default, Option<string> networkUID = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login as Account
@@ -754,7 +735,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"> (optional)</param>
@@ -768,7 +748,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginDelegateApiResponse"/>?&gt;</returns>
-        Task<ILoginDelegateApiResponse?> LoginDelegateOrDefaultAsync(decimal version, string accessToken, string appKey, Option<string> deviceId = default, Option<string> accessTokenSecret = default, Option<long> delegatedAccountId = default, Option<string> delegatedUsername = default, Option<string> networkUID = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginDelegateApiResponse?> LoginDelegateOrDefaultAsync(string accessToken, string appKey, Option<string> deviceId = default, Option<string> accessTokenSecret = default, Option<long> delegatedAccountId = default, Option<string> delegatedUsername = default, Option<string> networkUID = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Account
@@ -777,7 +757,6 @@ namespace Org.OpenAPITools.Api
         /// General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accessToken">The access token to authenticate with (ex: username or fb token)</param>
         /// <param name="appKey">The application key</param>
         /// <param name="networkUID">The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE </param>
@@ -793,7 +772,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyCredentialId">Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginGeneralApiResponse"/>&gt;</returns>
-        Task<ILoginGeneralApiResponse> LoginGeneralAsync(decimal version, string accessToken, string appKey, string networkUID, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> accessTokenSecret = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> emailMatch = default, Option<long> chosenAccountId = default, Option<long> thirdPartyCredentialId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginGeneralApiResponse> LoginGeneralAsync(string accessToken, string appKey, string networkUID, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> accessTokenSecret = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> emailMatch = default, Option<long> chosenAccountId = default, Option<long> thirdPartyCredentialId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Account
@@ -801,7 +780,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accessToken">The access token to authenticate with (ex: username or fb token)</param>
         /// <param name="appKey">The application key</param>
         /// <param name="networkUID">The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE </param>
@@ -817,7 +795,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyCredentialId">Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginGeneralApiResponse"/>?&gt;</returns>
-        Task<ILoginGeneralApiResponse?> LoginGeneralOrDefaultAsync(decimal version, string accessToken, string appKey, string networkUID, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> accessTokenSecret = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> emailMatch = default, Option<long> chosenAccountId = default, Option<long> thirdPartyCredentialId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginGeneralApiResponse?> LoginGeneralOrDefaultAsync(string accessToken, string appKey, string networkUID, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> accessTokenSecret = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> emailMatch = default, Option<long> chosenAccountId = default, Option<long> thirdPartyCredentialId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Account (Username)
@@ -826,7 +804,6 @@ namespace Org.OpenAPITools.Api
         /// Login to system with an account
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="username">the user&#39;s email address they used to sign-up</param>
         /// <param name="password">the password</param>
         /// <param name="deviceId">the device id (optional)</param>
@@ -839,7 +816,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">a comma separated list of ProfileFilters for filtering the returned response data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginUsernameApiResponse"/>&gt;</returns>
-        Task<ILoginUsernameApiResponse> LoginUsernameAsync(decimal version, string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginUsernameApiResponse> LoginUsernameAsync(string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Account (Username)
@@ -847,7 +824,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Login to system with an account
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="username">the user&#39;s email address they used to sign-up</param>
         /// <param name="password">the password</param>
         /// <param name="deviceId">the device id (optional)</param>
@@ -860,7 +836,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">a comma separated list of ProfileFilters for filtering the returned response data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginUsernameApiResponse"/>?&gt;</returns>
-        Task<ILoginUsernameApiResponse?> LoginUsernameOrDefaultAsync(decimal version, string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginUsernameApiResponse?> LoginUsernameOrDefaultAsync(string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Logout Account
@@ -869,7 +845,6 @@ namespace Org.OpenAPITools.Api
         /// Cleans up the users data for logging out.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="deviceIdType">Device Id Type (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -877,7 +852,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILogoutApiResponse"/>&gt;</returns>
-        Task<ILogoutApiResponse> LogoutAsync(decimal version, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILogoutApiResponse> LogoutAsync(Option<string> deviceId = default, Option<string> deviceIdType = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Logout Account
@@ -885,7 +860,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Cleans up the users data for logging out.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="deviceIdType">Device Id Type (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -893,7 +867,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILogoutApiResponse"/>?&gt;</returns>
-        Task<ILogoutApiResponse?> LogoutOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILogoutApiResponse?> LogoutOrDefaultAsync(Option<string> deviceId = default, Option<string> deviceIdType = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Merge Account
@@ -902,14 +876,13 @@ namespace Org.OpenAPITools.Api
         /// Merges the analytics, achievements, leaderboards of two accounts.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="mergeAccountId">The id of the account to being merged</param>
         /// <param name="appKey">The application key</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMergeAccountApiResponse"/>&gt;</returns>
-        Task<IMergeAccountApiResponse> MergeAccountAsync(decimal version, long mergeAccountId, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMergeAccountApiResponse> MergeAccountAsync(long mergeAccountId, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Merge Account
@@ -917,14 +890,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Merges the analytics, achievements, leaderboards of two accounts.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="mergeAccountId">The id of the account to being merged</param>
         /// <param name="appKey">The application key</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMergeAccountApiResponse"/>?&gt;</returns>
-        Task<IMergeAccountApiResponse?> MergeAccountOrDefaultAsync(decimal version, long mergeAccountId, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IMergeAccountApiResponse?> MergeAccountOrDefaultAsync(long mergeAccountId, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Password
@@ -933,14 +905,13 @@ namespace Org.OpenAPITools.Api
         /// Update the account password.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to update</param>
         /// <param name="oldPassword">The current password, used to validate access</param>
         /// <param name="newPassword">The new password to set, cannot be empty</param>
         /// <param name="confirmPassword">The new password to confirm, must match newPassword</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPasswordChangeApiResponse"/>&gt;</returns>
-        Task<IPasswordChangeApiResponse> PasswordChangeAsync(decimal version, long accountId, string oldPassword, string newPassword, string confirmPassword, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPasswordChangeApiResponse> PasswordChangeAsync(long accountId, string oldPassword, string newPassword, string confirmPassword, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Password
@@ -948,14 +919,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the account password.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to update</param>
         /// <param name="oldPassword">The current password, used to validate access</param>
         /// <param name="newPassword">The new password to set, cannot be empty</param>
         /// <param name="confirmPassword">The new password to confirm, must match newPassword</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPasswordChangeApiResponse"/>?&gt;</returns>
-        Task<IPasswordChangeApiResponse?> PasswordChangeOrDefaultAsync(decimal version, long accountId, string oldPassword, string newPassword, string confirmPassword, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPasswordChangeApiResponse?> PasswordChangeOrDefaultAsync(long accountId, string oldPassword, string newPassword, string confirmPassword, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reset Password
@@ -964,13 +934,12 @@ namespace Org.OpenAPITools.Api
         /// Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="password">The new password to set, cannot be empty</param>
         /// <param name="confirm">The new password to confirm, must match newPassword</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPasswordResetApiResponse"/>&gt;</returns>
-        Task<IPasswordResetApiResponse> PasswordResetAsync(decimal version, string token, string password, string confirm, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPasswordResetApiResponse> PasswordResetAsync(string token, string password, string confirm, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reset Password
@@ -978,13 +947,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="password">The new password to set, cannot be empty</param>
         /// <param name="confirm">The new password to confirm, must match newPassword</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPasswordResetApiResponse"/>?&gt;</returns>
-        Task<IPasswordResetApiResponse?> PasswordResetOrDefaultAsync(decimal version, string token, string password, string confirm, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPasswordResetApiResponse?> PasswordResetOrDefaultAsync(string token, string password, string confirm, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Request Password Reset
@@ -993,7 +961,6 @@ namespace Org.OpenAPITools.Api
         /// Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="email">The email/username of the account</param>
         /// <param name="from">this is the sender email (optional, default to &quot;Sirqul&quot;)</param>
         /// <param name="domain">this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)</param>
@@ -1001,7 +968,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="referer">this is used to generate a password reset link (optional, default to &quot;http://dev.sirqul.com/resetpassword&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestPasswordResetApiResponse"/>&gt;</returns>
-        Task<IRequestPasswordResetApiResponse> RequestPasswordResetAsync(decimal version, string email, Option<string> from = default, Option<string> domain = default, Option<string> subUrl = default, Option<string> referer = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRequestPasswordResetApiResponse> RequestPasswordResetAsync(string email, Option<string> from = default, Option<string> domain = default, Option<string> subUrl = default, Option<string> referer = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Request Password Reset
@@ -1009,7 +976,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="email">The email/username of the account</param>
         /// <param name="from">this is the sender email (optional, default to &quot;Sirqul&quot;)</param>
         /// <param name="domain">this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)</param>
@@ -1017,7 +983,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="referer">this is used to generate a password reset link (optional, default to &quot;http://dev.sirqul.com/resetpassword&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestPasswordResetApiResponse"/>?&gt;</returns>
-        Task<IRequestPasswordResetApiResponse?> RequestPasswordResetOrDefaultAsync(decimal version, string email, Option<string> from = default, Option<string> domain = default, Option<string> subUrl = default, Option<string> referer = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRequestPasswordResetApiResponse?> RequestPasswordResetOrDefaultAsync(string email, Option<string> from = default, Option<string> domain = default, Option<string> subUrl = default, Option<string> referer = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Validation Request
@@ -1026,11 +992,10 @@ namespace Org.OpenAPITools.Api
         /// Send an email to validate a user&#39;s account.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestValidateAccountApiResponse"/>&gt;</returns>
-        Task<IRequestValidateAccountApiResponse> RequestValidateAccountAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRequestValidateAccountApiResponse> RequestValidateAccountAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Validation Request
@@ -1038,11 +1003,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Send an email to validate a user&#39;s account.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestValidateAccountApiResponse"/>?&gt;</returns>
-        Task<IRequestValidateAccountApiResponse?> RequestValidateAccountOrDefaultAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRequestValidateAccountApiResponse?> RequestValidateAccountOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Accounts
@@ -1051,7 +1015,6 @@ namespace Org.OpenAPITools.Api
         /// Search for account profiles.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account requesting</param>
         /// <param name="appKey">The application key</param>
         /// <param name="keyword">The keyword for for querying the account (optional)</param>
@@ -1072,7 +1035,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAccountsApiResponse"/>&gt;</returns>
-        Task<ISearchAccountsApiResponse> SearchAccountsAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> radius = default, Option<string> gender = default, Option<string> gameExperience = default, Option<int> age = default, Option<string> categoryIds = default, Option<bool> returnNulls = default, Option<string> responseFilters = default, Option<string> purchaseType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAccountsApiResponse> SearchAccountsAsync(long accountId, string appKey, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> radius = default, Option<string> gender = default, Option<string> gameExperience = default, Option<int> age = default, Option<string> categoryIds = default, Option<bool> returnNulls = default, Option<string> responseFilters = default, Option<string> purchaseType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Accounts
@@ -1080,7 +1043,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for account profiles.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account requesting</param>
         /// <param name="appKey">The application key</param>
         /// <param name="keyword">The keyword for for querying the account (optional)</param>
@@ -1101,7 +1063,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAccountsApiResponse"/>?&gt;</returns>
-        Task<ISearchAccountsApiResponse?> SearchAccountsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> radius = default, Option<string> gender = default, Option<string> gameExperience = default, Option<int> age = default, Option<string> categoryIds = default, Option<bool> returnNulls = default, Option<string> responseFilters = default, Option<string> purchaseType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAccountsApiResponse?> SearchAccountsOrDefaultAsync(long accountId, string appKey, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> radius = default, Option<string> gender = default, Option<string> gameExperience = default, Option<int> age = default, Option<string> categoryIds = default, Option<bool> returnNulls = default, Option<string> responseFilters = default, Option<string> purchaseType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Account (Encrypted Username)
@@ -1110,7 +1072,6 @@ namespace Org.OpenAPITools.Api
         /// ogin with encrypted user-name and password.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="username">The user&#39;s encrypted email address they used to sign-up</param>
         /// <param name="password">The encrypted password</param>
         /// <param name="gameType">The application key</param>
@@ -1122,7 +1083,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">A comma separated list of ProfileFilters for filtering the returned response data (optional, default to &quot;PROFILE&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISecureLoginApiResponse"/>&gt;</returns>
-        Task<ISecureLoginApiResponse> SecureLoginAsync(decimal version, string username, string password, string gameType, Option<string> deviceId = default, Option<string> charsetName = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISecureLoginApiResponse> SecureLoginAsync(string username, string password, string gameType, Option<string> deviceId = default, Option<string> charsetName = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Account (Encrypted Username)
@@ -1130,7 +1091,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// ogin with encrypted user-name and password.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="username">The user&#39;s encrypted email address they used to sign-up</param>
         /// <param name="password">The encrypted password</param>
         /// <param name="gameType">The application key</param>
@@ -1142,7 +1102,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">A comma separated list of ProfileFilters for filtering the returned response data (optional, default to &quot;PROFILE&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISecureLoginApiResponse"/>?&gt;</returns>
-        Task<ISecureLoginApiResponse?> SecureLoginOrDefaultAsync(decimal version, string username, string password, string gameType, Option<string> deviceId = default, Option<string> charsetName = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISecureLoginApiResponse?> SecureLoginOrDefaultAsync(string username, string password, string gameType, Option<string> deviceId = default, Option<string> charsetName = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Account (Encrypted Username)
@@ -1151,7 +1111,6 @@ namespace Org.OpenAPITools.Api
         /// Create a new account by role (with encrypted user-name and password)
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id</param>
         /// <param name="username">The encrypted email of the user, this is what will be used when they login</param>
         /// <param name="password">The encrypted password of the user</param>
@@ -1215,7 +1174,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseType">Response Type (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISecureSignupApiResponse"/>&gt;</returns>
-        Task<ISecureSignupApiResponse> SecureSignupAsync(decimal version, string deviceId, string username, string password, Option<string> name = default, Option<string> inviteToken = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> address = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> charsetName = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISecureSignupApiResponse> SecureSignupAsync(string deviceId, string username, string password, Option<string> name = default, Option<string> inviteToken = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> address = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> charsetName = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Account (Encrypted Username)
@@ -1223,7 +1182,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new account by role (with encrypted user-name and password)
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id</param>
         /// <param name="username">The encrypted email of the user, this is what will be used when they login</param>
         /// <param name="password">The encrypted password of the user</param>
@@ -1287,7 +1245,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseType">Response Type (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISecureSignupApiResponse"/>?&gt;</returns>
-        Task<ISecureSignupApiResponse?> SecureSignupOrDefaultAsync(decimal version, string deviceId, string username, string password, Option<string> name = default, Option<string> inviteToken = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> address = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> charsetName = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISecureSignupApiResponse?> SecureSignupOrDefaultAsync(string deviceId, string username, string password, Option<string> name = default, Option<string> inviteToken = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> address = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> charsetName = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save Match Token
@@ -1296,7 +1254,6 @@ namespace Org.OpenAPITools.Api
         /// Save user&#39;s match token to be used for profile match making
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="matchToken">A string of numbers (optional)</param>
@@ -1306,7 +1263,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISetMatchTokenApiResponse"/>&gt;</returns>
-        Task<ISetMatchTokenApiResponse> SetMatchTokenAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> matchToken = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISetMatchTokenApiResponse> SetMatchTokenAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> matchToken = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save Match Token
@@ -1314,7 +1271,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Save user&#39;s match token to be used for profile match making
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="matchToken">A string of numbers (optional)</param>
@@ -1324,7 +1280,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISetMatchTokenApiResponse"/>?&gt;</returns>
-        Task<ISetMatchTokenApiResponse?> SetMatchTokenOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> matchToken = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISetMatchTokenApiResponse?> SetMatchTokenOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> matchToken = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Account Active Status
@@ -1333,7 +1289,6 @@ namespace Org.OpenAPITools.Api
         /// Activate or deactivate an account (requires appropriate permissions).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
         /// <param name="connectionAccountId">The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)</param>
         /// <param name="active">true will activate the user and false will deactivate</param>
@@ -1341,7 +1296,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key that the user belongs to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateActveStatusApiResponse"/>&gt;</returns>
-        Task<IUpdateActveStatusApiResponse> UpdateActveStatusAsync(decimal version, long accountId, long connectionAccountId, bool active, Option<string> deviceId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateActveStatusApiResponse> UpdateActveStatusAsync(long accountId, long connectionAccountId, bool active, Option<string> deviceId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Account Active Status
@@ -1349,7 +1304,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Activate or deactivate an account (requires appropriate permissions).
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
         /// <param name="connectionAccountId">The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)</param>
         /// <param name="active">true will activate the user and false will deactivate</param>
@@ -1357,7 +1311,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key that the user belongs to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateActveStatusApiResponse"/>?&gt;</returns>
-        Task<IUpdateActveStatusApiResponse?> UpdateActveStatusOrDefaultAsync(decimal version, long accountId, long connectionAccountId, bool active, Option<string> deviceId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateActveStatusApiResponse?> UpdateActveStatusOrDefaultAsync(long accountId, long connectionAccountId, bool active, Option<string> deviceId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Location
@@ -1366,7 +1320,6 @@ namespace Org.OpenAPITools.Api
         /// Update the account location
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The current latitude of the user (optional)</param>
@@ -1374,7 +1327,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="clientTime">The time of the update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationApiResponse"/>&gt;</returns>
-        Task<IUpdateLocationApiResponse> UpdateLocationAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> clientTime = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateLocationApiResponse> UpdateLocationAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> clientTime = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Location
@@ -1382,7 +1335,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the account location
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The current latitude of the user (optional)</param>
@@ -1390,7 +1342,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="clientTime">The time of the update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationApiResponse"/>?&gt;</returns>
-        Task<IUpdateLocationApiResponse?> UpdateLocationOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> clientTime = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateLocationApiResponse?> UpdateLocationOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> clientTime = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Account Settings
@@ -1399,7 +1351,6 @@ namespace Org.OpenAPITools.Api
         /// Update the account settings for a user
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="blockedNotifications">The notifications to be blocked (optional)</param>
@@ -1414,7 +1365,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSettingsApiResponse"/>&gt;</returns>
-        Task<IUpdateSettingsApiResponse> UpdateSettingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> blockedNotifications = default, Option<string> suggestionMethod = default, Option<int> suggestionCount = default, Option<int> suggestionTimeFrame = default, Option<bool> showOthersExactLocation = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<string> favoriteVisibility = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateSettingsApiResponse> UpdateSettingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> blockedNotifications = default, Option<string> suggestionMethod = default, Option<int> suggestionCount = default, Option<int> suggestionTimeFrame = default, Option<bool> showOthersExactLocation = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<string> favoriteVisibility = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Account Settings
@@ -1422,7 +1373,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the account settings for a user
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="blockedNotifications">The notifications to be blocked (optional)</param>
@@ -1437,7 +1387,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSettingsApiResponse"/>?&gt;</returns>
-        Task<IUpdateSettingsApiResponse?> UpdateSettingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> blockedNotifications = default, Option<string> suggestionMethod = default, Option<int> suggestionCount = default, Option<int> suggestionTimeFrame = default, Option<bool> showOthersExactLocation = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<string> favoriteVisibility = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateSettingsApiResponse?> UpdateSettingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> blockedNotifications = default, Option<string> suggestionMethod = default, Option<int> suggestionCount = default, Option<int> suggestionTimeFrame = default, Option<bool> showOthersExactLocation = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<string> favoriteVisibility = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save Validation Status
@@ -1446,11 +1396,10 @@ namespace Org.OpenAPITools.Api
         /// Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IValidateAccountSignupApiResponse"/>&gt;</returns>
-        Task<IValidateAccountSignupApiResponse> ValidateAccountSignupAsync(decimal version, string token, System.Threading.CancellationToken cancellationToken = default);
+        Task<IValidateAccountSignupApiResponse> ValidateAccountSignupAsync(string token, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save Validation Status
@@ -1458,11 +1407,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IValidateAccountSignupApiResponse"/>?&gt;</returns>
-        Task<IValidateAccountSignupApiResponse?> ValidateAccountSignupOrDefaultAsync(decimal version, string token, System.Threading.CancellationToken cancellationToken = default);
+        Task<IValidateAccountSignupApiResponse?> ValidateAccountSignupOrDefaultAsync(string token, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Validate Password Reset Token
@@ -1471,11 +1419,10 @@ namespace Org.OpenAPITools.Api
         /// Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IValidatePasswordResetApiResponse"/>&gt;</returns>
-        Task<IValidatePasswordResetApiResponse> ValidatePasswordResetAsync(decimal version, string token, System.Threading.CancellationToken cancellationToken = default);
+        Task<IValidatePasswordResetApiResponse> ValidatePasswordResetAsync(string token, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Validate Password Reset Token
@@ -1483,11 +1430,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IValidatePasswordResetApiResponse"/>?&gt;</returns>
-        Task<IValidatePasswordResetApiResponse?> ValidatePasswordResetOrDefaultAsync(decimal version, string token, System.Threading.CancellationToken cancellationToken = default);
+        Task<IValidatePasswordResetApiResponse?> ValidatePasswordResetOrDefaultAsync(string token, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -2407,7 +2353,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAccountLocationSearch(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<string> postalCode, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> appKey, ref Option<double> range, ref Option<long> locationLastUpdated, ref Option<string> gender, ref Option<int> minAge, ref Option<int> maxAge, ref Option<int> companionshipIndex, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<string> searchMode, ref Option<string> sortField, ref Option<bool> descending, ref Option<string> roles, ref Option<string> tags, ref Option<string> experience, ref Option<string> categoryIds, ref Option<string> audienceIds, ref Option<string> audienceOperator, ref Option<bool> updateCurrentLocation, ref Option<bool> updatePreferredSettings, ref Option<bool> showExactLocations, ref Option<bool> showConnectionToSearcher, ref Option<long> flagCountMinimum, ref Option<bool> verifiedUserOnly, ref Option<bool> contentAdminOnly);
+        partial void FormatAccountLocationSearch(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<string> postalCode, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> appKey, ref Option<double> range, ref Option<long> locationLastUpdated, ref Option<string> gender, ref Option<int> minAge, ref Option<int> maxAge, ref Option<int> companionshipIndex, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<string> searchMode, ref Option<string> sortField, ref Option<bool> descending, ref Option<string> roles, ref Option<string> tags, ref Option<string> experience, ref Option<string> categoryIds, ref Option<string> audienceIds, ref Option<string> audienceOperator, ref Option<bool> updateCurrentLocation, ref Option<bool> updatePreferredSettings, ref Option<bool> showExactLocations, ref Option<bool> showConnectionToSearcher, ref Option<long> flagCountMinimum, ref Option<bool> verifiedUserOnly, ref Option<bool> contentAdminOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -2476,7 +2422,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
@@ -2511,10 +2456,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagCountMinimum"></param>
         /// <param name="verifiedUserOnly"></param>
         /// <param name="contentAdminOnly"></param>
-        private void AfterAccountLocationSearchDefaultImplementation(IAccountLocationSearchApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> postalCode, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<double> range, Option<long> locationLastUpdated, Option<string> gender, Option<int> minAge, Option<int> maxAge, Option<int> companionshipIndex, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<string> roles, Option<string> tags, Option<string> experience, Option<string> categoryIds, Option<string> audienceIds, Option<string> audienceOperator, Option<bool> updateCurrentLocation, Option<bool> updatePreferredSettings, Option<bool> showExactLocations, Option<bool> showConnectionToSearcher, Option<long> flagCountMinimum, Option<bool> verifiedUserOnly, Option<bool> contentAdminOnly)
+        private void AfterAccountLocationSearchDefaultImplementation(IAccountLocationSearchApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> postalCode, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<double> range, Option<long> locationLastUpdated, Option<string> gender, Option<int> minAge, Option<int> maxAge, Option<int> companionshipIndex, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<string> roles, Option<string> tags, Option<string> experience, Option<string> categoryIds, Option<string> audienceIds, Option<string> audienceOperator, Option<bool> updateCurrentLocation, Option<bool> updatePreferredSettings, Option<bool> showExactLocations, Option<bool> showConnectionToSearcher, Option<long> flagCountMinimum, Option<bool> verifiedUserOnly, Option<bool> contentAdminOnly)
         {
             bool suppressDefaultLog = false;
-            AfterAccountLocationSearch(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
+            AfterAccountLocationSearch(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2524,7 +2469,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
@@ -2559,7 +2503,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagCountMinimum"></param>
         /// <param name="verifiedUserOnly"></param>
         /// <param name="contentAdminOnly"></param>
-        partial void AfterAccountLocationSearch(ref bool suppressDefaultLog, IAccountLocationSearchApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> postalCode, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<double> range, Option<long> locationLastUpdated, Option<string> gender, Option<int> minAge, Option<int> maxAge, Option<int> companionshipIndex, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<string> roles, Option<string> tags, Option<string> experience, Option<string> categoryIds, Option<string> audienceIds, Option<string> audienceOperator, Option<bool> updateCurrentLocation, Option<bool> updatePreferredSettings, Option<bool> showExactLocations, Option<bool> showConnectionToSearcher, Option<long> flagCountMinimum, Option<bool> verifiedUserOnly, Option<bool> contentAdminOnly);
+        partial void AfterAccountLocationSearch(ref bool suppressDefaultLog, IAccountLocationSearchApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> postalCode, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<double> range, Option<long> locationLastUpdated, Option<string> gender, Option<int> minAge, Option<int> maxAge, Option<int> companionshipIndex, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<string> roles, Option<string> tags, Option<string> experience, Option<string> categoryIds, Option<string> audienceIds, Option<string> audienceOperator, Option<bool> updateCurrentLocation, Option<bool> updatePreferredSettings, Option<bool> showExactLocations, Option<bool> showConnectionToSearcher, Option<long> flagCountMinimum, Option<bool> verifiedUserOnly, Option<bool> contentAdminOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2567,7 +2511,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
@@ -2602,10 +2545,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagCountMinimum"></param>
         /// <param name="verifiedUserOnly"></param>
         /// <param name="contentAdminOnly"></param>
-        private void OnErrorAccountLocationSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> postalCode, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<double> range, Option<long> locationLastUpdated, Option<string> gender, Option<int> minAge, Option<int> maxAge, Option<int> companionshipIndex, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<string> roles, Option<string> tags, Option<string> experience, Option<string> categoryIds, Option<string> audienceIds, Option<string> audienceOperator, Option<bool> updateCurrentLocation, Option<bool> updatePreferredSettings, Option<bool> showExactLocations, Option<bool> showConnectionToSearcher, Option<long> flagCountMinimum, Option<bool> verifiedUserOnly, Option<bool> contentAdminOnly)
+        private void OnErrorAccountLocationSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> postalCode, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<double> range, Option<long> locationLastUpdated, Option<string> gender, Option<int> minAge, Option<int> maxAge, Option<int> companionshipIndex, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<string> roles, Option<string> tags, Option<string> experience, Option<string> categoryIds, Option<string> audienceIds, Option<string> audienceOperator, Option<bool> updateCurrentLocation, Option<bool> updatePreferredSettings, Option<bool> showExactLocations, Option<bool> showConnectionToSearcher, Option<long> flagCountMinimum, Option<bool> verifiedUserOnly, Option<bool> contentAdminOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAccountLocationSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
+            OnErrorAccountLocationSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2617,7 +2560,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
@@ -2652,12 +2594,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="flagCountMinimum"></param>
         /// <param name="verifiedUserOnly"></param>
         /// <param name="contentAdminOnly"></param>
-        partial void OnErrorAccountLocationSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> postalCode, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<double> range, Option<long> locationLastUpdated, Option<string> gender, Option<int> minAge, Option<int> maxAge, Option<int> companionshipIndex, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<string> roles, Option<string> tags, Option<string> experience, Option<string> categoryIds, Option<string> audienceIds, Option<string> audienceOperator, Option<bool> updateCurrentLocation, Option<bool> updatePreferredSettings, Option<bool> showExactLocations, Option<bool> showConnectionToSearcher, Option<long> flagCountMinimum, Option<bool> verifiedUserOnly, Option<bool> contentAdminOnly);
+        partial void OnErrorAccountLocationSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> postalCode, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<double> range, Option<long> locationLastUpdated, Option<string> gender, Option<int> minAge, Option<int> maxAge, Option<int> companionshipIndex, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> searchMode, Option<string> sortField, Option<bool> descending, Option<string> roles, Option<string> tags, Option<string> experience, Option<string> categoryIds, Option<string> audienceIds, Option<string> audienceOperator, Option<bool> updateCurrentLocation, Option<bool> updatePreferredSettings, Option<bool> showExactLocations, Option<bool> showConnectionToSearcher, Option<long> flagCountMinimum, Option<bool> verifiedUserOnly, Option<bool> contentAdminOnly);
 
         /// <summary>
         /// Search Accounts by Location Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="q">Deprecated - legacy query parameter (optional)</param>
@@ -2694,11 +2635,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="contentAdminOnly">Returns only content admin users (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAccountLocationSearchApiResponse"/>&gt;</returns>
-        public async Task<IAccountLocationSearchApiResponse?> AccountLocationSearchOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> postalCode = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<double> range = default, Option<long> locationLastUpdated = default, Option<string> gender = default, Option<int> minAge = default, Option<int> maxAge = default, Option<int> companionshipIndex = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> roles = default, Option<string> tags = default, Option<string> experience = default, Option<string> categoryIds = default, Option<string> audienceIds = default, Option<string> audienceOperator = default, Option<bool> updateCurrentLocation = default, Option<bool> updatePreferredSettings = default, Option<bool> showExactLocations = default, Option<bool> showConnectionToSearcher = default, Option<long> flagCountMinimum = default, Option<bool> verifiedUserOnly = default, Option<bool> contentAdminOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAccountLocationSearchApiResponse?> AccountLocationSearchOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> postalCode = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<double> range = default, Option<long> locationLastUpdated = default, Option<string> gender = default, Option<int> minAge = default, Option<int> maxAge = default, Option<int> companionshipIndex = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> roles = default, Option<string> tags = default, Option<string> experience = default, Option<string> categoryIds = default, Option<string> audienceIds = default, Option<string> audienceOperator = default, Option<bool> updateCurrentLocation = default, Option<bool> updatePreferredSettings = default, Option<bool> showExactLocations = default, Option<bool> showConnectionToSearcher = default, Option<long> flagCountMinimum = default, Option<bool> verifiedUserOnly = default, Option<bool> contentAdminOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AccountLocationSearchAsync(version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly, cancellationToken).ConfigureAwait(false);
+                return await AccountLocationSearchAsync(deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2710,7 +2651,6 @@ namespace Org.OpenAPITools.Api
         /// Search Accounts by Location Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="q">Deprecated - legacy query parameter (optional)</param>
@@ -2747,7 +2687,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="contentAdminOnly">Returns only content admin users (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAccountLocationSearchApiResponse"/>&gt;</returns>
-        public async Task<IAccountLocationSearchApiResponse> AccountLocationSearchAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> postalCode = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<double> range = default, Option<long> locationLastUpdated = default, Option<string> gender = default, Option<int> minAge = default, Option<int> maxAge = default, Option<int> companionshipIndex = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> roles = default, Option<string> tags = default, Option<string> experience = default, Option<string> categoryIds = default, Option<string> audienceIds = default, Option<string> audienceOperator = default, Option<bool> updateCurrentLocation = default, Option<bool> updatePreferredSettings = default, Option<bool> showExactLocations = default, Option<bool> showConnectionToSearcher = default, Option<long> flagCountMinimum = default, Option<bool> verifiedUserOnly = default, Option<bool> contentAdminOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAccountLocationSearchApiResponse> AccountLocationSearchAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> postalCode = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<double> range = default, Option<long> locationLastUpdated = default, Option<string> gender = default, Option<int> minAge = default, Option<int> maxAge = default, Option<int> companionshipIndex = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> searchMode = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> roles = default, Option<string> tags = default, Option<string> experience = default, Option<string> categoryIds = default, Option<string> audienceIds = default, Option<string> audienceOperator = default, Option<bool> updateCurrentLocation = default, Option<bool> updatePreferredSettings = default, Option<bool> showExactLocations = default, Option<bool> showConnectionToSearcher = default, Option<long> flagCountMinimum = default, Option<bool> verifiedUserOnly = default, Option<bool> contentAdminOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2755,7 +2695,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAccountLocationSearch(deviceId, q, keyword, postalCode, appKey, gender, searchMode, sortField, roles, tags, experience, categoryIds, audienceIds, audienceOperator);
 
-                FormatAccountLocationSearch(ref version, ref deviceId, ref accountId, ref q, ref keyword, ref postalCode, ref latitude, ref longitude, ref appKey, ref range, ref locationLastUpdated, ref gender, ref minAge, ref maxAge, ref companionshipIndex, ref i, ref start, ref l, ref limit, ref searchMode, ref sortField, ref descending, ref roles, ref tags, ref experience, ref categoryIds, ref audienceIds, ref audienceOperator, ref updateCurrentLocation, ref updatePreferredSettings, ref showExactLocations, ref showConnectionToSearcher, ref flagCountMinimum, ref verifiedUserOnly, ref contentAdminOnly);
+                FormatAccountLocationSearch(ref deviceId, ref accountId, ref q, ref keyword, ref postalCode, ref latitude, ref longitude, ref appKey, ref range, ref locationLastUpdated, ref gender, ref minAge, ref maxAge, ref companionshipIndex, ref i, ref start, ref l, ref limit, ref searchMode, ref sortField, ref descending, ref roles, ref tags, ref experience, ref categoryIds, ref audienceIds, ref audienceOperator, ref updateCurrentLocation, ref updatePreferredSettings, ref showExactLocations, ref showConnectionToSearcher, ref flagCountMinimum, ref verifiedUserOnly, ref contentAdminOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2763,9 +2703,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2896,13 +2835,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAccountLocationSearchDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
+                        AfterAccountLocationSearchDefaultImplementation(apiResponseLocalVar, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
 
                         Events.ExecuteOnAccountLocationSearch(apiResponseLocalVar);
 
@@ -2912,7 +2851,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAccountLocationSearchDefaultImplementation(e, "/api/{version}/account/search", uriBuilderLocalVar.Path, version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
+                OnErrorAccountLocationSearchDefaultImplementation(e, "/account/search", uriBuilderLocalVar.Path, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly);
                 Events.ExecuteOnErrorAccountLocationSearch(e);
                 throw;
             }
@@ -3011,7 +2950,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatBlockAccount(ref decimal version, ref long accountIdBeingBlocked, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> blockFlagValue, ref Option<bool> removeFromGroupsIfBlocked, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatBlockAccount(ref long accountIdBeingBlocked, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> blockFlagValue, ref Option<bool> removeFromGroupsIfBlocked, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -3028,7 +2967,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountIdBeingBlocked"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3036,10 +2974,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromGroupsIfBlocked"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterBlockAccountDefaultImplementation(IBlockAccountApiResponse apiResponseLocalVar, decimal version, long accountIdBeingBlocked, Option<string> deviceId, Option<long> accountId, Option<bool> blockFlagValue, Option<bool> removeFromGroupsIfBlocked, Option<double> latitude, Option<double> longitude)
+        private void AfterBlockAccountDefaultImplementation(IBlockAccountApiResponse apiResponseLocalVar, long accountIdBeingBlocked, Option<string> deviceId, Option<long> accountId, Option<bool> blockFlagValue, Option<bool> removeFromGroupsIfBlocked, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterBlockAccount(ref suppressDefaultLog, apiResponseLocalVar, version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
+            AfterBlockAccount(ref suppressDefaultLog, apiResponseLocalVar, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3049,7 +2987,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountIdBeingBlocked"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3057,7 +2994,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromGroupsIfBlocked"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterBlockAccount(ref bool suppressDefaultLog, IBlockAccountApiResponse apiResponseLocalVar, decimal version, long accountIdBeingBlocked, Option<string> deviceId, Option<long> accountId, Option<bool> blockFlagValue, Option<bool> removeFromGroupsIfBlocked, Option<double> latitude, Option<double> longitude);
+        partial void AfterBlockAccount(ref bool suppressDefaultLog, IBlockAccountApiResponse apiResponseLocalVar, long accountIdBeingBlocked, Option<string> deviceId, Option<long> accountId, Option<bool> blockFlagValue, Option<bool> removeFromGroupsIfBlocked, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3065,7 +3002,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountIdBeingBlocked"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3073,10 +3009,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromGroupsIfBlocked"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorBlockAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountIdBeingBlocked, Option<string> deviceId, Option<long> accountId, Option<bool> blockFlagValue, Option<bool> removeFromGroupsIfBlocked, Option<double> latitude, Option<double> longitude)
+        private void OnErrorBlockAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountIdBeingBlocked, Option<string> deviceId, Option<long> accountId, Option<bool> blockFlagValue, Option<bool> removeFromGroupsIfBlocked, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorBlockAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
+            OnErrorBlockAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3088,7 +3024,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountIdBeingBlocked"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3096,12 +3031,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromGroupsIfBlocked"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorBlockAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountIdBeingBlocked, Option<string> deviceId, Option<long> accountId, Option<bool> blockFlagValue, Option<bool> removeFromGroupsIfBlocked, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorBlockAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountIdBeingBlocked, Option<string> deviceId, Option<long> accountId, Option<bool> blockFlagValue, Option<bool> removeFromGroupsIfBlocked, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Block Account Moves or removes an account into the user&#39;s blocked group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountIdBeingBlocked">The id of the account to be blocked/unblocked</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -3111,11 +3045,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBlockAccountApiResponse"/>&gt;</returns>
-        public async Task<IBlockAccountApiResponse?> BlockAccountOrDefaultAsync(decimal version, long accountIdBeingBlocked, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> blockFlagValue = default, Option<bool> removeFromGroupsIfBlocked = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBlockAccountApiResponse?> BlockAccountOrDefaultAsync(long accountIdBeingBlocked, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> blockFlagValue = default, Option<bool> removeFromGroupsIfBlocked = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await BlockAccountAsync(version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await BlockAccountAsync(accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3127,7 +3061,6 @@ namespace Org.OpenAPITools.Api
         /// Block Account Moves or removes an account into the user&#39;s blocked group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountIdBeingBlocked">The id of the account to be blocked/unblocked</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -3137,7 +3070,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBlockAccountApiResponse"/>&gt;</returns>
-        public async Task<IBlockAccountApiResponse> BlockAccountAsync(decimal version, long accountIdBeingBlocked, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> blockFlagValue = default, Option<bool> removeFromGroupsIfBlocked = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBlockAccountApiResponse> BlockAccountAsync(long accountIdBeingBlocked, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> blockFlagValue = default, Option<bool> removeFromGroupsIfBlocked = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3145,7 +3078,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateBlockAccount(deviceId);
 
-                FormatBlockAccount(ref version, ref accountIdBeingBlocked, ref deviceId, ref accountId, ref blockFlagValue, ref removeFromGroupsIfBlocked, ref latitude, ref longitude);
+                FormatBlockAccount(ref accountIdBeingBlocked, ref deviceId, ref accountId, ref blockFlagValue, ref removeFromGroupsIfBlocked, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3153,9 +3086,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/block"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/block");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/block"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/block");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3204,13 +3136,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/block", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/block", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterBlockAccountDefaultImplementation(apiResponseLocalVar, version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
+                        AfterBlockAccountDefaultImplementation(apiResponseLocalVar, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
 
                         Events.ExecuteOnBlockAccount(apiResponseLocalVar);
 
@@ -3220,7 +3152,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorBlockAccountDefaultImplementation(e, "/api/{version}/account/block", uriBuilderLocalVar.Path, version, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
+                OnErrorBlockAccountDefaultImplementation(e, "/account/block", uriBuilderLocalVar.Path, accountIdBeingBlocked, deviceId, accountId, blockFlagValue, removeFromGroupsIfBlocked, latitude, longitude);
                 Events.ExecuteOnErrorBlockAccount(e);
                 throw;
             }
@@ -3319,7 +3251,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateAccount(ref decimal version, ref string username, ref string password, ref Option<string> name, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<string> deviceId, ref Option<string> deviceIdType, ref Option<string> emailAddress, ref Option<long> assetId, ref Option<string> streetAddress, ref Option<string> zipcode, ref Option<string> gender, ref Option<long> birthday, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> role, ref Option<string> platforms, ref Option<string> tags, ref Option<string> aboutUs, ref Option<string> gameExperience, ref Option<string> categoryIds, ref Option<string> hometown, ref Option<string> height, ref Option<int> heightIndex, ref Option<string> ethnicity, ref Option<string> bodyType, ref Option<string> maritalStatus, ref Option<string> children, ref Option<string> religion, ref Option<string> education, ref Option<int> educationIndex, ref Option<string> smoke, ref Option<string> drink, ref Option<string> companionship, ref Option<int> companionshipIndex, ref Option<int> preferredMinAge, ref Option<int> preferredMaxAge, ref Option<int> preferredMinHeight, ref Option<int> preferredMaxHeight, ref Option<string> preferredGender, ref Option<string> preferredEducation, ref Option<int> preferredEducationIndex, ref Option<string> preferredBodyType, ref Option<string> preferredEthnicity, ref Option<string> preferredLocation, ref Option<double> preferredLocationRange, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> acceptedTerms, ref Option<string> inviteToken, ref Option<long> referralAccountId, ref Option<bool> sendValidation, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> appVersion, ref Option<string> responseType, ref Option<string> audienceIdsToAdd, ref Option<string> appBlob, ref Option<bool> appEnablePush, ref Option<bool> appEnableSMS, ref Option<bool> appEnableEmail, ref Option<string> locationVisibility, ref Option<double> homeLatitude, ref Option<double> homeLongitude, ref Option<string> appNickname, ref Option<long> personalAudienceId);
+        partial void FormatCreateAccount(ref string username, ref string password, ref Option<string> name, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<string> deviceId, ref Option<string> deviceIdType, ref Option<string> emailAddress, ref Option<long> assetId, ref Option<string> streetAddress, ref Option<string> zipcode, ref Option<string> gender, ref Option<long> birthday, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> role, ref Option<string> platforms, ref Option<string> tags, ref Option<string> aboutUs, ref Option<string> gameExperience, ref Option<string> categoryIds, ref Option<string> hometown, ref Option<string> height, ref Option<int> heightIndex, ref Option<string> ethnicity, ref Option<string> bodyType, ref Option<string> maritalStatus, ref Option<string> children, ref Option<string> religion, ref Option<string> education, ref Option<int> educationIndex, ref Option<string> smoke, ref Option<string> drink, ref Option<string> companionship, ref Option<int> companionshipIndex, ref Option<int> preferredMinAge, ref Option<int> preferredMaxAge, ref Option<int> preferredMinHeight, ref Option<int> preferredMaxHeight, ref Option<string> preferredGender, ref Option<string> preferredEducation, ref Option<int> preferredEducationIndex, ref Option<string> preferredBodyType, ref Option<string> preferredEthnicity, ref Option<string> preferredLocation, ref Option<double> preferredLocationRange, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> acceptedTerms, ref Option<string> inviteToken, ref Option<long> referralAccountId, ref Option<bool> sendValidation, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> appVersion, ref Option<string> responseType, ref Option<string> audienceIdsToAdd, ref Option<string> appBlob, ref Option<bool> appEnablePush, ref Option<bool> appEnableSMS, ref Option<bool> appEnableEmail, ref Option<string> locationVisibility, ref Option<double> homeLatitude, ref Option<double> homeLongitude, ref Option<string> appNickname, ref Option<long> personalAudienceId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3532,7 +3464,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="name"></param>
@@ -3605,10 +3536,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="homeLongitude"></param>
         /// <param name="appNickname"></param>
         /// <param name="personalAudienceId"></param>
-        private void AfterCreateAccountDefaultImplementation(ICreateAccountApiResponse apiResponseLocalVar, decimal version, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceId, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> streetAddress, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> inviteToken, Option<long> referralAccountId, Option<bool> sendValidation, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType, Option<string> audienceIdsToAdd, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> locationVisibility, Option<double> homeLatitude, Option<double> homeLongitude, Option<string> appNickname, Option<long> personalAudienceId)
+        private void AfterCreateAccountDefaultImplementation(ICreateAccountApiResponse apiResponseLocalVar, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceId, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> streetAddress, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> inviteToken, Option<long> referralAccountId, Option<bool> sendValidation, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType, Option<string> audienceIdsToAdd, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> locationVisibility, Option<double> homeLatitude, Option<double> homeLongitude, Option<string> appNickname, Option<long> personalAudienceId)
         {
             bool suppressDefaultLog = false;
-            AfterCreateAccount(ref suppressDefaultLog, apiResponseLocalVar, version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
+            AfterCreateAccount(ref suppressDefaultLog, apiResponseLocalVar, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3618,7 +3549,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="name"></param>
@@ -3691,7 +3621,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="homeLongitude"></param>
         /// <param name="appNickname"></param>
         /// <param name="personalAudienceId"></param>
-        partial void AfterCreateAccount(ref bool suppressDefaultLog, ICreateAccountApiResponse apiResponseLocalVar, decimal version, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceId, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> streetAddress, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> inviteToken, Option<long> referralAccountId, Option<bool> sendValidation, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType, Option<string> audienceIdsToAdd, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> locationVisibility, Option<double> homeLatitude, Option<double> homeLongitude, Option<string> appNickname, Option<long> personalAudienceId);
+        partial void AfterCreateAccount(ref bool suppressDefaultLog, ICreateAccountApiResponse apiResponseLocalVar, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceId, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> streetAddress, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> inviteToken, Option<long> referralAccountId, Option<bool> sendValidation, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType, Option<string> audienceIdsToAdd, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> locationVisibility, Option<double> homeLatitude, Option<double> homeLongitude, Option<string> appNickname, Option<long> personalAudienceId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3699,7 +3629,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="name"></param>
@@ -3772,10 +3701,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="homeLongitude"></param>
         /// <param name="appNickname"></param>
         /// <param name="personalAudienceId"></param>
-        private void OnErrorCreateAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceId, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> streetAddress, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> inviteToken, Option<long> referralAccountId, Option<bool> sendValidation, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType, Option<string> audienceIdsToAdd, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> locationVisibility, Option<double> homeLatitude, Option<double> homeLongitude, Option<string> appNickname, Option<long> personalAudienceId)
+        private void OnErrorCreateAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceId, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> streetAddress, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> inviteToken, Option<long> referralAccountId, Option<bool> sendValidation, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType, Option<string> audienceIdsToAdd, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> locationVisibility, Option<double> homeLatitude, Option<double> homeLongitude, Option<string> appNickname, Option<long> personalAudienceId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
+            OnErrorCreateAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3787,7 +3716,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="name"></param>
@@ -3860,12 +3788,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="homeLongitude"></param>
         /// <param name="appNickname"></param>
         /// <param name="personalAudienceId"></param>
-        partial void OnErrorCreateAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceId, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> streetAddress, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> inviteToken, Option<long> referralAccountId, Option<bool> sendValidation, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType, Option<string> audienceIdsToAdd, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> locationVisibility, Option<double> homeLatitude, Option<double> homeLongitude, Option<string> appNickname, Option<long> personalAudienceId);
+        partial void OnErrorCreateAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string username, string password, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceId, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> streetAddress, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> inviteToken, Option<long> referralAccountId, Option<bool> sendValidation, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType, Option<string> audienceIdsToAdd, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> locationVisibility, Option<double> homeLatitude, Option<double> homeLongitude, Option<string> appNickname, Option<long> personalAudienceId);
 
         /// <summary>
         /// Create Account Create a new account by role.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="username">The access token to authenticate with (ex: username)</param>
         /// <param name="password">The secret to authenticate with (ex: password)</param>
         /// <param name="name">The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)</param>
@@ -3940,11 +3867,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="personalAudienceId">Personal audience id to associate with this account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAccountApiResponse"/>&gt;</returns>
-        public async Task<ICreateAccountApiResponse?> CreateAccountOrDefaultAsync(decimal version, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> streetAddress = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> inviteToken = default, Option<long> referralAccountId = default, Option<bool> sendValidation = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, Option<string> audienceIdsToAdd = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> locationVisibility = default, Option<double> homeLatitude = default, Option<double> homeLongitude = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAccountApiResponse?> CreateAccountOrDefaultAsync(string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> streetAddress = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> inviteToken = default, Option<long> referralAccountId = default, Option<bool> sendValidation = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, Option<string> audienceIdsToAdd = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> locationVisibility = default, Option<double> homeLatitude = default, Option<double> homeLongitude = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateAccountAsync(version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId, cancellationToken).ConfigureAwait(false);
+                return await CreateAccountAsync(username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3956,7 +3883,6 @@ namespace Org.OpenAPITools.Api
         /// Create Account Create a new account by role.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="username">The access token to authenticate with (ex: username)</param>
         /// <param name="password">The secret to authenticate with (ex: password)</param>
         /// <param name="name">The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)</param>
@@ -4031,7 +3957,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="personalAudienceId">Personal audience id to associate with this account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAccountApiResponse"/>&gt;</returns>
-        public async Task<ICreateAccountApiResponse> CreateAccountAsync(decimal version, string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> streetAddress = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> inviteToken = default, Option<long> referralAccountId = default, Option<bool> sendValidation = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, Option<string> audienceIdsToAdd = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> locationVisibility = default, Option<double> homeLatitude = default, Option<double> homeLongitude = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAccountApiResponse> CreateAccountAsync(string username, string password, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> streetAddress = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> inviteToken = default, Option<long> referralAccountId = default, Option<bool> sendValidation = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, Option<string> audienceIdsToAdd = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> locationVisibility = default, Option<double> homeLatitude = default, Option<double> homeLongitude = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4039,7 +3965,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateAccount(username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, streetAddress, zipcode, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, ethnicity, bodyType, maritalStatus, children, religion, education, smoke, drink, companionship, preferredGender, preferredEducation, preferredBodyType, preferredEthnicity, preferredLocation, inviteToken, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, locationVisibility, appNickname);
 
-                FormatCreateAccount(ref version, ref username, ref password, ref name, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref deviceId, ref deviceIdType, ref emailAddress, ref assetId, ref streetAddress, ref zipcode, ref gender, ref birthday, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref role, ref platforms, ref tags, ref aboutUs, ref gameExperience, ref categoryIds, ref hometown, ref height, ref heightIndex, ref ethnicity, ref bodyType, ref maritalStatus, ref children, ref religion, ref education, ref educationIndex, ref smoke, ref drink, ref companionship, ref companionshipIndex, ref preferredMinAge, ref preferredMaxAge, ref preferredMinHeight, ref preferredMaxHeight, ref preferredGender, ref preferredEducation, ref preferredEducationIndex, ref preferredBodyType, ref preferredEthnicity, ref preferredLocation, ref preferredLocationRange, ref latitude, ref longitude, ref acceptedTerms, ref inviteToken, ref referralAccountId, ref sendValidation, ref gameType, ref appKey, ref appVersion, ref responseType, ref audienceIdsToAdd, ref appBlob, ref appEnablePush, ref appEnableSMS, ref appEnableEmail, ref locationVisibility, ref homeLatitude, ref homeLongitude, ref appNickname, ref personalAudienceId);
+                FormatCreateAccount(ref username, ref password, ref name, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref deviceId, ref deviceIdType, ref emailAddress, ref assetId, ref streetAddress, ref zipcode, ref gender, ref birthday, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref role, ref platforms, ref tags, ref aboutUs, ref gameExperience, ref categoryIds, ref hometown, ref height, ref heightIndex, ref ethnicity, ref bodyType, ref maritalStatus, ref children, ref religion, ref education, ref educationIndex, ref smoke, ref drink, ref companionship, ref companionshipIndex, ref preferredMinAge, ref preferredMaxAge, ref preferredMinHeight, ref preferredMaxHeight, ref preferredGender, ref preferredEducation, ref preferredEducationIndex, ref preferredBodyType, ref preferredEthnicity, ref preferredLocation, ref preferredLocationRange, ref latitude, ref longitude, ref acceptedTerms, ref inviteToken, ref referralAccountId, ref sendValidation, ref gameType, ref appKey, ref appVersion, ref responseType, ref audienceIdsToAdd, ref appBlob, ref appEnablePush, ref appEnableSMS, ref appEnableEmail, ref locationVisibility, ref homeLatitude, ref homeLongitude, ref appNickname, ref personalAudienceId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4047,9 +3973,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4291,13 +4216,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateAccountDefaultImplementation(apiResponseLocalVar, version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
+                        AfterCreateAccountDefaultImplementation(apiResponseLocalVar, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
 
                         Events.ExecuteOnCreateAccount(apiResponseLocalVar);
 
@@ -4307,7 +4232,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateAccountDefaultImplementation(e, "/api/{version}/account/create", uriBuilderLocalVar.Path, version, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
+                OnErrorCreateAccountDefaultImplementation(e, "/account/create", uriBuilderLocalVar.Path, username, password, name, prefixName, firstName, middleName, lastName, suffixName, title, deviceId, deviceIdType, emailAddress, assetId, streetAddress, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, inviteToken, referralAccountId, sendValidation, gameType, appKey, appVersion, responseType, audienceIdsToAdd, appBlob, appEnablePush, appEnableSMS, appEnableEmail, locationVisibility, homeLatitude, homeLongitude, appNickname, personalAudienceId);
                 Events.ExecuteOnErrorCreateAccount(e);
                 throw;
             }
@@ -4406,7 +4331,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatEditAccount(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> role, ref Option<long> assetId, ref Option<string> name, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<string> gender, ref Option<int> age, ref Option<long> birthday, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> emailAddress, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> zipcode, ref Option<string> country, ref Option<bool> makeProfileInfoPublic, ref Option<bool> makeGameInfoPublic, ref Option<bool> makeFriendsInfoPublic, ref Option<string> hometown, ref Option<string> height, ref Option<int> heightIndex, ref Option<string> ethnicity, ref Option<string> bodyType, ref Option<string> maritalStatus, ref Option<string> children, ref Option<string> religion, ref Option<string> education, ref Option<int> educationIndex, ref Option<string> smoke, ref Option<string> drink, ref Option<string> companionship, ref Option<int> companionshipIndex, ref Option<int> preferredMinAge, ref Option<int> preferredMaxAge, ref Option<int> preferredMinHeight, ref Option<int> preferredMaxHeight, ref Option<string> preferredGender, ref Option<string> preferredEducation, ref Option<int> preferredEducationIndex, ref Option<string> preferredBodyType, ref Option<string> preferredEthnicity, ref Option<string> preferredLocation, ref Option<double> preferredLocationRange, ref Option<string> platforms, ref Option<string> tags, ref Option<string> aboutUs, ref Option<string> matchToken, ref Option<string> gameExperience, ref Option<string> categories, ref Option<string> categoryIds, ref Option<string> responseFilters, ref Option<bool> showAsZipcode, ref Option<bool> showExactLocation, ref Option<bool> showOthersExactLocation, ref Option<bool> acceptedTerms, ref Option<string> locationVisibility, ref Option<string> appBlob, ref Option<bool> appEnablePush, ref Option<bool> appEnableSMS, ref Option<bool> appEnableEmail, ref Option<string> gameType, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnProfile, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<long> referralAccountId, ref Option<string> appNickname, ref Option<long> personalAudienceId, ref Option<string> nonGuestUsername);
+        partial void FormatEditAccount(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> role, ref Option<long> assetId, ref Option<string> name, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<string> gender, ref Option<int> age, ref Option<long> birthday, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> emailAddress, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> zipcode, ref Option<string> country, ref Option<bool> makeProfileInfoPublic, ref Option<bool> makeGameInfoPublic, ref Option<bool> makeFriendsInfoPublic, ref Option<string> hometown, ref Option<string> height, ref Option<int> heightIndex, ref Option<string> ethnicity, ref Option<string> bodyType, ref Option<string> maritalStatus, ref Option<string> children, ref Option<string> religion, ref Option<string> education, ref Option<int> educationIndex, ref Option<string> smoke, ref Option<string> drink, ref Option<string> companionship, ref Option<int> companionshipIndex, ref Option<int> preferredMinAge, ref Option<int> preferredMaxAge, ref Option<int> preferredMinHeight, ref Option<int> preferredMaxHeight, ref Option<string> preferredGender, ref Option<string> preferredEducation, ref Option<int> preferredEducationIndex, ref Option<string> preferredBodyType, ref Option<string> preferredEthnicity, ref Option<string> preferredLocation, ref Option<double> preferredLocationRange, ref Option<string> platforms, ref Option<string> tags, ref Option<string> aboutUs, ref Option<string> matchToken, ref Option<string> gameExperience, ref Option<string> categories, ref Option<string> categoryIds, ref Option<string> responseFilters, ref Option<bool> showAsZipcode, ref Option<bool> showExactLocation, ref Option<bool> showOthersExactLocation, ref Option<bool> acceptedTerms, ref Option<string> locationVisibility, ref Option<string> appBlob, ref Option<bool> appEnablePush, ref Option<bool> appEnableSMS, ref Option<bool> appEnableEmail, ref Option<string> gameType, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnProfile, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<long> referralAccountId, ref Option<string> appNickname, ref Option<long> personalAudienceId, ref Option<string> nonGuestUsername);
 
         /// <summary>
         /// Validates the request parameters
@@ -4631,7 +4556,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -4714,10 +4638,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appNickname"></param>
         /// <param name="personalAudienceId"></param>
         /// <param name="nonGuestUsername"></param>
-        private void AfterEditAccountDefaultImplementation(IEditAccountApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> role, Option<long> assetId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> gender, Option<int> age, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<bool> makeProfileInfoPublic, Option<bool> makeGameInfoPublic, Option<bool> makeFriendsInfoPublic, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> matchToken, Option<string> gameExperience, Option<string> categories, Option<string> categoryIds, Option<string> responseFilters, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<bool> showOthersExactLocation, Option<bool> acceptedTerms, Option<string> locationVisibility, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId, Option<string> appNickname, Option<long> personalAudienceId, Option<string> nonGuestUsername)
+        private void AfterEditAccountDefaultImplementation(IEditAccountApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> role, Option<long> assetId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> gender, Option<int> age, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<bool> makeProfileInfoPublic, Option<bool> makeGameInfoPublic, Option<bool> makeFriendsInfoPublic, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> matchToken, Option<string> gameExperience, Option<string> categories, Option<string> categoryIds, Option<string> responseFilters, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<bool> showOthersExactLocation, Option<bool> acceptedTerms, Option<string> locationVisibility, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId, Option<string> appNickname, Option<long> personalAudienceId, Option<string> nonGuestUsername)
         {
             bool suppressDefaultLog = false;
-            AfterEditAccount(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
+            AfterEditAccount(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4727,7 +4651,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -4810,7 +4733,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appNickname"></param>
         /// <param name="personalAudienceId"></param>
         /// <param name="nonGuestUsername"></param>
-        partial void AfterEditAccount(ref bool suppressDefaultLog, IEditAccountApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> role, Option<long> assetId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> gender, Option<int> age, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<bool> makeProfileInfoPublic, Option<bool> makeGameInfoPublic, Option<bool> makeFriendsInfoPublic, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> matchToken, Option<string> gameExperience, Option<string> categories, Option<string> categoryIds, Option<string> responseFilters, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<bool> showOthersExactLocation, Option<bool> acceptedTerms, Option<string> locationVisibility, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId, Option<string> appNickname, Option<long> personalAudienceId, Option<string> nonGuestUsername);
+        partial void AfterEditAccount(ref bool suppressDefaultLog, IEditAccountApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> role, Option<long> assetId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> gender, Option<int> age, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<bool> makeProfileInfoPublic, Option<bool> makeGameInfoPublic, Option<bool> makeFriendsInfoPublic, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> matchToken, Option<string> gameExperience, Option<string> categories, Option<string> categoryIds, Option<string> responseFilters, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<bool> showOthersExactLocation, Option<bool> acceptedTerms, Option<string> locationVisibility, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId, Option<string> appNickname, Option<long> personalAudienceId, Option<string> nonGuestUsername);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4818,7 +4741,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -4901,10 +4823,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appNickname"></param>
         /// <param name="personalAudienceId"></param>
         /// <param name="nonGuestUsername"></param>
-        private void OnErrorEditAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> role, Option<long> assetId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> gender, Option<int> age, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<bool> makeProfileInfoPublic, Option<bool> makeGameInfoPublic, Option<bool> makeFriendsInfoPublic, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> matchToken, Option<string> gameExperience, Option<string> categories, Option<string> categoryIds, Option<string> responseFilters, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<bool> showOthersExactLocation, Option<bool> acceptedTerms, Option<string> locationVisibility, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId, Option<string> appNickname, Option<long> personalAudienceId, Option<string> nonGuestUsername)
+        private void OnErrorEditAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> role, Option<long> assetId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> gender, Option<int> age, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<bool> makeProfileInfoPublic, Option<bool> makeGameInfoPublic, Option<bool> makeFriendsInfoPublic, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> matchToken, Option<string> gameExperience, Option<string> categories, Option<string> categoryIds, Option<string> responseFilters, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<bool> showOthersExactLocation, Option<bool> acceptedTerms, Option<string> locationVisibility, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId, Option<string> appNickname, Option<long> personalAudienceId, Option<string> nonGuestUsername)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorEditAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
+            OnErrorEditAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4916,7 +4838,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -4999,12 +4920,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appNickname"></param>
         /// <param name="personalAudienceId"></param>
         /// <param name="nonGuestUsername"></param>
-        partial void OnErrorEditAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> role, Option<long> assetId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> gender, Option<int> age, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<bool> makeProfileInfoPublic, Option<bool> makeGameInfoPublic, Option<bool> makeFriendsInfoPublic, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> matchToken, Option<string> gameExperience, Option<string> categories, Option<string> categoryIds, Option<string> responseFilters, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<bool> showOthersExactLocation, Option<bool> acceptedTerms, Option<string> locationVisibility, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId, Option<string> appNickname, Option<long> personalAudienceId, Option<string> nonGuestUsername);
+        partial void OnErrorEditAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> role, Option<long> assetId, Option<string> name, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> gender, Option<int> age, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> emailAddress, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> zipcode, Option<string> country, Option<bool> makeProfileInfoPublic, Option<bool> makeGameInfoPublic, Option<bool> makeFriendsInfoPublic, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> matchToken, Option<string> gameExperience, Option<string> categories, Option<string> categoryIds, Option<string> responseFilters, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<bool> showOthersExactLocation, Option<bool> acceptedTerms, Option<string> locationVisibility, Option<string> appBlob, Option<bool> appEnablePush, Option<bool> appEnableSMS, Option<bool> appEnableEmail, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<long> referralAccountId, Option<string> appNickname, Option<long> personalAudienceId, Option<string> nonGuestUsername);
 
         /// <summary>
         /// Update Account Edit the user&#39;s profile information
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">The account id used to edit another person&#39;s account (optional)</param>
@@ -5089,11 +5009,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="nonGuestUsername">The user&#39;s username to update with if they currently have a guest username (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEditAccountApiResponse"/>&gt;</returns>
-        public async Task<IEditAccountApiResponse?> EditAccountOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> role = default, Option<long> assetId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> gender = default, Option<int> age = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<bool> makeProfileInfoPublic = default, Option<bool> makeGameInfoPublic = default, Option<bool> makeFriendsInfoPublic = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> matchToken = default, Option<string> gameExperience = default, Option<string> categories = default, Option<string> categoryIds = default, Option<string> responseFilters = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<bool> showOthersExactLocation = default, Option<bool> acceptedTerms = default, Option<string> locationVisibility = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, Option<string> nonGuestUsername = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEditAccountApiResponse?> EditAccountOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> role = default, Option<long> assetId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> gender = default, Option<int> age = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<bool> makeProfileInfoPublic = default, Option<bool> makeGameInfoPublic = default, Option<bool> makeFriendsInfoPublic = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> matchToken = default, Option<string> gameExperience = default, Option<string> categories = default, Option<string> categoryIds = default, Option<string> responseFilters = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<bool> showOthersExactLocation = default, Option<bool> acceptedTerms = default, Option<string> locationVisibility = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, Option<string> nonGuestUsername = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await EditAccountAsync(version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername, cancellationToken).ConfigureAwait(false);
+                return await EditAccountAsync(deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5105,7 +5025,6 @@ namespace Org.OpenAPITools.Api
         /// Update Account Edit the user&#39;s profile information
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">The account id used to edit another person&#39;s account (optional)</param>
@@ -5190,7 +5109,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="nonGuestUsername">The user&#39;s username to update with if they currently have a guest username (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEditAccountApiResponse"/>&gt;</returns>
-        public async Task<IEditAccountApiResponse> EditAccountAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> role = default, Option<long> assetId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> gender = default, Option<int> age = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<bool> makeProfileInfoPublic = default, Option<bool> makeGameInfoPublic = default, Option<bool> makeFriendsInfoPublic = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> matchToken = default, Option<string> gameExperience = default, Option<string> categories = default, Option<string> categoryIds = default, Option<string> responseFilters = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<bool> showOthersExactLocation = default, Option<bool> acceptedTerms = default, Option<string> locationVisibility = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, Option<string> nonGuestUsername = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEditAccountApiResponse> EditAccountAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> role = default, Option<long> assetId = default, Option<string> name = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> gender = default, Option<int> age = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> emailAddress = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> zipcode = default, Option<string> country = default, Option<bool> makeProfileInfoPublic = default, Option<bool> makeGameInfoPublic = default, Option<bool> makeFriendsInfoPublic = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> matchToken = default, Option<string> gameExperience = default, Option<string> categories = default, Option<string> categoryIds = default, Option<string> responseFilters = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<bool> showOthersExactLocation = default, Option<bool> acceptedTerms = default, Option<string> locationVisibility = default, Option<string> appBlob = default, Option<bool> appEnablePush = default, Option<bool> appEnableSMS = default, Option<bool> appEnableEmail = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<long> referralAccountId = default, Option<string> appNickname = default, Option<long> personalAudienceId = default, Option<string> nonGuestUsername = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5198,7 +5117,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateEditAccount(deviceId, role, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, hometown, height, ethnicity, bodyType, maritalStatus, children, religion, education, smoke, drink, companionship, preferredGender, preferredEducation, preferredBodyType, preferredEthnicity, preferredLocation, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, locationVisibility, appBlob, gameType, appKey, audienceIdsToAdd, audienceIdsToRemove, appNickname, nonGuestUsername);
 
-                FormatEditAccount(ref version, ref deviceId, ref accountId, ref connectionAccountId, ref role, ref assetId, ref name, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref gender, ref age, ref birthday, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref emailAddress, ref streetAddress, ref streetAddress2, ref city, ref state, ref zipcode, ref country, ref makeProfileInfoPublic, ref makeGameInfoPublic, ref makeFriendsInfoPublic, ref hometown, ref height, ref heightIndex, ref ethnicity, ref bodyType, ref maritalStatus, ref children, ref religion, ref education, ref educationIndex, ref smoke, ref drink, ref companionship, ref companionshipIndex, ref preferredMinAge, ref preferredMaxAge, ref preferredMinHeight, ref preferredMaxHeight, ref preferredGender, ref preferredEducation, ref preferredEducationIndex, ref preferredBodyType, ref preferredEthnicity, ref preferredLocation, ref preferredLocationRange, ref platforms, ref tags, ref aboutUs, ref matchToken, ref gameExperience, ref categories, ref categoryIds, ref responseFilters, ref showAsZipcode, ref showExactLocation, ref showOthersExactLocation, ref acceptedTerms, ref locationVisibility, ref appBlob, ref appEnablePush, ref appEnableSMS, ref appEnableEmail, ref gameType, ref appKey, ref latitude, ref longitude, ref returnProfile, ref audienceIdsToAdd, ref audienceIdsToRemove, ref referralAccountId, ref appNickname, ref personalAudienceId, ref nonGuestUsername);
+                FormatEditAccount(ref deviceId, ref accountId, ref connectionAccountId, ref role, ref assetId, ref name, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref gender, ref age, ref birthday, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref emailAddress, ref streetAddress, ref streetAddress2, ref city, ref state, ref zipcode, ref country, ref makeProfileInfoPublic, ref makeGameInfoPublic, ref makeFriendsInfoPublic, ref hometown, ref height, ref heightIndex, ref ethnicity, ref bodyType, ref maritalStatus, ref children, ref religion, ref education, ref educationIndex, ref smoke, ref drink, ref companionship, ref companionshipIndex, ref preferredMinAge, ref preferredMaxAge, ref preferredMinHeight, ref preferredMaxHeight, ref preferredGender, ref preferredEducation, ref preferredEducationIndex, ref preferredBodyType, ref preferredEthnicity, ref preferredLocation, ref preferredLocationRange, ref platforms, ref tags, ref aboutUs, ref matchToken, ref gameExperience, ref categories, ref categoryIds, ref responseFilters, ref showAsZipcode, ref showExactLocation, ref showOthersExactLocation, ref acceptedTerms, ref locationVisibility, ref appBlob, ref appEnablePush, ref appEnableSMS, ref appEnableEmail, ref gameType, ref appKey, ref latitude, ref longitude, ref returnProfile, ref audienceIdsToAdd, ref audienceIdsToRemove, ref referralAccountId, ref appNickname, ref personalAudienceId, ref nonGuestUsername);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5206,9 +5125,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/profile/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/profile/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/profile/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/profile/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5483,13 +5401,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/profile/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/profile/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterEditAccountDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
+                        AfterEditAccountDefaultImplementation(apiResponseLocalVar, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
 
                         Events.ExecuteOnEditAccount(apiResponseLocalVar);
 
@@ -5499,7 +5417,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorEditAccountDefaultImplementation(e, "/api/{version}/account/profile/update", uriBuilderLocalVar.Path, version, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
+                OnErrorEditAccountDefaultImplementation(e, "/account/profile/update", uriBuilderLocalVar.Path, deviceId, accountId, connectionAccountId, role, assetId, name, prefixName, firstName, middleName, lastName, suffixName, title, gender, age, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, emailAddress, streetAddress, streetAddress2, city, state, zipcode, country, makeProfileInfoPublic, makeGameInfoPublic, makeFriendsInfoPublic, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, platforms, tags, aboutUs, matchToken, gameExperience, categories, categoryIds, responseFilters, showAsZipcode, showExactLocation, showOthersExactLocation, acceptedTerms, locationVisibility, appBlob, appEnablePush, appEnableSMS, appEnableEmail, gameType, appKey, latitude, longitude, returnProfile, audienceIdsToAdd, audienceIdsToRemove, referralAccountId, appNickname, personalAudienceId, nonGuestUsername);
                 Events.ExecuteOnErrorEditAccount(e);
                 throw;
             }
@@ -5598,7 +5516,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatEditUsername(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> emailAddress, ref Option<string> username);
+        partial void FormatEditUsername(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> emailAddress, ref Option<string> username);
 
         /// <summary>
         /// Validates the request parameters
@@ -5623,15 +5541,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="emailAddress"></param>
         /// <param name="username"></param>
-        private void AfterEditUsernameDefaultImplementation(IEditUsernameApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> emailAddress, Option<string> username)
+        private void AfterEditUsernameDefaultImplementation(IEditUsernameApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> emailAddress, Option<string> username)
         {
             bool suppressDefaultLog = false;
-            AfterEditUsername(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, emailAddress, username);
+            AfterEditUsername(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, emailAddress, username);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5641,12 +5558,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="emailAddress"></param>
         /// <param name="username"></param>
-        partial void AfterEditUsername(ref bool suppressDefaultLog, IEditUsernameApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> emailAddress, Option<string> username);
+        partial void AfterEditUsername(ref bool suppressDefaultLog, IEditUsernameApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> emailAddress, Option<string> username);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5654,15 +5570,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="emailAddress"></param>
         /// <param name="username"></param>
-        private void OnErrorEditUsernameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> emailAddress, Option<string> username)
+        private void OnErrorEditUsernameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> emailAddress, Option<string> username)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorEditUsername(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, emailAddress, username);
+            OnErrorEditUsername(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, emailAddress, username);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5674,28 +5589,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="emailAddress"></param>
         /// <param name="username"></param>
-        partial void OnErrorEditUsername(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> emailAddress, Option<string> username);
+        partial void OnErrorEditUsername(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> emailAddress, Option<string> username);
 
         /// <summary>
         /// Update Username and Email Update account&#39;s own username and/or emailAddress
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="emailAddress">the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)</param>
         /// <param name="username">the user&#39;s username to update with if they currently have a guest username (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEditUsernameApiResponse"/>&gt;</returns>
-        public async Task<IEditUsernameApiResponse?> EditUsernameOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> emailAddress = default, Option<string> username = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEditUsernameApiResponse?> EditUsernameOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> emailAddress = default, Option<string> username = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await EditUsernameAsync(version, deviceId, accountId, emailAddress, username, cancellationToken).ConfigureAwait(false);
+                return await EditUsernameAsync(deviceId, accountId, emailAddress, username, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5707,14 +5620,13 @@ namespace Org.OpenAPITools.Api
         /// Update Username and Email Update account&#39;s own username and/or emailAddress
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="emailAddress">the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)</param>
         /// <param name="username">the user&#39;s username to update with if they currently have a guest username (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEditUsernameApiResponse"/>&gt;</returns>
-        public async Task<IEditUsernameApiResponse> EditUsernameAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> emailAddress = default, Option<string> username = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEditUsernameApiResponse> EditUsernameAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> emailAddress = default, Option<string> username = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5722,7 +5634,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateEditUsername(deviceId, emailAddress, username);
 
-                FormatEditUsername(ref version, ref deviceId, ref accountId, ref emailAddress, ref username);
+                FormatEditUsername(ref deviceId, ref accountId, ref emailAddress, ref username);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5730,9 +5642,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/username/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/username/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/username/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/username/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5773,13 +5684,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/username/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/username/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterEditUsernameDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, emailAddress, username);
+                        AfterEditUsernameDefaultImplementation(apiResponseLocalVar, deviceId, accountId, emailAddress, username);
 
                         Events.ExecuteOnEditUsername(apiResponseLocalVar);
 
@@ -5789,7 +5700,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorEditUsernameDefaultImplementation(e, "/api/{version}/account/username/update", uriBuilderLocalVar.Path, version, deviceId, accountId, emailAddress, username);
+                OnErrorEditUsernameDefaultImplementation(e, "/account/username/update", uriBuilderLocalVar.Path, deviceId, accountId, emailAddress, username);
                 Events.ExecuteOnErrorEditUsername(e);
                 throw;
             }
@@ -5888,7 +5799,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAccount(ref decimal version, ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionAccountEmail, ref Option<long> connectionAccountId, ref Option<string> responseFilters, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> purchaseType, ref Option<bool> updateViewedDate, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetAccount(ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionAccountEmail, ref Option<long> connectionAccountId, ref Option<string> responseFilters, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> purchaseType, ref Option<bool> updateViewedDate, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -5925,7 +5836,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5938,10 +5848,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="updateViewedDate"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetAccountDefaultImplementation(IGetAccountApiResponse apiResponseLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> responseFilters, Option<string> gameType, Option<string> appKey, Option<string> purchaseType, Option<bool> updateViewedDate, Option<double> latitude, Option<double> longitude)
+        private void AfterGetAccountDefaultImplementation(IGetAccountApiResponse apiResponseLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> responseFilters, Option<string> gameType, Option<string> appKey, Option<string> purchaseType, Option<bool> updateViewedDate, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetAccount(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
+            AfterGetAccount(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5951,7 +5861,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5964,7 +5873,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="updateViewedDate"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetAccount(ref bool suppressDefaultLog, IGetAccountApiResponse apiResponseLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> responseFilters, Option<string> gameType, Option<string> appKey, Option<string> purchaseType, Option<bool> updateViewedDate, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetAccount(ref bool suppressDefaultLog, IGetAccountApiResponse apiResponseLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> responseFilters, Option<string> gameType, Option<string> appKey, Option<string> purchaseType, Option<bool> updateViewedDate, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5972,7 +5881,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5985,10 +5893,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="updateViewedDate"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> responseFilters, Option<string> gameType, Option<string> appKey, Option<string> purchaseType, Option<bool> updateViewedDate, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> responseFilters, Option<string> gameType, Option<string> appKey, Option<string> purchaseType, Option<bool> updateViewedDate, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
+            OnErrorGetAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6000,7 +5908,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -6013,12 +5920,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="updateViewedDate"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> responseFilters, Option<string> gameType, Option<string> appKey, Option<string> purchaseType, Option<bool> updateViewedDate, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> responseFilters, Option<string> gameType, Option<string> appKey, Option<string> purchaseType, Option<bool> updateViewedDate, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Account Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">Return Nulls (optional, default to false)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -6033,11 +5939,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccountApiResponse"/>&gt;</returns>
-        public async Task<IGetAccountApiResponse?> GetAccountOrDefaultAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> responseFilters = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> purchaseType = default, Option<bool> updateViewedDate = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAccountApiResponse?> GetAccountOrDefaultAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> responseFilters = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> purchaseType = default, Option<bool> updateViewedDate = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAccountAsync(version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetAccountAsync(returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6049,7 +5955,6 @@ namespace Org.OpenAPITools.Api
         /// Get Account Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">Return Nulls (optional, default to false)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -6064,7 +5969,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">Longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAccountApiResponse"/>&gt;</returns>
-        public async Task<IGetAccountApiResponse> GetAccountAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> responseFilters = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> purchaseType = default, Option<bool> updateViewedDate = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAccountApiResponse> GetAccountAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> responseFilters = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> purchaseType = default, Option<bool> updateViewedDate = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6072,7 +5977,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAccount(deviceId, connectionAccountEmail, responseFilters, gameType, appKey, purchaseType);
 
-                FormatGetAccount(ref version, ref returnNulls, ref deviceId, ref accountId, ref connectionAccountEmail, ref connectionAccountId, ref responseFilters, ref gameType, ref appKey, ref purchaseType, ref updateViewedDate, ref latitude, ref longitude);
+                FormatGetAccount(ref returnNulls, ref deviceId, ref accountId, ref connectionAccountEmail, ref connectionAccountId, ref responseFilters, ref gameType, ref appKey, ref purchaseType, ref updateViewedDate, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6080,9 +5985,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/profile/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/profile/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/profile/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/profile/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6147,13 +6051,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/profile/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/profile/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAccountDefaultImplementation(apiResponseLocalVar, version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
+                        AfterGetAccountDefaultImplementation(apiResponseLocalVar, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
 
                         Events.ExecuteOnGetAccount(apiResponseLocalVar);
 
@@ -6163,7 +6067,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAccountDefaultImplementation(e, "/api/{version}/account/profile/get", uriBuilderLocalVar.Path, version, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
+                OnErrorGetAccountDefaultImplementation(e, "/account/profile/get", uriBuilderLocalVar.Path, returnNulls, deviceId, accountId, connectionAccountEmail, connectionAccountId, responseFilters, gameType, appKey, purchaseType, updateViewedDate, latitude, longitude);
                 Events.ExecuteOnErrorGetAccount(e);
                 throw;
             }
@@ -6262,7 +6166,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetProfileAssets(ref decimal version, ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> ownerId, ref Option<string> mediaTypes, ref Option<string> mimeTypes, ref Option<string> sortField, ref Option<bool> descending, ref Option<double> latitude, ref Option<double> longitude, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit);
+        partial void FormatGetProfileAssets(ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> ownerId, ref Option<string> mediaTypes, ref Option<string> mimeTypes, ref Option<string> sortField, ref Option<bool> descending, ref Option<double> latitude, ref Option<double> longitude, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -6291,7 +6195,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -6306,10 +6209,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        private void AfterGetProfileAssetsDefaultImplementation(IGetProfileAssetsApiResponse apiResponseLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> mediaTypes, Option<string> mimeTypes, Option<string> sortField, Option<bool> descending, Option<double> latitude, Option<double> longitude, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
+        private void AfterGetProfileAssetsDefaultImplementation(IGetProfileAssetsApiResponse apiResponseLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> mediaTypes, Option<string> mimeTypes, Option<string> sortField, Option<bool> descending, Option<double> latitude, Option<double> longitude, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetProfileAssets(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
+            AfterGetProfileAssets(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6319,7 +6222,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -6334,7 +6236,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        partial void AfterGetProfileAssets(ref bool suppressDefaultLog, IGetProfileAssetsApiResponse apiResponseLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> mediaTypes, Option<string> mimeTypes, Option<string> sortField, Option<bool> descending, Option<double> latitude, Option<double> longitude, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
+        partial void AfterGetProfileAssets(ref bool suppressDefaultLog, IGetProfileAssetsApiResponse apiResponseLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> mediaTypes, Option<string> mimeTypes, Option<string> sortField, Option<bool> descending, Option<double> latitude, Option<double> longitude, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6342,7 +6244,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -6357,10 +6258,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetProfileAssetsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> mediaTypes, Option<string> mimeTypes, Option<string> sortField, Option<bool> descending, Option<double> latitude, Option<double> longitude, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
+        private void OnErrorGetProfileAssetsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> mediaTypes, Option<string> mimeTypes, Option<string> sortField, Option<bool> descending, Option<double> latitude, Option<double> longitude, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetProfileAssets(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
+            OnErrorGetProfileAssets(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6372,7 +6273,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -6387,12 +6287,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetProfileAssets(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> mediaTypes, Option<string> mimeTypes, Option<string> sortField, Option<bool> descending, Option<double> latitude, Option<double> longitude, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
+        partial void OnErrorGetProfileAssets(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> mediaTypes, Option<string> mimeTypes, Option<string> sortField, Option<bool> descending, Option<double> latitude, Option<double> longitude, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
 
         /// <summary>
         /// Get Profile Assets Get a list of assets a person has ever uploaded. Filters the list based on parameters.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">Determines whether to return null fields in the response (optional, default to false)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -6409,11 +6308,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit of the pagination (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetProfileAssetsApiResponse"/>&gt;</returns>
-        public async Task<IGetProfileAssetsApiResponse?> GetProfileAssetsOrDefaultAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> mediaTypes = default, Option<string> mimeTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetProfileAssetsApiResponse?> GetProfileAssetsOrDefaultAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> mediaTypes = default, Option<string> mimeTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetProfileAssetsAsync(version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit, cancellationToken).ConfigureAwait(false);
+                return await GetProfileAssetsAsync(returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6425,7 +6324,6 @@ namespace Org.OpenAPITools.Api
         /// Get Profile Assets Get a list of assets a person has ever uploaded. Filters the list based on parameters.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">Determines whether to return null fields in the response (optional, default to false)</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -6442,7 +6340,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit of the pagination (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetProfileAssetsApiResponse"/>&gt;</returns>
-        public async Task<IGetProfileAssetsApiResponse> GetProfileAssetsAsync(decimal version, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> mediaTypes = default, Option<string> mimeTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetProfileAssetsApiResponse> GetProfileAssetsAsync(Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> mediaTypes = default, Option<string> mimeTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<double> latitude = default, Option<double> longitude = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6450,7 +6348,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetProfileAssets(deviceId, mediaTypes, mimeTypes, sortField);
 
-                FormatGetProfileAssets(ref version, ref returnNulls, ref deviceId, ref accountId, ref ownerId, ref mediaTypes, ref mimeTypes, ref sortField, ref descending, ref latitude, ref longitude, ref i, ref start, ref l, ref limit);
+                FormatGetProfileAssets(ref returnNulls, ref deviceId, ref accountId, ref ownerId, ref mediaTypes, ref mimeTypes, ref sortField, ref descending, ref latitude, ref longitude, ref i, ref start, ref l, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6458,9 +6356,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/profile/assets"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/profile/assets");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/profile/assets"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/profile/assets");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6531,13 +6428,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/profile/assets", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/profile/assets", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetProfileAssetsDefaultImplementation(apiResponseLocalVar, version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
+                        AfterGetProfileAssetsDefaultImplementation(apiResponseLocalVar, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
 
                         Events.ExecuteOnGetProfileAssets(apiResponseLocalVar);
 
@@ -6547,7 +6444,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetProfileAssetsDefaultImplementation(e, "/api/{version}/account/profile/assets", uriBuilderLocalVar.Path, version, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
+                OnErrorGetProfileAssetsDefaultImplementation(e, "/account/profile/assets", uriBuilderLocalVar.Path, returnNulls, deviceId, accountId, ownerId, mediaTypes, mimeTypes, sortField, descending, latitude, longitude, i, start, l, limit);
                 Events.ExecuteOnErrorGetProfileAssets(e);
                 throw;
             }
@@ -6646,7 +6543,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetReferralList(ref decimal version, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> retrieveType, ref Option<decimal> levelLimit, ref Option<decimal> ancestorLevelLimit, ref Option<decimal> childrenLevelLimit, ref Option<decimal> ancestorListStart, ref Option<decimal> ancestorListLimit, ref Option<decimal> childrenListStart, ref Option<decimal> childrenListLimit, ref Option<bool> childrenChildren);
+        partial void FormatGetReferralList(ref Option<long> accountId, ref Option<string> appKey, ref Option<string> retrieveType, ref Option<decimal> levelLimit, ref Option<decimal> ancestorLevelLimit, ref Option<decimal> childrenLevelLimit, ref Option<decimal> ancestorListStart, ref Option<decimal> ancestorListLimit, ref Option<decimal> childrenListStart, ref Option<decimal> childrenListLimit, ref Option<bool> childrenChildren);
 
         /// <summary>
         /// Validates the request parameters
@@ -6667,7 +6564,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retrieveType"></param>
@@ -6679,10 +6575,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="childrenListStart"></param>
         /// <param name="childrenListLimit"></param>
         /// <param name="childrenChildren"></param>
-        private void AfterGetReferralListDefaultImplementation(IGetReferralListApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> retrieveType, Option<decimal> levelLimit, Option<decimal> ancestorLevelLimit, Option<decimal> childrenLevelLimit, Option<decimal> ancestorListStart, Option<decimal> ancestorListLimit, Option<decimal> childrenListStart, Option<decimal> childrenListLimit, Option<bool> childrenChildren)
+        private void AfterGetReferralListDefaultImplementation(IGetReferralListApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<string> retrieveType, Option<decimal> levelLimit, Option<decimal> ancestorLevelLimit, Option<decimal> childrenLevelLimit, Option<decimal> ancestorListStart, Option<decimal> ancestorListLimit, Option<decimal> childrenListStart, Option<decimal> childrenListLimit, Option<bool> childrenChildren)
         {
             bool suppressDefaultLog = false;
-            AfterGetReferralList(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
+            AfterGetReferralList(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6692,7 +6588,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retrieveType"></param>
@@ -6704,7 +6599,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="childrenListStart"></param>
         /// <param name="childrenListLimit"></param>
         /// <param name="childrenChildren"></param>
-        partial void AfterGetReferralList(ref bool suppressDefaultLog, IGetReferralListApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> retrieveType, Option<decimal> levelLimit, Option<decimal> ancestorLevelLimit, Option<decimal> childrenLevelLimit, Option<decimal> ancestorListStart, Option<decimal> ancestorListLimit, Option<decimal> childrenListStart, Option<decimal> childrenListLimit, Option<bool> childrenChildren);
+        partial void AfterGetReferralList(ref bool suppressDefaultLog, IGetReferralListApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<string> retrieveType, Option<decimal> levelLimit, Option<decimal> ancestorLevelLimit, Option<decimal> childrenLevelLimit, Option<decimal> ancestorListStart, Option<decimal> ancestorListLimit, Option<decimal> childrenListStart, Option<decimal> childrenListLimit, Option<bool> childrenChildren);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6712,7 +6607,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retrieveType"></param>
@@ -6724,10 +6618,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="childrenListStart"></param>
         /// <param name="childrenListLimit"></param>
         /// <param name="childrenChildren"></param>
-        private void OnErrorGetReferralListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> retrieveType, Option<decimal> levelLimit, Option<decimal> ancestorLevelLimit, Option<decimal> childrenLevelLimit, Option<decimal> ancestorListStart, Option<decimal> ancestorListLimit, Option<decimal> childrenListStart, Option<decimal> childrenListLimit, Option<bool> childrenChildren)
+        private void OnErrorGetReferralListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<string> retrieveType, Option<decimal> levelLimit, Option<decimal> ancestorLevelLimit, Option<decimal> childrenLevelLimit, Option<decimal> ancestorListStart, Option<decimal> ancestorListLimit, Option<decimal> childrenListStart, Option<decimal> childrenListLimit, Option<bool> childrenChildren)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetReferralList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
+            OnErrorGetReferralList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6739,7 +6633,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retrieveType"></param>
@@ -6751,12 +6644,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="childrenListStart"></param>
         /// <param name="childrenListLimit"></param>
         /// <param name="childrenChildren"></param>
-        partial void OnErrorGetReferralList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> retrieveType, Option<decimal> levelLimit, Option<decimal> ancestorLevelLimit, Option<decimal> childrenLevelLimit, Option<decimal> ancestorListStart, Option<decimal> ancestorListLimit, Option<decimal> childrenListStart, Option<decimal> childrenListLimit, Option<bool> childrenChildren);
+        partial void OnErrorGetReferralList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<string> retrieveType, Option<decimal> levelLimit, Option<decimal> ancestorLevelLimit, Option<decimal> childrenLevelLimit, Option<decimal> ancestorListStart, Option<decimal> ancestorListLimit, Option<decimal> childrenListStart, Option<decimal> childrenListLimit, Option<bool> childrenChildren);
 
         /// <summary>
         /// Search Accounts Gets a user&#39;s account profile and their referral List.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
         /// <param name="retrieveType">one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)</param>
@@ -6770,11 +6662,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="childrenChildren">if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetReferralListApiResponse"/>&gt;</returns>
-        public async Task<IGetReferralListApiResponse?> GetReferralListOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> retrieveType = default, Option<decimal> levelLimit = default, Option<decimal> ancestorLevelLimit = default, Option<decimal> childrenLevelLimit = default, Option<decimal> ancestorListStart = default, Option<decimal> ancestorListLimit = default, Option<decimal> childrenListStart = default, Option<decimal> childrenListLimit = default, Option<bool> childrenChildren = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetReferralListApiResponse?> GetReferralListOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> retrieveType = default, Option<decimal> levelLimit = default, Option<decimal> ancestorLevelLimit = default, Option<decimal> childrenLevelLimit = default, Option<decimal> ancestorListStart = default, Option<decimal> ancestorListLimit = default, Option<decimal> childrenListStart = default, Option<decimal> childrenListLimit = default, Option<bool> childrenChildren = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetReferralListAsync(version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren, cancellationToken).ConfigureAwait(false);
+                return await GetReferralListAsync(accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6786,7 +6678,6 @@ namespace Org.OpenAPITools.Api
         /// Search Accounts Gets a user&#39;s account profile and their referral List.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
         /// <param name="retrieveType">one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)</param>
@@ -6800,7 +6691,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="childrenChildren">if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetReferralListApiResponse"/>&gt;</returns>
-        public async Task<IGetReferralListApiResponse> GetReferralListAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> retrieveType = default, Option<decimal> levelLimit = default, Option<decimal> ancestorLevelLimit = default, Option<decimal> childrenLevelLimit = default, Option<decimal> ancestorListStart = default, Option<decimal> ancestorListLimit = default, Option<decimal> childrenListStart = default, Option<decimal> childrenListLimit = default, Option<bool> childrenChildren = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetReferralListApiResponse> GetReferralListAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> retrieveType = default, Option<decimal> levelLimit = default, Option<decimal> ancestorLevelLimit = default, Option<decimal> childrenLevelLimit = default, Option<decimal> ancestorListStart = default, Option<decimal> ancestorListLimit = default, Option<decimal> childrenListStart = default, Option<decimal> childrenListLimit = default, Option<bool> childrenChildren = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6808,7 +6699,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetReferralList(appKey, retrieveType);
 
-                FormatGetReferralList(ref version, ref accountId, ref appKey, ref retrieveType, ref levelLimit, ref ancestorLevelLimit, ref childrenLevelLimit, ref ancestorListStart, ref ancestorListLimit, ref childrenListStart, ref childrenListLimit, ref childrenChildren);
+                FormatGetReferralList(ref accountId, ref appKey, ref retrieveType, ref levelLimit, ref ancestorLevelLimit, ref childrenLevelLimit, ref ancestorListStart, ref ancestorListLimit, ref childrenListStart, ref childrenListLimit, ref childrenChildren);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6816,9 +6707,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/referral/list"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/referral/list");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/referral/list"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/referral/list");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6871,13 +6761,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/referral/list", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/referral/list", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetReferralListDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
+                        AfterGetReferralListDefaultImplementation(apiResponseLocalVar, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
 
                         Events.ExecuteOnGetReferralList(apiResponseLocalVar);
 
@@ -6887,7 +6777,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetReferralListDefaultImplementation(e, "/api/{version}/account/referral/list", uriBuilderLocalVar.Path, version, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
+                OnErrorGetReferralListDefaultImplementation(e, "/account/referral/list", uriBuilderLocalVar.Path, accountId, appKey, retrieveType, levelLimit, ancestorLevelLimit, childrenLevelLimit, ancestorListStart, ancestorListLimit, childrenListStart, childrenListLimit, childrenChildren);
                 Events.ExecuteOnErrorGetReferralList(e);
                 throw;
             }
@@ -6954,7 +6844,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSettings(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetSettings(ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -6971,15 +6861,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetSettingsDefaultImplementation(IGetSettingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterGetSettingsDefaultImplementation(IGetSettingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetSettings(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, latitude, longitude);
+            AfterGetSettings(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6989,12 +6878,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetSettings(ref bool suppressDefaultLog, IGetSettingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetSettings(ref bool suppressDefaultLog, IGetSettingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7002,15 +6890,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, latitude, longitude);
+            OnErrorGetSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7022,28 +6909,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Account Settings Get the account settings for a user
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The current latitude of the user (optional)</param>
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSettingsApiResponse"/>&gt;</returns>
-        public async Task<IGetSettingsApiResponse?> GetSettingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSettingsApiResponse?> GetSettingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetSettingsAsync(version, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetSettingsAsync(deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7055,14 +6940,13 @@ namespace Org.OpenAPITools.Api
         /// Get Account Settings Get the account settings for a user
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The current latitude of the user (optional)</param>
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSettingsApiResponse"/>&gt;</returns>
-        public async Task<IGetSettingsApiResponse> GetSettingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSettingsApiResponse> GetSettingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7070,7 +6954,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetSettings(deviceId);
 
-                FormatGetSettings(ref version, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatGetSettings(ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7078,9 +6962,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/settings/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/settings/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/settings/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/settings/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7121,13 +7004,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/settings/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/settings/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetSettingsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, latitude, longitude);
+                        AfterGetSettingsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnGetSettings(apiResponseLocalVar);
 
@@ -7137,7 +7020,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetSettingsDefaultImplementation(e, "/api/{version}/account/settings/get", uriBuilderLocalVar.Path, version, deviceId, accountId, latitude, longitude);
+                OnErrorGetSettingsDefaultImplementation(e, "/account/settings/get", uriBuilderLocalVar.Path, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorGetSettings(e);
                 throw;
             }
@@ -7236,7 +7119,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLoginDelegate(ref decimal version, ref string accessToken, ref string appKey, ref Option<string> deviceId, ref Option<string> accessTokenSecret, ref Option<long> delegatedAccountId, ref Option<string> delegatedUsername, ref Option<string> networkUID, ref Option<int> ageRestriction, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatLoginDelegate(ref string accessToken, ref string appKey, ref Option<string> deviceId, ref Option<string> accessTokenSecret, ref Option<long> delegatedAccountId, ref Option<string> delegatedUsername, ref Option<string> networkUID, ref Option<int> ageRestriction, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -7277,7 +7160,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
@@ -7289,10 +7171,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterLoginDelegateDefaultImplementation(ILoginDelegateApiResponse apiResponseLocalVar, decimal version, string accessToken, string appKey, Option<string> deviceId, Option<string> accessTokenSecret, Option<long> delegatedAccountId, Option<string> delegatedUsername, Option<string> networkUID, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude)
+        private void AfterLoginDelegateDefaultImplementation(ILoginDelegateApiResponse apiResponseLocalVar, string accessToken, string appKey, Option<string> deviceId, Option<string> accessTokenSecret, Option<long> delegatedAccountId, Option<string> delegatedUsername, Option<string> networkUID, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterLoginDelegate(ref suppressDefaultLog, apiResponseLocalVar, version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
+            AfterLoginDelegate(ref suppressDefaultLog, apiResponseLocalVar, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7302,7 +7184,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
@@ -7314,7 +7195,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterLoginDelegate(ref bool suppressDefaultLog, ILoginDelegateApiResponse apiResponseLocalVar, decimal version, string accessToken, string appKey, Option<string> deviceId, Option<string> accessTokenSecret, Option<long> delegatedAccountId, Option<string> delegatedUsername, Option<string> networkUID, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude);
+        partial void AfterLoginDelegate(ref bool suppressDefaultLog, ILoginDelegateApiResponse apiResponseLocalVar, string accessToken, string appKey, Option<string> deviceId, Option<string> accessTokenSecret, Option<long> delegatedAccountId, Option<string> delegatedUsername, Option<string> networkUID, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7322,7 +7203,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
@@ -7334,10 +7214,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorLoginDelegateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string accessToken, string appKey, Option<string> deviceId, Option<string> accessTokenSecret, Option<long> delegatedAccountId, Option<string> delegatedUsername, Option<string> networkUID, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude)
+        private void OnErrorLoginDelegateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string accessToken, string appKey, Option<string> deviceId, Option<string> accessTokenSecret, Option<long> delegatedAccountId, Option<string> delegatedUsername, Option<string> networkUID, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLoginDelegate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
+            OnErrorLoginDelegate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7349,7 +7229,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
@@ -7361,12 +7240,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorLoginDelegate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string accessToken, string appKey, Option<string> deviceId, Option<string> accessTokenSecret, Option<long> delegatedAccountId, Option<string> delegatedUsername, Option<string> networkUID, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorLoginDelegate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string accessToken, string appKey, Option<string> deviceId, Option<string> accessTokenSecret, Option<long> delegatedAccountId, Option<string> delegatedUsername, Option<string> networkUID, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Login as Account A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"> (optional)</param>
@@ -7380,11 +7258,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginDelegateApiResponse"/>&gt;</returns>
-        public async Task<ILoginDelegateApiResponse?> LoginDelegateOrDefaultAsync(decimal version, string accessToken, string appKey, Option<string> deviceId = default, Option<string> accessTokenSecret = default, Option<long> delegatedAccountId = default, Option<string> delegatedUsername = default, Option<string> networkUID = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginDelegateApiResponse?> LoginDelegateOrDefaultAsync(string accessToken, string appKey, Option<string> deviceId = default, Option<string> accessTokenSecret = default, Option<long> delegatedAccountId = default, Option<string> delegatedUsername = default, Option<string> networkUID = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LoginDelegateAsync(version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await LoginDelegateAsync(accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7396,7 +7274,6 @@ namespace Org.OpenAPITools.Api
         /// Login as Account A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"> (optional)</param>
@@ -7410,7 +7287,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginDelegateApiResponse"/>&gt;</returns>
-        public async Task<ILoginDelegateApiResponse> LoginDelegateAsync(decimal version, string accessToken, string appKey, Option<string> deviceId = default, Option<string> accessTokenSecret = default, Option<long> delegatedAccountId = default, Option<string> delegatedUsername = default, Option<string> networkUID = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginDelegateApiResponse> LoginDelegateAsync(string accessToken, string appKey, Option<string> deviceId = default, Option<string> accessTokenSecret = default, Option<long> delegatedAccountId = default, Option<string> delegatedUsername = default, Option<string> networkUID = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7418,7 +7295,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateLoginDelegate(accessToken, appKey, deviceId, accessTokenSecret, delegatedUsername, networkUID, responseFilters);
 
-                FormatLoginDelegate(ref version, ref accessToken, ref appKey, ref deviceId, ref accessTokenSecret, ref delegatedAccountId, ref delegatedUsername, ref networkUID, ref ageRestriction, ref responseFilters, ref latitude, ref longitude);
+                FormatLoginDelegate(ref accessToken, ref appKey, ref deviceId, ref accessTokenSecret, ref delegatedAccountId, ref delegatedUsername, ref networkUID, ref ageRestriction, ref responseFilters, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7426,9 +7303,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/login/delegate"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/login/delegate");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/login/delegate"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/login/delegate");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7487,13 +7363,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/login/delegate", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/login/delegate", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterLoginDelegateDefaultImplementation(apiResponseLocalVar, version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
+                        AfterLoginDelegateDefaultImplementation(apiResponseLocalVar, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
 
                         Events.ExecuteOnLoginDelegate(apiResponseLocalVar);
 
@@ -7503,7 +7379,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorLoginDelegateDefaultImplementation(e, "/api/{version}/account/login/delegate", uriBuilderLocalVar.Path, version, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
+                OnErrorLoginDelegateDefaultImplementation(e, "/account/login/delegate", uriBuilderLocalVar.Path, accessToken, appKey, deviceId, accessTokenSecret, delegatedAccountId, delegatedUsername, networkUID, ageRestriction, responseFilters, latitude, longitude);
                 Events.ExecuteOnErrorLoginDelegate(e);
                 throw;
             }
@@ -7602,7 +7478,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLoginGeneral(ref decimal version, ref string accessToken, ref string appKey, ref string networkUID, ref Option<string> deviceId, ref Option<string> deviceIdType, ref Option<string> accessTokenSecret, ref Option<int> ageRestriction, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> emailMatch, ref Option<long> chosenAccountId, ref Option<long> thirdPartyCredentialId);
+        partial void FormatLoginGeneral(ref string accessToken, ref string appKey, ref string networkUID, ref Option<string> deviceId, ref Option<string> deviceIdType, ref Option<string> accessTokenSecret, ref Option<int> ageRestriction, ref Option<string> responseFilters, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> emailMatch, ref Option<long> chosenAccountId, ref Option<long> thirdPartyCredentialId);
 
         /// <summary>
         /// Validates the request parameters
@@ -7643,7 +7519,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="networkUID"></param>
@@ -7657,10 +7532,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="emailMatch"></param>
         /// <param name="chosenAccountId"></param>
         /// <param name="thirdPartyCredentialId"></param>
-        private void AfterLoginGeneralDefaultImplementation(ILoginGeneralApiResponse apiResponseLocalVar, decimal version, string accessToken, string appKey, string networkUID, Option<string> deviceId, Option<string> deviceIdType, Option<string> accessTokenSecret, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<bool> emailMatch, Option<long> chosenAccountId, Option<long> thirdPartyCredentialId)
+        private void AfterLoginGeneralDefaultImplementation(ILoginGeneralApiResponse apiResponseLocalVar, string accessToken, string appKey, string networkUID, Option<string> deviceId, Option<string> deviceIdType, Option<string> accessTokenSecret, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<bool> emailMatch, Option<long> chosenAccountId, Option<long> thirdPartyCredentialId)
         {
             bool suppressDefaultLog = false;
-            AfterLoginGeneral(ref suppressDefaultLog, apiResponseLocalVar, version, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
+            AfterLoginGeneral(ref suppressDefaultLog, apiResponseLocalVar, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7670,7 +7545,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="networkUID"></param>
@@ -7684,7 +7558,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="emailMatch"></param>
         /// <param name="chosenAccountId"></param>
         /// <param name="thirdPartyCredentialId"></param>
-        partial void AfterLoginGeneral(ref bool suppressDefaultLog, ILoginGeneralApiResponse apiResponseLocalVar, decimal version, string accessToken, string appKey, string networkUID, Option<string> deviceId, Option<string> deviceIdType, Option<string> accessTokenSecret, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<bool> emailMatch, Option<long> chosenAccountId, Option<long> thirdPartyCredentialId);
+        partial void AfterLoginGeneral(ref bool suppressDefaultLog, ILoginGeneralApiResponse apiResponseLocalVar, string accessToken, string appKey, string networkUID, Option<string> deviceId, Option<string> deviceIdType, Option<string> accessTokenSecret, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<bool> emailMatch, Option<long> chosenAccountId, Option<long> thirdPartyCredentialId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7692,7 +7566,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="networkUID"></param>
@@ -7706,10 +7579,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="emailMatch"></param>
         /// <param name="chosenAccountId"></param>
         /// <param name="thirdPartyCredentialId"></param>
-        private void OnErrorLoginGeneralDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string accessToken, string appKey, string networkUID, Option<string> deviceId, Option<string> deviceIdType, Option<string> accessTokenSecret, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<bool> emailMatch, Option<long> chosenAccountId, Option<long> thirdPartyCredentialId)
+        private void OnErrorLoginGeneralDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string accessToken, string appKey, string networkUID, Option<string> deviceId, Option<string> deviceIdType, Option<string> accessTokenSecret, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<bool> emailMatch, Option<long> chosenAccountId, Option<long> thirdPartyCredentialId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLoginGeneral(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
+            OnErrorLoginGeneral(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7721,7 +7594,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="appKey"></param>
         /// <param name="networkUID"></param>
@@ -7735,12 +7607,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="emailMatch"></param>
         /// <param name="chosenAccountId"></param>
         /// <param name="thirdPartyCredentialId"></param>
-        partial void OnErrorLoginGeneral(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string accessToken, string appKey, string networkUID, Option<string> deviceId, Option<string> deviceIdType, Option<string> accessTokenSecret, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<bool> emailMatch, Option<long> chosenAccountId, Option<long> thirdPartyCredentialId);
+        partial void OnErrorLoginGeneral(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string accessToken, string appKey, string networkUID, Option<string> deviceId, Option<string> deviceIdType, Option<string> accessTokenSecret, Option<int> ageRestriction, Option<string> responseFilters, Option<double> latitude, Option<double> longitude, Option<bool> emailMatch, Option<long> chosenAccountId, Option<long> thirdPartyCredentialId);
 
         /// <summary>
         /// Login Account General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accessToken">The access token to authenticate with (ex: username or fb token)</param>
         /// <param name="appKey">The application key</param>
         /// <param name="networkUID">The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE </param>
@@ -7756,11 +7627,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyCredentialId">Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginGeneralApiResponse"/>&gt;</returns>
-        public async Task<ILoginGeneralApiResponse?> LoginGeneralOrDefaultAsync(decimal version, string accessToken, string appKey, string networkUID, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> accessTokenSecret = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> emailMatch = default, Option<long> chosenAccountId = default, Option<long> thirdPartyCredentialId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginGeneralApiResponse?> LoginGeneralOrDefaultAsync(string accessToken, string appKey, string networkUID, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> accessTokenSecret = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> emailMatch = default, Option<long> chosenAccountId = default, Option<long> thirdPartyCredentialId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LoginGeneralAsync(version, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId, cancellationToken).ConfigureAwait(false);
+                return await LoginGeneralAsync(accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7772,7 +7643,6 @@ namespace Org.OpenAPITools.Api
         /// Login Account General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accessToken">The access token to authenticate with (ex: username or fb token)</param>
         /// <param name="appKey">The application key</param>
         /// <param name="networkUID">The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE </param>
@@ -7788,7 +7658,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="thirdPartyCredentialId">Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (optional, default to 0)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginGeneralApiResponse"/>&gt;</returns>
-        public async Task<ILoginGeneralApiResponse> LoginGeneralAsync(decimal version, string accessToken, string appKey, string networkUID, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> accessTokenSecret = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> emailMatch = default, Option<long> chosenAccountId = default, Option<long> thirdPartyCredentialId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginGeneralApiResponse> LoginGeneralAsync(string accessToken, string appKey, string networkUID, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<string> accessTokenSecret = default, Option<int> ageRestriction = default, Option<string> responseFilters = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> emailMatch = default, Option<long> chosenAccountId = default, Option<long> thirdPartyCredentialId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7796,7 +7666,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateLoginGeneral(accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, responseFilters);
 
-                FormatLoginGeneral(ref version, ref accessToken, ref appKey, ref networkUID, ref deviceId, ref deviceIdType, ref accessTokenSecret, ref ageRestriction, ref responseFilters, ref latitude, ref longitude, ref emailMatch, ref chosenAccountId, ref thirdPartyCredentialId);
+                FormatLoginGeneral(ref accessToken, ref appKey, ref networkUID, ref deviceId, ref deviceIdType, ref accessTokenSecret, ref ageRestriction, ref responseFilters, ref latitude, ref longitude, ref emailMatch, ref chosenAccountId, ref thirdPartyCredentialId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7804,9 +7674,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/login"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/login");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/login"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/login");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7869,13 +7738,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/login", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/login", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterLoginGeneralDefaultImplementation(apiResponseLocalVar, version, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
+                        AfterLoginGeneralDefaultImplementation(apiResponseLocalVar, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
 
                         Events.ExecuteOnLoginGeneral(apiResponseLocalVar);
 
@@ -7885,7 +7754,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorLoginGeneralDefaultImplementation(e, "/api/{version}/account/login", uriBuilderLocalVar.Path, version, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
+                OnErrorLoginGeneralDefaultImplementation(e, "/account/login", uriBuilderLocalVar.Path, accessToken, appKey, networkUID, deviceId, deviceIdType, accessTokenSecret, ageRestriction, responseFilters, latitude, longitude, emailMatch, chosenAccountId, thirdPartyCredentialId);
                 Events.ExecuteOnErrorLoginGeneral(e);
                 throw;
             }
@@ -7984,7 +7853,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLoginUsername(ref decimal version, ref string username, ref string password, ref Option<string> deviceId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> app, ref Option<string> gameType, ref Option<string> appKey, ref Option<bool> returnProfile, ref Option<string> responseFilters);
+        partial void FormatLoginUsername(ref string username, ref string password, ref Option<string> deviceId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> app, ref Option<string> gameType, ref Option<string> appKey, ref Option<bool> returnProfile, ref Option<string> responseFilters);
 
         /// <summary>
         /// Validates the request parameters
@@ -8025,7 +7894,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="deviceId"></param>
@@ -8036,10 +7904,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="returnProfile"></param>
         /// <param name="responseFilters"></param>
-        private void AfterLoginUsernameDefaultImplementation(ILoginUsernameApiResponse apiResponseLocalVar, decimal version, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> app, Option<string> gameType, Option<string> appKey, Option<bool> returnProfile, Option<string> responseFilters)
+        private void AfterLoginUsernameDefaultImplementation(ILoginUsernameApiResponse apiResponseLocalVar, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> app, Option<string> gameType, Option<string> appKey, Option<bool> returnProfile, Option<string> responseFilters)
         {
             bool suppressDefaultLog = false;
-            AfterLoginUsername(ref suppressDefaultLog, apiResponseLocalVar, version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
+            AfterLoginUsername(ref suppressDefaultLog, apiResponseLocalVar, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8049,7 +7917,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="deviceId"></param>
@@ -8060,7 +7927,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="returnProfile"></param>
         /// <param name="responseFilters"></param>
-        partial void AfterLoginUsername(ref bool suppressDefaultLog, ILoginUsernameApiResponse apiResponseLocalVar, decimal version, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> app, Option<string> gameType, Option<string> appKey, Option<bool> returnProfile, Option<string> responseFilters);
+        partial void AfterLoginUsername(ref bool suppressDefaultLog, ILoginUsernameApiResponse apiResponseLocalVar, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> app, Option<string> gameType, Option<string> appKey, Option<bool> returnProfile, Option<string> responseFilters);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8068,7 +7935,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="deviceId"></param>
@@ -8079,10 +7945,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="returnProfile"></param>
         /// <param name="responseFilters"></param>
-        private void OnErrorLoginUsernameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> app, Option<string> gameType, Option<string> appKey, Option<bool> returnProfile, Option<string> responseFilters)
+        private void OnErrorLoginUsernameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> app, Option<string> gameType, Option<string> appKey, Option<bool> returnProfile, Option<string> responseFilters)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLoginUsername(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
+            OnErrorLoginUsername(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8094,7 +7960,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="deviceId"></param>
@@ -8105,12 +7970,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="returnProfile"></param>
         /// <param name="responseFilters"></param>
-        partial void OnErrorLoginUsername(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> app, Option<string> gameType, Option<string> appKey, Option<bool> returnProfile, Option<string> responseFilters);
+        partial void OnErrorLoginUsername(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string username, string password, Option<string> deviceId, Option<double> latitude, Option<double> longitude, Option<string> app, Option<string> gameType, Option<string> appKey, Option<bool> returnProfile, Option<string> responseFilters);
 
         /// <summary>
         /// Login Account (Username) Login to system with an account
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="username">the user&#39;s email address they used to sign-up</param>
         /// <param name="password">the password</param>
         /// <param name="deviceId">the device id (optional)</param>
@@ -8123,11 +7987,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">a comma separated list of ProfileFilters for filtering the returned response data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginUsernameApiResponse"/>&gt;</returns>
-        public async Task<ILoginUsernameApiResponse?> LoginUsernameOrDefaultAsync(decimal version, string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginUsernameApiResponse?> LoginUsernameOrDefaultAsync(string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LoginUsernameAsync(version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters, cancellationToken).ConfigureAwait(false);
+                return await LoginUsernameAsync(username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8139,7 +8003,6 @@ namespace Org.OpenAPITools.Api
         /// Login Account (Username) Login to system with an account
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="username">the user&#39;s email address they used to sign-up</param>
         /// <param name="password">the password</param>
         /// <param name="deviceId">the device id (optional)</param>
@@ -8152,7 +8015,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">a comma separated list of ProfileFilters for filtering the returned response data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginUsernameApiResponse"/>&gt;</returns>
-        public async Task<ILoginUsernameApiResponse> LoginUsernameAsync(decimal version, string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginUsernameApiResponse> LoginUsernameAsync(string username, string password, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8160,7 +8023,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateLoginUsername(username, password, deviceId, app, gameType, appKey, responseFilters);
 
-                FormatLoginUsername(ref version, ref username, ref password, ref deviceId, ref latitude, ref longitude, ref app, ref gameType, ref appKey, ref returnProfile, ref responseFilters);
+                FormatLoginUsername(ref username, ref password, ref deviceId, ref latitude, ref longitude, ref app, ref gameType, ref appKey, ref returnProfile, ref responseFilters);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8168,9 +8031,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8226,13 +8088,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterLoginUsernameDefaultImplementation(apiResponseLocalVar, version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
+                        AfterLoginUsernameDefaultImplementation(apiResponseLocalVar, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
 
                         Events.ExecuteOnLoginUsername(apiResponseLocalVar);
 
@@ -8242,7 +8104,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorLoginUsernameDefaultImplementation(e, "/api/{version}/account/get", uriBuilderLocalVar.Path, version, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
+                OnErrorLoginUsernameDefaultImplementation(e, "/account/get", uriBuilderLocalVar.Path, username, password, deviceId, latitude, longitude, app, gameType, appKey, returnProfile, responseFilters);
                 Events.ExecuteOnErrorLoginUsername(e);
                 throw;
             }
@@ -8341,7 +8203,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLogout(ref decimal version, ref Option<string> deviceId, ref Option<string> deviceIdType, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatLogout(ref Option<string> deviceId, ref Option<string> deviceIdType, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -8362,16 +8224,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="deviceIdType"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterLogoutDefaultImplementation(ILogoutApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<string> deviceIdType, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterLogoutDefaultImplementation(ILogoutApiResponse apiResponseLocalVar, Option<string> deviceId, Option<string> deviceIdType, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterLogout(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, deviceIdType, accountId, latitude, longitude);
+            AfterLogout(ref suppressDefaultLog, apiResponseLocalVar, deviceId, deviceIdType, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8381,13 +8242,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="deviceIdType"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterLogout(ref bool suppressDefaultLog, ILogoutApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<string> deviceIdType, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterLogout(ref bool suppressDefaultLog, ILogoutApiResponse apiResponseLocalVar, Option<string> deviceId, Option<string> deviceIdType, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8395,16 +8255,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="deviceIdType"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorLogoutDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<string> deviceIdType, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorLogoutDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<string> deviceIdType, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLogout(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, deviceIdType, accountId, latitude, longitude);
+            OnErrorLogout(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, deviceIdType, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8416,18 +8275,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="deviceIdType"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorLogout(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<string> deviceIdType, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorLogout(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<string> deviceIdType, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logout Account Cleans up the users data for logging out.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="deviceIdType">Device Id Type (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -8435,11 +8292,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILogoutApiResponse"/>&gt;</returns>
-        public async Task<ILogoutApiResponse?> LogoutOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILogoutApiResponse?> LogoutOrDefaultAsync(Option<string> deviceId = default, Option<string> deviceIdType = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LogoutAsync(version, deviceId, deviceIdType, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await LogoutAsync(deviceId, deviceIdType, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8451,7 +8308,6 @@ namespace Org.OpenAPITools.Api
         /// Logout Account Cleans up the users data for logging out.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="deviceIdType">Device Id Type (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -8459,7 +8315,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILogoutApiResponse"/>&gt;</returns>
-        public async Task<ILogoutApiResponse> LogoutAsync(decimal version, Option<string> deviceId = default, Option<string> deviceIdType = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILogoutApiResponse> LogoutAsync(Option<string> deviceId = default, Option<string> deviceIdType = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8467,7 +8323,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateLogout(deviceId, deviceIdType);
 
-                FormatLogout(ref version, ref deviceId, ref deviceIdType, ref accountId, ref latitude, ref longitude);
+                FormatLogout(ref deviceId, ref deviceIdType, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8475,9 +8331,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/logout"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/logout");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/logout"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/logout");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8521,13 +8376,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/logout", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/logout", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterLogoutDefaultImplementation(apiResponseLocalVar, version, deviceId, deviceIdType, accountId, latitude, longitude);
+                        AfterLogoutDefaultImplementation(apiResponseLocalVar, deviceId, deviceIdType, accountId, latitude, longitude);
 
                         Events.ExecuteOnLogout(apiResponseLocalVar);
 
@@ -8537,7 +8392,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorLogoutDefaultImplementation(e, "/api/{version}/account/logout", uriBuilderLocalVar.Path, version, deviceId, deviceIdType, accountId, latitude, longitude);
+                OnErrorLogoutDefaultImplementation(e, "/account/logout", uriBuilderLocalVar.Path, deviceId, deviceIdType, accountId, latitude, longitude);
                 Events.ExecuteOnErrorLogout(e);
                 throw;
             }
@@ -8636,7 +8491,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatMergeAccount(ref decimal version, ref long mergeAccountId, ref string appKey, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatMergeAccount(ref long mergeAccountId, ref string appKey, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -8657,15 +8512,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="mergeAccountId"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterMergeAccountDefaultImplementation(IMergeAccountApiResponse apiResponseLocalVar, decimal version, long mergeAccountId, string appKey, Option<string> deviceId, Option<long> accountId)
+        private void AfterMergeAccountDefaultImplementation(IMergeAccountApiResponse apiResponseLocalVar, long mergeAccountId, string appKey, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterMergeAccount(ref suppressDefaultLog, apiResponseLocalVar, version, mergeAccountId, appKey, deviceId, accountId);
+            AfterMergeAccount(ref suppressDefaultLog, apiResponseLocalVar, mergeAccountId, appKey, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8675,12 +8529,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="mergeAccountId"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterMergeAccount(ref bool suppressDefaultLog, IMergeAccountApiResponse apiResponseLocalVar, decimal version, long mergeAccountId, string appKey, Option<string> deviceId, Option<long> accountId);
+        partial void AfterMergeAccount(ref bool suppressDefaultLog, IMergeAccountApiResponse apiResponseLocalVar, long mergeAccountId, string appKey, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8688,15 +8541,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="mergeAccountId"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorMergeAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long mergeAccountId, string appKey, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorMergeAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long mergeAccountId, string appKey, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorMergeAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, mergeAccountId, appKey, deviceId, accountId);
+            OnErrorMergeAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, mergeAccountId, appKey, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8708,28 +8560,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="mergeAccountId"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorMergeAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long mergeAccountId, string appKey, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorMergeAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long mergeAccountId, string appKey, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Merge Account Merges the analytics, achievements, leaderboards of two accounts.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="mergeAccountId">The id of the account to being merged</param>
         /// <param name="appKey">The application key</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMergeAccountApiResponse"/>&gt;</returns>
-        public async Task<IMergeAccountApiResponse?> MergeAccountOrDefaultAsync(decimal version, long mergeAccountId, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMergeAccountApiResponse?> MergeAccountOrDefaultAsync(long mergeAccountId, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await MergeAccountAsync(version, mergeAccountId, appKey, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await MergeAccountAsync(mergeAccountId, appKey, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8741,14 +8591,13 @@ namespace Org.OpenAPITools.Api
         /// Merge Account Merges the analytics, achievements, leaderboards of two accounts.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="mergeAccountId">The id of the account to being merged</param>
         /// <param name="appKey">The application key</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IMergeAccountApiResponse"/>&gt;</returns>
-        public async Task<IMergeAccountApiResponse> MergeAccountAsync(decimal version, long mergeAccountId, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IMergeAccountApiResponse> MergeAccountAsync(long mergeAccountId, string appKey, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8756,7 +8605,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateMergeAccount(appKey, deviceId);
 
-                FormatMergeAccount(ref version, ref mergeAccountId, ref appKey, ref deviceId, ref accountId);
+                FormatMergeAccount(ref mergeAccountId, ref appKey, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8764,9 +8613,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/merge"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/merge");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/merge"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/merge");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8804,13 +8652,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/merge", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/merge", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterMergeAccountDefaultImplementation(apiResponseLocalVar, version, mergeAccountId, appKey, deviceId, accountId);
+                        AfterMergeAccountDefaultImplementation(apiResponseLocalVar, mergeAccountId, appKey, deviceId, accountId);
 
                         Events.ExecuteOnMergeAccount(apiResponseLocalVar);
 
@@ -8820,7 +8668,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorMergeAccountDefaultImplementation(e, "/api/{version}/account/merge", uriBuilderLocalVar.Path, version, mergeAccountId, appKey, deviceId, accountId);
+                OnErrorMergeAccountDefaultImplementation(e, "/account/merge", uriBuilderLocalVar.Path, mergeAccountId, appKey, deviceId, accountId);
                 Events.ExecuteOnErrorMergeAccount(e);
                 throw;
             }
@@ -8919,7 +8767,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPasswordChange(ref decimal version, ref long accountId, ref string oldPassword, ref string newPassword, ref string confirmPassword);
+        partial void FormatPasswordChange(ref long accountId, ref string oldPassword, ref string newPassword, ref string confirmPassword);
 
         /// <summary>
         /// Validates the request parameters
@@ -8944,15 +8792,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="oldPassword"></param>
         /// <param name="newPassword"></param>
         /// <param name="confirmPassword"></param>
-        private void AfterPasswordChangeDefaultImplementation(IPasswordChangeApiResponse apiResponseLocalVar, decimal version, long accountId, string oldPassword, string newPassword, string confirmPassword)
+        private void AfterPasswordChangeDefaultImplementation(IPasswordChangeApiResponse apiResponseLocalVar, long accountId, string oldPassword, string newPassword, string confirmPassword)
         {
             bool suppressDefaultLog = false;
-            AfterPasswordChange(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, oldPassword, newPassword, confirmPassword);
+            AfterPasswordChange(ref suppressDefaultLog, apiResponseLocalVar, accountId, oldPassword, newPassword, confirmPassword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8962,12 +8809,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="oldPassword"></param>
         /// <param name="newPassword"></param>
         /// <param name="confirmPassword"></param>
-        partial void AfterPasswordChange(ref bool suppressDefaultLog, IPasswordChangeApiResponse apiResponseLocalVar, decimal version, long accountId, string oldPassword, string newPassword, string confirmPassword);
+        partial void AfterPasswordChange(ref bool suppressDefaultLog, IPasswordChangeApiResponse apiResponseLocalVar, long accountId, string oldPassword, string newPassword, string confirmPassword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8975,15 +8821,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="oldPassword"></param>
         /// <param name="newPassword"></param>
         /// <param name="confirmPassword"></param>
-        private void OnErrorPasswordChangeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string oldPassword, string newPassword, string confirmPassword)
+        private void OnErrorPasswordChangeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string oldPassword, string newPassword, string confirmPassword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPasswordChange(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, oldPassword, newPassword, confirmPassword);
+            OnErrorPasswordChange(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, oldPassword, newPassword, confirmPassword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8995,28 +8840,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="oldPassword"></param>
         /// <param name="newPassword"></param>
         /// <param name="confirmPassword"></param>
-        partial void OnErrorPasswordChange(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string oldPassword, string newPassword, string confirmPassword);
+        partial void OnErrorPasswordChange(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string oldPassword, string newPassword, string confirmPassword);
 
         /// <summary>
         /// Update Password Update the account password.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to update</param>
         /// <param name="oldPassword">The current password, used to validate access</param>
         /// <param name="newPassword">The new password to set, cannot be empty</param>
         /// <param name="confirmPassword">The new password to confirm, must match newPassword</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPasswordChangeApiResponse"/>&gt;</returns>
-        public async Task<IPasswordChangeApiResponse?> PasswordChangeOrDefaultAsync(decimal version, long accountId, string oldPassword, string newPassword, string confirmPassword, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPasswordChangeApiResponse?> PasswordChangeOrDefaultAsync(long accountId, string oldPassword, string newPassword, string confirmPassword, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PasswordChangeAsync(version, accountId, oldPassword, newPassword, confirmPassword, cancellationToken).ConfigureAwait(false);
+                return await PasswordChangeAsync(accountId, oldPassword, newPassword, confirmPassword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -9028,14 +8871,13 @@ namespace Org.OpenAPITools.Api
         /// Update Password Update the account password.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to update</param>
         /// <param name="oldPassword">The current password, used to validate access</param>
         /// <param name="newPassword">The new password to set, cannot be empty</param>
         /// <param name="confirmPassword">The new password to confirm, must match newPassword</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPasswordChangeApiResponse"/>&gt;</returns>
-        public async Task<IPasswordChangeApiResponse> PasswordChangeAsync(decimal version, long accountId, string oldPassword, string newPassword, string confirmPassword, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPasswordChangeApiResponse> PasswordChangeAsync(long accountId, string oldPassword, string newPassword, string confirmPassword, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -9043,7 +8885,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePasswordChange(oldPassword, newPassword, confirmPassword);
 
-                FormatPasswordChange(ref version, ref accountId, ref oldPassword, ref newPassword, ref confirmPassword);
+                FormatPasswordChange(ref accountId, ref oldPassword, ref newPassword, ref confirmPassword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -9051,9 +8893,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/passwordchange"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/passwordchange");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/passwordchange"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/passwordchange");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9087,13 +8928,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/passwordchange", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/passwordchange", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPasswordChangeDefaultImplementation(apiResponseLocalVar, version, accountId, oldPassword, newPassword, confirmPassword);
+                        AfterPasswordChangeDefaultImplementation(apiResponseLocalVar, accountId, oldPassword, newPassword, confirmPassword);
 
                         Events.ExecuteOnPasswordChange(apiResponseLocalVar);
 
@@ -9103,7 +8944,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPasswordChangeDefaultImplementation(e, "/api/{version}/account/passwordchange", uriBuilderLocalVar.Path, version, accountId, oldPassword, newPassword, confirmPassword);
+                OnErrorPasswordChangeDefaultImplementation(e, "/account/passwordchange", uriBuilderLocalVar.Path, accountId, oldPassword, newPassword, confirmPassword);
                 Events.ExecuteOnErrorPasswordChange(e);
                 throw;
             }
@@ -9202,7 +9043,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPasswordReset(ref decimal version, ref string token, ref string password, ref string confirm);
+        partial void FormatPasswordReset(ref string token, ref string password, ref string confirm);
 
         /// <summary>
         /// Validates the request parameters
@@ -9227,14 +9068,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="password"></param>
         /// <param name="confirm"></param>
-        private void AfterPasswordResetDefaultImplementation(IPasswordResetApiResponse apiResponseLocalVar, decimal version, string token, string password, string confirm)
+        private void AfterPasswordResetDefaultImplementation(IPasswordResetApiResponse apiResponseLocalVar, string token, string password, string confirm)
         {
             bool suppressDefaultLog = false;
-            AfterPasswordReset(ref suppressDefaultLog, apiResponseLocalVar, version, token, password, confirm);
+            AfterPasswordReset(ref suppressDefaultLog, apiResponseLocalVar, token, password, confirm);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -9244,11 +9084,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="password"></param>
         /// <param name="confirm"></param>
-        partial void AfterPasswordReset(ref bool suppressDefaultLog, IPasswordResetApiResponse apiResponseLocalVar, decimal version, string token, string password, string confirm);
+        partial void AfterPasswordReset(ref bool suppressDefaultLog, IPasswordResetApiResponse apiResponseLocalVar, string token, string password, string confirm);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -9256,14 +9095,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="password"></param>
         /// <param name="confirm"></param>
-        private void OnErrorPasswordResetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token, string password, string confirm)
+        private void OnErrorPasswordResetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token, string password, string confirm)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPasswordReset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, token, password, confirm);
+            OnErrorPasswordReset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, token, password, confirm);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -9275,26 +9113,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
         /// <param name="password"></param>
         /// <param name="confirm"></param>
-        partial void OnErrorPasswordReset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token, string password, string confirm);
+        partial void OnErrorPasswordReset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token, string password, string confirm);
 
         /// <summary>
         /// Reset Password Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="password">The new password to set, cannot be empty</param>
         /// <param name="confirm">The new password to confirm, must match newPassword</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPasswordResetApiResponse"/>&gt;</returns>
-        public async Task<IPasswordResetApiResponse?> PasswordResetOrDefaultAsync(decimal version, string token, string password, string confirm, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPasswordResetApiResponse?> PasswordResetOrDefaultAsync(string token, string password, string confirm, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PasswordResetAsync(version, token, password, confirm, cancellationToken).ConfigureAwait(false);
+                return await PasswordResetAsync(token, password, confirm, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -9306,13 +9142,12 @@ namespace Org.OpenAPITools.Api
         /// Reset Password Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="password">The new password to set, cannot be empty</param>
         /// <param name="confirm">The new password to confirm, must match newPassword</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPasswordResetApiResponse"/>&gt;</returns>
-        public async Task<IPasswordResetApiResponse> PasswordResetAsync(decimal version, string token, string password, string confirm, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPasswordResetApiResponse> PasswordResetAsync(string token, string password, string confirm, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -9320,7 +9155,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePasswordReset(token, password, confirm);
 
-                FormatPasswordReset(ref version, ref token, ref password, ref confirm);
+                FormatPasswordReset(ref token, ref password, ref confirm);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -9328,9 +9163,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/passwordreset"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/passwordreset");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/passwordreset"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/passwordreset");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9363,13 +9197,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/passwordreset", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/passwordreset", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPasswordResetDefaultImplementation(apiResponseLocalVar, version, token, password, confirm);
+                        AfterPasswordResetDefaultImplementation(apiResponseLocalVar, token, password, confirm);
 
                         Events.ExecuteOnPasswordReset(apiResponseLocalVar);
 
@@ -9379,7 +9213,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPasswordResetDefaultImplementation(e, "/api/{version}/account/passwordreset", uriBuilderLocalVar.Path, version, token, password, confirm);
+                OnErrorPasswordResetDefaultImplementation(e, "/account/passwordreset", uriBuilderLocalVar.Path, token, password, confirm);
                 Events.ExecuteOnErrorPasswordReset(e);
                 throw;
             }
@@ -9478,7 +9312,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRequestPasswordReset(ref decimal version, ref string email, ref Option<string> from, ref Option<string> domain, ref Option<string> subUrl, ref Option<string> referer);
+        partial void FormatRequestPasswordReset(ref string email, ref Option<string> from, ref Option<string> domain, ref Option<string> subUrl, ref Option<string> referer);
 
         /// <summary>
         /// Validates the request parameters
@@ -9511,16 +9345,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="email"></param>
         /// <param name="from"></param>
         /// <param name="domain"></param>
         /// <param name="subUrl"></param>
         /// <param name="referer"></param>
-        private void AfterRequestPasswordResetDefaultImplementation(IRequestPasswordResetApiResponse apiResponseLocalVar, decimal version, string email, Option<string> from, Option<string> domain, Option<string> subUrl, Option<string> referer)
+        private void AfterRequestPasswordResetDefaultImplementation(IRequestPasswordResetApiResponse apiResponseLocalVar, string email, Option<string> from, Option<string> domain, Option<string> subUrl, Option<string> referer)
         {
             bool suppressDefaultLog = false;
-            AfterRequestPasswordReset(ref suppressDefaultLog, apiResponseLocalVar, version, email, from, domain, subUrl, referer);
+            AfterRequestPasswordReset(ref suppressDefaultLog, apiResponseLocalVar, email, from, domain, subUrl, referer);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -9530,13 +9363,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="email"></param>
         /// <param name="from"></param>
         /// <param name="domain"></param>
         /// <param name="subUrl"></param>
         /// <param name="referer"></param>
-        partial void AfterRequestPasswordReset(ref bool suppressDefaultLog, IRequestPasswordResetApiResponse apiResponseLocalVar, decimal version, string email, Option<string> from, Option<string> domain, Option<string> subUrl, Option<string> referer);
+        partial void AfterRequestPasswordReset(ref bool suppressDefaultLog, IRequestPasswordResetApiResponse apiResponseLocalVar, string email, Option<string> from, Option<string> domain, Option<string> subUrl, Option<string> referer);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -9544,16 +9376,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="email"></param>
         /// <param name="from"></param>
         /// <param name="domain"></param>
         /// <param name="subUrl"></param>
         /// <param name="referer"></param>
-        private void OnErrorRequestPasswordResetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string email, Option<string> from, Option<string> domain, Option<string> subUrl, Option<string> referer)
+        private void OnErrorRequestPasswordResetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string email, Option<string> from, Option<string> domain, Option<string> subUrl, Option<string> referer)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRequestPasswordReset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, email, from, domain, subUrl, referer);
+            OnErrorRequestPasswordReset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, email, from, domain, subUrl, referer);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -9565,18 +9396,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="email"></param>
         /// <param name="from"></param>
         /// <param name="domain"></param>
         /// <param name="subUrl"></param>
         /// <param name="referer"></param>
-        partial void OnErrorRequestPasswordReset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string email, Option<string> from, Option<string> domain, Option<string> subUrl, Option<string> referer);
+        partial void OnErrorRequestPasswordReset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string email, Option<string> from, Option<string> domain, Option<string> subUrl, Option<string> referer);
 
         /// <summary>
         /// Request Password Reset Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="email">The email/username of the account</param>
         /// <param name="from">this is the sender email (optional, default to &quot;Sirqul&quot;)</param>
         /// <param name="domain">this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)</param>
@@ -9584,11 +9413,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="referer">this is used to generate a password reset link (optional, default to &quot;http://dev.sirqul.com/resetpassword&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestPasswordResetApiResponse"/>&gt;</returns>
-        public async Task<IRequestPasswordResetApiResponse?> RequestPasswordResetOrDefaultAsync(decimal version, string email, Option<string> from = default, Option<string> domain = default, Option<string> subUrl = default, Option<string> referer = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRequestPasswordResetApiResponse?> RequestPasswordResetOrDefaultAsync(string email, Option<string> from = default, Option<string> domain = default, Option<string> subUrl = default, Option<string> referer = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RequestPasswordResetAsync(version, email, from, domain, subUrl, referer, cancellationToken).ConfigureAwait(false);
+                return await RequestPasswordResetAsync(email, from, domain, subUrl, referer, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -9600,7 +9429,6 @@ namespace Org.OpenAPITools.Api
         /// Request Password Reset Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="email">The email/username of the account</param>
         /// <param name="from">this is the sender email (optional, default to &quot;Sirqul&quot;)</param>
         /// <param name="domain">this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)</param>
@@ -9608,7 +9436,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="referer">this is used to generate a password reset link (optional, default to &quot;http://dev.sirqul.com/resetpassword&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestPasswordResetApiResponse"/>&gt;</returns>
-        public async Task<IRequestPasswordResetApiResponse> RequestPasswordResetAsync(decimal version, string email, Option<string> from = default, Option<string> domain = default, Option<string> subUrl = default, Option<string> referer = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRequestPasswordResetApiResponse> RequestPasswordResetAsync(string email, Option<string> from = default, Option<string> domain = default, Option<string> subUrl = default, Option<string> referer = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -9616,7 +9444,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRequestPasswordReset(email, from, domain, subUrl, referer);
 
-                FormatRequestPasswordReset(ref version, ref email, ref from, ref domain, ref subUrl, ref referer);
+                FormatRequestPasswordReset(ref email, ref from, ref domain, ref subUrl, ref referer);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -9624,9 +9452,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/requestpasswordreset"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/requestpasswordreset");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/requestpasswordreset"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/requestpasswordreset");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9669,13 +9496,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/requestpasswordreset", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/requestpasswordreset", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRequestPasswordResetDefaultImplementation(apiResponseLocalVar, version, email, from, domain, subUrl, referer);
+                        AfterRequestPasswordResetDefaultImplementation(apiResponseLocalVar, email, from, domain, subUrl, referer);
 
                         Events.ExecuteOnRequestPasswordReset(apiResponseLocalVar);
 
@@ -9685,7 +9512,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRequestPasswordResetDefaultImplementation(e, "/api/{version}/account/requestpasswordreset", uriBuilderLocalVar.Path, version, email, from, domain, subUrl, referer);
+                OnErrorRequestPasswordResetDefaultImplementation(e, "/account/requestpasswordreset", uriBuilderLocalVar.Path, email, from, domain, subUrl, referer);
                 Events.ExecuteOnErrorRequestPasswordReset(e);
                 throw;
             }
@@ -9784,18 +9611,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRequestValidateAccount(ref decimal version, ref long accountId);
+        partial void FormatRequestValidateAccount(ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        private void AfterRequestValidateAccountDefaultImplementation(IRequestValidateAccountApiResponse apiResponseLocalVar, decimal version, long accountId)
+        private void AfterRequestValidateAccountDefaultImplementation(IRequestValidateAccountApiResponse apiResponseLocalVar, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterRequestValidateAccount(ref suppressDefaultLog, apiResponseLocalVar, version, accountId);
+            AfterRequestValidateAccount(ref suppressDefaultLog, apiResponseLocalVar, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -9805,9 +9631,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        partial void AfterRequestValidateAccount(ref bool suppressDefaultLog, IRequestValidateAccountApiResponse apiResponseLocalVar, decimal version, long accountId);
+        partial void AfterRequestValidateAccount(ref bool suppressDefaultLog, IRequestValidateAccountApiResponse apiResponseLocalVar, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -9815,12 +9640,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        private void OnErrorRequestValidateAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId)
+        private void OnErrorRequestValidateAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRequestValidateAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId);
+            OnErrorRequestValidateAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -9832,22 +9656,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorRequestValidateAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId);
+        partial void OnErrorRequestValidateAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId);
 
         /// <summary>
         /// Send Validation Request Send an email to validate a user&#39;s account.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestValidateAccountApiResponse"/>&gt;</returns>
-        public async Task<IRequestValidateAccountApiResponse?> RequestValidateAccountOrDefaultAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRequestValidateAccountApiResponse?> RequestValidateAccountOrDefaultAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RequestValidateAccountAsync(version, accountId, cancellationToken).ConfigureAwait(false);
+                return await RequestValidateAccountAsync(accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -9859,17 +9681,16 @@ namespace Org.OpenAPITools.Api
         /// Send Validation Request Send an email to validate a user&#39;s account.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRequestValidateAccountApiResponse"/>&gt;</returns>
-        public async Task<IRequestValidateAccountApiResponse> RequestValidateAccountAsync(decimal version, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRequestValidateAccountApiResponse> RequestValidateAccountAsync(long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatRequestValidateAccount(ref version, ref accountId);
+                FormatRequestValidateAccount(ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -9877,9 +9698,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/requestValidateAccount"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/requestValidateAccount");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/requestValidateAccount"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/requestValidateAccount");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9910,13 +9730,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/requestValidateAccount", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/requestValidateAccount", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRequestValidateAccountDefaultImplementation(apiResponseLocalVar, version, accountId);
+                        AfterRequestValidateAccountDefaultImplementation(apiResponseLocalVar, accountId);
 
                         Events.ExecuteOnRequestValidateAccount(apiResponseLocalVar);
 
@@ -9926,7 +9746,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRequestValidateAccountDefaultImplementation(e, "/api/{version}/account/requestValidateAccount", uriBuilderLocalVar.Path, version, accountId);
+                OnErrorRequestValidateAccountDefaultImplementation(e, "/account/requestValidateAccount", uriBuilderLocalVar.Path, accountId);
                 Events.ExecuteOnErrorRequestValidateAccount(e);
                 throw;
             }
@@ -10025,7 +9845,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchAccounts(ref decimal version, ref long accountId, ref string appKey, ref Option<string> keyword, ref Option<double> latitude, ref Option<double> longitude, ref Option<double> radius, ref Option<string> gender, ref Option<string> gameExperience, ref Option<int> age, ref Option<string> categoryIds, ref Option<bool> returnNulls, ref Option<string> responseFilters, ref Option<string> purchaseType, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
+        partial void FormatSearchAccounts(ref long accountId, ref string appKey, ref Option<string> keyword, ref Option<double> latitude, ref Option<double> longitude, ref Option<double> radius, ref Option<string> gender, ref Option<string> gameExperience, ref Option<int> age, ref Option<string> categoryIds, ref Option<bool> returnNulls, ref Option<string> responseFilters, ref Option<string> purchaseType, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -10070,7 +9890,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -10089,10 +9908,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchAccountsDefaultImplementation(ISearchAccountsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> radius, Option<string> gender, Option<string> gameExperience, Option<int> age, Option<string> categoryIds, Option<bool> returnNulls, Option<string> responseFilters, Option<string> purchaseType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void AfterSearchAccountsDefaultImplementation(ISearchAccountsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> radius, Option<string> gender, Option<string> gameExperience, Option<int> age, Option<string> categoryIds, Option<bool> returnNulls, Option<string> responseFilters, Option<string> purchaseType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchAccounts(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
+            AfterSearchAccounts(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -10102,7 +9921,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -10121,7 +9939,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchAccounts(ref bool suppressDefaultLog, ISearchAccountsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> radius, Option<string> gender, Option<string> gameExperience, Option<int> age, Option<string> categoryIds, Option<bool> returnNulls, Option<string> responseFilters, Option<string> purchaseType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void AfterSearchAccounts(ref bool suppressDefaultLog, ISearchAccountsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> radius, Option<string> gender, Option<string> gameExperience, Option<int> age, Option<string> categoryIds, Option<bool> returnNulls, Option<string> responseFilters, Option<string> purchaseType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -10129,7 +9947,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -10148,10 +9965,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchAccountsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> radius, Option<string> gender, Option<string> gameExperience, Option<int> age, Option<string> categoryIds, Option<bool> returnNulls, Option<string> responseFilters, Option<string> purchaseType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void OnErrorSearchAccountsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> radius, Option<string> gender, Option<string> gameExperience, Option<int> age, Option<string> categoryIds, Option<bool> returnNulls, Option<string> responseFilters, Option<string> purchaseType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchAccounts(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
+            OnErrorSearchAccounts(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -10163,7 +9980,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -10182,12 +9998,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchAccounts(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> radius, Option<string> gender, Option<string> gameExperience, Option<int> age, Option<string> categoryIds, Option<bool> returnNulls, Option<string> responseFilters, Option<string> purchaseType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void OnErrorSearchAccounts(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<double> radius, Option<string> gender, Option<string> gameExperience, Option<int> age, Option<string> categoryIds, Option<bool> returnNulls, Option<string> responseFilters, Option<string> purchaseType, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Search Accounts Search for account profiles.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account requesting</param>
         /// <param name="appKey">The application key</param>
         /// <param name="keyword">The keyword for for querying the account (optional)</param>
@@ -10208,11 +10023,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAccountsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAccountsApiResponse?> SearchAccountsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> radius = default, Option<string> gender = default, Option<string> gameExperience = default, Option<int> age = default, Option<string> categoryIds = default, Option<bool> returnNulls = default, Option<string> responseFilters = default, Option<string> purchaseType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAccountsApiResponse?> SearchAccountsOrDefaultAsync(long accountId, string appKey, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> radius = default, Option<string> gender = default, Option<string> gameExperience = default, Option<int> age = default, Option<string> categoryIds = default, Option<bool> returnNulls = default, Option<string> responseFilters = default, Option<string> purchaseType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchAccountsAsync(version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchAccountsAsync(accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -10224,7 +10039,6 @@ namespace Org.OpenAPITools.Api
         /// Search Accounts Search for account profiles.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The id of the account requesting</param>
         /// <param name="appKey">The application key</param>
         /// <param name="keyword">The keyword for for querying the account (optional)</param>
@@ -10245,7 +10059,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAccountsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAccountsApiResponse> SearchAccountsAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> radius = default, Option<string> gender = default, Option<string> gameExperience = default, Option<int> age = default, Option<string> categoryIds = default, Option<bool> returnNulls = default, Option<string> responseFilters = default, Option<string> purchaseType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAccountsApiResponse> SearchAccountsAsync(long accountId, string appKey, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> radius = default, Option<string> gender = default, Option<string> gameExperience = default, Option<int> age = default, Option<string> categoryIds = default, Option<bool> returnNulls = default, Option<string> responseFilters = default, Option<string> purchaseType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -10253,7 +10067,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchAccounts(appKey, keyword, gender, gameExperience, categoryIds, responseFilters, purchaseType, sortField);
 
-                FormatSearchAccounts(ref version, ref accountId, ref appKey, ref keyword, ref latitude, ref longitude, ref radius, ref gender, ref gameExperience, ref age, ref categoryIds, ref returnNulls, ref responseFilters, ref purchaseType, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
+                FormatSearchAccounts(ref accountId, ref appKey, ref keyword, ref latitude, ref longitude, ref radius, ref gender, ref gameExperience, ref age, ref categoryIds, ref returnNulls, ref responseFilters, ref purchaseType, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -10261,9 +10075,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/profile/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/profile/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/profile/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/profile/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -10343,13 +10156,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/profile/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/profile/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchAccountsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
+                        AfterSearchAccountsDefaultImplementation(apiResponseLocalVar, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
 
                         Events.ExecuteOnSearchAccounts(apiResponseLocalVar);
 
@@ -10359,7 +10172,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchAccountsDefaultImplementation(e, "/api/{version}/account/profile/search", uriBuilderLocalVar.Path, version, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
+                OnErrorSearchAccountsDefaultImplementation(e, "/account/profile/search", uriBuilderLocalVar.Path, accountId, appKey, keyword, latitude, longitude, radius, gender, gameExperience, age, categoryIds, returnNulls, responseFilters, purchaseType, sortField, descending, start, limit, activeOnly);
                 Events.ExecuteOnErrorSearchAccounts(e);
                 throw;
             }
@@ -10458,7 +10271,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSecureLogin(ref decimal version, ref string username, ref string password, ref string gameType, ref Option<string> deviceId, ref Option<string> charsetName, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnProfile, ref Option<string> responseFilters);
+        partial void FormatSecureLogin(ref string username, ref string password, ref string gameType, ref Option<string> deviceId, ref Option<string> charsetName, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> returnProfile, ref Option<string> responseFilters);
 
         /// <summary>
         /// Validates the request parameters
@@ -10495,7 +10308,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="gameType"></param>
@@ -10505,10 +10317,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"></param>
         /// <param name="returnProfile"></param>
         /// <param name="responseFilters"></param>
-        private void AfterSecureLoginDefaultImplementation(ISecureLoginApiResponse apiResponseLocalVar, decimal version, string username, string password, string gameType, Option<string> deviceId, Option<string> charsetName, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> responseFilters)
+        private void AfterSecureLoginDefaultImplementation(ISecureLoginApiResponse apiResponseLocalVar, string username, string password, string gameType, Option<string> deviceId, Option<string> charsetName, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> responseFilters)
         {
             bool suppressDefaultLog = false;
-            AfterSecureLogin(ref suppressDefaultLog, apiResponseLocalVar, version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
+            AfterSecureLogin(ref suppressDefaultLog, apiResponseLocalVar, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -10518,7 +10330,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="gameType"></param>
@@ -10528,7 +10339,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"></param>
         /// <param name="returnProfile"></param>
         /// <param name="responseFilters"></param>
-        partial void AfterSecureLogin(ref bool suppressDefaultLog, ISecureLoginApiResponse apiResponseLocalVar, decimal version, string username, string password, string gameType, Option<string> deviceId, Option<string> charsetName, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> responseFilters);
+        partial void AfterSecureLogin(ref bool suppressDefaultLog, ISecureLoginApiResponse apiResponseLocalVar, string username, string password, string gameType, Option<string> deviceId, Option<string> charsetName, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> responseFilters);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -10536,7 +10347,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="gameType"></param>
@@ -10546,10 +10356,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"></param>
         /// <param name="returnProfile"></param>
         /// <param name="responseFilters"></param>
-        private void OnErrorSecureLoginDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string username, string password, string gameType, Option<string> deviceId, Option<string> charsetName, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> responseFilters)
+        private void OnErrorSecureLoginDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string username, string password, string gameType, Option<string> deviceId, Option<string> charsetName, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> responseFilters)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSecureLogin(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
+            OnErrorSecureLogin(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -10561,7 +10371,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="gameType"></param>
@@ -10571,12 +10380,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude"></param>
         /// <param name="returnProfile"></param>
         /// <param name="responseFilters"></param>
-        partial void OnErrorSecureLogin(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string username, string password, string gameType, Option<string> deviceId, Option<string> charsetName, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> responseFilters);
+        partial void OnErrorSecureLogin(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string username, string password, string gameType, Option<string> deviceId, Option<string> charsetName, Option<double> latitude, Option<double> longitude, Option<bool> returnProfile, Option<string> responseFilters);
 
         /// <summary>
         /// Login Account (Encrypted Username) ogin with encrypted user-name and password.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="username">The user&#39;s encrypted email address they used to sign-up</param>
         /// <param name="password">The encrypted password</param>
         /// <param name="gameType">The application key</param>
@@ -10588,11 +10396,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">A comma separated list of ProfileFilters for filtering the returned response data (optional, default to &quot;PROFILE&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISecureLoginApiResponse"/>&gt;</returns>
-        public async Task<ISecureLoginApiResponse?> SecureLoginOrDefaultAsync(decimal version, string username, string password, string gameType, Option<string> deviceId = default, Option<string> charsetName = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISecureLoginApiResponse?> SecureLoginOrDefaultAsync(string username, string password, string gameType, Option<string> deviceId = default, Option<string> charsetName = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SecureLoginAsync(version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters, cancellationToken).ConfigureAwait(false);
+                return await SecureLoginAsync(username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -10604,7 +10412,6 @@ namespace Org.OpenAPITools.Api
         /// Login Account (Encrypted Username) ogin with encrypted user-name and password.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="username">The user&#39;s encrypted email address they used to sign-up</param>
         /// <param name="password">The encrypted password</param>
         /// <param name="gameType">The application key</param>
@@ -10616,7 +10423,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">A comma separated list of ProfileFilters for filtering the returned response data (optional, default to &quot;PROFILE&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISecureLoginApiResponse"/>&gt;</returns>
-        public async Task<ISecureLoginApiResponse> SecureLoginAsync(decimal version, string username, string password, string gameType, Option<string> deviceId = default, Option<string> charsetName = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISecureLoginApiResponse> SecureLoginAsync(string username, string password, string gameType, Option<string> deviceId = default, Option<string> charsetName = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> returnProfile = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -10624,7 +10431,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSecureLogin(username, password, gameType, deviceId, charsetName, responseFilters);
 
-                FormatSecureLogin(ref version, ref username, ref password, ref gameType, ref deviceId, ref charsetName, ref latitude, ref longitude, ref returnProfile, ref responseFilters);
+                FormatSecureLogin(ref username, ref password, ref gameType, ref deviceId, ref charsetName, ref latitude, ref longitude, ref returnProfile, ref responseFilters);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -10632,9 +10439,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/login/validate"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/login/validate");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/login/validate"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/login/validate");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -10685,13 +10491,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/login/validate", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/login/validate", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSecureLoginDefaultImplementation(apiResponseLocalVar, version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
+                        AfterSecureLoginDefaultImplementation(apiResponseLocalVar, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
 
                         Events.ExecuteOnSecureLogin(apiResponseLocalVar);
 
@@ -10701,7 +10507,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSecureLoginDefaultImplementation(e, "/api/{version}/account/login/validate", uriBuilderLocalVar.Path, version, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
+                OnErrorSecureLoginDefaultImplementation(e, "/account/login/validate", uriBuilderLocalVar.Path, username, password, gameType, deviceId, charsetName, latitude, longitude, returnProfile, responseFilters);
                 Events.ExecuteOnErrorSecureLogin(e);
                 throw;
             }
@@ -10800,7 +10606,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSecureSignup(ref decimal version, ref string deviceId, ref string username, ref string password, ref Option<string> name, ref Option<string> inviteToken, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<string> deviceIdType, ref Option<string> emailAddress, ref Option<long> assetId, ref Option<string> address, ref Option<string> zipcode, ref Option<string> gender, ref Option<long> birthday, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> role, ref Option<string> platforms, ref Option<string> tags, ref Option<string> aboutUs, ref Option<string> gameExperience, ref Option<string> categoryIds, ref Option<string> hometown, ref Option<string> height, ref Option<int> heightIndex, ref Option<string> ethnicity, ref Option<string> bodyType, ref Option<string> maritalStatus, ref Option<string> children, ref Option<string> religion, ref Option<string> education, ref Option<int> educationIndex, ref Option<string> smoke, ref Option<string> drink, ref Option<string> companionship, ref Option<int> companionshipIndex, ref Option<int> preferredMinAge, ref Option<int> preferredMaxAge, ref Option<int> preferredMinHeight, ref Option<int> preferredMaxHeight, ref Option<string> preferredGender, ref Option<string> preferredEducation, ref Option<int> preferredEducationIndex, ref Option<string> preferredBodyType, ref Option<string> preferredEthnicity, ref Option<string> preferredLocation, ref Option<double> preferredLocationRange, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> acceptedTerms, ref Option<string> charsetName, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> appVersion, ref Option<string> responseType);
+        partial void FormatSecureSignup(ref string deviceId, ref string username, ref string password, ref Option<string> name, ref Option<string> inviteToken, ref Option<string> prefixName, ref Option<string> firstName, ref Option<string> middleName, ref Option<string> lastName, ref Option<string> suffixName, ref Option<string> title, ref Option<string> deviceIdType, ref Option<string> emailAddress, ref Option<long> assetId, ref Option<string> address, ref Option<string> zipcode, ref Option<string> gender, ref Option<long> birthday, ref Option<string> homePhone, ref Option<string> cellPhone, ref Option<string> cellPhoneCarrier, ref Option<string> businessPhone, ref Option<string> role, ref Option<string> platforms, ref Option<string> tags, ref Option<string> aboutUs, ref Option<string> gameExperience, ref Option<string> categoryIds, ref Option<string> hometown, ref Option<string> height, ref Option<int> heightIndex, ref Option<string> ethnicity, ref Option<string> bodyType, ref Option<string> maritalStatus, ref Option<string> children, ref Option<string> religion, ref Option<string> education, ref Option<int> educationIndex, ref Option<string> smoke, ref Option<string> drink, ref Option<string> companionship, ref Option<int> companionshipIndex, ref Option<int> preferredMinAge, ref Option<int> preferredMaxAge, ref Option<int> preferredMinHeight, ref Option<int> preferredMaxHeight, ref Option<string> preferredGender, ref Option<string> preferredEducation, ref Option<int> preferredEducationIndex, ref Option<string> preferredBodyType, ref Option<string> preferredEthnicity, ref Option<string> preferredLocation, ref Option<double> preferredLocationRange, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> acceptedTerms, ref Option<string> charsetName, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> appVersion, ref Option<string> responseType);
 
         /// <summary>
         /// Validates the request parameters
@@ -11001,7 +10807,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
@@ -11063,10 +10868,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="appVersion"></param>
         /// <param name="responseType"></param>
-        private void AfterSecureSignupDefaultImplementation(ISecureSignupApiResponse apiResponseLocalVar, decimal version, string deviceId, string username, string password, Option<string> name, Option<string> inviteToken, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> address, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> charsetName, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType)
+        private void AfterSecureSignupDefaultImplementation(ISecureSignupApiResponse apiResponseLocalVar, string deviceId, string username, string password, Option<string> name, Option<string> inviteToken, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> address, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> charsetName, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType)
         {
             bool suppressDefaultLog = false;
-            AfterSecureSignup(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
+            AfterSecureSignup(ref suppressDefaultLog, apiResponseLocalVar, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -11076,7 +10881,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
@@ -11138,7 +10942,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="appVersion"></param>
         /// <param name="responseType"></param>
-        partial void AfterSecureSignup(ref bool suppressDefaultLog, ISecureSignupApiResponse apiResponseLocalVar, decimal version, string deviceId, string username, string password, Option<string> name, Option<string> inviteToken, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> address, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> charsetName, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType);
+        partial void AfterSecureSignup(ref bool suppressDefaultLog, ISecureSignupApiResponse apiResponseLocalVar, string deviceId, string username, string password, Option<string> name, Option<string> inviteToken, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> address, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> charsetName, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -11146,7 +10950,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
@@ -11208,10 +11011,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="appVersion"></param>
         /// <param name="responseType"></param>
-        private void OnErrorSecureSignupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string deviceId, string username, string password, Option<string> name, Option<string> inviteToken, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> address, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> charsetName, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType)
+        private void OnErrorSecureSignupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string deviceId, string username, string password, Option<string> name, Option<string> inviteToken, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> address, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> charsetName, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSecureSignup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
+            OnErrorSecureSignup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -11223,7 +11026,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
@@ -11285,12 +11087,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="appVersion"></param>
         /// <param name="responseType"></param>
-        partial void OnErrorSecureSignup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string deviceId, string username, string password, Option<string> name, Option<string> inviteToken, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> address, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> charsetName, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType);
+        partial void OnErrorSecureSignup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string deviceId, string username, string password, Option<string> name, Option<string> inviteToken, Option<string> prefixName, Option<string> firstName, Option<string> middleName, Option<string> lastName, Option<string> suffixName, Option<string> title, Option<string> deviceIdType, Option<string> emailAddress, Option<long> assetId, Option<string> address, Option<string> zipcode, Option<string> gender, Option<long> birthday, Option<string> homePhone, Option<string> cellPhone, Option<string> cellPhoneCarrier, Option<string> businessPhone, Option<string> role, Option<string> platforms, Option<string> tags, Option<string> aboutUs, Option<string> gameExperience, Option<string> categoryIds, Option<string> hometown, Option<string> height, Option<int> heightIndex, Option<string> ethnicity, Option<string> bodyType, Option<string> maritalStatus, Option<string> children, Option<string> religion, Option<string> education, Option<int> educationIndex, Option<string> smoke, Option<string> drink, Option<string> companionship, Option<int> companionshipIndex, Option<int> preferredMinAge, Option<int> preferredMaxAge, Option<int> preferredMinHeight, Option<int> preferredMaxHeight, Option<string> preferredGender, Option<string> preferredEducation, Option<int> preferredEducationIndex, Option<string> preferredBodyType, Option<string> preferredEthnicity, Option<string> preferredLocation, Option<double> preferredLocationRange, Option<double> latitude, Option<double> longitude, Option<bool> acceptedTerms, Option<string> charsetName, Option<string> gameType, Option<string> appKey, Option<string> appVersion, Option<string> responseType);
 
         /// <summary>
         /// Create Account (Encrypted Username) Create a new account by role (with encrypted user-name and password)
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id</param>
         /// <param name="username">The encrypted email of the user, this is what will be used when they login</param>
         /// <param name="password">The encrypted password of the user</param>
@@ -11354,11 +11155,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseType">Response Type (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISecureSignupApiResponse"/>&gt;</returns>
-        public async Task<ISecureSignupApiResponse?> SecureSignupOrDefaultAsync(decimal version, string deviceId, string username, string password, Option<string> name = default, Option<string> inviteToken = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> address = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> charsetName = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISecureSignupApiResponse?> SecureSignupOrDefaultAsync(string deviceId, string username, string password, Option<string> name = default, Option<string> inviteToken = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> address = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> charsetName = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SecureSignupAsync(version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType, cancellationToken).ConfigureAwait(false);
+                return await SecureSignupAsync(deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -11370,7 +11171,6 @@ namespace Org.OpenAPITools.Api
         /// Create Account (Encrypted Username) Create a new account by role (with encrypted user-name and password)
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id</param>
         /// <param name="username">The encrypted email of the user, this is what will be used when they login</param>
         /// <param name="password">The encrypted password of the user</param>
@@ -11434,7 +11234,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseType">Response Type (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISecureSignupApiResponse"/>&gt;</returns>
-        public async Task<ISecureSignupApiResponse> SecureSignupAsync(decimal version, string deviceId, string username, string password, Option<string> name = default, Option<string> inviteToken = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> address = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> charsetName = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISecureSignupApiResponse> SecureSignupAsync(string deviceId, string username, string password, Option<string> name = default, Option<string> inviteToken = default, Option<string> prefixName = default, Option<string> firstName = default, Option<string> middleName = default, Option<string> lastName = default, Option<string> suffixName = default, Option<string> title = default, Option<string> deviceIdType = default, Option<string> emailAddress = default, Option<long> assetId = default, Option<string> address = default, Option<string> zipcode = default, Option<string> gender = default, Option<long> birthday = default, Option<string> homePhone = default, Option<string> cellPhone = default, Option<string> cellPhoneCarrier = default, Option<string> businessPhone = default, Option<string> role = default, Option<string> platforms = default, Option<string> tags = default, Option<string> aboutUs = default, Option<string> gameExperience = default, Option<string> categoryIds = default, Option<string> hometown = default, Option<string> height = default, Option<int> heightIndex = default, Option<string> ethnicity = default, Option<string> bodyType = default, Option<string> maritalStatus = default, Option<string> children = default, Option<string> religion = default, Option<string> education = default, Option<int> educationIndex = default, Option<string> smoke = default, Option<string> drink = default, Option<string> companionship = default, Option<int> companionshipIndex = default, Option<int> preferredMinAge = default, Option<int> preferredMaxAge = default, Option<int> preferredMinHeight = default, Option<int> preferredMaxHeight = default, Option<string> preferredGender = default, Option<string> preferredEducation = default, Option<int> preferredEducationIndex = default, Option<string> preferredBodyType = default, Option<string> preferredEthnicity = default, Option<string> preferredLocation = default, Option<double> preferredLocationRange = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> acceptedTerms = default, Option<string> charsetName = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appVersion = default, Option<string> responseType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -11442,7 +11242,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSecureSignup(deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, address, zipcode, gender, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, ethnicity, bodyType, maritalStatus, children, religion, education, smoke, drink, companionship, preferredGender, preferredEducation, preferredBodyType, preferredEthnicity, preferredLocation, charsetName, gameType, appKey, appVersion, responseType);
 
-                FormatSecureSignup(ref version, ref deviceId, ref username, ref password, ref name, ref inviteToken, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref deviceIdType, ref emailAddress, ref assetId, ref address, ref zipcode, ref gender, ref birthday, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref role, ref platforms, ref tags, ref aboutUs, ref gameExperience, ref categoryIds, ref hometown, ref height, ref heightIndex, ref ethnicity, ref bodyType, ref maritalStatus, ref children, ref religion, ref education, ref educationIndex, ref smoke, ref drink, ref companionship, ref companionshipIndex, ref preferredMinAge, ref preferredMaxAge, ref preferredMinHeight, ref preferredMaxHeight, ref preferredGender, ref preferredEducation, ref preferredEducationIndex, ref preferredBodyType, ref preferredEthnicity, ref preferredLocation, ref preferredLocationRange, ref latitude, ref longitude, ref acceptedTerms, ref charsetName, ref gameType, ref appKey, ref appVersion, ref responseType);
+                FormatSecureSignup(ref deviceId, ref username, ref password, ref name, ref inviteToken, ref prefixName, ref firstName, ref middleName, ref lastName, ref suffixName, ref title, ref deviceIdType, ref emailAddress, ref assetId, ref address, ref zipcode, ref gender, ref birthday, ref homePhone, ref cellPhone, ref cellPhoneCarrier, ref businessPhone, ref role, ref platforms, ref tags, ref aboutUs, ref gameExperience, ref categoryIds, ref hometown, ref height, ref heightIndex, ref ethnicity, ref bodyType, ref maritalStatus, ref children, ref religion, ref education, ref educationIndex, ref smoke, ref drink, ref companionship, ref companionshipIndex, ref preferredMinAge, ref preferredMaxAge, ref preferredMinHeight, ref preferredMaxHeight, ref preferredGender, ref preferredEducation, ref preferredEducationIndex, ref preferredBodyType, ref preferredEthnicity, ref preferredLocation, ref preferredLocationRange, ref latitude, ref longitude, ref acceptedTerms, ref charsetName, ref gameType, ref appKey, ref appVersion, ref responseType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -11450,9 +11250,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/create/validate"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/create/validate");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/create/validate"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/create/validate");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -11659,13 +11458,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/create/validate", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/create/validate", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSecureSignupDefaultImplementation(apiResponseLocalVar, version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
+                        AfterSecureSignupDefaultImplementation(apiResponseLocalVar, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
 
                         Events.ExecuteOnSecureSignup(apiResponseLocalVar);
 
@@ -11675,7 +11474,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSecureSignupDefaultImplementation(e, "/api/{version}/account/create/validate", uriBuilderLocalVar.Path, version, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
+                OnErrorSecureSignupDefaultImplementation(e, "/account/create/validate", uriBuilderLocalVar.Path, deviceId, username, password, name, inviteToken, prefixName, firstName, middleName, lastName, suffixName, title, deviceIdType, emailAddress, assetId, address, zipcode, gender, birthday, homePhone, cellPhone, cellPhoneCarrier, businessPhone, role, platforms, tags, aboutUs, gameExperience, categoryIds, hometown, height, heightIndex, ethnicity, bodyType, maritalStatus, children, religion, education, educationIndex, smoke, drink, companionship, companionshipIndex, preferredMinAge, preferredMaxAge, preferredMinHeight, preferredMaxHeight, preferredGender, preferredEducation, preferredEducationIndex, preferredBodyType, preferredEthnicity, preferredLocation, preferredLocationRange, latitude, longitude, acceptedTerms, charsetName, gameType, appKey, appVersion, responseType);
                 Events.ExecuteOnErrorSecureSignup(e);
                 throw;
             }
@@ -11774,7 +11573,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSetMatchToken(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> matchToken, ref Option<string> gameType, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatSetMatchToken(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> matchToken, ref Option<string> gameType, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -11803,7 +11602,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="matchToken"></param>
@@ -11811,10 +11609,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterSetMatchTokenDefaultImplementation(ISetMatchTokenApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> matchToken, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
+        private void AfterSetMatchTokenDefaultImplementation(ISetMatchTokenApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> matchToken, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterSetMatchToken(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
+            AfterSetMatchToken(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -11824,7 +11622,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="matchToken"></param>
@@ -11832,7 +11629,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterSetMatchToken(ref bool suppressDefaultLog, ISetMatchTokenApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> matchToken, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
+        partial void AfterSetMatchToken(ref bool suppressDefaultLog, ISetMatchTokenApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> matchToken, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -11840,7 +11637,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="matchToken"></param>
@@ -11848,10 +11644,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorSetMatchTokenDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> matchToken, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
+        private void OnErrorSetMatchTokenDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> matchToken, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSetMatchToken(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
+            OnErrorSetMatchToken(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -11863,7 +11659,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="matchToken"></param>
@@ -11871,12 +11666,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorSetMatchToken(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> matchToken, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorSetMatchToken(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> matchToken, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Save Match Token Save user&#39;s match token to be used for profile match making
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="matchToken">A string of numbers (optional)</param>
@@ -11886,11 +11680,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISetMatchTokenApiResponse"/>&gt;</returns>
-        public async Task<ISetMatchTokenApiResponse?> SetMatchTokenOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> matchToken = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISetMatchTokenApiResponse?> SetMatchTokenOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> matchToken = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SetMatchTokenAsync(version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await SetMatchTokenAsync(deviceId, accountId, matchToken, gameType, appKey, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -11902,7 +11696,6 @@ namespace Org.OpenAPITools.Api
         /// Save Match Token Save user&#39;s match token to be used for profile match making
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="matchToken">A string of numbers (optional)</param>
@@ -11912,7 +11705,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISetMatchTokenApiResponse"/>&gt;</returns>
-        public async Task<ISetMatchTokenApiResponse> SetMatchTokenAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> matchToken = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISetMatchTokenApiResponse> SetMatchTokenAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> matchToken = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -11920,7 +11713,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSetMatchToken(deviceId, matchToken, gameType, appKey);
 
-                FormatSetMatchToken(ref version, ref deviceId, ref accountId, ref matchToken, ref gameType, ref appKey, ref latitude, ref longitude);
+                FormatSetMatchToken(ref deviceId, ref accountId, ref matchToken, ref gameType, ref appKey, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -11928,9 +11721,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/profile/matchToken"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/profile/matchToken");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/profile/matchToken"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/profile/matchToken");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -11980,13 +11772,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/profile/matchToken", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/profile/matchToken", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSetMatchTokenDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
+                        AfterSetMatchTokenDefaultImplementation(apiResponseLocalVar, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
 
                         Events.ExecuteOnSetMatchToken(apiResponseLocalVar);
 
@@ -11996,7 +11788,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSetMatchTokenDefaultImplementation(e, "/api/{version}/consumer/profile/matchToken", uriBuilderLocalVar.Path, version, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
+                OnErrorSetMatchTokenDefaultImplementation(e, "/consumer/profile/matchToken", uriBuilderLocalVar.Path, deviceId, accountId, matchToken, gameType, appKey, latitude, longitude);
                 Events.ExecuteOnErrorSetMatchToken(e);
                 throw;
             }
@@ -12095,7 +11887,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateActveStatus(ref decimal version, ref long accountId, ref long connectionAccountId, ref bool active, ref Option<string> deviceId, ref Option<string> appKey);
+        partial void FormatUpdateActveStatus(ref long accountId, ref long connectionAccountId, ref bool active, ref Option<string> deviceId, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -12116,16 +11908,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="active"></param>
         /// <param name="deviceId"></param>
         /// <param name="appKey"></param>
-        private void AfterUpdateActveStatusDefaultImplementation(IUpdateActveStatusApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, bool active, Option<string> deviceId, Option<string> appKey)
+        private void AfterUpdateActveStatusDefaultImplementation(IUpdateActveStatusApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, bool active, Option<string> deviceId, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateActveStatus(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, connectionAccountId, active, deviceId, appKey);
+            AfterUpdateActveStatus(ref suppressDefaultLog, apiResponseLocalVar, accountId, connectionAccountId, active, deviceId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -12135,13 +11926,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="active"></param>
         /// <param name="deviceId"></param>
         /// <param name="appKey"></param>
-        partial void AfterUpdateActveStatus(ref bool suppressDefaultLog, IUpdateActveStatusApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, bool active, Option<string> deviceId, Option<string> appKey);
+        partial void AfterUpdateActveStatus(ref bool suppressDefaultLog, IUpdateActveStatusApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, bool active, Option<string> deviceId, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -12149,16 +11939,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="active"></param>
         /// <param name="deviceId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorUpdateActveStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, bool active, Option<string> deviceId, Option<string> appKey)
+        private void OnErrorUpdateActveStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, bool active, Option<string> deviceId, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateActveStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, connectionAccountId, active, deviceId, appKey);
+            OnErrorUpdateActveStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, connectionAccountId, active, deviceId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -12170,18 +11959,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="active"></param>
         /// <param name="deviceId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorUpdateActveStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, bool active, Option<string> deviceId, Option<string> appKey);
+        partial void OnErrorUpdateActveStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, bool active, Option<string> deviceId, Option<string> appKey);
 
         /// <summary>
         /// Update Account Active Status Activate or deactivate an account (requires appropriate permissions).
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
         /// <param name="connectionAccountId">The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)</param>
         /// <param name="active">true will activate the user and false will deactivate</param>
@@ -12189,11 +11976,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key that the user belongs to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateActveStatusApiResponse"/>&gt;</returns>
-        public async Task<IUpdateActveStatusApiResponse?> UpdateActveStatusOrDefaultAsync(decimal version, long accountId, long connectionAccountId, bool active, Option<string> deviceId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateActveStatusApiResponse?> UpdateActveStatusOrDefaultAsync(long accountId, long connectionAccountId, bool active, Option<string> deviceId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateActveStatusAsync(version, accountId, connectionAccountId, active, deviceId, appKey, cancellationToken).ConfigureAwait(false);
+                return await UpdateActveStatusAsync(accountId, connectionAccountId, active, deviceId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -12205,7 +11992,6 @@ namespace Org.OpenAPITools.Api
         /// Update Account Active Status Activate or deactivate an account (requires appropriate permissions).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
         /// <param name="connectionAccountId">The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)</param>
         /// <param name="active">true will activate the user and false will deactivate</param>
@@ -12213,7 +11999,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key that the user belongs to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateActveStatusApiResponse"/>&gt;</returns>
-        public async Task<IUpdateActveStatusApiResponse> UpdateActveStatusAsync(decimal version, long accountId, long connectionAccountId, bool active, Option<string> deviceId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateActveStatusApiResponse> UpdateActveStatusAsync(long accountId, long connectionAccountId, bool active, Option<string> deviceId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -12221,7 +12007,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateActveStatus(deviceId, appKey);
 
-                FormatUpdateActveStatus(ref version, ref accountId, ref connectionAccountId, ref active, ref deviceId, ref appKey);
+                FormatUpdateActveStatus(ref accountId, ref connectionAccountId, ref active, ref deviceId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -12229,9 +12015,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/active/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/active/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/active/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/active/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -12270,13 +12055,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/active/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/active/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateActveStatusDefaultImplementation(apiResponseLocalVar, version, accountId, connectionAccountId, active, deviceId, appKey);
+                        AfterUpdateActveStatusDefaultImplementation(apiResponseLocalVar, accountId, connectionAccountId, active, deviceId, appKey);
 
                         Events.ExecuteOnUpdateActveStatus(apiResponseLocalVar);
 
@@ -12286,7 +12071,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateActveStatusDefaultImplementation(e, "/api/{version}/account/active/update", uriBuilderLocalVar.Path, version, accountId, connectionAccountId, active, deviceId, appKey);
+                OnErrorUpdateActveStatusDefaultImplementation(e, "/account/active/update", uriBuilderLocalVar.Path, accountId, connectionAccountId, active, deviceId, appKey);
                 Events.ExecuteOnErrorUpdateActveStatus(e);
                 throw;
             }
@@ -12385,7 +12170,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateLocation(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> clientTime);
+        partial void FormatUpdateLocation(ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> clientTime);
 
         /// <summary>
         /// Validates the request parameters
@@ -12402,16 +12187,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="clientTime"></param>
-        private void AfterUpdateLocationDefaultImplementation(IUpdateLocationApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> clientTime)
+        private void AfterUpdateLocationDefaultImplementation(IUpdateLocationApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> clientTime)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateLocation(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, latitude, longitude, clientTime);
+            AfterUpdateLocation(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, latitude, longitude, clientTime);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -12421,13 +12205,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="clientTime"></param>
-        partial void AfterUpdateLocation(ref bool suppressDefaultLog, IUpdateLocationApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> clientTime);
+        partial void AfterUpdateLocation(ref bool suppressDefaultLog, IUpdateLocationApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> clientTime);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -12435,16 +12218,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="clientTime"></param>
-        private void OnErrorUpdateLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> clientTime)
+        private void OnErrorUpdateLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> clientTime)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, latitude, longitude, clientTime);
+            OnErrorUpdateLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, latitude, longitude, clientTime);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -12456,18 +12238,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="clientTime"></param>
-        partial void OnErrorUpdateLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> clientTime);
+        partial void OnErrorUpdateLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<long> clientTime);
 
         /// <summary>
         /// Update Location Update the account location
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The current latitude of the user (optional)</param>
@@ -12475,11 +12255,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="clientTime">The time of the update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationApiResponse"/>&gt;</returns>
-        public async Task<IUpdateLocationApiResponse?> UpdateLocationOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> clientTime = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateLocationApiResponse?> UpdateLocationOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> clientTime = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateLocationAsync(version, deviceId, accountId, latitude, longitude, clientTime, cancellationToken).ConfigureAwait(false);
+                return await UpdateLocationAsync(deviceId, accountId, latitude, longitude, clientTime, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -12491,7 +12271,6 @@ namespace Org.OpenAPITools.Api
         /// Update Location Update the account location
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The current latitude of the user (optional)</param>
@@ -12499,7 +12278,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="clientTime">The time of the update (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationApiResponse"/>&gt;</returns>
-        public async Task<IUpdateLocationApiResponse> UpdateLocationAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> clientTime = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateLocationApiResponse> UpdateLocationAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> clientTime = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -12507,7 +12286,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateLocation(deviceId);
 
-                FormatUpdateLocation(ref version, ref deviceId, ref accountId, ref latitude, ref longitude, ref clientTime);
+                FormatUpdateLocation(ref deviceId, ref accountId, ref latitude, ref longitude, ref clientTime);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -12515,9 +12294,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/location/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/location/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/location/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/location/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -12561,13 +12339,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/location/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/location/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateLocationDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, latitude, longitude, clientTime);
+                        AfterUpdateLocationDefaultImplementation(apiResponseLocalVar, deviceId, accountId, latitude, longitude, clientTime);
 
                         Events.ExecuteOnUpdateLocation(apiResponseLocalVar);
 
@@ -12577,7 +12355,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateLocationDefaultImplementation(e, "/api/{version}/account/location/update", uriBuilderLocalVar.Path, version, deviceId, accountId, latitude, longitude, clientTime);
+                OnErrorUpdateLocationDefaultImplementation(e, "/account/location/update", uriBuilderLocalVar.Path, deviceId, accountId, latitude, longitude, clientTime);
                 Events.ExecuteOnErrorUpdateLocation(e);
                 throw;
             }
@@ -12676,7 +12454,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateSettings(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> blockedNotifications, ref Option<string> suggestionMethod, ref Option<int> suggestionCount, ref Option<int> suggestionTimeFrame, ref Option<bool> showOthersExactLocation, ref Option<bool> showAsZipcode, ref Option<bool> showExactLocation, ref Option<string> favoriteVisibility, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatUpdateSettings(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> blockedNotifications, ref Option<string> suggestionMethod, ref Option<int> suggestionCount, ref Option<int> suggestionTimeFrame, ref Option<bool> showOthersExactLocation, ref Option<bool> showAsZipcode, ref Option<bool> showExactLocation, ref Option<string> favoriteVisibility, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -12705,7 +12483,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="blockedNotifications"></param>
@@ -12718,10 +12495,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="favoriteVisibility"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterUpdateSettingsDefaultImplementation(IUpdateSettingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> blockedNotifications, Option<string> suggestionMethod, Option<int> suggestionCount, Option<int> suggestionTimeFrame, Option<bool> showOthersExactLocation, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<string> favoriteVisibility, Option<double> latitude, Option<double> longitude)
+        private void AfterUpdateSettingsDefaultImplementation(IUpdateSettingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> blockedNotifications, Option<string> suggestionMethod, Option<int> suggestionCount, Option<int> suggestionTimeFrame, Option<bool> showOthersExactLocation, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<string> favoriteVisibility, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateSettings(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
+            AfterUpdateSettings(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -12731,7 +12508,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="blockedNotifications"></param>
@@ -12744,7 +12520,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="favoriteVisibility"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterUpdateSettings(ref bool suppressDefaultLog, IUpdateSettingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> blockedNotifications, Option<string> suggestionMethod, Option<int> suggestionCount, Option<int> suggestionTimeFrame, Option<bool> showOthersExactLocation, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<string> favoriteVisibility, Option<double> latitude, Option<double> longitude);
+        partial void AfterUpdateSettings(ref bool suppressDefaultLog, IUpdateSettingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> blockedNotifications, Option<string> suggestionMethod, Option<int> suggestionCount, Option<int> suggestionTimeFrame, Option<bool> showOthersExactLocation, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<string> favoriteVisibility, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -12752,7 +12528,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="blockedNotifications"></param>
@@ -12765,10 +12540,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="favoriteVisibility"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorUpdateSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> blockedNotifications, Option<string> suggestionMethod, Option<int> suggestionCount, Option<int> suggestionTimeFrame, Option<bool> showOthersExactLocation, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<string> favoriteVisibility, Option<double> latitude, Option<double> longitude)
+        private void OnErrorUpdateSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> blockedNotifications, Option<string> suggestionMethod, Option<int> suggestionCount, Option<int> suggestionTimeFrame, Option<bool> showOthersExactLocation, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<string> favoriteVisibility, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
+            OnErrorUpdateSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -12780,7 +12555,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="blockedNotifications"></param>
@@ -12793,12 +12567,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="favoriteVisibility"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorUpdateSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> blockedNotifications, Option<string> suggestionMethod, Option<int> suggestionCount, Option<int> suggestionTimeFrame, Option<bool> showOthersExactLocation, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<string> favoriteVisibility, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorUpdateSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> blockedNotifications, Option<string> suggestionMethod, Option<int> suggestionCount, Option<int> suggestionTimeFrame, Option<bool> showOthersExactLocation, Option<bool> showAsZipcode, Option<bool> showExactLocation, Option<string> favoriteVisibility, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Update Account Settings Update the account settings for a user
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="blockedNotifications">The notifications to be blocked (optional)</param>
@@ -12813,11 +12586,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSettingsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateSettingsApiResponse?> UpdateSettingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> blockedNotifications = default, Option<string> suggestionMethod = default, Option<int> suggestionCount = default, Option<int> suggestionTimeFrame = default, Option<bool> showOthersExactLocation = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<string> favoriteVisibility = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateSettingsApiResponse?> UpdateSettingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> blockedNotifications = default, Option<string> suggestionMethod = default, Option<int> suggestionCount = default, Option<int> suggestionTimeFrame = default, Option<bool> showOthersExactLocation = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<string> favoriteVisibility = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateSettingsAsync(version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await UpdateSettingsAsync(deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -12829,7 +12602,6 @@ namespace Org.OpenAPITools.Api
         /// Update Account Settings Update the account settings for a user
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="blockedNotifications">The notifications to be blocked (optional)</param>
@@ -12844,7 +12616,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSettingsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateSettingsApiResponse> UpdateSettingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> blockedNotifications = default, Option<string> suggestionMethod = default, Option<int> suggestionCount = default, Option<int> suggestionTimeFrame = default, Option<bool> showOthersExactLocation = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<string> favoriteVisibility = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateSettingsApiResponse> UpdateSettingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> blockedNotifications = default, Option<string> suggestionMethod = default, Option<int> suggestionCount = default, Option<int> suggestionTimeFrame = default, Option<bool> showOthersExactLocation = default, Option<bool> showAsZipcode = default, Option<bool> showExactLocation = default, Option<string> favoriteVisibility = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -12852,7 +12624,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateSettings(deviceId, blockedNotifications, suggestionMethod, favoriteVisibility);
 
-                FormatUpdateSettings(ref version, ref deviceId, ref accountId, ref blockedNotifications, ref suggestionMethod, ref suggestionCount, ref suggestionTimeFrame, ref showOthersExactLocation, ref showAsZipcode, ref showExactLocation, ref favoriteVisibility, ref latitude, ref longitude);
+                FormatUpdateSettings(ref deviceId, ref accountId, ref blockedNotifications, ref suggestionMethod, ref suggestionCount, ref suggestionTimeFrame, ref showOthersExactLocation, ref showAsZipcode, ref showExactLocation, ref favoriteVisibility, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -12860,9 +12632,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/settings/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/settings/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/settings/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/settings/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -12927,13 +12698,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/settings/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/settings/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateSettingsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
+                        AfterUpdateSettingsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
 
                         Events.ExecuteOnUpdateSettings(apiResponseLocalVar);
 
@@ -12943,7 +12714,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateSettingsDefaultImplementation(e, "/api/{version}/account/settings/update", uriBuilderLocalVar.Path, version, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
+                OnErrorUpdateSettingsDefaultImplementation(e, "/account/settings/update", uriBuilderLocalVar.Path, deviceId, accountId, blockedNotifications, suggestionMethod, suggestionCount, suggestionTimeFrame, showOthersExactLocation, showAsZipcode, showExactLocation, favoriteVisibility, latitude, longitude);
                 Events.ExecuteOnErrorUpdateSettings(e);
                 throw;
             }
@@ -13042,7 +12813,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatValidateAccountSignup(ref decimal version, ref string token);
+        partial void FormatValidateAccountSignup(ref string token);
 
         /// <summary>
         /// Validates the request parameters
@@ -13059,12 +12830,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
-        private void AfterValidateAccountSignupDefaultImplementation(IValidateAccountSignupApiResponse apiResponseLocalVar, decimal version, string token)
+        private void AfterValidateAccountSignupDefaultImplementation(IValidateAccountSignupApiResponse apiResponseLocalVar, string token)
         {
             bool suppressDefaultLog = false;
-            AfterValidateAccountSignup(ref suppressDefaultLog, apiResponseLocalVar, version, token);
+            AfterValidateAccountSignup(ref suppressDefaultLog, apiResponseLocalVar, token);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -13074,9 +12844,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
-        partial void AfterValidateAccountSignup(ref bool suppressDefaultLog, IValidateAccountSignupApiResponse apiResponseLocalVar, decimal version, string token);
+        partial void AfterValidateAccountSignup(ref bool suppressDefaultLog, IValidateAccountSignupApiResponse apiResponseLocalVar, string token);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -13084,12 +12853,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
-        private void OnErrorValidateAccountSignupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token)
+        private void OnErrorValidateAccountSignupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorValidateAccountSignup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, token);
+            OnErrorValidateAccountSignup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, token);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -13101,22 +12869,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
-        partial void OnErrorValidateAccountSignup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token);
+        partial void OnErrorValidateAccountSignup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token);
 
         /// <summary>
         /// Save Validation Status Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IValidateAccountSignupApiResponse"/>&gt;</returns>
-        public async Task<IValidateAccountSignupApiResponse?> ValidateAccountSignupOrDefaultAsync(decimal version, string token, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IValidateAccountSignupApiResponse?> ValidateAccountSignupOrDefaultAsync(string token, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ValidateAccountSignupAsync(version, token, cancellationToken).ConfigureAwait(false);
+                return await ValidateAccountSignupAsync(token, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -13128,11 +12894,10 @@ namespace Org.OpenAPITools.Api
         /// Save Validation Status Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IValidateAccountSignupApiResponse"/>&gt;</returns>
-        public async Task<IValidateAccountSignupApiResponse> ValidateAccountSignupAsync(decimal version, string token, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IValidateAccountSignupApiResponse> ValidateAccountSignupAsync(string token, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -13140,7 +12905,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateValidateAccountSignup(token);
 
-                FormatValidateAccountSignup(ref version, ref token);
+                FormatValidateAccountSignup(ref token);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -13148,9 +12913,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/validateAccountSignup"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/validateAccountSignup");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/validateAccountSignup"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/validateAccountSignup");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -13181,13 +12945,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/validateAccountSignup", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/validateAccountSignup", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterValidateAccountSignupDefaultImplementation(apiResponseLocalVar, version, token);
+                        AfterValidateAccountSignupDefaultImplementation(apiResponseLocalVar, token);
 
                         Events.ExecuteOnValidateAccountSignup(apiResponseLocalVar);
 
@@ -13197,7 +12961,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorValidateAccountSignupDefaultImplementation(e, "/api/{version}/account/validateAccountSignup", uriBuilderLocalVar.Path, version, token);
+                OnErrorValidateAccountSignupDefaultImplementation(e, "/account/validateAccountSignup", uriBuilderLocalVar.Path, token);
                 Events.ExecuteOnErrorValidateAccountSignup(e);
                 throw;
             }
@@ -13296,7 +13060,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatValidatePasswordReset(ref decimal version, ref string token);
+        partial void FormatValidatePasswordReset(ref string token);
 
         /// <summary>
         /// Validates the request parameters
@@ -13313,12 +13077,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
-        private void AfterValidatePasswordResetDefaultImplementation(IValidatePasswordResetApiResponse apiResponseLocalVar, decimal version, string token)
+        private void AfterValidatePasswordResetDefaultImplementation(IValidatePasswordResetApiResponse apiResponseLocalVar, string token)
         {
             bool suppressDefaultLog = false;
-            AfterValidatePasswordReset(ref suppressDefaultLog, apiResponseLocalVar, version, token);
+            AfterValidatePasswordReset(ref suppressDefaultLog, apiResponseLocalVar, token);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -13328,9 +13091,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
-        partial void AfterValidatePasswordReset(ref bool suppressDefaultLog, IValidatePasswordResetApiResponse apiResponseLocalVar, decimal version, string token);
+        partial void AfterValidatePasswordReset(ref bool suppressDefaultLog, IValidatePasswordResetApiResponse apiResponseLocalVar, string token);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -13338,12 +13100,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
-        private void OnErrorValidatePasswordResetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token)
+        private void OnErrorValidatePasswordResetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorValidatePasswordReset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, token);
+            OnErrorValidatePasswordReset(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, token);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -13355,22 +13116,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="token"></param>
-        partial void OnErrorValidatePasswordReset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string token);
+        partial void OnErrorValidatePasswordReset(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string token);
 
         /// <summary>
         /// Validate Password Reset Token Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IValidatePasswordResetApiResponse"/>&gt;</returns>
-        public async Task<IValidatePasswordResetApiResponse?> ValidatePasswordResetOrDefaultAsync(decimal version, string token, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IValidatePasswordResetApiResponse?> ValidatePasswordResetOrDefaultAsync(string token, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ValidatePasswordResetAsync(version, token, cancellationToken).ConfigureAwait(false);
+                return await ValidatePasswordResetAsync(token, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -13382,11 +13141,10 @@ namespace Org.OpenAPITools.Api
         /// Validate Password Reset Token Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="token">The token associated with the account to update, good for 24 hours</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IValidatePasswordResetApiResponse"/>&gt;</returns>
-        public async Task<IValidatePasswordResetApiResponse> ValidatePasswordResetAsync(decimal version, string token, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IValidatePasswordResetApiResponse> ValidatePasswordResetAsync(string token, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -13394,7 +13152,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateValidatePasswordReset(token);
 
-                FormatValidatePasswordReset(ref version, ref token);
+                FormatValidatePasswordReset(ref token);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -13402,9 +13160,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/validatepasswordreset"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/validatepasswordreset");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/validatepasswordreset"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/validatepasswordreset");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -13435,13 +13192,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/validatepasswordreset", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/validatepasswordreset", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterValidatePasswordResetDefaultImplementation(apiResponseLocalVar, version, token);
+                        AfterValidatePasswordResetDefaultImplementation(apiResponseLocalVar, token);
 
                         Events.ExecuteOnValidatePasswordReset(apiResponseLocalVar);
 
@@ -13451,7 +13208,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorValidatePasswordResetDefaultImplementation(e, "/api/{version}/account/validatepasswordreset", uriBuilderLocalVar.Path, version, token);
+                OnErrorValidatePasswordResetDefaultImplementation(e, "/account/validatepasswordreset", uriBuilderLocalVar.Path, token);
                 Events.ExecuteOnErrorValidatePasswordReset(e);
                 throw;
             }

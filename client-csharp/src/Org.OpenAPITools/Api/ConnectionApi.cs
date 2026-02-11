@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Adds a connection to a group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -57,7 +56,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddConnectionToGroupApiResponse"/>&gt;</returns>
-        Task<IAddConnectionToGroupApiResponse> AddConnectionToGroupAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddConnectionToGroupApiResponse> AddConnectionToGroupAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Connection
@@ -65,7 +64,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Adds a connection to a group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -77,7 +75,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddConnectionToGroupApiResponse"/>?&gt;</returns>
-        Task<IAddConnectionToGroupApiResponse?> AddConnectionToGroupOrDefaultAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddConnectionToGroupApiResponse?> AddConnectionToGroupOrDefaultAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Connections
@@ -86,7 +84,6 @@ namespace Org.OpenAPITools.Api
         /// Adds a list of connections to a group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId">the connection group ID</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -96,7 +93,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddConnectionsToGroupApiResponse"/>&gt;</returns>
-        Task<IAddConnectionsToGroupApiResponse> AddConnectionsToGroupAsync(decimal version, long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddConnectionsToGroupApiResponse> AddConnectionsToGroupAsync(long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Connections
@@ -104,7 +101,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Adds a list of connections to a group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId">the connection group ID</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -114,7 +110,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddConnectionsToGroupApiResponse"/>?&gt;</returns>
-        Task<IAddConnectionsToGroupApiResponse?> AddConnectionsToGroupOrDefaultAsync(decimal version, long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddConnectionsToGroupApiResponse?> AddConnectionsToGroupOrDefaultAsync(long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Connection Groups
@@ -123,7 +119,6 @@ namespace Org.OpenAPITools.Api
         /// Add sub groups to a group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the parent group id</param>
         /// <param name="subGroupIds">comma separated list of group IDs to add to the parent group</param>
@@ -133,7 +128,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddSubGroupsApiResponse"/>&gt;</returns>
-        Task<IAddSubGroupsApiResponse> AddSubGroupsAsync(decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddSubGroupsApiResponse> AddSubGroupsAsync(bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Connection Groups
@@ -141,7 +136,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Add sub groups to a group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the parent group id</param>
         /// <param name="subGroupIds">comma separated list of group IDs to add to the parent group</param>
@@ -151,7 +145,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddSubGroupsApiResponse"/>?&gt;</returns>
-        Task<IAddSubGroupsApiResponse?> AddSubGroupsOrDefaultAsync(decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddSubGroupsApiResponse?> AddSubGroupsOrDefaultAsync(bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create or Update Connection
@@ -160,7 +154,6 @@ namespace Org.OpenAPITools.Api
         /// Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionId">the connection id for editing (optional)</param>
@@ -177,7 +170,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionResponse">whether to return the connection response or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateConnectionApiResponse"/>&gt;</returns>
-        Task<ICreateOrUpdateConnectionApiResponse> CreateOrUpdateConnectionAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<long> groupId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> isTrusted = default, Option<bool> ignoreFriendRequest = default, Option<bool> isContact = default, Option<bool> isBlocked = default, Option<bool> isFollowing = default, Option<bool> connectionResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOrUpdateConnectionApiResponse> CreateOrUpdateConnectionAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<long> groupId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> isTrusted = default, Option<bool> ignoreFriendRequest = default, Option<bool> isContact = default, Option<bool> isBlocked = default, Option<bool> isFollowing = default, Option<bool> connectionResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create or Update Connection
@@ -185,7 +178,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionId">the connection id for editing (optional)</param>
@@ -202,7 +194,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionResponse">whether to return the connection response or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateConnectionApiResponse"/>?&gt;</returns>
-        Task<ICreateOrUpdateConnectionApiResponse?> CreateOrUpdateConnectionOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<long> groupId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> isTrusted = default, Option<bool> ignoreFriendRequest = default, Option<bool> isContact = default, Option<bool> isBlocked = default, Option<bool> isFollowing = default, Option<bool> connectionResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOrUpdateConnectionApiResponse?> CreateOrUpdateConnectionOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<long> groupId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> isTrusted = default, Option<bool> ignoreFriendRequest = default, Option<bool> isContact = default, Option<bool> isBlocked = default, Option<bool> isFollowing = default, Option<bool> connectionResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create or Update Connection Group
@@ -211,7 +203,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a new private group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -228,7 +219,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the longitude of the group (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateGroupApiResponse"/>&gt;</returns>
-        Task<ICreateOrUpdateGroupApiResponse> CreateOrUpdateGroupAsync(decimal version, bool returnNulls, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<long> groupId = default, Option<long> assetId = default, Option<string> connections = default, Option<string> description = default, Option<bool> canViewProfileInfo = default, Option<bool> canViewGameInfo = default, Option<bool> canViewFriendInfo = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOrUpdateGroupApiResponse> CreateOrUpdateGroupAsync(bool returnNulls, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<long> groupId = default, Option<long> assetId = default, Option<string> connections = default, Option<string> description = default, Option<bool> canViewProfileInfo = default, Option<bool> canViewGameInfo = default, Option<bool> canViewFriendInfo = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create or Update Connection Group
@@ -236,7 +227,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a new private group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -253,7 +243,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the longitude of the group (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateGroupApiResponse"/>?&gt;</returns>
-        Task<ICreateOrUpdateGroupApiResponse?> CreateOrUpdateGroupOrDefaultAsync(decimal version, bool returnNulls, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<long> groupId = default, Option<long> assetId = default, Option<string> connections = default, Option<string> description = default, Option<bool> canViewProfileInfo = default, Option<bool> canViewGameInfo = default, Option<bool> canViewFriendInfo = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOrUpdateGroupApiResponse?> CreateOrUpdateGroupOrDefaultAsync(bool returnNulls, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<long> groupId = default, Option<long> assetId = default, Option<string> connections = default, Option<string> description = default, Option<bool> canViewProfileInfo = default, Option<bool> canViewGameInfo = default, Option<bool> canViewFriendInfo = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Accept Follow Request
@@ -262,13 +252,12 @@ namespace Org.OpenAPITools.Api
         /// Accept someone&#39;s follow request.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowAcceptApiResponse"/>&gt;</returns>
-        Task<IFollowAcceptApiResponse> FollowAcceptAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFollowAcceptApiResponse> FollowAcceptAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Accept Follow Request
@@ -276,13 +265,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Accept someone&#39;s follow request.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowAcceptApiResponse"/>?&gt;</returns>
-        Task<IFollowAcceptApiResponse?> FollowAcceptOrDefaultAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFollowAcceptApiResponse?> FollowAcceptOrDefaultAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reject Follow Request
@@ -291,13 +279,12 @@ namespace Org.OpenAPITools.Api
         /// Reject someone&#39;s follow request or remove them as a follower.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRejectApiResponse"/>&gt;</returns>
-        Task<IFollowRejectApiResponse> FollowRejectAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFollowRejectApiResponse> FollowRejectAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reject Follow Request
@@ -305,13 +292,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Reject someone&#39;s follow request or remove them as a follower.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRejectApiResponse"/>?&gt;</returns>
-        Task<IFollowRejectApiResponse?> FollowRejectOrDefaultAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFollowRejectApiResponse?> FollowRejectOrDefaultAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Follower / Unfollow
@@ -320,13 +306,12 @@ namespace Org.OpenAPITools.Api
         /// Unfollow someone you are following or remove them as a follower.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who you want to unfollow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRemoveApiResponse"/>&gt;</returns>
-        Task<IFollowRemoveApiResponse> FollowRemoveAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFollowRemoveApiResponse> FollowRemoveAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Follower / Unfollow
@@ -334,13 +319,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Unfollow someone you are following or remove them as a follower.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who you want to unfollow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRemoveApiResponse"/>?&gt;</returns>
-        Task<IFollowRemoveApiResponse?> FollowRemoveOrDefaultAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFollowRemoveApiResponse?> FollowRemoveOrDefaultAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Follow Request
@@ -349,14 +333,13 @@ namespace Org.OpenAPITools.Api
         /// Send a request to follow someone.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who you want to follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="approvalNeeded">determines if the other user needs to confirm the follow request (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRequestApiResponse"/>&gt;</returns>
-        Task<IFollowRequestApiResponse> FollowRequestAsync(decimal version, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFollowRequestApiResponse> FollowRequestAsync(long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Follow Request
@@ -364,14 +347,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Send a request to follow someone.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who you want to follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="approvalNeeded">determines if the other user needs to confirm the follow request (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRequestApiResponse"/>?&gt;</returns>
-        Task<IFollowRequestApiResponse?> FollowRequestOrDefaultAsync(decimal version, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFollowRequestApiResponse?> FollowRequestOrDefaultAsync(long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Accept Friend
@@ -380,7 +362,6 @@ namespace Org.OpenAPITools.Api
         /// Accept a friend request and optionally sends a notification.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="notifyFriend">determines whether to send a notification to the afflicting party</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -390,7 +371,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendAcceptApiResponse"/>&gt;</returns>
-        Task<IFriendAcceptApiResponse> FriendAcceptAsync(decimal version, long friendAccountId, bool notifyFriend, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFriendAcceptApiResponse> FriendAcceptAsync(long friendAccountId, bool notifyFriend, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Accept Friend
@@ -398,7 +379,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Accept a friend request and optionally sends a notification.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="notifyFriend">determines whether to send a notification to the afflicting party</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -408,7 +388,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendAcceptApiResponse"/>?&gt;</returns>
-        Task<IFriendAcceptApiResponse?> FriendAcceptOrDefaultAsync(decimal version, long friendAccountId, bool notifyFriend, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFriendAcceptApiResponse?> FriendAcceptOrDefaultAsync(long friendAccountId, bool notifyFriend, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Decline Friend
@@ -417,7 +397,6 @@ namespace Org.OpenAPITools.Api
         /// Request a friend request and optionally sends a notification.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -427,7 +406,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRejectApiResponse"/>&gt;</returns>
-        Task<IFriendRejectApiResponse> FriendRejectAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> notifyFriend = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFriendRejectApiResponse> FriendRejectAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> notifyFriend = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Decline Friend
@@ -435,7 +414,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Request a friend request and optionally sends a notification.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -445,7 +423,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRejectApiResponse"/>?&gt;</returns>
-        Task<IFriendRejectApiResponse?> FriendRejectOrDefaultAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> notifyFriend = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFriendRejectApiResponse?> FriendRejectOrDefaultAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> notifyFriend = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Friend
@@ -454,7 +432,6 @@ namespace Org.OpenAPITools.Api
         /// Removes a friend from the user&#39;s friends list.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the account ID of the friend to remove</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -462,7 +439,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromGroups">optionally removes the connection from the user&#39;s groups (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRemoveApiResponse"/>&gt;</returns>
-        Task<IFriendRemoveApiResponse> FriendRemoveAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> notifyFriend = default, Option<bool> removeFromGroups = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFriendRemoveApiResponse> FriendRemoveAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> notifyFriend = default, Option<bool> removeFromGroups = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Friend
@@ -470,7 +447,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Removes a friend from the user&#39;s friends list.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the account ID of the friend to remove</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -478,7 +454,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromGroups">optionally removes the connection from the user&#39;s groups (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRemoveApiResponse"/>?&gt;</returns>
-        Task<IFriendRemoveApiResponse?> FriendRemoveOrDefaultAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> notifyFriend = default, Option<bool> removeFromGroups = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFriendRemoveApiResponse?> FriendRemoveOrDefaultAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> notifyFriend = default, Option<bool> removeFromGroups = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Request Friend
@@ -487,7 +463,6 @@ namespace Org.OpenAPITools.Api
         /// Sends a friend request notification to another user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -496,7 +471,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRequestApiResponse"/>&gt;</returns>
-        Task<IFriendRequestApiResponse> FriendRequestAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFriendRequestApiResponse> FriendRequestAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Request Friend
@@ -504,7 +479,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sends a friend request notification to another user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -513,7 +487,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRequestApiResponse"/>?&gt;</returns>
-        Task<IFriendRequestApiResponse?> FriendRequestOrDefaultAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFriendRequestApiResponse?> FriendRequestOrDefaultAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Sent Friend Requests
@@ -522,12 +496,11 @@ namespace Org.OpenAPITools.Api
         /// Gets the connection sent friend requests.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the ID of the device (optional)</param>
         /// <param name="accountId">the id of the account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConnectionSentFriendRequestsApiResponse"/>&gt;</returns>
-        Task<IGetConnectionSentFriendRequestsApiResponse> GetConnectionSentFriendRequestsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetConnectionSentFriendRequestsApiResponse> GetConnectionSentFriendRequestsAsync(Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Sent Friend Requests
@@ -535,12 +508,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the connection sent friend requests.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the ID of the device (optional)</param>
         /// <param name="accountId">the id of the account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConnectionSentFriendRequestsApiResponse"/>?&gt;</returns>
-        Task<IGetConnectionSentFriendRequestsApiResponse?> GetConnectionSentFriendRequestsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetConnectionSentFriendRequestsApiResponse?> GetConnectionSentFriendRequestsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Connections
@@ -549,7 +521,6 @@ namespace Org.OpenAPITools.Api
         /// Gets the connections.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="filter">a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)</param>
         /// <param name="sortField">sorts the response list by ConnectionApiMap</param>
@@ -567,7 +538,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConnectionsApiResponse"/>&gt;</returns>
-        Task<IGetConnectionsApiResponse> GetConnectionsAsync(decimal version, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetConnectionsApiResponse> GetConnectionsAsync(bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Connections
@@ -575,7 +546,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the connections.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="filter">a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)</param>
         /// <param name="sortField">sorts the response list by ConnectionApiMap</param>
@@ -593,7 +563,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConnectionsApiResponse"/>?&gt;</returns>
-        Task<IGetConnectionsApiResponse?> GetConnectionsOrDefaultAsync(decimal version, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetConnectionsApiResponse?> GetConnectionsOrDefaultAsync(bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Connection Group
@@ -602,7 +572,6 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="combineConnections">whether to combine connections or not</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -611,7 +580,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGroupDetailsApiResponse"/>&gt;</returns>
-        Task<IGetGroupDetailsApiResponse> GetGroupDetailsAsync(decimal version, bool combineConnections, Option<string> deviceId = default, Option<long> accountId = default, Option<long> groupId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGroupDetailsApiResponse> GetGroupDetailsAsync(bool combineConnections, Option<string> deviceId = default, Option<long> accountId = default, Option<long> groupId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Connection Group
@@ -619,7 +588,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="combineConnections">whether to combine connections or not</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -628,7 +596,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGroupDetailsApiResponse"/>?&gt;</returns>
-        Task<IGetGroupDetailsApiResponse?> GetGroupDetailsOrDefaultAsync(decimal version, bool combineConnections, Option<string> deviceId = default, Option<long> accountId = default, Option<long> groupId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGroupDetailsApiResponse?> GetGroupDetailsOrDefaultAsync(bool combineConnections, Option<string> deviceId = default, Option<long> accountId = default, Option<long> groupId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Connection Groups
@@ -637,7 +605,6 @@ namespace Org.OpenAPITools.Api
         /// Gets a user&#39;s private groups and default groups.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by</param>
         /// <param name="descending">whether to return results in descending or ascending order</param>
         /// <param name="activeOnly">to search on active only or not</param>
@@ -650,7 +617,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">keyword search string (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGroupSearchApiResponse"/>&gt;</returns>
-        Task<IGroupSearchApiResponse> GroupSearchAsync(decimal version, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGroupSearchApiResponse> GroupSearchAsync(string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Connection Groups
@@ -658,7 +625,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a user&#39;s private groups and default groups.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by</param>
         /// <param name="descending">whether to return results in descending or ascending order</param>
         /// <param name="activeOnly">to search on active only or not</param>
@@ -671,7 +637,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">keyword search string (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGroupSearchApiResponse"/>?&gt;</returns>
-        Task<IGroupSearchApiResponse?> GroupSearchOrDefaultAsync(decimal version, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGroupSearchApiResponse?> GroupSearchOrDefaultAsync(string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Connection
@@ -680,7 +646,6 @@ namespace Org.OpenAPITools.Api
         /// Removes the connection from group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -692,7 +657,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveConnectionFromGroupApiResponse"/>&gt;</returns>
-        Task<IRemoveConnectionFromGroupApiResponse> RemoveConnectionFromGroupAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveConnectionFromGroupApiResponse> RemoveConnectionFromGroupAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Connection
@@ -700,7 +665,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Removes the connection from group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -712,7 +676,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveConnectionFromGroupApiResponse"/>?&gt;</returns>
-        Task<IRemoveConnectionFromGroupApiResponse?> RemoveConnectionFromGroupOrDefaultAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveConnectionFromGroupApiResponse?> RemoveConnectionFromGroupOrDefaultAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Connections
@@ -721,7 +685,6 @@ namespace Org.OpenAPITools.Api
         /// Remove a list of connections from a group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId">connection group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -731,7 +694,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveConnectionsFromGroupApiResponse"/>&gt;</returns>
-        Task<IRemoveConnectionsFromGroupApiResponse> RemoveConnectionsFromGroupAsync(decimal version, long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveConnectionsFromGroupApiResponse> RemoveConnectionsFromGroupAsync(long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Connections
@@ -739,7 +702,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Remove a list of connections from a group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId">connection group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -749,7 +711,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveConnectionsFromGroupApiResponse"/>?&gt;</returns>
-        Task<IRemoveConnectionsFromGroupApiResponse?> RemoveConnectionsFromGroupOrDefaultAsync(decimal version, long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveConnectionsFromGroupApiResponse?> RemoveConnectionsFromGroupOrDefaultAsync(long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Connection Group
@@ -758,7 +720,6 @@ namespace Org.OpenAPITools.Api
         /// Remove a user&#39;s group.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -767,7 +728,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveGroupApiResponse"/>&gt;</returns>
-        Task<IRemoveGroupApiResponse> RemoveGroupAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveGroupApiResponse> RemoveGroupAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Connection Group
@@ -775,7 +736,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Remove a user&#39;s group.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -784,7 +744,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveGroupApiResponse"/>?&gt;</returns>
-        Task<IRemoveGroupApiResponse?> RemoveGroupOrDefaultAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveGroupApiResponse?> RemoveGroupOrDefaultAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Connection Groups
@@ -793,7 +753,6 @@ namespace Org.OpenAPITools.Api
         /// Remove sub groups from a group
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the parent group id</param>
         /// <param name="subGroupIds">comma separated list of group IDs to remove from the parent group</param>
@@ -803,7 +762,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveSubGroupsApiResponse"/>&gt;</returns>
-        Task<IRemoveSubGroupsApiResponse> RemoveSubGroupsAsync(decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveSubGroupsApiResponse> RemoveSubGroupsAsync(bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Connection Groups
@@ -811,7 +770,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Remove sub groups from a group
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the parent group id</param>
         /// <param name="subGroupIds">comma separated list of group IDs to remove from the parent group</param>
@@ -821,7 +779,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveSubGroupsApiResponse"/>?&gt;</returns>
-        Task<IRemoveSubGroupsApiResponse?> RemoveSubGroupsOrDefaultAsync(decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveSubGroupsApiResponse?> RemoveSubGroupsOrDefaultAsync(bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Possible Connections
@@ -830,7 +788,6 @@ namespace Org.OpenAPITools.Api
         /// Search for accounts that the user may not have a connection with.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">return all json attributes if true. defualt is true.</param>
         /// <param name="start">start index of the pagination</param>
         /// <param name="limit">limit of the pagination</param>
@@ -848,7 +805,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasLocation">whether the search has location or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchConnectionsApiResponse"/>&gt;</returns>
-        Task<ISearchConnectionsApiResponse> SearchConnectionsAsync(decimal version, bool returnNulls, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> gameType = default, Option<string> appKey = default, Option<int> i = default, Option<int> l = default, Option<string> sortField = default, Option<bool> hasLocation = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchConnectionsApiResponse> SearchConnectionsAsync(bool returnNulls, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> gameType = default, Option<string> appKey = default, Option<int> i = default, Option<int> l = default, Option<string> sortField = default, Option<bool> hasLocation = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Possible Connections
@@ -856,7 +813,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for accounts that the user may not have a connection with.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">return all json attributes if true. defualt is true.</param>
         /// <param name="start">start index of the pagination</param>
         /// <param name="limit">limit of the pagination</param>
@@ -874,7 +830,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasLocation">whether the search has location or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchConnectionsApiResponse"/>?&gt;</returns>
-        Task<ISearchConnectionsApiResponse?> SearchConnectionsOrDefaultAsync(decimal version, bool returnNulls, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> gameType = default, Option<string> appKey = default, Option<int> i = default, Option<int> l = default, Option<string> sortField = default, Option<bool> hasLocation = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchConnectionsApiResponse?> SearchConnectionsOrDefaultAsync(bool returnNulls, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> gameType = default, Option<string> appKey = default, Option<int> i = default, Option<int> l = default, Option<string> sortField = default, Option<bool> hasLocation = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -1634,7 +1590,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddConnectionToGroup(ref decimal version, ref bool returnNulls, ref long groupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionId, ref Option<long> connectionAccountId, ref Option<long> pendingId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAddConnectionToGroup(ref bool returnNulls, ref long groupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionId, ref Option<long> connectionAccountId, ref Option<long> pendingId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1651,7 +1607,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
@@ -1661,10 +1616,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="pendingId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAddConnectionToGroupDefaultImplementation(IAddConnectionToGroupApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude)
+        private void AfterAddConnectionToGroupDefaultImplementation(IAddConnectionToGroupApiResponse apiResponseLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAddConnectionToGroup(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+            AfterAddConnectionToGroup(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1674,7 +1629,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
@@ -1684,7 +1638,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="pendingId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAddConnectionToGroup(ref bool suppressDefaultLog, IAddConnectionToGroupApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude);
+        partial void AfterAddConnectionToGroup(ref bool suppressDefaultLog, IAddConnectionToGroupApiResponse apiResponseLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1692,7 +1646,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
@@ -1702,10 +1655,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="pendingId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAddConnectionToGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAddConnectionToGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddConnectionToGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+            OnErrorAddConnectionToGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1717,7 +1670,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
@@ -1727,12 +1679,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="pendingId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAddConnectionToGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAddConnectionToGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Add Connection Adds a connection to a group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -1744,11 +1695,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddConnectionToGroupApiResponse"/>&gt;</returns>
-        public async Task<IAddConnectionToGroupApiResponse?> AddConnectionToGroupOrDefaultAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddConnectionToGroupApiResponse?> AddConnectionToGroupOrDefaultAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddConnectionToGroupAsync(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AddConnectionToGroupAsync(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1760,7 +1711,6 @@ namespace Org.OpenAPITools.Api
         /// Add Connection Adds a connection to a group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -1772,7 +1722,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddConnectionToGroupApiResponse"/>&gt;</returns>
-        public async Task<IAddConnectionToGroupApiResponse> AddConnectionToGroupAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddConnectionToGroupApiResponse> AddConnectionToGroupAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1780,7 +1730,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddConnectionToGroup(deviceId);
 
-                FormatAddConnectionToGroup(ref version, ref returnNulls, ref groupId, ref deviceId, ref accountId, ref connectionId, ref connectionAccountId, ref pendingId, ref latitude, ref longitude);
+                FormatAddConnectionToGroup(ref returnNulls, ref groupId, ref deviceId, ref accountId, ref connectionId, ref connectionAccountId, ref pendingId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1788,9 +1738,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/group/addConnection"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/group/addConnection");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/group/addConnection"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/group/addConnection");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1843,13 +1792,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/group/addConnection", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/group/addConnection", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddConnectionToGroupDefaultImplementation(apiResponseLocalVar, version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+                        AfterAddConnectionToGroupDefaultImplementation(apiResponseLocalVar, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
 
                         Events.ExecuteOnAddConnectionToGroup(apiResponseLocalVar);
 
@@ -1859,7 +1808,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddConnectionToGroupDefaultImplementation(e, "/api/{version}/consumer/connection/group/addConnection", uriBuilderLocalVar.Path, version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+                OnErrorAddConnectionToGroupDefaultImplementation(e, "/consumer/connection/group/addConnection", uriBuilderLocalVar.Path, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
                 Events.ExecuteOnErrorAddConnectionToGroup(e);
                 throw;
             }
@@ -1958,7 +1907,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAddConnectionsToGroup(ref decimal version, ref long connectionGroupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionIds, ref Option<string> connectionAccountIds, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAddConnectionsToGroup(ref long connectionGroupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionIds, ref Option<string> connectionAccountIds, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1983,7 +1932,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1991,10 +1939,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionAccountIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAddConnectionsToGroupDefaultImplementation(IAddConnectionsToGroupApiResponse apiResponseLocalVar, decimal version, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude)
+        private void AfterAddConnectionsToGroupDefaultImplementation(IAddConnectionsToGroupApiResponse apiResponseLocalVar, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAddConnectionsToGroup(ref suppressDefaultLog, apiResponseLocalVar, version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+            AfterAddConnectionsToGroup(ref suppressDefaultLog, apiResponseLocalVar, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2004,7 +1952,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2012,7 +1959,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionAccountIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAddConnectionsToGroup(ref bool suppressDefaultLog, IAddConnectionsToGroupApiResponse apiResponseLocalVar, decimal version, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude);
+        partial void AfterAddConnectionsToGroup(ref bool suppressDefaultLog, IAddConnectionsToGroupApiResponse apiResponseLocalVar, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2020,7 +1967,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2028,10 +1974,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionAccountIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAddConnectionsToGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAddConnectionsToGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddConnectionsToGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+            OnErrorAddConnectionsToGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2043,7 +1989,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2051,12 +1996,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionAccountIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAddConnectionsToGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAddConnectionsToGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Add Connections Adds a list of connections to a group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId">the connection group ID</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -2066,11 +2010,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddConnectionsToGroupApiResponse"/>&gt;</returns>
-        public async Task<IAddConnectionsToGroupApiResponse?> AddConnectionsToGroupOrDefaultAsync(decimal version, long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddConnectionsToGroupApiResponse?> AddConnectionsToGroupOrDefaultAsync(long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddConnectionsToGroupAsync(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AddConnectionsToGroupAsync(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2082,7 +2026,6 @@ namespace Org.OpenAPITools.Api
         /// Add Connections Adds a list of connections to a group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId">the connection group ID</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -2092,7 +2035,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddConnectionsToGroupApiResponse"/>&gt;</returns>
-        public async Task<IAddConnectionsToGroupApiResponse> AddConnectionsToGroupAsync(decimal version, long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddConnectionsToGroupApiResponse> AddConnectionsToGroupAsync(long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2100,7 +2043,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddConnectionsToGroup(deviceId, connectionIds, connectionAccountIds);
 
-                FormatAddConnectionsToGroup(ref version, ref connectionGroupId, ref deviceId, ref accountId, ref connectionIds, ref connectionAccountIds, ref latitude, ref longitude);
+                FormatAddConnectionsToGroup(ref connectionGroupId, ref deviceId, ref accountId, ref connectionIds, ref connectionAccountIds, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2108,9 +2051,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/connection/group/addConnections"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/connection/group/addConnections");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/connection/group/addConnections"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/connection/group/addConnections");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2159,13 +2101,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/connection/group/addConnections", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/connection/group/addConnections", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddConnectionsToGroupDefaultImplementation(apiResponseLocalVar, version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+                        AfterAddConnectionsToGroupDefaultImplementation(apiResponseLocalVar, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
 
                         Events.ExecuteOnAddConnectionsToGroup(apiResponseLocalVar);
 
@@ -2175,7 +2117,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddConnectionsToGroupDefaultImplementation(e, "/api/{version}/connection/group/addConnections", uriBuilderLocalVar.Path, version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+                OnErrorAddConnectionsToGroupDefaultImplementation(e, "/connection/group/addConnections", uriBuilderLocalVar.Path, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
                 Events.ExecuteOnErrorAddConnectionsToGroup(e);
                 throw;
             }
@@ -2274,7 +2216,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAddSubGroups(ref decimal version, ref bool returnNulls, ref long groupId, ref string subGroupIds, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAddSubGroups(ref bool returnNulls, ref long groupId, ref string subGroupIds, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2295,7 +2237,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="subGroupIds"></param>
@@ -2303,10 +2244,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAddSubGroupsDefaultImplementation(IAddSubGroupsApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterAddSubGroupsDefaultImplementation(IAddSubGroupsApiResponse apiResponseLocalVar, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAddSubGroups(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+            AfterAddSubGroups(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2316,7 +2257,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="subGroupIds"></param>
@@ -2324,7 +2264,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAddSubGroups(ref bool suppressDefaultLog, IAddSubGroupsApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterAddSubGroups(ref bool suppressDefaultLog, IAddSubGroupsApiResponse apiResponseLocalVar, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2332,7 +2272,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="subGroupIds"></param>
@@ -2340,10 +2279,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAddSubGroupsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAddSubGroupsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddSubGroups(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+            OnErrorAddSubGroups(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2355,7 +2294,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="subGroupIds"></param>
@@ -2363,12 +2301,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAddSubGroups(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAddSubGroups(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Add Connection Groups Add sub groups to a group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the parent group id</param>
         /// <param name="subGroupIds">comma separated list of group IDs to add to the parent group</param>
@@ -2378,11 +2315,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddSubGroupsApiResponse"/>&gt;</returns>
-        public async Task<IAddSubGroupsApiResponse?> AddSubGroupsOrDefaultAsync(decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddSubGroupsApiResponse?> AddSubGroupsOrDefaultAsync(bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddSubGroupsAsync(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AddSubGroupsAsync(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2394,7 +2331,6 @@ namespace Org.OpenAPITools.Api
         /// Add Connection Groups Add sub groups to a group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the parent group id</param>
         /// <param name="subGroupIds">comma separated list of group IDs to add to the parent group</param>
@@ -2404,7 +2340,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddSubGroupsApiResponse"/>&gt;</returns>
-        public async Task<IAddSubGroupsApiResponse> AddSubGroupsAsync(decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddSubGroupsApiResponse> AddSubGroupsAsync(bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2412,7 +2348,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddSubGroups(subGroupIds, deviceId);
 
-                FormatAddSubGroups(ref version, ref returnNulls, ref groupId, ref subGroupIds, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatAddSubGroups(ref returnNulls, ref groupId, ref subGroupIds, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2420,9 +2356,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/group/addSubGroup"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/group/addSubGroup");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/group/addSubGroup"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/group/addSubGroup");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2467,13 +2402,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/group/addSubGroup", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/group/addSubGroup", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddSubGroupsDefaultImplementation(apiResponseLocalVar, version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+                        AfterAddSubGroupsDefaultImplementation(apiResponseLocalVar, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnAddSubGroups(apiResponseLocalVar);
 
@@ -2483,7 +2418,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddSubGroupsDefaultImplementation(e, "/api/{version}/consumer/connection/group/addSubGroup", uriBuilderLocalVar.Path, version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+                OnErrorAddSubGroupsDefaultImplementation(e, "/consumer/connection/group/addSubGroup", uriBuilderLocalVar.Path, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorAddSubGroups(e);
                 throw;
             }
@@ -2582,7 +2517,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateOrUpdateConnection(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionId, ref Option<long> connectionAccountId, ref Option<long> pendingId, ref Option<long> groupId, ref Option<string> gameType, ref Option<string> appKey, ref Option<bool> isTrusted, ref Option<bool> ignoreFriendRequest, ref Option<bool> isContact, ref Option<bool> isBlocked, ref Option<bool> isFollowing, ref Option<bool> connectionResponse);
+        partial void FormatCreateOrUpdateConnection(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionId, ref Option<long> connectionAccountId, ref Option<long> pendingId, ref Option<long> groupId, ref Option<string> gameType, ref Option<string> appKey, ref Option<bool> isTrusted, ref Option<bool> ignoreFriendRequest, ref Option<bool> isContact, ref Option<bool> isBlocked, ref Option<bool> isFollowing, ref Option<bool> connectionResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -2607,7 +2542,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionId"></param>
@@ -2622,10 +2556,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="isBlocked"></param>
         /// <param name="isFollowing"></param>
         /// <param name="connectionResponse"></param>
-        private void AfterCreateOrUpdateConnectionDefaultImplementation(ICreateOrUpdateConnectionApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<long> groupId, Option<string> gameType, Option<string> appKey, Option<bool> isTrusted, Option<bool> ignoreFriendRequest, Option<bool> isContact, Option<bool> isBlocked, Option<bool> isFollowing, Option<bool> connectionResponse)
+        private void AfterCreateOrUpdateConnectionDefaultImplementation(ICreateOrUpdateConnectionApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<long> groupId, Option<string> gameType, Option<string> appKey, Option<bool> isTrusted, Option<bool> ignoreFriendRequest, Option<bool> isContact, Option<bool> isBlocked, Option<bool> isFollowing, Option<bool> connectionResponse)
         {
             bool suppressDefaultLog = false;
-            AfterCreateOrUpdateConnection(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
+            AfterCreateOrUpdateConnection(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2635,7 +2569,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionId"></param>
@@ -2650,7 +2583,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="isBlocked"></param>
         /// <param name="isFollowing"></param>
         /// <param name="connectionResponse"></param>
-        partial void AfterCreateOrUpdateConnection(ref bool suppressDefaultLog, ICreateOrUpdateConnectionApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<long> groupId, Option<string> gameType, Option<string> appKey, Option<bool> isTrusted, Option<bool> ignoreFriendRequest, Option<bool> isContact, Option<bool> isBlocked, Option<bool> isFollowing, Option<bool> connectionResponse);
+        partial void AfterCreateOrUpdateConnection(ref bool suppressDefaultLog, ICreateOrUpdateConnectionApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<long> groupId, Option<string> gameType, Option<string> appKey, Option<bool> isTrusted, Option<bool> ignoreFriendRequest, Option<bool> isContact, Option<bool> isBlocked, Option<bool> isFollowing, Option<bool> connectionResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2658,7 +2591,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionId"></param>
@@ -2673,10 +2605,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="isBlocked"></param>
         /// <param name="isFollowing"></param>
         /// <param name="connectionResponse"></param>
-        private void OnErrorCreateOrUpdateConnectionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<long> groupId, Option<string> gameType, Option<string> appKey, Option<bool> isTrusted, Option<bool> ignoreFriendRequest, Option<bool> isContact, Option<bool> isBlocked, Option<bool> isFollowing, Option<bool> connectionResponse)
+        private void OnErrorCreateOrUpdateConnectionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<long> groupId, Option<string> gameType, Option<string> appKey, Option<bool> isTrusted, Option<bool> ignoreFriendRequest, Option<bool> isContact, Option<bool> isBlocked, Option<bool> isFollowing, Option<bool> connectionResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateOrUpdateConnection(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
+            OnErrorCreateOrUpdateConnection(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2688,7 +2620,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionId"></param>
@@ -2703,12 +2634,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="isBlocked"></param>
         /// <param name="isFollowing"></param>
         /// <param name="connectionResponse"></param>
-        partial void OnErrorCreateOrUpdateConnection(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<long> groupId, Option<string> gameType, Option<string> appKey, Option<bool> isTrusted, Option<bool> ignoreFriendRequest, Option<bool> isContact, Option<bool> isBlocked, Option<bool> isFollowing, Option<bool> connectionResponse);
+        partial void OnErrorCreateOrUpdateConnection(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<long> groupId, Option<string> gameType, Option<string> appKey, Option<bool> isTrusted, Option<bool> ignoreFriendRequest, Option<bool> isContact, Option<bool> isBlocked, Option<bool> isFollowing, Option<bool> connectionResponse);
 
         /// <summary>
         /// Create or Update Connection Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionId">the connection id for editing (optional)</param>
@@ -2725,11 +2655,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionResponse">whether to return the connection response or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateConnectionApiResponse"/>&gt;</returns>
-        public async Task<ICreateOrUpdateConnectionApiResponse?> CreateOrUpdateConnectionOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<long> groupId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> isTrusted = default, Option<bool> ignoreFriendRequest = default, Option<bool> isContact = default, Option<bool> isBlocked = default, Option<bool> isFollowing = default, Option<bool> connectionResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOrUpdateConnectionApiResponse?> CreateOrUpdateConnectionOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<long> groupId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> isTrusted = default, Option<bool> ignoreFriendRequest = default, Option<bool> isContact = default, Option<bool> isBlocked = default, Option<bool> isFollowing = default, Option<bool> connectionResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateOrUpdateConnectionAsync(version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse, cancellationToken).ConfigureAwait(false);
+                return await CreateOrUpdateConnectionAsync(deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2741,7 +2671,6 @@ namespace Org.OpenAPITools.Api
         /// Create or Update Connection Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionId">the connection id for editing (optional)</param>
@@ -2758,7 +2687,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionResponse">whether to return the connection response or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateConnectionApiResponse"/>&gt;</returns>
-        public async Task<ICreateOrUpdateConnectionApiResponse> CreateOrUpdateConnectionAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<long> groupId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> isTrusted = default, Option<bool> ignoreFriendRequest = default, Option<bool> isContact = default, Option<bool> isBlocked = default, Option<bool> isFollowing = default, Option<bool> connectionResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOrUpdateConnectionApiResponse> CreateOrUpdateConnectionAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<long> groupId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> isTrusted = default, Option<bool> ignoreFriendRequest = default, Option<bool> isContact = default, Option<bool> isBlocked = default, Option<bool> isFollowing = default, Option<bool> connectionResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2766,7 +2695,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateOrUpdateConnection(deviceId, gameType, appKey);
 
-                FormatCreateOrUpdateConnection(ref version, ref deviceId, ref accountId, ref connectionId, ref connectionAccountId, ref pendingId, ref groupId, ref gameType, ref appKey, ref isTrusted, ref ignoreFriendRequest, ref isContact, ref isBlocked, ref isFollowing, ref connectionResponse);
+                FormatCreateOrUpdateConnection(ref deviceId, ref accountId, ref connectionId, ref connectionAccountId, ref pendingId, ref groupId, ref gameType, ref appKey, ref isTrusted, ref ignoreFriendRequest, ref isContact, ref isBlocked, ref isFollowing, ref connectionResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2774,9 +2703,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/add"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/add");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/add"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/add");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2847,13 +2775,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/add", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/add", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateOrUpdateConnectionDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
+                        AfterCreateOrUpdateConnectionDefaultImplementation(apiResponseLocalVar, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
 
                         Events.ExecuteOnCreateOrUpdateConnection(apiResponseLocalVar);
 
@@ -2863,7 +2791,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateOrUpdateConnectionDefaultImplementation(e, "/api/{version}/consumer/connection/add", uriBuilderLocalVar.Path, version, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
+                OnErrorCreateOrUpdateConnectionDefaultImplementation(e, "/consumer/connection/add", uriBuilderLocalVar.Path, deviceId, accountId, connectionId, connectionAccountId, pendingId, groupId, gameType, appKey, isTrusted, ignoreFriendRequest, isContact, isBlocked, isFollowing, connectionResponse);
                 Events.ExecuteOnErrorCreateOrUpdateConnection(e);
                 throw;
             }
@@ -2962,7 +2890,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateOrUpdateGroup(ref decimal version, ref bool returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<long> groupId, ref Option<long> assetId, ref Option<string> connections, ref Option<string> description, ref Option<bool> canViewProfileInfo, ref Option<bool> canViewGameInfo, ref Option<bool> canViewFriendInfo, ref Option<bool> active, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatCreateOrUpdateGroup(ref bool returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<long> groupId, ref Option<long> assetId, ref Option<string> connections, ref Option<string> description, ref Option<bool> canViewProfileInfo, ref Option<bool> canViewGameInfo, ref Option<bool> canViewFriendInfo, ref Option<bool> active, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2991,7 +2919,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3006,10 +2933,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterCreateOrUpdateGroupDefaultImplementation(ICreateOrUpdateGroupApiResponse apiResponseLocalVar, decimal version, bool returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<long> groupId, Option<long> assetId, Option<string> connections, Option<string> description, Option<bool> canViewProfileInfo, Option<bool> canViewGameInfo, Option<bool> canViewFriendInfo, Option<bool> active, Option<double> latitude, Option<double> longitude)
+        private void AfterCreateOrUpdateGroupDefaultImplementation(ICreateOrUpdateGroupApiResponse apiResponseLocalVar, bool returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<long> groupId, Option<long> assetId, Option<string> connections, Option<string> description, Option<bool> canViewProfileInfo, Option<bool> canViewGameInfo, Option<bool> canViewFriendInfo, Option<bool> active, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterCreateOrUpdateGroup(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
+            AfterCreateOrUpdateGroup(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3019,7 +2946,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3034,7 +2960,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterCreateOrUpdateGroup(ref bool suppressDefaultLog, ICreateOrUpdateGroupApiResponse apiResponseLocalVar, decimal version, bool returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<long> groupId, Option<long> assetId, Option<string> connections, Option<string> description, Option<bool> canViewProfileInfo, Option<bool> canViewGameInfo, Option<bool> canViewFriendInfo, Option<bool> active, Option<double> latitude, Option<double> longitude);
+        partial void AfterCreateOrUpdateGroup(ref bool suppressDefaultLog, ICreateOrUpdateGroupApiResponse apiResponseLocalVar, bool returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<long> groupId, Option<long> assetId, Option<string> connections, Option<string> description, Option<bool> canViewProfileInfo, Option<bool> canViewGameInfo, Option<bool> canViewFriendInfo, Option<bool> active, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3042,7 +2968,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3057,10 +2982,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorCreateOrUpdateGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<long> groupId, Option<long> assetId, Option<string> connections, Option<string> description, Option<bool> canViewProfileInfo, Option<bool> canViewGameInfo, Option<bool> canViewFriendInfo, Option<bool> active, Option<double> latitude, Option<double> longitude)
+        private void OnErrorCreateOrUpdateGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<long> groupId, Option<long> assetId, Option<string> connections, Option<string> description, Option<bool> canViewProfileInfo, Option<bool> canViewGameInfo, Option<bool> canViewFriendInfo, Option<bool> active, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateOrUpdateGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
+            OnErrorCreateOrUpdateGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3072,7 +2997,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -3087,12 +3011,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorCreateOrUpdateGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<long> groupId, Option<long> assetId, Option<string> connections, Option<string> description, Option<bool> canViewProfileInfo, Option<bool> canViewGameInfo, Option<bool> canViewFriendInfo, Option<bool> active, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorCreateOrUpdateGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<long> groupId, Option<long> assetId, Option<string> connections, Option<string> description, Option<bool> canViewProfileInfo, Option<bool> canViewGameInfo, Option<bool> canViewFriendInfo, Option<bool> active, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create or Update Connection Group Creates a new private group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -3109,11 +3032,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the longitude of the group (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateGroupApiResponse"/>&gt;</returns>
-        public async Task<ICreateOrUpdateGroupApiResponse?> CreateOrUpdateGroupOrDefaultAsync(decimal version, bool returnNulls, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<long> groupId = default, Option<long> assetId = default, Option<string> connections = default, Option<string> description = default, Option<bool> canViewProfileInfo = default, Option<bool> canViewGameInfo = default, Option<bool> canViewFriendInfo = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOrUpdateGroupApiResponse?> CreateOrUpdateGroupOrDefaultAsync(bool returnNulls, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<long> groupId = default, Option<long> assetId = default, Option<string> connections = default, Option<string> description = default, Option<bool> canViewProfileInfo = default, Option<bool> canViewGameInfo = default, Option<bool> canViewFriendInfo = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateOrUpdateGroupAsync(version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await CreateOrUpdateGroupAsync(returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3125,7 +3048,6 @@ namespace Org.OpenAPITools.Api
         /// Create or Update Connection Group Creates a new private group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -3142,7 +3064,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the longitude of the group (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOrUpdateGroupApiResponse"/>&gt;</returns>
-        public async Task<ICreateOrUpdateGroupApiResponse> CreateOrUpdateGroupAsync(decimal version, bool returnNulls, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<long> groupId = default, Option<long> assetId = default, Option<string> connections = default, Option<string> description = default, Option<bool> canViewProfileInfo = default, Option<bool> canViewGameInfo = default, Option<bool> canViewFriendInfo = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOrUpdateGroupApiResponse> CreateOrUpdateGroupAsync(bool returnNulls, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<long> groupId = default, Option<long> assetId = default, Option<string> connections = default, Option<string> description = default, Option<bool> canViewProfileInfo = default, Option<bool> canViewGameInfo = default, Option<bool> canViewFriendInfo = default, Option<bool> active = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3150,7 +3072,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateOrUpdateGroup(deviceId, name, connections, description);
 
-                FormatCreateOrUpdateGroup(ref version, ref returnNulls, ref deviceId, ref accountId, ref name, ref groupId, ref assetId, ref connections, ref description, ref canViewProfileInfo, ref canViewGameInfo, ref canViewFriendInfo, ref active, ref latitude, ref longitude);
+                FormatCreateOrUpdateGroup(ref returnNulls, ref deviceId, ref accountId, ref name, ref groupId, ref assetId, ref connections, ref description, ref canViewProfileInfo, ref canViewGameInfo, ref canViewFriendInfo, ref active, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3158,9 +3080,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/group"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/group");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/group"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/group");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3230,13 +3151,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/group", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/group", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateOrUpdateGroupDefaultImplementation(apiResponseLocalVar, version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
+                        AfterCreateOrUpdateGroupDefaultImplementation(apiResponseLocalVar, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
 
                         Events.ExecuteOnCreateOrUpdateGroup(apiResponseLocalVar);
 
@@ -3246,7 +3167,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateOrUpdateGroupDefaultImplementation(e, "/api/{version}/consumer/connection/group", uriBuilderLocalVar.Path, version, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
+                OnErrorCreateOrUpdateGroupDefaultImplementation(e, "/consumer/connection/group", uriBuilderLocalVar.Path, returnNulls, deviceId, accountId, name, groupId, assetId, connections, description, canViewProfileInfo, canViewGameInfo, canViewFriendInfo, active, latitude, longitude);
                 Events.ExecuteOnErrorCreateOrUpdateGroup(e);
                 throw;
             }
@@ -3345,7 +3266,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFollowAccept(ref decimal version, ref long accountId, ref long connectionAccountId, ref string appKey);
+        partial void FormatFollowAccept(ref long accountId, ref long connectionAccountId, ref string appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -3362,14 +3283,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        private void AfterFollowAcceptDefaultImplementation(IFollowAcceptApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, string appKey)
+        private void AfterFollowAcceptDefaultImplementation(IFollowAcceptApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, string appKey)
         {
             bool suppressDefaultLog = false;
-            AfterFollowAccept(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, connectionAccountId, appKey);
+            AfterFollowAccept(ref suppressDefaultLog, apiResponseLocalVar, accountId, connectionAccountId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3379,11 +3299,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        partial void AfterFollowAccept(ref bool suppressDefaultLog, IFollowAcceptApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, string appKey);
+        partial void AfterFollowAccept(ref bool suppressDefaultLog, IFollowAcceptApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, string appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3391,14 +3310,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorFollowAcceptDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, string appKey)
+        private void OnErrorFollowAcceptDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, string appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFollowAccept(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, connectionAccountId, appKey);
+            OnErrorFollowAccept(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, connectionAccountId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3410,26 +3328,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorFollowAccept(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, string appKey);
+        partial void OnErrorFollowAccept(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, string appKey);
 
         /// <summary>
         /// Accept Follow Request Accept someone&#39;s follow request.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowAcceptApiResponse"/>&gt;</returns>
-        public async Task<IFollowAcceptApiResponse?> FollowAcceptOrDefaultAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFollowAcceptApiResponse?> FollowAcceptOrDefaultAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FollowAcceptAsync(version, accountId, connectionAccountId, appKey, cancellationToken).ConfigureAwait(false);
+                return await FollowAcceptAsync(accountId, connectionAccountId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3441,13 +3357,12 @@ namespace Org.OpenAPITools.Api
         /// Accept Follow Request Accept someone&#39;s follow request.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowAcceptApiResponse"/>&gt;</returns>
-        public async Task<IFollowAcceptApiResponse> FollowAcceptAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFollowAcceptApiResponse> FollowAcceptAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3455,7 +3370,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFollowAccept(appKey);
 
-                FormatFollowAccept(ref version, ref accountId, ref connectionAccountId, ref appKey);
+                FormatFollowAccept(ref accountId, ref connectionAccountId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3463,9 +3378,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/follow/accept"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/follow/accept");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/follow/accept"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/follow/accept");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3498,13 +3412,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/follow/accept", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/follow/accept", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFollowAcceptDefaultImplementation(apiResponseLocalVar, version, accountId, connectionAccountId, appKey);
+                        AfterFollowAcceptDefaultImplementation(apiResponseLocalVar, accountId, connectionAccountId, appKey);
 
                         Events.ExecuteOnFollowAccept(apiResponseLocalVar);
 
@@ -3514,7 +3428,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFollowAcceptDefaultImplementation(e, "/api/{version}/consumer/follow/accept", uriBuilderLocalVar.Path, version, accountId, connectionAccountId, appKey);
+                OnErrorFollowAcceptDefaultImplementation(e, "/consumer/follow/accept", uriBuilderLocalVar.Path, accountId, connectionAccountId, appKey);
                 Events.ExecuteOnErrorFollowAccept(e);
                 throw;
             }
@@ -3613,7 +3527,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFollowReject(ref decimal version, ref long accountId, ref long connectionAccountId, ref string appKey);
+        partial void FormatFollowReject(ref long accountId, ref long connectionAccountId, ref string appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -3630,14 +3544,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        private void AfterFollowRejectDefaultImplementation(IFollowRejectApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, string appKey)
+        private void AfterFollowRejectDefaultImplementation(IFollowRejectApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, string appKey)
         {
             bool suppressDefaultLog = false;
-            AfterFollowReject(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, connectionAccountId, appKey);
+            AfterFollowReject(ref suppressDefaultLog, apiResponseLocalVar, accountId, connectionAccountId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3647,11 +3560,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        partial void AfterFollowReject(ref bool suppressDefaultLog, IFollowRejectApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, string appKey);
+        partial void AfterFollowReject(ref bool suppressDefaultLog, IFollowRejectApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, string appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3659,14 +3571,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorFollowRejectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, string appKey)
+        private void OnErrorFollowRejectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, string appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFollowReject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, connectionAccountId, appKey);
+            OnErrorFollowReject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, connectionAccountId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3678,26 +3589,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorFollowReject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, string appKey);
+        partial void OnErrorFollowReject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, string appKey);
 
         /// <summary>
         /// Reject Follow Request Reject someone&#39;s follow request or remove them as a follower.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRejectApiResponse"/>&gt;</returns>
-        public async Task<IFollowRejectApiResponse?> FollowRejectOrDefaultAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFollowRejectApiResponse?> FollowRejectOrDefaultAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FollowRejectAsync(version, accountId, connectionAccountId, appKey, cancellationToken).ConfigureAwait(false);
+                return await FollowRejectAsync(accountId, connectionAccountId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3709,13 +3618,12 @@ namespace Org.OpenAPITools.Api
         /// Reject Follow Request Reject someone&#39;s follow request or remove them as a follower.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRejectApiResponse"/>&gt;</returns>
-        public async Task<IFollowRejectApiResponse> FollowRejectAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFollowRejectApiResponse> FollowRejectAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3723,7 +3631,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFollowReject(appKey);
 
-                FormatFollowReject(ref version, ref accountId, ref connectionAccountId, ref appKey);
+                FormatFollowReject(ref accountId, ref connectionAccountId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3731,9 +3639,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/follow/reject"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/follow/reject");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/follow/reject"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/follow/reject");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3766,13 +3673,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/follow/reject", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/follow/reject", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFollowRejectDefaultImplementation(apiResponseLocalVar, version, accountId, connectionAccountId, appKey);
+                        AfterFollowRejectDefaultImplementation(apiResponseLocalVar, accountId, connectionAccountId, appKey);
 
                         Events.ExecuteOnFollowReject(apiResponseLocalVar);
 
@@ -3782,7 +3689,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFollowRejectDefaultImplementation(e, "/api/{version}/consumer/follow/reject", uriBuilderLocalVar.Path, version, accountId, connectionAccountId, appKey);
+                OnErrorFollowRejectDefaultImplementation(e, "/consumer/follow/reject", uriBuilderLocalVar.Path, accountId, connectionAccountId, appKey);
                 Events.ExecuteOnErrorFollowReject(e);
                 throw;
             }
@@ -3881,7 +3788,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFollowRemove(ref decimal version, ref long accountId, ref long connectionAccountId, ref string appKey);
+        partial void FormatFollowRemove(ref long accountId, ref long connectionAccountId, ref string appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -3898,14 +3805,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        private void AfterFollowRemoveDefaultImplementation(IFollowRemoveApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, string appKey)
+        private void AfterFollowRemoveDefaultImplementation(IFollowRemoveApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, string appKey)
         {
             bool suppressDefaultLog = false;
-            AfterFollowRemove(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, connectionAccountId, appKey);
+            AfterFollowRemove(ref suppressDefaultLog, apiResponseLocalVar, accountId, connectionAccountId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3915,11 +3821,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        partial void AfterFollowRemove(ref bool suppressDefaultLog, IFollowRemoveApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, string appKey);
+        partial void AfterFollowRemove(ref bool suppressDefaultLog, IFollowRemoveApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, string appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3927,14 +3832,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorFollowRemoveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, string appKey)
+        private void OnErrorFollowRemoveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, string appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFollowRemove(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, connectionAccountId, appKey);
+            OnErrorFollowRemove(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, connectionAccountId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3946,26 +3850,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorFollowRemove(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, string appKey);
+        partial void OnErrorFollowRemove(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, string appKey);
 
         /// <summary>
         /// Remove Follower / Unfollow Unfollow someone you are following or remove them as a follower.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who you want to unfollow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRemoveApiResponse"/>&gt;</returns>
-        public async Task<IFollowRemoveApiResponse?> FollowRemoveOrDefaultAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFollowRemoveApiResponse?> FollowRemoveOrDefaultAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FollowRemoveAsync(version, accountId, connectionAccountId, appKey, cancellationToken).ConfigureAwait(false);
+                return await FollowRemoveAsync(accountId, connectionAccountId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3977,13 +3879,12 @@ namespace Org.OpenAPITools.Api
         /// Remove Follower / Unfollow Unfollow someone you are following or remove them as a follower.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who you want to unfollow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRemoveApiResponse"/>&gt;</returns>
-        public async Task<IFollowRemoveApiResponse> FollowRemoveAsync(decimal version, long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFollowRemoveApiResponse> FollowRemoveAsync(long accountId, long connectionAccountId, string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3991,7 +3892,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFollowRemove(appKey);
 
-                FormatFollowRemove(ref version, ref accountId, ref connectionAccountId, ref appKey);
+                FormatFollowRemove(ref accountId, ref connectionAccountId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3999,9 +3900,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/follow/remove"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/follow/remove");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/follow/remove"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/follow/remove");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4034,13 +3934,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/follow/remove", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/follow/remove", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFollowRemoveDefaultImplementation(apiResponseLocalVar, version, accountId, connectionAccountId, appKey);
+                        AfterFollowRemoveDefaultImplementation(apiResponseLocalVar, accountId, connectionAccountId, appKey);
 
                         Events.ExecuteOnFollowRemove(apiResponseLocalVar);
 
@@ -4050,7 +3950,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFollowRemoveDefaultImplementation(e, "/api/{version}/consumer/follow/remove", uriBuilderLocalVar.Path, version, accountId, connectionAccountId, appKey);
+                OnErrorFollowRemoveDefaultImplementation(e, "/consumer/follow/remove", uriBuilderLocalVar.Path, accountId, connectionAccountId, appKey);
                 Events.ExecuteOnErrorFollowRemove(e);
                 throw;
             }
@@ -4149,7 +4049,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFollowRequest(ref decimal version, ref long accountId, ref long connectionAccountId, ref string appKey, ref Option<bool> approvalNeeded);
+        partial void FormatFollowRequest(ref long accountId, ref long connectionAccountId, ref string appKey, ref Option<bool> approvalNeeded);
 
         /// <summary>
         /// Validates the request parameters
@@ -4166,15 +4066,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
         /// <param name="approvalNeeded"></param>
-        private void AfterFollowRequestDefaultImplementation(IFollowRequestApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded)
+        private void AfterFollowRequestDefaultImplementation(IFollowRequestApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded)
         {
             bool suppressDefaultLog = false;
-            AfterFollowRequest(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, connectionAccountId, appKey, approvalNeeded);
+            AfterFollowRequest(ref suppressDefaultLog, apiResponseLocalVar, accountId, connectionAccountId, appKey, approvalNeeded);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4184,12 +4083,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
         /// <param name="approvalNeeded"></param>
-        partial void AfterFollowRequest(ref bool suppressDefaultLog, IFollowRequestApiResponse apiResponseLocalVar, decimal version, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded);
+        partial void AfterFollowRequest(ref bool suppressDefaultLog, IFollowRequestApiResponse apiResponseLocalVar, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4197,15 +4095,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
         /// <param name="approvalNeeded"></param>
-        private void OnErrorFollowRequestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded)
+        private void OnErrorFollowRequestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFollowRequest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, connectionAccountId, appKey, approvalNeeded);
+            OnErrorFollowRequest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, connectionAccountId, appKey, approvalNeeded);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4217,28 +4114,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
         /// <param name="appKey"></param>
         /// <param name="approvalNeeded"></param>
-        partial void OnErrorFollowRequest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded);
+        partial void OnErrorFollowRequest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded);
 
         /// <summary>
         /// Send Follow Request Send a request to follow someone.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who you want to follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="approvalNeeded">determines if the other user needs to confirm the follow request (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRequestApiResponse"/>&gt;</returns>
-        public async Task<IFollowRequestApiResponse?> FollowRequestOrDefaultAsync(decimal version, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFollowRequestApiResponse?> FollowRequestOrDefaultAsync(long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FollowRequestAsync(version, accountId, connectionAccountId, appKey, approvalNeeded, cancellationToken).ConfigureAwait(false);
+                return await FollowRequestAsync(accountId, connectionAccountId, appKey, approvalNeeded, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4250,14 +4145,13 @@ namespace Org.OpenAPITools.Api
         /// Send Follow Request Send a request to follow someone.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="connectionAccountId">the account ID of the user who you want to follow</param>
         /// <param name="appKey">the application key for sending notifications</param>
         /// <param name="approvalNeeded">determines if the other user needs to confirm the follow request (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFollowRequestApiResponse"/>&gt;</returns>
-        public async Task<IFollowRequestApiResponse> FollowRequestAsync(decimal version, long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFollowRequestApiResponse> FollowRequestAsync(long accountId, long connectionAccountId, string appKey, Option<bool> approvalNeeded = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4265,7 +4159,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFollowRequest(appKey);
 
-                FormatFollowRequest(ref version, ref accountId, ref connectionAccountId, ref appKey, ref approvalNeeded);
+                FormatFollowRequest(ref accountId, ref connectionAccountId, ref appKey, ref approvalNeeded);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4273,9 +4167,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/follow/request"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/follow/request");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/follow/request"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/follow/request");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4311,13 +4204,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/follow/request", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/follow/request", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFollowRequestDefaultImplementation(apiResponseLocalVar, version, accountId, connectionAccountId, appKey, approvalNeeded);
+                        AfterFollowRequestDefaultImplementation(apiResponseLocalVar, accountId, connectionAccountId, appKey, approvalNeeded);
 
                         Events.ExecuteOnFollowRequest(apiResponseLocalVar);
 
@@ -4327,7 +4220,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFollowRequestDefaultImplementation(e, "/api/{version}/consumer/follow/request", uriBuilderLocalVar.Path, version, accountId, connectionAccountId, appKey, approvalNeeded);
+                OnErrorFollowRequestDefaultImplementation(e, "/consumer/follow/request", uriBuilderLocalVar.Path, accountId, connectionAccountId, appKey, approvalNeeded);
                 Events.ExecuteOnErrorFollowRequest(e);
                 throw;
             }
@@ -4426,7 +4319,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFriendAccept(ref decimal version, ref long friendAccountId, ref bool notifyFriend, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> notificationMessage);
+        partial void FormatFriendAccept(ref long friendAccountId, ref bool notifyFriend, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> notificationMessage);
 
         /// <summary>
         /// Validates the request parameters
@@ -4455,7 +4348,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="deviceId"></param>
@@ -4463,10 +4355,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="notificationMessage"></param>
-        private void AfterFriendAcceptDefaultImplementation(IFriendAcceptApiResponse apiResponseLocalVar, decimal version, long friendAccountId, bool notifyFriend, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage)
+        private void AfterFriendAcceptDefaultImplementation(IFriendAcceptApiResponse apiResponseLocalVar, long friendAccountId, bool notifyFriend, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage)
         {
             bool suppressDefaultLog = false;
-            AfterFriendAccept(ref suppressDefaultLog, apiResponseLocalVar, version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
+            AfterFriendAccept(ref suppressDefaultLog, apiResponseLocalVar, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4476,7 +4368,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="deviceId"></param>
@@ -4484,7 +4375,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="notificationMessage"></param>
-        partial void AfterFriendAccept(ref bool suppressDefaultLog, IFriendAcceptApiResponse apiResponseLocalVar, decimal version, long friendAccountId, bool notifyFriend, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage);
+        partial void AfterFriendAccept(ref bool suppressDefaultLog, IFriendAcceptApiResponse apiResponseLocalVar, long friendAccountId, bool notifyFriend, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4492,7 +4383,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="deviceId"></param>
@@ -4500,10 +4390,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="notificationMessage"></param>
-        private void OnErrorFriendAcceptDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long friendAccountId, bool notifyFriend, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage)
+        private void OnErrorFriendAcceptDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long friendAccountId, bool notifyFriend, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFriendAccept(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
+            OnErrorFriendAccept(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4515,7 +4405,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="deviceId"></param>
@@ -4523,12 +4412,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="notificationMessage"></param>
-        partial void OnErrorFriendAccept(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long friendAccountId, bool notifyFriend, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage);
+        partial void OnErrorFriendAccept(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long friendAccountId, bool notifyFriend, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage);
 
         /// <summary>
         /// Accept Friend Accept a friend request and optionally sends a notification.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="notifyFriend">determines whether to send a notification to the afflicting party</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -4538,11 +4426,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendAcceptApiResponse"/>&gt;</returns>
-        public async Task<IFriendAcceptApiResponse?> FriendAcceptOrDefaultAsync(decimal version, long friendAccountId, bool notifyFriend, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFriendAcceptApiResponse?> FriendAcceptOrDefaultAsync(long friendAccountId, bool notifyFriend, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FriendAcceptAsync(version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage, cancellationToken).ConfigureAwait(false);
+                return await FriendAcceptAsync(friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4554,7 +4442,6 @@ namespace Org.OpenAPITools.Api
         /// Accept Friend Accept a friend request and optionally sends a notification.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="notifyFriend">determines whether to send a notification to the afflicting party</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -4564,7 +4451,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendAcceptApiResponse"/>&gt;</returns>
-        public async Task<IFriendAcceptApiResponse> FriendAcceptAsync(decimal version, long friendAccountId, bool notifyFriend, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFriendAcceptApiResponse> FriendAcceptAsync(long friendAccountId, bool notifyFriend, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4572,7 +4459,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFriendAccept(deviceId, gameType, appKey, notificationMessage);
 
-                FormatFriendAccept(ref version, ref friendAccountId, ref notifyFriend, ref deviceId, ref accountId, ref gameType, ref appKey, ref notificationMessage);
+                FormatFriendAccept(ref friendAccountId, ref notifyFriend, ref deviceId, ref accountId, ref gameType, ref appKey, ref notificationMessage);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4580,9 +4467,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/friend/accept"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/friend/accept");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/friend/accept"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/friend/accept");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4629,13 +4515,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/friend/accept", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/friend/accept", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFriendAcceptDefaultImplementation(apiResponseLocalVar, version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
+                        AfterFriendAcceptDefaultImplementation(apiResponseLocalVar, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
 
                         Events.ExecuteOnFriendAccept(apiResponseLocalVar);
 
@@ -4645,7 +4531,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFriendAcceptDefaultImplementation(e, "/api/{version}/consumer/friend/accept", uriBuilderLocalVar.Path, version, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
+                OnErrorFriendAcceptDefaultImplementation(e, "/consumer/friend/accept", uriBuilderLocalVar.Path, friendAccountId, notifyFriend, deviceId, accountId, gameType, appKey, notificationMessage);
                 Events.ExecuteOnErrorFriendAccept(e);
                 throw;
             }
@@ -4744,7 +4630,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFriendReject(ref decimal version, ref long friendAccountId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<bool> notifyFriend, ref Option<string> notificationMessage);
+        partial void FormatFriendReject(ref long friendAccountId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<bool> notifyFriend, ref Option<string> notificationMessage);
 
         /// <summary>
         /// Validates the request parameters
@@ -4773,7 +4659,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4781,10 +4666,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="notificationMessage"></param>
-        private void AfterFriendRejectDefaultImplementation(IFriendRejectApiResponse apiResponseLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<bool> notifyFriend, Option<string> notificationMessage)
+        private void AfterFriendRejectDefaultImplementation(IFriendRejectApiResponse apiResponseLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<bool> notifyFriend, Option<string> notificationMessage)
         {
             bool suppressDefaultLog = false;
-            AfterFriendReject(ref suppressDefaultLog, apiResponseLocalVar, version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
+            AfterFriendReject(ref suppressDefaultLog, apiResponseLocalVar, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4794,7 +4679,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4802,7 +4686,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="notificationMessage"></param>
-        partial void AfterFriendReject(ref bool suppressDefaultLog, IFriendRejectApiResponse apiResponseLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<bool> notifyFriend, Option<string> notificationMessage);
+        partial void AfterFriendReject(ref bool suppressDefaultLog, IFriendRejectApiResponse apiResponseLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<bool> notifyFriend, Option<string> notificationMessage);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4810,7 +4694,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4818,10 +4701,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="notificationMessage"></param>
-        private void OnErrorFriendRejectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<bool> notifyFriend, Option<string> notificationMessage)
+        private void OnErrorFriendRejectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<bool> notifyFriend, Option<string> notificationMessage)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFriendReject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
+            OnErrorFriendReject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4833,7 +4716,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4841,12 +4723,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="notificationMessage"></param>
-        partial void OnErrorFriendReject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<bool> notifyFriend, Option<string> notificationMessage);
+        partial void OnErrorFriendReject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<bool> notifyFriend, Option<string> notificationMessage);
 
         /// <summary>
         /// Decline Friend Request a friend request and optionally sends a notification.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -4856,11 +4737,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRejectApiResponse"/>&gt;</returns>
-        public async Task<IFriendRejectApiResponse?> FriendRejectOrDefaultAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> notifyFriend = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFriendRejectApiResponse?> FriendRejectOrDefaultAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> notifyFriend = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FriendRejectAsync(version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage, cancellationToken).ConfigureAwait(false);
+                return await FriendRejectAsync(friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4872,7 +4753,6 @@ namespace Org.OpenAPITools.Api
         /// Decline Friend Request a friend request and optionally sends a notification.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -4882,7 +4762,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRejectApiResponse"/>&gt;</returns>
-        public async Task<IFriendRejectApiResponse> FriendRejectAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> notifyFriend = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFriendRejectApiResponse> FriendRejectAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<bool> notifyFriend = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4890,7 +4770,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFriendReject(deviceId, gameType, appKey, notificationMessage);
 
-                FormatFriendReject(ref version, ref friendAccountId, ref deviceId, ref accountId, ref gameType, ref appKey, ref notifyFriend, ref notificationMessage);
+                FormatFriendReject(ref friendAccountId, ref deviceId, ref accountId, ref gameType, ref appKey, ref notifyFriend, ref notificationMessage);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4898,9 +4778,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/friend/reject"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/friend/reject");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/friend/reject"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/friend/reject");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4949,13 +4828,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/friend/reject", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/friend/reject", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFriendRejectDefaultImplementation(apiResponseLocalVar, version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
+                        AfterFriendRejectDefaultImplementation(apiResponseLocalVar, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
 
                         Events.ExecuteOnFriendReject(apiResponseLocalVar);
 
@@ -4965,7 +4844,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFriendRejectDefaultImplementation(e, "/api/{version}/consumer/friend/reject", uriBuilderLocalVar.Path, version, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
+                OnErrorFriendRejectDefaultImplementation(e, "/consumer/friend/reject", uriBuilderLocalVar.Path, friendAccountId, deviceId, accountId, gameType, appKey, notifyFriend, notificationMessage);
                 Events.ExecuteOnErrorFriendReject(e);
                 throw;
             }
@@ -5064,7 +4943,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFriendRemove(ref decimal version, ref long friendAccountId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> notifyFriend, ref Option<bool> removeFromGroups);
+        partial void FormatFriendRemove(ref long friendAccountId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> notifyFriend, ref Option<bool> removeFromGroups);
 
         /// <summary>
         /// Validates the request parameters
@@ -5081,16 +4960,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="removeFromGroups"></param>
-        private void AfterFriendRemoveDefaultImplementation(IFriendRemoveApiResponse apiResponseLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<bool> notifyFriend, Option<bool> removeFromGroups)
+        private void AfterFriendRemoveDefaultImplementation(IFriendRemoveApiResponse apiResponseLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<bool> notifyFriend, Option<bool> removeFromGroups)
         {
             bool suppressDefaultLog = false;
-            AfterFriendRemove(ref suppressDefaultLog, apiResponseLocalVar, version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
+            AfterFriendRemove(ref suppressDefaultLog, apiResponseLocalVar, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5100,13 +4978,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="removeFromGroups"></param>
-        partial void AfterFriendRemove(ref bool suppressDefaultLog, IFriendRemoveApiResponse apiResponseLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<bool> notifyFriend, Option<bool> removeFromGroups);
+        partial void AfterFriendRemove(ref bool suppressDefaultLog, IFriendRemoveApiResponse apiResponseLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<bool> notifyFriend, Option<bool> removeFromGroups);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5114,16 +4991,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="removeFromGroups"></param>
-        private void OnErrorFriendRemoveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<bool> notifyFriend, Option<bool> removeFromGroups)
+        private void OnErrorFriendRemoveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<bool> notifyFriend, Option<bool> removeFromGroups)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFriendRemove(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
+            OnErrorFriendRemove(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5135,18 +5011,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="notifyFriend"></param>
         /// <param name="removeFromGroups"></param>
-        partial void OnErrorFriendRemove(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<bool> notifyFriend, Option<bool> removeFromGroups);
+        partial void OnErrorFriendRemove(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<bool> notifyFriend, Option<bool> removeFromGroups);
 
         /// <summary>
         /// Delete Friend Removes a friend from the user&#39;s friends list.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the account ID of the friend to remove</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -5154,11 +5028,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromGroups">optionally removes the connection from the user&#39;s groups (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRemoveApiResponse"/>&gt;</returns>
-        public async Task<IFriendRemoveApiResponse?> FriendRemoveOrDefaultAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> notifyFriend = default, Option<bool> removeFromGroups = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFriendRemoveApiResponse?> FriendRemoveOrDefaultAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> notifyFriend = default, Option<bool> removeFromGroups = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FriendRemoveAsync(version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups, cancellationToken).ConfigureAwait(false);
+                return await FriendRemoveAsync(friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5170,7 +5044,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Friend Removes a friend from the user&#39;s friends list.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the account ID of the friend to remove</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -5178,7 +5051,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="removeFromGroups">optionally removes the connection from the user&#39;s groups (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRemoveApiResponse"/>&gt;</returns>
-        public async Task<IFriendRemoveApiResponse> FriendRemoveAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> notifyFriend = default, Option<bool> removeFromGroups = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFriendRemoveApiResponse> FriendRemoveAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> notifyFriend = default, Option<bool> removeFromGroups = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5186,7 +5059,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFriendRemove(deviceId);
 
-                FormatFriendRemove(ref version, ref friendAccountId, ref deviceId, ref accountId, ref notifyFriend, ref removeFromGroups);
+                FormatFriendRemove(ref friendAccountId, ref deviceId, ref accountId, ref notifyFriend, ref removeFromGroups);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5194,9 +5067,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/friend/remove"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/friend/remove");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/friend/remove"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/friend/remove");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5239,13 +5111,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/friend/remove", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/friend/remove", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFriendRemoveDefaultImplementation(apiResponseLocalVar, version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
+                        AfterFriendRemoveDefaultImplementation(apiResponseLocalVar, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
 
                         Events.ExecuteOnFriendRemove(apiResponseLocalVar);
 
@@ -5255,7 +5127,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFriendRemoveDefaultImplementation(e, "/api/{version}/consumer/friend/remove", uriBuilderLocalVar.Path, version, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
+                OnErrorFriendRemoveDefaultImplementation(e, "/consumer/friend/remove", uriBuilderLocalVar.Path, friendAccountId, deviceId, accountId, notifyFriend, removeFromGroups);
                 Events.ExecuteOnErrorFriendRemove(e);
                 throw;
             }
@@ -5354,7 +5226,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFriendRequest(ref decimal version, ref long friendAccountId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> notificationMessage);
+        partial void FormatFriendRequest(ref long friendAccountId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> notificationMessage);
 
         /// <summary>
         /// Validates the request parameters
@@ -5383,17 +5255,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="notificationMessage"></param>
-        private void AfterFriendRequestDefaultImplementation(IFriendRequestApiResponse apiResponseLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage)
+        private void AfterFriendRequestDefaultImplementation(IFriendRequestApiResponse apiResponseLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage)
         {
             bool suppressDefaultLog = false;
-            AfterFriendRequest(ref suppressDefaultLog, apiResponseLocalVar, version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
+            AfterFriendRequest(ref suppressDefaultLog, apiResponseLocalVar, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5403,14 +5274,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="notificationMessage"></param>
-        partial void AfterFriendRequest(ref bool suppressDefaultLog, IFriendRequestApiResponse apiResponseLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage);
+        partial void AfterFriendRequest(ref bool suppressDefaultLog, IFriendRequestApiResponse apiResponseLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5418,17 +5288,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="notificationMessage"></param>
-        private void OnErrorFriendRequestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage)
+        private void OnErrorFriendRequestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFriendRequest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
+            OnErrorFriendRequest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5440,19 +5309,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="friendAccountId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="notificationMessage"></param>
-        partial void OnErrorFriendRequest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage);
+        partial void OnErrorFriendRequest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long friendAccountId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> notificationMessage);
 
         /// <summary>
         /// Request Friend Sends a friend request notification to another user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -5461,11 +5328,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRequestApiResponse"/>&gt;</returns>
-        public async Task<IFriendRequestApiResponse?> FriendRequestOrDefaultAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFriendRequestApiResponse?> FriendRequestOrDefaultAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FriendRequestAsync(version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage, cancellationToken).ConfigureAwait(false);
+                return await FriendRequestAsync(friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5477,7 +5344,6 @@ namespace Org.OpenAPITools.Api
         /// Request Friend Sends a friend request notification to another user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="friendAccountId">the friend&#39;s account id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -5486,7 +5352,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notificationMessage">optional message to send in a notification (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFriendRequestApiResponse"/>&gt;</returns>
-        public async Task<IFriendRequestApiResponse> FriendRequestAsync(decimal version, long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFriendRequestApiResponse> FriendRequestAsync(long friendAccountId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> notificationMessage = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5494,7 +5360,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateFriendRequest(deviceId, gameType, appKey, notificationMessage);
 
-                FormatFriendRequest(ref version, ref friendAccountId, ref deviceId, ref accountId, ref gameType, ref appKey, ref notificationMessage);
+                FormatFriendRequest(ref friendAccountId, ref deviceId, ref accountId, ref gameType, ref appKey, ref notificationMessage);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5502,9 +5368,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/friend/request"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/friend/request");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/friend/request"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/friend/request");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5550,13 +5415,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/friend/request", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/friend/request", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFriendRequestDefaultImplementation(apiResponseLocalVar, version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
+                        AfterFriendRequestDefaultImplementation(apiResponseLocalVar, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
 
                         Events.ExecuteOnFriendRequest(apiResponseLocalVar);
 
@@ -5566,7 +5431,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFriendRequestDefaultImplementation(e, "/api/{version}/consumer/friend/request", uriBuilderLocalVar.Path, version, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
+                OnErrorFriendRequestDefaultImplementation(e, "/consumer/friend/request", uriBuilderLocalVar.Path, friendAccountId, deviceId, accountId, gameType, appKey, notificationMessage);
                 Events.ExecuteOnErrorFriendRequest(e);
                 throw;
             }
@@ -5665,7 +5530,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetConnectionSentFriendRequests(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatGetConnectionSentFriendRequests(ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -5682,13 +5547,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetConnectionSentFriendRequestsDefaultImplementation(IGetConnectionSentFriendRequestsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId)
+        private void AfterGetConnectionSentFriendRequestsDefaultImplementation(IGetConnectionSentFriendRequestsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetConnectionSentFriendRequests(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId);
+            AfterGetConnectionSentFriendRequests(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5698,10 +5562,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetConnectionSentFriendRequests(ref bool suppressDefaultLog, IGetConnectionSentFriendRequestsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId);
+        partial void AfterGetConnectionSentFriendRequests(ref bool suppressDefaultLog, IGetConnectionSentFriendRequestsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5709,13 +5572,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetConnectionSentFriendRequestsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorGetConnectionSentFriendRequestsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetConnectionSentFriendRequests(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId);
+            OnErrorGetConnectionSentFriendRequests(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5727,24 +5589,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetConnectionSentFriendRequests(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorGetConnectionSentFriendRequests(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Get Sent Friend Requests Gets the connection sent friend requests.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the ID of the device (optional)</param>
         /// <param name="accountId">the id of the account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConnectionSentFriendRequestsApiResponse"/>&gt;</returns>
-        public async Task<IGetConnectionSentFriendRequestsApiResponse?> GetConnectionSentFriendRequestsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetConnectionSentFriendRequestsApiResponse?> GetConnectionSentFriendRequestsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetConnectionSentFriendRequestsAsync(version, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetConnectionSentFriendRequestsAsync(deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5756,12 +5616,11 @@ namespace Org.OpenAPITools.Api
         /// Get Sent Friend Requests Gets the connection sent friend requests.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the ID of the device (optional)</param>
         /// <param name="accountId">the id of the account (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConnectionSentFriendRequestsApiResponse"/>&gt;</returns>
-        public async Task<IGetConnectionSentFriendRequestsApiResponse> GetConnectionSentFriendRequestsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetConnectionSentFriendRequestsApiResponse> GetConnectionSentFriendRequestsAsync(Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5769,7 +5628,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetConnectionSentFriendRequests(deviceId);
 
-                FormatGetConnectionSentFriendRequests(ref version, ref deviceId, ref accountId);
+                FormatGetConnectionSentFriendRequests(ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5777,9 +5636,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/getRequested"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/getRequested");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/getRequested"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/getRequested");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5814,13 +5672,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/getRequested", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/getRequested", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetConnectionSentFriendRequestsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId);
+                        AfterGetConnectionSentFriendRequestsDefaultImplementation(apiResponseLocalVar, deviceId, accountId);
 
                         Events.ExecuteOnGetConnectionSentFriendRequests(apiResponseLocalVar);
 
@@ -5830,7 +5688,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetConnectionSentFriendRequestsDefaultImplementation(e, "/api/{version}/consumer/connection/getRequested", uriBuilderLocalVar.Path, version, deviceId, accountId);
+                OnErrorGetConnectionSentFriendRequestsDefaultImplementation(e, "/consumer/connection/getRequested", uriBuilderLocalVar.Path, deviceId, accountId);
                 Events.ExecuteOnErrorGetConnectionSentFriendRequests(e);
                 throw;
             }
@@ -5929,7 +5787,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetConnections(ref decimal version, ref bool returnNulls, ref string filter, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> q, ref Option<string> keyword, ref Option<int> i, ref Option<int> l, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetConnections(ref bool returnNulls, ref string filter, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> q, ref Option<string> keyword, ref Option<int> i, ref Option<int> l, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -5962,7 +5820,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
@@ -5978,10 +5835,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="l"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetConnectionsDefaultImplementation(IGetConnectionsApiResponse apiResponseLocalVar, decimal version, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<double> latitude, Option<double> longitude)
+        private void AfterGetConnectionsDefaultImplementation(IGetConnectionsApiResponse apiResponseLocalVar, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetConnections(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
+            AfterGetConnections(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5991,7 +5848,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
@@ -6007,7 +5863,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="l"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetConnections(ref bool suppressDefaultLog, IGetConnectionsApiResponse apiResponseLocalVar, decimal version, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetConnections(ref bool suppressDefaultLog, IGetConnectionsApiResponse apiResponseLocalVar, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6015,7 +5871,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
@@ -6031,10 +5886,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="l"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetConnectionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetConnectionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetConnections(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
+            OnErrorGetConnections(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6046,7 +5901,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
@@ -6062,12 +5916,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="l"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetConnections(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetConnections(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Search Connections Gets the connections.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="filter">a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)</param>
         /// <param name="sortField">sorts the response list by ConnectionApiMap</param>
@@ -6085,11 +5938,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConnectionsApiResponse"/>&gt;</returns>
-        public async Task<IGetConnectionsApiResponse?> GetConnectionsOrDefaultAsync(decimal version, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetConnectionsApiResponse?> GetConnectionsOrDefaultAsync(bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetConnectionsAsync(version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetConnectionsAsync(returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6101,7 +5954,6 @@ namespace Org.OpenAPITools.Api
         /// Search Connections Gets the connections.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="filter">a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)</param>
         /// <param name="sortField">sorts the response list by ConnectionApiMap</param>
@@ -6119,7 +5971,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetConnectionsApiResponse"/>&gt;</returns>
-        public async Task<IGetConnectionsApiResponse> GetConnectionsAsync(decimal version, bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetConnectionsApiResponse> GetConnectionsAsync(bool returnNulls, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6127,7 +5979,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetConnections(filter, sortField, deviceId, q, keyword);
 
-                FormatGetConnections(ref version, ref returnNulls, ref filter, ref sortField, ref descending, ref start, ref limit, ref deviceId, ref accountId, ref connectionAccountId, ref q, ref keyword, ref i, ref l, ref latitude, ref longitude);
+                FormatGetConnections(ref returnNulls, ref filter, ref sortField, ref descending, ref start, ref limit, ref deviceId, ref accountId, ref connectionAccountId, ref q, ref keyword, ref i, ref l, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6135,9 +5987,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6200,13 +6051,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetConnectionsDefaultImplementation(apiResponseLocalVar, version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
+                        AfterGetConnectionsDefaultImplementation(apiResponseLocalVar, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
 
                         Events.ExecuteOnGetConnections(apiResponseLocalVar);
 
@@ -6216,7 +6067,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetConnectionsDefaultImplementation(e, "/api/{version}/consumer/connection/get", uriBuilderLocalVar.Path, version, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
+                OnErrorGetConnectionsDefaultImplementation(e, "/consumer/connection/get", uriBuilderLocalVar.Path, returnNulls, filter, sortField, descending, start, limit, deviceId, accountId, connectionAccountId, q, keyword, i, l, latitude, longitude);
                 Events.ExecuteOnErrorGetConnections(e);
                 throw;
             }
@@ -6315,7 +6166,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetGroupDetails(ref decimal version, ref bool combineConnections, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> groupId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetGroupDetails(ref bool combineConnections, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> groupId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -6332,17 +6183,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="combineConnections"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="groupId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetGroupDetailsDefaultImplementation(IGetGroupDetailsApiResponse apiResponseLocalVar, decimal version, bool combineConnections, Option<string> deviceId, Option<long> accountId, Option<long> groupId, Option<double> latitude, Option<double> longitude)
+        private void AfterGetGroupDetailsDefaultImplementation(IGetGroupDetailsApiResponse apiResponseLocalVar, bool combineConnections, Option<string> deviceId, Option<long> accountId, Option<long> groupId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetGroupDetails(ref suppressDefaultLog, apiResponseLocalVar, version, combineConnections, deviceId, accountId, groupId, latitude, longitude);
+            AfterGetGroupDetails(ref suppressDefaultLog, apiResponseLocalVar, combineConnections, deviceId, accountId, groupId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6352,14 +6202,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="combineConnections"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="groupId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetGroupDetails(ref bool suppressDefaultLog, IGetGroupDetailsApiResponse apiResponseLocalVar, decimal version, bool combineConnections, Option<string> deviceId, Option<long> accountId, Option<long> groupId, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetGroupDetails(ref bool suppressDefaultLog, IGetGroupDetailsApiResponse apiResponseLocalVar, bool combineConnections, Option<string> deviceId, Option<long> accountId, Option<long> groupId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6367,17 +6216,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="combineConnections"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="groupId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetGroupDetailsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool combineConnections, Option<string> deviceId, Option<long> accountId, Option<long> groupId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetGroupDetailsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool combineConnections, Option<string> deviceId, Option<long> accountId, Option<long> groupId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetGroupDetails(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, combineConnections, deviceId, accountId, groupId, latitude, longitude);
+            OnErrorGetGroupDetails(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, combineConnections, deviceId, accountId, groupId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6389,19 +6237,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="combineConnections"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="groupId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetGroupDetails(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool combineConnections, Option<string> deviceId, Option<long> accountId, Option<long> groupId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetGroupDetails(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool combineConnections, Option<string> deviceId, Option<long> accountId, Option<long> groupId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Connection Group 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="combineConnections">whether to combine connections or not</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -6410,11 +6256,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGroupDetailsApiResponse"/>&gt;</returns>
-        public async Task<IGetGroupDetailsApiResponse?> GetGroupDetailsOrDefaultAsync(decimal version, bool combineConnections, Option<string> deviceId = default, Option<long> accountId = default, Option<long> groupId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGroupDetailsApiResponse?> GetGroupDetailsOrDefaultAsync(bool combineConnections, Option<string> deviceId = default, Option<long> accountId = default, Option<long> groupId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetGroupDetailsAsync(version, combineConnections, deviceId, accountId, groupId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetGroupDetailsAsync(combineConnections, deviceId, accountId, groupId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6426,7 +6272,6 @@ namespace Org.OpenAPITools.Api
         /// Get Connection Group 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="combineConnections">whether to combine connections or not</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -6435,7 +6280,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGroupDetailsApiResponse"/>&gt;</returns>
-        public async Task<IGetGroupDetailsApiResponse> GetGroupDetailsAsync(decimal version, bool combineConnections, Option<string> deviceId = default, Option<long> accountId = default, Option<long> groupId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGroupDetailsApiResponse> GetGroupDetailsAsync(bool combineConnections, Option<string> deviceId = default, Option<long> accountId = default, Option<long> groupId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6443,7 +6288,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetGroupDetails(deviceId);
 
-                FormatGetGroupDetails(ref version, ref combineConnections, ref deviceId, ref accountId, ref groupId, ref latitude, ref longitude);
+                FormatGetGroupDetails(ref combineConnections, ref deviceId, ref accountId, ref groupId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6451,9 +6296,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/group/details/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/group/details/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/group/details/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/group/details/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6499,13 +6343,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/group/details/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/group/details/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetGroupDetailsDefaultImplementation(apiResponseLocalVar, version, combineConnections, deviceId, accountId, groupId, latitude, longitude);
+                        AfterGetGroupDetailsDefaultImplementation(apiResponseLocalVar, combineConnections, deviceId, accountId, groupId, latitude, longitude);
 
                         Events.ExecuteOnGetGroupDetails(apiResponseLocalVar);
 
@@ -6515,7 +6359,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetGroupDetailsDefaultImplementation(e, "/api/{version}/consumer/connection/group/details/get", uriBuilderLocalVar.Path, version, combineConnections, deviceId, accountId, groupId, latitude, longitude);
+                OnErrorGetGroupDetailsDefaultImplementation(e, "/consumer/connection/group/details/get", uriBuilderLocalVar.Path, combineConnections, deviceId, accountId, groupId, latitude, longitude);
                 Events.ExecuteOnErrorGetGroupDetails(e);
                 throw;
             }
@@ -6614,7 +6458,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGroupSearch(ref decimal version, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> keyword);
+        partial void FormatGroupSearch(ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -6639,7 +6483,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="activeOnly"></param>
@@ -6650,10 +6493,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="keyword"></param>
-        private void AfterGroupSearchDefaultImplementation(IGroupSearchApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword)
+        private void AfterGroupSearchDefaultImplementation(IGroupSearchApiResponse apiResponseLocalVar, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterGroupSearch(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
+            AfterGroupSearch(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6663,7 +6506,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="activeOnly"></param>
@@ -6674,7 +6516,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="keyword"></param>
-        partial void AfterGroupSearch(ref bool suppressDefaultLog, IGroupSearchApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword);
+        partial void AfterGroupSearch(ref bool suppressDefaultLog, IGroupSearchApiResponse apiResponseLocalVar, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6682,7 +6524,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="activeOnly"></param>
@@ -6693,10 +6534,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="keyword"></param>
-        private void OnErrorGroupSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword)
+        private void OnErrorGroupSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGroupSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
+            OnErrorGroupSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6708,7 +6549,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="activeOnly"></param>
@@ -6719,12 +6559,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorGroupSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword);
+        partial void OnErrorGroupSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword);
 
         /// <summary>
         /// Search Connection Groups Gets a user&#39;s private groups and default groups.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by</param>
         /// <param name="descending">whether to return results in descending or ascending order</param>
         /// <param name="activeOnly">to search on active only or not</param>
@@ -6737,11 +6576,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">keyword search string (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGroupSearchApiResponse"/>&gt;</returns>
-        public async Task<IGroupSearchApiResponse?> GroupSearchOrDefaultAsync(decimal version, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGroupSearchApiResponse?> GroupSearchOrDefaultAsync(string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GroupSearchAsync(version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword, cancellationToken).ConfigureAwait(false);
+                return await GroupSearchAsync(sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6753,7 +6592,6 @@ namespace Org.OpenAPITools.Api
         /// Search Connection Groups Gets a user&#39;s private groups and default groups.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by</param>
         /// <param name="descending">whether to return results in descending or ascending order</param>
         /// <param name="activeOnly">to search on active only or not</param>
@@ -6766,7 +6604,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">keyword search string (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGroupSearchApiResponse"/>&gt;</returns>
-        public async Task<IGroupSearchApiResponse> GroupSearchAsync(decimal version, string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGroupSearchApiResponse> GroupSearchAsync(string sortField, bool descending, bool activeOnly, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6774,7 +6612,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGroupSearch(sortField, deviceId, keyword);
 
-                FormatGroupSearch(ref version, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref deviceId, ref accountId, ref latitude, ref longitude, ref keyword);
+                FormatGroupSearch(ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref deviceId, ref accountId, ref latitude, ref longitude, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6782,9 +6620,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/connection/group/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/connection/group/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/connection/group/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/connection/group/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6834,13 +6671,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/connection/group/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/connection/group/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGroupSearchDefaultImplementation(apiResponseLocalVar, version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
+                        AfterGroupSearchDefaultImplementation(apiResponseLocalVar, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
 
                         Events.ExecuteOnGroupSearch(apiResponseLocalVar);
 
@@ -6850,7 +6687,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGroupSearchDefaultImplementation(e, "/api/{version}/connection/group/search", uriBuilderLocalVar.Path, version, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
+                OnErrorGroupSearchDefaultImplementation(e, "/connection/group/search", uriBuilderLocalVar.Path, sortField, descending, activeOnly, start, limit, deviceId, accountId, latitude, longitude, keyword);
                 Events.ExecuteOnErrorGroupSearch(e);
                 throw;
             }
@@ -6949,7 +6786,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveConnectionFromGroup(ref decimal version, ref bool returnNulls, ref long groupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionId, ref Option<long> connectionAccountId, ref Option<long> pendingId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRemoveConnectionFromGroup(ref bool returnNulls, ref long groupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionId, ref Option<long> connectionAccountId, ref Option<long> pendingId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -6966,7 +6803,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
@@ -6976,10 +6812,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="pendingId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRemoveConnectionFromGroupDefaultImplementation(IRemoveConnectionFromGroupApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude)
+        private void AfterRemoveConnectionFromGroupDefaultImplementation(IRemoveConnectionFromGroupApiResponse apiResponseLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveConnectionFromGroup(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+            AfterRemoveConnectionFromGroup(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6989,7 +6825,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
@@ -6999,7 +6834,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="pendingId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRemoveConnectionFromGroup(ref bool suppressDefaultLog, IRemoveConnectionFromGroupApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude);
+        partial void AfterRemoveConnectionFromGroup(ref bool suppressDefaultLog, IRemoveConnectionFromGroupApiResponse apiResponseLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7007,7 +6842,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
@@ -7017,10 +6851,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="pendingId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRemoveConnectionFromGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRemoveConnectionFromGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveConnectionFromGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+            OnErrorRemoveConnectionFromGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7032,7 +6866,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
@@ -7042,12 +6875,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="pendingId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRemoveConnectionFromGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRemoveConnectionFromGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<long> connectionId, Option<long> connectionAccountId, Option<long> pendingId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Delete Connection Removes the connection from group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -7059,11 +6891,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveConnectionFromGroupApiResponse"/>&gt;</returns>
-        public async Task<IRemoveConnectionFromGroupApiResponse?> RemoveConnectionFromGroupOrDefaultAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveConnectionFromGroupApiResponse?> RemoveConnectionFromGroupOrDefaultAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveConnectionFromGroupAsync(version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RemoveConnectionFromGroupAsync(returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7075,7 +6907,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Connection Removes the connection from group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -7087,7 +6918,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveConnectionFromGroupApiResponse"/>&gt;</returns>
-        public async Task<IRemoveConnectionFromGroupApiResponse> RemoveConnectionFromGroupAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveConnectionFromGroupApiResponse> RemoveConnectionFromGroupAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionId = default, Option<long> connectionAccountId = default, Option<long> pendingId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7095,7 +6926,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveConnectionFromGroup(deviceId);
 
-                FormatRemoveConnectionFromGroup(ref version, ref returnNulls, ref groupId, ref deviceId, ref accountId, ref connectionId, ref connectionAccountId, ref pendingId, ref latitude, ref longitude);
+                FormatRemoveConnectionFromGroup(ref returnNulls, ref groupId, ref deviceId, ref accountId, ref connectionId, ref connectionAccountId, ref pendingId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7103,9 +6934,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/group/removeConnection"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/group/removeConnection");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/group/removeConnection"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/group/removeConnection");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7158,13 +6988,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/group/removeConnection", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/group/removeConnection", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveConnectionFromGroupDefaultImplementation(apiResponseLocalVar, version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+                        AfterRemoveConnectionFromGroupDefaultImplementation(apiResponseLocalVar, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
 
                         Events.ExecuteOnRemoveConnectionFromGroup(apiResponseLocalVar);
 
@@ -7174,7 +7004,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveConnectionFromGroupDefaultImplementation(e, "/api/{version}/consumer/connection/group/removeConnection", uriBuilderLocalVar.Path, version, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
+                OnErrorRemoveConnectionFromGroupDefaultImplementation(e, "/consumer/connection/group/removeConnection", uriBuilderLocalVar.Path, returnNulls, groupId, deviceId, accountId, connectionId, connectionAccountId, pendingId, latitude, longitude);
                 Events.ExecuteOnErrorRemoveConnectionFromGroup(e);
                 throw;
             }
@@ -7273,7 +7103,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveConnectionsFromGroup(ref decimal version, ref long connectionGroupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionIds, ref Option<string> connectionAccountIds, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRemoveConnectionsFromGroup(ref long connectionGroupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionIds, ref Option<string> connectionAccountIds, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -7298,7 +7128,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -7306,10 +7135,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionAccountIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRemoveConnectionsFromGroupDefaultImplementation(IRemoveConnectionsFromGroupApiResponse apiResponseLocalVar, decimal version, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude)
+        private void AfterRemoveConnectionsFromGroupDefaultImplementation(IRemoveConnectionsFromGroupApiResponse apiResponseLocalVar, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveConnectionsFromGroup(ref suppressDefaultLog, apiResponseLocalVar, version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+            AfterRemoveConnectionsFromGroup(ref suppressDefaultLog, apiResponseLocalVar, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7319,7 +7148,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -7327,7 +7155,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionAccountIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRemoveConnectionsFromGroup(ref bool suppressDefaultLog, IRemoveConnectionsFromGroupApiResponse apiResponseLocalVar, decimal version, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude);
+        partial void AfterRemoveConnectionsFromGroup(ref bool suppressDefaultLog, IRemoveConnectionsFromGroupApiResponse apiResponseLocalVar, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7335,7 +7163,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -7343,10 +7170,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionAccountIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRemoveConnectionsFromGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRemoveConnectionsFromGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveConnectionsFromGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+            OnErrorRemoveConnectionsFromGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7358,7 +7185,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -7366,12 +7192,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionAccountIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRemoveConnectionsFromGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRemoveConnectionsFromGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long connectionGroupId, Option<string> deviceId, Option<long> accountId, Option<string> connectionIds, Option<string> connectionAccountIds, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Remove Connections Remove a list of connections from a group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId">connection group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -7381,11 +7206,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveConnectionsFromGroupApiResponse"/>&gt;</returns>
-        public async Task<IRemoveConnectionsFromGroupApiResponse?> RemoveConnectionsFromGroupOrDefaultAsync(decimal version, long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveConnectionsFromGroupApiResponse?> RemoveConnectionsFromGroupOrDefaultAsync(long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveConnectionsFromGroupAsync(version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RemoveConnectionsFromGroupAsync(connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7397,7 +7222,6 @@ namespace Org.OpenAPITools.Api
         /// Remove Connections Remove a list of connections from a group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="connectionGroupId">connection group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -7407,7 +7231,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveConnectionsFromGroupApiResponse"/>&gt;</returns>
-        public async Task<IRemoveConnectionsFromGroupApiResponse> RemoveConnectionsFromGroupAsync(decimal version, long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveConnectionsFromGroupApiResponse> RemoveConnectionsFromGroupAsync(long connectionGroupId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionIds = default, Option<string> connectionAccountIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7415,7 +7239,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveConnectionsFromGroup(deviceId, connectionIds, connectionAccountIds);
 
-                FormatRemoveConnectionsFromGroup(ref version, ref connectionGroupId, ref deviceId, ref accountId, ref connectionIds, ref connectionAccountIds, ref latitude, ref longitude);
+                FormatRemoveConnectionsFromGroup(ref connectionGroupId, ref deviceId, ref accountId, ref connectionIds, ref connectionAccountIds, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7423,9 +7247,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/connection/group/removeConnections"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/connection/group/removeConnections");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/connection/group/removeConnections"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/connection/group/removeConnections");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7474,13 +7297,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/connection/group/removeConnections", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/connection/group/removeConnections", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveConnectionsFromGroupDefaultImplementation(apiResponseLocalVar, version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+                        AfterRemoveConnectionsFromGroupDefaultImplementation(apiResponseLocalVar, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
 
                         Events.ExecuteOnRemoveConnectionsFromGroup(apiResponseLocalVar);
 
@@ -7490,7 +7313,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveConnectionsFromGroupDefaultImplementation(e, "/api/{version}/connection/group/removeConnections", uriBuilderLocalVar.Path, version, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
+                OnErrorRemoveConnectionsFromGroupDefaultImplementation(e, "/connection/group/removeConnections", uriBuilderLocalVar.Path, connectionGroupId, deviceId, accountId, connectionIds, connectionAccountIds, latitude, longitude);
                 Events.ExecuteOnErrorRemoveConnectionsFromGroup(e);
                 throw;
             }
@@ -7589,7 +7412,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveGroup(ref decimal version, ref bool returnNulls, ref long groupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRemoveGroup(ref bool returnNulls, ref long groupId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -7606,17 +7429,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRemoveGroupDefaultImplementation(IRemoveGroupApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterRemoveGroupDefaultImplementation(IRemoveGroupApiResponse apiResponseLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveGroup(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, groupId, deviceId, accountId, latitude, longitude);
+            AfterRemoveGroup(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, groupId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7626,14 +7448,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRemoveGroup(ref bool suppressDefaultLog, IRemoveGroupApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterRemoveGroup(ref bool suppressDefaultLog, IRemoveGroupApiResponse apiResponseLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7641,17 +7462,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRemoveGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRemoveGroupDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, groupId, deviceId, accountId, latitude, longitude);
+            OnErrorRemoveGroup(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, groupId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7663,19 +7483,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRemoveGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRemoveGroup(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Delete Connection Group Remove a user&#39;s group.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -7684,11 +7502,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveGroupApiResponse"/>&gt;</returns>
-        public async Task<IRemoveGroupApiResponse?> RemoveGroupOrDefaultAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveGroupApiResponse?> RemoveGroupOrDefaultAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveGroupAsync(version, returnNulls, groupId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RemoveGroupAsync(returnNulls, groupId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7700,7 +7518,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Connection Group Remove a user&#39;s group.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the group id</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -7709,7 +7526,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveGroupApiResponse"/>&gt;</returns>
-        public async Task<IRemoveGroupApiResponse> RemoveGroupAsync(decimal version, bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveGroupApiResponse> RemoveGroupAsync(bool returnNulls, long groupId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7717,7 +7534,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveGroup(deviceId);
 
-                FormatRemoveGroup(ref version, ref returnNulls, ref groupId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatRemoveGroup(ref returnNulls, ref groupId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7725,9 +7542,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/group/remove"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/group/remove");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/group/remove"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/group/remove");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7771,13 +7587,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/group/remove", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/group/remove", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveGroupDefaultImplementation(apiResponseLocalVar, version, returnNulls, groupId, deviceId, accountId, latitude, longitude);
+                        AfterRemoveGroupDefaultImplementation(apiResponseLocalVar, returnNulls, groupId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnRemoveGroup(apiResponseLocalVar);
 
@@ -7787,7 +7603,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveGroupDefaultImplementation(e, "/api/{version}/consumer/connection/group/remove", uriBuilderLocalVar.Path, version, returnNulls, groupId, deviceId, accountId, latitude, longitude);
+                OnErrorRemoveGroupDefaultImplementation(e, "/consumer/connection/group/remove", uriBuilderLocalVar.Path, returnNulls, groupId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorRemoveGroup(e);
                 throw;
             }
@@ -7886,7 +7702,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveSubGroups(ref decimal version, ref bool returnNulls, ref long groupId, ref string subGroupIds, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRemoveSubGroups(ref bool returnNulls, ref long groupId, ref string subGroupIds, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -7907,7 +7723,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="subGroupIds"></param>
@@ -7915,10 +7730,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRemoveSubGroupsDefaultImplementation(IRemoveSubGroupsApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterRemoveSubGroupsDefaultImplementation(IRemoveSubGroupsApiResponse apiResponseLocalVar, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveSubGroups(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+            AfterRemoveSubGroups(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7928,7 +7743,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="subGroupIds"></param>
@@ -7936,7 +7750,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRemoveSubGroups(ref bool suppressDefaultLog, IRemoveSubGroupsApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterRemoveSubGroups(ref bool suppressDefaultLog, IRemoveSubGroupsApiResponse apiResponseLocalVar, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7944,7 +7758,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="subGroupIds"></param>
@@ -7952,10 +7765,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRemoveSubGroupsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRemoveSubGroupsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveSubGroups(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+            OnErrorRemoveSubGroups(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7967,7 +7780,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="groupId"></param>
         /// <param name="subGroupIds"></param>
@@ -7975,12 +7787,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRemoveSubGroups(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRemoveSubGroups(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Remove Connection Groups Remove sub groups from a group
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the parent group id</param>
         /// <param name="subGroupIds">comma separated list of group IDs to remove from the parent group</param>
@@ -7990,11 +7801,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveSubGroupsApiResponse"/>&gt;</returns>
-        public async Task<IRemoveSubGroupsApiResponse?> RemoveSubGroupsOrDefaultAsync(decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveSubGroupsApiResponse?> RemoveSubGroupsOrDefaultAsync(bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveSubGroupsAsync(version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RemoveSubGroupsAsync(returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8006,7 +7817,6 @@ namespace Org.OpenAPITools.Api
         /// Remove Connection Groups Remove sub groups from a group
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">whether to return nulls or not</param>
         /// <param name="groupId">the parent group id</param>
         /// <param name="subGroupIds">comma separated list of group IDs to remove from the parent group</param>
@@ -8016,7 +7826,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveSubGroupsApiResponse"/>&gt;</returns>
-        public async Task<IRemoveSubGroupsApiResponse> RemoveSubGroupsAsync(decimal version, bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveSubGroupsApiResponse> RemoveSubGroupsAsync(bool returnNulls, long groupId, string subGroupIds, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8024,7 +7834,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveSubGroups(subGroupIds, deviceId);
 
-                FormatRemoveSubGroups(ref version, ref returnNulls, ref groupId, ref subGroupIds, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatRemoveSubGroups(ref returnNulls, ref groupId, ref subGroupIds, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8032,9 +7842,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/connection/group/removeSubGroup"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/connection/group/removeSubGroup");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/connection/group/removeSubGroup"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/connection/group/removeSubGroup");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8079,13 +7888,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/connection/group/removeSubGroup", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/connection/group/removeSubGroup", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveSubGroupsDefaultImplementation(apiResponseLocalVar, version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+                        AfterRemoveSubGroupsDefaultImplementation(apiResponseLocalVar, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnRemoveSubGroups(apiResponseLocalVar);
 
@@ -8095,7 +7904,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveSubGroupsDefaultImplementation(e, "/api/{version}/consumer/connection/group/removeSubGroup", uriBuilderLocalVar.Path, version, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
+                OnErrorRemoveSubGroupsDefaultImplementation(e, "/consumer/connection/group/removeSubGroup", uriBuilderLocalVar.Path, returnNulls, groupId, subGroupIds, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorRemoveSubGroups(e);
                 throw;
             }
@@ -8194,7 +8003,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchConnections(ref decimal version, ref bool returnNulls, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> gameType, ref Option<string> appKey, ref Option<int> i, ref Option<int> l, ref Option<string> sortField, ref Option<bool> hasLocation);
+        partial void FormatSearchConnections(ref bool returnNulls, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> gameType, ref Option<string> appKey, ref Option<int> i, ref Option<int> l, ref Option<string> sortField, ref Option<bool> hasLocation);
 
         /// <summary>
         /// Validates the request parameters
@@ -8231,7 +8040,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -8247,10 +8055,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="l"></param>
         /// <param name="sortField"></param>
         /// <param name="hasLocation"></param>
-        private void AfterSearchConnectionsDefaultImplementation(ISearchConnectionsApiResponse apiResponseLocalVar, decimal version, bool returnNulls, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<string> gameType, Option<string> appKey, Option<int> i, Option<int> l, Option<string> sortField, Option<bool> hasLocation)
+        private void AfterSearchConnectionsDefaultImplementation(ISearchConnectionsApiResponse apiResponseLocalVar, bool returnNulls, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<string> gameType, Option<string> appKey, Option<int> i, Option<int> l, Option<string> sortField, Option<bool> hasLocation)
         {
             bool suppressDefaultLog = false;
-            AfterSearchConnections(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
+            AfterSearchConnections(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8260,7 +8068,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -8276,7 +8083,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="l"></param>
         /// <param name="sortField"></param>
         /// <param name="hasLocation"></param>
-        partial void AfterSearchConnections(ref bool suppressDefaultLog, ISearchConnectionsApiResponse apiResponseLocalVar, decimal version, bool returnNulls, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<string> gameType, Option<string> appKey, Option<int> i, Option<int> l, Option<string> sortField, Option<bool> hasLocation);
+        partial void AfterSearchConnections(ref bool suppressDefaultLog, ISearchConnectionsApiResponse apiResponseLocalVar, bool returnNulls, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<string> gameType, Option<string> appKey, Option<int> i, Option<int> l, Option<string> sortField, Option<bool> hasLocation);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8284,7 +8091,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -8300,10 +8106,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="l"></param>
         /// <param name="sortField"></param>
         /// <param name="hasLocation"></param>
-        private void OnErrorSearchConnectionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<string> gameType, Option<string> appKey, Option<int> i, Option<int> l, Option<string> sortField, Option<bool> hasLocation)
+        private void OnErrorSearchConnectionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<string> gameType, Option<string> appKey, Option<int> i, Option<int> l, Option<string> sortField, Option<bool> hasLocation)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchConnections(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
+            OnErrorSearchConnections(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8315,7 +8121,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -8331,12 +8136,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="l"></param>
         /// <param name="sortField"></param>
         /// <param name="hasLocation"></param>
-        partial void OnErrorSearchConnections(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<string> gameType, Option<string> appKey, Option<int> i, Option<int> l, Option<string> sortField, Option<bool> hasLocation);
+        partial void OnErrorSearchConnections(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<double> latitude, Option<double> longitude, Option<string> gameType, Option<string> appKey, Option<int> i, Option<int> l, Option<string> sortField, Option<bool> hasLocation);
 
         /// <summary>
         /// Search Possible Connections Search for accounts that the user may not have a connection with.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">return all json attributes if true. defualt is true.</param>
         /// <param name="start">start index of the pagination</param>
         /// <param name="limit">limit of the pagination</param>
@@ -8354,11 +8158,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasLocation">whether the search has location or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchConnectionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchConnectionsApiResponse?> SearchConnectionsOrDefaultAsync(decimal version, bool returnNulls, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> gameType = default, Option<string> appKey = default, Option<int> i = default, Option<int> l = default, Option<string> sortField = default, Option<bool> hasLocation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchConnectionsApiResponse?> SearchConnectionsOrDefaultAsync(bool returnNulls, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> gameType = default, Option<string> appKey = default, Option<int> i = default, Option<int> l = default, Option<string> sortField = default, Option<bool> hasLocation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchConnectionsAsync(version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation, cancellationToken).ConfigureAwait(false);
+                return await SearchConnectionsAsync(returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8370,7 +8174,6 @@ namespace Org.OpenAPITools.Api
         /// Search Possible Connections Search for accounts that the user may not have a connection with.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">return all json attributes if true. defualt is true.</param>
         /// <param name="start">start index of the pagination</param>
         /// <param name="limit">limit of the pagination</param>
@@ -8388,7 +8191,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasLocation">whether the search has location or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchConnectionsApiResponse"/>&gt;</returns>
-        public async Task<ISearchConnectionsApiResponse> SearchConnectionsAsync(decimal version, bool returnNulls, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> gameType = default, Option<string> appKey = default, Option<int> i = default, Option<int> l = default, Option<string> sortField = default, Option<bool> hasLocation = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchConnectionsApiResponse> SearchConnectionsAsync(bool returnNulls, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> gameType = default, Option<string> appKey = default, Option<int> i = default, Option<int> l = default, Option<string> sortField = default, Option<bool> hasLocation = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8396,7 +8199,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchConnections(deviceId, q, keyword, gameType, appKey, sortField);
 
-                FormatSearchConnections(ref version, ref returnNulls, ref start, ref limit, ref deviceId, ref accountId, ref q, ref keyword, ref latitude, ref longitude, ref gameType, ref appKey, ref i, ref l, ref sortField, ref hasLocation);
+                FormatSearchConnections(ref returnNulls, ref start, ref limit, ref deviceId, ref accountId, ref q, ref keyword, ref latitude, ref longitude, ref gameType, ref appKey, ref i, ref l, ref sortField, ref hasLocation);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8404,9 +8207,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/connection/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/connection/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/connection/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/connection/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8475,13 +8277,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/connection/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/connection/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchConnectionsDefaultImplementation(apiResponseLocalVar, version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
+                        AfterSearchConnectionsDefaultImplementation(apiResponseLocalVar, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
 
                         Events.ExecuteOnSearchConnections(apiResponseLocalVar);
 
@@ -8491,7 +8293,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchConnectionsDefaultImplementation(e, "/api/{version}/connection/search", uriBuilderLocalVar.Path, version, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
+                OnErrorSearchConnectionsDefaultImplementation(e, "/connection/search", uriBuilderLocalVar.Path, returnNulls, start, limit, deviceId, accountId, q, keyword, latitude, longitude, gameType, appKey, i, l, sortField, hasLocation);
                 Events.ExecuteOnErrorSearchConnections(e);
                 throw;
             }

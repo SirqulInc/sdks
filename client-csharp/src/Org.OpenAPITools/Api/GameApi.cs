@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a Game.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
         /// <param name="title">Title of the game. (optional)</param>
@@ -55,7 +54,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Show more details in response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateGameApiResponse"/>&gt;</returns>
-        Task<ICreateGameApiResponse> CreateGameAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateGameApiResponse> CreateGameAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a Game
@@ -63,7 +62,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a Game.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
         /// <param name="title">Title of the game. (optional)</param>
@@ -73,7 +71,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Show more details in response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateGameApiResponse"/>?&gt;</returns>
-        Task<ICreateGameApiResponse?> CreateGameOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateGameApiResponse?> CreateGameOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a Game
@@ -82,12 +80,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a game.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="gameId">the updating game&#39;s id.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteGameApiResponse"/>&gt;</returns>
-        Task<IDeleteGameApiResponse> DeleteGameAsync(decimal version, long accountId, long gameId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteGameApiResponse> DeleteGameAsync(long accountId, long gameId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a Game
@@ -95,12 +92,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a game.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="gameId">the updating game&#39;s id.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteGameApiResponse"/>?&gt;</returns>
-        Task<IDeleteGameApiResponse?> DeleteGameOrDefaultAsync(decimal version, long accountId, long gameId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteGameApiResponse?> DeleteGameOrDefaultAsync(long accountId, long gameId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a Game by id
@@ -109,13 +105,12 @@ namespace Org.OpenAPITools.Api
         /// Get a Game by id.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="gameId">the updating game&#39;s id.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameApiResponse"/>&gt;</returns>
-        Task<IGetGameApiResponse> GetGameAsync(decimal version, long accountId, long gameId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGameApiResponse> GetGameAsync(long accountId, long gameId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a Game by id
@@ -123,13 +118,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a Game by id.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="gameId">the updating game&#39;s id.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameApiResponse"/>?&gt;</returns>
-        Task<IGetGameApiResponse?> GetGameOrDefaultAsync(decimal version, long accountId, long gameId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGameApiResponse?> GetGameOrDefaultAsync(long accountId, long gameId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search a Game
@@ -138,7 +132,6 @@ namespace Org.OpenAPITools.Api
         /// Get a list of games for an application, just those the account has permissions to view.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="start">Start the result set at some index.</param>
@@ -149,7 +142,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeInactive">more details in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchGamesApiResponse"/>&gt;</returns>
-        Task<ISearchGamesApiResponse> SearchGamesAsync(decimal version, long accountId, string appKey, int start, int limit, Option<string> keyword = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchGamesApiResponse> SearchGamesAsync(long accountId, string appKey, int start, int limit, Option<string> keyword = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search a Game
@@ -157,7 +150,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list of games for an application, just those the account has permissions to view.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="start">Start the result set at some index.</param>
@@ -168,7 +160,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeInactive">more details in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchGamesApiResponse"/>?&gt;</returns>
-        Task<ISearchGamesApiResponse?> SearchGamesOrDefaultAsync(decimal version, long accountId, string appKey, int start, int limit, Option<string> keyword = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchGamesApiResponse?> SearchGamesOrDefaultAsync(long accountId, string appKey, int start, int limit, Option<string> keyword = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a Game
@@ -177,7 +169,6 @@ namespace Org.OpenAPITools.Api
         /// Update a Game
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="gameId">the updating game&#39;s id (optional)</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
@@ -188,7 +179,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">show more details in response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateGameApiResponse"/>&gt;</returns>
-        Task<IUpdateGameApiResponse> UpdateGameAsync(decimal version, Option<long> accountId = default, Option<long> gameId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateGameApiResponse> UpdateGameAsync(Option<long> accountId = default, Option<long> gameId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a Game
@@ -196,7 +187,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a Game
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="gameId">the updating game&#39;s id (optional)</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
@@ -207,7 +197,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">show more details in response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateGameApiResponse"/>?&gt;</returns>
-        Task<IUpdateGameApiResponse?> UpdateGameOrDefaultAsync(decimal version, Option<long> accountId = default, Option<long> gameId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateGameApiResponse?> UpdateGameOrDefaultAsync(Option<long> accountId = default, Option<long> gameId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -423,7 +413,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateGame(ref decimal version, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> title, ref Option<string> description, ref Option<string> metaData, ref Option<string> packIds, ref Option<bool> includeGameData);
+        partial void FormatCreateGame(ref Option<long> accountId, ref Option<string> appKey, ref Option<string> title, ref Option<string> description, ref Option<string> metaData, ref Option<string> packIds, ref Option<bool> includeGameData);
 
         /// <summary>
         /// Validates the request parameters
@@ -456,7 +446,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
@@ -464,10 +453,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="packIds"></param>
         /// <param name="includeGameData"></param>
-        private void AfterCreateGameDefaultImplementation(ICreateGameApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData)
+        private void AfterCreateGameDefaultImplementation(ICreateGameApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterCreateGame(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, title, description, metaData, packIds, includeGameData);
+            AfterCreateGame(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, title, description, metaData, packIds, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -477,7 +466,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
@@ -485,7 +473,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="packIds"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterCreateGame(ref bool suppressDefaultLog, ICreateGameApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData);
+        partial void AfterCreateGame(ref bool suppressDefaultLog, ICreateGameApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -493,7 +481,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
@@ -501,10 +488,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="packIds"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorCreateGameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData)
+        private void OnErrorCreateGameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateGame(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, title, description, metaData, packIds, includeGameData);
+            OnErrorCreateGame(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, title, description, metaData, packIds, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -516,7 +503,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
@@ -524,12 +510,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="packIds"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorCreateGame(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData);
+        partial void OnErrorCreateGame(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData);
 
         /// <summary>
         /// Create a Game Create a Game.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
         /// <param name="title">Title of the game. (optional)</param>
@@ -539,11 +524,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Show more details in response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateGameApiResponse"/>&gt;</returns>
-        public async Task<ICreateGameApiResponse?> CreateGameOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateGameApiResponse?> CreateGameOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateGameAsync(version, accountId, appKey, title, description, metaData, packIds, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await CreateGameAsync(accountId, appKey, title, description, metaData, packIds, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -555,7 +540,6 @@ namespace Org.OpenAPITools.Api
         /// Create a Game Create a Game.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
         /// <param name="title">Title of the game. (optional)</param>
@@ -565,7 +549,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">Show more details in response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateGameApiResponse"/>&gt;</returns>
-        public async Task<ICreateGameApiResponse> CreateGameAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateGameApiResponse> CreateGameAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -573,7 +557,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateGame(appKey, title, description, metaData, packIds);
 
-                FormatCreateGame(ref version, ref accountId, ref appKey, ref title, ref description, ref metaData, ref packIds, ref includeGameData);
+                FormatCreateGame(ref accountId, ref appKey, ref title, ref description, ref metaData, ref packIds, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -581,9 +565,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -633,13 +616,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateGameDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, title, description, metaData, packIds, includeGameData);
+                        AfterCreateGameDefaultImplementation(apiResponseLocalVar, accountId, appKey, title, description, metaData, packIds, includeGameData);
 
                         Events.ExecuteOnCreateGame(apiResponseLocalVar);
 
@@ -649,7 +632,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateGameDefaultImplementation(e, "/api/{version}/game/create", uriBuilderLocalVar.Path, version, accountId, appKey, title, description, metaData, packIds, includeGameData);
+                OnErrorCreateGameDefaultImplementation(e, "/game/create", uriBuilderLocalVar.Path, accountId, appKey, title, description, metaData, packIds, includeGameData);
                 Events.ExecuteOnErrorCreateGame(e);
                 throw;
             }
@@ -748,19 +731,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteGame(ref decimal version, ref long accountId, ref long gameId);
+        partial void FormatDeleteGame(ref long accountId, ref long gameId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
-        private void AfterDeleteGameDefaultImplementation(IDeleteGameApiResponse apiResponseLocalVar, decimal version, long accountId, long gameId)
+        private void AfterDeleteGameDefaultImplementation(IDeleteGameApiResponse apiResponseLocalVar, long accountId, long gameId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteGame(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, gameId);
+            AfterDeleteGame(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -770,10 +752,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
-        partial void AfterDeleteGame(ref bool suppressDefaultLog, IDeleteGameApiResponse apiResponseLocalVar, decimal version, long accountId, long gameId);
+        partial void AfterDeleteGame(ref bool suppressDefaultLog, IDeleteGameApiResponse apiResponseLocalVar, long accountId, long gameId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -781,13 +762,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
-        private void OnErrorDeleteGameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long gameId)
+        private void OnErrorDeleteGameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long gameId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteGame(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, gameId);
+            OnErrorDeleteGame(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -799,24 +779,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
-        partial void OnErrorDeleteGame(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long gameId);
+        partial void OnErrorDeleteGame(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long gameId);
 
         /// <summary>
         /// Delete a Game Delete a game.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="gameId">the updating game&#39;s id.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteGameApiResponse"/>&gt;</returns>
-        public async Task<IDeleteGameApiResponse?> DeleteGameOrDefaultAsync(decimal version, long accountId, long gameId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteGameApiResponse?> DeleteGameOrDefaultAsync(long accountId, long gameId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteGameAsync(version, accountId, gameId, cancellationToken).ConfigureAwait(false);
+                return await DeleteGameAsync(accountId, gameId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -828,18 +806,17 @@ namespace Org.OpenAPITools.Api
         /// Delete a Game Delete a game.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="gameId">the updating game&#39;s id.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteGameApiResponse"/>&gt;</returns>
-        public async Task<IDeleteGameApiResponse> DeleteGameAsync(decimal version, long accountId, long gameId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteGameApiResponse> DeleteGameAsync(long accountId, long gameId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteGame(ref version, ref accountId, ref gameId);
+                FormatDeleteGame(ref accountId, ref gameId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -847,9 +824,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -881,13 +857,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteGameDefaultImplementation(apiResponseLocalVar, version, accountId, gameId);
+                        AfterDeleteGameDefaultImplementation(apiResponseLocalVar, accountId, gameId);
 
                         Events.ExecuteOnDeleteGame(apiResponseLocalVar);
 
@@ -897,7 +873,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteGameDefaultImplementation(e, "/api/{version}/game/delete", uriBuilderLocalVar.Path, version, accountId, gameId);
+                OnErrorDeleteGameDefaultImplementation(e, "/game/delete", uriBuilderLocalVar.Path, accountId, gameId);
                 Events.ExecuteOnErrorDeleteGame(e);
                 throw;
             }
@@ -996,20 +972,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetGame(ref decimal version, ref long accountId, ref long gameId, ref Option<bool> includeGameData);
+        partial void FormatGetGame(ref long accountId, ref long gameId, ref Option<bool> includeGameData);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
         /// <param name="includeGameData"></param>
-        private void AfterGetGameDefaultImplementation(IGetGameApiResponse apiResponseLocalVar, decimal version, long accountId, long gameId, Option<bool> includeGameData)
+        private void AfterGetGameDefaultImplementation(IGetGameApiResponse apiResponseLocalVar, long accountId, long gameId, Option<bool> includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterGetGame(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, gameId, includeGameData);
+            AfterGetGame(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameId, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1019,11 +994,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterGetGame(ref bool suppressDefaultLog, IGetGameApiResponse apiResponseLocalVar, decimal version, long accountId, long gameId, Option<bool> includeGameData);
+        partial void AfterGetGame(ref bool suppressDefaultLog, IGetGameApiResponse apiResponseLocalVar, long accountId, long gameId, Option<bool> includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1031,14 +1005,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorGetGameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long gameId, Option<bool> includeGameData)
+        private void OnErrorGetGameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long gameId, Option<bool> includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetGame(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, gameId, includeGameData);
+            OnErrorGetGame(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameId, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1050,26 +1023,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorGetGame(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long gameId, Option<bool> includeGameData);
+        partial void OnErrorGetGame(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long gameId, Option<bool> includeGameData);
 
         /// <summary>
         /// Get a Game by id Get a Game by id.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="gameId">the updating game&#39;s id.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameApiResponse"/>&gt;</returns>
-        public async Task<IGetGameApiResponse?> GetGameOrDefaultAsync(decimal version, long accountId, long gameId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGameApiResponse?> GetGameOrDefaultAsync(long accountId, long gameId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetGameAsync(version, accountId, gameId, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await GetGameAsync(accountId, gameId, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1081,19 +1052,18 @@ namespace Org.OpenAPITools.Api
         /// Get a Game by id Get a Game by id.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="gameId">the updating game&#39;s id.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameApiResponse"/>&gt;</returns>
-        public async Task<IGetGameApiResponse> GetGameAsync(decimal version, long accountId, long gameId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGameApiResponse> GetGameAsync(long accountId, long gameId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetGame(ref version, ref accountId, ref gameId, ref includeGameData);
+                FormatGetGame(ref accountId, ref gameId, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1101,9 +1071,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1138,13 +1107,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetGameDefaultImplementation(apiResponseLocalVar, version, accountId, gameId, includeGameData);
+                        AfterGetGameDefaultImplementation(apiResponseLocalVar, accountId, gameId, includeGameData);
 
                         Events.ExecuteOnGetGame(apiResponseLocalVar);
 
@@ -1154,7 +1123,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetGameDefaultImplementation(e, "/api/{version}/game/get", uriBuilderLocalVar.Path, version, accountId, gameId, includeGameData);
+                OnErrorGetGameDefaultImplementation(e, "/game/get", uriBuilderLocalVar.Path, accountId, gameId, includeGameData);
                 Events.ExecuteOnErrorGetGame(e);
                 throw;
             }
@@ -1253,7 +1222,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchGames(ref decimal version, ref long accountId, ref string appKey, ref int start, ref int limit, ref Option<string> keyword, ref Option<string> appVersion, ref Option<bool> includeGameData, ref Option<bool> includeInactive);
+        partial void FormatSearchGames(ref long accountId, ref string appKey, ref int start, ref int limit, ref Option<string> keyword, ref Option<string> appVersion, ref Option<bool> includeGameData, ref Option<bool> includeInactive);
 
         /// <summary>
         /// Validates the request parameters
@@ -1278,7 +1247,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
@@ -1287,10 +1255,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="includeGameData"></param>
         /// <param name="includeInactive"></param>
-        private void AfterSearchGamesDefaultImplementation(ISearchGamesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, int start, int limit, Option<string> keyword, Option<string> appVersion, Option<bool> includeGameData, Option<bool> includeInactive)
+        private void AfterSearchGamesDefaultImplementation(ISearchGamesApiResponse apiResponseLocalVar, long accountId, string appKey, int start, int limit, Option<string> keyword, Option<string> appVersion, Option<bool> includeGameData, Option<bool> includeInactive)
         {
             bool suppressDefaultLog = false;
-            AfterSearchGames(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
+            AfterSearchGames(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1300,7 +1268,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
@@ -1309,7 +1276,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="includeGameData"></param>
         /// <param name="includeInactive"></param>
-        partial void AfterSearchGames(ref bool suppressDefaultLog, ISearchGamesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, int start, int limit, Option<string> keyword, Option<string> appVersion, Option<bool> includeGameData, Option<bool> includeInactive);
+        partial void AfterSearchGames(ref bool suppressDefaultLog, ISearchGamesApiResponse apiResponseLocalVar, long accountId, string appKey, int start, int limit, Option<string> keyword, Option<string> appVersion, Option<bool> includeGameData, Option<bool> includeInactive);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1317,7 +1284,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
@@ -1326,10 +1292,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="includeGameData"></param>
         /// <param name="includeInactive"></param>
-        private void OnErrorSearchGamesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, int start, int limit, Option<string> keyword, Option<string> appVersion, Option<bool> includeGameData, Option<bool> includeInactive)
+        private void OnErrorSearchGamesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, int start, int limit, Option<string> keyword, Option<string> appVersion, Option<bool> includeGameData, Option<bool> includeInactive)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchGames(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
+            OnErrorSearchGames(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1341,7 +1307,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
@@ -1350,12 +1315,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="includeGameData"></param>
         /// <param name="includeInactive"></param>
-        partial void OnErrorSearchGames(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, int start, int limit, Option<string> keyword, Option<string> appVersion, Option<bool> includeGameData, Option<bool> includeInactive);
+        partial void OnErrorSearchGames(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, int start, int limit, Option<string> keyword, Option<string> appVersion, Option<bool> includeGameData, Option<bool> includeInactive);
 
         /// <summary>
         /// Search a Game Get a list of games for an application, just those the account has permissions to view.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="start">Start the result set at some index.</param>
@@ -1366,11 +1330,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeInactive">more details in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchGamesApiResponse"/>&gt;</returns>
-        public async Task<ISearchGamesApiResponse?> SearchGamesOrDefaultAsync(decimal version, long accountId, string appKey, int start, int limit, Option<string> keyword = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchGamesApiResponse?> SearchGamesOrDefaultAsync(long accountId, string appKey, int start, int limit, Option<string> keyword = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchGamesAsync(version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive, cancellationToken).ConfigureAwait(false);
+                return await SearchGamesAsync(accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1382,7 +1346,6 @@ namespace Org.OpenAPITools.Api
         /// Search a Game Get a list of games for an application, just those the account has permissions to view.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="start">Start the result set at some index.</param>
@@ -1393,7 +1356,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeInactive">more details in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchGamesApiResponse"/>&gt;</returns>
-        public async Task<ISearchGamesApiResponse> SearchGamesAsync(decimal version, long accountId, string appKey, int start, int limit, Option<string> keyword = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchGamesApiResponse> SearchGamesAsync(long accountId, string appKey, int start, int limit, Option<string> keyword = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<bool> includeInactive = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1401,7 +1364,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchGames(appKey, keyword, appVersion);
 
-                FormatSearchGames(ref version, ref accountId, ref appKey, ref start, ref limit, ref keyword, ref appVersion, ref includeGameData, ref includeInactive);
+                FormatSearchGames(ref accountId, ref appKey, ref start, ref limit, ref keyword, ref appVersion, ref includeGameData, ref includeInactive);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1409,9 +1372,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1457,13 +1419,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchGamesDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
+                        AfterSearchGamesDefaultImplementation(apiResponseLocalVar, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
 
                         Events.ExecuteOnSearchGames(apiResponseLocalVar);
 
@@ -1473,7 +1435,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchGamesDefaultImplementation(e, "/api/{version}/game/search", uriBuilderLocalVar.Path, version, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
+                OnErrorSearchGamesDefaultImplementation(e, "/game/search", uriBuilderLocalVar.Path, accountId, appKey, start, limit, keyword, appVersion, includeGameData, includeInactive);
                 Events.ExecuteOnErrorSearchGames(e);
                 throw;
             }
@@ -1572,7 +1534,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateGame(ref decimal version, ref Option<long> accountId, ref Option<long> gameId, ref Option<string> appKey, ref Option<string> title, ref Option<string> description, ref Option<string> metaData, ref Option<string> packIds, ref Option<bool> includeGameData);
+        partial void FormatUpdateGame(ref Option<long> accountId, ref Option<long> gameId, ref Option<string> appKey, ref Option<string> title, ref Option<string> description, ref Option<string> metaData, ref Option<string> packIds, ref Option<bool> includeGameData);
 
         /// <summary>
         /// Validates the request parameters
@@ -1605,7 +1567,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
         /// <param name="appKey"></param>
@@ -1614,10 +1575,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="packIds"></param>
         /// <param name="includeGameData"></param>
-        private void AfterUpdateGameDefaultImplementation(IUpdateGameApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<long> gameId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData)
+        private void AfterUpdateGameDefaultImplementation(IUpdateGameApiResponse apiResponseLocalVar, Option<long> accountId, Option<long> gameId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateGame(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
+            AfterUpdateGame(ref suppressDefaultLog, apiResponseLocalVar, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1627,7 +1588,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
         /// <param name="appKey"></param>
@@ -1636,7 +1596,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="packIds"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterUpdateGame(ref bool suppressDefaultLog, IUpdateGameApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<long> gameId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData);
+        partial void AfterUpdateGame(ref bool suppressDefaultLog, IUpdateGameApiResponse apiResponseLocalVar, Option<long> accountId, Option<long> gameId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1644,7 +1604,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
         /// <param name="appKey"></param>
@@ -1653,10 +1612,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="packIds"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorUpdateGameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<long> gameId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData)
+        private void OnErrorUpdateGameDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<long> gameId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateGame(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
+            OnErrorUpdateGame(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1668,7 +1627,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="gameId"></param>
         /// <param name="appKey"></param>
@@ -1677,12 +1635,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData"></param>
         /// <param name="packIds"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorUpdateGame(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<long> gameId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData);
+        partial void OnErrorUpdateGame(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<long> gameId, Option<string> appKey, Option<string> title, Option<string> description, Option<string> metaData, Option<string> packIds, Option<bool> includeGameData);
 
         /// <summary>
         /// Update a Game Update a Game
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="gameId">the updating game&#39;s id (optional)</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
@@ -1693,11 +1650,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">show more details in response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateGameApiResponse"/>&gt;</returns>
-        public async Task<IUpdateGameApiResponse?> UpdateGameOrDefaultAsync(decimal version, Option<long> accountId = default, Option<long> gameId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateGameApiResponse?> UpdateGameOrDefaultAsync(Option<long> accountId = default, Option<long> gameId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateGameAsync(version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await UpdateGameAsync(accountId, gameId, appKey, title, description, metaData, packIds, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1709,7 +1666,6 @@ namespace Org.OpenAPITools.Api
         /// Update a Game Update a Game
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="gameId">the updating game&#39;s id (optional)</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
@@ -1720,7 +1676,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeGameData">show more details in response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateGameApiResponse"/>&gt;</returns>
-        public async Task<IUpdateGameApiResponse> UpdateGameAsync(decimal version, Option<long> accountId = default, Option<long> gameId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateGameApiResponse> UpdateGameAsync(Option<long> accountId = default, Option<long> gameId = default, Option<string> appKey = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, Option<string> packIds = default, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1728,7 +1684,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateGame(appKey, title, description, metaData, packIds);
 
-                FormatUpdateGame(ref version, ref accountId, ref gameId, ref appKey, ref title, ref description, ref metaData, ref packIds, ref includeGameData);
+                FormatUpdateGame(ref accountId, ref gameId, ref appKey, ref title, ref description, ref metaData, ref packIds, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1736,9 +1692,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/game/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/game/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/game/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/game/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1791,13 +1746,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/game/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/game/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateGameDefaultImplementation(apiResponseLocalVar, version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
+                        AfterUpdateGameDefaultImplementation(apiResponseLocalVar, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
 
                         Events.ExecuteOnUpdateGame(apiResponseLocalVar);
 
@@ -1807,7 +1762,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateGameDefaultImplementation(e, "/api/{version}/game/update", uriBuilderLocalVar.Path, version, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
+                OnErrorUpdateGameDefaultImplementation(e, "/game/update", uriBuilderLocalVar.Path, accountId, gameId, appKey, title, description, metaData, packIds, includeGameData);
                 Events.ExecuteOnErrorUpdateGame(e);
                 throw;
             }

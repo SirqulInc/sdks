@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Checks the status of a captured disbrusement to see if it has been settled.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="disbursementId">the ID of the disbursement being checked on</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICheckDisbursementsApiResponse"/>&gt;</returns>
-        Task<ICheckDisbursementsApiResponse> CheckDisbursementsAsync(decimal version, long disbursementId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICheckDisbursementsApiResponse> CheckDisbursementsAsync(long disbursementId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check Disbursements
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Checks the status of a captured disbrusement to see if it has been settled.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="disbursementId">the ID of the disbursement being checked on</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICheckDisbursementsApiResponse"/>?&gt;</returns>
-        Task<ICheckDisbursementsApiResponse?> CheckDisbursementsOrDefaultAsync(decimal version, long disbursementId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICheckDisbursementsApiResponse?> CheckDisbursementsOrDefaultAsync(long disbursementId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Disbursement
@@ -70,7 +68,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a Disbursement for sending money to a retailer
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the logging in user (must be an EXECUTIVE account)</param>
         /// <param name="receiverAccountId">the ID of the account receiving the disbursement</param>
         /// <param name="originalSenderAccountId">the ID of the original sender account</param>
@@ -83,7 +80,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="introspectionParams">This is for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateDisbursementApiResponse"/>&gt;</returns>
-        Task<ICreateDisbursementApiResponse> CreateDisbursementAsync(decimal version, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateDisbursementApiResponse> CreateDisbursementAsync(long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Disbursement
@@ -91,7 +88,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a Disbursement for sending money to a retailer
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the logging in user (must be an EXECUTIVE account)</param>
         /// <param name="receiverAccountId">the ID of the account receiving the disbursement</param>
         /// <param name="originalSenderAccountId">the ID of the original sender account</param>
@@ -104,7 +100,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="introspectionParams">This is for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateDisbursementApiResponse"/>?&gt;</returns>
-        Task<ICreateDisbursementApiResponse?> CreateDisbursementOrDefaultAsync(decimal version, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateDisbursementApiResponse?> CreateDisbursementOrDefaultAsync(long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Disbursement
@@ -113,12 +109,11 @@ namespace Org.OpenAPITools.Api
         /// Get Disbursement details
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="disbursementId">the id of the disbursement</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDisbursementApiResponse"/>&gt;</returns>
-        Task<IGetDisbursementApiResponse> GetDisbursementAsync(decimal version, long accountId, long disbursementId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetDisbursementApiResponse> GetDisbursementAsync(long accountId, long disbursementId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Disbursement
@@ -126,12 +121,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get Disbursement details
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="disbursementId">the id of the disbursement</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDisbursementApiResponse"/>?&gt;</returns>
-        Task<IGetDisbursementApiResponse?> GetDisbursementOrDefaultAsync(decimal version, long accountId, long disbursementId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetDisbursementApiResponse?> GetDisbursementOrDefaultAsync(long accountId, long disbursementId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Disbursements
@@ -140,7 +134,6 @@ namespace Org.OpenAPITools.Api
         /// Search Disbursements
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="receiverAccountId">filter results by the id of the account receiving the disbursement (optional)</param>
         /// <param name="statuses">comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)</param>
@@ -153,7 +146,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId">search results by this external ID (that can be used to reference the disbursement) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchDisbursementsApiResponse"/>&gt;</returns>
-        Task<ISearchDisbursementsApiResponse> SearchDisbursementsAsync(decimal version, long accountId, Option<long> receiverAccountId = default, Option<string> statuses = default, Option<string> providers = default, Option<long> beforeDate = default, Option<long> afterDate = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<string> externalId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchDisbursementsApiResponse> SearchDisbursementsAsync(long accountId, Option<long> receiverAccountId = default, Option<string> statuses = default, Option<string> providers = default, Option<long> beforeDate = default, Option<long> afterDate = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<string> externalId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Disbursements
@@ -161,7 +154,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search Disbursements
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="receiverAccountId">filter results by the id of the account receiving the disbursement (optional)</param>
         /// <param name="statuses">comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)</param>
@@ -174,7 +166,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId">search results by this external ID (that can be used to reference the disbursement) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchDisbursementsApiResponse"/>?&gt;</returns>
-        Task<ISearchDisbursementsApiResponse?> SearchDisbursementsOrDefaultAsync(decimal version, long accountId, Option<long> receiverAccountId = default, Option<string> statuses = default, Option<string> providers = default, Option<long> beforeDate = default, Option<long> afterDate = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<string> externalId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchDisbursementsApiResponse?> SearchDisbursementsOrDefaultAsync(long accountId, Option<long> receiverAccountId = default, Option<string> statuses = default, Option<string> providers = default, Option<long> beforeDate = default, Option<long> afterDate = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<string> externalId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Disbursement
@@ -183,7 +175,6 @@ namespace Org.OpenAPITools.Api
         /// Update Disbursement
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="disbursementId">the id of the disbursement being updated</param>
         /// <param name="amount">the disbursement dollar amount being updated (optional)</param>
@@ -196,7 +187,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="introspectionParams">for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateDisbursementApiResponse"/>&gt;</returns>
-        Task<IUpdateDisbursementApiResponse> UpdateDisbursementAsync(decimal version, long accountId, long disbursementId, Option<decimal> amount = default, Option<string> provider = default, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<bool> retry = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateDisbursementApiResponse> UpdateDisbursementAsync(long accountId, long disbursementId, Option<decimal> amount = default, Option<string> provider = default, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<bool> retry = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Disbursement
@@ -204,7 +195,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update Disbursement
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="disbursementId">the id of the disbursement being updated</param>
         /// <param name="amount">the disbursement dollar amount being updated (optional)</param>
@@ -217,7 +207,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="introspectionParams">for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateDisbursementApiResponse"/>?&gt;</returns>
-        Task<IUpdateDisbursementApiResponse?> UpdateDisbursementOrDefaultAsync(decimal version, long accountId, long disbursementId, Option<decimal> amount = default, Option<string> provider = default, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<bool> retry = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateDisbursementApiResponse?> UpdateDisbursementOrDefaultAsync(long accountId, long disbursementId, Option<decimal> amount = default, Option<string> provider = default, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<bool> retry = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -433,18 +423,17 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCheckDisbursements(ref decimal version, ref long disbursementId);
+        partial void FormatCheckDisbursements(ref long disbursementId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="disbursementId"></param>
-        private void AfterCheckDisbursementsDefaultImplementation(ICheckDisbursementsApiResponse apiResponseLocalVar, decimal version, long disbursementId)
+        private void AfterCheckDisbursementsDefaultImplementation(ICheckDisbursementsApiResponse apiResponseLocalVar, long disbursementId)
         {
             bool suppressDefaultLog = false;
-            AfterCheckDisbursements(ref suppressDefaultLog, apiResponseLocalVar, version, disbursementId);
+            AfterCheckDisbursements(ref suppressDefaultLog, apiResponseLocalVar, disbursementId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -454,9 +443,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="disbursementId"></param>
-        partial void AfterCheckDisbursements(ref bool suppressDefaultLog, ICheckDisbursementsApiResponse apiResponseLocalVar, decimal version, long disbursementId);
+        partial void AfterCheckDisbursements(ref bool suppressDefaultLog, ICheckDisbursementsApiResponse apiResponseLocalVar, long disbursementId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -464,12 +452,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="disbursementId"></param>
-        private void OnErrorCheckDisbursementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long disbursementId)
+        private void OnErrorCheckDisbursementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long disbursementId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCheckDisbursements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, disbursementId);
+            OnErrorCheckDisbursements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, disbursementId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -481,22 +468,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="disbursementId"></param>
-        partial void OnErrorCheckDisbursements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long disbursementId);
+        partial void OnErrorCheckDisbursements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long disbursementId);
 
         /// <summary>
         /// Check Disbursements Checks the status of a captured disbrusement to see if it has been settled.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="disbursementId">the ID of the disbursement being checked on</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICheckDisbursementsApiResponse"/>&gt;</returns>
-        public async Task<ICheckDisbursementsApiResponse?> CheckDisbursementsOrDefaultAsync(decimal version, long disbursementId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICheckDisbursementsApiResponse?> CheckDisbursementsOrDefaultAsync(long disbursementId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CheckDisbursementsAsync(version, disbursementId, cancellationToken).ConfigureAwait(false);
+                return await CheckDisbursementsAsync(disbursementId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -508,17 +493,16 @@ namespace Org.OpenAPITools.Api
         /// Check Disbursements Checks the status of a captured disbrusement to see if it has been settled.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="disbursementId">the ID of the disbursement being checked on</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICheckDisbursementsApiResponse"/>&gt;</returns>
-        public async Task<ICheckDisbursementsApiResponse> CheckDisbursementsAsync(decimal version, long disbursementId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICheckDisbursementsApiResponse> CheckDisbursementsAsync(long disbursementId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatCheckDisbursements(ref version, ref disbursementId);
+                FormatCheckDisbursements(ref disbursementId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -526,9 +510,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/disbursement/check"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/disbursement/check");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/disbursement/check"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/disbursement/check");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -559,13 +542,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/disbursement/check", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/disbursement/check", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCheckDisbursementsDefaultImplementation(apiResponseLocalVar, version, disbursementId);
+                        AfterCheckDisbursementsDefaultImplementation(apiResponseLocalVar, disbursementId);
 
                         Events.ExecuteOnCheckDisbursements(apiResponseLocalVar);
 
@@ -575,7 +558,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCheckDisbursementsDefaultImplementation(e, "/api/{version}/disbursement/check", uriBuilderLocalVar.Path, version, disbursementId);
+                OnErrorCheckDisbursementsDefaultImplementation(e, "/disbursement/check", uriBuilderLocalVar.Path, disbursementId);
                 Events.ExecuteOnErrorCheckDisbursements(e);
                 throw;
             }
@@ -674,7 +657,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateDisbursement(ref decimal version, ref long accountId, ref long receiverAccountId, ref long originalSenderAccountId, ref decimal amount, ref string provider, ref Option<long> scheduledDate, ref Option<string> title, ref Option<string> comment, ref Option<string> externalId, ref Option<string> introspectionParams);
+        partial void FormatCreateDisbursement(ref long accountId, ref long receiverAccountId, ref long originalSenderAccountId, ref decimal amount, ref string provider, ref Option<long> scheduledDate, ref Option<string> title, ref Option<string> comment, ref Option<string> externalId, ref Option<string> introspectionParams);
 
         /// <summary>
         /// Validates the request parameters
@@ -707,7 +690,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="originalSenderAccountId"></param>
@@ -718,10 +700,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="comment"></param>
         /// <param name="externalId"></param>
         /// <param name="introspectionParams"></param>
-        private void AfterCreateDisbursementDefaultImplementation(ICreateDisbursementApiResponse apiResponseLocalVar, decimal version, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<string> introspectionParams)
+        private void AfterCreateDisbursementDefaultImplementation(ICreateDisbursementApiResponse apiResponseLocalVar, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<string> introspectionParams)
         {
             bool suppressDefaultLog = false;
-            AfterCreateDisbursement(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
+            AfterCreateDisbursement(ref suppressDefaultLog, apiResponseLocalVar, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -731,7 +713,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="originalSenderAccountId"></param>
@@ -742,7 +723,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="comment"></param>
         /// <param name="externalId"></param>
         /// <param name="introspectionParams"></param>
-        partial void AfterCreateDisbursement(ref bool suppressDefaultLog, ICreateDisbursementApiResponse apiResponseLocalVar, decimal version, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<string> introspectionParams);
+        partial void AfterCreateDisbursement(ref bool suppressDefaultLog, ICreateDisbursementApiResponse apiResponseLocalVar, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<string> introspectionParams);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -750,7 +731,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="originalSenderAccountId"></param>
@@ -761,10 +741,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="comment"></param>
         /// <param name="externalId"></param>
         /// <param name="introspectionParams"></param>
-        private void OnErrorCreateDisbursementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<string> introspectionParams)
+        private void OnErrorCreateDisbursementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<string> introspectionParams)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateDisbursement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
+            OnErrorCreateDisbursement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -776,7 +756,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="originalSenderAccountId"></param>
@@ -787,12 +766,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="comment"></param>
         /// <param name="externalId"></param>
         /// <param name="introspectionParams"></param>
-        partial void OnErrorCreateDisbursement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<string> introspectionParams);
+        partial void OnErrorCreateDisbursement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<string> introspectionParams);
 
         /// <summary>
         /// Create Disbursement Creates a Disbursement for sending money to a retailer
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the logging in user (must be an EXECUTIVE account)</param>
         /// <param name="receiverAccountId">the ID of the account receiving the disbursement</param>
         /// <param name="originalSenderAccountId">the ID of the original sender account</param>
@@ -805,11 +783,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="introspectionParams">This is for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateDisbursementApiResponse"/>&gt;</returns>
-        public async Task<ICreateDisbursementApiResponse?> CreateDisbursementOrDefaultAsync(decimal version, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateDisbursementApiResponse?> CreateDisbursementOrDefaultAsync(long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateDisbursementAsync(version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams, cancellationToken).ConfigureAwait(false);
+                return await CreateDisbursementAsync(accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -821,7 +799,6 @@ namespace Org.OpenAPITools.Api
         /// Create Disbursement Creates a Disbursement for sending money to a retailer
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the ID of the logging in user (must be an EXECUTIVE account)</param>
         /// <param name="receiverAccountId">the ID of the account receiving the disbursement</param>
         /// <param name="originalSenderAccountId">the ID of the original sender account</param>
@@ -834,7 +811,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="introspectionParams">This is for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateDisbursementApiResponse"/>&gt;</returns>
-        public async Task<ICreateDisbursementApiResponse> CreateDisbursementAsync(decimal version, long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateDisbursementApiResponse> CreateDisbursementAsync(long accountId, long receiverAccountId, long originalSenderAccountId, decimal amount, string provider, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -842,7 +819,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateDisbursement(provider, title, comment, externalId, introspectionParams);
 
-                FormatCreateDisbursement(ref version, ref accountId, ref receiverAccountId, ref originalSenderAccountId, ref amount, ref provider, ref scheduledDate, ref title, ref comment, ref externalId, ref introspectionParams);
+                FormatCreateDisbursement(ref accountId, ref receiverAccountId, ref originalSenderAccountId, ref amount, ref provider, ref scheduledDate, ref title, ref comment, ref externalId, ref introspectionParams);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -850,9 +827,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/disbursement/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/disbursement/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/disbursement/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/disbursement/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -902,13 +878,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/disbursement/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/disbursement/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateDisbursementDefaultImplementation(apiResponseLocalVar, version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
+                        AfterCreateDisbursementDefaultImplementation(apiResponseLocalVar, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
 
                         Events.ExecuteOnCreateDisbursement(apiResponseLocalVar);
 
@@ -918,7 +894,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateDisbursementDefaultImplementation(e, "/api/{version}/disbursement/create", uriBuilderLocalVar.Path, version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
+                OnErrorCreateDisbursementDefaultImplementation(e, "/disbursement/create", uriBuilderLocalVar.Path, accountId, receiverAccountId, originalSenderAccountId, amount, provider, scheduledDate, title, comment, externalId, introspectionParams);
                 Events.ExecuteOnErrorCreateDisbursement(e);
                 throw;
             }
@@ -1017,19 +993,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetDisbursement(ref decimal version, ref long accountId, ref long disbursementId);
+        partial void FormatGetDisbursement(ref long accountId, ref long disbursementId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="disbursementId"></param>
-        private void AfterGetDisbursementDefaultImplementation(IGetDisbursementApiResponse apiResponseLocalVar, decimal version, long accountId, long disbursementId)
+        private void AfterGetDisbursementDefaultImplementation(IGetDisbursementApiResponse apiResponseLocalVar, long accountId, long disbursementId)
         {
             bool suppressDefaultLog = false;
-            AfterGetDisbursement(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, disbursementId);
+            AfterGetDisbursement(ref suppressDefaultLog, apiResponseLocalVar, accountId, disbursementId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1039,10 +1014,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="disbursementId"></param>
-        partial void AfterGetDisbursement(ref bool suppressDefaultLog, IGetDisbursementApiResponse apiResponseLocalVar, decimal version, long accountId, long disbursementId);
+        partial void AfterGetDisbursement(ref bool suppressDefaultLog, IGetDisbursementApiResponse apiResponseLocalVar, long accountId, long disbursementId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1050,13 +1024,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="disbursementId"></param>
-        private void OnErrorGetDisbursementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long disbursementId)
+        private void OnErrorGetDisbursementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long disbursementId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetDisbursement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, disbursementId);
+            OnErrorGetDisbursement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, disbursementId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1068,24 +1041,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="disbursementId"></param>
-        partial void OnErrorGetDisbursement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long disbursementId);
+        partial void OnErrorGetDisbursement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long disbursementId);
 
         /// <summary>
         /// Get Disbursement Get Disbursement details
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="disbursementId">the id of the disbursement</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDisbursementApiResponse"/>&gt;</returns>
-        public async Task<IGetDisbursementApiResponse?> GetDisbursementOrDefaultAsync(decimal version, long accountId, long disbursementId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetDisbursementApiResponse?> GetDisbursementOrDefaultAsync(long accountId, long disbursementId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetDisbursementAsync(version, accountId, disbursementId, cancellationToken).ConfigureAwait(false);
+                return await GetDisbursementAsync(accountId, disbursementId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1097,18 +1068,17 @@ namespace Org.OpenAPITools.Api
         /// Get Disbursement Get Disbursement details
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="disbursementId">the id of the disbursement</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDisbursementApiResponse"/>&gt;</returns>
-        public async Task<IGetDisbursementApiResponse> GetDisbursementAsync(decimal version, long accountId, long disbursementId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetDisbursementApiResponse> GetDisbursementAsync(long accountId, long disbursementId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetDisbursement(ref version, ref accountId, ref disbursementId);
+                FormatGetDisbursement(ref accountId, ref disbursementId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1116,9 +1086,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/disbursement/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/disbursement/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/disbursement/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/disbursement/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1150,13 +1119,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/disbursement/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/disbursement/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetDisbursementDefaultImplementation(apiResponseLocalVar, version, accountId, disbursementId);
+                        AfterGetDisbursementDefaultImplementation(apiResponseLocalVar, accountId, disbursementId);
 
                         Events.ExecuteOnGetDisbursement(apiResponseLocalVar);
 
@@ -1166,7 +1135,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetDisbursementDefaultImplementation(e, "/api/{version}/disbursement/get", uriBuilderLocalVar.Path, version, accountId, disbursementId);
+                OnErrorGetDisbursementDefaultImplementation(e, "/disbursement/get", uriBuilderLocalVar.Path, accountId, disbursementId);
                 Events.ExecuteOnErrorGetDisbursement(e);
                 throw;
             }
@@ -1265,7 +1234,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchDisbursements(ref decimal version, ref long accountId, ref Option<long> receiverAccountId, ref Option<string> statuses, ref Option<string> providers, ref Option<long> beforeDate, ref Option<long> afterDate, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<string> externalId);
+        partial void FormatSearchDisbursements(ref long accountId, ref Option<long> receiverAccountId, ref Option<string> statuses, ref Option<string> providers, ref Option<long> beforeDate, ref Option<long> afterDate, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<string> externalId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1290,7 +1259,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="statuses"></param>
@@ -1301,10 +1269,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
         /// <param name="externalId"></param>
-        private void AfterSearchDisbursementsDefaultImplementation(ISearchDisbursementsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> receiverAccountId, Option<string> statuses, Option<string> providers, Option<long> beforeDate, Option<long> afterDate, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<string> externalId)
+        private void AfterSearchDisbursementsDefaultImplementation(ISearchDisbursementsApiResponse apiResponseLocalVar, long accountId, Option<long> receiverAccountId, Option<string> statuses, Option<string> providers, Option<long> beforeDate, Option<long> afterDate, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<string> externalId)
         {
             bool suppressDefaultLog = false;
-            AfterSearchDisbursements(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
+            AfterSearchDisbursements(ref suppressDefaultLog, apiResponseLocalVar, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1314,7 +1282,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="statuses"></param>
@@ -1325,7 +1292,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
         /// <param name="externalId"></param>
-        partial void AfterSearchDisbursements(ref bool suppressDefaultLog, ISearchDisbursementsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> receiverAccountId, Option<string> statuses, Option<string> providers, Option<long> beforeDate, Option<long> afterDate, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<string> externalId);
+        partial void AfterSearchDisbursements(ref bool suppressDefaultLog, ISearchDisbursementsApiResponse apiResponseLocalVar, long accountId, Option<long> receiverAccountId, Option<string> statuses, Option<string> providers, Option<long> beforeDate, Option<long> afterDate, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<string> externalId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1333,7 +1300,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="statuses"></param>
@@ -1344,10 +1310,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
         /// <param name="externalId"></param>
-        private void OnErrorSearchDisbursementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> receiverAccountId, Option<string> statuses, Option<string> providers, Option<long> beforeDate, Option<long> afterDate, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<string> externalId)
+        private void OnErrorSearchDisbursementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> receiverAccountId, Option<string> statuses, Option<string> providers, Option<long> beforeDate, Option<long> afterDate, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<string> externalId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchDisbursements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
+            OnErrorSearchDisbursements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1359,7 +1325,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="statuses"></param>
@@ -1370,12 +1335,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
         /// <param name="externalId"></param>
-        partial void OnErrorSearchDisbursements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> receiverAccountId, Option<string> statuses, Option<string> providers, Option<long> beforeDate, Option<long> afterDate, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<string> externalId);
+        partial void OnErrorSearchDisbursements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> receiverAccountId, Option<string> statuses, Option<string> providers, Option<long> beforeDate, Option<long> afterDate, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<string> externalId);
 
         /// <summary>
         /// Search Disbursements Search Disbursements
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="receiverAccountId">filter results by the id of the account receiving the disbursement (optional)</param>
         /// <param name="statuses">comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)</param>
@@ -1388,11 +1352,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId">search results by this external ID (that can be used to reference the disbursement) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchDisbursementsApiResponse"/>&gt;</returns>
-        public async Task<ISearchDisbursementsApiResponse?> SearchDisbursementsOrDefaultAsync(decimal version, long accountId, Option<long> receiverAccountId = default, Option<string> statuses = default, Option<string> providers = default, Option<long> beforeDate = default, Option<long> afterDate = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<string> externalId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchDisbursementsApiResponse?> SearchDisbursementsOrDefaultAsync(long accountId, Option<long> receiverAccountId = default, Option<string> statuses = default, Option<string> providers = default, Option<long> beforeDate = default, Option<long> afterDate = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<string> externalId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchDisbursementsAsync(version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId, cancellationToken).ConfigureAwait(false);
+                return await SearchDisbursementsAsync(accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1404,7 +1368,6 @@ namespace Org.OpenAPITools.Api
         /// Search Disbursements Search Disbursements
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="receiverAccountId">filter results by the id of the account receiving the disbursement (optional)</param>
         /// <param name="statuses">comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)</param>
@@ -1417,7 +1380,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId">search results by this external ID (that can be used to reference the disbursement) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchDisbursementsApiResponse"/>&gt;</returns>
-        public async Task<ISearchDisbursementsApiResponse> SearchDisbursementsAsync(decimal version, long accountId, Option<long> receiverAccountId = default, Option<string> statuses = default, Option<string> providers = default, Option<long> beforeDate = default, Option<long> afterDate = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<string> externalId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchDisbursementsApiResponse> SearchDisbursementsAsync(long accountId, Option<long> receiverAccountId = default, Option<string> statuses = default, Option<string> providers = default, Option<long> beforeDate = default, Option<long> afterDate = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<string> externalId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1425,7 +1388,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchDisbursements(statuses, providers, externalId);
 
-                FormatSearchDisbursements(ref version, ref accountId, ref receiverAccountId, ref statuses, ref providers, ref beforeDate, ref afterDate, ref start, ref limit, ref activeOnly, ref externalId);
+                FormatSearchDisbursements(ref accountId, ref receiverAccountId, ref statuses, ref providers, ref beforeDate, ref afterDate, ref start, ref limit, ref activeOnly, ref externalId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1433,9 +1396,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/disbursement/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/disbursement/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/disbursement/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/disbursement/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1493,13 +1455,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/disbursement/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/disbursement/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchDisbursementsDefaultImplementation(apiResponseLocalVar, version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
+                        AfterSearchDisbursementsDefaultImplementation(apiResponseLocalVar, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
 
                         Events.ExecuteOnSearchDisbursements(apiResponseLocalVar);
 
@@ -1509,7 +1471,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchDisbursementsDefaultImplementation(e, "/api/{version}/disbursement/search", uriBuilderLocalVar.Path, version, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
+                OnErrorSearchDisbursementsDefaultImplementation(e, "/disbursement/search", uriBuilderLocalVar.Path, accountId, receiverAccountId, statuses, providers, beforeDate, afterDate, start, limit, activeOnly, externalId);
                 Events.ExecuteOnErrorSearchDisbursements(e);
                 throw;
             }
@@ -1608,7 +1570,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateDisbursement(ref decimal version, ref long accountId, ref long disbursementId, ref Option<decimal> amount, ref Option<string> provider, ref Option<long> scheduledDate, ref Option<string> title, ref Option<string> comment, ref Option<string> externalId, ref Option<bool> retry, ref Option<string> introspectionParams);
+        partial void FormatUpdateDisbursement(ref long accountId, ref long disbursementId, ref Option<decimal> amount, ref Option<string> provider, ref Option<long> scheduledDate, ref Option<string> title, ref Option<string> comment, ref Option<string> externalId, ref Option<bool> retry, ref Option<string> introspectionParams);
 
         /// <summary>
         /// Validates the request parameters
@@ -1641,7 +1603,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="disbursementId"></param>
         /// <param name="amount"></param>
@@ -1652,10 +1613,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId"></param>
         /// <param name="retry"></param>
         /// <param name="introspectionParams"></param>
-        private void AfterUpdateDisbursementDefaultImplementation(IUpdateDisbursementApiResponse apiResponseLocalVar, decimal version, long accountId, long disbursementId, Option<decimal> amount, Option<string> provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<bool> retry, Option<string> introspectionParams)
+        private void AfterUpdateDisbursementDefaultImplementation(IUpdateDisbursementApiResponse apiResponseLocalVar, long accountId, long disbursementId, Option<decimal> amount, Option<string> provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<bool> retry, Option<string> introspectionParams)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateDisbursement(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
+            AfterUpdateDisbursement(ref suppressDefaultLog, apiResponseLocalVar, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1665,7 +1626,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="disbursementId"></param>
         /// <param name="amount"></param>
@@ -1676,7 +1636,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId"></param>
         /// <param name="retry"></param>
         /// <param name="introspectionParams"></param>
-        partial void AfterUpdateDisbursement(ref bool suppressDefaultLog, IUpdateDisbursementApiResponse apiResponseLocalVar, decimal version, long accountId, long disbursementId, Option<decimal> amount, Option<string> provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<bool> retry, Option<string> introspectionParams);
+        partial void AfterUpdateDisbursement(ref bool suppressDefaultLog, IUpdateDisbursementApiResponse apiResponseLocalVar, long accountId, long disbursementId, Option<decimal> amount, Option<string> provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<bool> retry, Option<string> introspectionParams);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1684,7 +1644,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="disbursementId"></param>
         /// <param name="amount"></param>
@@ -1695,10 +1654,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId"></param>
         /// <param name="retry"></param>
         /// <param name="introspectionParams"></param>
-        private void OnErrorUpdateDisbursementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long disbursementId, Option<decimal> amount, Option<string> provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<bool> retry, Option<string> introspectionParams)
+        private void OnErrorUpdateDisbursementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long disbursementId, Option<decimal> amount, Option<string> provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<bool> retry, Option<string> introspectionParams)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateDisbursement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
+            OnErrorUpdateDisbursement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1710,7 +1669,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="disbursementId"></param>
         /// <param name="amount"></param>
@@ -1721,12 +1679,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId"></param>
         /// <param name="retry"></param>
         /// <param name="introspectionParams"></param>
-        partial void OnErrorUpdateDisbursement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long disbursementId, Option<decimal> amount, Option<string> provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<bool> retry, Option<string> introspectionParams);
+        partial void OnErrorUpdateDisbursement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long disbursementId, Option<decimal> amount, Option<string> provider, Option<long> scheduledDate, Option<string> title, Option<string> comment, Option<string> externalId, Option<bool> retry, Option<string> introspectionParams);
 
         /// <summary>
         /// Update Disbursement Update Disbursement
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="disbursementId">the id of the disbursement being updated</param>
         /// <param name="amount">the disbursement dollar amount being updated (optional)</param>
@@ -1739,11 +1696,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="introspectionParams">for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateDisbursementApiResponse"/>&gt;</returns>
-        public async Task<IUpdateDisbursementApiResponse?> UpdateDisbursementOrDefaultAsync(decimal version, long accountId, long disbursementId, Option<decimal> amount = default, Option<string> provider = default, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<bool> retry = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateDisbursementApiResponse?> UpdateDisbursementOrDefaultAsync(long accountId, long disbursementId, Option<decimal> amount = default, Option<string> provider = default, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<bool> retry = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateDisbursementAsync(version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams, cancellationToken).ConfigureAwait(false);
+                return await UpdateDisbursementAsync(accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1755,7 +1712,6 @@ namespace Org.OpenAPITools.Api
         /// Update Disbursement Update Disbursement
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="disbursementId">the id of the disbursement being updated</param>
         /// <param name="amount">the disbursement dollar amount being updated (optional)</param>
@@ -1768,7 +1724,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="introspectionParams">for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateDisbursementApiResponse"/>&gt;</returns>
-        public async Task<IUpdateDisbursementApiResponse> UpdateDisbursementAsync(decimal version, long accountId, long disbursementId, Option<decimal> amount = default, Option<string> provider = default, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<bool> retry = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateDisbursementApiResponse> UpdateDisbursementAsync(long accountId, long disbursementId, Option<decimal> amount = default, Option<string> provider = default, Option<long> scheduledDate = default, Option<string> title = default, Option<string> comment = default, Option<string> externalId = default, Option<bool> retry = default, Option<string> introspectionParams = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1776,7 +1732,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateDisbursement(provider, title, comment, externalId, introspectionParams);
 
-                FormatUpdateDisbursement(ref version, ref accountId, ref disbursementId, ref amount, ref provider, ref scheduledDate, ref title, ref comment, ref externalId, ref retry, ref introspectionParams);
+                FormatUpdateDisbursement(ref accountId, ref disbursementId, ref amount, ref provider, ref scheduledDate, ref title, ref comment, ref externalId, ref retry, ref introspectionParams);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1784,9 +1740,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/disbursement/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/disbursement/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/disbursement/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/disbursement/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1842,13 +1797,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/disbursement/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/disbursement/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateDisbursementDefaultImplementation(apiResponseLocalVar, version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
+                        AfterUpdateDisbursementDefaultImplementation(apiResponseLocalVar, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
 
                         Events.ExecuteOnUpdateDisbursement(apiResponseLocalVar);
 
@@ -1858,7 +1813,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateDisbursementDefaultImplementation(e, "/api/{version}/disbursement/update", uriBuilderLocalVar.Path, version, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
+                OnErrorUpdateDisbursementDefaultImplementation(e, "/disbursement/update", uriBuilderLocalVar.Path, accountId, disbursementId, amount, provider, scheduledDate, title, comment, externalId, retry, introspectionParams);
                 Events.ExecuteOnErrorUpdateDisbursement(e);
                 throw;
             }

@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Create a new trip
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTripApiResponse"/>&gt;</returns>
-        Task<ICreateTripApiResponse> CreateTripAsync(decimal version, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTripApiResponse> CreateTripAsync(Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Trip
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new trip
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTripApiResponse"/>?&gt;</returns>
-        Task<ICreateTripApiResponse?> CreateTripOrDefaultAsync(decimal version, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTripApiResponse?> CreateTripOrDefaultAsync(Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Trip
@@ -70,11 +68,10 @@ namespace Org.OpenAPITools.Api
         /// Delete an existing trip
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApiResponse"/>&gt;</returns>
-        Task<IDeleteApiResponse> DeleteAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteApiResponse> DeleteAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Trip
@@ -82,11 +79,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an existing trip
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApiResponse"/>?&gt;</returns>
-        Task<IDeleteApiResponse?> DeleteOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteApiResponse?> DeleteOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set Trip Preference Driver
@@ -95,12 +91,11 @@ namespace Org.OpenAPITools.Api
         /// Update trip preference to drive, also create a route and assign the trip to the route
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDriveTripApiResponse"/>&gt;</returns>
-        Task<IDriveTripApiResponse> DriveTripAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDriveTripApiResponse> DriveTripAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set Trip Preference Driver
@@ -108,12 +103,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update trip preference to drive, also create a route and assign the trip to the route
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDriveTripApiResponse"/>?&gt;</returns>
-        Task<IDriveTripApiResponse?> DriveTripOrDefaultAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDriveTripApiResponse?> DriveTripOrDefaultAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set Trip Preference Flexible
@@ -122,12 +116,11 @@ namespace Org.OpenAPITools.Api
         /// Update trip preference to flexible.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFlexibleTripApiResponse"/>&gt;</returns>
-        Task<IFlexibleTripApiResponse> FlexibleTripAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFlexibleTripApiResponse> FlexibleTripAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set Trip Preference Flexible
@@ -135,12 +128,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update trip preference to flexible.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFlexibleTripApiResponse"/>?&gt;</returns>
-        Task<IFlexibleTripApiResponse?> FlexibleTripOrDefaultAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
+        Task<IFlexibleTripApiResponse?> FlexibleTripOrDefaultAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Trip
@@ -149,11 +141,10 @@ namespace Org.OpenAPITools.Api
         /// Get an existing trip
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTripApiResponse"/>&gt;</returns>
-        Task<IGetTripApiResponse> GetTripAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTripApiResponse> GetTripAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Trip
@@ -161,11 +152,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an existing trip
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTripApiResponse"/>?&gt;</returns>
-        Task<IGetTripApiResponse?> GetTripOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTripApiResponse?> GetTripOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Trip Matches
@@ -174,7 +164,6 @@ namespace Org.OpenAPITools.Api
         /// Get matching trips of specific trip
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">The id The id of the trip to search for matches for</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -185,7 +174,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTripMatchesApiResponse"/>&gt;</returns>
-        Task<IGetTripMatchesApiResponse> GetTripMatchesAsync(decimal version, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTripMatchesApiResponse> GetTripMatchesAsync(long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Trip Matches
@@ -193,7 +182,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get matching trips of specific trip
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">The id The id of the trip to search for matches for</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -204,7 +192,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTripMatchesApiResponse"/>?&gt;</returns>
-        Task<IGetTripMatchesApiResponse?> GetTripMatchesOrDefaultAsync(decimal version, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTripMatchesApiResponse?> GetTripMatchesOrDefaultAsync(long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Process Trip Matches
@@ -213,13 +201,12 @@ namespace Org.OpenAPITools.Api
         /// Process trip matching, assign trips with no route to matched trips with route.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="startDate">The lower bound date to process matchings (optional)</param>
         /// <param name="endDate">The upper bound date to process matchings (optional)</param>
         /// <param name="tripId">the id of the trip to process (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessTripMatchesApiResponse"/>&gt;</returns>
-        Task<IProcessTripMatchesApiResponse> ProcessTripMatchesAsync(decimal version, Option<long> startDate = default, Option<long> endDate = default, Option<long> tripId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IProcessTripMatchesApiResponse> ProcessTripMatchesAsync(Option<long> startDate = default, Option<long> endDate = default, Option<long> tripId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Process Trip Matches
@@ -227,13 +214,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Process trip matching, assign trips with no route to matched trips with route.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="startDate">The lower bound date to process matchings (optional)</param>
         /// <param name="endDate">The upper bound date to process matchings (optional)</param>
         /// <param name="tripId">the id of the trip to process (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessTripMatchesApiResponse"/>?&gt;</returns>
-        Task<IProcessTripMatchesApiResponse?> ProcessTripMatchesOrDefaultAsync(decimal version, Option<long> startDate = default, Option<long> endDate = default, Option<long> tripId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IProcessTripMatchesApiResponse?> ProcessTripMatchesOrDefaultAsync(Option<long> startDate = default, Option<long> endDate = default, Option<long> tripId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set Trip Preference Rider
@@ -242,12 +228,11 @@ namespace Org.OpenAPITools.Api
         /// Update trip preference to ride.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRideApiResponse"/>&gt;</returns>
-        Task<IRideApiResponse> RideAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRideApiResponse> RideAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set Trip Preference Rider
@@ -255,12 +240,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update trip preference to ride.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRideApiResponse"/>?&gt;</returns>
-        Task<IRideApiResponse?> RideOrDefaultAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRideApiResponse?> RideOrDefaultAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Trips
@@ -269,7 +253,6 @@ namespace Org.OpenAPITools.Api
         /// Search for trips
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The owner of the trips</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -281,7 +264,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasNotifications">whether to search on trips that have notifications or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApiResponse"/>&gt;</returns>
-        Task<ISearchApiResponse> SearchAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> hasNotifications = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApiResponse> SearchAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> hasNotifications = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Trips
@@ -289,7 +272,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for trips
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The owner of the trips</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -301,7 +283,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasNotifications">whether to search on trips that have notifications or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApiResponse"/>?&gt;</returns>
-        Task<ISearchApiResponse?> SearchOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> hasNotifications = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApiResponse?> SearchOrDefaultAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> hasNotifications = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Trips
@@ -310,7 +292,6 @@ namespace Org.OpenAPITools.Api
         /// Search for trips with matching information.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The owner of the trips</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -323,7 +304,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTripsApiResponse"/>&gt;</returns>
-        Task<ISearchTripsApiResponse> SearchTripsAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTripsApiResponse> SearchTripsAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Trips
@@ -331,7 +312,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for trips with matching information.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The owner of the trips</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -344,7 +324,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTripsApiResponse"/>?&gt;</returns>
-        Task<ISearchTripsApiResponse?> SearchTripsOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTripsApiResponse?> SearchTripsOrDefaultAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Trip Locations
@@ -353,12 +333,11 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to update locations for</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationsApiResponse"/>&gt;</returns>
-        Task<IUpdateLocationsApiResponse> UpdateLocationsAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateLocationsApiResponse> UpdateLocationsAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Trip Locations
@@ -366,12 +345,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to update locations for</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationsApiResponse"/>?&gt;</returns>
-        Task<IUpdateLocationsApiResponse?> UpdateLocationsOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateLocationsApiResponse?> UpdateLocationsOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Recurrence Locations
@@ -380,12 +358,11 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRecurrenceLocationsApiResponse"/>&gt;</returns>
-        Task<IUpdateRecurrenceLocationsApiResponse> UpdateRecurrenceLocationsAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRecurrenceLocationsApiResponse> UpdateRecurrenceLocationsAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Recurrence Locations
@@ -393,12 +370,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRecurrenceLocationsApiResponse"/>?&gt;</returns>
-        Task<IUpdateRecurrenceLocationsApiResponse?> UpdateRecurrenceLocationsOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRecurrenceLocationsApiResponse?> UpdateRecurrenceLocationsOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Recurrence Shipments
@@ -407,12 +383,11 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRecurrenceShipmentsApiResponse"/>&gt;</returns>
-        Task<IUpdateRecurrenceShipmentsApiResponse> UpdateRecurrenceShipmentsAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRecurrenceShipmentsApiResponse> UpdateRecurrenceShipmentsAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Recurrence Shipments
@@ -420,12 +395,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRecurrenceShipmentsApiResponse"/>?&gt;</returns>
-        Task<IUpdateRecurrenceShipmentsApiResponse?> UpdateRecurrenceShipmentsOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRecurrenceShipmentsApiResponse?> UpdateRecurrenceShipmentsOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Trip Shipments
@@ -434,12 +408,11 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip shipments to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentsApiResponse"/>&gt;</returns>
-        Task<IUpdateShipmentsApiResponse> UpdateShipmentsAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateShipmentsApiResponse> UpdateShipmentsAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Trip Shipments
@@ -447,12 +420,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip shipments to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentsApiResponse"/>?&gt;</returns>
-        Task<IUpdateShipmentsApiResponse?> UpdateShipmentsOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateShipmentsApiResponse?> UpdateShipmentsOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Trip
@@ -461,12 +433,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing trip. Does not support recurring trip update.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTripApiResponse"/>&gt;</returns>
-        Task<IUpdateTripApiResponse> UpdateTripAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTripApiResponse> UpdateTripAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Trip
@@ -474,12 +445,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing trip. Does not support recurring trip update.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTripApiResponse"/>?&gt;</returns>
-        Task<IUpdateTripApiResponse?> UpdateTripOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTripApiResponse?> UpdateTripOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Trip Notifications
@@ -488,12 +458,11 @@ namespace Org.OpenAPITools.Api
         /// Update the trip notifications
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="notifications">the notifications to update on the trip (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTripNotificationsApiResponse"/>&gt;</returns>
-        Task<IUpdateTripNotificationsApiResponse> UpdateTripNotificationsAsync(decimal version, long id, Option<string> notifications = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTripNotificationsApiResponse> UpdateTripNotificationsAsync(long id, Option<string> notifications = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Trip Notifications
@@ -501,12 +470,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the trip notifications
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="notifications">the notifications to update on the trip (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTripNotificationsApiResponse"/>?&gt;</returns>
-        Task<IUpdateTripNotificationsApiResponse?> UpdateTripNotificationsOrDefaultAsync(decimal version, long id, Option<string> notifications = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTripNotificationsApiResponse?> UpdateTripNotificationsOrDefaultAsync(long id, Option<string> notifications = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -1074,7 +1042,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateTrip(ref decimal version, Option<Trip> body);
+        partial void FormatCreateTrip(Option<Trip> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1091,12 +1059,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateTripDefaultImplementation(ICreateTripApiResponse apiResponseLocalVar, decimal version, Option<Trip> body)
+        private void AfterCreateTripDefaultImplementation(ICreateTripApiResponse apiResponseLocalVar, Option<Trip> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateTrip(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateTrip(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1106,9 +1073,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateTrip(ref bool suppressDefaultLog, ICreateTripApiResponse apiResponseLocalVar, decimal version, Option<Trip> body);
+        partial void AfterCreateTrip(ref bool suppressDefaultLog, ICreateTripApiResponse apiResponseLocalVar, Option<Trip> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1116,12 +1082,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Trip> body)
+        private void OnErrorCreateTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Trip> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1133,22 +1098,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Trip> body);
+        partial void OnErrorCreateTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Trip> body);
 
         /// <summary>
         /// Create Trip Create a new trip
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTripApiResponse"/>&gt;</returns>
-        public async Task<ICreateTripApiResponse?> CreateTripOrDefaultAsync(decimal version, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTripApiResponse?> CreateTripOrDefaultAsync(Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateTripAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateTripAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1160,11 +1123,10 @@ namespace Org.OpenAPITools.Api
         /// Create Trip Create a new trip
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTripApiResponse"/>&gt;</returns>
-        public async Task<ICreateTripApiResponse> CreateTripAsync(decimal version, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTripApiResponse> CreateTripAsync(Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1172,7 +1134,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateTrip(body);
 
-                FormatCreateTrip(ref version, body);
+                FormatCreateTrip(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1180,9 +1142,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -1212,13 +1173,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateTripDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateTripDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateTrip(apiResponseLocalVar);
 
@@ -1228,7 +1189,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateTripDefaultImplementation(e, "/api/{version}/trip", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateTripDefaultImplementation(e, "/trip", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateTrip(e);
                 throw;
             }
@@ -1327,18 +1288,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDelete(ref decimal version, ref long id);
+        partial void FormatDelete(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterDeleteDefaultImplementation(IDeleteApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterDeleteDefaultImplementation(IDeleteApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterDelete(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterDelete(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1348,9 +1308,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterDelete(ref bool suppressDefaultLog, IDeleteApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterDelete(ref bool suppressDefaultLog, IDeleteApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1358,12 +1317,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorDeleteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorDeleteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDelete(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorDelete(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1375,22 +1333,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorDelete(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorDelete(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Delete Trip Delete an existing trip
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApiResponse"/>&gt;</returns>
-        public async Task<IDeleteApiResponse?> DeleteOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteApiResponse?> DeleteOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await DeleteAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1402,17 +1358,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Trip Delete an existing trip
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApiResponse"/>&gt;</returns>
-        public async Task<IDeleteApiResponse> DeleteAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteApiResponse> DeleteAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDelete(ref version, ref id);
+                FormatDelete(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1420,9 +1375,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1439,13 +1393,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterDeleteDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnDelete(apiResponseLocalVar);
 
@@ -1455,7 +1409,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteDefaultImplementation(e, "/api/{version}/trip/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorDeleteDefaultImplementation(e, "/trip/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorDelete(e);
                 throw;
             }
@@ -1522,19 +1476,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDriveTrip(ref decimal version, ref long id, ref bool recurrence);
+        partial void FormatDriveTrip(ref long id, ref bool recurrence);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        private void AfterDriveTripDefaultImplementation(IDriveTripApiResponse apiResponseLocalVar, decimal version, long id, bool recurrence)
+        private void AfterDriveTripDefaultImplementation(IDriveTripApiResponse apiResponseLocalVar, long id, bool recurrence)
         {
             bool suppressDefaultLog = false;
-            AfterDriveTrip(ref suppressDefaultLog, apiResponseLocalVar, version, id, recurrence);
+            AfterDriveTrip(ref suppressDefaultLog, apiResponseLocalVar, id, recurrence);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1544,10 +1497,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        partial void AfterDriveTrip(ref bool suppressDefaultLog, IDriveTripApiResponse apiResponseLocalVar, decimal version, long id, bool recurrence);
+        partial void AfterDriveTrip(ref bool suppressDefaultLog, IDriveTripApiResponse apiResponseLocalVar, long id, bool recurrence);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1555,13 +1507,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        private void OnErrorDriveTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, bool recurrence)
+        private void OnErrorDriveTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, bool recurrence)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDriveTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, recurrence);
+            OnErrorDriveTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, recurrence);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1573,24 +1524,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        partial void OnErrorDriveTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, bool recurrence);
+        partial void OnErrorDriveTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, bool recurrence);
 
         /// <summary>
         /// Set Trip Preference Driver Update trip preference to drive, also create a route and assign the trip to the route
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDriveTripApiResponse"/>&gt;</returns>
-        public async Task<IDriveTripApiResponse?> DriveTripOrDefaultAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDriveTripApiResponse?> DriveTripOrDefaultAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DriveTripAsync(version, id, recurrence, cancellationToken).ConfigureAwait(false);
+                return await DriveTripAsync(id, recurrence, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1602,18 +1551,17 @@ namespace Org.OpenAPITools.Api
         /// Set Trip Preference Driver Update trip preference to drive, also create a route and assign the trip to the route
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDriveTripApiResponse"/>&gt;</returns>
-        public async Task<IDriveTripApiResponse> DriveTripAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDriveTripApiResponse> DriveTripAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDriveTrip(ref version, ref id, ref recurrence);
+                FormatDriveTrip(ref id, ref recurrence);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1621,9 +1569,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}/drive"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}/drive");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}/drive"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}/drive");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1655,13 +1602,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}/drive", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}/drive", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDriveTripDefaultImplementation(apiResponseLocalVar, version, id, recurrence);
+                        AfterDriveTripDefaultImplementation(apiResponseLocalVar, id, recurrence);
 
                         Events.ExecuteOnDriveTrip(apiResponseLocalVar);
 
@@ -1671,7 +1618,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDriveTripDefaultImplementation(e, "/api/{version}/trip/{id}/drive", uriBuilderLocalVar.Path, version, id, recurrence);
+                OnErrorDriveTripDefaultImplementation(e, "/trip/{id}/drive", uriBuilderLocalVar.Path, id, recurrence);
                 Events.ExecuteOnErrorDriveTrip(e);
                 throw;
             }
@@ -1770,19 +1717,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatFlexibleTrip(ref decimal version, ref long id, ref bool recurrence);
+        partial void FormatFlexibleTrip(ref long id, ref bool recurrence);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        private void AfterFlexibleTripDefaultImplementation(IFlexibleTripApiResponse apiResponseLocalVar, decimal version, long id, bool recurrence)
+        private void AfterFlexibleTripDefaultImplementation(IFlexibleTripApiResponse apiResponseLocalVar, long id, bool recurrence)
         {
             bool suppressDefaultLog = false;
-            AfterFlexibleTrip(ref suppressDefaultLog, apiResponseLocalVar, version, id, recurrence);
+            AfterFlexibleTrip(ref suppressDefaultLog, apiResponseLocalVar, id, recurrence);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1792,10 +1738,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        partial void AfterFlexibleTrip(ref bool suppressDefaultLog, IFlexibleTripApiResponse apiResponseLocalVar, decimal version, long id, bool recurrence);
+        partial void AfterFlexibleTrip(ref bool suppressDefaultLog, IFlexibleTripApiResponse apiResponseLocalVar, long id, bool recurrence);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1803,13 +1748,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        private void OnErrorFlexibleTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, bool recurrence)
+        private void OnErrorFlexibleTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, bool recurrence)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFlexibleTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, recurrence);
+            OnErrorFlexibleTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, recurrence);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1821,24 +1765,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        partial void OnErrorFlexibleTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, bool recurrence);
+        partial void OnErrorFlexibleTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, bool recurrence);
 
         /// <summary>
         /// Set Trip Preference Flexible Update trip preference to flexible.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFlexibleTripApiResponse"/>&gt;</returns>
-        public async Task<IFlexibleTripApiResponse?> FlexibleTripOrDefaultAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFlexibleTripApiResponse?> FlexibleTripOrDefaultAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await FlexibleTripAsync(version, id, recurrence, cancellationToken).ConfigureAwait(false);
+                return await FlexibleTripAsync(id, recurrence, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1850,18 +1792,17 @@ namespace Org.OpenAPITools.Api
         /// Set Trip Preference Flexible Update trip preference to flexible.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFlexibleTripApiResponse"/>&gt;</returns>
-        public async Task<IFlexibleTripApiResponse> FlexibleTripAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IFlexibleTripApiResponse> FlexibleTripAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatFlexibleTrip(ref version, ref id, ref recurrence);
+                FormatFlexibleTrip(ref id, ref recurrence);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1869,9 +1810,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}/flexible"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}/flexible");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}/flexible"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}/flexible");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1903,13 +1843,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}/flexible", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}/flexible", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterFlexibleTripDefaultImplementation(apiResponseLocalVar, version, id, recurrence);
+                        AfterFlexibleTripDefaultImplementation(apiResponseLocalVar, id, recurrence);
 
                         Events.ExecuteOnFlexibleTrip(apiResponseLocalVar);
 
@@ -1919,7 +1859,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorFlexibleTripDefaultImplementation(e, "/api/{version}/trip/{id}/flexible", uriBuilderLocalVar.Path, version, id, recurrence);
+                OnErrorFlexibleTripDefaultImplementation(e, "/trip/{id}/flexible", uriBuilderLocalVar.Path, id, recurrence);
                 Events.ExecuteOnErrorFlexibleTrip(e);
                 throw;
             }
@@ -2018,18 +1958,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTrip(ref decimal version, ref long id);
+        partial void FormatGetTrip(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterGetTripDefaultImplementation(IGetTripApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterGetTripDefaultImplementation(IGetTripApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterGetTrip(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterGetTrip(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2039,9 +1978,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterGetTrip(ref bool suppressDefaultLog, IGetTripApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterGetTrip(ref bool suppressDefaultLog, IGetTripApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2049,12 +1987,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorGetTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorGetTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorGetTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2066,22 +2003,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorGetTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorGetTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Get Trip Get an existing trip
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTripApiResponse"/>&gt;</returns>
-        public async Task<IGetTripApiResponse?> GetTripOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTripApiResponse?> GetTripOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTripAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await GetTripAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2093,17 +2028,16 @@ namespace Org.OpenAPITools.Api
         /// Get Trip Get an existing trip
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTripApiResponse"/>&gt;</returns>
-        public async Task<IGetTripApiResponse> GetTripAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTripApiResponse> GetTripAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetTrip(ref version, ref id);
+                FormatGetTrip(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2111,9 +2045,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -2139,13 +2072,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTripDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterGetTripDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnGetTrip(apiResponseLocalVar);
 
@@ -2155,7 +2088,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTripDefaultImplementation(e, "/api/{version}/trip/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorGetTripDefaultImplementation(e, "/trip/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorGetTrip(e);
                 throw;
             }
@@ -2254,7 +2187,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTripMatches(ref decimal version, ref long id, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<bool> matchedHasRoute, ref Option<bool> matchedHasDriver);
+        partial void FormatGetTripMatches(ref long id, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<bool> matchedHasRoute, ref Option<bool> matchedHasDriver);
 
         /// <summary>
         /// Validates the request parameters
@@ -2271,7 +2204,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -2280,10 +2212,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="matchedHasRoute"></param>
         /// <param name="matchedHasDriver"></param>
-        private void AfterGetTripMatchesDefaultImplementation(IGetTripMatchesApiResponse apiResponseLocalVar, decimal version, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver)
+        private void AfterGetTripMatchesDefaultImplementation(IGetTripMatchesApiResponse apiResponseLocalVar, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver)
         {
             bool suppressDefaultLog = false;
-            AfterGetTripMatches(ref suppressDefaultLog, apiResponseLocalVar, version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
+            AfterGetTripMatches(ref suppressDefaultLog, apiResponseLocalVar, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2293,7 +2225,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -2302,7 +2233,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="matchedHasRoute"></param>
         /// <param name="matchedHasDriver"></param>
-        partial void AfterGetTripMatches(ref bool suppressDefaultLog, IGetTripMatchesApiResponse apiResponseLocalVar, decimal version, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver);
+        partial void AfterGetTripMatches(ref bool suppressDefaultLog, IGetTripMatchesApiResponse apiResponseLocalVar, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2310,7 +2241,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -2319,10 +2249,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="matchedHasRoute"></param>
         /// <param name="matchedHasDriver"></param>
-        private void OnErrorGetTripMatchesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver)
+        private void OnErrorGetTripMatchesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTripMatches(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
+            OnErrorGetTripMatches(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2334,7 +2264,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -2343,12 +2272,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="matchedHasRoute"></param>
         /// <param name="matchedHasDriver"></param>
-        partial void OnErrorGetTripMatches(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver);
+        partial void OnErrorGetTripMatches(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver);
 
         /// <summary>
         /// Get Trip Matches Get matching trips of specific trip
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">The id The id of the trip to search for matches for</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -2359,11 +2287,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTripMatchesApiResponse"/>&gt;</returns>
-        public async Task<IGetTripMatchesApiResponse?> GetTripMatchesOrDefaultAsync(decimal version, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTripMatchesApiResponse?> GetTripMatchesOrDefaultAsync(long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTripMatchesAsync(version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver, cancellationToken).ConfigureAwait(false);
+                return await GetTripMatchesAsync(id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2375,7 +2303,6 @@ namespace Org.OpenAPITools.Api
         /// Get Trip Matches Get matching trips of specific trip
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">The id The id of the trip to search for matches for</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -2386,7 +2313,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTripMatchesApiResponse"/>&gt;</returns>
-        public async Task<IGetTripMatchesApiResponse> GetTripMatchesAsync(decimal version, long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTripMatchesApiResponse> GetTripMatchesAsync(long id, string sortField, bool descending, int start, int limit, bool activeOnly, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2394,7 +2321,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetTripMatches(sortField);
 
-                FormatGetTripMatches(ref version, ref id, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref matchedHasRoute, ref matchedHasDriver);
+                FormatGetTripMatches(ref id, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref matchedHasRoute, ref matchedHasDriver);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2402,9 +2329,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}/match"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}/match");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}/match"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}/match");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -2446,13 +2372,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}/match", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}/match", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTripMatchesDefaultImplementation(apiResponseLocalVar, version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
+                        AfterGetTripMatchesDefaultImplementation(apiResponseLocalVar, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
 
                         Events.ExecuteOnGetTripMatches(apiResponseLocalVar);
 
@@ -2462,7 +2388,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTripMatchesDefaultImplementation(e, "/api/{version}/trip/{id}/match", uriBuilderLocalVar.Path, version, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
+                OnErrorGetTripMatchesDefaultImplementation(e, "/trip/{id}/match", uriBuilderLocalVar.Path, id, sortField, descending, start, limit, activeOnly, matchedHasRoute, matchedHasDriver);
                 Events.ExecuteOnErrorGetTripMatches(e);
                 throw;
             }
@@ -2561,20 +2487,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatProcessTripMatches(ref decimal version, ref Option<long> startDate, ref Option<long> endDate, ref Option<long> tripId);
+        partial void FormatProcessTripMatches(ref Option<long> startDate, ref Option<long> endDate, ref Option<long> tripId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="tripId"></param>
-        private void AfterProcessTripMatchesDefaultImplementation(IProcessTripMatchesApiResponse apiResponseLocalVar, decimal version, Option<long> startDate, Option<long> endDate, Option<long> tripId)
+        private void AfterProcessTripMatchesDefaultImplementation(IProcessTripMatchesApiResponse apiResponseLocalVar, Option<long> startDate, Option<long> endDate, Option<long> tripId)
         {
             bool suppressDefaultLog = false;
-            AfterProcessTripMatches(ref suppressDefaultLog, apiResponseLocalVar, version, startDate, endDate, tripId);
+            AfterProcessTripMatches(ref suppressDefaultLog, apiResponseLocalVar, startDate, endDate, tripId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2584,11 +2509,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="tripId"></param>
-        partial void AfterProcessTripMatches(ref bool suppressDefaultLog, IProcessTripMatchesApiResponse apiResponseLocalVar, decimal version, Option<long> startDate, Option<long> endDate, Option<long> tripId);
+        partial void AfterProcessTripMatches(ref bool suppressDefaultLog, IProcessTripMatchesApiResponse apiResponseLocalVar, Option<long> startDate, Option<long> endDate, Option<long> tripId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2596,14 +2520,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="tripId"></param>
-        private void OnErrorProcessTripMatchesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> startDate, Option<long> endDate, Option<long> tripId)
+        private void OnErrorProcessTripMatchesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> startDate, Option<long> endDate, Option<long> tripId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorProcessTripMatches(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, startDate, endDate, tripId);
+            OnErrorProcessTripMatches(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, startDate, endDate, tripId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2615,26 +2538,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="tripId"></param>
-        partial void OnErrorProcessTripMatches(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> startDate, Option<long> endDate, Option<long> tripId);
+        partial void OnErrorProcessTripMatches(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> startDate, Option<long> endDate, Option<long> tripId);
 
         /// <summary>
         /// Process Trip Matches Process trip matching, assign trips with no route to matched trips with route.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="startDate">The lower bound date to process matchings (optional)</param>
         /// <param name="endDate">The upper bound date to process matchings (optional)</param>
         /// <param name="tripId">the id of the trip to process (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessTripMatchesApiResponse"/>&gt;</returns>
-        public async Task<IProcessTripMatchesApiResponse?> ProcessTripMatchesOrDefaultAsync(decimal version, Option<long> startDate = default, Option<long> endDate = default, Option<long> tripId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IProcessTripMatchesApiResponse?> ProcessTripMatchesOrDefaultAsync(Option<long> startDate = default, Option<long> endDate = default, Option<long> tripId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ProcessTripMatchesAsync(version, startDate, endDate, tripId, cancellationToken).ConfigureAwait(false);
+                return await ProcessTripMatchesAsync(startDate, endDate, tripId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2646,19 +2567,18 @@ namespace Org.OpenAPITools.Api
         /// Process Trip Matches Process trip matching, assign trips with no route to matched trips with route.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="startDate">The lower bound date to process matchings (optional)</param>
         /// <param name="endDate">The upper bound date to process matchings (optional)</param>
         /// <param name="tripId">the id of the trip to process (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IProcessTripMatchesApiResponse"/>&gt;</returns>
-        public async Task<IProcessTripMatchesApiResponse> ProcessTripMatchesAsync(decimal version, Option<long> startDate = default, Option<long> endDate = default, Option<long> tripId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IProcessTripMatchesApiResponse> ProcessTripMatchesAsync(Option<long> startDate = default, Option<long> endDate = default, Option<long> tripId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatProcessTripMatches(ref version, ref startDate, ref endDate, ref tripId);
+                FormatProcessTripMatches(ref startDate, ref endDate, ref tripId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2666,9 +2586,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/match/process"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/match/process");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/match/process"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/match/process");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2706,13 +2625,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/match/process", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/match/process", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterProcessTripMatchesDefaultImplementation(apiResponseLocalVar, version, startDate, endDate, tripId);
+                        AfterProcessTripMatchesDefaultImplementation(apiResponseLocalVar, startDate, endDate, tripId);
 
                         Events.ExecuteOnProcessTripMatches(apiResponseLocalVar);
 
@@ -2722,7 +2641,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorProcessTripMatchesDefaultImplementation(e, "/api/{version}/trip/match/process", uriBuilderLocalVar.Path, version, startDate, endDate, tripId);
+                OnErrorProcessTripMatchesDefaultImplementation(e, "/trip/match/process", uriBuilderLocalVar.Path, startDate, endDate, tripId);
                 Events.ExecuteOnErrorProcessTripMatches(e);
                 throw;
             }
@@ -2821,19 +2740,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRide(ref decimal version, ref long id, ref bool recurrence);
+        partial void FormatRide(ref long id, ref bool recurrence);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        private void AfterRideDefaultImplementation(IRideApiResponse apiResponseLocalVar, decimal version, long id, bool recurrence)
+        private void AfterRideDefaultImplementation(IRideApiResponse apiResponseLocalVar, long id, bool recurrence)
         {
             bool suppressDefaultLog = false;
-            AfterRide(ref suppressDefaultLog, apiResponseLocalVar, version, id, recurrence);
+            AfterRide(ref suppressDefaultLog, apiResponseLocalVar, id, recurrence);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2843,10 +2761,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        partial void AfterRide(ref bool suppressDefaultLog, IRideApiResponse apiResponseLocalVar, decimal version, long id, bool recurrence);
+        partial void AfterRide(ref bool suppressDefaultLog, IRideApiResponse apiResponseLocalVar, long id, bool recurrence);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2854,13 +2771,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        private void OnErrorRideDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, bool recurrence)
+        private void OnErrorRideDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, bool recurrence)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRide(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, recurrence);
+            OnErrorRide(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, recurrence);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2872,24 +2788,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="recurrence"></param>
-        partial void OnErrorRide(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, bool recurrence);
+        partial void OnErrorRide(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, bool recurrence);
 
         /// <summary>
         /// Set Trip Preference Rider Update trip preference to ride.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRideApiResponse"/>&gt;</returns>
-        public async Task<IRideApiResponse?> RideOrDefaultAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRideApiResponse?> RideOrDefaultAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RideAsync(version, id, recurrence, cancellationToken).ConfigureAwait(false);
+                return await RideAsync(id, recurrence, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2901,18 +2815,17 @@ namespace Org.OpenAPITools.Api
         /// Set Trip Preference Rider Update trip preference to ride.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRideApiResponse"/>&gt;</returns>
-        public async Task<IRideApiResponse> RideAsync(decimal version, long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRideApiResponse> RideAsync(long id, bool recurrence, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatRide(ref version, ref id, ref recurrence);
+                FormatRide(ref id, ref recurrence);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2920,9 +2833,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}/ride"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}/ride");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}/ride"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}/ride");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -2954,13 +2866,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}/ride", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}/ride", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRideDefaultImplementation(apiResponseLocalVar, version, id, recurrence);
+                        AfterRideDefaultImplementation(apiResponseLocalVar, id, recurrence);
 
                         Events.ExecuteOnRide(apiResponseLocalVar);
 
@@ -2970,7 +2882,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRideDefaultImplementation(e, "/api/{version}/trip/{id}/ride", uriBuilderLocalVar.Path, version, id, recurrence);
+                OnErrorRideDefaultImplementation(e, "/trip/{id}/ride", uriBuilderLocalVar.Path, id, recurrence);
                 Events.ExecuteOnErrorRide(e);
                 throw;
             }
@@ -3069,7 +2981,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearch(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> hasNotifications);
+        partial void FormatSearch(ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> hasNotifications);
 
         /// <summary>
         /// Validates the request parameters
@@ -3086,7 +2998,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3096,10 +3007,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="hasNotifications"></param>
-        private void AfterSearchDefaultImplementation(ISearchApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> hasNotifications)
+        private void AfterSearchDefaultImplementation(ISearchApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> hasNotifications)
         {
             bool suppressDefaultLog = false;
-            AfterSearch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
+            AfterSearch(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3109,7 +3020,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3119,7 +3029,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="hasNotifications"></param>
-        partial void AfterSearch(ref bool suppressDefaultLog, ISearchApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> hasNotifications);
+        partial void AfterSearch(ref bool suppressDefaultLog, ISearchApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> hasNotifications);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3127,7 +3037,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3137,10 +3046,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="hasNotifications"></param>
-        private void OnErrorSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> hasNotifications)
+        private void OnErrorSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> hasNotifications)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
+            OnErrorSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3152,7 +3061,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3162,12 +3070,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="hasNotifications"></param>
-        partial void OnErrorSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> hasNotifications);
+        partial void OnErrorSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> hasNotifications);
 
         /// <summary>
         /// Search Trips Search for trips
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The owner of the trips</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -3179,11 +3086,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasNotifications">whether to search on trips that have notifications or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApiResponse"/>&gt;</returns>
-        public async Task<ISearchApiResponse?> SearchOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> hasNotifications = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApiResponse?> SearchOrDefaultAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> hasNotifications = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchAsync(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications, cancellationToken).ConfigureAwait(false);
+                return await SearchAsync(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3195,7 +3102,6 @@ namespace Org.OpenAPITools.Api
         /// Search Trips Search for trips
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The owner of the trips</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -3207,7 +3113,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasNotifications">whether to search on trips that have notifications or not (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApiResponse"/>&gt;</returns>
-        public async Task<ISearchApiResponse> SearchAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> hasNotifications = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApiResponse> SearchAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> hasNotifications = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3215,7 +3121,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearch(sortField);
 
-                FormatSearch(ref version, ref accountId, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref startDate, ref endDate, ref hasNotifications);
+                FormatSearch(ref accountId, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref startDate, ref endDate, ref hasNotifications);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3223,9 +3129,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3270,13 +3175,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
+                        AfterSearchDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
 
                         Events.ExecuteOnSearch(apiResponseLocalVar);
 
@@ -3286,7 +3191,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchDefaultImplementation(e, "/api/{version}/trip", uriBuilderLocalVar.Path, version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
+                OnErrorSearchDefaultImplementation(e, "/trip", uriBuilderLocalVar.Path, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, hasNotifications);
                 Events.ExecuteOnErrorSearch(e);
                 throw;
             }
@@ -3385,7 +3290,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchTrips(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> matchedHasRoute, ref Option<bool> matchedHasDriver);
+        partial void FormatSearchTrips(ref long accountId, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> matchedHasRoute, ref Option<bool> matchedHasDriver);
 
         /// <summary>
         /// Validates the request parameters
@@ -3402,7 +3307,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3413,10 +3317,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="matchedHasRoute"></param>
         /// <param name="matchedHasDriver"></param>
-        private void AfterSearchTripsDefaultImplementation(ISearchTripsApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver)
+        private void AfterSearchTripsDefaultImplementation(ISearchTripsApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver)
         {
             bool suppressDefaultLog = false;
-            AfterSearchTrips(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
+            AfterSearchTrips(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3426,7 +3330,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3437,7 +3340,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="matchedHasRoute"></param>
         /// <param name="matchedHasDriver"></param>
-        partial void AfterSearchTrips(ref bool suppressDefaultLog, ISearchTripsApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver);
+        partial void AfterSearchTrips(ref bool suppressDefaultLog, ISearchTripsApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3445,7 +3348,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3456,10 +3358,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="matchedHasRoute"></param>
         /// <param name="matchedHasDriver"></param>
-        private void OnErrorSearchTripsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver)
+        private void OnErrorSearchTripsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchTrips(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
+            OnErrorSearchTrips(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3471,7 +3373,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3482,12 +3383,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="matchedHasRoute"></param>
         /// <param name="matchedHasDriver"></param>
-        partial void OnErrorSearchTrips(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver);
+        partial void OnErrorSearchTrips(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate, Option<long> endDate, Option<bool> matchedHasRoute, Option<bool> matchedHasDriver);
 
         /// <summary>
         /// Search Trips Search for trips with matching information.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The owner of the trips</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -3500,11 +3400,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTripsApiResponse"/>&gt;</returns>
-        public async Task<ISearchTripsApiResponse?> SearchTripsOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTripsApiResponse?> SearchTripsOrDefaultAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchTripsAsync(version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver, cancellationToken).ConfigureAwait(false);
+                return await SearchTripsAsync(accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3516,7 +3416,6 @@ namespace Org.OpenAPITools.Api
         /// Search Trips Search for trips with matching information.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The owner of the trips</param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -3529,7 +3428,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTripsApiResponse"/>&gt;</returns>
-        public async Task<ISearchTripsApiResponse> SearchTripsAsync(decimal version, long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTripsApiResponse> SearchTripsAsync(long accountId, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> startDate = default, Option<long> endDate = default, Option<bool> matchedHasRoute = default, Option<bool> matchedHasDriver = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3537,7 +3436,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchTrips(sortField);
 
-                FormatSearchTrips(ref version, ref accountId, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref startDate, ref endDate, ref matchedHasRoute, ref matchedHasDriver);
+                FormatSearchTrips(ref accountId, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref startDate, ref endDate, ref matchedHasRoute, ref matchedHasDriver);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3545,9 +3444,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/match"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/match");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/match"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/match");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3595,13 +3493,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/match", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/match", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchTripsDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
+                        AfterSearchTripsDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
 
                         Events.ExecuteOnSearchTrips(apiResponseLocalVar);
 
@@ -3611,7 +3509,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchTripsDefaultImplementation(e, "/api/{version}/trip/match", uriBuilderLocalVar.Path, version, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
+                OnErrorSearchTripsDefaultImplementation(e, "/trip/match", uriBuilderLocalVar.Path, accountId, sortField, descending, start, limit, activeOnly, startDate, endDate, matchedHasRoute, matchedHasDriver);
                 Events.ExecuteOnErrorSearchTrips(e);
                 throw;
             }
@@ -3710,7 +3608,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateLocations(ref decimal version, ref long id, Option<Trip> body);
+        partial void FormatUpdateLocations(ref long id, Option<Trip> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -3727,13 +3625,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateLocationsDefaultImplementation(IUpdateLocationsApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body)
+        private void AfterUpdateLocationsDefaultImplementation(IUpdateLocationsApiResponse apiResponseLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateLocations(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateLocations(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3743,10 +3640,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateLocations(ref bool suppressDefaultLog, IUpdateLocationsApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body);
+        partial void AfterUpdateLocations(ref bool suppressDefaultLog, IUpdateLocationsApiResponse apiResponseLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3754,13 +3650,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body)
+        private void OnErrorUpdateLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3772,24 +3667,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body);
+        partial void OnErrorUpdateLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Update Trip Locations 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to update locations for</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateLocationsApiResponse?> UpdateLocationsOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateLocationsApiResponse?> UpdateLocationsOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateLocationsAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateLocationsAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3801,12 +3694,11 @@ namespace Org.OpenAPITools.Api
         /// Update Trip Locations 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to update locations for</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLocationsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateLocationsApiResponse> UpdateLocationsAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateLocationsApiResponse> UpdateLocationsAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3814,7 +3706,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateLocations(body);
 
-                FormatUpdateLocations(ref version, ref id, body);
+                FormatUpdateLocations(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3822,9 +3714,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}/locations"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}/locations");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}/locations"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}/locations");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -3855,13 +3746,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}/locations", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}/locations", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateLocationsDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateLocationsDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateLocations(apiResponseLocalVar);
 
@@ -3871,7 +3762,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateLocationsDefaultImplementation(e, "/api/{version}/trip/{id}/locations", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateLocationsDefaultImplementation(e, "/trip/{id}/locations", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateLocations(e);
                 throw;
             }
@@ -3970,7 +3861,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateRecurrenceLocations(ref decimal version, ref long id, Option<Trip> body);
+        partial void FormatUpdateRecurrenceLocations(ref long id, Option<Trip> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -3987,13 +3878,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateRecurrenceLocationsDefaultImplementation(IUpdateRecurrenceLocationsApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body)
+        private void AfterUpdateRecurrenceLocationsDefaultImplementation(IUpdateRecurrenceLocationsApiResponse apiResponseLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateRecurrenceLocations(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateRecurrenceLocations(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4003,10 +3893,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateRecurrenceLocations(ref bool suppressDefaultLog, IUpdateRecurrenceLocationsApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body);
+        partial void AfterUpdateRecurrenceLocations(ref bool suppressDefaultLog, IUpdateRecurrenceLocationsApiResponse apiResponseLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4014,13 +3903,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateRecurrenceLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body)
+        private void OnErrorUpdateRecurrenceLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateRecurrenceLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateRecurrenceLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4032,24 +3920,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateRecurrenceLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body);
+        partial void OnErrorUpdateRecurrenceLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Update Recurrence Locations 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRecurrenceLocationsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRecurrenceLocationsApiResponse?> UpdateRecurrenceLocationsOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRecurrenceLocationsApiResponse?> UpdateRecurrenceLocationsOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateRecurrenceLocationsAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateRecurrenceLocationsAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4061,12 +3947,11 @@ namespace Org.OpenAPITools.Api
         /// Update Recurrence Locations 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRecurrenceLocationsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRecurrenceLocationsApiResponse> UpdateRecurrenceLocationsAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRecurrenceLocationsApiResponse> UpdateRecurrenceLocationsAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4074,7 +3959,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateRecurrenceLocations(body);
 
-                FormatUpdateRecurrenceLocations(ref version, ref id, body);
+                FormatUpdateRecurrenceLocations(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4082,9 +3967,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}/locations/recurrence"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}/locations/recurrence");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}/locations/recurrence"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}/locations/recurrence");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -4115,13 +3999,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}/locations/recurrence", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}/locations/recurrence", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateRecurrenceLocationsDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateRecurrenceLocationsDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateRecurrenceLocations(apiResponseLocalVar);
 
@@ -4131,7 +4015,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateRecurrenceLocationsDefaultImplementation(e, "/api/{version}/trip/{id}/locations/recurrence", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateRecurrenceLocationsDefaultImplementation(e, "/trip/{id}/locations/recurrence", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateRecurrenceLocations(e);
                 throw;
             }
@@ -4230,7 +4114,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateRecurrenceShipments(ref decimal version, ref long id, Option<Trip> body);
+        partial void FormatUpdateRecurrenceShipments(ref long id, Option<Trip> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -4247,13 +4131,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateRecurrenceShipmentsDefaultImplementation(IUpdateRecurrenceShipmentsApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body)
+        private void AfterUpdateRecurrenceShipmentsDefaultImplementation(IUpdateRecurrenceShipmentsApiResponse apiResponseLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateRecurrenceShipments(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateRecurrenceShipments(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4263,10 +4146,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateRecurrenceShipments(ref bool suppressDefaultLog, IUpdateRecurrenceShipmentsApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body);
+        partial void AfterUpdateRecurrenceShipments(ref bool suppressDefaultLog, IUpdateRecurrenceShipmentsApiResponse apiResponseLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4274,13 +4156,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateRecurrenceShipmentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body)
+        private void OnErrorUpdateRecurrenceShipmentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateRecurrenceShipments(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateRecurrenceShipments(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4292,24 +4173,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateRecurrenceShipments(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body);
+        partial void OnErrorUpdateRecurrenceShipments(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Update Recurrence Shipments 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRecurrenceShipmentsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRecurrenceShipmentsApiResponse?> UpdateRecurrenceShipmentsOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRecurrenceShipmentsApiResponse?> UpdateRecurrenceShipmentsOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateRecurrenceShipmentsAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateRecurrenceShipmentsAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4321,12 +4200,11 @@ namespace Org.OpenAPITools.Api
         /// Update Recurrence Shipments 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRecurrenceShipmentsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRecurrenceShipmentsApiResponse> UpdateRecurrenceShipmentsAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRecurrenceShipmentsApiResponse> UpdateRecurrenceShipmentsAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4334,7 +4212,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateRecurrenceShipments(body);
 
-                FormatUpdateRecurrenceShipments(ref version, ref id, body);
+                FormatUpdateRecurrenceShipments(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4342,9 +4220,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}/shipments/recurrence"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}/shipments/recurrence");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}/shipments/recurrence"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}/shipments/recurrence");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -4375,13 +4252,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}/shipments/recurrence", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}/shipments/recurrence", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateRecurrenceShipmentsDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateRecurrenceShipmentsDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateRecurrenceShipments(apiResponseLocalVar);
 
@@ -4391,7 +4268,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateRecurrenceShipmentsDefaultImplementation(e, "/api/{version}/trip/{id}/shipments/recurrence", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateRecurrenceShipmentsDefaultImplementation(e, "/trip/{id}/shipments/recurrence", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateRecurrenceShipments(e);
                 throw;
             }
@@ -4490,7 +4367,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateShipments(ref decimal version, ref long id, Option<Trip> body);
+        partial void FormatUpdateShipments(ref long id, Option<Trip> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -4507,13 +4384,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateShipmentsDefaultImplementation(IUpdateShipmentsApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body)
+        private void AfterUpdateShipmentsDefaultImplementation(IUpdateShipmentsApiResponse apiResponseLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateShipments(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateShipments(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4523,10 +4399,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateShipments(ref bool suppressDefaultLog, IUpdateShipmentsApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body);
+        partial void AfterUpdateShipments(ref bool suppressDefaultLog, IUpdateShipmentsApiResponse apiResponseLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4534,13 +4409,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateShipmentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body)
+        private void OnErrorUpdateShipmentsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateShipments(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateShipments(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4552,24 +4426,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateShipments(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body);
+        partial void OnErrorUpdateShipments(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Update Trip Shipments 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip shipments to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateShipmentsApiResponse?> UpdateShipmentsOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateShipmentsApiResponse?> UpdateShipmentsOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateShipmentsAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateShipmentsAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4581,12 +4453,11 @@ namespace Org.OpenAPITools.Api
         /// Update Trip Shipments 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip shipments to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateShipmentsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateShipmentsApiResponse> UpdateShipmentsAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateShipmentsApiResponse> UpdateShipmentsAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4594,7 +4465,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateShipments(body);
 
-                FormatUpdateShipments(ref version, ref id, body);
+                FormatUpdateShipments(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4602,9 +4473,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}/shipments"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}/shipments");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}/shipments"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}/shipments");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -4635,13 +4505,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}/shipments", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}/shipments", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateShipmentsDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateShipmentsDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateShipments(apiResponseLocalVar);
 
@@ -4651,7 +4521,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateShipmentsDefaultImplementation(e, "/api/{version}/trip/{id}/shipments", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateShipmentsDefaultImplementation(e, "/trip/{id}/shipments", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateShipments(e);
                 throw;
             }
@@ -4750,7 +4620,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateTrip(ref decimal version, ref long id, Option<Trip> body);
+        partial void FormatUpdateTrip(ref long id, Option<Trip> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -4767,13 +4637,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterUpdateTripDefaultImplementation(IUpdateTripApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body)
+        private void AfterUpdateTripDefaultImplementation(IUpdateTripApiResponse apiResponseLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateTrip(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterUpdateTrip(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4783,10 +4652,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateTrip(ref bool suppressDefaultLog, IUpdateTripApiResponse apiResponseLocalVar, decimal version, long id, Option<Trip> body);
+        partial void AfterUpdateTrip(ref bool suppressDefaultLog, IUpdateTripApiResponse apiResponseLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4794,13 +4662,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body)
+        private void OnErrorUpdateTripDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorUpdateTrip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4812,24 +4679,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Trip> body);
+        partial void OnErrorUpdateTrip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Trip> body);
 
         /// <summary>
         /// Update Trip Update an existing trip. Does not support recurring trip update.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTripApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTripApiResponse?> UpdateTripOrDefaultAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTripApiResponse?> UpdateTripOrDefaultAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateTripAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateTripAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4841,12 +4706,11 @@ namespace Org.OpenAPITools.Api
         /// Update Trip Update an existing trip. Does not support recurring trip update.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip to update</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTripApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTripApiResponse> UpdateTripAsync(decimal version, long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTripApiResponse> UpdateTripAsync(long id, Option<Trip> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4854,7 +4718,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateTrip(body);
 
-                FormatUpdateTrip(ref version, ref id, body);
+                FormatUpdateTrip(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4862,9 +4726,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -4895,13 +4758,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateTripDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterUpdateTripDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnUpdateTrip(apiResponseLocalVar);
 
@@ -4911,7 +4774,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateTripDefaultImplementation(e, "/api/{version}/trip/{id}", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorUpdateTripDefaultImplementation(e, "/trip/{id}", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorUpdateTrip(e);
                 throw;
             }
@@ -5010,7 +4873,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateTripNotifications(ref decimal version, ref long id, ref Option<string> notifications);
+        partial void FormatUpdateTripNotifications(ref long id, ref Option<string> notifications);
 
         /// <summary>
         /// Validates the request parameters
@@ -5027,13 +4890,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="notifications"></param>
-        private void AfterUpdateTripNotificationsDefaultImplementation(IUpdateTripNotificationsApiResponse apiResponseLocalVar, decimal version, long id, Option<string> notifications)
+        private void AfterUpdateTripNotificationsDefaultImplementation(IUpdateTripNotificationsApiResponse apiResponseLocalVar, long id, Option<string> notifications)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateTripNotifications(ref suppressDefaultLog, apiResponseLocalVar, version, id, notifications);
+            AfterUpdateTripNotifications(ref suppressDefaultLog, apiResponseLocalVar, id, notifications);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5043,10 +4905,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="notifications"></param>
-        partial void AfterUpdateTripNotifications(ref bool suppressDefaultLog, IUpdateTripNotificationsApiResponse apiResponseLocalVar, decimal version, long id, Option<string> notifications);
+        partial void AfterUpdateTripNotifications(ref bool suppressDefaultLog, IUpdateTripNotificationsApiResponse apiResponseLocalVar, long id, Option<string> notifications);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5054,13 +4915,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="notifications"></param>
-        private void OnErrorUpdateTripNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<string> notifications)
+        private void OnErrorUpdateTripNotificationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<string> notifications)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateTripNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, notifications);
+            OnErrorUpdateTripNotifications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, notifications);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5072,24 +4932,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="notifications"></param>
-        partial void OnErrorUpdateTripNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<string> notifications);
+        partial void OnErrorUpdateTripNotifications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<string> notifications);
 
         /// <summary>
         /// Trip Notifications Update the trip notifications
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="notifications">the notifications to update on the trip (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTripNotificationsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTripNotificationsApiResponse?> UpdateTripNotificationsOrDefaultAsync(decimal version, long id, Option<string> notifications = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTripNotificationsApiResponse?> UpdateTripNotificationsOrDefaultAsync(long id, Option<string> notifications = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateTripNotificationsAsync(version, id, notifications, cancellationToken).ConfigureAwait(false);
+                return await UpdateTripNotificationsAsync(id, notifications, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5101,12 +4959,11 @@ namespace Org.OpenAPITools.Api
         /// Trip Notifications Update the trip notifications
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the trip</param>
         /// <param name="notifications">the notifications to update on the trip (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTripNotificationsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTripNotificationsApiResponse> UpdateTripNotificationsAsync(decimal version, long id, Option<string> notifications = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTripNotificationsApiResponse> UpdateTripNotificationsAsync(long id, Option<string> notifications = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5114,7 +4971,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateTripNotifications(notifications);
 
-                FormatUpdateTripNotifications(ref version, ref id, ref notifications);
+                FormatUpdateTripNotifications(ref id, ref notifications);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5122,9 +4979,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/trip/notifications"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/trip/notifications");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/trip/notifications"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/trip/notifications");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5158,13 +5014,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/trip/notifications", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/trip/notifications", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateTripNotificationsDefaultImplementation(apiResponseLocalVar, version, id, notifications);
+                        AfterUpdateTripNotificationsDefaultImplementation(apiResponseLocalVar, id, notifications);
 
                         Events.ExecuteOnUpdateTripNotifications(apiResponseLocalVar);
 
@@ -5174,7 +5030,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateTripNotificationsDefaultImplementation(e, "/api/{version}/trip/notifications", uriBuilderLocalVar.Path, version, id, notifications);
+                OnErrorUpdateTripNotificationsDefaultImplementation(e, "/trip/notifications", uriBuilderLocalVar.Path, id, notifications);
                 Events.ExecuteOnErrorUpdateTripNotifications(e);
                 throw;
             }

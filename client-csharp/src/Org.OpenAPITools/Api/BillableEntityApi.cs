@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="name">The name of the entity responsible for billing  (optional)</param>
@@ -60,7 +59,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="authorizeNetTransactionKey">Authorize Net Transaction Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBillableEntityApiResponse"/>&gt;</returns>
-        Task<ICreateBillableEntityApiResponse> CreateBillableEntityAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateBillableEntityApiResponse> CreateBillableEntityAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Billable
@@ -68,7 +67,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="name">The name of the entity responsible for billing  (optional)</param>
@@ -83,7 +81,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="authorizeNetTransactionKey">Authorize Net Transaction Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBillableEntityApiResponse"/>?&gt;</returns>
-        Task<ICreateBillableEntityApiResponse?> CreateBillableEntityOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateBillableEntityApiResponse?> CreateBillableEntityOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Billable
@@ -92,12 +90,11 @@ namespace Org.OpenAPITools.Api
         /// Mark the billable as deleted
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the billable entity. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBillableEntityApiResponse"/>&gt;</returns>
-        Task<IDeleteBillableEntityApiResponse> DeleteBillableEntityAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteBillableEntityApiResponse> DeleteBillableEntityAsync(Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Billable
@@ -105,12 +102,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Mark the billable as deleted
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the billable entity. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBillableEntityApiResponse"/>?&gt;</returns>
-        Task<IDeleteBillableEntityApiResponse?> DeleteBillableEntityOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteBillableEntityApiResponse?> DeleteBillableEntityOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Billable
@@ -119,14 +115,13 @@ namespace Org.OpenAPITools.Api
         /// Used to determine the associated BillableEntity of an account
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="includeCounts">Determines whether to include the retailer dash board counts into the response (optional, default to false)</param>
         /// <param name="includePayments">Whether to enable payments or not (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBillableEntityApiResponse"/>&gt;</returns>
-        Task<IGetBillableEntityApiResponse> GetBillableEntityAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, Option<bool> includePayments = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBillableEntityApiResponse> GetBillableEntityAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, Option<bool> includePayments = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Billable
@@ -134,14 +129,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Used to determine the associated BillableEntity of an account
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="includeCounts">Determines whether to include the retailer dash board counts into the response (optional, default to false)</param>
         /// <param name="includePayments">Whether to enable payments or not (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBillableEntityApiResponse"/>?&gt;</returns>
-        Task<IGetBillableEntityApiResponse?> GetBillableEntityOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, Option<bool> includePayments = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBillableEntityApiResponse?> GetBillableEntityOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, Option<bool> includePayments = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Billable
@@ -150,7 +144,6 @@ namespace Org.OpenAPITools.Api
         /// Updates the billable record for an account
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)</param>
         /// <param name="name">The name of the entity responsible for billing  (optional)</param>
@@ -165,7 +158,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="authorizeNetTransactionKey">Authorize Net Transaction Key of the billable entity (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBillableEntityApiResponse"/>&gt;</returns>
-        Task<IUpdateBillableEntityApiResponse> UpdateBillableEntityAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateBillableEntityApiResponse> UpdateBillableEntityAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Billable
@@ -173,7 +166,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates the billable record for an account
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)</param>
         /// <param name="name">The name of the entity responsible for billing  (optional)</param>
@@ -188,7 +180,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="authorizeNetTransactionKey">Authorize Net Transaction Key of the billable entity (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBillableEntityApiResponse"/>?&gt;</returns>
-        Task<IUpdateBillableEntityApiResponse?> UpdateBillableEntityOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateBillableEntityApiResponse?> UpdateBillableEntityOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -372,7 +364,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateBillableEntity(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> authorizeNetApiKey, ref Option<string> authorizeNetTransactionKey);
+        partial void FormatCreateBillableEntity(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> authorizeNetApiKey, ref Option<string> authorizeNetTransactionKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -429,7 +421,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -442,10 +433,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="businessPhoneExt"></param>
         /// <param name="authorizeNetApiKey"></param>
         /// <param name="authorizeNetTransactionKey"></param>
-        private void AfterCreateBillableEntityDefaultImplementation(ICreateBillableEntityApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey)
+        private void AfterCreateBillableEntityDefaultImplementation(ICreateBillableEntityApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey)
         {
             bool suppressDefaultLog = false;
-            AfterCreateBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+            AfterCreateBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -455,7 +446,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -468,7 +458,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="businessPhoneExt"></param>
         /// <param name="authorizeNetApiKey"></param>
         /// <param name="authorizeNetTransactionKey"></param>
-        partial void AfterCreateBillableEntity(ref bool suppressDefaultLog, ICreateBillableEntityApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey);
+        partial void AfterCreateBillableEntity(ref bool suppressDefaultLog, ICreateBillableEntityApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -476,7 +466,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -489,10 +478,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="businessPhoneExt"></param>
         /// <param name="authorizeNetApiKey"></param>
         /// <param name="authorizeNetTransactionKey"></param>
-        private void OnErrorCreateBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey)
+        private void OnErrorCreateBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+            OnErrorCreateBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -504,7 +493,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -517,12 +505,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="businessPhoneExt"></param>
         /// <param name="authorizeNetApiKey"></param>
         /// <param name="authorizeNetTransactionKey"></param>
-        partial void OnErrorCreateBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey);
+        partial void OnErrorCreateBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey);
 
         /// <summary>
         /// Create Billable reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="name">The name of the entity responsible for billing  (optional)</param>
@@ -537,11 +524,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="authorizeNetTransactionKey">Authorize Net Transaction Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<ICreateBillableEntityApiResponse?> CreateBillableEntityOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateBillableEntityApiResponse?> CreateBillableEntityOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateBillableEntityAsync(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, cancellationToken).ConfigureAwait(false);
+                return await CreateBillableEntityAsync(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -553,7 +540,6 @@ namespace Org.OpenAPITools.Api
         /// Create Billable reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="name">The name of the entity responsible for billing  (optional)</param>
@@ -568,7 +554,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="authorizeNetTransactionKey">Authorize Net Transaction Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<ICreateBillableEntityApiResponse> CreateBillableEntityAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateBillableEntityApiResponse> CreateBillableEntityAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -576,7 +562,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateBillableEntity(deviceId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
 
-                FormatCreateBillableEntity(ref version, ref deviceId, ref accountId, ref name, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref businessPhone, ref businessPhoneExt, ref authorizeNetApiKey, ref authorizeNetTransactionKey);
+                FormatCreateBillableEntity(ref deviceId, ref accountId, ref name, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref businessPhone, ref businessPhoneExt, ref authorizeNetApiKey, ref authorizeNetTransactionKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -584,9 +570,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billable/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billable/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billable/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billable/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -651,13 +636,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billable/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billable/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateBillableEntityDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+                        AfterCreateBillableEntityDefaultImplementation(apiResponseLocalVar, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
 
                         Events.ExecuteOnCreateBillableEntity(apiResponseLocalVar);
 
@@ -667,7 +652,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateBillableEntityDefaultImplementation(e, "/api/{version}/billable/create", uriBuilderLocalVar.Path, version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+                OnErrorCreateBillableEntityDefaultImplementation(e, "/billable/create", uriBuilderLocalVar.Path, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
                 Events.ExecuteOnErrorCreateBillableEntity(e);
                 throw;
             }
@@ -766,7 +751,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteBillableEntity(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteBillableEntity(ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -783,13 +768,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteBillableEntityDefaultImplementation(IDeleteBillableEntityApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteBillableEntityDefaultImplementation(IDeleteBillableEntityApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId);
+            AfterDeleteBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -799,10 +783,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteBillableEntity(ref bool suppressDefaultLog, IDeleteBillableEntityApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteBillableEntity(ref bool suppressDefaultLog, IDeleteBillableEntityApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -810,13 +793,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId);
+            OnErrorDeleteBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -828,24 +810,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Billable Mark the billable as deleted
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the billable entity. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<IDeleteBillableEntityApiResponse?> DeleteBillableEntityOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteBillableEntityApiResponse?> DeleteBillableEntityOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteBillableEntityAsync(version, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteBillableEntityAsync(deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -857,12 +837,11 @@ namespace Org.OpenAPITools.Api
         /// Delete Billable Mark the billable as deleted
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the billable entity. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<IDeleteBillableEntityApiResponse> DeleteBillableEntityAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteBillableEntityApiResponse> DeleteBillableEntityAsync(Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -870,7 +849,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteBillableEntity(deviceId);
 
-                FormatDeleteBillableEntity(ref version, ref deviceId, ref accountId);
+                FormatDeleteBillableEntity(ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -878,9 +857,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billable/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billable/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billable/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billable/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -915,13 +893,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billable/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billable/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteBillableEntityDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId);
+                        AfterDeleteBillableEntityDefaultImplementation(apiResponseLocalVar, deviceId, accountId);
 
                         Events.ExecuteOnDeleteBillableEntity(apiResponseLocalVar);
 
@@ -931,7 +909,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteBillableEntityDefaultImplementation(e, "/api/{version}/billable/delete", uriBuilderLocalVar.Path, version, deviceId, accountId);
+                OnErrorDeleteBillableEntityDefaultImplementation(e, "/billable/delete", uriBuilderLocalVar.Path, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteBillableEntity(e);
                 throw;
             }
@@ -1030,7 +1008,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBillableEntity(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> includeCounts, ref Option<bool> includePayments);
+        partial void FormatGetBillableEntity(ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> includeCounts, ref Option<bool> includePayments);
 
         /// <summary>
         /// Validates the request parameters
@@ -1047,15 +1025,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeCounts"></param>
         /// <param name="includePayments"></param>
-        private void AfterGetBillableEntityDefaultImplementation(IGetBillableEntityApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts, Option<bool> includePayments)
+        private void AfterGetBillableEntityDefaultImplementation(IGetBillableEntityApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts, Option<bool> includePayments)
         {
             bool suppressDefaultLog = false;
-            AfterGetBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, includeCounts, includePayments);
+            AfterGetBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, includeCounts, includePayments);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1065,12 +1042,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeCounts"></param>
         /// <param name="includePayments"></param>
-        partial void AfterGetBillableEntity(ref bool suppressDefaultLog, IGetBillableEntityApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts, Option<bool> includePayments);
+        partial void AfterGetBillableEntity(ref bool suppressDefaultLog, IGetBillableEntityApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts, Option<bool> includePayments);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1078,15 +1054,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeCounts"></param>
         /// <param name="includePayments"></param>
-        private void OnErrorGetBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts, Option<bool> includePayments)
+        private void OnErrorGetBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts, Option<bool> includePayments)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, includeCounts, includePayments);
+            OnErrorGetBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, includeCounts, includePayments);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1098,28 +1073,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeCounts"></param>
         /// <param name="includePayments"></param>
-        partial void OnErrorGetBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts, Option<bool> includePayments);
+        partial void OnErrorGetBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<bool> includeCounts, Option<bool> includePayments);
 
         /// <summary>
         /// Get Billable Used to determine the associated BillableEntity of an account
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="includeCounts">Determines whether to include the retailer dash board counts into the response (optional, default to false)</param>
         /// <param name="includePayments">Whether to enable payments or not (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<IGetBillableEntityApiResponse?> GetBillableEntityOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, Option<bool> includePayments = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBillableEntityApiResponse?> GetBillableEntityOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, Option<bool> includePayments = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetBillableEntityAsync(version, deviceId, accountId, includeCounts, includePayments, cancellationToken).ConfigureAwait(false);
+                return await GetBillableEntityAsync(deviceId, accountId, includeCounts, includePayments, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1131,14 +1104,13 @@ namespace Org.OpenAPITools.Api
         /// Get Billable Used to determine the associated BillableEntity of an account
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="includeCounts">Determines whether to include the retailer dash board counts into the response (optional, default to false)</param>
         /// <param name="includePayments">Whether to enable payments or not (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<IGetBillableEntityApiResponse> GetBillableEntityAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, Option<bool> includePayments = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBillableEntityApiResponse> GetBillableEntityAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<bool> includeCounts = default, Option<bool> includePayments = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1146,7 +1118,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetBillableEntity(deviceId);
 
-                FormatGetBillableEntity(ref version, ref deviceId, ref accountId, ref includeCounts, ref includePayments);
+                FormatGetBillableEntity(ref deviceId, ref accountId, ref includeCounts, ref includePayments);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1154,9 +1126,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billable/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billable/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billable/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billable/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1197,13 +1168,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billable/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billable/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetBillableEntityDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, includeCounts, includePayments);
+                        AfterGetBillableEntityDefaultImplementation(apiResponseLocalVar, deviceId, accountId, includeCounts, includePayments);
 
                         Events.ExecuteOnGetBillableEntity(apiResponseLocalVar);
 
@@ -1213,7 +1184,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetBillableEntityDefaultImplementation(e, "/api/{version}/billable/get", uriBuilderLocalVar.Path, version, deviceId, accountId, includeCounts, includePayments);
+                OnErrorGetBillableEntityDefaultImplementation(e, "/billable/get", uriBuilderLocalVar.Path, deviceId, accountId, includeCounts, includePayments);
                 Events.ExecuteOnErrorGetBillableEntity(e);
                 throw;
             }
@@ -1312,7 +1283,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateBillableEntity(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> authorizeNetApiKey, ref Option<string> authorizeNetTransactionKey);
+        partial void FormatUpdateBillableEntity(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> authorizeNetApiKey, ref Option<string> authorizeNetTransactionKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1369,7 +1340,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1382,10 +1352,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="businessPhoneExt"></param>
         /// <param name="authorizeNetApiKey"></param>
         /// <param name="authorizeNetTransactionKey"></param>
-        private void AfterUpdateBillableEntityDefaultImplementation(IUpdateBillableEntityApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey)
+        private void AfterUpdateBillableEntityDefaultImplementation(IUpdateBillableEntityApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+            AfterUpdateBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1395,7 +1365,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1408,7 +1377,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="businessPhoneExt"></param>
         /// <param name="authorizeNetApiKey"></param>
         /// <param name="authorizeNetTransactionKey"></param>
-        partial void AfterUpdateBillableEntity(ref bool suppressDefaultLog, IUpdateBillableEntityApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey);
+        partial void AfterUpdateBillableEntity(ref bool suppressDefaultLog, IUpdateBillableEntityApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1416,7 +1385,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1429,10 +1397,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="businessPhoneExt"></param>
         /// <param name="authorizeNetApiKey"></param>
         /// <param name="authorizeNetTransactionKey"></param>
-        private void OnErrorUpdateBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey)
+        private void OnErrorUpdateBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+            OnErrorUpdateBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1444,7 +1412,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1457,12 +1424,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="businessPhoneExt"></param>
         /// <param name="authorizeNetApiKey"></param>
         /// <param name="authorizeNetTransactionKey"></param>
-        partial void OnErrorUpdateBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey);
+        partial void OnErrorUpdateBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey);
 
         /// <summary>
         /// Update Billable Updates the billable record for an account
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)</param>
         /// <param name="name">The name of the entity responsible for billing  (optional)</param>
@@ -1477,11 +1443,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="authorizeNetTransactionKey">Authorize Net Transaction Key of the billable entity (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<IUpdateBillableEntityApiResponse?> UpdateBillableEntityOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateBillableEntityApiResponse?> UpdateBillableEntityOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateBillableEntityAsync(version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, cancellationToken).ConfigureAwait(false);
+                return await UpdateBillableEntityAsync(deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1493,7 +1459,6 @@ namespace Org.OpenAPITools.Api
         /// Update Billable Updates the billable record for an account
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
         /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)</param>
         /// <param name="name">The name of the entity responsible for billing  (optional)</param>
@@ -1508,7 +1473,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="authorizeNetTransactionKey">Authorize Net Transaction Key of the billable entity (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<IUpdateBillableEntityApiResponse> UpdateBillableEntityAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateBillableEntityApiResponse> UpdateBillableEntityAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1516,7 +1481,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateBillableEntity(deviceId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
 
-                FormatUpdateBillableEntity(ref version, ref deviceId, ref accountId, ref name, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref businessPhone, ref businessPhoneExt, ref authorizeNetApiKey, ref authorizeNetTransactionKey);
+                FormatUpdateBillableEntity(ref deviceId, ref accountId, ref name, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref businessPhone, ref businessPhoneExt, ref authorizeNetApiKey, ref authorizeNetTransactionKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1524,9 +1489,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billable/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billable/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billable/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billable/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1591,13 +1555,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billable/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billable/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateBillableEntityDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+                        AfterUpdateBillableEntityDefaultImplementation(apiResponseLocalVar, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
 
                         Events.ExecuteOnUpdateBillableEntity(apiResponseLocalVar);
 
@@ -1607,7 +1571,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateBillableEntityDefaultImplementation(e, "/api/{version}/billable/update", uriBuilderLocalVar.Path, version, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
+                OnErrorUpdateBillableEntityDefaultImplementation(e, "/billable/update", uriBuilderLocalVar.Path, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, businessPhone, businessPhoneExt, authorizeNetApiKey, authorizeNetTransactionKey);
                 Events.ExecuteOnErrorUpdateBillableEntity(e);
                 throw;
             }

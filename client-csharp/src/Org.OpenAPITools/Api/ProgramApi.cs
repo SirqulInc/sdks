@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Create a new program
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateProgramApiResponse"/>&gt;</returns>
-        Task<ICreateProgramApiResponse> CreateProgramAsync(decimal version, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateProgramApiResponse> CreateProgramAsync(Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Program
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new program
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateProgramApiResponse"/>?&gt;</returns>
-        Task<ICreateProgramApiResponse?> CreateProgramOrDefaultAsync(decimal version, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateProgramApiResponse?> CreateProgramOrDefaultAsync(Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Program
@@ -70,11 +68,10 @@ namespace Org.OpenAPITools.Api
         /// Delete an existing program
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteProgramApiResponse"/>&gt;</returns>
-        Task<IDeleteProgramApiResponse> DeleteProgramAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteProgramApiResponse> DeleteProgramAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Program
@@ -82,11 +79,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an existing program
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteProgramApiResponse"/>?&gt;</returns>
-        Task<IDeleteProgramApiResponse?> DeleteProgramOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteProgramApiResponse?> DeleteProgramOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Program
@@ -95,11 +91,10 @@ namespace Org.OpenAPITools.Api
         /// Get an existing program
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetProgramApiResponse"/>&gt;</returns>
-        Task<IGetProgramApiResponse> GetProgramAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetProgramApiResponse> GetProgramAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Program
@@ -107,11 +102,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an existing program
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetProgramApiResponse"/>?&gt;</returns>
-        Task<IGetProgramApiResponse?> GetProgramOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetProgramApiResponse?> GetProgramOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Program
@@ -120,12 +114,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing program
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostProgramApiResponse"/>&gt;</returns>
-        Task<IPostProgramApiResponse> PostProgramAsync(decimal version, long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPostProgramApiResponse> PostProgramAsync(long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Program
@@ -133,12 +126,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing program
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostProgramApiResponse"/>?&gt;</returns>
-        Task<IPostProgramApiResponse?> PostProgramOrDefaultAsync(decimal version, long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPostProgramApiResponse?> PostProgramOrDefaultAsync(long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Program
@@ -147,12 +139,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing program
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPutProgramApiResponse"/>&gt;</returns>
-        Task<IPutProgramApiResponse> PutProgramAsync(decimal version, long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPutProgramApiResponse> PutProgramAsync(long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Program
@@ -160,12 +151,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing program
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPutProgramApiResponse"/>?&gt;</returns>
-        Task<IPutProgramApiResponse?> PutProgramOrDefaultAsync(decimal version, long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPutProgramApiResponse?> PutProgramOrDefaultAsync(long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Programs
@@ -174,7 +164,6 @@ namespace Org.OpenAPITools.Api
         /// Search for programs
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -183,7 +172,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to filter results by (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchProgramsApiResponse"/>&gt;</returns>
-        Task<ISearchProgramsApiResponse> SearchProgramsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchProgramsApiResponse> SearchProgramsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Programs
@@ -191,7 +180,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for programs
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -200,7 +188,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to filter results by (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchProgramsApiResponse"/>?&gt;</returns>
-        Task<ISearchProgramsApiResponse?> SearchProgramsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchProgramsApiResponse?> SearchProgramsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -448,7 +436,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateProgram(ref decimal version, Option<Program> body);
+        partial void FormatCreateProgram(Option<Program> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -465,12 +453,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateProgramDefaultImplementation(ICreateProgramApiResponse apiResponseLocalVar, decimal version, Option<Program> body)
+        private void AfterCreateProgramDefaultImplementation(ICreateProgramApiResponse apiResponseLocalVar, Option<Program> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateProgram(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateProgram(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -480,9 +467,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateProgram(ref bool suppressDefaultLog, ICreateProgramApiResponse apiResponseLocalVar, decimal version, Option<Program> body);
+        partial void AfterCreateProgram(ref bool suppressDefaultLog, ICreateProgramApiResponse apiResponseLocalVar, Option<Program> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -490,12 +476,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Program> body)
+        private void OnErrorCreateProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Program> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -507,22 +492,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<Program> body);
+        partial void OnErrorCreateProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<Program> body);
 
         /// <summary>
         /// Create Program Create a new program
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateProgramApiResponse"/>&gt;</returns>
-        public async Task<ICreateProgramApiResponse?> CreateProgramOrDefaultAsync(decimal version, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateProgramApiResponse?> CreateProgramOrDefaultAsync(Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateProgramAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateProgramAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -534,11 +517,10 @@ namespace Org.OpenAPITools.Api
         /// Create Program Create a new program
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateProgramApiResponse"/>&gt;</returns>
-        public async Task<ICreateProgramApiResponse> CreateProgramAsync(decimal version, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateProgramApiResponse> CreateProgramAsync(Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -546,7 +528,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateProgram(body);
 
-                FormatCreateProgram(ref version, body);
+                FormatCreateProgram(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -554,9 +536,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/program"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/program");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/program"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/program");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -586,13 +567,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/program", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/program", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateProgramDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateProgramDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateProgram(apiResponseLocalVar);
 
@@ -602,7 +583,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateProgramDefaultImplementation(e, "/api/{version}/program", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateProgramDefaultImplementation(e, "/program", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateProgram(e);
                 throw;
             }
@@ -701,18 +682,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteProgram(ref decimal version, ref long id);
+        partial void FormatDeleteProgram(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterDeleteProgramDefaultImplementation(IDeleteProgramApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterDeleteProgramDefaultImplementation(IDeleteProgramApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteProgram(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterDeleteProgram(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -722,9 +702,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterDeleteProgram(ref bool suppressDefaultLog, IDeleteProgramApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterDeleteProgram(ref bool suppressDefaultLog, IDeleteProgramApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -732,12 +711,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorDeleteProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorDeleteProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorDeleteProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -749,22 +727,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorDeleteProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorDeleteProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Delete Program Delete an existing program
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteProgramApiResponse"/>&gt;</returns>
-        public async Task<IDeleteProgramApiResponse?> DeleteProgramOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteProgramApiResponse?> DeleteProgramOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteProgramAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await DeleteProgramAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -776,17 +752,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Program Delete an existing program
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteProgramApiResponse"/>&gt;</returns>
-        public async Task<IDeleteProgramApiResponse> DeleteProgramAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteProgramApiResponse> DeleteProgramAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteProgram(ref version, ref id);
+                FormatDeleteProgram(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -794,9 +769,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/program/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/program/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/program/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/program/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -813,13 +787,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/program/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/program/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteProgramDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterDeleteProgramDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnDeleteProgram(apiResponseLocalVar);
 
@@ -829,7 +803,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteProgramDefaultImplementation(e, "/api/{version}/program/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorDeleteProgramDefaultImplementation(e, "/program/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorDeleteProgram(e);
                 throw;
             }
@@ -896,18 +870,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetProgram(ref decimal version, ref long id);
+        partial void FormatGetProgram(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterGetProgramDefaultImplementation(IGetProgramApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterGetProgramDefaultImplementation(IGetProgramApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterGetProgram(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterGetProgram(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -917,9 +890,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterGetProgram(ref bool suppressDefaultLog, IGetProgramApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterGetProgram(ref bool suppressDefaultLog, IGetProgramApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -927,12 +899,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorGetProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorGetProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorGetProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -944,22 +915,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorGetProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorGetProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Get Program Get an existing program
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetProgramApiResponse"/>&gt;</returns>
-        public async Task<IGetProgramApiResponse?> GetProgramOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetProgramApiResponse?> GetProgramOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetProgramAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await GetProgramAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -971,17 +940,16 @@ namespace Org.OpenAPITools.Api
         /// Get Program Get an existing program
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetProgramApiResponse"/>&gt;</returns>
-        public async Task<IGetProgramApiResponse> GetProgramAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetProgramApiResponse> GetProgramAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetProgram(ref version, ref id);
+                FormatGetProgram(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -989,9 +957,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/program/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/program/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/program/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/program/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1017,13 +984,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/program/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/program/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetProgramDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterGetProgramDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnGetProgram(apiResponseLocalVar);
 
@@ -1033,7 +1000,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetProgramDefaultImplementation(e, "/api/{version}/program/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorGetProgramDefaultImplementation(e, "/program/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorGetProgram(e);
                 throw;
             }
@@ -1132,7 +1099,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPostProgram(ref decimal version, ref long id, Option<Program> body);
+        partial void FormatPostProgram(ref long id, Option<Program> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1149,13 +1116,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterPostProgramDefaultImplementation(IPostProgramApiResponse apiResponseLocalVar, decimal version, long id, Option<Program> body)
+        private void AfterPostProgramDefaultImplementation(IPostProgramApiResponse apiResponseLocalVar, long id, Option<Program> body)
         {
             bool suppressDefaultLog = false;
-            AfterPostProgram(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterPostProgram(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1165,10 +1131,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterPostProgram(ref bool suppressDefaultLog, IPostProgramApiResponse apiResponseLocalVar, decimal version, long id, Option<Program> body);
+        partial void AfterPostProgram(ref bool suppressDefaultLog, IPostProgramApiResponse apiResponseLocalVar, long id, Option<Program> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1176,13 +1141,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorPostProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Program> body)
+        private void OnErrorPostProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Program> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPostProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorPostProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1194,24 +1158,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorPostProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Program> body);
+        partial void OnErrorPostProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Program> body);
 
         /// <summary>
         /// Update Program Update an existing program
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostProgramApiResponse"/>&gt;</returns>
-        public async Task<IPostProgramApiResponse?> PostProgramOrDefaultAsync(decimal version, long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPostProgramApiResponse?> PostProgramOrDefaultAsync(long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PostProgramAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await PostProgramAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1223,12 +1185,11 @@ namespace Org.OpenAPITools.Api
         /// Update Program Update an existing program
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostProgramApiResponse"/>&gt;</returns>
-        public async Task<IPostProgramApiResponse> PostProgramAsync(decimal version, long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPostProgramApiResponse> PostProgramAsync(long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1236,7 +1197,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePostProgram(body);
 
-                FormatPostProgram(ref version, ref id, body);
+                FormatPostProgram(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1244,9 +1205,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/program/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/program/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/program/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/program/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -1277,13 +1237,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/program/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/program/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPostProgramDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterPostProgramDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnPostProgram(apiResponseLocalVar);
 
@@ -1293,7 +1253,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPostProgramDefaultImplementation(e, "/api/{version}/program/{id}", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorPostProgramDefaultImplementation(e, "/program/{id}", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorPostProgram(e);
                 throw;
             }
@@ -1392,7 +1352,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPutProgram(ref decimal version, ref long id, Option<Program> body);
+        partial void FormatPutProgram(ref long id, Option<Program> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1409,13 +1369,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterPutProgramDefaultImplementation(IPutProgramApiResponse apiResponseLocalVar, decimal version, long id, Option<Program> body)
+        private void AfterPutProgramDefaultImplementation(IPutProgramApiResponse apiResponseLocalVar, long id, Option<Program> body)
         {
             bool suppressDefaultLog = false;
-            AfterPutProgram(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterPutProgram(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1425,10 +1384,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterPutProgram(ref bool suppressDefaultLog, IPutProgramApiResponse apiResponseLocalVar, decimal version, long id, Option<Program> body);
+        partial void AfterPutProgram(ref bool suppressDefaultLog, IPutProgramApiResponse apiResponseLocalVar, long id, Option<Program> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1436,13 +1394,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorPutProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Program> body)
+        private void OnErrorPutProgramDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Program> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPutProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorPutProgram(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1454,24 +1411,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorPutProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<Program> body);
+        partial void OnErrorPutProgram(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<Program> body);
 
         /// <summary>
         /// Update Program Update an existing program
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPutProgramApiResponse"/>&gt;</returns>
-        public async Task<IPutProgramApiResponse?> PutProgramOrDefaultAsync(decimal version, long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPutProgramApiResponse?> PutProgramOrDefaultAsync(long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PutProgramAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await PutProgramAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1483,12 +1438,11 @@ namespace Org.OpenAPITools.Api
         /// Update Program Update an existing program
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the program</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPutProgramApiResponse"/>&gt;</returns>
-        public async Task<IPutProgramApiResponse> PutProgramAsync(decimal version, long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPutProgramApiResponse> PutProgramAsync(long id, Option<Program> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1496,7 +1450,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePutProgram(body);
 
-                FormatPutProgram(ref version, ref id, body);
+                FormatPutProgram(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1504,9 +1458,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/program/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/program/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/program/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/program/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -1537,13 +1490,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/program/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/program/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPutProgramDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterPutProgramDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnPutProgram(apiResponseLocalVar);
 
@@ -1553,7 +1506,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPutProgramDefaultImplementation(e, "/api/{version}/program/{id}", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorPutProgramDefaultImplementation(e, "/program/{id}", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorPutProgram(e);
                 throw;
             }
@@ -1652,7 +1605,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchPrograms(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> keyword);
+        partial void FormatSearchPrograms(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -1673,17 +1626,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
-        private void AfterSearchProgramsDefaultImplementation(ISearchProgramsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword)
+        private void AfterSearchProgramsDefaultImplementation(ISearchProgramsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterSearchPrograms(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, keyword);
+            AfterSearchPrograms(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1693,14 +1645,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
-        partial void AfterSearchPrograms(ref bool suppressDefaultLog, ISearchProgramsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword);
+        partial void AfterSearchPrograms(ref bool suppressDefaultLog, ISearchProgramsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1708,17 +1659,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
-        private void OnErrorSearchProgramsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword)
+        private void OnErrorSearchProgramsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchPrograms(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, keyword);
+            OnErrorSearchPrograms(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1730,19 +1680,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorSearchPrograms(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword);
+        partial void OnErrorSearchPrograms(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword);
 
         /// <summary>
         /// Search Programs Search for programs
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1751,11 +1699,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to filter results by (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchProgramsApiResponse"/>&gt;</returns>
-        public async Task<ISearchProgramsApiResponse?> SearchProgramsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchProgramsApiResponse?> SearchProgramsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchProgramsAsync(version, sortField, descending, start, limit, activeOnly, keyword, cancellationToken).ConfigureAwait(false);
+                return await SearchProgramsAsync(sortField, descending, start, limit, activeOnly, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1767,7 +1715,6 @@ namespace Org.OpenAPITools.Api
         /// Search Programs Search for programs
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1776,7 +1723,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to filter results by (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchProgramsApiResponse"/>&gt;</returns>
-        public async Task<ISearchProgramsApiResponse> SearchProgramsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchProgramsApiResponse> SearchProgramsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1784,7 +1731,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchPrograms(sortField, keyword);
 
-                FormatSearchPrograms(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref keyword);
+                FormatSearchPrograms(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1792,9 +1739,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/program"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/program");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/program"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/program");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1832,13 +1778,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/program", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/program", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchProgramsDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, keyword);
+                        AfterSearchProgramsDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, keyword);
 
                         Events.ExecuteOnSearchPrograms(apiResponseLocalVar);
 
@@ -1848,7 +1794,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchProgramsDefaultImplementation(e, "/api/{version}/program", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, keyword);
+                OnErrorSearchProgramsDefaultImplementation(e, "/program", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, keyword);
                 Events.ExecuteOnErrorSearchPrograms(e);
                 throw;
             }

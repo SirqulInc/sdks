@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create an Album.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="title">the title of the album</param>
         /// <param name="coverAssetNullable">determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image</param>
         /// <param name="includeCoverInAssetList">determines whether the cover image should be added to the album asset list</param>
@@ -94,7 +93,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="linkedObjectId">sets a linked object id so that it can be returned as part of the album response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddAlbumCollectionApiResponse"/>&gt;</returns>
-        Task<IAddAlbumCollectionApiResponse> AddAlbumCollectionAsync(decimal version, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<long> assetId = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaURL = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> approvalStatus = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddAlbumCollectionApiResponse> AddAlbumCollectionAsync(string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<long> assetId = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaURL = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> approvalStatus = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Album
@@ -102,7 +101,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an Album.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="title">the title of the album</param>
         /// <param name="coverAssetNullable">determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image</param>
         /// <param name="includeCoverInAssetList">determines whether the cover image should be added to the album asset list</param>
@@ -151,7 +149,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="linkedObjectId">sets a linked object id so that it can be returned as part of the album response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddAlbumCollectionApiResponse"/>?&gt;</returns>
-        Task<IAddAlbumCollectionApiResponse?> AddAlbumCollectionOrDefaultAsync(decimal version, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<long> assetId = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaURL = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> approvalStatus = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddAlbumCollectionApiResponse?> AddAlbumCollectionOrDefaultAsync(string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<long> assetId = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaURL = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> approvalStatus = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Album Users
@@ -160,7 +158,6 @@ namespace Org.OpenAPITools.Api
         /// Add users to an album as participants.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="includeFriendGroup">determines whether to include all friends as participants</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -173,7 +170,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroups">comma separated list of connection group IDs (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddAlbumUsersApiResponse"/>&gt;</returns>
-        Task<IAddAlbumUsersApiResponse> AddAlbumUsersAsync(decimal version, long albumId, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddAlbumUsersApiResponse> AddAlbumUsersAsync(long albumId, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Album Users
@@ -181,7 +178,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Add users to an album as participants.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="includeFriendGroup">determines whether to include all friends as participants</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -194,7 +190,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroups">comma separated list of connection group IDs (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddAlbumUsersApiResponse"/>?&gt;</returns>
-        Task<IAddAlbumUsersApiResponse?> AddAlbumUsersOrDefaultAsync(decimal version, long albumId, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddAlbumUsersApiResponse?> AddAlbumUsersOrDefaultAsync(long albumId, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Approve Album
@@ -203,7 +199,6 @@ namespace Org.OpenAPITools.Api
         /// Sets the approval status of an Album.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">The ID of the album</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
@@ -211,7 +206,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="verified">Sets whether the album should be marked as \&quot;verified\&quot; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApproveAlbumApiResponse"/>&gt;</returns>
-        Task<IApproveAlbumApiResponse> ApproveAlbumAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, Option<bool> verified = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IApproveAlbumApiResponse> ApproveAlbumAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, Option<bool> verified = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Approve Album
@@ -219,7 +214,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sets the approval status of an Album.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumId">The ID of the album</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
@@ -227,7 +221,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="verified">Sets whether the album should be marked as \&quot;verified\&quot; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApproveAlbumApiResponse"/>?&gt;</returns>
-        Task<IApproveAlbumApiResponse?> ApproveAlbumOrDefaultAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, Option<bool> verified = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IApproveAlbumApiResponse?> ApproveAlbumOrDefaultAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, Option<bool> verified = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         ///  Get Album
@@ -236,7 +230,6 @@ namespace Org.OpenAPITools.Api
         /// Get an Album.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">This parameter is deprecated.</param>
         /// <param name="albumId">the album to look up</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -248,7 +241,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audiencePreviewSize">returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumCollectionApiResponse"/>&gt;</returns>
-        Task<IGetAlbumCollectionApiResponse> GetAlbumCollectionAsync(decimal version, bool returnNulls, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> likePreviewSize = default, Option<int> assetPreviewSize = default, Option<int> notePreviewSize = default, Option<int> connectionPreviewSize = default, Option<int> audiencePreviewSize = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAlbumCollectionApiResponse> GetAlbumCollectionAsync(bool returnNulls, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> likePreviewSize = default, Option<int> assetPreviewSize = default, Option<int> notePreviewSize = default, Option<int> connectionPreviewSize = default, Option<int> audiencePreviewSize = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         ///  Get Album
@@ -256,7 +249,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an Album.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="returnNulls">This parameter is deprecated.</param>
         /// <param name="albumId">the album to look up</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -268,7 +260,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audiencePreviewSize">returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumCollectionApiResponse"/>?&gt;</returns>
-        Task<IGetAlbumCollectionApiResponse?> GetAlbumCollectionOrDefaultAsync(decimal version, bool returnNulls, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> likePreviewSize = default, Option<int> assetPreviewSize = default, Option<int> notePreviewSize = default, Option<int> connectionPreviewSize = default, Option<int> audiencePreviewSize = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAlbumCollectionApiResponse?> GetAlbumCollectionOrDefaultAsync(bool returnNulls, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> likePreviewSize = default, Option<int> assetPreviewSize = default, Option<int> notePreviewSize = default, Option<int> connectionPreviewSize = default, Option<int> audiencePreviewSize = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Leave Album
@@ -277,13 +269,12 @@ namespace Org.OpenAPITools.Api
         ///  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaveAlbumApiResponse"/>&gt;</returns>
-        Task<ILeaveAlbumApiResponse> LeaveAlbumAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaveAlbumApiResponse> LeaveAlbumAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Leave Album
@@ -291,13 +282,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         ///  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaveAlbumApiResponse"/>?&gt;</returns>
-        Task<ILeaveAlbumApiResponse?> LeaveAlbumOrDefaultAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaveAlbumApiResponse?> LeaveAlbumOrDefaultAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Album
@@ -306,13 +296,12 @@ namespace Org.OpenAPITools.Api
         /// Deletes an Album
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID to delete</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAlbumApiResponse"/>&gt;</returns>
-        Task<IRemoveAlbumApiResponse> RemoveAlbumAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveAlbumApiResponse> RemoveAlbumAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Album
@@ -320,13 +309,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes an Album
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID to delete</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAlbumApiResponse"/>?&gt;</returns>
-        Task<IRemoveAlbumApiResponse?> RemoveAlbumOrDefaultAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveAlbumApiResponse?> RemoveAlbumOrDefaultAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Album Users
@@ -335,7 +323,6 @@ namespace Org.OpenAPITools.Api
         /// Remove participants of an album.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="removeFriendGroup">remove friend group</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -344,7 +331,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroups">comma separated list of connection group IDs (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAlbumUsersApiResponse"/>&gt;</returns>
-        Task<IRemoveAlbumUsersApiResponse> RemoveAlbumUsersAsync(decimal version, long albumId, bool removeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveAlbumUsersApiResponse> RemoveAlbumUsersAsync(long albumId, bool removeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove Album Users
@@ -352,7 +339,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Remove participants of an album.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="removeFriendGroup">remove friend group</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -361,7 +347,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroups">comma separated list of connection group IDs (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAlbumUsersApiResponse"/>?&gt;</returns>
-        Task<IRemoveAlbumUsersApiResponse?> RemoveAlbumUsersOrDefaultAsync(decimal version, long albumId, bool removeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveAlbumUsersApiResponse?> RemoveAlbumUsersOrDefaultAsync(long albumId, bool removeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Albums
@@ -370,7 +356,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on Albums.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. </param>
         /// <param name="albumTypeId">id of custom albumType</param>
         /// <param name="subType">filter albums with this album sub type</param>
@@ -433,7 +418,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="generateAlbums">If true and results are empty, attempt to generate albums via templates (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAlbumsApiResponse"/>&gt;</returns>
-        Task<ISearchAlbumsApiResponse> SearchAlbumsAsync(decimal version, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<long> ownerId = default, Option<string> albumIds = default, Option<string> excludeAlbumIds = default, Option<long> mediaId = default, Option<string> keyword = default, Option<string> albumType = default, Option<int> limitPerAlbumType = default, Option<long> dateCreated = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<long> createdSince = default, Option<long> createdBefore = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> excludeAudienceIds = default, Option<bool> includeCompletable = default, Option<bool> includeRating = default, Option<string> searchMode = default, Option<bool> stackSearch = default, Option<int> stackWindowSize = default, Option<int> minStackPerPage = default, Option<string> stackPaginationIdentifier = default, Option<bool> stackDetails = default, Option<long> flagCountMinimum = default, Option<bool> removeFlaggedContent = default, Option<bool> verifiedFilter = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<long> orderAudienceId = default, Option<bool> ignoreDefaultAppFilter = default, Option<string> searchExpression = default, Option<bool> generateAlbums = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAlbumsApiResponse> SearchAlbumsAsync(string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<long> ownerId = default, Option<string> albumIds = default, Option<string> excludeAlbumIds = default, Option<long> mediaId = default, Option<string> keyword = default, Option<string> albumType = default, Option<int> limitPerAlbumType = default, Option<long> dateCreated = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<long> createdSince = default, Option<long> createdBefore = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> excludeAudienceIds = default, Option<bool> includeCompletable = default, Option<bool> includeRating = default, Option<string> searchMode = default, Option<bool> stackSearch = default, Option<int> stackWindowSize = default, Option<int> minStackPerPage = default, Option<string> stackPaginationIdentifier = default, Option<bool> stackDetails = default, Option<long> flagCountMinimum = default, Option<bool> removeFlaggedContent = default, Option<bool> verifiedFilter = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<long> orderAudienceId = default, Option<bool> ignoreDefaultAppFilter = default, Option<string> searchExpression = default, Option<bool> generateAlbums = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Albums
@@ -441,7 +426,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on Albums.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. </param>
         /// <param name="albumTypeId">id of custom albumType</param>
         /// <param name="subType">filter albums with this album sub type</param>
@@ -504,7 +488,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="generateAlbums">If true and results are empty, attempt to generate albums via templates (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAlbumsApiResponse"/>?&gt;</returns>
-        Task<ISearchAlbumsApiResponse?> SearchAlbumsOrDefaultAsync(decimal version, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<long> ownerId = default, Option<string> albumIds = default, Option<string> excludeAlbumIds = default, Option<long> mediaId = default, Option<string> keyword = default, Option<string> albumType = default, Option<int> limitPerAlbumType = default, Option<long> dateCreated = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<long> createdSince = default, Option<long> createdBefore = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> excludeAudienceIds = default, Option<bool> includeCompletable = default, Option<bool> includeRating = default, Option<string> searchMode = default, Option<bool> stackSearch = default, Option<int> stackWindowSize = default, Option<int> minStackPerPage = default, Option<string> stackPaginationIdentifier = default, Option<bool> stackDetails = default, Option<long> flagCountMinimum = default, Option<bool> removeFlaggedContent = default, Option<bool> verifiedFilter = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<long> orderAudienceId = default, Option<bool> ignoreDefaultAppFilter = default, Option<string> searchExpression = default, Option<bool> generateAlbums = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAlbumsApiResponse?> SearchAlbumsOrDefaultAsync(string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<long> ownerId = default, Option<string> albumIds = default, Option<string> excludeAlbumIds = default, Option<long> mediaId = default, Option<string> keyword = default, Option<string> albumType = default, Option<int> limitPerAlbumType = default, Option<long> dateCreated = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<long> createdSince = default, Option<long> createdBefore = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> excludeAudienceIds = default, Option<bool> includeCompletable = default, Option<bool> includeRating = default, Option<string> searchMode = default, Option<bool> stackSearch = default, Option<int> stackWindowSize = default, Option<int> minStackPerPage = default, Option<string> stackPaginationIdentifier = default, Option<bool> stackDetails = default, Option<long> flagCountMinimum = default, Option<bool> removeFlaggedContent = default, Option<bool> verifiedFilter = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<long> orderAudienceId = default, Option<bool> ignoreDefaultAppFilter = default, Option<string> searchExpression = default, Option<bool> generateAlbums = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Album
@@ -513,7 +497,6 @@ namespace Org.OpenAPITools.Api
         /// Update an Album.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the ID of the album to update</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -561,7 +544,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="indexNow">determines whether the album should be indexed immediately (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAlbumCollectionApiResponse"/>&gt;</returns>
-        Task<IUpdateAlbumCollectionApiResponse> UpdateAlbumCollectionAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<string> assetsToRemove = default, Option<long> assetId = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<bool> active = default, Option<string> title = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<bool> publicRead = default, Option<bool> publicWrite = default, Option<bool> publicDelete = default, Option<bool> publicAdd = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<bool> anonymous = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<bool> indexNow = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAlbumCollectionApiResponse> UpdateAlbumCollectionAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<string> assetsToRemove = default, Option<long> assetId = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<bool> active = default, Option<string> title = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<bool> publicRead = default, Option<bool> publicWrite = default, Option<bool> publicDelete = default, Option<bool> publicAdd = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<bool> anonymous = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<bool> indexNow = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Album
@@ -569,7 +552,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an Album.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumId">the ID of the album to update</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -617,7 +599,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="indexNow">determines whether the album should be indexed immediately (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAlbumCollectionApiResponse"/>?&gt;</returns>
-        Task<IUpdateAlbumCollectionApiResponse?> UpdateAlbumCollectionOrDefaultAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<string> assetsToRemove = default, Option<long> assetId = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<bool> active = default, Option<string> title = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<bool> publicRead = default, Option<bool> publicWrite = default, Option<bool> publicDelete = default, Option<bool> publicAdd = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<bool> anonymous = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<bool> indexNow = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAlbumCollectionApiResponse?> UpdateAlbumCollectionOrDefaultAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<string> assetsToRemove = default, Option<long> assetId = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<bool> active = default, Option<string> title = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<bool> publicRead = default, Option<bool> publicWrite = default, Option<bool> publicDelete = default, Option<bool> publicAdd = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<bool> anonymous = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<bool> indexNow = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -961,7 +943,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddAlbumCollection(ref decimal version, ref string title, ref bool coverAssetNullable, ref bool includeCoverInAssetList, ref bool publicRead, ref bool publicWrite, ref bool publicDelete, ref bool publicAdd, ref bool anonymous, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> assetsToAdd, ref Option<System.IO.Stream> media, ref Option<string> mediaURL, ref Option<long> assetId, ref Option<System.IO.Stream> attachedMedia, ref Option<string> attachedMediaURL, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<string> description, ref Option<string> albumType, ref Option<long> albumTypeId, ref Option<string> subType, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> locationDescription, ref Option<string> visibility, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> cellPhone, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> fullAddress, ref Option<string> metaData, ref Option<string> categoryIds, ref Option<string> categoryFilterIds, ref Option<string> audienceIds, ref Option<bool> includeAllAppUsersAsMembers, ref Option<bool> includeAudiencesAsMembers, ref Option<string> audienceOperator, ref Option<string> approvalStatus, ref Option<string> linkedObjectType, ref Option<long> linkedObjectId);
+        partial void FormatAddAlbumCollection(ref string title, ref bool coverAssetNullable, ref bool includeCoverInAssetList, ref bool publicRead, ref bool publicWrite, ref bool publicDelete, ref bool publicAdd, ref bool anonymous, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> assetsToAdd, ref Option<System.IO.Stream> media, ref Option<string> mediaURL, ref Option<long> assetId, ref Option<System.IO.Stream> attachedMedia, ref Option<string> attachedMediaURL, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<string> description, ref Option<string> albumType, ref Option<long> albumTypeId, ref Option<string> subType, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> locationDescription, ref Option<string> visibility, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> cellPhone, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> fullAddress, ref Option<string> metaData, ref Option<string> categoryIds, ref Option<string> categoryFilterIds, ref Option<string> audienceIds, ref Option<bool> includeAllAppUsersAsMembers, ref Option<bool> includeAudiencesAsMembers, ref Option<string> audienceOperator, ref Option<string> approvalStatus, ref Option<string> linkedObjectType, ref Option<long> linkedObjectId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1090,7 +1072,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="title"></param>
         /// <param name="coverAssetNullable"></param>
         /// <param name="includeCoverInAssetList"></param>
@@ -1137,10 +1118,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="approvalStatus"></param>
         /// <param name="linkedObjectType"></param>
         /// <param name="linkedObjectId"></param>
-        private void AfterAddAlbumCollectionDefaultImplementation(IAddAlbumCollectionApiResponse apiResponseLocalVar, decimal version, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<System.IO.Stream> media, Option<string> mediaURL, Option<long> assetId, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaURL, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> gameType, Option<string> appKey, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> approvalStatus, Option<string> linkedObjectType, Option<long> linkedObjectId)
+        private void AfterAddAlbumCollectionDefaultImplementation(IAddAlbumCollectionApiResponse apiResponseLocalVar, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<System.IO.Stream> media, Option<string> mediaURL, Option<long> assetId, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaURL, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> gameType, Option<string> appKey, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> approvalStatus, Option<string> linkedObjectType, Option<long> linkedObjectId)
         {
             bool suppressDefaultLog = false;
-            AfterAddAlbumCollection(ref suppressDefaultLog, apiResponseLocalVar, version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
+            AfterAddAlbumCollection(ref suppressDefaultLog, apiResponseLocalVar, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1150,7 +1131,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="title"></param>
         /// <param name="coverAssetNullable"></param>
         /// <param name="includeCoverInAssetList"></param>
@@ -1197,7 +1177,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="approvalStatus"></param>
         /// <param name="linkedObjectType"></param>
         /// <param name="linkedObjectId"></param>
-        partial void AfterAddAlbumCollection(ref bool suppressDefaultLog, IAddAlbumCollectionApiResponse apiResponseLocalVar, decimal version, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<System.IO.Stream> media, Option<string> mediaURL, Option<long> assetId, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaURL, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> gameType, Option<string> appKey, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> approvalStatus, Option<string> linkedObjectType, Option<long> linkedObjectId);
+        partial void AfterAddAlbumCollection(ref bool suppressDefaultLog, IAddAlbumCollectionApiResponse apiResponseLocalVar, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<System.IO.Stream> media, Option<string> mediaURL, Option<long> assetId, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaURL, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> gameType, Option<string> appKey, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> approvalStatus, Option<string> linkedObjectType, Option<long> linkedObjectId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1205,7 +1185,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="title"></param>
         /// <param name="coverAssetNullable"></param>
         /// <param name="includeCoverInAssetList"></param>
@@ -1252,10 +1231,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="approvalStatus"></param>
         /// <param name="linkedObjectType"></param>
         /// <param name="linkedObjectId"></param>
-        private void OnErrorAddAlbumCollectionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<System.IO.Stream> media, Option<string> mediaURL, Option<long> assetId, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaURL, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> gameType, Option<string> appKey, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> approvalStatus, Option<string> linkedObjectType, Option<long> linkedObjectId)
+        private void OnErrorAddAlbumCollectionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<System.IO.Stream> media, Option<string> mediaURL, Option<long> assetId, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaURL, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> gameType, Option<string> appKey, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> approvalStatus, Option<string> linkedObjectType, Option<long> linkedObjectId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddAlbumCollection(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
+            OnErrorAddAlbumCollection(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1267,7 +1246,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="title"></param>
         /// <param name="coverAssetNullable"></param>
         /// <param name="includeCoverInAssetList"></param>
@@ -1314,12 +1292,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="approvalStatus"></param>
         /// <param name="linkedObjectType"></param>
         /// <param name="linkedObjectId"></param>
-        partial void OnErrorAddAlbumCollection(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<System.IO.Stream> media, Option<string> mediaURL, Option<long> assetId, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaURL, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> gameType, Option<string> appKey, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> approvalStatus, Option<string> linkedObjectType, Option<long> linkedObjectId);
+        partial void OnErrorAddAlbumCollection(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<System.IO.Stream> media, Option<string> mediaURL, Option<long> assetId, Option<System.IO.Stream> attachedMedia, Option<string> attachedMediaURL, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> gameType, Option<string> appKey, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> approvalStatus, Option<string> linkedObjectType, Option<long> linkedObjectId);
 
         /// <summary>
         /// Create Album Create an Album.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="title">the title of the album</param>
         /// <param name="coverAssetNullable">determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image</param>
         /// <param name="includeCoverInAssetList">determines whether the cover image should be added to the album asset list</param>
@@ -1368,11 +1345,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="linkedObjectId">sets a linked object id so that it can be returned as part of the album response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddAlbumCollectionApiResponse"/>&gt;</returns>
-        public async Task<IAddAlbumCollectionApiResponse?> AddAlbumCollectionOrDefaultAsync(decimal version, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<long> assetId = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaURL = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> approvalStatus = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddAlbumCollectionApiResponse?> AddAlbumCollectionOrDefaultAsync(string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<long> assetId = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaURL = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> approvalStatus = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddAlbumCollectionAsync(version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId, cancellationToken).ConfigureAwait(false);
+                return await AddAlbumCollectionAsync(title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1384,7 +1361,6 @@ namespace Org.OpenAPITools.Api
         /// Create Album Create an Album.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="title">the title of the album</param>
         /// <param name="coverAssetNullable">determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image</param>
         /// <param name="includeCoverInAssetList">determines whether the cover image should be added to the album asset list</param>
@@ -1433,7 +1409,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="linkedObjectId">sets a linked object id so that it can be returned as part of the album response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddAlbumCollectionApiResponse"/>&gt;</returns>
-        public async Task<IAddAlbumCollectionApiResponse> AddAlbumCollectionAsync(decimal version, string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<long> assetId = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaURL = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> approvalStatus = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddAlbumCollectionApiResponse> AddAlbumCollectionAsync(string title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<long> assetId = default, Option<System.IO.Stream> attachedMedia = default, Option<string> attachedMediaURL = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> approvalStatus = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1441,7 +1417,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddAlbumCollection(title, deviceId, assetsToAdd, media, mediaURL, attachedMedia, attachedMediaURL, tags, description, albumType, subType, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, audienceOperator, approvalStatus, linkedObjectType);
 
-                FormatAddAlbumCollection(ref version, ref title, ref coverAssetNullable, ref includeCoverInAssetList, ref publicRead, ref publicWrite, ref publicDelete, ref publicAdd, ref anonymous, ref deviceId, ref accountId, ref assetsToAdd, ref media, ref mediaURL, ref assetId, ref attachedMedia, ref attachedMediaURL, ref startDate, ref endDate, ref tags, ref description, ref albumType, ref albumTypeId, ref subType, ref latitude, ref longitude, ref locationDescription, ref visibility, ref gameType, ref appKey, ref cellPhone, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref fullAddress, ref metaData, ref categoryIds, ref categoryFilterIds, ref audienceIds, ref includeAllAppUsersAsMembers, ref includeAudiencesAsMembers, ref audienceOperator, ref approvalStatus, ref linkedObjectType, ref linkedObjectId);
+                FormatAddAlbumCollection(ref title, ref coverAssetNullable, ref includeCoverInAssetList, ref publicRead, ref publicWrite, ref publicDelete, ref publicAdd, ref anonymous, ref deviceId, ref accountId, ref assetsToAdd, ref media, ref mediaURL, ref assetId, ref attachedMedia, ref attachedMediaURL, ref startDate, ref endDate, ref tags, ref description, ref albumType, ref albumTypeId, ref subType, ref latitude, ref longitude, ref locationDescription, ref visibility, ref gameType, ref appKey, ref cellPhone, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref fullAddress, ref metaData, ref categoryIds, ref categoryFilterIds, ref audienceIds, ref includeAllAppUsersAsMembers, ref includeAudiencesAsMembers, ref audienceOperator, ref approvalStatus, ref linkedObjectType, ref linkedObjectId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1449,9 +1425,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1603,13 +1578,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddAlbumCollectionDefaultImplementation(apiResponseLocalVar, version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
+                        AfterAddAlbumCollectionDefaultImplementation(apiResponseLocalVar, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
 
                         Events.ExecuteOnAddAlbumCollection(apiResponseLocalVar);
 
@@ -1619,7 +1594,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddAlbumCollectionDefaultImplementation(e, "/api/{version}/album/create", uriBuilderLocalVar.Path, version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
+                OnErrorAddAlbumCollectionDefaultImplementation(e, "/album/create", uriBuilderLocalVar.Path, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, deviceId, accountId, assetsToAdd, media, mediaURL, assetId, attachedMedia, attachedMediaURL, startDate, endDate, tags, description, albumType, albumTypeId, subType, latitude, longitude, locationDescription, visibility, gameType, appKey, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, approvalStatus, linkedObjectType, linkedObjectId);
                 Events.ExecuteOnErrorAddAlbumCollection(e);
                 throw;
             }
@@ -1718,7 +1693,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAddAlbumUsers(ref decimal version, ref long albumId, ref bool includeFriendGroup, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> read, ref Option<bool> write, ref Option<bool> delete, ref Option<bool> add, ref Option<string> connections, ref Option<string> connectionGroups);
+        partial void FormatAddAlbumUsers(ref long albumId, ref bool includeFriendGroup, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> read, ref Option<bool> write, ref Option<bool> delete, ref Option<bool> add, ref Option<string> connections, ref Option<string> connectionGroups);
 
         /// <summary>
         /// Validates the request parameters
@@ -1743,7 +1718,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="includeFriendGroup"></param>
         /// <param name="deviceId"></param>
@@ -1754,10 +1728,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="add"></param>
         /// <param name="connections"></param>
         /// <param name="connectionGroups"></param>
-        private void AfterAddAlbumUsersDefaultImplementation(IAddAlbumUsersApiResponse apiResponseLocalVar, decimal version, long albumId, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connections, Option<string> connectionGroups)
+        private void AfterAddAlbumUsersDefaultImplementation(IAddAlbumUsersApiResponse apiResponseLocalVar, long albumId, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connections, Option<string> connectionGroups)
         {
             bool suppressDefaultLog = false;
-            AfterAddAlbumUsers(ref suppressDefaultLog, apiResponseLocalVar, version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
+            AfterAddAlbumUsers(ref suppressDefaultLog, apiResponseLocalVar, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1767,7 +1741,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="includeFriendGroup"></param>
         /// <param name="deviceId"></param>
@@ -1778,7 +1751,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="add"></param>
         /// <param name="connections"></param>
         /// <param name="connectionGroups"></param>
-        partial void AfterAddAlbumUsers(ref bool suppressDefaultLog, IAddAlbumUsersApiResponse apiResponseLocalVar, decimal version, long albumId, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connections, Option<string> connectionGroups);
+        partial void AfterAddAlbumUsers(ref bool suppressDefaultLog, IAddAlbumUsersApiResponse apiResponseLocalVar, long albumId, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connections, Option<string> connectionGroups);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1786,7 +1759,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="includeFriendGroup"></param>
         /// <param name="deviceId"></param>
@@ -1797,10 +1769,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="add"></param>
         /// <param name="connections"></param>
         /// <param name="connectionGroups"></param>
-        private void OnErrorAddAlbumUsersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connections, Option<string> connectionGroups)
+        private void OnErrorAddAlbumUsersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connections, Option<string> connectionGroups)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddAlbumUsers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
+            OnErrorAddAlbumUsers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1812,7 +1784,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="includeFriendGroup"></param>
         /// <param name="deviceId"></param>
@@ -1823,12 +1794,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="add"></param>
         /// <param name="connections"></param>
         /// <param name="connectionGroups"></param>
-        partial void OnErrorAddAlbumUsers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connections, Option<string> connectionGroups);
+        partial void OnErrorAddAlbumUsers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<bool> read, Option<bool> write, Option<bool> delete, Option<bool> add, Option<string> connections, Option<string> connectionGroups);
 
         /// <summary>
         /// Add Album Users Add users to an album as participants.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="includeFriendGroup">determines whether to include all friends as participants</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -1841,11 +1811,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroups">comma separated list of connection group IDs (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddAlbumUsersApiResponse"/>&gt;</returns>
-        public async Task<IAddAlbumUsersApiResponse?> AddAlbumUsersOrDefaultAsync(decimal version, long albumId, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddAlbumUsersApiResponse?> AddAlbumUsersOrDefaultAsync(long albumId, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddAlbumUsersAsync(version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups, cancellationToken).ConfigureAwait(false);
+                return await AddAlbumUsersAsync(albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1857,7 +1827,6 @@ namespace Org.OpenAPITools.Api
         /// Add Album Users Add users to an album as participants.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="includeFriendGroup">determines whether to include all friends as participants</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -1870,7 +1839,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroups">comma separated list of connection group IDs (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddAlbumUsersApiResponse"/>&gt;</returns>
-        public async Task<IAddAlbumUsersApiResponse> AddAlbumUsersAsync(decimal version, long albumId, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddAlbumUsersApiResponse> AddAlbumUsersAsync(long albumId, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> read = default, Option<bool> write = default, Option<bool> delete = default, Option<bool> add = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1878,7 +1847,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddAlbumUsers(deviceId, connections, connectionGroups);
 
-                FormatAddAlbumUsers(ref version, ref albumId, ref includeFriendGroup, ref deviceId, ref accountId, ref read, ref write, ref delete, ref add, ref connections, ref connectionGroups);
+                FormatAddAlbumUsers(ref albumId, ref includeFriendGroup, ref deviceId, ref accountId, ref read, ref write, ref delete, ref add, ref connections, ref connectionGroups);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1886,9 +1855,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/user/add"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/user/add");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/user/add"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/user/add");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1944,13 +1912,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/user/add", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/user/add", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddAlbumUsersDefaultImplementation(apiResponseLocalVar, version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
+                        AfterAddAlbumUsersDefaultImplementation(apiResponseLocalVar, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
 
                         Events.ExecuteOnAddAlbumUsers(apiResponseLocalVar);
 
@@ -1960,7 +1928,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddAlbumUsersDefaultImplementation(e, "/api/{version}/album/user/add", uriBuilderLocalVar.Path, version, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
+                OnErrorAddAlbumUsersDefaultImplementation(e, "/album/user/add", uriBuilderLocalVar.Path, albumId, includeFriendGroup, deviceId, accountId, read, write, delete, add, connections, connectionGroups);
                 Events.ExecuteOnErrorAddAlbumUsers(e);
                 throw;
             }
@@ -2059,7 +2027,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatApproveAlbum(ref decimal version, ref long albumId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> approvalStatus, ref Option<bool> verified);
+        partial void FormatApproveAlbum(ref long albumId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> approvalStatus, ref Option<bool> verified);
 
         /// <summary>
         /// Validates the request parameters
@@ -2080,16 +2048,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="verified"></param>
-        private void AfterApproveAlbumDefaultImplementation(IApproveAlbumApiResponse apiResponseLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus, Option<bool> verified)
+        private void AfterApproveAlbumDefaultImplementation(IApproveAlbumApiResponse apiResponseLocalVar, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus, Option<bool> verified)
         {
             bool suppressDefaultLog = false;
-            AfterApproveAlbum(ref suppressDefaultLog, apiResponseLocalVar, version, albumId, deviceId, accountId, approvalStatus, verified);
+            AfterApproveAlbum(ref suppressDefaultLog, apiResponseLocalVar, albumId, deviceId, accountId, approvalStatus, verified);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2099,13 +2066,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="verified"></param>
-        partial void AfterApproveAlbum(ref bool suppressDefaultLog, IApproveAlbumApiResponse apiResponseLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus, Option<bool> verified);
+        partial void AfterApproveAlbum(ref bool suppressDefaultLog, IApproveAlbumApiResponse apiResponseLocalVar, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus, Option<bool> verified);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2113,16 +2079,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="verified"></param>
-        private void OnErrorApproveAlbumDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus, Option<bool> verified)
+        private void OnErrorApproveAlbumDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus, Option<bool> verified)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorApproveAlbum(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumId, deviceId, accountId, approvalStatus, verified);
+            OnErrorApproveAlbum(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumId, deviceId, accountId, approvalStatus, verified);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2134,18 +2099,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="verified"></param>
-        partial void OnErrorApproveAlbum(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus, Option<bool> verified);
+        partial void OnErrorApproveAlbum(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> approvalStatus, Option<bool> verified);
 
         /// <summary>
         /// Approve Album Sets the approval status of an Album.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumId">The ID of the album</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
@@ -2153,11 +2116,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="verified">Sets whether the album should be marked as \&quot;verified\&quot; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApproveAlbumApiResponse"/>&gt;</returns>
-        public async Task<IApproveAlbumApiResponse?> ApproveAlbumOrDefaultAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, Option<bool> verified = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IApproveAlbumApiResponse?> ApproveAlbumOrDefaultAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, Option<bool> verified = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ApproveAlbumAsync(version, albumId, deviceId, accountId, approvalStatus, verified, cancellationToken).ConfigureAwait(false);
+                return await ApproveAlbumAsync(albumId, deviceId, accountId, approvalStatus, verified, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2169,7 +2132,6 @@ namespace Org.OpenAPITools.Api
         /// Approve Album Sets the approval status of an Album.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">The ID of the album</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
@@ -2177,7 +2139,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="verified">Sets whether the album should be marked as \&quot;verified\&quot; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApproveAlbumApiResponse"/>&gt;</returns>
-        public async Task<IApproveAlbumApiResponse> ApproveAlbumAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, Option<bool> verified = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IApproveAlbumApiResponse> ApproveAlbumAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> approvalStatus = default, Option<bool> verified = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2185,7 +2147,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateApproveAlbum(deviceId, approvalStatus);
 
-                FormatApproveAlbum(ref version, ref albumId, ref deviceId, ref accountId, ref approvalStatus, ref verified);
+                FormatApproveAlbum(ref albumId, ref deviceId, ref accountId, ref approvalStatus, ref verified);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2193,9 +2155,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/approve"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/approve");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/approve"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/approve");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2238,13 +2199,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/approve", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/approve", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterApproveAlbumDefaultImplementation(apiResponseLocalVar, version, albumId, deviceId, accountId, approvalStatus, verified);
+                        AfterApproveAlbumDefaultImplementation(apiResponseLocalVar, albumId, deviceId, accountId, approvalStatus, verified);
 
                         Events.ExecuteOnApproveAlbum(apiResponseLocalVar);
 
@@ -2254,7 +2215,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorApproveAlbumDefaultImplementation(e, "/api/{version}/album/approve", uriBuilderLocalVar.Path, version, albumId, deviceId, accountId, approvalStatus, verified);
+                OnErrorApproveAlbumDefaultImplementation(e, "/album/approve", uriBuilderLocalVar.Path, albumId, deviceId, accountId, approvalStatus, verified);
                 Events.ExecuteOnErrorApproveAlbum(e);
                 throw;
             }
@@ -2353,7 +2314,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAlbumCollection(ref decimal version, ref bool returnNulls, ref long albumId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> likePreviewSize, ref Option<int> assetPreviewSize, ref Option<int> notePreviewSize, ref Option<int> connectionPreviewSize, ref Option<int> audiencePreviewSize);
+        partial void FormatGetAlbumCollection(ref bool returnNulls, ref long albumId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> likePreviewSize, ref Option<int> assetPreviewSize, ref Option<int> notePreviewSize, ref Option<int> connectionPreviewSize, ref Option<int> audiencePreviewSize);
 
         /// <summary>
         /// Validates the request parameters
@@ -2370,7 +2331,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
@@ -2380,10 +2340,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="notePreviewSize"></param>
         /// <param name="connectionPreviewSize"></param>
         /// <param name="audiencePreviewSize"></param>
-        private void AfterGetAlbumCollectionDefaultImplementation(IGetAlbumCollectionApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long albumId, Option<string> deviceId, Option<long> accountId, Option<int> likePreviewSize, Option<int> assetPreviewSize, Option<int> notePreviewSize, Option<int> connectionPreviewSize, Option<int> audiencePreviewSize)
+        private void AfterGetAlbumCollectionDefaultImplementation(IGetAlbumCollectionApiResponse apiResponseLocalVar, bool returnNulls, long albumId, Option<string> deviceId, Option<long> accountId, Option<int> likePreviewSize, Option<int> assetPreviewSize, Option<int> notePreviewSize, Option<int> connectionPreviewSize, Option<int> audiencePreviewSize)
         {
             bool suppressDefaultLog = false;
-            AfterGetAlbumCollection(ref suppressDefaultLog, apiResponseLocalVar, version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
+            AfterGetAlbumCollection(ref suppressDefaultLog, apiResponseLocalVar, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2393,7 +2353,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
@@ -2403,7 +2362,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="notePreviewSize"></param>
         /// <param name="connectionPreviewSize"></param>
         /// <param name="audiencePreviewSize"></param>
-        partial void AfterGetAlbumCollection(ref bool suppressDefaultLog, IGetAlbumCollectionApiResponse apiResponseLocalVar, decimal version, bool returnNulls, long albumId, Option<string> deviceId, Option<long> accountId, Option<int> likePreviewSize, Option<int> assetPreviewSize, Option<int> notePreviewSize, Option<int> connectionPreviewSize, Option<int> audiencePreviewSize);
+        partial void AfterGetAlbumCollection(ref bool suppressDefaultLog, IGetAlbumCollectionApiResponse apiResponseLocalVar, bool returnNulls, long albumId, Option<string> deviceId, Option<long> accountId, Option<int> likePreviewSize, Option<int> assetPreviewSize, Option<int> notePreviewSize, Option<int> connectionPreviewSize, Option<int> audiencePreviewSize);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2411,7 +2370,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
@@ -2421,10 +2379,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="notePreviewSize"></param>
         /// <param name="connectionPreviewSize"></param>
         /// <param name="audiencePreviewSize"></param>
-        private void OnErrorGetAlbumCollectionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long albumId, Option<string> deviceId, Option<long> accountId, Option<int> likePreviewSize, Option<int> assetPreviewSize, Option<int> notePreviewSize, Option<int> connectionPreviewSize, Option<int> audiencePreviewSize)
+        private void OnErrorGetAlbumCollectionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long albumId, Option<string> deviceId, Option<long> accountId, Option<int> likePreviewSize, Option<int> assetPreviewSize, Option<int> notePreviewSize, Option<int> connectionPreviewSize, Option<int> audiencePreviewSize)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAlbumCollection(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
+            OnErrorGetAlbumCollection(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2436,7 +2394,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="returnNulls"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
@@ -2446,12 +2403,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="notePreviewSize"></param>
         /// <param name="connectionPreviewSize"></param>
         /// <param name="audiencePreviewSize"></param>
-        partial void OnErrorGetAlbumCollection(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool returnNulls, long albumId, Option<string> deviceId, Option<long> accountId, Option<int> likePreviewSize, Option<int> assetPreviewSize, Option<int> notePreviewSize, Option<int> connectionPreviewSize, Option<int> audiencePreviewSize);
+        partial void OnErrorGetAlbumCollection(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool returnNulls, long albumId, Option<string> deviceId, Option<long> accountId, Option<int> likePreviewSize, Option<int> assetPreviewSize, Option<int> notePreviewSize, Option<int> connectionPreviewSize, Option<int> audiencePreviewSize);
 
         /// <summary>
         ///  Get Album Get an Album.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="returnNulls">This parameter is deprecated.</param>
         /// <param name="albumId">the album to look up</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -2463,11 +2419,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="audiencePreviewSize">returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumCollectionApiResponse"/>&gt;</returns>
-        public async Task<IGetAlbumCollectionApiResponse?> GetAlbumCollectionOrDefaultAsync(decimal version, bool returnNulls, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> likePreviewSize = default, Option<int> assetPreviewSize = default, Option<int> notePreviewSize = default, Option<int> connectionPreviewSize = default, Option<int> audiencePreviewSize = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAlbumCollectionApiResponse?> GetAlbumCollectionOrDefaultAsync(bool returnNulls, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> likePreviewSize = default, Option<int> assetPreviewSize = default, Option<int> notePreviewSize = default, Option<int> connectionPreviewSize = default, Option<int> audiencePreviewSize = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAlbumCollectionAsync(version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, cancellationToken).ConfigureAwait(false);
+                return await GetAlbumCollectionAsync(returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2479,7 +2435,6 @@ namespace Org.OpenAPITools.Api
         ///  Get Album Get an Album.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="returnNulls">This parameter is deprecated.</param>
         /// <param name="albumId">the album to look up</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -2491,7 +2446,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audiencePreviewSize">returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumCollectionApiResponse"/>&gt;</returns>
-        public async Task<IGetAlbumCollectionApiResponse> GetAlbumCollectionAsync(decimal version, bool returnNulls, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> likePreviewSize = default, Option<int> assetPreviewSize = default, Option<int> notePreviewSize = default, Option<int> connectionPreviewSize = default, Option<int> audiencePreviewSize = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAlbumCollectionApiResponse> GetAlbumCollectionAsync(bool returnNulls, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<int> likePreviewSize = default, Option<int> assetPreviewSize = default, Option<int> notePreviewSize = default, Option<int> connectionPreviewSize = default, Option<int> audiencePreviewSize = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2499,7 +2454,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAlbumCollection(deviceId);
 
-                FormatGetAlbumCollection(ref version, ref returnNulls, ref albumId, ref deviceId, ref accountId, ref likePreviewSize, ref assetPreviewSize, ref notePreviewSize, ref connectionPreviewSize, ref audiencePreviewSize);
+                FormatGetAlbumCollection(ref returnNulls, ref albumId, ref deviceId, ref accountId, ref likePreviewSize, ref assetPreviewSize, ref notePreviewSize, ref connectionPreviewSize, ref audiencePreviewSize);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2507,9 +2462,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2562,13 +2516,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAlbumCollectionDefaultImplementation(apiResponseLocalVar, version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
+                        AfterGetAlbumCollectionDefaultImplementation(apiResponseLocalVar, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
 
                         Events.ExecuteOnGetAlbumCollection(apiResponseLocalVar);
 
@@ -2578,7 +2532,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAlbumCollectionDefaultImplementation(e, "/api/{version}/album/get", uriBuilderLocalVar.Path, version, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
+                OnErrorGetAlbumCollectionDefaultImplementation(e, "/album/get", uriBuilderLocalVar.Path, returnNulls, albumId, deviceId, accountId, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize);
                 Events.ExecuteOnErrorGetAlbumCollection(e);
                 throw;
             }
@@ -2677,7 +2631,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLeaveAlbum(ref decimal version, ref long albumId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatLeaveAlbum(ref long albumId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -2694,14 +2648,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterLeaveAlbumDefaultImplementation(ILeaveAlbumApiResponse apiResponseLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId)
+        private void AfterLeaveAlbumDefaultImplementation(ILeaveAlbumApiResponse apiResponseLocalVar, long albumId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterLeaveAlbum(ref suppressDefaultLog, apiResponseLocalVar, version, albumId, deviceId, accountId);
+            AfterLeaveAlbum(ref suppressDefaultLog, apiResponseLocalVar, albumId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2711,11 +2664,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterLeaveAlbum(ref bool suppressDefaultLog, ILeaveAlbumApiResponse apiResponseLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterLeaveAlbum(ref bool suppressDefaultLog, ILeaveAlbumApiResponse apiResponseLocalVar, long albumId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2723,14 +2675,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorLeaveAlbumDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorLeaveAlbumDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLeaveAlbum(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumId, deviceId, accountId);
+            OnErrorLeaveAlbum(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2742,26 +2693,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorLeaveAlbum(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorLeaveAlbum(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Leave Album  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaveAlbumApiResponse"/>&gt;</returns>
-        public async Task<ILeaveAlbumApiResponse?> LeaveAlbumOrDefaultAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaveAlbumApiResponse?> LeaveAlbumOrDefaultAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LeaveAlbumAsync(version, albumId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await LeaveAlbumAsync(albumId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2773,13 +2722,12 @@ namespace Org.OpenAPITools.Api
         /// Leave Album  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaveAlbumApiResponse"/>&gt;</returns>
-        public async Task<ILeaveAlbumApiResponse> LeaveAlbumAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaveAlbumApiResponse> LeaveAlbumAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2787,7 +2735,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateLeaveAlbum(deviceId);
 
-                FormatLeaveAlbum(ref version, ref albumId, ref deviceId, ref accountId);
+                FormatLeaveAlbum(ref albumId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2795,9 +2743,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/user/leave"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/user/leave");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/user/leave"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/user/leave");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2834,13 +2781,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/user/leave", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/user/leave", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterLeaveAlbumDefaultImplementation(apiResponseLocalVar, version, albumId, deviceId, accountId);
+                        AfterLeaveAlbumDefaultImplementation(apiResponseLocalVar, albumId, deviceId, accountId);
 
                         Events.ExecuteOnLeaveAlbum(apiResponseLocalVar);
 
@@ -2850,7 +2797,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorLeaveAlbumDefaultImplementation(e, "/api/{version}/album/user/leave", uriBuilderLocalVar.Path, version, albumId, deviceId, accountId);
+                OnErrorLeaveAlbumDefaultImplementation(e, "/album/user/leave", uriBuilderLocalVar.Path, albumId, deviceId, accountId);
                 Events.ExecuteOnErrorLeaveAlbum(e);
                 throw;
             }
@@ -2949,7 +2896,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveAlbum(ref decimal version, ref long albumId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatRemoveAlbum(ref long albumId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -2966,14 +2913,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterRemoveAlbumDefaultImplementation(IRemoveAlbumApiResponse apiResponseLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId)
+        private void AfterRemoveAlbumDefaultImplementation(IRemoveAlbumApiResponse apiResponseLocalVar, long albumId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveAlbum(ref suppressDefaultLog, apiResponseLocalVar, version, albumId, deviceId, accountId);
+            AfterRemoveAlbum(ref suppressDefaultLog, apiResponseLocalVar, albumId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2983,11 +2929,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterRemoveAlbum(ref bool suppressDefaultLog, IRemoveAlbumApiResponse apiResponseLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterRemoveAlbum(ref bool suppressDefaultLog, IRemoveAlbumApiResponse apiResponseLocalVar, long albumId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2995,14 +2940,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorRemoveAlbumDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorRemoveAlbumDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveAlbum(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumId, deviceId, accountId);
+            OnErrorRemoveAlbum(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3014,26 +2958,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorRemoveAlbum(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorRemoveAlbum(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Album Deletes an Album
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID to delete</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAlbumApiResponse"/>&gt;</returns>
-        public async Task<IRemoveAlbumApiResponse?> RemoveAlbumOrDefaultAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveAlbumApiResponse?> RemoveAlbumOrDefaultAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveAlbumAsync(version, albumId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await RemoveAlbumAsync(albumId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3045,13 +2987,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Album Deletes an Album
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID to delete</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAlbumApiResponse"/>&gt;</returns>
-        public async Task<IRemoveAlbumApiResponse> RemoveAlbumAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveAlbumApiResponse> RemoveAlbumAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3059,7 +3000,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveAlbum(deviceId);
 
-                FormatRemoveAlbum(ref version, ref albumId, ref deviceId, ref accountId);
+                FormatRemoveAlbum(ref albumId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3067,9 +3008,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3106,13 +3046,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveAlbumDefaultImplementation(apiResponseLocalVar, version, albumId, deviceId, accountId);
+                        AfterRemoveAlbumDefaultImplementation(apiResponseLocalVar, albumId, deviceId, accountId);
 
                         Events.ExecuteOnRemoveAlbum(apiResponseLocalVar);
 
@@ -3122,7 +3062,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveAlbumDefaultImplementation(e, "/api/{version}/album/delete", uriBuilderLocalVar.Path, version, albumId, deviceId, accountId);
+                OnErrorRemoveAlbumDefaultImplementation(e, "/album/delete", uriBuilderLocalVar.Path, albumId, deviceId, accountId);
                 Events.ExecuteOnErrorRemoveAlbum(e);
                 throw;
             }
@@ -3221,7 +3161,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveAlbumUsers(ref decimal version, ref long albumId, ref bool removeFriendGroup, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connections, ref Option<string> connectionGroups);
+        partial void FormatRemoveAlbumUsers(ref long albumId, ref bool removeFriendGroup, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connections, ref Option<string> connectionGroups);
 
         /// <summary>
         /// Validates the request parameters
@@ -3246,17 +3186,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="removeFriendGroup"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connections"></param>
         /// <param name="connectionGroups"></param>
-        private void AfterRemoveAlbumUsersDefaultImplementation(IRemoveAlbumUsersApiResponse apiResponseLocalVar, decimal version, long albumId, bool removeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> connections, Option<string> connectionGroups)
+        private void AfterRemoveAlbumUsersDefaultImplementation(IRemoveAlbumUsersApiResponse apiResponseLocalVar, long albumId, bool removeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> connections, Option<string> connectionGroups)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveAlbumUsers(ref suppressDefaultLog, apiResponseLocalVar, version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
+            AfterRemoveAlbumUsers(ref suppressDefaultLog, apiResponseLocalVar, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3266,14 +3205,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="removeFriendGroup"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connections"></param>
         /// <param name="connectionGroups"></param>
-        partial void AfterRemoveAlbumUsers(ref bool suppressDefaultLog, IRemoveAlbumUsersApiResponse apiResponseLocalVar, decimal version, long albumId, bool removeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> connections, Option<string> connectionGroups);
+        partial void AfterRemoveAlbumUsers(ref bool suppressDefaultLog, IRemoveAlbumUsersApiResponse apiResponseLocalVar, long albumId, bool removeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> connections, Option<string> connectionGroups);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3281,17 +3219,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="removeFriendGroup"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connections"></param>
         /// <param name="connectionGroups"></param>
-        private void OnErrorRemoveAlbumUsersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, bool removeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> connections, Option<string> connectionGroups)
+        private void OnErrorRemoveAlbumUsersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, bool removeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> connections, Option<string> connectionGroups)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveAlbumUsers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
+            OnErrorRemoveAlbumUsers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3303,19 +3240,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="removeFriendGroup"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connections"></param>
         /// <param name="connectionGroups"></param>
-        partial void OnErrorRemoveAlbumUsers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, bool removeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> connections, Option<string> connectionGroups);
+        partial void OnErrorRemoveAlbumUsers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, bool removeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> connections, Option<string> connectionGroups);
 
         /// <summary>
         /// Remove Album Users Remove participants of an album.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="removeFriendGroup">remove friend group</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -3324,11 +3259,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroups">comma separated list of connection group IDs (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAlbumUsersApiResponse"/>&gt;</returns>
-        public async Task<IRemoveAlbumUsersApiResponse?> RemoveAlbumUsersOrDefaultAsync(decimal version, long albumId, bool removeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveAlbumUsersApiResponse?> RemoveAlbumUsersOrDefaultAsync(long albumId, bool removeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveAlbumUsersAsync(version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups, cancellationToken).ConfigureAwait(false);
+                return await RemoveAlbumUsersAsync(albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3340,7 +3275,6 @@ namespace Org.OpenAPITools.Api
         /// Remove Album Users Remove participants of an album.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the album ID</param>
         /// <param name="removeFriendGroup">remove friend group</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -3349,7 +3283,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroups">comma separated list of connection group IDs (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveAlbumUsersApiResponse"/>&gt;</returns>
-        public async Task<IRemoveAlbumUsersApiResponse> RemoveAlbumUsersAsync(decimal version, long albumId, bool removeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveAlbumUsersApiResponse> RemoveAlbumUsersAsync(long albumId, bool removeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connections = default, Option<string> connectionGroups = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3357,7 +3291,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveAlbumUsers(deviceId, connections, connectionGroups);
 
-                FormatRemoveAlbumUsers(ref version, ref albumId, ref removeFriendGroup, ref deviceId, ref accountId, ref connections, ref connectionGroups);
+                FormatRemoveAlbumUsers(ref albumId, ref removeFriendGroup, ref deviceId, ref accountId, ref connections, ref connectionGroups);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3365,9 +3299,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/user/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/user/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/user/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/user/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3411,13 +3344,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/user/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/user/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveAlbumUsersDefaultImplementation(apiResponseLocalVar, version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
+                        AfterRemoveAlbumUsersDefaultImplementation(apiResponseLocalVar, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
 
                         Events.ExecuteOnRemoveAlbumUsers(apiResponseLocalVar);
 
@@ -3427,7 +3360,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveAlbumUsersDefaultImplementation(e, "/api/{version}/album/user/delete", uriBuilderLocalVar.Path, version, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
+                OnErrorRemoveAlbumUsersDefaultImplementation(e, "/album/user/delete", uriBuilderLocalVar.Path, albumId, removeFriendGroup, deviceId, accountId, connections, connectionGroups);
                 Events.ExecuteOnErrorRemoveAlbumUsers(e);
                 throw;
             }
@@ -3526,7 +3459,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchAlbums(ref decimal version, ref string filter, ref long albumTypeId, ref string subType, ref bool includeInactive, ref string sortField, ref bool descending, ref int start, ref int limit, ref double range, ref bool includeLiked, ref bool includeFavorited, ref bool includePermissions, ref int likePreviewSize, ref int assetPreviewSize, ref int notePreviewSize, ref int connectionPreviewSize, ref int audiencePreviewSize, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<long> ownerId, ref Option<string> albumIds, ref Option<string> excludeAlbumIds, ref Option<long> mediaId, ref Option<string> keyword, ref Option<string> albumType, ref Option<int> limitPerAlbumType, ref Option<long> dateCreated, ref Option<long> updatedSince, ref Option<long> updatedBefore, ref Option<long> createdSince, ref Option<long> createdBefore, ref Option<long> startedSince, ref Option<long> startedBefore, ref Option<long> endedSince, ref Option<long> endedBefore, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> appKey, ref Option<string> categoryIds, ref Option<string> categoryFilterIds, ref Option<string> audienceIds, ref Option<string> excludeAudienceIds, ref Option<bool> includeCompletable, ref Option<bool> includeRating, ref Option<string> searchMode, ref Option<bool> stackSearch, ref Option<int> stackWindowSize, ref Option<int> minStackPerPage, ref Option<string> stackPaginationIdentifier, ref Option<bool> stackDetails, ref Option<long> flagCountMinimum, ref Option<bool> removeFlaggedContent, ref Option<bool> verifiedFilter, ref Option<string> linkedObjectType, ref Option<long> linkedObjectId, ref Option<long> orderAudienceId, ref Option<bool> ignoreDefaultAppFilter, ref Option<string> searchExpression, ref Option<bool> generateAlbums);
+        partial void FormatSearchAlbums(ref string filter, ref long albumTypeId, ref string subType, ref bool includeInactive, ref string sortField, ref bool descending, ref int start, ref int limit, ref double range, ref bool includeLiked, ref bool includeFavorited, ref bool includePermissions, ref int likePreviewSize, ref int assetPreviewSize, ref int notePreviewSize, ref int connectionPreviewSize, ref int audiencePreviewSize, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<long> ownerId, ref Option<string> albumIds, ref Option<string> excludeAlbumIds, ref Option<long> mediaId, ref Option<string> keyword, ref Option<string> albumType, ref Option<int> limitPerAlbumType, ref Option<long> dateCreated, ref Option<long> updatedSince, ref Option<long> updatedBefore, ref Option<long> createdSince, ref Option<long> createdBefore, ref Option<long> startedSince, ref Option<long> startedBefore, ref Option<long> endedSince, ref Option<long> endedBefore, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> appKey, ref Option<string> categoryIds, ref Option<string> categoryFilterIds, ref Option<string> audienceIds, ref Option<string> excludeAudienceIds, ref Option<bool> includeCompletable, ref Option<bool> includeRating, ref Option<string> searchMode, ref Option<bool> stackSearch, ref Option<int> stackWindowSize, ref Option<int> minStackPerPage, ref Option<string> stackPaginationIdentifier, ref Option<bool> stackDetails, ref Option<long> flagCountMinimum, ref Option<bool> removeFlaggedContent, ref Option<bool> verifiedFilter, ref Option<string> linkedObjectType, ref Option<long> linkedObjectId, ref Option<long> orderAudienceId, ref Option<bool> ignoreDefaultAppFilter, ref Option<string> searchExpression, ref Option<bool> generateAlbums);
 
         /// <summary>
         /// Validates the request parameters
@@ -3607,7 +3540,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="albumTypeId"></param>
         /// <param name="subType"></param>
@@ -3668,10 +3600,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ignoreDefaultAppFilter"></param>
         /// <param name="searchExpression"></param>
         /// <param name="generateAlbums"></param>
-        private void AfterSearchAlbumsDefaultImplementation(ISearchAlbumsApiResponse apiResponseLocalVar, decimal version, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<long> ownerId, Option<string> albumIds, Option<string> excludeAlbumIds, Option<long> mediaId, Option<string> keyword, Option<string> albumType, Option<int> limitPerAlbumType, Option<long> dateCreated, Option<long> updatedSince, Option<long> updatedBefore, Option<long> createdSince, Option<long> createdBefore, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> excludeAudienceIds, Option<bool> includeCompletable, Option<bool> includeRating, Option<string> searchMode, Option<bool> stackSearch, Option<int> stackWindowSize, Option<int> minStackPerPage, Option<string> stackPaginationIdentifier, Option<bool> stackDetails, Option<long> flagCountMinimum, Option<bool> removeFlaggedContent, Option<bool> verifiedFilter, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<long> orderAudienceId, Option<bool> ignoreDefaultAppFilter, Option<string> searchExpression, Option<bool> generateAlbums)
+        private void AfterSearchAlbumsDefaultImplementation(ISearchAlbumsApiResponse apiResponseLocalVar, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<long> ownerId, Option<string> albumIds, Option<string> excludeAlbumIds, Option<long> mediaId, Option<string> keyword, Option<string> albumType, Option<int> limitPerAlbumType, Option<long> dateCreated, Option<long> updatedSince, Option<long> updatedBefore, Option<long> createdSince, Option<long> createdBefore, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> excludeAudienceIds, Option<bool> includeCompletable, Option<bool> includeRating, Option<string> searchMode, Option<bool> stackSearch, Option<int> stackWindowSize, Option<int> minStackPerPage, Option<string> stackPaginationIdentifier, Option<bool> stackDetails, Option<long> flagCountMinimum, Option<bool> removeFlaggedContent, Option<bool> verifiedFilter, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<long> orderAudienceId, Option<bool> ignoreDefaultAppFilter, Option<string> searchExpression, Option<bool> generateAlbums)
         {
             bool suppressDefaultLog = false;
-            AfterSearchAlbums(ref suppressDefaultLog, apiResponseLocalVar, version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
+            AfterSearchAlbums(ref suppressDefaultLog, apiResponseLocalVar, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3681,7 +3613,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="albumTypeId"></param>
         /// <param name="subType"></param>
@@ -3742,7 +3673,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="ignoreDefaultAppFilter"></param>
         /// <param name="searchExpression"></param>
         /// <param name="generateAlbums"></param>
-        partial void AfterSearchAlbums(ref bool suppressDefaultLog, ISearchAlbumsApiResponse apiResponseLocalVar, decimal version, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<long> ownerId, Option<string> albumIds, Option<string> excludeAlbumIds, Option<long> mediaId, Option<string> keyword, Option<string> albumType, Option<int> limitPerAlbumType, Option<long> dateCreated, Option<long> updatedSince, Option<long> updatedBefore, Option<long> createdSince, Option<long> createdBefore, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> excludeAudienceIds, Option<bool> includeCompletable, Option<bool> includeRating, Option<string> searchMode, Option<bool> stackSearch, Option<int> stackWindowSize, Option<int> minStackPerPage, Option<string> stackPaginationIdentifier, Option<bool> stackDetails, Option<long> flagCountMinimum, Option<bool> removeFlaggedContent, Option<bool> verifiedFilter, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<long> orderAudienceId, Option<bool> ignoreDefaultAppFilter, Option<string> searchExpression, Option<bool> generateAlbums);
+        partial void AfterSearchAlbums(ref bool suppressDefaultLog, ISearchAlbumsApiResponse apiResponseLocalVar, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<long> ownerId, Option<string> albumIds, Option<string> excludeAlbumIds, Option<long> mediaId, Option<string> keyword, Option<string> albumType, Option<int> limitPerAlbumType, Option<long> dateCreated, Option<long> updatedSince, Option<long> updatedBefore, Option<long> createdSince, Option<long> createdBefore, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> excludeAudienceIds, Option<bool> includeCompletable, Option<bool> includeRating, Option<string> searchMode, Option<bool> stackSearch, Option<int> stackWindowSize, Option<int> minStackPerPage, Option<string> stackPaginationIdentifier, Option<bool> stackDetails, Option<long> flagCountMinimum, Option<bool> removeFlaggedContent, Option<bool> verifiedFilter, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<long> orderAudienceId, Option<bool> ignoreDefaultAppFilter, Option<string> searchExpression, Option<bool> generateAlbums);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3750,7 +3681,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="albumTypeId"></param>
         /// <param name="subType"></param>
@@ -3811,10 +3741,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="ignoreDefaultAppFilter"></param>
         /// <param name="searchExpression"></param>
         /// <param name="generateAlbums"></param>
-        private void OnErrorSearchAlbumsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<long> ownerId, Option<string> albumIds, Option<string> excludeAlbumIds, Option<long> mediaId, Option<string> keyword, Option<string> albumType, Option<int> limitPerAlbumType, Option<long> dateCreated, Option<long> updatedSince, Option<long> updatedBefore, Option<long> createdSince, Option<long> createdBefore, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> excludeAudienceIds, Option<bool> includeCompletable, Option<bool> includeRating, Option<string> searchMode, Option<bool> stackSearch, Option<int> stackWindowSize, Option<int> minStackPerPage, Option<string> stackPaginationIdentifier, Option<bool> stackDetails, Option<long> flagCountMinimum, Option<bool> removeFlaggedContent, Option<bool> verifiedFilter, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<long> orderAudienceId, Option<bool> ignoreDefaultAppFilter, Option<string> searchExpression, Option<bool> generateAlbums)
+        private void OnErrorSearchAlbumsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<long> ownerId, Option<string> albumIds, Option<string> excludeAlbumIds, Option<long> mediaId, Option<string> keyword, Option<string> albumType, Option<int> limitPerAlbumType, Option<long> dateCreated, Option<long> updatedSince, Option<long> updatedBefore, Option<long> createdSince, Option<long> createdBefore, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> excludeAudienceIds, Option<bool> includeCompletable, Option<bool> includeRating, Option<string> searchMode, Option<bool> stackSearch, Option<int> stackWindowSize, Option<int> minStackPerPage, Option<string> stackPaginationIdentifier, Option<bool> stackDetails, Option<long> flagCountMinimum, Option<bool> removeFlaggedContent, Option<bool> verifiedFilter, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<long> orderAudienceId, Option<bool> ignoreDefaultAppFilter, Option<string> searchExpression, Option<bool> generateAlbums)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchAlbums(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
+            OnErrorSearchAlbums(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3826,7 +3756,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="albumTypeId"></param>
         /// <param name="subType"></param>
@@ -3887,12 +3816,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="ignoreDefaultAppFilter"></param>
         /// <param name="searchExpression"></param>
         /// <param name="generateAlbums"></param>
-        partial void OnErrorSearchAlbums(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<long> ownerId, Option<string> albumIds, Option<string> excludeAlbumIds, Option<long> mediaId, Option<string> keyword, Option<string> albumType, Option<int> limitPerAlbumType, Option<long> dateCreated, Option<long> updatedSince, Option<long> updatedBefore, Option<long> createdSince, Option<long> createdBefore, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> excludeAudienceIds, Option<bool> includeCompletable, Option<bool> includeRating, Option<string> searchMode, Option<bool> stackSearch, Option<int> stackWindowSize, Option<int> minStackPerPage, Option<string> stackPaginationIdentifier, Option<bool> stackDetails, Option<long> flagCountMinimum, Option<bool> removeFlaggedContent, Option<bool> verifiedFilter, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<long> orderAudienceId, Option<bool> ignoreDefaultAppFilter, Option<string> searchExpression, Option<bool> generateAlbums);
+        partial void OnErrorSearchAlbums(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<long> ownerId, Option<string> albumIds, Option<string> excludeAlbumIds, Option<long> mediaId, Option<string> keyword, Option<string> albumType, Option<int> limitPerAlbumType, Option<long> dateCreated, Option<long> updatedSince, Option<long> updatedBefore, Option<long> createdSince, Option<long> createdBefore, Option<long> startedSince, Option<long> startedBefore, Option<long> endedSince, Option<long> endedBefore, Option<double> latitude, Option<double> longitude, Option<string> appKey, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> excludeAudienceIds, Option<bool> includeCompletable, Option<bool> includeRating, Option<string> searchMode, Option<bool> stackSearch, Option<int> stackWindowSize, Option<int> minStackPerPage, Option<string> stackPaginationIdentifier, Option<bool> stackDetails, Option<long> flagCountMinimum, Option<bool> removeFlaggedContent, Option<bool> verifiedFilter, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<long> orderAudienceId, Option<bool> ignoreDefaultAppFilter, Option<string> searchExpression, Option<bool> generateAlbums);
 
         /// <summary>
         /// Search Albums Searches on Albums.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. </param>
         /// <param name="albumTypeId">id of custom albumType</param>
         /// <param name="subType">filter albums with this album sub type</param>
@@ -3955,11 +3883,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="generateAlbums">If true and results are empty, attempt to generate albums via templates (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAlbumsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAlbumsApiResponse?> SearchAlbumsOrDefaultAsync(decimal version, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<long> ownerId = default, Option<string> albumIds = default, Option<string> excludeAlbumIds = default, Option<long> mediaId = default, Option<string> keyword = default, Option<string> albumType = default, Option<int> limitPerAlbumType = default, Option<long> dateCreated = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<long> createdSince = default, Option<long> createdBefore = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> excludeAudienceIds = default, Option<bool> includeCompletable = default, Option<bool> includeRating = default, Option<string> searchMode = default, Option<bool> stackSearch = default, Option<int> stackWindowSize = default, Option<int> minStackPerPage = default, Option<string> stackPaginationIdentifier = default, Option<bool> stackDetails = default, Option<long> flagCountMinimum = default, Option<bool> removeFlaggedContent = default, Option<bool> verifiedFilter = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<long> orderAudienceId = default, Option<bool> ignoreDefaultAppFilter = default, Option<string> searchExpression = default, Option<bool> generateAlbums = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAlbumsApiResponse?> SearchAlbumsOrDefaultAsync(string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<long> ownerId = default, Option<string> albumIds = default, Option<string> excludeAlbumIds = default, Option<long> mediaId = default, Option<string> keyword = default, Option<string> albumType = default, Option<int> limitPerAlbumType = default, Option<long> dateCreated = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<long> createdSince = default, Option<long> createdBefore = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> excludeAudienceIds = default, Option<bool> includeCompletable = default, Option<bool> includeRating = default, Option<string> searchMode = default, Option<bool> stackSearch = default, Option<int> stackWindowSize = default, Option<int> minStackPerPage = default, Option<string> stackPaginationIdentifier = default, Option<bool> stackDetails = default, Option<long> flagCountMinimum = default, Option<bool> removeFlaggedContent = default, Option<bool> verifiedFilter = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<long> orderAudienceId = default, Option<bool> ignoreDefaultAppFilter = default, Option<string> searchExpression = default, Option<bool> generateAlbums = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchAlbumsAsync(version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums, cancellationToken).ConfigureAwait(false);
+                return await SearchAlbumsAsync(filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3971,7 +3899,6 @@ namespace Org.OpenAPITools.Api
         /// Search Albums Searches on Albums.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. </param>
         /// <param name="albumTypeId">id of custom albumType</param>
         /// <param name="subType">filter albums with this album sub type</param>
@@ -4034,7 +3961,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="generateAlbums">If true and results are empty, attempt to generate albums via templates (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAlbumsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAlbumsApiResponse> SearchAlbumsAsync(decimal version, string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<long> ownerId = default, Option<string> albumIds = default, Option<string> excludeAlbumIds = default, Option<long> mediaId = default, Option<string> keyword = default, Option<string> albumType = default, Option<int> limitPerAlbumType = default, Option<long> dateCreated = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<long> createdSince = default, Option<long> createdBefore = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> excludeAudienceIds = default, Option<bool> includeCompletable = default, Option<bool> includeRating = default, Option<string> searchMode = default, Option<bool> stackSearch = default, Option<int> stackWindowSize = default, Option<int> minStackPerPage = default, Option<string> stackPaginationIdentifier = default, Option<bool> stackDetails = default, Option<long> flagCountMinimum = default, Option<bool> removeFlaggedContent = default, Option<bool> verifiedFilter = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<long> orderAudienceId = default, Option<bool> ignoreDefaultAppFilter = default, Option<string> searchExpression = default, Option<bool> generateAlbums = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAlbumsApiResponse> SearchAlbumsAsync(string filter, long albumTypeId, string subType, bool includeInactive, string sortField, bool descending, int start, int limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int likePreviewSize, int assetPreviewSize, int notePreviewSize, int connectionPreviewSize, int audiencePreviewSize, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<long> ownerId = default, Option<string> albumIds = default, Option<string> excludeAlbumIds = default, Option<long> mediaId = default, Option<string> keyword = default, Option<string> albumType = default, Option<int> limitPerAlbumType = default, Option<long> dateCreated = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<long> createdSince = default, Option<long> createdBefore = default, Option<long> startedSince = default, Option<long> startedBefore = default, Option<long> endedSince = default, Option<long> endedBefore = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> appKey = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> excludeAudienceIds = default, Option<bool> includeCompletable = default, Option<bool> includeRating = default, Option<string> searchMode = default, Option<bool> stackSearch = default, Option<int> stackWindowSize = default, Option<int> minStackPerPage = default, Option<string> stackPaginationIdentifier = default, Option<bool> stackDetails = default, Option<long> flagCountMinimum = default, Option<bool> removeFlaggedContent = default, Option<bool> verifiedFilter = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<long> orderAudienceId = default, Option<bool> ignoreDefaultAppFilter = default, Option<string> searchExpression = default, Option<bool> generateAlbums = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4042,7 +3969,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchAlbums(filter, subType, sortField, deviceId, albumIds, excludeAlbumIds, keyword, albumType, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, searchMode, stackPaginationIdentifier, linkedObjectType, searchExpression);
 
-                FormatSearchAlbums(ref version, ref filter, ref albumTypeId, ref subType, ref includeInactive, ref sortField, ref descending, ref start, ref limit, ref range, ref includeLiked, ref includeFavorited, ref includePermissions, ref likePreviewSize, ref assetPreviewSize, ref notePreviewSize, ref connectionPreviewSize, ref audiencePreviewSize, ref deviceId, ref accountId, ref connectionAccountId, ref ownerId, ref albumIds, ref excludeAlbumIds, ref mediaId, ref keyword, ref albumType, ref limitPerAlbumType, ref dateCreated, ref updatedSince, ref updatedBefore, ref createdSince, ref createdBefore, ref startedSince, ref startedBefore, ref endedSince, ref endedBefore, ref latitude, ref longitude, ref appKey, ref categoryIds, ref categoryFilterIds, ref audienceIds, ref excludeAudienceIds, ref includeCompletable, ref includeRating, ref searchMode, ref stackSearch, ref stackWindowSize, ref minStackPerPage, ref stackPaginationIdentifier, ref stackDetails, ref flagCountMinimum, ref removeFlaggedContent, ref verifiedFilter, ref linkedObjectType, ref linkedObjectId, ref orderAudienceId, ref ignoreDefaultAppFilter, ref searchExpression, ref generateAlbums);
+                FormatSearchAlbums(ref filter, ref albumTypeId, ref subType, ref includeInactive, ref sortField, ref descending, ref start, ref limit, ref range, ref includeLiked, ref includeFavorited, ref includePermissions, ref likePreviewSize, ref assetPreviewSize, ref notePreviewSize, ref connectionPreviewSize, ref audiencePreviewSize, ref deviceId, ref accountId, ref connectionAccountId, ref ownerId, ref albumIds, ref excludeAlbumIds, ref mediaId, ref keyword, ref albumType, ref limitPerAlbumType, ref dateCreated, ref updatedSince, ref updatedBefore, ref createdSince, ref createdBefore, ref startedSince, ref startedBefore, ref endedSince, ref endedBefore, ref latitude, ref longitude, ref appKey, ref categoryIds, ref categoryFilterIds, ref audienceIds, ref excludeAudienceIds, ref includeCompletable, ref includeRating, ref searchMode, ref stackSearch, ref stackWindowSize, ref minStackPerPage, ref stackPaginationIdentifier, ref stackDetails, ref flagCountMinimum, ref removeFlaggedContent, ref verifiedFilter, ref linkedObjectType, ref linkedObjectId, ref orderAudienceId, ref ignoreDefaultAppFilter, ref searchExpression, ref generateAlbums);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4050,9 +3977,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4228,13 +4154,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchAlbumsDefaultImplementation(apiResponseLocalVar, version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
+                        AfterSearchAlbumsDefaultImplementation(apiResponseLocalVar, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
 
                         Events.ExecuteOnSearchAlbums(apiResponseLocalVar);
 
@@ -4244,7 +4170,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchAlbumsDefaultImplementation(e, "/api/{version}/album/search", uriBuilderLocalVar.Path, version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
+                OnErrorSearchAlbumsDefaultImplementation(e, "/album/search", uriBuilderLocalVar.Path, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, deviceId, accountId, connectionAccountId, ownerId, albumIds, excludeAlbumIds, mediaId, keyword, albumType, limitPerAlbumType, dateCreated, updatedSince, updatedBefore, createdSince, createdBefore, startedSince, startedBefore, endedSince, endedBefore, latitude, longitude, appKey, categoryIds, categoryFilterIds, audienceIds, excludeAudienceIds, includeCompletable, includeRating, searchMode, stackSearch, stackWindowSize, minStackPerPage, stackPaginationIdentifier, stackDetails, flagCountMinimum, removeFlaggedContent, verifiedFilter, linkedObjectType, linkedObjectId, orderAudienceId, ignoreDefaultAppFilter, searchExpression, generateAlbums);
                 Events.ExecuteOnErrorSearchAlbums(e);
                 throw;
             }
@@ -4343,7 +4269,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateAlbumCollection(ref decimal version, ref long albumId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> assetsToAdd, ref Option<string> assetsToRemove, ref Option<long> assetId, ref Option<System.IO.Stream> media, ref Option<string> mediaURL, ref Option<bool> active, ref Option<string> title, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<string> description, ref Option<string> albumType, ref Option<long> albumTypeId, ref Option<string> subType, ref Option<bool> publicRead, ref Option<bool> publicWrite, ref Option<bool> publicDelete, ref Option<bool> publicAdd, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> locationDescription, ref Option<string> visibility, ref Option<string> cellPhone, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> fullAddress, ref Option<bool> anonymous, ref Option<string> metaData, ref Option<string> categoryIds, ref Option<string> categoryFilterIds, ref Option<string> audienceIds, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<bool> includeAllAppUsersAsMembers, ref Option<bool> includeAudiencesAsMembers, ref Option<string> audienceOperator, ref Option<string> linkedObjectType, ref Option<long> linkedObjectId, ref Option<bool> indexNow);
+        partial void FormatUpdateAlbumCollection(ref long albumId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> assetsToAdd, ref Option<string> assetsToRemove, ref Option<long> assetId, ref Option<System.IO.Stream> media, ref Option<string> mediaURL, ref Option<bool> active, ref Option<string> title, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<string> description, ref Option<string> albumType, ref Option<long> albumTypeId, ref Option<string> subType, ref Option<bool> publicRead, ref Option<bool> publicWrite, ref Option<bool> publicDelete, ref Option<bool> publicAdd, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> locationDescription, ref Option<string> visibility, ref Option<string> cellPhone, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> fullAddress, ref Option<bool> anonymous, ref Option<string> metaData, ref Option<string> categoryIds, ref Option<string> categoryFilterIds, ref Option<string> audienceIds, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<bool> includeAllAppUsersAsMembers, ref Option<bool> includeAudiencesAsMembers, ref Option<string> audienceOperator, ref Option<string> linkedObjectType, ref Option<long> linkedObjectId, ref Option<bool> indexNow);
 
         /// <summary>
         /// Validates the request parameters
@@ -4464,7 +4390,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4510,10 +4435,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="linkedObjectType"></param>
         /// <param name="linkedObjectId"></param>
         /// <param name="indexNow"></param>
-        private void AfterUpdateAlbumCollectionDefaultImplementation(IUpdateAlbumCollectionApiResponse apiResponseLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<string> assetsToRemove, Option<long> assetId, Option<System.IO.Stream> media, Option<string> mediaURL, Option<bool> active, Option<string> title, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<bool> publicRead, Option<bool> publicWrite, Option<bool> publicDelete, Option<bool> publicAdd, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<bool> anonymous, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<bool> indexNow)
+        private void AfterUpdateAlbumCollectionDefaultImplementation(IUpdateAlbumCollectionApiResponse apiResponseLocalVar, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<string> assetsToRemove, Option<long> assetId, Option<System.IO.Stream> media, Option<string> mediaURL, Option<bool> active, Option<string> title, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<bool> publicRead, Option<bool> publicWrite, Option<bool> publicDelete, Option<bool> publicAdd, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<bool> anonymous, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<bool> indexNow)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateAlbumCollection(ref suppressDefaultLog, apiResponseLocalVar, version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
+            AfterUpdateAlbumCollection(ref suppressDefaultLog, apiResponseLocalVar, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4523,7 +4448,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4569,7 +4493,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="linkedObjectType"></param>
         /// <param name="linkedObjectId"></param>
         /// <param name="indexNow"></param>
-        partial void AfterUpdateAlbumCollection(ref bool suppressDefaultLog, IUpdateAlbumCollectionApiResponse apiResponseLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<string> assetsToRemove, Option<long> assetId, Option<System.IO.Stream> media, Option<string> mediaURL, Option<bool> active, Option<string> title, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<bool> publicRead, Option<bool> publicWrite, Option<bool> publicDelete, Option<bool> publicAdd, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<bool> anonymous, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<bool> indexNow);
+        partial void AfterUpdateAlbumCollection(ref bool suppressDefaultLog, IUpdateAlbumCollectionApiResponse apiResponseLocalVar, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<string> assetsToRemove, Option<long> assetId, Option<System.IO.Stream> media, Option<string> mediaURL, Option<bool> active, Option<string> title, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<bool> publicRead, Option<bool> publicWrite, Option<bool> publicDelete, Option<bool> publicAdd, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<bool> anonymous, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<bool> indexNow);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4577,7 +4501,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4623,10 +4546,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="linkedObjectType"></param>
         /// <param name="linkedObjectId"></param>
         /// <param name="indexNow"></param>
-        private void OnErrorUpdateAlbumCollectionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<string> assetsToRemove, Option<long> assetId, Option<System.IO.Stream> media, Option<string> mediaURL, Option<bool> active, Option<string> title, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<bool> publicRead, Option<bool> publicWrite, Option<bool> publicDelete, Option<bool> publicAdd, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<bool> anonymous, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<bool> indexNow)
+        private void OnErrorUpdateAlbumCollectionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<string> assetsToRemove, Option<long> assetId, Option<System.IO.Stream> media, Option<string> mediaURL, Option<bool> active, Option<string> title, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<bool> publicRead, Option<bool> publicWrite, Option<bool> publicDelete, Option<bool> publicAdd, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<bool> anonymous, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<bool> indexNow)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateAlbumCollection(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
+            OnErrorUpdateAlbumCollection(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4638,7 +4561,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4684,12 +4606,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="linkedObjectType"></param>
         /// <param name="linkedObjectId"></param>
         /// <param name="indexNow"></param>
-        partial void OnErrorUpdateAlbumCollection(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<string> assetsToRemove, Option<long> assetId, Option<System.IO.Stream> media, Option<string> mediaURL, Option<bool> active, Option<string> title, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<bool> publicRead, Option<bool> publicWrite, Option<bool> publicDelete, Option<bool> publicAdd, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<bool> anonymous, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<bool> indexNow);
+        partial void OnErrorUpdateAlbumCollection(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> assetsToAdd, Option<string> assetsToRemove, Option<long> assetId, Option<System.IO.Stream> media, Option<string> mediaURL, Option<bool> active, Option<string> title, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> description, Option<string> albumType, Option<long> albumTypeId, Option<string> subType, Option<bool> publicRead, Option<bool> publicWrite, Option<bool> publicDelete, Option<bool> publicAdd, Option<double> latitude, Option<double> longitude, Option<string> locationDescription, Option<string> visibility, Option<string> cellPhone, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> fullAddress, Option<bool> anonymous, Option<string> metaData, Option<string> categoryIds, Option<string> categoryFilterIds, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<bool> includeAllAppUsersAsMembers, Option<bool> includeAudiencesAsMembers, Option<string> audienceOperator, Option<string> linkedObjectType, Option<long> linkedObjectId, Option<bool> indexNow);
 
         /// <summary>
         /// Update Album Update an Album.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumId">the ID of the album to update</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -4737,11 +4658,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="indexNow">determines whether the album should be indexed immediately (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAlbumCollectionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAlbumCollectionApiResponse?> UpdateAlbumCollectionOrDefaultAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<string> assetsToRemove = default, Option<long> assetId = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<bool> active = default, Option<string> title = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<bool> publicRead = default, Option<bool> publicWrite = default, Option<bool> publicDelete = default, Option<bool> publicAdd = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<bool> anonymous = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<bool> indexNow = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAlbumCollectionApiResponse?> UpdateAlbumCollectionOrDefaultAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<string> assetsToRemove = default, Option<long> assetId = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<bool> active = default, Option<string> title = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<bool> publicRead = default, Option<bool> publicWrite = default, Option<bool> publicDelete = default, Option<bool> publicAdd = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<bool> anonymous = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<bool> indexNow = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateAlbumCollectionAsync(version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow, cancellationToken).ConfigureAwait(false);
+                return await UpdateAlbumCollectionAsync(albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4753,7 +4674,6 @@ namespace Org.OpenAPITools.Api
         /// Update Album Update an Album.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumId">the ID of the album to update</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -4801,7 +4721,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="indexNow">determines whether the album should be indexed immediately (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAlbumCollectionApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAlbumCollectionApiResponse> UpdateAlbumCollectionAsync(decimal version, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<string> assetsToRemove = default, Option<long> assetId = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<bool> active = default, Option<string> title = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<bool> publicRead = default, Option<bool> publicWrite = default, Option<bool> publicDelete = default, Option<bool> publicAdd = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<bool> anonymous = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<bool> indexNow = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAlbumCollectionApiResponse> UpdateAlbumCollectionAsync(long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> assetsToAdd = default, Option<string> assetsToRemove = default, Option<long> assetId = default, Option<System.IO.Stream> media = default, Option<string> mediaURL = default, Option<bool> active = default, Option<string> title = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> description = default, Option<string> albumType = default, Option<long> albumTypeId = default, Option<string> subType = default, Option<bool> publicRead = default, Option<bool> publicWrite = default, Option<bool> publicDelete = default, Option<bool> publicAdd = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> locationDescription = default, Option<string> visibility = default, Option<string> cellPhone = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> fullAddress = default, Option<bool> anonymous = default, Option<string> metaData = default, Option<string> categoryIds = default, Option<string> categoryFilterIds = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<bool> includeAllAppUsersAsMembers = default, Option<bool> includeAudiencesAsMembers = default, Option<string> audienceOperator = default, Option<string> linkedObjectType = default, Option<long> linkedObjectId = default, Option<bool> indexNow = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4809,7 +4729,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateAlbumCollection(deviceId, assetsToAdd, assetsToRemove, media, mediaURL, title, tags, description, albumType, subType, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, audienceOperator, linkedObjectType);
 
-                FormatUpdateAlbumCollection(ref version, ref albumId, ref deviceId, ref accountId, ref assetsToAdd, ref assetsToRemove, ref assetId, ref media, ref mediaURL, ref active, ref title, ref startDate, ref endDate, ref tags, ref description, ref albumType, ref albumTypeId, ref subType, ref publicRead, ref publicWrite, ref publicDelete, ref publicAdd, ref latitude, ref longitude, ref locationDescription, ref visibility, ref cellPhone, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref fullAddress, ref anonymous, ref metaData, ref categoryIds, ref categoryFilterIds, ref audienceIds, ref audienceIdsToAdd, ref audienceIdsToRemove, ref includeAllAppUsersAsMembers, ref includeAudiencesAsMembers, ref audienceOperator, ref linkedObjectType, ref linkedObjectId, ref indexNow);
+                FormatUpdateAlbumCollection(ref albumId, ref deviceId, ref accountId, ref assetsToAdd, ref assetsToRemove, ref assetId, ref media, ref mediaURL, ref active, ref title, ref startDate, ref endDate, ref tags, ref description, ref albumType, ref albumTypeId, ref subType, ref publicRead, ref publicWrite, ref publicDelete, ref publicAdd, ref latitude, ref longitude, ref locationDescription, ref visibility, ref cellPhone, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref fullAddress, ref anonymous, ref metaData, ref categoryIds, ref categoryFilterIds, ref audienceIds, ref audienceIdsToAdd, ref audienceIdsToRemove, ref includeAllAppUsersAsMembers, ref includeAudiencesAsMembers, ref audienceOperator, ref linkedObjectType, ref linkedObjectId, ref indexNow);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4817,9 +4737,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/album/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/album/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/album/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/album/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4982,13 +4901,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/album/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/album/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateAlbumCollectionDefaultImplementation(apiResponseLocalVar, version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
+                        AfterUpdateAlbumCollectionDefaultImplementation(apiResponseLocalVar, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
 
                         Events.ExecuteOnUpdateAlbumCollection(apiResponseLocalVar);
 
@@ -4998,7 +4917,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateAlbumCollectionDefaultImplementation(e, "/api/{version}/album/update", uriBuilderLocalVar.Path, version, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
+                OnErrorUpdateAlbumCollectionDefaultImplementation(e, "/album/update", uriBuilderLocalVar.Path, albumId, deviceId, accountId, assetsToAdd, assetsToRemove, assetId, media, mediaURL, active, title, startDate, endDate, tags, description, albumType, albumTypeId, subType, publicRead, publicWrite, publicDelete, publicAdd, latitude, longitude, locationDescription, visibility, cellPhone, streetAddress, streetAddress2, city, state, postalCode, fullAddress, anonymous, metaData, categoryIds, categoryFilterIds, audienceIds, audienceIdsToAdd, audienceIdsToRemove, includeAllAppUsersAsMembers, includeAudiencesAsMembers, audienceOperator, linkedObjectType, linkedObjectId, indexNow);
                 Events.ExecuteOnErrorUpdateAlbumCollection(e);
                 throw;
             }

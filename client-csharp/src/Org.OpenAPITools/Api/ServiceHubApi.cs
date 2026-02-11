@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Create new service hub
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateServiceHubApiResponse"/>&gt;</returns>
-        Task<ICreateServiceHubApiResponse> CreateServiceHubAsync(decimal version, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateServiceHubApiResponse> CreateServiceHubAsync(Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Service Hub
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create new service hub
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateServiceHubApiResponse"/>?&gt;</returns>
-        Task<ICreateServiceHubApiResponse?> CreateServiceHubOrDefaultAsync(decimal version, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateServiceHubApiResponse?> CreateServiceHubOrDefaultAsync(Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Service Hub
@@ -70,11 +68,10 @@ namespace Org.OpenAPITools.Api
         /// Delete an existing service hub
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteServiceHubApiResponse"/>&gt;</returns>
-        Task<IDeleteServiceHubApiResponse> DeleteServiceHubAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteServiceHubApiResponse> DeleteServiceHubAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Service Hub
@@ -82,11 +79,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an existing service hub
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteServiceHubApiResponse"/>?&gt;</returns>
-        Task<IDeleteServiceHubApiResponse?> DeleteServiceHubOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteServiceHubApiResponse?> DeleteServiceHubOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Service Hub
@@ -95,11 +91,10 @@ namespace Org.OpenAPITools.Api
         /// Get an existing service hub
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetServiceHubApiResponse"/>&gt;</returns>
-        Task<IGetServiceHubApiResponse> GetServiceHubAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetServiceHubApiResponse> GetServiceHubAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Service Hub
@@ -107,11 +102,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an existing service hub
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetServiceHubApiResponse"/>?&gt;</returns>
-        Task<IGetServiceHubApiResponse?> GetServiceHubOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetServiceHubApiResponse?> GetServiceHubOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Service Hub
@@ -120,12 +114,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing service hub
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostServiceHubApiResponse"/>&gt;</returns>
-        Task<IPostServiceHubApiResponse> PostServiceHubAsync(decimal version, long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPostServiceHubApiResponse> PostServiceHubAsync(long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Service Hub
@@ -133,12 +126,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing service hub
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostServiceHubApiResponse"/>?&gt;</returns>
-        Task<IPostServiceHubApiResponse?> PostServiceHubOrDefaultAsync(decimal version, long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPostServiceHubApiResponse?> PostServiceHubOrDefaultAsync(long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Service Hub
@@ -147,12 +139,11 @@ namespace Org.OpenAPITools.Api
         /// Update an existing service hub
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPutServiceHubApiResponse"/>&gt;</returns>
-        Task<IPutServiceHubApiResponse> PutServiceHubAsync(decimal version, long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPutServiceHubApiResponse> PutServiceHubAsync(long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Service Hub
@@ -160,12 +151,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an existing service hub
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPutServiceHubApiResponse"/>?&gt;</returns>
-        Task<IPutServiceHubApiResponse?> PutServiceHubOrDefaultAsync(decimal version, long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPutServiceHubApiResponse?> PutServiceHubOrDefaultAsync(long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Service Hubs
@@ -174,7 +164,6 @@ namespace Org.OpenAPITools.Api
         /// Search for service hubs.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -184,7 +173,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId">The retailer belongs to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchServiceHubsApiResponse"/>&gt;</returns>
-        Task<ISearchServiceHubsApiResponse> SearchServiceHubsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchServiceHubsApiResponse> SearchServiceHubsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Service Hubs
@@ -192,7 +181,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for service hubs.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -202,7 +190,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId">The retailer belongs to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchServiceHubsApiResponse"/>?&gt;</returns>
-        Task<ISearchServiceHubsApiResponse?> SearchServiceHubsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchServiceHubsApiResponse?> SearchServiceHubsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -450,7 +438,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateServiceHub(ref decimal version, Option<ServiceHub> body);
+        partial void FormatCreateServiceHub(Option<ServiceHub> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -467,12 +455,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateServiceHubDefaultImplementation(ICreateServiceHubApiResponse apiResponseLocalVar, decimal version, Option<ServiceHub> body)
+        private void AfterCreateServiceHubDefaultImplementation(ICreateServiceHubApiResponse apiResponseLocalVar, Option<ServiceHub> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateServiceHub(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateServiceHub(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -482,9 +469,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateServiceHub(ref bool suppressDefaultLog, ICreateServiceHubApiResponse apiResponseLocalVar, decimal version, Option<ServiceHub> body);
+        partial void AfterCreateServiceHub(ref bool suppressDefaultLog, ICreateServiceHubApiResponse apiResponseLocalVar, Option<ServiceHub> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -492,12 +478,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<ServiceHub> body)
+        private void OnErrorCreateServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<ServiceHub> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -509,22 +494,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<ServiceHub> body);
+        partial void OnErrorCreateServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<ServiceHub> body);
 
         /// <summary>
         /// Create Service Hub Create new service hub
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateServiceHubApiResponse"/>&gt;</returns>
-        public async Task<ICreateServiceHubApiResponse?> CreateServiceHubOrDefaultAsync(decimal version, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateServiceHubApiResponse?> CreateServiceHubOrDefaultAsync(Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateServiceHubAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateServiceHubAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -536,11 +519,10 @@ namespace Org.OpenAPITools.Api
         /// Create Service Hub Create new service hub
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateServiceHubApiResponse"/>&gt;</returns>
-        public async Task<ICreateServiceHubApiResponse> CreateServiceHubAsync(decimal version, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateServiceHubApiResponse> CreateServiceHubAsync(Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -548,7 +530,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateServiceHub(body);
 
-                FormatCreateServiceHub(ref version, body);
+                FormatCreateServiceHub(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -556,9 +538,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/hub"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/hub");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/hub"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/hub");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -588,13 +569,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/hub", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/hub", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateServiceHubDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateServiceHubDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateServiceHub(apiResponseLocalVar);
 
@@ -604,7 +585,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateServiceHubDefaultImplementation(e, "/api/{version}/hub", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateServiceHubDefaultImplementation(e, "/hub", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateServiceHub(e);
                 throw;
             }
@@ -703,18 +684,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteServiceHub(ref decimal version, ref long id);
+        partial void FormatDeleteServiceHub(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterDeleteServiceHubDefaultImplementation(IDeleteServiceHubApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterDeleteServiceHubDefaultImplementation(IDeleteServiceHubApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteServiceHub(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterDeleteServiceHub(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -724,9 +704,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterDeleteServiceHub(ref bool suppressDefaultLog, IDeleteServiceHubApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterDeleteServiceHub(ref bool suppressDefaultLog, IDeleteServiceHubApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -734,12 +713,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorDeleteServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorDeleteServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorDeleteServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -751,22 +729,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorDeleteServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorDeleteServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Delete Service Hub Delete an existing service hub
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteServiceHubApiResponse"/>&gt;</returns>
-        public async Task<IDeleteServiceHubApiResponse?> DeleteServiceHubOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteServiceHubApiResponse?> DeleteServiceHubOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteServiceHubAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await DeleteServiceHubAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -778,17 +754,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Service Hub Delete an existing service hub
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteServiceHubApiResponse"/>&gt;</returns>
-        public async Task<IDeleteServiceHubApiResponse> DeleteServiceHubAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteServiceHubApiResponse> DeleteServiceHubAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteServiceHub(ref version, ref id);
+                FormatDeleteServiceHub(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -796,9 +771,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/hub/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/hub/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/hub/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/hub/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -815,13 +789,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/hub/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/hub/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteServiceHubDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterDeleteServiceHubDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnDeleteServiceHub(apiResponseLocalVar);
 
@@ -831,7 +805,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteServiceHubDefaultImplementation(e, "/api/{version}/hub/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorDeleteServiceHubDefaultImplementation(e, "/hub/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorDeleteServiceHub(e);
                 throw;
             }
@@ -898,18 +872,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetServiceHub(ref decimal version, ref long id);
+        partial void FormatGetServiceHub(ref long id);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void AfterGetServiceHubDefaultImplementation(IGetServiceHubApiResponse apiResponseLocalVar, decimal version, long id)
+        private void AfterGetServiceHubDefaultImplementation(IGetServiceHubApiResponse apiResponseLocalVar, long id)
         {
             bool suppressDefaultLog = false;
-            AfterGetServiceHub(ref suppressDefaultLog, apiResponseLocalVar, version, id);
+            AfterGetServiceHub(ref suppressDefaultLog, apiResponseLocalVar, id);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -919,9 +892,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void AfterGetServiceHub(ref bool suppressDefaultLog, IGetServiceHubApiResponse apiResponseLocalVar, decimal version, long id);
+        partial void AfterGetServiceHub(ref bool suppressDefaultLog, IGetServiceHubApiResponse apiResponseLocalVar, long id);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -929,12 +901,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        private void OnErrorGetServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id)
+        private void OnErrorGetServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id);
+            OnErrorGetServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -946,22 +917,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
-        partial void OnErrorGetServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id);
+        partial void OnErrorGetServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id);
 
         /// <summary>
         /// Get Service Hub Get an existing service hub
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetServiceHubApiResponse"/>&gt;</returns>
-        public async Task<IGetServiceHubApiResponse?> GetServiceHubOrDefaultAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetServiceHubApiResponse?> GetServiceHubOrDefaultAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetServiceHubAsync(version, id, cancellationToken).ConfigureAwait(false);
+                return await GetServiceHubAsync(id, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -973,17 +942,16 @@ namespace Org.OpenAPITools.Api
         /// Get Service Hub Get an existing service hub
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetServiceHubApiResponse"/>&gt;</returns>
-        public async Task<IGetServiceHubApiResponse> GetServiceHubAsync(decimal version, long id, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetServiceHubApiResponse> GetServiceHubAsync(long id, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetServiceHub(ref version, ref id);
+                FormatGetServiceHub(ref id);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -991,9 +959,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/hub/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/hub/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/hub/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/hub/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1019,13 +986,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/hub/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/hub/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetServiceHubDefaultImplementation(apiResponseLocalVar, version, id);
+                        AfterGetServiceHubDefaultImplementation(apiResponseLocalVar, id);
 
                         Events.ExecuteOnGetServiceHub(apiResponseLocalVar);
 
@@ -1035,7 +1002,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetServiceHubDefaultImplementation(e, "/api/{version}/hub/{id}", uriBuilderLocalVar.Path, version, id);
+                OnErrorGetServiceHubDefaultImplementation(e, "/hub/{id}", uriBuilderLocalVar.Path, id);
                 Events.ExecuteOnErrorGetServiceHub(e);
                 throw;
             }
@@ -1134,7 +1101,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPostServiceHub(ref decimal version, ref long id, Option<ServiceHub> body);
+        partial void FormatPostServiceHub(ref long id, Option<ServiceHub> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1151,13 +1118,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterPostServiceHubDefaultImplementation(IPostServiceHubApiResponse apiResponseLocalVar, decimal version, long id, Option<ServiceHub> body)
+        private void AfterPostServiceHubDefaultImplementation(IPostServiceHubApiResponse apiResponseLocalVar, long id, Option<ServiceHub> body)
         {
             bool suppressDefaultLog = false;
-            AfterPostServiceHub(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterPostServiceHub(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1167,10 +1133,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterPostServiceHub(ref bool suppressDefaultLog, IPostServiceHubApiResponse apiResponseLocalVar, decimal version, long id, Option<ServiceHub> body);
+        partial void AfterPostServiceHub(ref bool suppressDefaultLog, IPostServiceHubApiResponse apiResponseLocalVar, long id, Option<ServiceHub> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1178,13 +1143,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorPostServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<ServiceHub> body)
+        private void OnErrorPostServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<ServiceHub> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPostServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorPostServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1196,24 +1160,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorPostServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<ServiceHub> body);
+        partial void OnErrorPostServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<ServiceHub> body);
 
         /// <summary>
         /// Update Service Hub Update an existing service hub
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostServiceHubApiResponse"/>&gt;</returns>
-        public async Task<IPostServiceHubApiResponse?> PostServiceHubOrDefaultAsync(decimal version, long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPostServiceHubApiResponse?> PostServiceHubOrDefaultAsync(long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PostServiceHubAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await PostServiceHubAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1225,12 +1187,11 @@ namespace Org.OpenAPITools.Api
         /// Update Service Hub Update an existing service hub
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPostServiceHubApiResponse"/>&gt;</returns>
-        public async Task<IPostServiceHubApiResponse> PostServiceHubAsync(decimal version, long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPostServiceHubApiResponse> PostServiceHubAsync(long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1238,7 +1199,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePostServiceHub(body);
 
-                FormatPostServiceHub(ref version, ref id, body);
+                FormatPostServiceHub(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1246,9 +1207,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/hub/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/hub/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/hub/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/hub/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -1279,13 +1239,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/hub/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/hub/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPostServiceHubDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterPostServiceHubDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnPostServiceHub(apiResponseLocalVar);
 
@@ -1295,7 +1255,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPostServiceHubDefaultImplementation(e, "/api/{version}/hub/{id}", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorPostServiceHubDefaultImplementation(e, "/hub/{id}", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorPostServiceHub(e);
                 throw;
             }
@@ -1394,7 +1354,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPutServiceHub(ref decimal version, ref long id, Option<ServiceHub> body);
+        partial void FormatPutServiceHub(ref long id, Option<ServiceHub> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1411,13 +1371,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void AfterPutServiceHubDefaultImplementation(IPutServiceHubApiResponse apiResponseLocalVar, decimal version, long id, Option<ServiceHub> body)
+        private void AfterPutServiceHubDefaultImplementation(IPutServiceHubApiResponse apiResponseLocalVar, long id, Option<ServiceHub> body)
         {
             bool suppressDefaultLog = false;
-            AfterPutServiceHub(ref suppressDefaultLog, apiResponseLocalVar, version, id, body);
+            AfterPutServiceHub(ref suppressDefaultLog, apiResponseLocalVar, id, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1427,10 +1386,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void AfterPutServiceHub(ref bool suppressDefaultLog, IPutServiceHubApiResponse apiResponseLocalVar, decimal version, long id, Option<ServiceHub> body);
+        partial void AfterPutServiceHub(ref bool suppressDefaultLog, IPutServiceHubApiResponse apiResponseLocalVar, long id, Option<ServiceHub> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1438,13 +1396,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        private void OnErrorPutServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<ServiceHub> body)
+        private void OnErrorPutServiceHubDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<ServiceHub> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPutServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, id, body);
+            OnErrorPutServiceHub(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, id, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1456,24 +1413,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="id"></param>
         /// <param name="body"></param>
-        partial void OnErrorPutServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long id, Option<ServiceHub> body);
+        partial void OnErrorPutServiceHub(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long id, Option<ServiceHub> body);
 
         /// <summary>
         /// Update Service Hub Update an existing service hub
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPutServiceHubApiResponse"/>&gt;</returns>
-        public async Task<IPutServiceHubApiResponse?> PutServiceHubOrDefaultAsync(decimal version, long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPutServiceHubApiResponse?> PutServiceHubOrDefaultAsync(long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PutServiceHubAsync(version, id, body, cancellationToken).ConfigureAwait(false);
+                return await PutServiceHubAsync(id, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1485,12 +1440,11 @@ namespace Org.OpenAPITools.Api
         /// Update Service Hub Update an existing service hub
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="id">the id of the service hub</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPutServiceHubApiResponse"/>&gt;</returns>
-        public async Task<IPutServiceHubApiResponse> PutServiceHubAsync(decimal version, long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPutServiceHubApiResponse> PutServiceHubAsync(long id, Option<ServiceHub> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1498,7 +1452,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePutServiceHub(body);
 
-                FormatPutServiceHub(ref version, ref id, body);
+                FormatPutServiceHub(ref id, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1506,9 +1460,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/hub/{id}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/hub/{id}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/hub/{id}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/hub/{id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid%7D", Uri.EscapeDataString(id.ToString()));
 
                     if (body.IsSet)
@@ -1539,13 +1492,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/hub/{id}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/hub/{id}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPutServiceHubDefaultImplementation(apiResponseLocalVar, version, id, body);
+                        AfterPutServiceHubDefaultImplementation(apiResponseLocalVar, id, body);
 
                         Events.ExecuteOnPutServiceHub(apiResponseLocalVar);
 
@@ -1555,7 +1508,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPutServiceHubDefaultImplementation(e, "/api/{version}/hub/{id}", uriBuilderLocalVar.Path, version, id, body);
+                OnErrorPutServiceHubDefaultImplementation(e, "/hub/{id}", uriBuilderLocalVar.Path, id, body);
                 Events.ExecuteOnErrorPutServiceHub(e);
                 throw;
             }
@@ -1654,7 +1607,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchServiceHubs(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> keyword, ref Option<long> retailerId);
+        partial void FormatSearchServiceHubs(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> keyword, ref Option<long> retailerId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1675,7 +1628,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1683,10 +1635,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="retailerId"></param>
-        private void AfterSearchServiceHubsDefaultImplementation(ISearchServiceHubsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<long> retailerId)
+        private void AfterSearchServiceHubsDefaultImplementation(ISearchServiceHubsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<long> retailerId)
         {
             bool suppressDefaultLog = false;
-            AfterSearchServiceHubs(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, keyword, retailerId);
+            AfterSearchServiceHubs(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, keyword, retailerId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1696,7 +1648,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1704,7 +1655,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="retailerId"></param>
-        partial void AfterSearchServiceHubs(ref bool suppressDefaultLog, ISearchServiceHubsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<long> retailerId);
+        partial void AfterSearchServiceHubs(ref bool suppressDefaultLog, ISearchServiceHubsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<long> retailerId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1712,7 +1663,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1720,10 +1670,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="retailerId"></param>
-        private void OnErrorSearchServiceHubsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<long> retailerId)
+        private void OnErrorSearchServiceHubsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<long> retailerId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchServiceHubs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, keyword, retailerId);
+            OnErrorSearchServiceHubs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, keyword, retailerId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1735,7 +1685,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1743,12 +1692,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="keyword"></param>
         /// <param name="retailerId"></param>
-        partial void OnErrorSearchServiceHubs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<long> retailerId);
+        partial void OnErrorSearchServiceHubs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword, Option<long> retailerId);
 
         /// <summary>
         /// Search Service Hubs Search for service hubs.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1758,11 +1706,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId">The retailer belongs to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchServiceHubsApiResponse"/>&gt;</returns>
-        public async Task<ISearchServiceHubsApiResponse?> SearchServiceHubsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchServiceHubsApiResponse?> SearchServiceHubsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchServiceHubsAsync(version, sortField, descending, start, limit, activeOnly, keyword, retailerId, cancellationToken).ConfigureAwait(false);
+                return await SearchServiceHubsAsync(sortField, descending, start, limit, activeOnly, keyword, retailerId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1774,7 +1722,6 @@ namespace Org.OpenAPITools.Api
         /// Search Service Hubs Search for service hubs.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1784,7 +1731,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId">The retailer belongs to (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchServiceHubsApiResponse"/>&gt;</returns>
-        public async Task<ISearchServiceHubsApiResponse> SearchServiceHubsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchServiceHubsApiResponse> SearchServiceHubsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> keyword = default, Option<long> retailerId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1792,7 +1739,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchServiceHubs(sortField, keyword);
 
-                FormatSearchServiceHubs(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref keyword, ref retailerId);
+                FormatSearchServiceHubs(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref keyword, ref retailerId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1800,9 +1747,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/hub"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/hub");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/hub"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/hub");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1843,13 +1789,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/hub", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/hub", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchServiceHubsDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, keyword, retailerId);
+                        AfterSearchServiceHubsDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, keyword, retailerId);
 
                         Events.ExecuteOnSearchServiceHubs(apiResponseLocalVar);
 
@@ -1859,7 +1805,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchServiceHubsDefaultImplementation(e, "/api/{version}/hub", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, keyword, retailerId);
+                OnErrorSearchServiceHubsDefaultImplementation(e, "/hub", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, keyword, retailerId);
                 Events.ExecuteOnErrorSearchServiceHubs(e);
                 throw;
             }

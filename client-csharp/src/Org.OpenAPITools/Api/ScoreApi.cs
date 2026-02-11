@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to save the score for.</param>
         /// <param name="points">The score</param>
@@ -58,7 +57,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="highest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateScoreApiResponse"/>&gt;</returns>
-        Task<ICreateScoreApiResponse> CreateScoreAsync(decimal version, long accountId, string appKey, int points, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<int> timeTaken = default, Option<bool> highest = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateScoreApiResponse> CreateScoreAsync(long accountId, string appKey, int points, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<int> timeTaken = default, Option<bool> highest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Score
@@ -66,7 +65,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to save the score for.</param>
         /// <param name="points">The score</param>
@@ -79,7 +77,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="highest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateScoreApiResponse"/>?&gt;</returns>
-        Task<ICreateScoreApiResponse?> CreateScoreOrDefaultAsync(decimal version, long accountId, string appKey, int points, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<int> timeTaken = default, Option<bool> highest = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateScoreApiResponse?> CreateScoreOrDefaultAsync(long accountId, string appKey, int points, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<int> timeTaken = default, Option<bool> highest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Score
@@ -88,7 +86,6 @@ namespace Org.OpenAPITools.Api
         /// Get the high score for an item.  Pass in the full path IDs for the score.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to get the level for.</param>
         /// <param name="missionId">The missionId to score for, null if not playing mission. (optional)</param>
@@ -100,7 +97,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="scoreStatus">The status of the score to filter (ScoreStatus) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetScoreApiResponse"/>&gt;</returns>
-        Task<IGetScoreApiResponse> GetScoreAsync(decimal version, long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<string> scoreObjectType = default, Option<string> scoreStatus = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetScoreApiResponse> GetScoreAsync(long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<string> scoreObjectType = default, Option<string> scoreStatus = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Score
@@ -108,7 +105,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the high score for an item.  Pass in the full path IDs for the score.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to get the level for.</param>
         /// <param name="missionId">The missionId to score for, null if not playing mission. (optional)</param>
@@ -120,7 +116,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="scoreStatus">The status of the score to filter (ScoreStatus) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetScoreApiResponse"/>?&gt;</returns>
-        Task<IGetScoreApiResponse?> GetScoreOrDefaultAsync(decimal version, long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<string> scoreObjectType = default, Option<string> scoreStatus = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetScoreApiResponse?> GetScoreOrDefaultAsync(long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<string> scoreObjectType = default, Option<string> scoreStatus = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Score
@@ -129,7 +125,6 @@ namespace Org.OpenAPITools.Api
         /// Search the scores for an item.  Pass in the full path IDs for the scores.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to get the level for.</param>
         /// <param name="missionId">The missionId to score for, null if not playing mission. (optional)</param>
@@ -139,7 +134,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId">The gameObjectId to score for, null if level based scoring. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScoresApiResponse"/>&gt;</returns>
-        Task<ISearchScoresApiResponse> SearchScoresAsync(decimal version, long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchScoresApiResponse> SearchScoresAsync(long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Score
@@ -147,7 +142,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search the scores for an item.  Pass in the full path IDs for the scores.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to get the level for.</param>
         /// <param name="missionId">The missionId to score for, null if not playing mission. (optional)</param>
@@ -157,7 +151,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId">The gameObjectId to score for, null if level based scoring. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScoresApiResponse"/>?&gt;</returns>
-        Task<ISearchScoresApiResponse?> SearchScoresOrDefaultAsync(decimal version, long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchScoresApiResponse?> SearchScoresOrDefaultAsync(long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -309,7 +303,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateScore(ref decimal version, ref long accountId, ref string appKey, ref int points, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<long> gameObjectId, ref Option<int> timeTaken, ref Option<bool> highest);
+        partial void FormatCreateScore(ref long accountId, ref string appKey, ref int points, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<long> gameObjectId, ref Option<int> timeTaken, ref Option<bool> highest);
 
         /// <summary>
         /// Validates the request parameters
@@ -326,7 +320,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="points"></param>
@@ -337,10 +330,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId"></param>
         /// <param name="timeTaken"></param>
         /// <param name="highest"></param>
-        private void AfterCreateScoreDefaultImplementation(ICreateScoreApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, int points, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<int> timeTaken, Option<bool> highest)
+        private void AfterCreateScoreDefaultImplementation(ICreateScoreApiResponse apiResponseLocalVar, long accountId, string appKey, int points, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<int> timeTaken, Option<bool> highest)
         {
             bool suppressDefaultLog = false;
-            AfterCreateScore(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
+            AfterCreateScore(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -350,7 +343,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="points"></param>
@@ -361,7 +353,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId"></param>
         /// <param name="timeTaken"></param>
         /// <param name="highest"></param>
-        partial void AfterCreateScore(ref bool suppressDefaultLog, ICreateScoreApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, int points, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<int> timeTaken, Option<bool> highest);
+        partial void AfterCreateScore(ref bool suppressDefaultLog, ICreateScoreApiResponse apiResponseLocalVar, long accountId, string appKey, int points, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<int> timeTaken, Option<bool> highest);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -369,7 +361,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="points"></param>
@@ -380,10 +371,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId"></param>
         /// <param name="timeTaken"></param>
         /// <param name="highest"></param>
-        private void OnErrorCreateScoreDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, int points, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<int> timeTaken, Option<bool> highest)
+        private void OnErrorCreateScoreDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, int points, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<int> timeTaken, Option<bool> highest)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateScore(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
+            OnErrorCreateScore(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -395,7 +386,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="points"></param>
@@ -406,12 +396,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId"></param>
         /// <param name="timeTaken"></param>
         /// <param name="highest"></param>
-        partial void OnErrorCreateScore(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, int points, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<int> timeTaken, Option<bool> highest);
+        partial void OnErrorCreateScore(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, int points, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<int> timeTaken, Option<bool> highest);
 
         /// <summary>
         /// Create Score Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to save the score for.</param>
         /// <param name="points">The score</param>
@@ -424,11 +413,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="highest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateScoreApiResponse"/>&gt;</returns>
-        public async Task<ICreateScoreApiResponse?> CreateScoreOrDefaultAsync(decimal version, long accountId, string appKey, int points, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<int> timeTaken = default, Option<bool> highest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateScoreApiResponse?> CreateScoreOrDefaultAsync(long accountId, string appKey, int points, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<int> timeTaken = default, Option<bool> highest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateScoreAsync(version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest, cancellationToken).ConfigureAwait(false);
+                return await CreateScoreAsync(accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -440,7 +429,6 @@ namespace Org.OpenAPITools.Api
         /// Create Score Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to save the score for.</param>
         /// <param name="points">The score</param>
@@ -453,7 +441,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="highest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateScoreApiResponse"/>&gt;</returns>
-        public async Task<ICreateScoreApiResponse> CreateScoreAsync(decimal version, long accountId, string appKey, int points, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<int> timeTaken = default, Option<bool> highest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateScoreApiResponse> CreateScoreAsync(long accountId, string appKey, int points, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<int> timeTaken = default, Option<bool> highest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -461,7 +449,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateScore(appKey);
 
-                FormatCreateScore(ref version, ref accountId, ref appKey, ref points, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId, ref timeTaken, ref highest);
+                FormatCreateScore(ref accountId, ref appKey, ref points, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId, ref timeTaken, ref highest);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -469,9 +457,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/score/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/score/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/score/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/score/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -525,13 +512,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/score/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/score/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateScoreDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
+                        AfterCreateScoreDefaultImplementation(apiResponseLocalVar, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
 
                         Events.ExecuteOnCreateScore(apiResponseLocalVar);
 
@@ -541,7 +528,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateScoreDefaultImplementation(e, "/api/{version}/score/create", uriBuilderLocalVar.Path, version, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
+                OnErrorCreateScoreDefaultImplementation(e, "/score/create", uriBuilderLocalVar.Path, accountId, appKey, points, missionId, gameId, packId, gameLevelId, gameObjectId, timeTaken, highest);
                 Events.ExecuteOnErrorCreateScore(e);
                 throw;
             }
@@ -640,7 +627,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetScore(ref decimal version, ref long accountId, ref string appKey, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<long> gameObjectId, ref Option<string> scoreObjectType, ref Option<string> scoreStatus);
+        partial void FormatGetScore(ref long accountId, ref string appKey, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<long> gameObjectId, ref Option<string> scoreObjectType, ref Option<string> scoreStatus);
 
         /// <summary>
         /// Validates the request parameters
@@ -665,7 +652,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -675,10 +661,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId"></param>
         /// <param name="scoreObjectType"></param>
         /// <param name="scoreStatus"></param>
-        private void AfterGetScoreDefaultImplementation(IGetScoreApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<string> scoreObjectType, Option<string> scoreStatus)
+        private void AfterGetScoreDefaultImplementation(IGetScoreApiResponse apiResponseLocalVar, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<string> scoreObjectType, Option<string> scoreStatus)
         {
             bool suppressDefaultLog = false;
-            AfterGetScore(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
+            AfterGetScore(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -688,7 +674,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -698,7 +683,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId"></param>
         /// <param name="scoreObjectType"></param>
         /// <param name="scoreStatus"></param>
-        partial void AfterGetScore(ref bool suppressDefaultLog, IGetScoreApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<string> scoreObjectType, Option<string> scoreStatus);
+        partial void AfterGetScore(ref bool suppressDefaultLog, IGetScoreApiResponse apiResponseLocalVar, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<string> scoreObjectType, Option<string> scoreStatus);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -706,7 +691,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -716,10 +700,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId"></param>
         /// <param name="scoreObjectType"></param>
         /// <param name="scoreStatus"></param>
-        private void OnErrorGetScoreDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<string> scoreObjectType, Option<string> scoreStatus)
+        private void OnErrorGetScoreDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<string> scoreObjectType, Option<string> scoreStatus)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetScore(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
+            OnErrorGetScore(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -731,7 +715,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -741,12 +724,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId"></param>
         /// <param name="scoreObjectType"></param>
         /// <param name="scoreStatus"></param>
-        partial void OnErrorGetScore(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<string> scoreObjectType, Option<string> scoreStatus);
+        partial void OnErrorGetScore(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<string> scoreObjectType, Option<string> scoreStatus);
 
         /// <summary>
         /// Get Score Get the high score for an item.  Pass in the full path IDs for the score.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to get the level for.</param>
         /// <param name="missionId">The missionId to score for, null if not playing mission. (optional)</param>
@@ -758,11 +740,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="scoreStatus">The status of the score to filter (ScoreStatus) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetScoreApiResponse"/>&gt;</returns>
-        public async Task<IGetScoreApiResponse?> GetScoreOrDefaultAsync(decimal version, long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<string> scoreObjectType = default, Option<string> scoreStatus = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetScoreApiResponse?> GetScoreOrDefaultAsync(long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<string> scoreObjectType = default, Option<string> scoreStatus = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetScoreAsync(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus, cancellationToken).ConfigureAwait(false);
+                return await GetScoreAsync(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -774,7 +756,6 @@ namespace Org.OpenAPITools.Api
         /// Get Score Get the high score for an item.  Pass in the full path IDs for the score.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to get the level for.</param>
         /// <param name="missionId">The missionId to score for, null if not playing mission. (optional)</param>
@@ -786,7 +767,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="scoreStatus">The status of the score to filter (ScoreStatus) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetScoreApiResponse"/>&gt;</returns>
-        public async Task<IGetScoreApiResponse> GetScoreAsync(decimal version, long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<string> scoreObjectType = default, Option<string> scoreStatus = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetScoreApiResponse> GetScoreAsync(long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<string> scoreObjectType = default, Option<string> scoreStatus = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -794,7 +775,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetScore(appKey, scoreObjectType, scoreStatus);
 
-                FormatGetScore(ref version, ref accountId, ref appKey, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId, ref scoreObjectType, ref scoreStatus);
+                FormatGetScore(ref accountId, ref appKey, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId, ref scoreObjectType, ref scoreStatus);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -802,9 +783,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/score/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/score/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/score/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/score/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -857,13 +837,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/score/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/score/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetScoreDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
+                        AfterGetScoreDefaultImplementation(apiResponseLocalVar, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
 
                         Events.ExecuteOnGetScore(apiResponseLocalVar);
 
@@ -873,7 +853,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetScoreDefaultImplementation(e, "/api/{version}/score/get", uriBuilderLocalVar.Path, version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
+                OnErrorGetScoreDefaultImplementation(e, "/score/get", uriBuilderLocalVar.Path, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, scoreObjectType, scoreStatus);
                 Events.ExecuteOnErrorGetScore(e);
                 throw;
             }
@@ -972,7 +952,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchScores(ref decimal version, ref long accountId, ref string appKey, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<long> gameObjectId);
+        partial void FormatSearchScores(ref long accountId, ref string appKey, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<long> gameObjectId);
 
         /// <summary>
         /// Validates the request parameters
@@ -989,7 +969,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -997,10 +976,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
-        private void AfterSearchScoresDefaultImplementation(ISearchScoresApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId)
+        private void AfterSearchScoresDefaultImplementation(ISearchScoresApiResponse apiResponseLocalVar, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId)
         {
             bool suppressDefaultLog = false;
-            AfterSearchScores(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
+            AfterSearchScores(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1010,7 +989,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -1018,7 +996,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
-        partial void AfterSearchScores(ref bool suppressDefaultLog, ISearchScoresApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId);
+        partial void AfterSearchScores(ref bool suppressDefaultLog, ISearchScoresApiResponse apiResponseLocalVar, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1026,7 +1004,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -1034,10 +1011,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
-        private void OnErrorSearchScoresDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId)
+        private void OnErrorSearchScoresDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchScores(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
+            OnErrorSearchScores(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1049,7 +1026,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="missionId"></param>
@@ -1057,12 +1033,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
-        partial void OnErrorSearchScores(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId);
+        partial void OnErrorSearchScores(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId);
 
         /// <summary>
         /// Search Score Search the scores for an item.  Pass in the full path IDs for the scores.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to get the level for.</param>
         /// <param name="missionId">The missionId to score for, null if not playing mission. (optional)</param>
@@ -1072,11 +1047,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId">The gameObjectId to score for, null if level based scoring. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScoresApiResponse"/>&gt;</returns>
-        public async Task<ISearchScoresApiResponse?> SearchScoresOrDefaultAsync(decimal version, long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchScoresApiResponse?> SearchScoresOrDefaultAsync(long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchScoresAsync(version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, cancellationToken).ConfigureAwait(false);
+                return await SearchScoresAsync(accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1088,7 +1063,6 @@ namespace Org.OpenAPITools.Api
         /// Search Score Search the scores for an item.  Pass in the full path IDs for the scores.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">The game application key to get the level for.</param>
         /// <param name="missionId">The missionId to score for, null if not playing mission. (optional)</param>
@@ -1098,7 +1072,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId">The gameObjectId to score for, null if level based scoring. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScoresApiResponse"/>&gt;</returns>
-        public async Task<ISearchScoresApiResponse> SearchScoresAsync(decimal version, long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchScoresApiResponse> SearchScoresAsync(long accountId, string appKey, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1106,7 +1080,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchScores(appKey);
 
-                FormatSearchScores(ref version, ref accountId, ref appKey, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId);
+                FormatSearchScores(ref accountId, ref appKey, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1114,9 +1088,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/score/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/score/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/score/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/score/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1163,13 +1136,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/score/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/score/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchScoresDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
+                        AfterSearchScoresDefaultImplementation(apiResponseLocalVar, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
 
                         Events.ExecuteOnSearchScores(apiResponseLocalVar);
 
@@ -1179,7 +1152,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchScoresDefaultImplementation(e, "/api/{version}/score/search", uriBuilderLocalVar.Path, version, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
+                OnErrorSearchScoresDefaultImplementation(e, "/score/search", uriBuilderLocalVar.Path, accountId, appKey, missionId, gameId, packId, gameLevelId, gameObjectId);
                 Events.ExecuteOnErrorSearchScores(e);
                 throw;
             }

@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a game level. Currently does NOT support game objects.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the level.</param>
         /// <param name="gameData">The game level data: xml, json, or other text based format.</param>
@@ -74,7 +73,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateGameLevelApiResponse"/>&gt;</returns>
-        Task<ICreateGameLevelApiResponse> CreateGameLevelAsync(decimal version, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateGameLevelApiResponse> CreateGameLevelAsync(long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Game Level
@@ -82,7 +81,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a game level. Currently does NOT support game objects.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the level.</param>
         /// <param name="gameData">The game level data: xml, json, or other text based format.</param>
@@ -111,7 +109,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateGameLevelApiResponse"/>?&gt;</returns>
-        Task<ICreateGameLevelApiResponse?> CreateGameLevelOrDefaultAsync(decimal version, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateGameLevelApiResponse?> CreateGameLevelOrDefaultAsync(long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Game Level
@@ -120,12 +118,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">The id of the level to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteGameLevelApiResponse"/>&gt;</returns>
-        Task<IDeleteGameLevelApiResponse> DeleteGameLevelAsync(decimal version, long accountId, long levelId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteGameLevelApiResponse> DeleteGameLevelAsync(long accountId, long levelId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Game Level
@@ -133,12 +130,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">The id of the level to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteGameLevelApiResponse"/>?&gt;</returns>
-        Task<IDeleteGameLevelApiResponse?> DeleteGameLevelOrDefaultAsync(decimal version, long accountId, long levelId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteGameLevelApiResponse?> DeleteGameLevelOrDefaultAsync(long accountId, long levelId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Game Level
@@ -147,13 +143,12 @@ namespace Org.OpenAPITools.Api
         /// Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">The id of the level to return.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelApiResponse"/>&gt;</returns>
-        Task<IGetGameLevelApiResponse> GetGameLevelAsync(decimal version, long accountId, long levelId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGameLevelApiResponse> GetGameLevelAsync(long accountId, long levelId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Game Level
@@ -161,13 +156,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">The id of the level to return.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelApiResponse"/>?&gt;</returns>
-        Task<IGetGameLevelApiResponse?> GetGameLevelOrDefaultAsync(decimal version, long accountId, long levelId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGameLevelApiResponse?> GetGameLevelOrDefaultAsync(long accountId, long levelId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Game Levels
@@ -176,7 +170,6 @@ namespace Org.OpenAPITools.Api
         /// Get a list of levels for an application, just those the account has permissions to view.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="keyword">Match the keyword to the owner name or level name. (optional)</param>
@@ -189,7 +182,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="filters"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelsByApplicationApiResponse"/>&gt;</returns>
-        Task<IGetGameLevelsByApplicationApiResponse> GetGameLevelsByApplicationAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<string> filters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGameLevelsByApplicationApiResponse> GetGameLevelsByApplicationAsync(long accountId, string appKey, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<string> filters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Game Levels
@@ -197,7 +190,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list of levels for an application, just those the account has permissions to view.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="keyword">Match the keyword to the owner name or level name. (optional)</param>
@@ -210,7 +202,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="filters"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelsByApplicationApiResponse"/>?&gt;</returns>
-        Task<IGetGameLevelsByApplicationApiResponse?> GetGameLevelsByApplicationOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<string> filters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGameLevelsByApplicationApiResponse?> GetGameLevelsByApplicationOrDefaultAsync(long accountId, string appKey, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<string> filters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Game Level by Billable Entity
@@ -219,7 +211,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -230,7 +221,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelsByBillableEntityApiResponse"/>&gt;</returns>
-        Task<IGetGameLevelsByBillableEntityApiResponse> GetGameLevelsByBillableEntityAsync(decimal version, long accountId, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGameLevelsByBillableEntityApiResponse> GetGameLevelsByBillableEntityAsync(long accountId, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Game Level by Billable Entity
@@ -238,7 +229,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -249,7 +239,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelsByBillableEntityApiResponse"/>?&gt;</returns>
-        Task<IGetGameLevelsByBillableEntityApiResponse?> GetGameLevelsByBillableEntityOrDefaultAsync(decimal version, long accountId, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGameLevelsByBillableEntityApiResponse?> GetGameLevelsByBillableEntityOrDefaultAsync(long accountId, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Level Questions
@@ -258,12 +248,11 @@ namespace Org.OpenAPITools.Api
         /// Get questions within a level.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to get questions from</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetQuestionsInLevelApiResponse"/>&gt;</returns>
-        Task<IGetQuestionsInLevelApiResponse> GetQuestionsInLevelAsync(decimal version, long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetQuestionsInLevelApiResponse> GetQuestionsInLevelAsync(long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Level Questions
@@ -271,12 +260,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get questions within a level.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to get questions from</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetQuestionsInLevelApiResponse"/>?&gt;</returns>
-        Task<IGetQuestionsInLevelApiResponse?> GetQuestionsInLevelOrDefaultAsync(decimal version, long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetQuestionsInLevelApiResponse?> GetQuestionsInLevelOrDefaultAsync(long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Level Words
@@ -285,12 +273,11 @@ namespace Org.OpenAPITools.Api
         /// Get words within a level.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to get words for</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordsInLevelApiResponse"/>&gt;</returns>
-        Task<IGetWordsInLevelApiResponse> GetWordsInLevelAsync(decimal version, long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetWordsInLevelApiResponse> GetWordsInLevelAsync(long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Level Words
@@ -298,12 +285,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get words within a level.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to get words for</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordsInLevelApiResponse"/>?&gt;</returns>
-        Task<IGetWordsInLevelApiResponse?> GetWordsInLevelOrDefaultAsync(decimal version, long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetWordsInLevelApiResponse?> GetWordsInLevelOrDefaultAsync(long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Game Level
@@ -312,7 +298,6 @@ namespace Org.OpenAPITools.Api
         /// Update a game level. Currently does NOT support game objects.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">If update then include the level Id.</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
@@ -342,7 +327,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateGameLevelApiResponse"/>&gt;</returns>
-        Task<IUpdateGameLevelApiResponse> UpdateGameLevelAsync(decimal version, long accountId, long levelId, Option<string> appKey = default, Option<string> name = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> gameData = default, Option<string> gameDataSuffix = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateGameLevelApiResponse> UpdateGameLevelAsync(long accountId, long levelId, Option<string> appKey = default, Option<string> name = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> gameData = default, Option<string> gameDataSuffix = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Game Level
@@ -350,7 +335,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a game level. Currently does NOT support game objects.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">If update then include the level Id.</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
@@ -380,7 +364,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateGameLevelApiResponse"/>?&gt;</returns>
-        Task<IUpdateGameLevelApiResponse?> UpdateGameLevelOrDefaultAsync(decimal version, long accountId, long levelId, Option<string> appKey = default, Option<string> name = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> gameData = default, Option<string> gameDataSuffix = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateGameLevelApiResponse?> UpdateGameLevelOrDefaultAsync(long accountId, long levelId, Option<string> appKey = default, Option<string> name = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> gameData = default, Option<string> gameDataSuffix = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Level Questions
@@ -389,13 +373,12 @@ namespace Org.OpenAPITools.Api
         /// Updates a level with question game objects.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to update questions on</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="questionIds">the IDs of the questions to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateQuestionsInLevelApiResponse"/>&gt;</returns>
-        Task<IUpdateQuestionsInLevelApiResponse> UpdateQuestionsInLevelAsync(decimal version, long levelId, long accountId, string questionIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateQuestionsInLevelApiResponse> UpdateQuestionsInLevelAsync(long levelId, long accountId, string questionIds, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Level Questions
@@ -403,13 +386,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a level with question game objects.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to update questions on</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="questionIds">the IDs of the questions to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateQuestionsInLevelApiResponse"/>?&gt;</returns>
-        Task<IUpdateQuestionsInLevelApiResponse?> UpdateQuestionsInLevelOrDefaultAsync(decimal version, long levelId, long accountId, string questionIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateQuestionsInLevelApiResponse?> UpdateQuestionsInLevelOrDefaultAsync(long levelId, long accountId, string questionIds, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Level Words
@@ -418,13 +400,12 @@ namespace Org.OpenAPITools.Api
         /// Updates a level with word game objects.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to update words for</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="wordIds">the ids of the words to update for the level</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateWordsInLevelApiResponse"/>&gt;</returns>
-        Task<IUpdateWordsInLevelApiResponse> UpdateWordsInLevelAsync(decimal version, long levelId, long accountId, string wordIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateWordsInLevelApiResponse> UpdateWordsInLevelAsync(long levelId, long accountId, string wordIds, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Level Words
@@ -432,13 +413,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a level with word game objects.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to update words for</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="wordIds">the ids of the words to update for the level</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateWordsInLevelApiResponse"/>?&gt;</returns>
-        Task<IUpdateWordsInLevelApiResponse?> UpdateWordsInLevelOrDefaultAsync(decimal version, long levelId, long accountId, string wordIds, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateWordsInLevelApiResponse?> UpdateWordsInLevelOrDefaultAsync(long levelId, long accountId, string wordIds, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -814,7 +794,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateGameLevel(ref decimal version, ref long accountId, ref string name, ref string gameData, ref string gameDataSuffix, ref Option<string> appKey, ref Option<string> description, ref Option<string> difficulty, ref Option<string> appVersion, ref Option<long> assetImageId, ref Option<long> assetIconId, ref Option<string> visibility, ref Option<bool> friendGroup, ref Option<string> connectionIds, ref Option<string> connectionGroupIds, ref Option<double> balance, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<long> ticketCount, ref Option<string> ticketType, ref Option<long> points, ref Option<string> tutorialTitle, ref Option<string> tutorialMessage, ref Option<string> tutorialAlignment, ref Option<long> tutorialImageAssetId, ref Option<long> offerId, ref Option<string> metaData);
+        partial void FormatCreateGameLevel(ref long accountId, ref string name, ref string gameData, ref string gameDataSuffix, ref Option<string> appKey, ref Option<string> description, ref Option<string> difficulty, ref Option<string> appVersion, ref Option<long> assetImageId, ref Option<long> assetIconId, ref Option<string> visibility, ref Option<bool> friendGroup, ref Option<string> connectionIds, ref Option<string> connectionGroupIds, ref Option<double> balance, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<long> ticketCount, ref Option<string> ticketType, ref Option<long> points, ref Option<string> tutorialTitle, ref Option<string> tutorialMessage, ref Option<string> tutorialAlignment, ref Option<long> tutorialImageAssetId, ref Option<long> offerId, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -887,7 +867,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="gameData"></param>
@@ -914,10 +893,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="tutorialImageAssetId"></param>
         /// <param name="offerId"></param>
         /// <param name="metaData"></param>
-        private void AfterCreateGameLevelDefaultImplementation(ICreateGameLevelApiResponse apiResponseLocalVar, decimal version, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData)
+        private void AfterCreateGameLevelDefaultImplementation(ICreateGameLevelApiResponse apiResponseLocalVar, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterCreateGameLevel(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+            AfterCreateGameLevel(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -927,7 +906,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="gameData"></param>
@@ -954,7 +932,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tutorialImageAssetId"></param>
         /// <param name="offerId"></param>
         /// <param name="metaData"></param>
-        partial void AfterCreateGameLevel(ref bool suppressDefaultLog, ICreateGameLevelApiResponse apiResponseLocalVar, decimal version, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData);
+        partial void AfterCreateGameLevel(ref bool suppressDefaultLog, ICreateGameLevelApiResponse apiResponseLocalVar, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -962,7 +940,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="gameData"></param>
@@ -989,10 +966,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="tutorialImageAssetId"></param>
         /// <param name="offerId"></param>
         /// <param name="metaData"></param>
-        private void OnErrorCreateGameLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData)
+        private void OnErrorCreateGameLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateGameLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+            OnErrorCreateGameLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1004,7 +981,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="gameData"></param>
@@ -1031,12 +1007,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tutorialImageAssetId"></param>
         /// <param name="offerId"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorCreateGameLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData);
+        partial void OnErrorCreateGameLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData);
 
         /// <summary>
         /// Create Game Level Create a game level. Currently does NOT support game objects.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the level.</param>
         /// <param name="gameData">The game level data: xml, json, or other text based format.</param>
@@ -1065,11 +1040,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateGameLevelApiResponse"/>&gt;</returns>
-        public async Task<ICreateGameLevelApiResponse?> CreateGameLevelOrDefaultAsync(decimal version, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateGameLevelApiResponse?> CreateGameLevelOrDefaultAsync(long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateGameLevelAsync(version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, cancellationToken).ConfigureAwait(false);
+                return await CreateGameLevelAsync(accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1081,7 +1056,6 @@ namespace Org.OpenAPITools.Api
         /// Create Game Level Create a game level. Currently does NOT support game objects.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the level.</param>
         /// <param name="gameData">The game level data: xml, json, or other text based format.</param>
@@ -1110,7 +1084,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateGameLevelApiResponse"/>&gt;</returns>
-        public async Task<ICreateGameLevelApiResponse> CreateGameLevelAsync(decimal version, long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateGameLevelApiResponse> CreateGameLevelAsync(long accountId, string name, string gameData, string gameDataSuffix, Option<string> appKey = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1118,7 +1092,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateGameLevel(name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, visibility, connectionIds, connectionGroupIds, ticketType, tutorialTitle, tutorialMessage, tutorialAlignment, metaData);
 
-                FormatCreateGameLevel(ref version, ref accountId, ref name, ref gameData, ref gameDataSuffix, ref appKey, ref description, ref difficulty, ref appVersion, ref assetImageId, ref assetIconId, ref visibility, ref friendGroup, ref connectionIds, ref connectionGroupIds, ref balance, ref active, ref allocateTickets, ref ticketCount, ref ticketType, ref points, ref tutorialTitle, ref tutorialMessage, ref tutorialAlignment, ref tutorialImageAssetId, ref offerId, ref metaData);
+                FormatCreateGameLevel(ref accountId, ref name, ref gameData, ref gameDataSuffix, ref appKey, ref description, ref difficulty, ref appVersion, ref assetImageId, ref assetIconId, ref visibility, ref friendGroup, ref connectionIds, ref connectionGroupIds, ref balance, ref active, ref allocateTickets, ref ticketCount, ref ticketType, ref points, ref tutorialTitle, ref tutorialMessage, ref tutorialAlignment, ref tutorialImageAssetId, ref offerId, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1126,9 +1100,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1228,13 +1201,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateGameLevelDefaultImplementation(apiResponseLocalVar, version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+                        AfterCreateGameLevelDefaultImplementation(apiResponseLocalVar, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
 
                         Events.ExecuteOnCreateGameLevel(apiResponseLocalVar);
 
@@ -1244,7 +1217,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateGameLevelDefaultImplementation(e, "/api/{version}/level/create", uriBuilderLocalVar.Path, version, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+                OnErrorCreateGameLevelDefaultImplementation(e, "/level/create", uriBuilderLocalVar.Path, accountId, name, gameData, gameDataSuffix, appKey, description, difficulty, appVersion, assetImageId, assetIconId, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
                 Events.ExecuteOnErrorCreateGameLevel(e);
                 throw;
             }
@@ -1343,19 +1316,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteGameLevel(ref decimal version, ref long accountId, ref long levelId);
+        partial void FormatDeleteGameLevel(ref long accountId, ref long levelId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
-        private void AfterDeleteGameLevelDefaultImplementation(IDeleteGameLevelApiResponse apiResponseLocalVar, decimal version, long accountId, long levelId)
+        private void AfterDeleteGameLevelDefaultImplementation(IDeleteGameLevelApiResponse apiResponseLocalVar, long accountId, long levelId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteGameLevel(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, levelId);
+            AfterDeleteGameLevel(ref suppressDefaultLog, apiResponseLocalVar, accountId, levelId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1365,10 +1337,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
-        partial void AfterDeleteGameLevel(ref bool suppressDefaultLog, IDeleteGameLevelApiResponse apiResponseLocalVar, decimal version, long accountId, long levelId);
+        partial void AfterDeleteGameLevel(ref bool suppressDefaultLog, IDeleteGameLevelApiResponse apiResponseLocalVar, long accountId, long levelId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1376,13 +1347,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
-        private void OnErrorDeleteGameLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long levelId)
+        private void OnErrorDeleteGameLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long levelId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteGameLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, levelId);
+            OnErrorDeleteGameLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, levelId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1394,24 +1364,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
-        partial void OnErrorDeleteGameLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long levelId);
+        partial void OnErrorDeleteGameLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long levelId);
 
         /// <summary>
         /// Delete Game Level Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">The id of the level to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteGameLevelApiResponse"/>&gt;</returns>
-        public async Task<IDeleteGameLevelApiResponse?> DeleteGameLevelOrDefaultAsync(decimal version, long accountId, long levelId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteGameLevelApiResponse?> DeleteGameLevelOrDefaultAsync(long accountId, long levelId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteGameLevelAsync(version, accountId, levelId, cancellationToken).ConfigureAwait(false);
+                return await DeleteGameLevelAsync(accountId, levelId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1423,18 +1391,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Game Level Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">The id of the level to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteGameLevelApiResponse"/>&gt;</returns>
-        public async Task<IDeleteGameLevelApiResponse> DeleteGameLevelAsync(decimal version, long accountId, long levelId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteGameLevelApiResponse> DeleteGameLevelAsync(long accountId, long levelId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteGameLevel(ref version, ref accountId, ref levelId);
+                FormatDeleteGameLevel(ref accountId, ref levelId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1442,9 +1409,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1476,13 +1442,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteGameLevelDefaultImplementation(apiResponseLocalVar, version, accountId, levelId);
+                        AfterDeleteGameLevelDefaultImplementation(apiResponseLocalVar, accountId, levelId);
 
                         Events.ExecuteOnDeleteGameLevel(apiResponseLocalVar);
 
@@ -1492,7 +1458,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteGameLevelDefaultImplementation(e, "/api/{version}/level/delete", uriBuilderLocalVar.Path, version, accountId, levelId);
+                OnErrorDeleteGameLevelDefaultImplementation(e, "/level/delete", uriBuilderLocalVar.Path, accountId, levelId);
                 Events.ExecuteOnErrorDeleteGameLevel(e);
                 throw;
             }
@@ -1591,20 +1557,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetGameLevel(ref decimal version, ref long accountId, ref long levelId, ref Option<bool> includeGameData);
+        partial void FormatGetGameLevel(ref long accountId, ref long levelId, ref Option<bool> includeGameData);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
         /// <param name="includeGameData"></param>
-        private void AfterGetGameLevelDefaultImplementation(IGetGameLevelApiResponse apiResponseLocalVar, decimal version, long accountId, long levelId, Option<bool> includeGameData)
+        private void AfterGetGameLevelDefaultImplementation(IGetGameLevelApiResponse apiResponseLocalVar, long accountId, long levelId, Option<bool> includeGameData)
         {
             bool suppressDefaultLog = false;
-            AfterGetGameLevel(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, levelId, includeGameData);
+            AfterGetGameLevel(ref suppressDefaultLog, apiResponseLocalVar, accountId, levelId, includeGameData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1614,11 +1579,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
         /// <param name="includeGameData"></param>
-        partial void AfterGetGameLevel(ref bool suppressDefaultLog, IGetGameLevelApiResponse apiResponseLocalVar, decimal version, long accountId, long levelId, Option<bool> includeGameData);
+        partial void AfterGetGameLevel(ref bool suppressDefaultLog, IGetGameLevelApiResponse apiResponseLocalVar, long accountId, long levelId, Option<bool> includeGameData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1626,14 +1590,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
         /// <param name="includeGameData"></param>
-        private void OnErrorGetGameLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long levelId, Option<bool> includeGameData)
+        private void OnErrorGetGameLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long levelId, Option<bool> includeGameData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetGameLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, levelId, includeGameData);
+            OnErrorGetGameLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, levelId, includeGameData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1645,26 +1608,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
         /// <param name="includeGameData"></param>
-        partial void OnErrorGetGameLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long levelId, Option<bool> includeGameData);
+        partial void OnErrorGetGameLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long levelId, Option<bool> includeGameData);
 
         /// <summary>
         /// Get Game Level Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">The id of the level to return.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelApiResponse"/>&gt;</returns>
-        public async Task<IGetGameLevelApiResponse?> GetGameLevelOrDefaultAsync(decimal version, long accountId, long levelId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGameLevelApiResponse?> GetGameLevelOrDefaultAsync(long accountId, long levelId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetGameLevelAsync(version, accountId, levelId, includeGameData, cancellationToken).ConfigureAwait(false);
+                return await GetGameLevelAsync(accountId, levelId, includeGameData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1676,19 +1637,18 @@ namespace Org.OpenAPITools.Api
         /// Get Game Level Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">The id of the level to return.</param>
         /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelApiResponse"/>&gt;</returns>
-        public async Task<IGetGameLevelApiResponse> GetGameLevelAsync(decimal version, long accountId, long levelId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGameLevelApiResponse> GetGameLevelAsync(long accountId, long levelId, Option<bool> includeGameData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetGameLevel(ref version, ref accountId, ref levelId, ref includeGameData);
+                FormatGetGameLevel(ref accountId, ref levelId, ref includeGameData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1696,9 +1656,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1733,13 +1692,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetGameLevelDefaultImplementation(apiResponseLocalVar, version, accountId, levelId, includeGameData);
+                        AfterGetGameLevelDefaultImplementation(apiResponseLocalVar, accountId, levelId, includeGameData);
 
                         Events.ExecuteOnGetGameLevel(apiResponseLocalVar);
 
@@ -1749,7 +1708,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetGameLevelDefaultImplementation(e, "/api/{version}/level/get", uriBuilderLocalVar.Path, version, accountId, levelId, includeGameData);
+                OnErrorGetGameLevelDefaultImplementation(e, "/level/get", uriBuilderLocalVar.Path, accountId, levelId, includeGameData);
                 Events.ExecuteOnErrorGetGameLevel(e);
                 throw;
             }
@@ -1848,7 +1807,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetGameLevelsByApplication(ref decimal version, ref long accountId, ref string appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<string> appVersion, ref Option<bool> includeGameData, ref Option<string> filters);
+        partial void FormatGetGameLevelsByApplication(ref long accountId, ref string appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<string> appVersion, ref Option<bool> includeGameData, ref Option<string> filters);
 
         /// <summary>
         /// Validates the request parameters
@@ -1881,7 +1840,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -1892,10 +1850,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="includeGameData"></param>
         /// <param name="filters"></param>
-        private void AfterGetGameLevelsByApplicationDefaultImplementation(IGetGameLevelsByApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<string> appVersion, Option<bool> includeGameData, Option<string> filters)
+        private void AfterGetGameLevelsByApplicationDefaultImplementation(IGetGameLevelsByApplicationApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<string> appVersion, Option<bool> includeGameData, Option<string> filters)
         {
             bool suppressDefaultLog = false;
-            AfterGetGameLevelsByApplication(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
+            AfterGetGameLevelsByApplication(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1905,7 +1863,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -1916,7 +1873,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="includeGameData"></param>
         /// <param name="filters"></param>
-        partial void AfterGetGameLevelsByApplication(ref bool suppressDefaultLog, IGetGameLevelsByApplicationApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<string> appVersion, Option<bool> includeGameData, Option<string> filters);
+        partial void AfterGetGameLevelsByApplication(ref bool suppressDefaultLog, IGetGameLevelsByApplicationApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<string> appVersion, Option<bool> includeGameData, Option<string> filters);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1924,7 +1881,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -1935,10 +1891,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="includeGameData"></param>
         /// <param name="filters"></param>
-        private void OnErrorGetGameLevelsByApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<string> appVersion, Option<bool> includeGameData, Option<string> filters)
+        private void OnErrorGetGameLevelsByApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<string> appVersion, Option<bool> includeGameData, Option<string> filters)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetGameLevelsByApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
+            OnErrorGetGameLevelsByApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1950,7 +1906,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -1961,12 +1916,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="includeGameData"></param>
         /// <param name="filters"></param>
-        partial void OnErrorGetGameLevelsByApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<string> appVersion, Option<bool> includeGameData, Option<string> filters);
+        partial void OnErrorGetGameLevelsByApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<string> appVersion, Option<bool> includeGameData, Option<string> filters);
 
         /// <summary>
         /// Search Game Levels Get a list of levels for an application, just those the account has permissions to view.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="keyword">Match the keyword to the owner name or level name. (optional)</param>
@@ -1979,11 +1933,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="filters"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelsByApplicationApiResponse"/>&gt;</returns>
-        public async Task<IGetGameLevelsByApplicationApiResponse?> GetGameLevelsByApplicationOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<string> filters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGameLevelsByApplicationApiResponse?> GetGameLevelsByApplicationOrDefaultAsync(long accountId, string appKey, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<string> filters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetGameLevelsByApplicationAsync(version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters, cancellationToken).ConfigureAwait(false);
+                return await GetGameLevelsByApplicationAsync(accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1995,7 +1949,6 @@ namespace Org.OpenAPITools.Api
         /// Search Game Levels Get a list of levels for an application, just those the account has permissions to view.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="appKey">the application key</param>
         /// <param name="keyword">Match the keyword to the owner name or level name. (optional)</param>
@@ -2008,7 +1961,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="filters"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelsByApplicationApiResponse"/>&gt;</returns>
-        public async Task<IGetGameLevelsByApplicationApiResponse> GetGameLevelsByApplicationAsync(decimal version, long accountId, string appKey, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<string> filters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGameLevelsByApplicationApiResponse> GetGameLevelsByApplicationAsync(long accountId, string appKey, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<string> appVersion = default, Option<bool> includeGameData = default, Option<string> filters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2016,7 +1969,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetGameLevelsByApplication(appKey, keyword, sortField, appVersion, filters);
 
-                FormatGetGameLevelsByApplication(ref version, ref accountId, ref appKey, ref keyword, ref sortField, ref descending, ref start, ref limit, ref appVersion, ref includeGameData, ref filters);
+                FormatGetGameLevelsByApplication(ref accountId, ref appKey, ref keyword, ref sortField, ref descending, ref start, ref limit, ref appVersion, ref includeGameData, ref filters);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2024,9 +1977,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2082,13 +2034,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetGameLevelsByApplicationDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
+                        AfterGetGameLevelsByApplicationDefaultImplementation(apiResponseLocalVar, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
 
                         Events.ExecuteOnGetGameLevelsByApplication(apiResponseLocalVar);
 
@@ -2098,7 +2050,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetGameLevelsByApplicationDefaultImplementation(e, "/api/{version}/level/search", uriBuilderLocalVar.Path, version, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
+                OnErrorGetGameLevelsByApplicationDefaultImplementation(e, "/level/search", uriBuilderLocalVar.Path, accountId, appKey, keyword, sortField, descending, start, limit, appVersion, includeGameData, filters);
                 Events.ExecuteOnErrorGetGameLevelsByApplication(e);
                 throw;
             }
@@ -2197,7 +2149,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetGameLevelsByBillableEntity(ref decimal version, ref long accountId, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> activeOnly, ref Option<long> start, ref Option<long> limit);
+        partial void FormatGetGameLevelsByBillableEntity(ref long accountId, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> activeOnly, ref Option<long> start, ref Option<long> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2222,7 +2174,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -2231,10 +2182,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterGetGameLevelsByBillableEntityDefaultImplementation(IGetGameLevelsByBillableEntityApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> activeOnly, Option<long> start, Option<long> limit)
+        private void AfterGetGameLevelsByBillableEntityDefaultImplementation(IGetGameLevelsByBillableEntityApiResponse apiResponseLocalVar, long accountId, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> activeOnly, Option<long> start, Option<long> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetGameLevelsByBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
+            AfterGetGameLevelsByBillableEntity(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2244,7 +2195,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -2253,7 +2203,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterGetGameLevelsByBillableEntity(ref bool suppressDefaultLog, IGetGameLevelsByBillableEntityApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> activeOnly, Option<long> start, Option<long> limit);
+        partial void AfterGetGameLevelsByBillableEntity(ref bool suppressDefaultLog, IGetGameLevelsByBillableEntityApiResponse apiResponseLocalVar, long accountId, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> activeOnly, Option<long> start, Option<long> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2261,7 +2211,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -2270,10 +2219,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetGameLevelsByBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> activeOnly, Option<long> start, Option<long> limit)
+        private void OnErrorGetGameLevelsByBillableEntityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> activeOnly, Option<long> start, Option<long> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetGameLevelsByBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
+            OnErrorGetGameLevelsByBillableEntity(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2285,7 +2234,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="keyword"></param>
@@ -2294,12 +2242,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetGameLevelsByBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> activeOnly, Option<long> start, Option<long> limit);
+        partial void OnErrorGetGameLevelsByBillableEntity(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<bool> activeOnly, Option<long> start, Option<long> limit);
 
         /// <summary>
         /// Search Game Level by Billable Entity Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -2310,11 +2257,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelsByBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<IGetGameLevelsByBillableEntityApiResponse?> GetGameLevelsByBillableEntityOrDefaultAsync(decimal version, long accountId, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGameLevelsByBillableEntityApiResponse?> GetGameLevelsByBillableEntityOrDefaultAsync(long accountId, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetGameLevelsByBillableEntityAsync(version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit, cancellationToken).ConfigureAwait(false);
+                return await GetGameLevelsByBillableEntityAsync(accountId, appKey, keyword, sortField, descending, activeOnly, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2326,7 +2273,6 @@ namespace Org.OpenAPITools.Api
         /// Search Game Level by Billable Entity Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -2337,7 +2283,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The number of records to return (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGameLevelsByBillableEntityApiResponse"/>&gt;</returns>
-        public async Task<IGetGameLevelsByBillableEntityApiResponse> GetGameLevelsByBillableEntityAsync(decimal version, long accountId, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGameLevelsByBillableEntityApiResponse> GetGameLevelsByBillableEntityAsync(long accountId, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> activeOnly = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2345,7 +2291,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetGameLevelsByBillableEntity(appKey, keyword, sortField);
 
-                FormatGetGameLevelsByBillableEntity(ref version, ref accountId, ref appKey, ref keyword, ref sortField, ref descending, ref activeOnly, ref start, ref limit);
+                FormatGetGameLevelsByBillableEntity(ref accountId, ref appKey, ref keyword, ref sortField, ref descending, ref activeOnly, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2353,9 +2299,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/searchByBillableEntity"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/searchByBillableEntity");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/searchByBillableEntity"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/searchByBillableEntity");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2407,13 +2352,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/searchByBillableEntity", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/searchByBillableEntity", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetGameLevelsByBillableEntityDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
+                        AfterGetGameLevelsByBillableEntityDefaultImplementation(apiResponseLocalVar, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
 
                         Events.ExecuteOnGetGameLevelsByBillableEntity(apiResponseLocalVar);
 
@@ -2423,7 +2368,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetGameLevelsByBillableEntityDefaultImplementation(e, "/api/{version}/level/searchByBillableEntity", uriBuilderLocalVar.Path, version, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
+                OnErrorGetGameLevelsByBillableEntityDefaultImplementation(e, "/level/searchByBillableEntity", uriBuilderLocalVar.Path, accountId, appKey, keyword, sortField, descending, activeOnly, start, limit);
                 Events.ExecuteOnErrorGetGameLevelsByBillableEntity(e);
                 throw;
             }
@@ -2522,19 +2467,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetQuestionsInLevel(ref decimal version, ref long levelId, ref long accountId);
+        partial void FormatGetQuestionsInLevel(ref long levelId, ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetQuestionsInLevelDefaultImplementation(IGetQuestionsInLevelApiResponse apiResponseLocalVar, decimal version, long levelId, long accountId)
+        private void AfterGetQuestionsInLevelDefaultImplementation(IGetQuestionsInLevelApiResponse apiResponseLocalVar, long levelId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetQuestionsInLevel(ref suppressDefaultLog, apiResponseLocalVar, version, levelId, accountId);
+            AfterGetQuestionsInLevel(ref suppressDefaultLog, apiResponseLocalVar, levelId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2544,10 +2488,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetQuestionsInLevel(ref bool suppressDefaultLog, IGetQuestionsInLevelApiResponse apiResponseLocalVar, decimal version, long levelId, long accountId);
+        partial void AfterGetQuestionsInLevel(ref bool suppressDefaultLog, IGetQuestionsInLevelApiResponse apiResponseLocalVar, long levelId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2555,13 +2498,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetQuestionsInLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long levelId, long accountId)
+        private void OnErrorGetQuestionsInLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long levelId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetQuestionsInLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, levelId, accountId);
+            OnErrorGetQuestionsInLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, levelId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2573,24 +2515,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetQuestionsInLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long levelId, long accountId);
+        partial void OnErrorGetQuestionsInLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long levelId, long accountId);
 
         /// <summary>
         /// Get Level Questions Get questions within a level.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to get questions from</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetQuestionsInLevelApiResponse"/>&gt;</returns>
-        public async Task<IGetQuestionsInLevelApiResponse?> GetQuestionsInLevelOrDefaultAsync(decimal version, long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetQuestionsInLevelApiResponse?> GetQuestionsInLevelOrDefaultAsync(long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetQuestionsInLevelAsync(version, levelId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetQuestionsInLevelAsync(levelId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2602,18 +2542,17 @@ namespace Org.OpenAPITools.Api
         /// Get Level Questions Get questions within a level.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to get questions from</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetQuestionsInLevelApiResponse"/>&gt;</returns>
-        public async Task<IGetQuestionsInLevelApiResponse> GetQuestionsInLevelAsync(decimal version, long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetQuestionsInLevelApiResponse> GetQuestionsInLevelAsync(long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetQuestionsInLevel(ref version, ref levelId, ref accountId);
+                FormatGetQuestionsInLevel(ref levelId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2621,9 +2560,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/questions/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/questions/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/questions/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/questions/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2655,13 +2593,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/questions/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/questions/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetQuestionsInLevelDefaultImplementation(apiResponseLocalVar, version, levelId, accountId);
+                        AfterGetQuestionsInLevelDefaultImplementation(apiResponseLocalVar, levelId, accountId);
 
                         Events.ExecuteOnGetQuestionsInLevel(apiResponseLocalVar);
 
@@ -2671,7 +2609,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetQuestionsInLevelDefaultImplementation(e, "/api/{version}/level/questions/get", uriBuilderLocalVar.Path, version, levelId, accountId);
+                OnErrorGetQuestionsInLevelDefaultImplementation(e, "/level/questions/get", uriBuilderLocalVar.Path, levelId, accountId);
                 Events.ExecuteOnErrorGetQuestionsInLevel(e);
                 throw;
             }
@@ -2770,19 +2708,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetWordsInLevel(ref decimal version, ref long levelId, ref long accountId);
+        partial void FormatGetWordsInLevel(ref long levelId, ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetWordsInLevelDefaultImplementation(IGetWordsInLevelApiResponse apiResponseLocalVar, decimal version, long levelId, long accountId)
+        private void AfterGetWordsInLevelDefaultImplementation(IGetWordsInLevelApiResponse apiResponseLocalVar, long levelId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetWordsInLevel(ref suppressDefaultLog, apiResponseLocalVar, version, levelId, accountId);
+            AfterGetWordsInLevel(ref suppressDefaultLog, apiResponseLocalVar, levelId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2792,10 +2729,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetWordsInLevel(ref bool suppressDefaultLog, IGetWordsInLevelApiResponse apiResponseLocalVar, decimal version, long levelId, long accountId);
+        partial void AfterGetWordsInLevel(ref bool suppressDefaultLog, IGetWordsInLevelApiResponse apiResponseLocalVar, long levelId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2803,13 +2739,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetWordsInLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long levelId, long accountId)
+        private void OnErrorGetWordsInLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long levelId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetWordsInLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, levelId, accountId);
+            OnErrorGetWordsInLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, levelId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2821,24 +2756,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetWordsInLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long levelId, long accountId);
+        partial void OnErrorGetWordsInLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long levelId, long accountId);
 
         /// <summary>
         /// Get Level Words Get words within a level.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to get words for</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordsInLevelApiResponse"/>&gt;</returns>
-        public async Task<IGetWordsInLevelApiResponse?> GetWordsInLevelOrDefaultAsync(decimal version, long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetWordsInLevelApiResponse?> GetWordsInLevelOrDefaultAsync(long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetWordsInLevelAsync(version, levelId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetWordsInLevelAsync(levelId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2850,18 +2783,17 @@ namespace Org.OpenAPITools.Api
         /// Get Level Words Get words within a level.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to get words for</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetWordsInLevelApiResponse"/>&gt;</returns>
-        public async Task<IGetWordsInLevelApiResponse> GetWordsInLevelAsync(decimal version, long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetWordsInLevelApiResponse> GetWordsInLevelAsync(long levelId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetWordsInLevel(ref version, ref levelId, ref accountId);
+                FormatGetWordsInLevel(ref levelId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2869,9 +2801,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/words/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/words/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/words/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/words/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2903,13 +2834,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/words/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/words/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetWordsInLevelDefaultImplementation(apiResponseLocalVar, version, levelId, accountId);
+                        AfterGetWordsInLevelDefaultImplementation(apiResponseLocalVar, levelId, accountId);
 
                         Events.ExecuteOnGetWordsInLevel(apiResponseLocalVar);
 
@@ -2919,7 +2850,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetWordsInLevelDefaultImplementation(e, "/api/{version}/level/words/get", uriBuilderLocalVar.Path, version, levelId, accountId);
+                OnErrorGetWordsInLevelDefaultImplementation(e, "/level/words/get", uriBuilderLocalVar.Path, levelId, accountId);
                 Events.ExecuteOnErrorGetWordsInLevel(e);
                 throw;
             }
@@ -3018,7 +2949,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateGameLevel(ref decimal version, ref long accountId, ref long levelId, ref Option<string> appKey, ref Option<string> name, ref Option<string> description, ref Option<string> difficulty, ref Option<string> appVersion, ref Option<long> assetImageId, ref Option<long> assetIconId, ref Option<string> gameData, ref Option<string> gameDataSuffix, ref Option<string> visibility, ref Option<bool> friendGroup, ref Option<string> connectionIds, ref Option<string> connectionGroupIds, ref Option<double> balance, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<long> ticketCount, ref Option<string> ticketType, ref Option<long> points, ref Option<string> tutorialTitle, ref Option<string> tutorialMessage, ref Option<string> tutorialAlignment, ref Option<long> tutorialImageAssetId, ref Option<long> offerId, ref Option<string> metaData);
+        partial void FormatUpdateGameLevel(ref long accountId, ref long levelId, ref Option<string> appKey, ref Option<string> name, ref Option<string> description, ref Option<string> difficulty, ref Option<string> appVersion, ref Option<long> assetImageId, ref Option<long> assetIconId, ref Option<string> gameData, ref Option<string> gameDataSuffix, ref Option<string> visibility, ref Option<bool> friendGroup, ref Option<string> connectionIds, ref Option<string> connectionGroupIds, ref Option<double> balance, ref Option<bool> active, ref Option<bool> allocateTickets, ref Option<long> ticketCount, ref Option<string> ticketType, ref Option<long> points, ref Option<string> tutorialTitle, ref Option<string> tutorialMessage, ref Option<string> tutorialAlignment, ref Option<long> tutorialImageAssetId, ref Option<long> offerId, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -3091,7 +3022,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
         /// <param name="appKey"></param>
@@ -3119,10 +3049,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="tutorialImageAssetId"></param>
         /// <param name="offerId"></param>
         /// <param name="metaData"></param>
-        private void AfterUpdateGameLevelDefaultImplementation(IUpdateGameLevelApiResponse apiResponseLocalVar, decimal version, long accountId, long levelId, Option<string> appKey, Option<string> name, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> gameData, Option<string> gameDataSuffix, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData)
+        private void AfterUpdateGameLevelDefaultImplementation(IUpdateGameLevelApiResponse apiResponseLocalVar, long accountId, long levelId, Option<string> appKey, Option<string> name, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> gameData, Option<string> gameDataSuffix, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateGameLevel(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+            AfterUpdateGameLevel(ref suppressDefaultLog, apiResponseLocalVar, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3132,7 +3062,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
         /// <param name="appKey"></param>
@@ -3160,7 +3089,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tutorialImageAssetId"></param>
         /// <param name="offerId"></param>
         /// <param name="metaData"></param>
-        partial void AfterUpdateGameLevel(ref bool suppressDefaultLog, IUpdateGameLevelApiResponse apiResponseLocalVar, decimal version, long accountId, long levelId, Option<string> appKey, Option<string> name, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> gameData, Option<string> gameDataSuffix, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData);
+        partial void AfterUpdateGameLevel(ref bool suppressDefaultLog, IUpdateGameLevelApiResponse apiResponseLocalVar, long accountId, long levelId, Option<string> appKey, Option<string> name, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> gameData, Option<string> gameDataSuffix, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3168,7 +3097,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
         /// <param name="appKey"></param>
@@ -3196,10 +3124,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="tutorialImageAssetId"></param>
         /// <param name="offerId"></param>
         /// <param name="metaData"></param>
-        private void OnErrorUpdateGameLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long levelId, Option<string> appKey, Option<string> name, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> gameData, Option<string> gameDataSuffix, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData)
+        private void OnErrorUpdateGameLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long levelId, Option<string> appKey, Option<string> name, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> gameData, Option<string> gameDataSuffix, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateGameLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+            OnErrorUpdateGameLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3211,7 +3139,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="levelId"></param>
         /// <param name="appKey"></param>
@@ -3239,12 +3166,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tutorialImageAssetId"></param>
         /// <param name="offerId"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorUpdateGameLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long levelId, Option<string> appKey, Option<string> name, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> gameData, Option<string> gameDataSuffix, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData);
+        partial void OnErrorUpdateGameLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long levelId, Option<string> appKey, Option<string> name, Option<string> description, Option<string> difficulty, Option<string> appVersion, Option<long> assetImageId, Option<long> assetIconId, Option<string> gameData, Option<string> gameDataSuffix, Option<string> visibility, Option<bool> friendGroup, Option<string> connectionIds, Option<string> connectionGroupIds, Option<double> balance, Option<bool> active, Option<bool> allocateTickets, Option<long> ticketCount, Option<string> ticketType, Option<long> points, Option<string> tutorialTitle, Option<string> tutorialMessage, Option<string> tutorialAlignment, Option<long> tutorialImageAssetId, Option<long> offerId, Option<string> metaData);
 
         /// <summary>
         /// Update Game Level Update a game level. Currently does NOT support game objects.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">If update then include the level Id.</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
@@ -3274,11 +3200,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateGameLevelApiResponse"/>&gt;</returns>
-        public async Task<IUpdateGameLevelApiResponse?> UpdateGameLevelOrDefaultAsync(decimal version, long accountId, long levelId, Option<string> appKey = default, Option<string> name = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> gameData = default, Option<string> gameDataSuffix = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateGameLevelApiResponse?> UpdateGameLevelOrDefaultAsync(long accountId, long levelId, Option<string> appKey = default, Option<string> name = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> gameData = default, Option<string> gameDataSuffix = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateGameLevelAsync(version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, cancellationToken).ConfigureAwait(false);
+                return await UpdateGameLevelAsync(accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3290,7 +3216,6 @@ namespace Org.OpenAPITools.Api
         /// Update Game Level Update a game level. Currently does NOT support game objects.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="levelId">If update then include the level Id.</param>
         /// <param name="appKey">The game application key to save the level for. (optional)</param>
@@ -3320,7 +3245,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateGameLevelApiResponse"/>&gt;</returns>
-        public async Task<IUpdateGameLevelApiResponse> UpdateGameLevelAsync(decimal version, long accountId, long levelId, Option<string> appKey = default, Option<string> name = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> gameData = default, Option<string> gameDataSuffix = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateGameLevelApiResponse> UpdateGameLevelAsync(long accountId, long levelId, Option<string> appKey = default, Option<string> name = default, Option<string> description = default, Option<string> difficulty = default, Option<string> appVersion = default, Option<long> assetImageId = default, Option<long> assetIconId = default, Option<string> gameData = default, Option<string> gameDataSuffix = default, Option<string> visibility = default, Option<bool> friendGroup = default, Option<string> connectionIds = default, Option<string> connectionGroupIds = default, Option<double> balance = default, Option<bool> active = default, Option<bool> allocateTickets = default, Option<long> ticketCount = default, Option<string> ticketType = default, Option<long> points = default, Option<string> tutorialTitle = default, Option<string> tutorialMessage = default, Option<string> tutorialAlignment = default, Option<long> tutorialImageAssetId = default, Option<long> offerId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3328,7 +3253,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateGameLevel(appKey, name, description, difficulty, appVersion, gameData, gameDataSuffix, visibility, connectionIds, connectionGroupIds, ticketType, tutorialTitle, tutorialMessage, tutorialAlignment, metaData);
 
-                FormatUpdateGameLevel(ref version, ref accountId, ref levelId, ref appKey, ref name, ref description, ref difficulty, ref appVersion, ref assetImageId, ref assetIconId, ref gameData, ref gameDataSuffix, ref visibility, ref friendGroup, ref connectionIds, ref connectionGroupIds, ref balance, ref active, ref allocateTickets, ref ticketCount, ref ticketType, ref points, ref tutorialTitle, ref tutorialMessage, ref tutorialAlignment, ref tutorialImageAssetId, ref offerId, ref metaData);
+                FormatUpdateGameLevel(ref accountId, ref levelId, ref appKey, ref name, ref description, ref difficulty, ref appVersion, ref assetImageId, ref assetIconId, ref gameData, ref gameDataSuffix, ref visibility, ref friendGroup, ref connectionIds, ref connectionGroupIds, ref balance, ref active, ref allocateTickets, ref ticketCount, ref ticketType, ref points, ref tutorialTitle, ref tutorialMessage, ref tutorialAlignment, ref tutorialImageAssetId, ref offerId, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3336,9 +3261,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3445,13 +3369,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateGameLevelDefaultImplementation(apiResponseLocalVar, version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+                        AfterUpdateGameLevelDefaultImplementation(apiResponseLocalVar, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
 
                         Events.ExecuteOnUpdateGameLevel(apiResponseLocalVar);
 
@@ -3461,7 +3385,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateGameLevelDefaultImplementation(e, "/api/{version}/level/update", uriBuilderLocalVar.Path, version, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
+                OnErrorUpdateGameLevelDefaultImplementation(e, "/level/update", uriBuilderLocalVar.Path, accountId, levelId, appKey, name, description, difficulty, appVersion, assetImageId, assetIconId, gameData, gameDataSuffix, visibility, friendGroup, connectionIds, connectionGroupIds, balance, active, allocateTickets, ticketCount, ticketType, points, tutorialTitle, tutorialMessage, tutorialAlignment, tutorialImageAssetId, offerId, metaData);
                 Events.ExecuteOnErrorUpdateGameLevel(e);
                 throw;
             }
@@ -3560,7 +3484,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateQuestionsInLevel(ref decimal version, ref long levelId, ref long accountId, ref string questionIds);
+        partial void FormatUpdateQuestionsInLevel(ref long levelId, ref long accountId, ref string questionIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -3577,14 +3501,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
         /// <param name="questionIds"></param>
-        private void AfterUpdateQuestionsInLevelDefaultImplementation(IUpdateQuestionsInLevelApiResponse apiResponseLocalVar, decimal version, long levelId, long accountId, string questionIds)
+        private void AfterUpdateQuestionsInLevelDefaultImplementation(IUpdateQuestionsInLevelApiResponse apiResponseLocalVar, long levelId, long accountId, string questionIds)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateQuestionsInLevel(ref suppressDefaultLog, apiResponseLocalVar, version, levelId, accountId, questionIds);
+            AfterUpdateQuestionsInLevel(ref suppressDefaultLog, apiResponseLocalVar, levelId, accountId, questionIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3594,11 +3517,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
         /// <param name="questionIds"></param>
-        partial void AfterUpdateQuestionsInLevel(ref bool suppressDefaultLog, IUpdateQuestionsInLevelApiResponse apiResponseLocalVar, decimal version, long levelId, long accountId, string questionIds);
+        partial void AfterUpdateQuestionsInLevel(ref bool suppressDefaultLog, IUpdateQuestionsInLevelApiResponse apiResponseLocalVar, long levelId, long accountId, string questionIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3606,14 +3528,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
         /// <param name="questionIds"></param>
-        private void OnErrorUpdateQuestionsInLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long levelId, long accountId, string questionIds)
+        private void OnErrorUpdateQuestionsInLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long levelId, long accountId, string questionIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateQuestionsInLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, levelId, accountId, questionIds);
+            OnErrorUpdateQuestionsInLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, levelId, accountId, questionIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3625,26 +3546,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
         /// <param name="questionIds"></param>
-        partial void OnErrorUpdateQuestionsInLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long levelId, long accountId, string questionIds);
+        partial void OnErrorUpdateQuestionsInLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long levelId, long accountId, string questionIds);
 
         /// <summary>
         /// Update Level Questions Updates a level with question game objects.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to update questions on</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="questionIds">the IDs of the questions to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateQuestionsInLevelApiResponse"/>&gt;</returns>
-        public async Task<IUpdateQuestionsInLevelApiResponse?> UpdateQuestionsInLevelOrDefaultAsync(decimal version, long levelId, long accountId, string questionIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateQuestionsInLevelApiResponse?> UpdateQuestionsInLevelOrDefaultAsync(long levelId, long accountId, string questionIds, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateQuestionsInLevelAsync(version, levelId, accountId, questionIds, cancellationToken).ConfigureAwait(false);
+                return await UpdateQuestionsInLevelAsync(levelId, accountId, questionIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3656,13 +3575,12 @@ namespace Org.OpenAPITools.Api
         /// Update Level Questions Updates a level with question game objects.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to update questions on</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="questionIds">the IDs of the questions to update</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateQuestionsInLevelApiResponse"/>&gt;</returns>
-        public async Task<IUpdateQuestionsInLevelApiResponse> UpdateQuestionsInLevelAsync(decimal version, long levelId, long accountId, string questionIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateQuestionsInLevelApiResponse> UpdateQuestionsInLevelAsync(long levelId, long accountId, string questionIds, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3670,7 +3588,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateQuestionsInLevel(questionIds);
 
-                FormatUpdateQuestionsInLevel(ref version, ref levelId, ref accountId, ref questionIds);
+                FormatUpdateQuestionsInLevel(ref levelId, ref accountId, ref questionIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3678,9 +3596,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/questions/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/questions/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/questions/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/questions/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3713,13 +3630,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/questions/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/questions/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateQuestionsInLevelDefaultImplementation(apiResponseLocalVar, version, levelId, accountId, questionIds);
+                        AfterUpdateQuestionsInLevelDefaultImplementation(apiResponseLocalVar, levelId, accountId, questionIds);
 
                         Events.ExecuteOnUpdateQuestionsInLevel(apiResponseLocalVar);
 
@@ -3729,7 +3646,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateQuestionsInLevelDefaultImplementation(e, "/api/{version}/level/questions/update", uriBuilderLocalVar.Path, version, levelId, accountId, questionIds);
+                OnErrorUpdateQuestionsInLevelDefaultImplementation(e, "/level/questions/update", uriBuilderLocalVar.Path, levelId, accountId, questionIds);
                 Events.ExecuteOnErrorUpdateQuestionsInLevel(e);
                 throw;
             }
@@ -3828,7 +3745,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateWordsInLevel(ref decimal version, ref long levelId, ref long accountId, ref string wordIds);
+        partial void FormatUpdateWordsInLevel(ref long levelId, ref long accountId, ref string wordIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -3845,14 +3762,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
         /// <param name="wordIds"></param>
-        private void AfterUpdateWordsInLevelDefaultImplementation(IUpdateWordsInLevelApiResponse apiResponseLocalVar, decimal version, long levelId, long accountId, string wordIds)
+        private void AfterUpdateWordsInLevelDefaultImplementation(IUpdateWordsInLevelApiResponse apiResponseLocalVar, long levelId, long accountId, string wordIds)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateWordsInLevel(ref suppressDefaultLog, apiResponseLocalVar, version, levelId, accountId, wordIds);
+            AfterUpdateWordsInLevel(ref suppressDefaultLog, apiResponseLocalVar, levelId, accountId, wordIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3862,11 +3778,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
         /// <param name="wordIds"></param>
-        partial void AfterUpdateWordsInLevel(ref bool suppressDefaultLog, IUpdateWordsInLevelApiResponse apiResponseLocalVar, decimal version, long levelId, long accountId, string wordIds);
+        partial void AfterUpdateWordsInLevel(ref bool suppressDefaultLog, IUpdateWordsInLevelApiResponse apiResponseLocalVar, long levelId, long accountId, string wordIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3874,14 +3789,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
         /// <param name="wordIds"></param>
-        private void OnErrorUpdateWordsInLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long levelId, long accountId, string wordIds)
+        private void OnErrorUpdateWordsInLevelDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long levelId, long accountId, string wordIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateWordsInLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, levelId, accountId, wordIds);
+            OnErrorUpdateWordsInLevel(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, levelId, accountId, wordIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3893,26 +3807,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="levelId"></param>
         /// <param name="accountId"></param>
         /// <param name="wordIds"></param>
-        partial void OnErrorUpdateWordsInLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long levelId, long accountId, string wordIds);
+        partial void OnErrorUpdateWordsInLevel(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long levelId, long accountId, string wordIds);
 
         /// <summary>
         /// Update Level Words Updates a level with word game objects.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to update words for</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="wordIds">the ids of the words to update for the level</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateWordsInLevelApiResponse"/>&gt;</returns>
-        public async Task<IUpdateWordsInLevelApiResponse?> UpdateWordsInLevelOrDefaultAsync(decimal version, long levelId, long accountId, string wordIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateWordsInLevelApiResponse?> UpdateWordsInLevelOrDefaultAsync(long levelId, long accountId, string wordIds, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateWordsInLevelAsync(version, levelId, accountId, wordIds, cancellationToken).ConfigureAwait(false);
+                return await UpdateWordsInLevelAsync(levelId, accountId, wordIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3924,13 +3836,12 @@ namespace Org.OpenAPITools.Api
         /// Update Level Words Updates a level with word game objects.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="levelId">the id of the level to update words for</param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="wordIds">the ids of the words to update for the level</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateWordsInLevelApiResponse"/>&gt;</returns>
-        public async Task<IUpdateWordsInLevelApiResponse> UpdateWordsInLevelAsync(decimal version, long levelId, long accountId, string wordIds, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateWordsInLevelApiResponse> UpdateWordsInLevelAsync(long levelId, long accountId, string wordIds, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3938,7 +3849,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateWordsInLevel(wordIds);
 
-                FormatUpdateWordsInLevel(ref version, ref levelId, ref accountId, ref wordIds);
+                FormatUpdateWordsInLevel(ref levelId, ref accountId, ref wordIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3946,9 +3857,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/level/words/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/level/words/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/level/words/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/level/words/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3981,13 +3891,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/level/words/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/level/words/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateWordsInLevelDefaultImplementation(apiResponseLocalVar, version, levelId, accountId, wordIds);
+                        AfterUpdateWordsInLevelDefaultImplementation(apiResponseLocalVar, levelId, accountId, wordIds);
 
                         Events.ExecuteOnUpdateWordsInLevel(apiResponseLocalVar);
 
@@ -3997,7 +3907,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateWordsInLevelDefaultImplementation(e, "/api/{version}/level/words/update", uriBuilderLocalVar.Path, version, levelId, accountId, wordIds);
+                OnErrorUpdateWordsInLevelDefaultImplementation(e, "/level/words/update", uriBuilderLocalVar.Path, levelId, accountId, wordIds);
                 Events.ExecuteOnErrorUpdateWordsInLevel(e);
                 throw;
             }

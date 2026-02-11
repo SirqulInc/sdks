@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a new persona. If the given params are null those attributes will be override by null.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="title">the title of the persona</param>
         /// <param name="previewAccounts">the accounts that are able to preview from this persona (optional)</param>
@@ -57,7 +56,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the specified longitude of the persona (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePersonaApiResponse"/>&gt;</returns>
-        Task<ICreatePersonaApiResponse> CreatePersonaAsync(decimal version, long accountId, string title, Option<string> previewAccounts = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePersonaApiResponse> CreatePersonaAsync(long accountId, string title, Option<string> previewAccounts = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Persona
@@ -65,7 +64,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a new persona. If the given params are null those attributes will be override by null.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="title">the title of the persona</param>
         /// <param name="previewAccounts">the accounts that are able to preview from this persona (optional)</param>
@@ -77,7 +75,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the specified longitude of the persona (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePersonaApiResponse"/>?&gt;</returns>
-        Task<ICreatePersonaApiResponse?> CreatePersonaOrDefaultAsync(decimal version, long accountId, string title, Option<string> previewAccounts = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePersonaApiResponse?> CreatePersonaOrDefaultAsync(long accountId, string title, Option<string> previewAccounts = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Persona
@@ -86,12 +84,11 @@ namespace Org.OpenAPITools.Api
         /// Mark the persona for deletion.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="personaId">the id of the persona to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePersonaApiResponse"/>&gt;</returns>
-        Task<IDeletePersonaApiResponse> DeletePersonaAsync(decimal version, long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePersonaApiResponse> DeletePersonaAsync(long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Persona
@@ -99,12 +96,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Mark the persona for deletion.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="personaId">the id of the persona to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePersonaApiResponse"/>?&gt;</returns>
-        Task<IDeletePersonaApiResponse?> DeletePersonaOrDefaultAsync(decimal version, long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePersonaApiResponse?> DeletePersonaOrDefaultAsync(long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Persona
@@ -113,12 +109,11 @@ namespace Org.OpenAPITools.Api
         /// Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="personaId">the persona ID of the persona</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPersonaListApiResponse"/>&gt;</returns>
-        Task<IGetPersonaListApiResponse> GetPersonaListAsync(decimal version, long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPersonaListApiResponse> GetPersonaListAsync(long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Persona
@@ -126,12 +121,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="personaId">the persona ID of the persona</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPersonaListApiResponse"/>?&gt;</returns>
-        Task<IGetPersonaListApiResponse?> GetPersonaListOrDefaultAsync(decimal version, long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPersonaListApiResponse?> GetPersonaListOrDefaultAsync(long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Personas
@@ -140,13 +134,12 @@ namespace Org.OpenAPITools.Api
         /// Search for persona that the account owns by the given account ID.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="start">the start index for pagination</param>
         /// <param name="limit">the limit for pagination (There is a hard limit of 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPersonaApiResponse"/>&gt;</returns>
-        Task<ISearchPersonaApiResponse> SearchPersonaAsync(decimal version, long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPersonaApiResponse> SearchPersonaAsync(long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Personas
@@ -154,13 +147,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for persona that the account owns by the given account ID.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="start">the start index for pagination</param>
         /// <param name="limit">the limit for pagination (There is a hard limit of 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPersonaApiResponse"/>?&gt;</returns>
-        Task<ISearchPersonaApiResponse?> SearchPersonaOrDefaultAsync(decimal version, long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPersonaApiResponse?> SearchPersonaOrDefaultAsync(long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Persona
@@ -169,7 +161,6 @@ namespace Org.OpenAPITools.Api
         /// Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="personaId">the persona ID of the persona to update</param>
         /// <param name="title">the title of the persona (optional)</param>
@@ -183,7 +174,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the specified longitude of the persona (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePersonaApiResponse"/>&gt;</returns>
-        Task<IUpdatePersonaApiResponse> UpdatePersonaAsync(decimal version, long accountId, long personaId, Option<string> title = default, Option<string> previewAccounts = default, Option<bool> active = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdatePersonaApiResponse> UpdatePersonaAsync(long accountId, long personaId, Option<string> title = default, Option<string> previewAccounts = default, Option<bool> active = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Persona
@@ -191,7 +182,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="personaId">the persona ID of the persona to update</param>
         /// <param name="title">the title of the persona (optional)</param>
@@ -205,7 +195,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the specified longitude of the persona (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePersonaApiResponse"/>?&gt;</returns>
-        Task<IUpdatePersonaApiResponse?> UpdatePersonaOrDefaultAsync(decimal version, long accountId, long personaId, Option<string> title = default, Option<string> previewAccounts = default, Option<bool> active = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdatePersonaApiResponse?> UpdatePersonaOrDefaultAsync(long accountId, long personaId, Option<string> title = default, Option<string> previewAccounts = default, Option<bool> active = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -421,7 +411,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreatePersona(ref decimal version, ref long accountId, ref string title, ref Option<string> previewAccounts, ref Option<long> date, ref Option<int> age, ref Option<string> gender, ref Option<string> gameExperienceLevel, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatCreatePersona(ref long accountId, ref string title, ref Option<string> previewAccounts, ref Option<long> date, ref Option<int> age, ref Option<string> gender, ref Option<string> gameExperienceLevel, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -450,7 +440,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="previewAccounts"></param>
@@ -460,10 +449,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameExperienceLevel"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterCreatePersonaDefaultImplementation(ICreatePersonaApiResponse apiResponseLocalVar, decimal version, long accountId, string title, Option<string> previewAccounts, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude)
+        private void AfterCreatePersonaDefaultImplementation(ICreatePersonaApiResponse apiResponseLocalVar, long accountId, string title, Option<string> previewAccounts, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterCreatePersona(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
+            AfterCreatePersona(ref suppressDefaultLog, apiResponseLocalVar, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -473,7 +462,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="previewAccounts"></param>
@@ -483,7 +471,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameExperienceLevel"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterCreatePersona(ref bool suppressDefaultLog, ICreatePersonaApiResponse apiResponseLocalVar, decimal version, long accountId, string title, Option<string> previewAccounts, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude);
+        partial void AfterCreatePersona(ref bool suppressDefaultLog, ICreatePersonaApiResponse apiResponseLocalVar, long accountId, string title, Option<string> previewAccounts, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -491,7 +479,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="previewAccounts"></param>
@@ -501,10 +488,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameExperienceLevel"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorCreatePersonaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, Option<string> previewAccounts, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude)
+        private void OnErrorCreatePersonaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, Option<string> previewAccounts, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreatePersona(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
+            OnErrorCreatePersona(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -516,7 +503,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="title"></param>
         /// <param name="previewAccounts"></param>
@@ -526,12 +512,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameExperienceLevel"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorCreatePersona(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string title, Option<string> previewAccounts, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorCreatePersona(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string title, Option<string> previewAccounts, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create Persona Creates a new persona. If the given params are null those attributes will be override by null.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="title">the title of the persona</param>
         /// <param name="previewAccounts">the accounts that are able to preview from this persona (optional)</param>
@@ -543,11 +528,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the specified longitude of the persona (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePersonaApiResponse"/>&gt;</returns>
-        public async Task<ICreatePersonaApiResponse?> CreatePersonaOrDefaultAsync(decimal version, long accountId, string title, Option<string> previewAccounts = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePersonaApiResponse?> CreatePersonaOrDefaultAsync(long accountId, string title, Option<string> previewAccounts = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreatePersonaAsync(version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await CreatePersonaAsync(accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -559,7 +544,6 @@ namespace Org.OpenAPITools.Api
         /// Create Persona Creates a new persona. If the given params are null those attributes will be override by null.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="title">the title of the persona</param>
         /// <param name="previewAccounts">the accounts that are able to preview from this persona (optional)</param>
@@ -571,7 +555,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the specified longitude of the persona (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePersonaApiResponse"/>&gt;</returns>
-        public async Task<ICreatePersonaApiResponse> CreatePersonaAsync(decimal version, long accountId, string title, Option<string> previewAccounts = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePersonaApiResponse> CreatePersonaAsync(long accountId, string title, Option<string> previewAccounts = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -579,7 +563,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreatePersona(title, previewAccounts, gender, gameExperienceLevel);
 
-                FormatCreatePersona(ref version, ref accountId, ref title, ref previewAccounts, ref date, ref age, ref gender, ref gameExperienceLevel, ref latitude, ref longitude);
+                FormatCreatePersona(ref accountId, ref title, ref previewAccounts, ref date, ref age, ref gender, ref gameExperienceLevel, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -587,9 +571,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/persona/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/persona/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/persona/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/persona/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -642,13 +625,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/persona/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/persona/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreatePersonaDefaultImplementation(apiResponseLocalVar, version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
+                        AfterCreatePersonaDefaultImplementation(apiResponseLocalVar, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
 
                         Events.ExecuteOnCreatePersona(apiResponseLocalVar);
 
@@ -658,7 +641,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreatePersonaDefaultImplementation(e, "/api/{version}/persona/create", uriBuilderLocalVar.Path, version, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
+                OnErrorCreatePersonaDefaultImplementation(e, "/persona/create", uriBuilderLocalVar.Path, accountId, title, previewAccounts, date, age, gender, gameExperienceLevel, latitude, longitude);
                 Events.ExecuteOnErrorCreatePersona(e);
                 throw;
             }
@@ -757,19 +740,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeletePersona(ref decimal version, ref long accountId, ref long personaId);
+        partial void FormatDeletePersona(ref long accountId, ref long personaId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
-        private void AfterDeletePersonaDefaultImplementation(IDeletePersonaApiResponse apiResponseLocalVar, decimal version, long accountId, long personaId)
+        private void AfterDeletePersonaDefaultImplementation(IDeletePersonaApiResponse apiResponseLocalVar, long accountId, long personaId)
         {
             bool suppressDefaultLog = false;
-            AfterDeletePersona(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, personaId);
+            AfterDeletePersona(ref suppressDefaultLog, apiResponseLocalVar, accountId, personaId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -779,10 +761,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
-        partial void AfterDeletePersona(ref bool suppressDefaultLog, IDeletePersonaApiResponse apiResponseLocalVar, decimal version, long accountId, long personaId);
+        partial void AfterDeletePersona(ref bool suppressDefaultLog, IDeletePersonaApiResponse apiResponseLocalVar, long accountId, long personaId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -790,13 +771,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
-        private void OnErrorDeletePersonaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long personaId)
+        private void OnErrorDeletePersonaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long personaId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeletePersona(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, personaId);
+            OnErrorDeletePersona(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, personaId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -808,24 +788,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
-        partial void OnErrorDeletePersona(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long personaId);
+        partial void OnErrorDeletePersona(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long personaId);
 
         /// <summary>
         /// Delete Persona Mark the persona for deletion.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="personaId">the id of the persona to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePersonaApiResponse"/>&gt;</returns>
-        public async Task<IDeletePersonaApiResponse?> DeletePersonaOrDefaultAsync(decimal version, long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePersonaApiResponse?> DeletePersonaOrDefaultAsync(long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeletePersonaAsync(version, accountId, personaId, cancellationToken).ConfigureAwait(false);
+                return await DeletePersonaAsync(accountId, personaId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -837,18 +815,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Persona Mark the persona for deletion.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="personaId">the id of the persona to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePersonaApiResponse"/>&gt;</returns>
-        public async Task<IDeletePersonaApiResponse> DeletePersonaAsync(decimal version, long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePersonaApiResponse> DeletePersonaAsync(long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeletePersona(ref version, ref accountId, ref personaId);
+                FormatDeletePersona(ref accountId, ref personaId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -856,9 +833,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/persona/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/persona/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/persona/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/persona/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -890,13 +866,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/persona/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/persona/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeletePersonaDefaultImplementation(apiResponseLocalVar, version, accountId, personaId);
+                        AfterDeletePersonaDefaultImplementation(apiResponseLocalVar, accountId, personaId);
 
                         Events.ExecuteOnDeletePersona(apiResponseLocalVar);
 
@@ -906,7 +882,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeletePersonaDefaultImplementation(e, "/api/{version}/persona/delete", uriBuilderLocalVar.Path, version, accountId, personaId);
+                OnErrorDeletePersonaDefaultImplementation(e, "/persona/delete", uriBuilderLocalVar.Path, accountId, personaId);
                 Events.ExecuteOnErrorDeletePersona(e);
                 throw;
             }
@@ -1005,19 +981,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPersonaList(ref decimal version, ref long accountId, ref long personaId);
+        partial void FormatGetPersonaList(ref long accountId, ref long personaId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
-        private void AfterGetPersonaListDefaultImplementation(IGetPersonaListApiResponse apiResponseLocalVar, decimal version, long accountId, long personaId)
+        private void AfterGetPersonaListDefaultImplementation(IGetPersonaListApiResponse apiResponseLocalVar, long accountId, long personaId)
         {
             bool suppressDefaultLog = false;
-            AfterGetPersonaList(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, personaId);
+            AfterGetPersonaList(ref suppressDefaultLog, apiResponseLocalVar, accountId, personaId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1027,10 +1002,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
-        partial void AfterGetPersonaList(ref bool suppressDefaultLog, IGetPersonaListApiResponse apiResponseLocalVar, decimal version, long accountId, long personaId);
+        partial void AfterGetPersonaList(ref bool suppressDefaultLog, IGetPersonaListApiResponse apiResponseLocalVar, long accountId, long personaId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1038,13 +1012,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
-        private void OnErrorGetPersonaListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long personaId)
+        private void OnErrorGetPersonaListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long personaId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPersonaList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, personaId);
+            OnErrorGetPersonaList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, personaId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1056,24 +1029,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
-        partial void OnErrorGetPersonaList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long personaId);
+        partial void OnErrorGetPersonaList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long personaId);
 
         /// <summary>
         /// Get Persona Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="personaId">the persona ID of the persona</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPersonaListApiResponse"/>&gt;</returns>
-        public async Task<IGetPersonaListApiResponse?> GetPersonaListOrDefaultAsync(decimal version, long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPersonaListApiResponse?> GetPersonaListOrDefaultAsync(long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPersonaListAsync(version, accountId, personaId, cancellationToken).ConfigureAwait(false);
+                return await GetPersonaListAsync(accountId, personaId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1085,18 +1056,17 @@ namespace Org.OpenAPITools.Api
         /// Get Persona Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="personaId">the persona ID of the persona</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPersonaListApiResponse"/>&gt;</returns>
-        public async Task<IGetPersonaListApiResponse> GetPersonaListAsync(decimal version, long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPersonaListApiResponse> GetPersonaListAsync(long accountId, long personaId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetPersonaList(ref version, ref accountId, ref personaId);
+                FormatGetPersonaList(ref accountId, ref personaId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1104,9 +1074,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/persona/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/persona/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/persona/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/persona/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1138,13 +1107,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/persona/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/persona/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPersonaListDefaultImplementation(apiResponseLocalVar, version, accountId, personaId);
+                        AfterGetPersonaListDefaultImplementation(apiResponseLocalVar, accountId, personaId);
 
                         Events.ExecuteOnGetPersonaList(apiResponseLocalVar);
 
@@ -1154,7 +1123,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPersonaListDefaultImplementation(e, "/api/{version}/persona/get", uriBuilderLocalVar.Path, version, accountId, personaId);
+                OnErrorGetPersonaListDefaultImplementation(e, "/persona/get", uriBuilderLocalVar.Path, accountId, personaId);
                 Events.ExecuteOnErrorGetPersonaList(e);
                 throw;
             }
@@ -1253,20 +1222,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchPersona(ref decimal version, ref long accountId, ref int start, ref int limit);
+        partial void FormatSearchPersona(ref long accountId, ref int start, ref int limit);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchPersonaDefaultImplementation(ISearchPersonaApiResponse apiResponseLocalVar, decimal version, long accountId, int start, int limit)
+        private void AfterSearchPersonaDefaultImplementation(ISearchPersonaApiResponse apiResponseLocalVar, long accountId, int start, int limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchPersona(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, start, limit);
+            AfterSearchPersona(ref suppressDefaultLog, apiResponseLocalVar, accountId, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1276,11 +1244,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchPersona(ref bool suppressDefaultLog, ISearchPersonaApiResponse apiResponseLocalVar, decimal version, long accountId, int start, int limit);
+        partial void AfterSearchPersona(ref bool suppressDefaultLog, ISearchPersonaApiResponse apiResponseLocalVar, long accountId, int start, int limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1288,14 +1255,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchPersonaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int start, int limit)
+        private void OnErrorSearchPersonaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int start, int limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchPersona(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, start, limit);
+            OnErrorSearchPersona(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1307,26 +1273,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchPersona(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int start, int limit);
+        partial void OnErrorSearchPersona(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int start, int limit);
 
         /// <summary>
         /// Search Personas Search for persona that the account owns by the given account ID.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="start">the start index for pagination</param>
         /// <param name="limit">the limit for pagination (There is a hard limit of 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPersonaApiResponse"/>&gt;</returns>
-        public async Task<ISearchPersonaApiResponse?> SearchPersonaOrDefaultAsync(decimal version, long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPersonaApiResponse?> SearchPersonaOrDefaultAsync(long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchPersonaAsync(version, accountId, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchPersonaAsync(accountId, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1338,19 +1302,18 @@ namespace Org.OpenAPITools.Api
         /// Search Personas Search for persona that the account owns by the given account ID.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="start">the start index for pagination</param>
         /// <param name="limit">the limit for pagination (There is a hard limit of 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPersonaApiResponse"/>&gt;</returns>
-        public async Task<ISearchPersonaApiResponse> SearchPersonaAsync(decimal version, long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPersonaApiResponse> SearchPersonaAsync(long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatSearchPersona(ref version, ref accountId, ref start, ref limit);
+                FormatSearchPersona(ref accountId, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1358,9 +1321,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/persona/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/persona/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/persona/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/persona/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1393,13 +1355,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/persona/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/persona/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchPersonaDefaultImplementation(apiResponseLocalVar, version, accountId, start, limit);
+                        AfterSearchPersonaDefaultImplementation(apiResponseLocalVar, accountId, start, limit);
 
                         Events.ExecuteOnSearchPersona(apiResponseLocalVar);
 
@@ -1409,7 +1371,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchPersonaDefaultImplementation(e, "/api/{version}/persona/search", uriBuilderLocalVar.Path, version, accountId, start, limit);
+                OnErrorSearchPersonaDefaultImplementation(e, "/persona/search", uriBuilderLocalVar.Path, accountId, start, limit);
                 Events.ExecuteOnErrorSearchPersona(e);
                 throw;
             }
@@ -1508,7 +1470,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdatePersona(ref decimal version, ref long accountId, ref long personaId, ref Option<string> title, ref Option<string> previewAccounts, ref Option<bool> active, ref Option<long> date, ref Option<int> age, ref Option<string> gender, ref Option<string> gameExperienceLevel, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatUpdatePersona(ref long accountId, ref long personaId, ref Option<string> title, ref Option<string> previewAccounts, ref Option<bool> active, ref Option<long> date, ref Option<int> age, ref Option<string> gender, ref Option<string> gameExperienceLevel, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1537,7 +1499,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
         /// <param name="title"></param>
@@ -1549,10 +1510,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameExperienceLevel"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterUpdatePersonaDefaultImplementation(IUpdatePersonaApiResponse apiResponseLocalVar, decimal version, long accountId, long personaId, Option<string> title, Option<string> previewAccounts, Option<bool> active, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude)
+        private void AfterUpdatePersonaDefaultImplementation(IUpdatePersonaApiResponse apiResponseLocalVar, long accountId, long personaId, Option<string> title, Option<string> previewAccounts, Option<bool> active, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterUpdatePersona(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
+            AfterUpdatePersona(ref suppressDefaultLog, apiResponseLocalVar, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1562,7 +1523,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
         /// <param name="title"></param>
@@ -1574,7 +1534,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameExperienceLevel"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterUpdatePersona(ref bool suppressDefaultLog, IUpdatePersonaApiResponse apiResponseLocalVar, decimal version, long accountId, long personaId, Option<string> title, Option<string> previewAccounts, Option<bool> active, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude);
+        partial void AfterUpdatePersona(ref bool suppressDefaultLog, IUpdatePersonaApiResponse apiResponseLocalVar, long accountId, long personaId, Option<string> title, Option<string> previewAccounts, Option<bool> active, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1582,7 +1542,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
         /// <param name="title"></param>
@@ -1594,10 +1553,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameExperienceLevel"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorUpdatePersonaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long personaId, Option<string> title, Option<string> previewAccounts, Option<bool> active, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude)
+        private void OnErrorUpdatePersonaDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long personaId, Option<string> title, Option<string> previewAccounts, Option<bool> active, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdatePersona(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
+            OnErrorUpdatePersona(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1609,7 +1568,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="personaId"></param>
         /// <param name="title"></param>
@@ -1621,12 +1579,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameExperienceLevel"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorUpdatePersona(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long personaId, Option<string> title, Option<string> previewAccounts, Option<bool> active, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorUpdatePersona(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long personaId, Option<string> title, Option<string> previewAccounts, Option<bool> active, Option<long> date, Option<int> age, Option<string> gender, Option<string> gameExperienceLevel, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Update Persona Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="personaId">the persona ID of the persona to update</param>
         /// <param name="title">the title of the persona (optional)</param>
@@ -1640,11 +1597,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the specified longitude of the persona (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePersonaApiResponse"/>&gt;</returns>
-        public async Task<IUpdatePersonaApiResponse?> UpdatePersonaOrDefaultAsync(decimal version, long accountId, long personaId, Option<string> title = default, Option<string> previewAccounts = default, Option<bool> active = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdatePersonaApiResponse?> UpdatePersonaOrDefaultAsync(long accountId, long personaId, Option<string> title = default, Option<string> previewAccounts = default, Option<bool> active = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdatePersonaAsync(version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await UpdatePersonaAsync(accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1656,7 +1613,6 @@ namespace Org.OpenAPITools.Api
         /// Update Persona Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account ID of the user</param>
         /// <param name="personaId">the persona ID of the persona to update</param>
         /// <param name="title">the title of the persona (optional)</param>
@@ -1670,7 +1626,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the specified longitude of the persona (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePersonaApiResponse"/>&gt;</returns>
-        public async Task<IUpdatePersonaApiResponse> UpdatePersonaAsync(decimal version, long accountId, long personaId, Option<string> title = default, Option<string> previewAccounts = default, Option<bool> active = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdatePersonaApiResponse> UpdatePersonaAsync(long accountId, long personaId, Option<string> title = default, Option<string> previewAccounts = default, Option<bool> active = default, Option<long> date = default, Option<int> age = default, Option<string> gender = default, Option<string> gameExperienceLevel = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1678,7 +1634,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdatePersona(title, previewAccounts, gender, gameExperienceLevel);
 
-                FormatUpdatePersona(ref version, ref accountId, ref personaId, ref title, ref previewAccounts, ref active, ref date, ref age, ref gender, ref gameExperienceLevel, ref latitude, ref longitude);
+                FormatUpdatePersona(ref accountId, ref personaId, ref title, ref previewAccounts, ref active, ref date, ref age, ref gender, ref gameExperienceLevel, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1686,9 +1642,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/persona/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/persona/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/persona/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/persona/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1747,13 +1702,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/persona/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/persona/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdatePersonaDefaultImplementation(apiResponseLocalVar, version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
+                        AfterUpdatePersonaDefaultImplementation(apiResponseLocalVar, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
 
                         Events.ExecuteOnUpdatePersona(apiResponseLocalVar);
 
@@ -1763,7 +1718,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdatePersonaDefaultImplementation(e, "/api/{version}/persona/update", uriBuilderLocalVar.Path, version, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
+                OnErrorUpdatePersonaDefaultImplementation(e, "/persona/update", uriBuilderLocalVar.Path, accountId, personaId, title, previewAccounts, active, date, age, gender, gameExperienceLevel, latitude, longitude);
                 Events.ExecuteOnErrorUpdatePersona(e);
                 throw;
             }

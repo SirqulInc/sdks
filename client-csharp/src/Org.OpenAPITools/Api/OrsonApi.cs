@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="movieName">Movie Name</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -55,7 +54,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddMovieApiResponse"/>&gt;</returns>
-        Task<IAddMovieApiResponse> AddMovieAsync(decimal version, long accountId, string movieName, Option<string> thirdPartyAccountId = default, Option<string> tags = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddMovieApiResponse> AddMovieAsync(long accountId, string movieName, Option<string> thirdPartyAccountId = default, Option<string> tags = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add Movie
@@ -63,7 +62,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="movieName">Movie Name</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -73,7 +71,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddMovieApiResponse"/>?&gt;</returns>
-        Task<IAddMovieApiResponse?> AddMovieOrDefaultAsync(decimal version, long accountId, string movieName, Option<string> thirdPartyAccountId = default, Option<string> tags = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddMovieApiResponse?> AddMovieOrDefaultAsync(long accountId, string movieName, Option<string> thirdPartyAccountId = default, Option<string> tags = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Docs
@@ -82,7 +80,6 @@ namespace Org.OpenAPITools.Api
         /// Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="doc">Doc</param>
         /// <param name="returnTopics">Return Topics (optional)</param>
@@ -90,7 +87,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiDocsApiResponse"/>&gt;</returns>
-        Task<IAiDocsApiResponse> AiDocsAsync(decimal version, long accountId, string doc, Option<bool> returnTopics = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAiDocsApiResponse> AiDocsAsync(long accountId, string doc, Option<bool> returnTopics = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Docs
@@ -98,7 +95,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="doc">Doc</param>
         /// <param name="returnTopics">Return Topics (optional)</param>
@@ -106,7 +102,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiDocsApiResponse"/>?&gt;</returns>
-        Task<IAiDocsApiResponse?> AiDocsOrDefaultAsync(decimal version, long accountId, string doc, Option<bool> returnTopics = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAiDocsApiResponse?> AiDocsOrDefaultAsync(long accountId, string doc, Option<bool> returnTopics = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Find images
@@ -115,7 +111,6 @@ namespace Org.OpenAPITools.Api
         /// Returns a list of URIs of images that match the text.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="text">Text</param>
         /// <param name="parseFlag">Parse Flag (optional)</param>
@@ -123,7 +118,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="size">Size (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiFindImagesApiResponse"/>&gt;</returns>
-        Task<IAiFindImagesApiResponse> AiFindImagesAsync(decimal version, long accountId, string text, Option<string> parseFlag = default, Option<string> fetchFlag = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAiFindImagesApiResponse> AiFindImagesAsync(long accountId, string text, Option<string> parseFlag = default, Option<string> fetchFlag = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Find images
@@ -131,7 +126,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Returns a list of URIs of images that match the text.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="text">Text</param>
         /// <param name="parseFlag">Parse Flag (optional)</param>
@@ -139,7 +133,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="size">Size (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiFindImagesApiResponse"/>?&gt;</returns>
-        Task<IAiFindImagesApiResponse?> AiFindImagesOrDefaultAsync(decimal version, long accountId, string text, Option<string> parseFlag = default, Option<string> fetchFlag = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAiFindImagesApiResponse?> AiFindImagesOrDefaultAsync(long accountId, string text, Option<string> parseFlag = default, Option<string> fetchFlag = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tags
@@ -148,7 +142,6 @@ namespace Org.OpenAPITools.Api
         /// Search the tags column of user provided tags using this endpoint.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="tags">Tags</param>
         /// <param name="conditional">Conditional (optional)</param>
@@ -156,7 +149,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiTagsApiResponse"/>&gt;</returns>
-        Task<IAiTagsApiResponse> AiTagsAsync(decimal version, long accountId, string tags, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAiTagsApiResponse> AiTagsAsync(long accountId, string tags, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tags
@@ -164,7 +157,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search the tags column of user provided tags using this endpoint.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="tags">Tags</param>
         /// <param name="conditional">Conditional (optional)</param>
@@ -172,7 +164,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiTagsApiResponse"/>?&gt;</returns>
-        Task<IAiTagsApiResponse?> AiTagsOrDefaultAsync(decimal version, long accountId, string tags, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAiTagsApiResponse?> AiTagsOrDefaultAsync(long accountId, string tags, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Text
@@ -181,7 +173,6 @@ namespace Org.OpenAPITools.Api
         /// Search the movie text column of movie text using this endpoint.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="terms">Terms</param>
         /// <param name="conditional">Conditional (optional)</param>
@@ -189,7 +180,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiTextApiResponse"/>&gt;</returns>
-        Task<IAiTextApiResponse> AiTextAsync(decimal version, long accountId, string terms, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAiTextApiResponse> AiTextAsync(long accountId, string terms, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Text
@@ -197,7 +188,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search the movie text column of movie text using this endpoint.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="terms">Terms</param>
         /// <param name="conditional">Conditional (optional)</param>
@@ -205,7 +195,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiTextApiResponse"/>?&gt;</returns>
-        Task<IAiTextApiResponse?> AiTextOrDefaultAsync(decimal version, long accountId, string terms, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAiTextApiResponse?> AiTextOrDefaultAsync(long accountId, string terms, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Analysis
@@ -214,7 +204,6 @@ namespace Org.OpenAPITools.Api
         /// Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="limit">The number of topics to return (optional)</param>
@@ -224,7 +213,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchApiResponse"/>&gt;</returns>
-        Task<IBatchApiResponse> BatchAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<int> limit = default, Option<string> operations = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBatchApiResponse> BatchAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<int> limit = default, Option<string> operations = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Analysis
@@ -232,7 +221,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="limit">The number of topics to return (optional)</param>
@@ -242,7 +230,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchApiResponse"/>?&gt;</returns>
-        Task<IBatchApiResponse?> BatchOrDefaultAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<int> limit = default, Option<string> operations = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBatchApiResponse?> BatchOrDefaultAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<int> limit = default, Option<string> operations = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Creates an instant episode
@@ -251,12 +239,11 @@ namespace Org.OpenAPITools.Api
         /// Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="data">Request Data String</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateInstantEpisodeApiResponse"/>&gt;</returns>
-        Task<ICreateInstantEpisodeApiResponse> CreateInstantEpisodeAsync(decimal version, long accountId, string data, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateInstantEpisodeApiResponse> CreateInstantEpisodeAsync(long accountId, string data, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Creates an instant episode
@@ -264,12 +251,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="data">Request Data String</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateInstantEpisodeApiResponse"/>?&gt;</returns>
-        Task<ICreateInstantEpisodeApiResponse?> CreateInstantEpisodeOrDefaultAsync(decimal version, long accountId, string data, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateInstantEpisodeApiResponse?> CreateInstantEpisodeOrDefaultAsync(long accountId, string data, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create VoiceCanvas images
@@ -278,7 +264,6 @@ namespace Org.OpenAPITools.Api
         /// Create VoiceCanvas images for provided text, file upload, or file URL
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="dimensions">Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -290,7 +275,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVoiceCanvasApiResponse"/>&gt;</returns>
-        Task<ICreateVoiceCanvasApiResponse> CreateVoiceCanvasAsync(decimal version, long accountId, string dimensions, Option<string> thirdPartyAccountId = default, Option<string> text = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<bool> parseFlag = default, Option<bool> fetchFlag = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateVoiceCanvasApiResponse> CreateVoiceCanvasAsync(long accountId, string dimensions, Option<string> thirdPartyAccountId = default, Option<string> text = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<bool> parseFlag = default, Option<bool> fetchFlag = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create VoiceCanvas images
@@ -298,7 +283,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create VoiceCanvas images for provided text, file upload, or file URL
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="dimensions">Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -310,7 +294,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVoiceCanvasApiResponse"/>?&gt;</returns>
-        Task<ICreateVoiceCanvasApiResponse?> CreateVoiceCanvasOrDefaultAsync(decimal version, long accountId, string dimensions, Option<string> thirdPartyAccountId = default, Option<string> text = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<bool> parseFlag = default, Option<bool> fetchFlag = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateVoiceCanvasApiResponse?> CreateVoiceCanvasOrDefaultAsync(long accountId, string dimensions, Option<string> thirdPartyAccountId = default, Option<string> text = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<bool> parseFlag = default, Option<bool> fetchFlag = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Detect emotions
@@ -319,7 +303,6 @@ namespace Org.OpenAPITools.Api
         /// Detects emotions in an audio or video recording.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="file">An uploaded recording to analyze (Currently limited to 10MB) (optional)</param>
@@ -327,7 +310,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEmotionApiResponse"/>&gt;</returns>
-        Task<IEmotionApiResponse> EmotionAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEmotionApiResponse> EmotionAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Detect emotions
@@ -335,7 +318,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Detects emotions in an audio or video recording.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="file">An uploaded recording to analyze (Currently limited to 10MB) (optional)</param>
@@ -343,7 +325,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEmotionApiResponse"/>?&gt;</returns>
-        Task<IEmotionApiResponse?> EmotionOrDefaultAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IEmotionApiResponse?> EmotionOrDefaultAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Add Movie Result
@@ -352,12 +334,11 @@ namespace Org.OpenAPITools.Api
         /// Get the result of an in progress Add Movie request from an earlier POST.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAddMovieResultApiResponse"/>&gt;</returns>
-        Task<IGetAddMovieResultApiResponse> GetAddMovieResultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAddMovieResultApiResponse> GetAddMovieResultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Add Movie Result
@@ -365,12 +346,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the result of an in progress Add Movie request from an earlier POST.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAddMovieResultApiResponse"/>?&gt;</returns>
-        Task<IGetAddMovieResultApiResponse?> GetAddMovieResultOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAddMovieResultApiResponse?> GetAddMovieResultOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Batch Analysis Results
@@ -379,12 +359,11 @@ namespace Org.OpenAPITools.Api
         /// Gets the completed Video Batch results, if done, or an error or status update if not.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBatchApiResponse"/>&gt;</returns>
-        Task<IGetBatchApiResponse> GetBatchAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBatchApiResponse> GetBatchAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Batch Analysis Results
@@ -392,12 +371,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the completed Video Batch results, if done, or an error or status update if not.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBatchApiResponse"/>?&gt;</returns>
-        Task<IGetBatchApiResponse?> GetBatchOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBatchApiResponse?> GetBatchOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Emotion Results
@@ -406,12 +384,11 @@ namespace Org.OpenAPITools.Api
         /// Checks the Emotion analysis and returns in progress, results, or error.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEmotionApiResponse"/>&gt;</returns>
-        Task<IGetEmotionApiResponse> GetEmotionAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEmotionApiResponse> GetEmotionAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Emotion Results
@@ -419,12 +396,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Checks the Emotion analysis and returns in progress, results, or error.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEmotionApiResponse"/>?&gt;</returns>
-        Task<IGetEmotionApiResponse?> GetEmotionOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEmotionApiResponse?> GetEmotionOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check episode status
@@ -433,12 +409,11 @@ namespace Org.OpenAPITools.Api
         /// Gets a summary of the episode&#39;s status, including any renders.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="episodeId">Episode ID</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEpisodeStatusApiResponse"/>&gt;</returns>
-        Task<IGetEpisodeStatusApiResponse> GetEpisodeStatusAsync(decimal version, long episodeId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEpisodeStatusApiResponse> GetEpisodeStatusAsync(long episodeId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check episode status
@@ -446,12 +421,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a summary of the episode&#39;s status, including any renders.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="episodeId">Episode ID</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEpisodeStatusApiResponse"/>?&gt;</returns>
-        Task<IGetEpisodeStatusApiResponse?> GetEpisodeStatusOrDefaultAsync(decimal version, long episodeId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEpisodeStatusApiResponse?> GetEpisodeStatusOrDefaultAsync(long episodeId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check episode status
@@ -460,12 +434,11 @@ namespace Org.OpenAPITools.Api
         /// Gets a summary of the episode&#39;s status, including any renders.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="renderId">Render ID</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRenderStatusApiResponse"/>&gt;</returns>
-        Task<IGetRenderStatusApiResponse> GetRenderStatusAsync(decimal version, string renderId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRenderStatusApiResponse> GetRenderStatusAsync(string renderId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check episode status
@@ -473,12 +446,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a summary of the episode&#39;s status, including any renders.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="renderId">Render ID</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRenderStatusApiResponse"/>?&gt;</returns>
-        Task<IGetRenderStatusApiResponse?> GetRenderStatusOrDefaultAsync(decimal version, string renderId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRenderStatusApiResponse?> GetRenderStatusOrDefaultAsync(string renderId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Speach to Text Result
@@ -487,12 +459,11 @@ namespace Org.OpenAPITools.Api
         /// The results of the video transcription and optional translation.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSTTApiResponse"/>&gt;</returns>
-        Task<IGetSTTApiResponse> GetSTTAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSTTApiResponse> GetSTTAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Speach to Text Result
@@ -500,12 +471,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// The results of the video transcription and optional translation.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSTTApiResponse"/>?&gt;</returns>
-        Task<IGetSTTApiResponse?> GetSTTOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSTTApiResponse?> GetSTTOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Text to Speach Result
@@ -514,12 +484,11 @@ namespace Org.OpenAPITools.Api
         /// Check the status of an in progress Text-to-Speech call or download the result.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTTSApiResponse"/>&gt;</returns>
-        Task<IGetTTSApiResponse> GetTTSAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTTSApiResponse> GetTTSAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Text to Speach Result
@@ -527,12 +496,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Check the status of an in progress Text-to-Speech call or download the result.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTTSApiResponse"/>?&gt;</returns>
-        Task<IGetTTSApiResponse?> GetTTSOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTTSApiResponse?> GetTTSOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get TechTune Results
@@ -541,12 +509,11 @@ namespace Org.OpenAPITools.Api
         /// Get a result or continue waiting for a pending request for TechTune analysis.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTechTuneApiResponse"/>&gt;</returns>
-        Task<IGetTechTuneApiResponse> GetTechTuneAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTechTuneApiResponse> GetTechTuneAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get TechTune Results
@@ -554,12 +521,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a result or continue waiting for a pending request for TechTune analysis.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTechTuneApiResponse"/>?&gt;</returns>
-        Task<IGetTechTuneApiResponse?> GetTechTuneOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTechTuneApiResponse?> GetTechTuneOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Topics
@@ -568,12 +534,11 @@ namespace Org.OpenAPITools.Api
         /// Get the result of an in progress Topics Analysis from an earlier POST.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTopicsApiResponse"/>&gt;</returns>
-        Task<IGetTopicsApiResponse> GetTopicsAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTopicsApiResponse> GetTopicsAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Topics
@@ -581,12 +546,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the result of an in progress Topics Analysis from an earlier POST.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTopicsApiResponse"/>?&gt;</returns>
-        Task<IGetTopicsApiResponse?> GetTopicsOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTopicsApiResponse?> GetTopicsOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get VoiceCanvas images
@@ -595,12 +559,11 @@ namespace Org.OpenAPITools.Api
         /// Get a result or continue waiting for a pending request for VoiceCanvas Images.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVoiceCanvasApiResponse"/>&gt;</returns>
-        Task<IGetVoiceCanvasApiResponse> GetVoiceCanvasAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetVoiceCanvasApiResponse> GetVoiceCanvasAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get VoiceCanvas images
@@ -608,12 +571,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a result or continue waiting for a pending request for VoiceCanvas Images.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVoiceCanvasApiResponse"/>?&gt;</returns>
-        Task<IGetVoiceCanvasApiResponse?> GetVoiceCanvasOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetVoiceCanvasApiResponse?> GetVoiceCanvasOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Starts a StoryStitch video render
@@ -622,12 +584,11 @@ namespace Org.OpenAPITools.Api
         /// Starts a StoryStitch video render to produce your final video, returning the status details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="data">Request Data String</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IStartVideoRenderApiResponse"/>&gt;</returns>
-        Task<IStartVideoRenderApiResponse> StartVideoRenderAsync(decimal version, long accountId, string data, System.Threading.CancellationToken cancellationToken = default);
+        Task<IStartVideoRenderApiResponse> StartVideoRenderAsync(long accountId, string data, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Starts a StoryStitch video render
@@ -635,12 +596,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Starts a StoryStitch video render to produce your final video, returning the status details.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="data">Request Data String</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IStartVideoRenderApiResponse"/>?&gt;</returns>
-        Task<IStartVideoRenderApiResponse?> StartVideoRenderOrDefaultAsync(decimal version, long accountId, string data, System.Threading.CancellationToken cancellationToken = default);
+        Task<IStartVideoRenderApiResponse?> StartVideoRenderOrDefaultAsync(long accountId, string data, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Speach to Text
@@ -649,7 +609,6 @@ namespace Org.OpenAPITools.Api
         /// Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="sourceLanguage">Source Language (optional)</param>
@@ -659,7 +618,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISttApiResponse"/>&gt;</returns>
-        Task<ISttApiResponse> SttAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<string> sourceLanguage = default, Option<string> targetLanguage = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISttApiResponse> SttAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<string> sourceLanguage = default, Option<string> targetLanguage = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Speach to Text
@@ -667,7 +626,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="sourceLanguage">Source Language (optional)</param>
@@ -677,7 +635,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISttApiResponse"/>?&gt;</returns>
-        Task<ISttApiResponse?> SttOrDefaultAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<string> sourceLanguage = default, Option<string> targetLanguage = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISttApiResponse?> SttOrDefaultAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<string> sourceLanguage = default, Option<string> targetLanguage = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Summarize Topics
@@ -686,7 +644,6 @@ namespace Org.OpenAPITools.Api
         /// Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="doc">The text to get topics for. (optional)</param>
@@ -697,7 +654,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISummarizeTopicsApiResponse"/>&gt;</returns>
-        Task<ISummarizeTopicsApiResponse> SummarizeTopicsAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<string> doc = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<int> limit = default, Option<int> offset = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISummarizeTopicsApiResponse> SummarizeTopicsAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<string> doc = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<int> limit = default, Option<int> offset = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Summarize Topics
@@ -705,7 +662,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="doc">The text to get topics for. (optional)</param>
@@ -716,7 +672,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISummarizeTopicsApiResponse"/>?&gt;</returns>
-        Task<ISummarizeTopicsApiResponse?> SummarizeTopicsOrDefaultAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<string> doc = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<int> limit = default, Option<int> offset = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISummarizeTopicsApiResponse?> SummarizeTopicsOrDefaultAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<string> doc = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<int> limit = default, Option<int> offset = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Detect Technical Issues
@@ -725,7 +681,6 @@ namespace Org.OpenAPITools.Api
         /// Analyses a movie file to detect technical issues, such as too few people in frame.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="numFacesExpected">Number of expected faces</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -734,7 +689,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITechTuneApiResponse"/>&gt;</returns>
-        Task<ITechTuneApiResponse> TechTuneAsync(decimal version, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITechTuneApiResponse> TechTuneAsync(long accountId, int numFacesExpected, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Detect Technical Issues
@@ -742,7 +697,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Analyses a movie file to detect technical issues, such as too few people in frame.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="numFacesExpected">Number of expected faces</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -751,7 +705,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITechTuneApiResponse"/>?&gt;</returns>
-        Task<ITechTuneApiResponse?> TechTuneOrDefaultAsync(decimal version, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITechTuneApiResponse?> TechTuneOrDefaultAsync(long accountId, int numFacesExpected, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Text to Speach
@@ -760,7 +714,6 @@ namespace Org.OpenAPITools.Api
         /// Creates an audio file for the given text, with the option of language and voice selection.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="text">Text</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -769,7 +722,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITtsApiResponse"/>&gt;</returns>
-        Task<ITtsApiResponse> TtsAsync(decimal version, long accountId, string text, Option<string> thirdPartyAccountId = default, Option<string> language = default, Option<string> voice = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITtsApiResponse> TtsAsync(long accountId, string text, Option<string> thirdPartyAccountId = default, Option<string> language = default, Option<string> voice = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Text to Speach
@@ -777,7 +730,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates an audio file for the given text, with the option of language and voice selection.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="text">Text</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -786,7 +738,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITtsApiResponse"/>?&gt;</returns>
-        Task<ITtsApiResponse?> TtsOrDefaultAsync(decimal version, long accountId, string text, Option<string> thirdPartyAccountId = default, Option<string> language = default, Option<string> voice = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITtsApiResponse?> TtsOrDefaultAsync(long accountId, string text, Option<string> thirdPartyAccountId = default, Option<string> language = default, Option<string> voice = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -1610,7 +1562,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddMovie(ref decimal version, ref long accountId, ref string movieName, ref Option<string> thirdPartyAccountId, ref Option<string> tags, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
+        partial void FormatAddMovie(ref long accountId, ref string movieName, ref Option<string> thirdPartyAccountId, ref Option<string> tags, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
 
         /// <summary>
         /// Validates the request parameters
@@ -1647,7 +1599,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="movieName"></param>
         /// <param name="thirdPartyAccountId"></param>
@@ -1655,10 +1606,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void AfterAddMovieDefaultImplementation(IAddMovieApiResponse apiResponseLocalVar, decimal version, long accountId, string movieName, Option<string> thirdPartyAccountId, Option<string> tags, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void AfterAddMovieDefaultImplementation(IAddMovieApiResponse apiResponseLocalVar, long accountId, string movieName, Option<string> thirdPartyAccountId, Option<string> tags, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLog = false;
-            AfterAddMovie(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, movieName, thirdPartyAccountId, tags, file, url, callback);
+            AfterAddMovie(ref suppressDefaultLog, apiResponseLocalVar, accountId, movieName, thirdPartyAccountId, tags, file, url, callback);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1668,7 +1619,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="movieName"></param>
         /// <param name="thirdPartyAccountId"></param>
@@ -1676,7 +1626,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void AfterAddMovie(ref bool suppressDefaultLog, IAddMovieApiResponse apiResponseLocalVar, decimal version, long accountId, string movieName, Option<string> thirdPartyAccountId, Option<string> tags, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void AfterAddMovie(ref bool suppressDefaultLog, IAddMovieApiResponse apiResponseLocalVar, long accountId, string movieName, Option<string> thirdPartyAccountId, Option<string> tags, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1684,7 +1634,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="movieName"></param>
         /// <param name="thirdPartyAccountId"></param>
@@ -1692,10 +1641,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void OnErrorAddMovieDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string movieName, Option<string> thirdPartyAccountId, Option<string> tags, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void OnErrorAddMovieDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string movieName, Option<string> thirdPartyAccountId, Option<string> tags, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddMovie(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, movieName, thirdPartyAccountId, tags, file, url, callback);
+            OnErrorAddMovie(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, movieName, thirdPartyAccountId, tags, file, url, callback);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1707,7 +1656,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="movieName"></param>
         /// <param name="thirdPartyAccountId"></param>
@@ -1715,12 +1663,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void OnErrorAddMovie(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string movieName, Option<string> thirdPartyAccountId, Option<string> tags, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void OnErrorAddMovie(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string movieName, Option<string> thirdPartyAccountId, Option<string> tags, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Add Movie Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="movieName">Movie Name</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -1730,11 +1677,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddMovieApiResponse"/>&gt;</returns>
-        public async Task<IAddMovieApiResponse?> AddMovieOrDefaultAsync(decimal version, long accountId, string movieName, Option<string> thirdPartyAccountId = default, Option<string> tags = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddMovieApiResponse?> AddMovieOrDefaultAsync(long accountId, string movieName, Option<string> thirdPartyAccountId = default, Option<string> tags = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddMovieAsync(version, accountId, movieName, thirdPartyAccountId, tags, file, url, callback, cancellationToken).ConfigureAwait(false);
+                return await AddMovieAsync(accountId, movieName, thirdPartyAccountId, tags, file, url, callback, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1746,7 +1693,6 @@ namespace Org.OpenAPITools.Api
         /// Add Movie Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="movieName">Movie Name</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -1756,7 +1702,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddMovieApiResponse"/>&gt;</returns>
-        public async Task<IAddMovieApiResponse> AddMovieAsync(decimal version, long accountId, string movieName, Option<string> thirdPartyAccountId = default, Option<string> tags = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddMovieApiResponse> AddMovieAsync(long accountId, string movieName, Option<string> thirdPartyAccountId = default, Option<string> tags = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1764,7 +1710,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddMovie(movieName, thirdPartyAccountId, tags, file, url, callback);
 
-                FormatAddMovie(ref version, ref accountId, ref movieName, ref thirdPartyAccountId, ref tags, ref file, ref url, ref callback);
+                FormatAddMovie(ref accountId, ref movieName, ref thirdPartyAccountId, ref tags, ref file, ref url, ref callback);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1772,9 +1718,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/addMovie"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/addMovie");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/addMovie"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/addMovie");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1821,13 +1766,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/addMovie", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/addMovie", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddMovieDefaultImplementation(apiResponseLocalVar, version, accountId, movieName, thirdPartyAccountId, tags, file, url, callback);
+                        AfterAddMovieDefaultImplementation(apiResponseLocalVar, accountId, movieName, thirdPartyAccountId, tags, file, url, callback);
 
                         Events.ExecuteOnAddMovie(apiResponseLocalVar);
 
@@ -1837,7 +1782,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddMovieDefaultImplementation(e, "/api/{version}/orson/ai/addMovie", uriBuilderLocalVar.Path, version, accountId, movieName, thirdPartyAccountId, tags, file, url, callback);
+                OnErrorAddMovieDefaultImplementation(e, "/orson/ai/addMovie", uriBuilderLocalVar.Path, accountId, movieName, thirdPartyAccountId, tags, file, url, callback);
                 Events.ExecuteOnErrorAddMovie(e);
                 throw;
             }
@@ -1936,7 +1881,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAiDocs(ref decimal version, ref long accountId, ref string doc, ref Option<bool> returnTopics, ref Option<int> limit, ref Option<int> offset);
+        partial void FormatAiDocs(ref long accountId, ref string doc, ref Option<bool> returnTopics, ref Option<int> limit, ref Option<int> offset);
 
         /// <summary>
         /// Validates the request parameters
@@ -1953,16 +1898,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="doc"></param>
         /// <param name="returnTopics"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        private void AfterAiDocsDefaultImplementation(IAiDocsApiResponse apiResponseLocalVar, decimal version, long accountId, string doc, Option<bool> returnTopics, Option<int> limit, Option<int> offset)
+        private void AfterAiDocsDefaultImplementation(IAiDocsApiResponse apiResponseLocalVar, long accountId, string doc, Option<bool> returnTopics, Option<int> limit, Option<int> offset)
         {
             bool suppressDefaultLog = false;
-            AfterAiDocs(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, doc, returnTopics, limit, offset);
+            AfterAiDocs(ref suppressDefaultLog, apiResponseLocalVar, accountId, doc, returnTopics, limit, offset);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1972,13 +1916,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="doc"></param>
         /// <param name="returnTopics"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        partial void AfterAiDocs(ref bool suppressDefaultLog, IAiDocsApiResponse apiResponseLocalVar, decimal version, long accountId, string doc, Option<bool> returnTopics, Option<int> limit, Option<int> offset);
+        partial void AfterAiDocs(ref bool suppressDefaultLog, IAiDocsApiResponse apiResponseLocalVar, long accountId, string doc, Option<bool> returnTopics, Option<int> limit, Option<int> offset);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1986,16 +1929,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="doc"></param>
         /// <param name="returnTopics"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        private void OnErrorAiDocsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string doc, Option<bool> returnTopics, Option<int> limit, Option<int> offset)
+        private void OnErrorAiDocsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string doc, Option<bool> returnTopics, Option<int> limit, Option<int> offset)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAiDocs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, doc, returnTopics, limit, offset);
+            OnErrorAiDocs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, doc, returnTopics, limit, offset);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2007,18 +1949,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="doc"></param>
         /// <param name="returnTopics"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        partial void OnErrorAiDocs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string doc, Option<bool> returnTopics, Option<int> limit, Option<int> offset);
+        partial void OnErrorAiDocs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string doc, Option<bool> returnTopics, Option<int> limit, Option<int> offset);
 
         /// <summary>
         /// Search Docs Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="doc">Doc</param>
         /// <param name="returnTopics">Return Topics (optional)</param>
@@ -2026,11 +1966,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiDocsApiResponse"/>&gt;</returns>
-        public async Task<IAiDocsApiResponse?> AiDocsOrDefaultAsync(decimal version, long accountId, string doc, Option<bool> returnTopics = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAiDocsApiResponse?> AiDocsOrDefaultAsync(long accountId, string doc, Option<bool> returnTopics = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AiDocsAsync(version, accountId, doc, returnTopics, limit, offset, cancellationToken).ConfigureAwait(false);
+                return await AiDocsAsync(accountId, doc, returnTopics, limit, offset, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2042,7 +1982,6 @@ namespace Org.OpenAPITools.Api
         /// Search Docs Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="doc">Doc</param>
         /// <param name="returnTopics">Return Topics (optional)</param>
@@ -2050,7 +1989,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiDocsApiResponse"/>&gt;</returns>
-        public async Task<IAiDocsApiResponse> AiDocsAsync(decimal version, long accountId, string doc, Option<bool> returnTopics = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAiDocsApiResponse> AiDocsAsync(long accountId, string doc, Option<bool> returnTopics = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2058,7 +1997,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAiDocs(doc);
 
-                FormatAiDocs(ref version, ref accountId, ref doc, ref returnTopics, ref limit, ref offset);
+                FormatAiDocs(ref accountId, ref doc, ref returnTopics, ref limit, ref offset);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2066,9 +2005,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/docs"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/docs");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/docs"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/docs");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2109,13 +2047,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/docs", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/docs", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAiDocsDefaultImplementation(apiResponseLocalVar, version, accountId, doc, returnTopics, limit, offset);
+                        AfterAiDocsDefaultImplementation(apiResponseLocalVar, accountId, doc, returnTopics, limit, offset);
 
                         Events.ExecuteOnAiDocs(apiResponseLocalVar);
 
@@ -2125,7 +2063,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAiDocsDefaultImplementation(e, "/api/{version}/orson/ai/docs", uriBuilderLocalVar.Path, version, accountId, doc, returnTopics, limit, offset);
+                OnErrorAiDocsDefaultImplementation(e, "/orson/ai/docs", uriBuilderLocalVar.Path, accountId, doc, returnTopics, limit, offset);
                 Events.ExecuteOnErrorAiDocs(e);
                 throw;
             }
@@ -2224,7 +2162,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAiFindImages(ref decimal version, ref long accountId, ref string text, ref Option<string> parseFlag, ref Option<string> fetchFlag, ref Option<string> size);
+        partial void FormatAiFindImages(ref long accountId, ref string text, ref Option<string> parseFlag, ref Option<string> fetchFlag, ref Option<string> size);
 
         /// <summary>
         /// Validates the request parameters
@@ -2253,16 +2191,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="text"></param>
         /// <param name="parseFlag"></param>
         /// <param name="fetchFlag"></param>
         /// <param name="size"></param>
-        private void AfterAiFindImagesDefaultImplementation(IAiFindImagesApiResponse apiResponseLocalVar, decimal version, long accountId, string text, Option<string> parseFlag, Option<string> fetchFlag, Option<string> size)
+        private void AfterAiFindImagesDefaultImplementation(IAiFindImagesApiResponse apiResponseLocalVar, long accountId, string text, Option<string> parseFlag, Option<string> fetchFlag, Option<string> size)
         {
             bool suppressDefaultLog = false;
-            AfterAiFindImages(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, text, parseFlag, fetchFlag, size);
+            AfterAiFindImages(ref suppressDefaultLog, apiResponseLocalVar, accountId, text, parseFlag, fetchFlag, size);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2272,13 +2209,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="text"></param>
         /// <param name="parseFlag"></param>
         /// <param name="fetchFlag"></param>
         /// <param name="size"></param>
-        partial void AfterAiFindImages(ref bool suppressDefaultLog, IAiFindImagesApiResponse apiResponseLocalVar, decimal version, long accountId, string text, Option<string> parseFlag, Option<string> fetchFlag, Option<string> size);
+        partial void AfterAiFindImages(ref bool suppressDefaultLog, IAiFindImagesApiResponse apiResponseLocalVar, long accountId, string text, Option<string> parseFlag, Option<string> fetchFlag, Option<string> size);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2286,16 +2222,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="text"></param>
         /// <param name="parseFlag"></param>
         /// <param name="fetchFlag"></param>
         /// <param name="size"></param>
-        private void OnErrorAiFindImagesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string text, Option<string> parseFlag, Option<string> fetchFlag, Option<string> size)
+        private void OnErrorAiFindImagesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string text, Option<string> parseFlag, Option<string> fetchFlag, Option<string> size)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAiFindImages(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, text, parseFlag, fetchFlag, size);
+            OnErrorAiFindImages(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, text, parseFlag, fetchFlag, size);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2307,18 +2242,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="text"></param>
         /// <param name="parseFlag"></param>
         /// <param name="fetchFlag"></param>
         /// <param name="size"></param>
-        partial void OnErrorAiFindImages(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string text, Option<string> parseFlag, Option<string> fetchFlag, Option<string> size);
+        partial void OnErrorAiFindImages(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string text, Option<string> parseFlag, Option<string> fetchFlag, Option<string> size);
 
         /// <summary>
         /// Find images Returns a list of URIs of images that match the text.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="text">Text</param>
         /// <param name="parseFlag">Parse Flag (optional)</param>
@@ -2326,11 +2259,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="size">Size (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiFindImagesApiResponse"/>&gt;</returns>
-        public async Task<IAiFindImagesApiResponse?> AiFindImagesOrDefaultAsync(decimal version, long accountId, string text, Option<string> parseFlag = default, Option<string> fetchFlag = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAiFindImagesApiResponse?> AiFindImagesOrDefaultAsync(long accountId, string text, Option<string> parseFlag = default, Option<string> fetchFlag = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AiFindImagesAsync(version, accountId, text, parseFlag, fetchFlag, size, cancellationToken).ConfigureAwait(false);
+                return await AiFindImagesAsync(accountId, text, parseFlag, fetchFlag, size, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2342,7 +2275,6 @@ namespace Org.OpenAPITools.Api
         /// Find images Returns a list of URIs of images that match the text.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="text">Text</param>
         /// <param name="parseFlag">Parse Flag (optional)</param>
@@ -2350,7 +2282,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="size">Size (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiFindImagesApiResponse"/>&gt;</returns>
-        public async Task<IAiFindImagesApiResponse> AiFindImagesAsync(decimal version, long accountId, string text, Option<string> parseFlag = default, Option<string> fetchFlag = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAiFindImagesApiResponse> AiFindImagesAsync(long accountId, string text, Option<string> parseFlag = default, Option<string> fetchFlag = default, Option<string> size = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2358,7 +2290,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAiFindImages(text, parseFlag, fetchFlag, size);
 
-                FormatAiFindImages(ref version, ref accountId, ref text, ref parseFlag, ref fetchFlag, ref size);
+                FormatAiFindImages(ref accountId, ref text, ref parseFlag, ref fetchFlag, ref size);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2366,9 +2298,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/img"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/img");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/img"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/img");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2409,13 +2340,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/img", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/img", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAiFindImagesDefaultImplementation(apiResponseLocalVar, version, accountId, text, parseFlag, fetchFlag, size);
+                        AfterAiFindImagesDefaultImplementation(apiResponseLocalVar, accountId, text, parseFlag, fetchFlag, size);
 
                         Events.ExecuteOnAiFindImages(apiResponseLocalVar);
 
@@ -2425,7 +2356,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAiFindImagesDefaultImplementation(e, "/api/{version}/orson/ai/img", uriBuilderLocalVar.Path, version, accountId, text, parseFlag, fetchFlag, size);
+                OnErrorAiFindImagesDefaultImplementation(e, "/orson/ai/img", uriBuilderLocalVar.Path, accountId, text, parseFlag, fetchFlag, size);
                 Events.ExecuteOnErrorAiFindImages(e);
                 throw;
             }
@@ -2524,7 +2455,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAiTags(ref decimal version, ref long accountId, ref string tags, ref Option<string> conditional, ref Option<int> limit, ref Option<int> offset);
+        partial void FormatAiTags(ref long accountId, ref string tags, ref Option<string> conditional, ref Option<int> limit, ref Option<int> offset);
 
         /// <summary>
         /// Validates the request parameters
@@ -2545,16 +2476,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="tags"></param>
         /// <param name="conditional"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        private void AfterAiTagsDefaultImplementation(IAiTagsApiResponse apiResponseLocalVar, decimal version, long accountId, string tags, Option<string> conditional, Option<int> limit, Option<int> offset)
+        private void AfterAiTagsDefaultImplementation(IAiTagsApiResponse apiResponseLocalVar, long accountId, string tags, Option<string> conditional, Option<int> limit, Option<int> offset)
         {
             bool suppressDefaultLog = false;
-            AfterAiTags(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, tags, conditional, limit, offset);
+            AfterAiTags(ref suppressDefaultLog, apiResponseLocalVar, accountId, tags, conditional, limit, offset);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2564,13 +2494,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="tags"></param>
         /// <param name="conditional"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        partial void AfterAiTags(ref bool suppressDefaultLog, IAiTagsApiResponse apiResponseLocalVar, decimal version, long accountId, string tags, Option<string> conditional, Option<int> limit, Option<int> offset);
+        partial void AfterAiTags(ref bool suppressDefaultLog, IAiTagsApiResponse apiResponseLocalVar, long accountId, string tags, Option<string> conditional, Option<int> limit, Option<int> offset);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2578,16 +2507,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="tags"></param>
         /// <param name="conditional"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        private void OnErrorAiTagsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string tags, Option<string> conditional, Option<int> limit, Option<int> offset)
+        private void OnErrorAiTagsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string tags, Option<string> conditional, Option<int> limit, Option<int> offset)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAiTags(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, tags, conditional, limit, offset);
+            OnErrorAiTags(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, tags, conditional, limit, offset);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2599,18 +2527,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="tags"></param>
         /// <param name="conditional"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        partial void OnErrorAiTags(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string tags, Option<string> conditional, Option<int> limit, Option<int> offset);
+        partial void OnErrorAiTags(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string tags, Option<string> conditional, Option<int> limit, Option<int> offset);
 
         /// <summary>
         /// Search Tags Search the tags column of user provided tags using this endpoint.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="tags">Tags</param>
         /// <param name="conditional">Conditional (optional)</param>
@@ -2618,11 +2544,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiTagsApiResponse"/>&gt;</returns>
-        public async Task<IAiTagsApiResponse?> AiTagsOrDefaultAsync(decimal version, long accountId, string tags, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAiTagsApiResponse?> AiTagsOrDefaultAsync(long accountId, string tags, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AiTagsAsync(version, accountId, tags, conditional, limit, offset, cancellationToken).ConfigureAwait(false);
+                return await AiTagsAsync(accountId, tags, conditional, limit, offset, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2634,7 +2560,6 @@ namespace Org.OpenAPITools.Api
         /// Search Tags Search the tags column of user provided tags using this endpoint.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="tags">Tags</param>
         /// <param name="conditional">Conditional (optional)</param>
@@ -2642,7 +2567,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiTagsApiResponse"/>&gt;</returns>
-        public async Task<IAiTagsApiResponse> AiTagsAsync(decimal version, long accountId, string tags, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAiTagsApiResponse> AiTagsAsync(long accountId, string tags, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2650,7 +2575,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAiTags(tags, conditional);
 
-                FormatAiTags(ref version, ref accountId, ref tags, ref conditional, ref limit, ref offset);
+                FormatAiTags(ref accountId, ref tags, ref conditional, ref limit, ref offset);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2658,9 +2583,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/tags"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/tags");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/tags"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/tags");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2701,13 +2625,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/tags", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/tags", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAiTagsDefaultImplementation(apiResponseLocalVar, version, accountId, tags, conditional, limit, offset);
+                        AfterAiTagsDefaultImplementation(apiResponseLocalVar, accountId, tags, conditional, limit, offset);
 
                         Events.ExecuteOnAiTags(apiResponseLocalVar);
 
@@ -2717,7 +2641,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAiTagsDefaultImplementation(e, "/api/{version}/orson/ai/tags", uriBuilderLocalVar.Path, version, accountId, tags, conditional, limit, offset);
+                OnErrorAiTagsDefaultImplementation(e, "/orson/ai/tags", uriBuilderLocalVar.Path, accountId, tags, conditional, limit, offset);
                 Events.ExecuteOnErrorAiTags(e);
                 throw;
             }
@@ -2816,7 +2740,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAiText(ref decimal version, ref long accountId, ref string terms, ref Option<string> conditional, ref Option<int> limit, ref Option<int> offset);
+        partial void FormatAiText(ref long accountId, ref string terms, ref Option<string> conditional, ref Option<int> limit, ref Option<int> offset);
 
         /// <summary>
         /// Validates the request parameters
@@ -2837,16 +2761,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="terms"></param>
         /// <param name="conditional"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        private void AfterAiTextDefaultImplementation(IAiTextApiResponse apiResponseLocalVar, decimal version, long accountId, string terms, Option<string> conditional, Option<int> limit, Option<int> offset)
+        private void AfterAiTextDefaultImplementation(IAiTextApiResponse apiResponseLocalVar, long accountId, string terms, Option<string> conditional, Option<int> limit, Option<int> offset)
         {
             bool suppressDefaultLog = false;
-            AfterAiText(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, terms, conditional, limit, offset);
+            AfterAiText(ref suppressDefaultLog, apiResponseLocalVar, accountId, terms, conditional, limit, offset);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2856,13 +2779,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="terms"></param>
         /// <param name="conditional"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        partial void AfterAiText(ref bool suppressDefaultLog, IAiTextApiResponse apiResponseLocalVar, decimal version, long accountId, string terms, Option<string> conditional, Option<int> limit, Option<int> offset);
+        partial void AfterAiText(ref bool suppressDefaultLog, IAiTextApiResponse apiResponseLocalVar, long accountId, string terms, Option<string> conditional, Option<int> limit, Option<int> offset);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2870,16 +2792,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="terms"></param>
         /// <param name="conditional"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        private void OnErrorAiTextDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string terms, Option<string> conditional, Option<int> limit, Option<int> offset)
+        private void OnErrorAiTextDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string terms, Option<string> conditional, Option<int> limit, Option<int> offset)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAiText(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, terms, conditional, limit, offset);
+            OnErrorAiText(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, terms, conditional, limit, offset);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2891,18 +2812,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="terms"></param>
         /// <param name="conditional"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        partial void OnErrorAiText(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string terms, Option<string> conditional, Option<int> limit, Option<int> offset);
+        partial void OnErrorAiText(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string terms, Option<string> conditional, Option<int> limit, Option<int> offset);
 
         /// <summary>
         /// Search Text Search the movie text column of movie text using this endpoint.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="terms">Terms</param>
         /// <param name="conditional">Conditional (optional)</param>
@@ -2910,11 +2829,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiTextApiResponse"/>&gt;</returns>
-        public async Task<IAiTextApiResponse?> AiTextOrDefaultAsync(decimal version, long accountId, string terms, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAiTextApiResponse?> AiTextOrDefaultAsync(long accountId, string terms, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AiTextAsync(version, accountId, terms, conditional, limit, offset, cancellationToken).ConfigureAwait(false);
+                return await AiTextAsync(accountId, terms, conditional, limit, offset, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2926,7 +2845,6 @@ namespace Org.OpenAPITools.Api
         /// Search Text Search the movie text column of movie text using this endpoint.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="terms">Terms</param>
         /// <param name="conditional">Conditional (optional)</param>
@@ -2934,7 +2852,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offset">Offset (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAiTextApiResponse"/>&gt;</returns>
-        public async Task<IAiTextApiResponse> AiTextAsync(decimal version, long accountId, string terms, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAiTextApiResponse> AiTextAsync(long accountId, string terms, Option<string> conditional = default, Option<int> limit = default, Option<int> offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2942,7 +2860,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAiText(terms, conditional);
 
-                FormatAiText(ref version, ref accountId, ref terms, ref conditional, ref limit, ref offset);
+                FormatAiText(ref accountId, ref terms, ref conditional, ref limit, ref offset);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2950,9 +2868,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/text"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/text");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/text"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/text");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2993,13 +2910,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/text", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/text", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAiTextDefaultImplementation(apiResponseLocalVar, version, accountId, terms, conditional, limit, offset);
+                        AfterAiTextDefaultImplementation(apiResponseLocalVar, accountId, terms, conditional, limit, offset);
 
                         Events.ExecuteOnAiText(apiResponseLocalVar);
 
@@ -3009,7 +2926,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAiTextDefaultImplementation(e, "/api/{version}/orson/ai/text", uriBuilderLocalVar.Path, version, accountId, terms, conditional, limit, offset);
+                OnErrorAiTextDefaultImplementation(e, "/orson/ai/text", uriBuilderLocalVar.Path, accountId, terms, conditional, limit, offset);
                 Events.ExecuteOnErrorAiText(e);
                 throw;
             }
@@ -3108,7 +3025,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatBatch(ref decimal version, ref long accountId, ref Option<string> thirdPartyAccountId, ref Option<int> limit, ref Option<string> operations, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
+        partial void FormatBatch(ref long accountId, ref Option<string> thirdPartyAccountId, ref Option<int> limit, ref Option<string> operations, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
 
         /// <summary>
         /// Validates the request parameters
@@ -3141,7 +3058,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="limit"></param>
@@ -3149,10 +3065,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void AfterBatchDefaultImplementation(IBatchApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<int> limit, Option<string> operations, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void AfterBatchDefaultImplementation(IBatchApiResponse apiResponseLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<int> limit, Option<string> operations, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLog = false;
-            AfterBatch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, thirdPartyAccountId, limit, operations, file, url, callback);
+            AfterBatch(ref suppressDefaultLog, apiResponseLocalVar, accountId, thirdPartyAccountId, limit, operations, file, url, callback);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3162,7 +3078,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="limit"></param>
@@ -3170,7 +3085,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void AfterBatch(ref bool suppressDefaultLog, IBatchApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<int> limit, Option<string> operations, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void AfterBatch(ref bool suppressDefaultLog, IBatchApiResponse apiResponseLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<int> limit, Option<string> operations, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3178,7 +3093,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="limit"></param>
@@ -3186,10 +3100,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void OnErrorBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<int> limit, Option<string> operations, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void OnErrorBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<int> limit, Option<string> operations, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, thirdPartyAccountId, limit, operations, file, url, callback);
+            OnErrorBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, thirdPartyAccountId, limit, operations, file, url, callback);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3201,7 +3115,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="limit"></param>
@@ -3209,12 +3122,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void OnErrorBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<int> limit, Option<string> operations, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void OnErrorBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<int> limit, Option<string> operations, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Batch Analysis Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="limit">The number of topics to return (optional)</param>
@@ -3224,11 +3136,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchApiResponse"/>&gt;</returns>
-        public async Task<IBatchApiResponse?> BatchOrDefaultAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<int> limit = default, Option<string> operations = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBatchApiResponse?> BatchOrDefaultAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<int> limit = default, Option<string> operations = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await BatchAsync(version, accountId, thirdPartyAccountId, limit, operations, file, url, callback, cancellationToken).ConfigureAwait(false);
+                return await BatchAsync(accountId, thirdPartyAccountId, limit, operations, file, url, callback, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3240,7 +3152,6 @@ namespace Org.OpenAPITools.Api
         /// Batch Analysis Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="limit">The number of topics to return (optional)</param>
@@ -3250,7 +3161,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchApiResponse"/>&gt;</returns>
-        public async Task<IBatchApiResponse> BatchAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<int> limit = default, Option<string> operations = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBatchApiResponse> BatchAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<int> limit = default, Option<string> operations = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3258,7 +3169,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateBatch(thirdPartyAccountId, operations, file, url, callback);
 
-                FormatBatch(ref version, ref accountId, ref thirdPartyAccountId, ref limit, ref operations, ref file, ref url, ref callback);
+                FormatBatch(ref accountId, ref thirdPartyAccountId, ref limit, ref operations, ref file, ref url, ref callback);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3266,9 +3177,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/batch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/batch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/batch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/batch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3317,13 +3227,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/batch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/batch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterBatchDefaultImplementation(apiResponseLocalVar, version, accountId, thirdPartyAccountId, limit, operations, file, url, callback);
+                        AfterBatchDefaultImplementation(apiResponseLocalVar, accountId, thirdPartyAccountId, limit, operations, file, url, callback);
 
                         Events.ExecuteOnBatch(apiResponseLocalVar);
 
@@ -3333,7 +3243,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorBatchDefaultImplementation(e, "/api/{version}/orson/ai/batch", uriBuilderLocalVar.Path, version, accountId, thirdPartyAccountId, limit, operations, file, url, callback);
+                OnErrorBatchDefaultImplementation(e, "/orson/ai/batch", uriBuilderLocalVar.Path, accountId, thirdPartyAccountId, limit, operations, file, url, callback);
                 Events.ExecuteOnErrorBatch(e);
                 throw;
             }
@@ -3432,7 +3342,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateInstantEpisode(ref decimal version, ref long accountId, ref string data);
+        partial void FormatCreateInstantEpisode(ref long accountId, ref string data);
 
         /// <summary>
         /// Validates the request parameters
@@ -3449,13 +3359,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="data"></param>
-        private void AfterCreateInstantEpisodeDefaultImplementation(ICreateInstantEpisodeApiResponse apiResponseLocalVar, decimal version, long accountId, string data)
+        private void AfterCreateInstantEpisodeDefaultImplementation(ICreateInstantEpisodeApiResponse apiResponseLocalVar, long accountId, string data)
         {
             bool suppressDefaultLog = false;
-            AfterCreateInstantEpisode(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, data);
+            AfterCreateInstantEpisode(ref suppressDefaultLog, apiResponseLocalVar, accountId, data);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3465,10 +3374,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="data"></param>
-        partial void AfterCreateInstantEpisode(ref bool suppressDefaultLog, ICreateInstantEpisodeApiResponse apiResponseLocalVar, decimal version, long accountId, string data);
+        partial void AfterCreateInstantEpisode(ref bool suppressDefaultLog, ICreateInstantEpisodeApiResponse apiResponseLocalVar, long accountId, string data);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3476,13 +3384,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="data"></param>
-        private void OnErrorCreateInstantEpisodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string data)
+        private void OnErrorCreateInstantEpisodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string data)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateInstantEpisode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, data);
+            OnErrorCreateInstantEpisode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, data);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3494,24 +3401,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="data"></param>
-        partial void OnErrorCreateInstantEpisode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string data);
+        partial void OnErrorCreateInstantEpisode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string data);
 
         /// <summary>
         /// Creates an instant episode Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="data">Request Data String</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateInstantEpisodeApiResponse"/>&gt;</returns>
-        public async Task<ICreateInstantEpisodeApiResponse?> CreateInstantEpisodeOrDefaultAsync(decimal version, long accountId, string data, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateInstantEpisodeApiResponse?> CreateInstantEpisodeOrDefaultAsync(long accountId, string data, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateInstantEpisodeAsync(version, accountId, data, cancellationToken).ConfigureAwait(false);
+                return await CreateInstantEpisodeAsync(accountId, data, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3523,12 +3428,11 @@ namespace Org.OpenAPITools.Api
         /// Creates an instant episode Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="data">Request Data String</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateInstantEpisodeApiResponse"/>&gt;</returns>
-        public async Task<ICreateInstantEpisodeApiResponse> CreateInstantEpisodeAsync(decimal version, long accountId, string data, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateInstantEpisodeApiResponse> CreateInstantEpisodeAsync(long accountId, string data, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3536,7 +3440,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateInstantEpisode(data);
 
-                FormatCreateInstantEpisode(ref version, ref accountId, ref data);
+                FormatCreateInstantEpisode(ref accountId, ref data);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3544,9 +3448,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/stories/episodes/instant"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/stories/episodes/instant");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/stories/episodes/instant"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/stories/episodes/instant");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3578,13 +3481,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/stories/episodes/instant", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/stories/episodes/instant", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateInstantEpisodeDefaultImplementation(apiResponseLocalVar, version, accountId, data);
+                        AfterCreateInstantEpisodeDefaultImplementation(apiResponseLocalVar, accountId, data);
 
                         Events.ExecuteOnCreateInstantEpisode(apiResponseLocalVar);
 
@@ -3594,7 +3497,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateInstantEpisodeDefaultImplementation(e, "/api/{version}/orson/stories/episodes/instant", uriBuilderLocalVar.Path, version, accountId, data);
+                OnErrorCreateInstantEpisodeDefaultImplementation(e, "/orson/stories/episodes/instant", uriBuilderLocalVar.Path, accountId, data);
                 Events.ExecuteOnErrorCreateInstantEpisode(e);
                 throw;
             }
@@ -3693,7 +3596,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateVoiceCanvas(ref decimal version, ref long accountId, ref string dimensions, ref Option<string> thirdPartyAccountId, ref Option<string> text, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<bool> parseFlag, ref Option<bool> fetchFlag, ref Option<string> callback);
+        partial void FormatCreateVoiceCanvas(ref long accountId, ref string dimensions, ref Option<string> thirdPartyAccountId, ref Option<string> text, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<bool> parseFlag, ref Option<bool> fetchFlag, ref Option<string> callback);
 
         /// <summary>
         /// Validates the request parameters
@@ -3730,7 +3633,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="dimensions"></param>
         /// <param name="thirdPartyAccountId"></param>
@@ -3740,10 +3642,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="parseFlag"></param>
         /// <param name="fetchFlag"></param>
         /// <param name="callback"></param>
-        private void AfterCreateVoiceCanvasDefaultImplementation(ICreateVoiceCanvasApiResponse apiResponseLocalVar, decimal version, long accountId, string dimensions, Option<string> thirdPartyAccountId, Option<string> text, Option<System.IO.Stream> file, Option<string> url, Option<bool> parseFlag, Option<bool> fetchFlag, Option<string> callback)
+        private void AfterCreateVoiceCanvasDefaultImplementation(ICreateVoiceCanvasApiResponse apiResponseLocalVar, long accountId, string dimensions, Option<string> thirdPartyAccountId, Option<string> text, Option<System.IO.Stream> file, Option<string> url, Option<bool> parseFlag, Option<bool> fetchFlag, Option<string> callback)
         {
             bool suppressDefaultLog = false;
-            AfterCreateVoiceCanvas(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback);
+            AfterCreateVoiceCanvas(ref suppressDefaultLog, apiResponseLocalVar, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3753,7 +3655,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="dimensions"></param>
         /// <param name="thirdPartyAccountId"></param>
@@ -3763,7 +3664,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="parseFlag"></param>
         /// <param name="fetchFlag"></param>
         /// <param name="callback"></param>
-        partial void AfterCreateVoiceCanvas(ref bool suppressDefaultLog, ICreateVoiceCanvasApiResponse apiResponseLocalVar, decimal version, long accountId, string dimensions, Option<string> thirdPartyAccountId, Option<string> text, Option<System.IO.Stream> file, Option<string> url, Option<bool> parseFlag, Option<bool> fetchFlag, Option<string> callback);
+        partial void AfterCreateVoiceCanvas(ref bool suppressDefaultLog, ICreateVoiceCanvasApiResponse apiResponseLocalVar, long accountId, string dimensions, Option<string> thirdPartyAccountId, Option<string> text, Option<System.IO.Stream> file, Option<string> url, Option<bool> parseFlag, Option<bool> fetchFlag, Option<string> callback);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3771,7 +3672,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="dimensions"></param>
         /// <param name="thirdPartyAccountId"></param>
@@ -3781,10 +3681,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="parseFlag"></param>
         /// <param name="fetchFlag"></param>
         /// <param name="callback"></param>
-        private void OnErrorCreateVoiceCanvasDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string dimensions, Option<string> thirdPartyAccountId, Option<string> text, Option<System.IO.Stream> file, Option<string> url, Option<bool> parseFlag, Option<bool> fetchFlag, Option<string> callback)
+        private void OnErrorCreateVoiceCanvasDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string dimensions, Option<string> thirdPartyAccountId, Option<string> text, Option<System.IO.Stream> file, Option<string> url, Option<bool> parseFlag, Option<bool> fetchFlag, Option<string> callback)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateVoiceCanvas(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback);
+            OnErrorCreateVoiceCanvas(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3796,7 +3696,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="dimensions"></param>
         /// <param name="thirdPartyAccountId"></param>
@@ -3806,12 +3705,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="parseFlag"></param>
         /// <param name="fetchFlag"></param>
         /// <param name="callback"></param>
-        partial void OnErrorCreateVoiceCanvas(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string dimensions, Option<string> thirdPartyAccountId, Option<string> text, Option<System.IO.Stream> file, Option<string> url, Option<bool> parseFlag, Option<bool> fetchFlag, Option<string> callback);
+        partial void OnErrorCreateVoiceCanvas(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string dimensions, Option<string> thirdPartyAccountId, Option<string> text, Option<System.IO.Stream> file, Option<string> url, Option<bool> parseFlag, Option<bool> fetchFlag, Option<string> callback);
 
         /// <summary>
         /// Create VoiceCanvas images Create VoiceCanvas images for provided text, file upload, or file URL
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="dimensions">Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -3823,11 +3721,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVoiceCanvasApiResponse"/>&gt;</returns>
-        public async Task<ICreateVoiceCanvasApiResponse?> CreateVoiceCanvasOrDefaultAsync(decimal version, long accountId, string dimensions, Option<string> thirdPartyAccountId = default, Option<string> text = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<bool> parseFlag = default, Option<bool> fetchFlag = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateVoiceCanvasApiResponse?> CreateVoiceCanvasOrDefaultAsync(long accountId, string dimensions, Option<string> thirdPartyAccountId = default, Option<string> text = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<bool> parseFlag = default, Option<bool> fetchFlag = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateVoiceCanvasAsync(version, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback, cancellationToken).ConfigureAwait(false);
+                return await CreateVoiceCanvasAsync(accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3839,7 +3737,6 @@ namespace Org.OpenAPITools.Api
         /// Create VoiceCanvas images Create VoiceCanvas images for provided text, file upload, or file URL
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="dimensions">Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -3851,7 +3748,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVoiceCanvasApiResponse"/>&gt;</returns>
-        public async Task<ICreateVoiceCanvasApiResponse> CreateVoiceCanvasAsync(decimal version, long accountId, string dimensions, Option<string> thirdPartyAccountId = default, Option<string> text = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<bool> parseFlag = default, Option<bool> fetchFlag = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateVoiceCanvasApiResponse> CreateVoiceCanvasAsync(long accountId, string dimensions, Option<string> thirdPartyAccountId = default, Option<string> text = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<bool> parseFlag = default, Option<bool> fetchFlag = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3859,7 +3756,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateVoiceCanvas(dimensions, thirdPartyAccountId, text, file, url, callback);
 
-                FormatCreateVoiceCanvas(ref version, ref accountId, ref dimensions, ref thirdPartyAccountId, ref text, ref file, ref url, ref parseFlag, ref fetchFlag, ref callback);
+                FormatCreateVoiceCanvas(ref accountId, ref dimensions, ref thirdPartyAccountId, ref text, ref file, ref url, ref parseFlag, ref fetchFlag, ref callback);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3867,9 +3764,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/voiceCanvas"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/voiceCanvas");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/voiceCanvas"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/voiceCanvas");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3922,13 +3818,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/voiceCanvas", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/voiceCanvas", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateVoiceCanvasDefaultImplementation(apiResponseLocalVar, version, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback);
+                        AfterCreateVoiceCanvasDefaultImplementation(apiResponseLocalVar, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback);
 
                         Events.ExecuteOnCreateVoiceCanvas(apiResponseLocalVar);
 
@@ -3938,7 +3834,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateVoiceCanvasDefaultImplementation(e, "/api/{version}/orson/ai/voiceCanvas", uriBuilderLocalVar.Path, version, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback);
+                OnErrorCreateVoiceCanvasDefaultImplementation(e, "/orson/ai/voiceCanvas", uriBuilderLocalVar.Path, accountId, dimensions, thirdPartyAccountId, text, file, url, parseFlag, fetchFlag, callback);
                 Events.ExecuteOnErrorCreateVoiceCanvas(e);
                 throw;
             }
@@ -4037,7 +3933,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatEmotion(ref decimal version, ref long accountId, ref Option<string> thirdPartyAccountId, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
+        partial void FormatEmotion(ref long accountId, ref Option<string> thirdPartyAccountId, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
 
         /// <summary>
         /// Validates the request parameters
@@ -4066,16 +3962,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void AfterEmotionDefaultImplementation(IEmotionApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void AfterEmotionDefaultImplementation(IEmotionApiResponse apiResponseLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLog = false;
-            AfterEmotion(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, thirdPartyAccountId, file, url, callback);
+            AfterEmotion(ref suppressDefaultLog, apiResponseLocalVar, accountId, thirdPartyAccountId, file, url, callback);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4085,13 +3980,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void AfterEmotion(ref bool suppressDefaultLog, IEmotionApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void AfterEmotion(ref bool suppressDefaultLog, IEmotionApiResponse apiResponseLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4099,16 +3993,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void OnErrorEmotionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void OnErrorEmotionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorEmotion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, thirdPartyAccountId, file, url, callback);
+            OnErrorEmotion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, thirdPartyAccountId, file, url, callback);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4120,18 +4013,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void OnErrorEmotion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void OnErrorEmotion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Detect emotions Detects emotions in an audio or video recording.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="file">An uploaded recording to analyze (Currently limited to 10MB) (optional)</param>
@@ -4139,11 +4030,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEmotionApiResponse"/>&gt;</returns>
-        public async Task<IEmotionApiResponse?> EmotionOrDefaultAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEmotionApiResponse?> EmotionOrDefaultAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await EmotionAsync(version, accountId, thirdPartyAccountId, file, url, callback, cancellationToken).ConfigureAwait(false);
+                return await EmotionAsync(accountId, thirdPartyAccountId, file, url, callback, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4155,7 +4046,6 @@ namespace Org.OpenAPITools.Api
         /// Detect emotions Detects emotions in an audio or video recording.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="file">An uploaded recording to analyze (Currently limited to 10MB) (optional)</param>
@@ -4163,7 +4053,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IEmotionApiResponse"/>&gt;</returns>
-        public async Task<IEmotionApiResponse> EmotionAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IEmotionApiResponse> EmotionAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4171,7 +4061,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateEmotion(thirdPartyAccountId, file, url, callback);
 
-                FormatEmotion(ref version, ref accountId, ref thirdPartyAccountId, ref file, ref url, ref callback);
+                FormatEmotion(ref accountId, ref thirdPartyAccountId, ref file, ref url, ref callback);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4179,9 +4069,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/emotion"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/emotion");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/emotion"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/emotion");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4224,13 +4113,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/emotion", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/emotion", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterEmotionDefaultImplementation(apiResponseLocalVar, version, accountId, thirdPartyAccountId, file, url, callback);
+                        AfterEmotionDefaultImplementation(apiResponseLocalVar, accountId, thirdPartyAccountId, file, url, callback);
 
                         Events.ExecuteOnEmotion(apiResponseLocalVar);
 
@@ -4240,7 +4129,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorEmotionDefaultImplementation(e, "/api/{version}/orson/ai/emotion", uriBuilderLocalVar.Path, version, accountId, thirdPartyAccountId, file, url, callback);
+                OnErrorEmotionDefaultImplementation(e, "/orson/ai/emotion", uriBuilderLocalVar.Path, accountId, thirdPartyAccountId, file, url, callback);
                 Events.ExecuteOnErrorEmotion(e);
                 throw;
             }
@@ -4339,7 +4228,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAddMovieResult(ref decimal version, ref string requestId, ref long accountId);
+        partial void FormatGetAddMovieResult(ref string requestId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -4356,13 +4245,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetAddMovieResultDefaultImplementation(IGetAddMovieResultApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId)
+        private void AfterGetAddMovieResultDefaultImplementation(IGetAddMovieResultApiResponse apiResponseLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetAddMovieResult(ref suppressDefaultLog, apiResponseLocalVar, version, requestId, accountId);
+            AfterGetAddMovieResult(ref suppressDefaultLog, apiResponseLocalVar, requestId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4372,10 +4260,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetAddMovieResult(ref bool suppressDefaultLog, IGetAddMovieResultApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId);
+        partial void AfterGetAddMovieResult(ref bool suppressDefaultLog, IGetAddMovieResultApiResponse apiResponseLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4383,13 +4270,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetAddMovieResultDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId)
+        private void OnErrorGetAddMovieResultDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAddMovieResult(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, requestId, accountId);
+            OnErrorGetAddMovieResult(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, requestId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4401,24 +4287,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetAddMovieResult(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId);
+        partial void OnErrorGetAddMovieResult(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Get Add Movie Result Get the result of an in progress Add Movie request from an earlier POST.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAddMovieResultApiResponse"/>&gt;</returns>
-        public async Task<IGetAddMovieResultApiResponse?> GetAddMovieResultOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAddMovieResultApiResponse?> GetAddMovieResultOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAddMovieResultAsync(version, requestId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetAddMovieResultAsync(requestId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4430,12 +4314,11 @@ namespace Org.OpenAPITools.Api
         /// Get Add Movie Result Get the result of an in progress Add Movie request from an earlier POST.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAddMovieResultApiResponse"/>&gt;</returns>
-        public async Task<IGetAddMovieResultApiResponse> GetAddMovieResultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAddMovieResultApiResponse> GetAddMovieResultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4443,7 +4326,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAddMovieResult(requestId);
 
-                FormatGetAddMovieResult(ref version, ref requestId, ref accountId);
+                FormatGetAddMovieResult(ref requestId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4451,9 +4334,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/addMovie/{requestId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/addMovie/{requestId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/addMovie/{requestId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/addMovie/{requestId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrequestId%7D", Uri.EscapeDataString(requestId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -4485,13 +4367,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/addMovie/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/addMovie/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAddMovieResultDefaultImplementation(apiResponseLocalVar, version, requestId, accountId);
+                        AfterGetAddMovieResultDefaultImplementation(apiResponseLocalVar, requestId, accountId);
 
                         Events.ExecuteOnGetAddMovieResult(apiResponseLocalVar);
 
@@ -4501,7 +4383,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAddMovieResultDefaultImplementation(e, "/api/{version}/orson/ai/addMovie/{requestId}", uriBuilderLocalVar.Path, version, requestId, accountId);
+                OnErrorGetAddMovieResultDefaultImplementation(e, "/orson/ai/addMovie/{requestId}", uriBuilderLocalVar.Path, requestId, accountId);
                 Events.ExecuteOnErrorGetAddMovieResult(e);
                 throw;
             }
@@ -4600,7 +4482,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBatch(ref decimal version, ref string requestId, ref long accountId);
+        partial void FormatGetBatch(ref string requestId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -4617,13 +4499,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetBatchDefaultImplementation(IGetBatchApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId)
+        private void AfterGetBatchDefaultImplementation(IGetBatchApiResponse apiResponseLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetBatch(ref suppressDefaultLog, apiResponseLocalVar, version, requestId, accountId);
+            AfterGetBatch(ref suppressDefaultLog, apiResponseLocalVar, requestId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4633,10 +4514,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetBatch(ref bool suppressDefaultLog, IGetBatchApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId);
+        partial void AfterGetBatch(ref bool suppressDefaultLog, IGetBatchApiResponse apiResponseLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4644,13 +4524,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId)
+        private void OnErrorGetBatchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, requestId, accountId);
+            OnErrorGetBatch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, requestId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4662,24 +4541,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId);
+        partial void OnErrorGetBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Get Batch Analysis Results Gets the completed Video Batch results, if done, or an error or status update if not.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBatchApiResponse"/>&gt;</returns>
-        public async Task<IGetBatchApiResponse?> GetBatchOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBatchApiResponse?> GetBatchOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetBatchAsync(version, requestId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetBatchAsync(requestId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4691,12 +4568,11 @@ namespace Org.OpenAPITools.Api
         /// Get Batch Analysis Results Gets the completed Video Batch results, if done, or an error or status update if not.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBatchApiResponse"/>&gt;</returns>
-        public async Task<IGetBatchApiResponse> GetBatchAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBatchApiResponse> GetBatchAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4704,7 +4580,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetBatch(requestId);
 
-                FormatGetBatch(ref version, ref requestId, ref accountId);
+                FormatGetBatch(ref requestId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4712,9 +4588,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/batch/{requestId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/batch/{requestId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/batch/{requestId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/batch/{requestId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrequestId%7D", Uri.EscapeDataString(requestId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -4746,13 +4621,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/batch/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/batch/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetBatchDefaultImplementation(apiResponseLocalVar, version, requestId, accountId);
+                        AfterGetBatchDefaultImplementation(apiResponseLocalVar, requestId, accountId);
 
                         Events.ExecuteOnGetBatch(apiResponseLocalVar);
 
@@ -4762,7 +4637,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetBatchDefaultImplementation(e, "/api/{version}/orson/ai/batch/{requestId}", uriBuilderLocalVar.Path, version, requestId, accountId);
+                OnErrorGetBatchDefaultImplementation(e, "/orson/ai/batch/{requestId}", uriBuilderLocalVar.Path, requestId, accountId);
                 Events.ExecuteOnErrorGetBatch(e);
                 throw;
             }
@@ -4861,7 +4736,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetEmotion(ref decimal version, ref string requestId, ref long accountId);
+        partial void FormatGetEmotion(ref string requestId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -4878,13 +4753,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetEmotionDefaultImplementation(IGetEmotionApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId)
+        private void AfterGetEmotionDefaultImplementation(IGetEmotionApiResponse apiResponseLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetEmotion(ref suppressDefaultLog, apiResponseLocalVar, version, requestId, accountId);
+            AfterGetEmotion(ref suppressDefaultLog, apiResponseLocalVar, requestId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4894,10 +4768,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetEmotion(ref bool suppressDefaultLog, IGetEmotionApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId);
+        partial void AfterGetEmotion(ref bool suppressDefaultLog, IGetEmotionApiResponse apiResponseLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4905,13 +4778,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetEmotionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId)
+        private void OnErrorGetEmotionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetEmotion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, requestId, accountId);
+            OnErrorGetEmotion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, requestId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4923,24 +4795,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetEmotion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId);
+        partial void OnErrorGetEmotion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Get Emotion Results Checks the Emotion analysis and returns in progress, results, or error.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEmotionApiResponse"/>&gt;</returns>
-        public async Task<IGetEmotionApiResponse?> GetEmotionOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEmotionApiResponse?> GetEmotionOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetEmotionAsync(version, requestId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetEmotionAsync(requestId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4952,12 +4822,11 @@ namespace Org.OpenAPITools.Api
         /// Get Emotion Results Checks the Emotion analysis and returns in progress, results, or error.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEmotionApiResponse"/>&gt;</returns>
-        public async Task<IGetEmotionApiResponse> GetEmotionAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEmotionApiResponse> GetEmotionAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4965,7 +4834,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetEmotion(requestId);
 
-                FormatGetEmotion(ref version, ref requestId, ref accountId);
+                FormatGetEmotion(ref requestId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4973,9 +4842,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/emotion/{requestId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/emotion/{requestId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/emotion/{requestId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/emotion/{requestId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrequestId%7D", Uri.EscapeDataString(requestId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -5007,13 +4875,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/emotion/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/emotion/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetEmotionDefaultImplementation(apiResponseLocalVar, version, requestId, accountId);
+                        AfterGetEmotionDefaultImplementation(apiResponseLocalVar, requestId, accountId);
 
                         Events.ExecuteOnGetEmotion(apiResponseLocalVar);
 
@@ -5023,7 +4891,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetEmotionDefaultImplementation(e, "/api/{version}/orson/ai/emotion/{requestId}", uriBuilderLocalVar.Path, version, requestId, accountId);
+                OnErrorGetEmotionDefaultImplementation(e, "/orson/ai/emotion/{requestId}", uriBuilderLocalVar.Path, requestId, accountId);
                 Events.ExecuteOnErrorGetEmotion(e);
                 throw;
             }
@@ -5122,19 +4990,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetEpisodeStatus(ref decimal version, ref long episodeId, ref long accountId);
+        partial void FormatGetEpisodeStatus(ref long episodeId, ref long accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="episodeId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetEpisodeStatusDefaultImplementation(IGetEpisodeStatusApiResponse apiResponseLocalVar, decimal version, long episodeId, long accountId)
+        private void AfterGetEpisodeStatusDefaultImplementation(IGetEpisodeStatusApiResponse apiResponseLocalVar, long episodeId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetEpisodeStatus(ref suppressDefaultLog, apiResponseLocalVar, version, episodeId, accountId);
+            AfterGetEpisodeStatus(ref suppressDefaultLog, apiResponseLocalVar, episodeId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5144,10 +5011,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="episodeId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetEpisodeStatus(ref bool suppressDefaultLog, IGetEpisodeStatusApiResponse apiResponseLocalVar, decimal version, long episodeId, long accountId);
+        partial void AfterGetEpisodeStatus(ref bool suppressDefaultLog, IGetEpisodeStatusApiResponse apiResponseLocalVar, long episodeId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5155,13 +5021,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="episodeId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetEpisodeStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long episodeId, long accountId)
+        private void OnErrorGetEpisodeStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long episodeId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetEpisodeStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, episodeId, accountId);
+            OnErrorGetEpisodeStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, episodeId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5173,24 +5038,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="episodeId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetEpisodeStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long episodeId, long accountId);
+        partial void OnErrorGetEpisodeStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long episodeId, long accountId);
 
         /// <summary>
         /// Check episode status Gets a summary of the episode&#39;s status, including any renders.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="episodeId">Episode ID</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEpisodeStatusApiResponse"/>&gt;</returns>
-        public async Task<IGetEpisodeStatusApiResponse?> GetEpisodeStatusOrDefaultAsync(decimal version, long episodeId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEpisodeStatusApiResponse?> GetEpisodeStatusOrDefaultAsync(long episodeId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetEpisodeStatusAsync(version, episodeId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetEpisodeStatusAsync(episodeId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5202,18 +5065,17 @@ namespace Org.OpenAPITools.Api
         /// Check episode status Gets a summary of the episode&#39;s status, including any renders.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="episodeId">Episode ID</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEpisodeStatusApiResponse"/>&gt;</returns>
-        public async Task<IGetEpisodeStatusApiResponse> GetEpisodeStatusAsync(decimal version, long episodeId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEpisodeStatusApiResponse> GetEpisodeStatusAsync(long episodeId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetEpisodeStatus(ref version, ref episodeId, ref accountId);
+                FormatGetEpisodeStatus(ref episodeId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5221,9 +5083,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/stories/episodes/{episodeId}/status"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/stories/episodes/{episodeId}/status");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/stories/episodes/{episodeId}/status"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/stories/episodes/{episodeId}/status");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BepisodeId%7D", Uri.EscapeDataString(episodeId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -5255,13 +5116,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/stories/episodes/{episodeId}/status", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/stories/episodes/{episodeId}/status", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetEpisodeStatusDefaultImplementation(apiResponseLocalVar, version, episodeId, accountId);
+                        AfterGetEpisodeStatusDefaultImplementation(apiResponseLocalVar, episodeId, accountId);
 
                         Events.ExecuteOnGetEpisodeStatus(apiResponseLocalVar);
 
@@ -5271,7 +5132,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetEpisodeStatusDefaultImplementation(e, "/api/{version}/orson/stories/episodes/{episodeId}/status", uriBuilderLocalVar.Path, version, episodeId, accountId);
+                OnErrorGetEpisodeStatusDefaultImplementation(e, "/orson/stories/episodes/{episodeId}/status", uriBuilderLocalVar.Path, episodeId, accountId);
                 Events.ExecuteOnErrorGetEpisodeStatus(e);
                 throw;
             }
@@ -5370,7 +5231,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetRenderStatus(ref decimal version, ref string renderId, ref long accountId);
+        partial void FormatGetRenderStatus(ref string renderId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -5387,13 +5248,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="renderId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetRenderStatusDefaultImplementation(IGetRenderStatusApiResponse apiResponseLocalVar, decimal version, string renderId, long accountId)
+        private void AfterGetRenderStatusDefaultImplementation(IGetRenderStatusApiResponse apiResponseLocalVar, string renderId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetRenderStatus(ref suppressDefaultLog, apiResponseLocalVar, version, renderId, accountId);
+            AfterGetRenderStatus(ref suppressDefaultLog, apiResponseLocalVar, renderId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5403,10 +5263,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="renderId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetRenderStatus(ref bool suppressDefaultLog, IGetRenderStatusApiResponse apiResponseLocalVar, decimal version, string renderId, long accountId);
+        partial void AfterGetRenderStatus(ref bool suppressDefaultLog, IGetRenderStatusApiResponse apiResponseLocalVar, string renderId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5414,13 +5273,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="renderId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetRenderStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string renderId, long accountId)
+        private void OnErrorGetRenderStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string renderId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRenderStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, renderId, accountId);
+            OnErrorGetRenderStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, renderId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5432,24 +5290,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="renderId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetRenderStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string renderId, long accountId);
+        partial void OnErrorGetRenderStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string renderId, long accountId);
 
         /// <summary>
         /// Check episode status Gets a summary of the episode&#39;s status, including any renders.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="renderId">Render ID</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRenderStatusApiResponse"/>&gt;</returns>
-        public async Task<IGetRenderStatusApiResponse?> GetRenderStatusOrDefaultAsync(decimal version, string renderId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRenderStatusApiResponse?> GetRenderStatusOrDefaultAsync(string renderId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRenderStatusAsync(version, renderId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetRenderStatusAsync(renderId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5461,12 +5317,11 @@ namespace Org.OpenAPITools.Api
         /// Check episode status Gets a summary of the episode&#39;s status, including any renders.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="renderId">Render ID</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRenderStatusApiResponse"/>&gt;</returns>
-        public async Task<IGetRenderStatusApiResponse> GetRenderStatusAsync(decimal version, string renderId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRenderStatusApiResponse> GetRenderStatusAsync(string renderId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5474,7 +5329,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetRenderStatus(renderId);
 
-                FormatGetRenderStatus(ref version, ref renderId, ref accountId);
+                FormatGetRenderStatus(ref renderId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5482,9 +5337,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/stories/renders/{renderId}/status"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/stories/renders/{renderId}/status");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/stories/renders/{renderId}/status"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/stories/renders/{renderId}/status");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrenderId%7D", Uri.EscapeDataString(renderId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -5516,13 +5370,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/stories/renders/{renderId}/status", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/stories/renders/{renderId}/status", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRenderStatusDefaultImplementation(apiResponseLocalVar, version, renderId, accountId);
+                        AfterGetRenderStatusDefaultImplementation(apiResponseLocalVar, renderId, accountId);
 
                         Events.ExecuteOnGetRenderStatus(apiResponseLocalVar);
 
@@ -5532,7 +5386,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRenderStatusDefaultImplementation(e, "/api/{version}/orson/stories/renders/{renderId}/status", uriBuilderLocalVar.Path, version, renderId, accountId);
+                OnErrorGetRenderStatusDefaultImplementation(e, "/orson/stories/renders/{renderId}/status", uriBuilderLocalVar.Path, renderId, accountId);
                 Events.ExecuteOnErrorGetRenderStatus(e);
                 throw;
             }
@@ -5631,7 +5485,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSTT(ref decimal version, ref string requestId, ref long accountId);
+        partial void FormatGetSTT(ref string requestId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -5648,13 +5502,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetSTTDefaultImplementation(IGetSTTApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId)
+        private void AfterGetSTTDefaultImplementation(IGetSTTApiResponse apiResponseLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetSTT(ref suppressDefaultLog, apiResponseLocalVar, version, requestId, accountId);
+            AfterGetSTT(ref suppressDefaultLog, apiResponseLocalVar, requestId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5664,10 +5517,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetSTT(ref bool suppressDefaultLog, IGetSTTApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId);
+        partial void AfterGetSTT(ref bool suppressDefaultLog, IGetSTTApiResponse apiResponseLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5675,13 +5527,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetSTTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId)
+        private void OnErrorGetSTTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetSTT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, requestId, accountId);
+            OnErrorGetSTT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, requestId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5693,24 +5544,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetSTT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId);
+        partial void OnErrorGetSTT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Get Speach to Text Result The results of the video transcription and optional translation.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSTTApiResponse"/>&gt;</returns>
-        public async Task<IGetSTTApiResponse?> GetSTTOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSTTApiResponse?> GetSTTOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetSTTAsync(version, requestId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetSTTAsync(requestId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5722,12 +5571,11 @@ namespace Org.OpenAPITools.Api
         /// Get Speach to Text Result The results of the video transcription and optional translation.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSTTApiResponse"/>&gt;</returns>
-        public async Task<IGetSTTApiResponse> GetSTTAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSTTApiResponse> GetSTTAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5735,7 +5583,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetSTT(requestId);
 
-                FormatGetSTT(ref version, ref requestId, ref accountId);
+                FormatGetSTT(ref requestId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5743,9 +5591,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/stt/{requestId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/stt/{requestId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/stt/{requestId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/stt/{requestId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrequestId%7D", Uri.EscapeDataString(requestId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -5777,13 +5624,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/stt/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/stt/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetSTTDefaultImplementation(apiResponseLocalVar, version, requestId, accountId);
+                        AfterGetSTTDefaultImplementation(apiResponseLocalVar, requestId, accountId);
 
                         Events.ExecuteOnGetSTT(apiResponseLocalVar);
 
@@ -5793,7 +5640,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetSTTDefaultImplementation(e, "/api/{version}/orson/ai/stt/{requestId}", uriBuilderLocalVar.Path, version, requestId, accountId);
+                OnErrorGetSTTDefaultImplementation(e, "/orson/ai/stt/{requestId}", uriBuilderLocalVar.Path, requestId, accountId);
                 Events.ExecuteOnErrorGetSTT(e);
                 throw;
             }
@@ -5892,7 +5739,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTTS(ref decimal version, ref string requestId, ref long accountId);
+        partial void FormatGetTTS(ref string requestId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -5909,13 +5756,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetTTSDefaultImplementation(IGetTTSApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId)
+        private void AfterGetTTSDefaultImplementation(IGetTTSApiResponse apiResponseLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetTTS(ref suppressDefaultLog, apiResponseLocalVar, version, requestId, accountId);
+            AfterGetTTS(ref suppressDefaultLog, apiResponseLocalVar, requestId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5925,10 +5771,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetTTS(ref bool suppressDefaultLog, IGetTTSApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId);
+        partial void AfterGetTTS(ref bool suppressDefaultLog, IGetTTSApiResponse apiResponseLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5936,13 +5781,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetTTSDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId)
+        private void OnErrorGetTTSDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTTS(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, requestId, accountId);
+            OnErrorGetTTS(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, requestId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5954,24 +5798,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetTTS(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId);
+        partial void OnErrorGetTTS(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Get Text to Speach Result Check the status of an in progress Text-to-Speech call or download the result.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTTSApiResponse"/>&gt;</returns>
-        public async Task<IGetTTSApiResponse?> GetTTSOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTTSApiResponse?> GetTTSOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTTSAsync(version, requestId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetTTSAsync(requestId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5983,12 +5825,11 @@ namespace Org.OpenAPITools.Api
         /// Get Text to Speach Result Check the status of an in progress Text-to-Speech call or download the result.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTTSApiResponse"/>&gt;</returns>
-        public async Task<IGetTTSApiResponse> GetTTSAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTTSApiResponse> GetTTSAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5996,7 +5837,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetTTS(requestId);
 
-                FormatGetTTS(ref version, ref requestId, ref accountId);
+                FormatGetTTS(ref requestId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6004,9 +5845,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/tts/{requestId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/tts/{requestId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/tts/{requestId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/tts/{requestId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrequestId%7D", Uri.EscapeDataString(requestId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -6038,13 +5878,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/tts/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/tts/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTTSDefaultImplementation(apiResponseLocalVar, version, requestId, accountId);
+                        AfterGetTTSDefaultImplementation(apiResponseLocalVar, requestId, accountId);
 
                         Events.ExecuteOnGetTTS(apiResponseLocalVar);
 
@@ -6054,7 +5894,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTTSDefaultImplementation(e, "/api/{version}/orson/ai/tts/{requestId}", uriBuilderLocalVar.Path, version, requestId, accountId);
+                OnErrorGetTTSDefaultImplementation(e, "/orson/ai/tts/{requestId}", uriBuilderLocalVar.Path, requestId, accountId);
                 Events.ExecuteOnErrorGetTTS(e);
                 throw;
             }
@@ -6153,7 +5993,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTechTune(ref decimal version, ref string requestId, ref long accountId);
+        partial void FormatGetTechTune(ref string requestId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -6170,13 +6010,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetTechTuneDefaultImplementation(IGetTechTuneApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId)
+        private void AfterGetTechTuneDefaultImplementation(IGetTechTuneApiResponse apiResponseLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetTechTune(ref suppressDefaultLog, apiResponseLocalVar, version, requestId, accountId);
+            AfterGetTechTune(ref suppressDefaultLog, apiResponseLocalVar, requestId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6186,10 +6025,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetTechTune(ref bool suppressDefaultLog, IGetTechTuneApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId);
+        partial void AfterGetTechTune(ref bool suppressDefaultLog, IGetTechTuneApiResponse apiResponseLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6197,13 +6035,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetTechTuneDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId)
+        private void OnErrorGetTechTuneDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTechTune(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, requestId, accountId);
+            OnErrorGetTechTune(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, requestId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6215,24 +6052,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetTechTune(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId);
+        partial void OnErrorGetTechTune(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Get TechTune Results Get a result or continue waiting for a pending request for TechTune analysis.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTechTuneApiResponse"/>&gt;</returns>
-        public async Task<IGetTechTuneApiResponse?> GetTechTuneOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTechTuneApiResponse?> GetTechTuneOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTechTuneAsync(version, requestId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetTechTuneAsync(requestId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6244,12 +6079,11 @@ namespace Org.OpenAPITools.Api
         /// Get TechTune Results Get a result or continue waiting for a pending request for TechTune analysis.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTechTuneApiResponse"/>&gt;</returns>
-        public async Task<IGetTechTuneApiResponse> GetTechTuneAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTechTuneApiResponse> GetTechTuneAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6257,7 +6091,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetTechTune(requestId);
 
-                FormatGetTechTune(ref version, ref requestId, ref accountId);
+                FormatGetTechTune(ref requestId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6265,9 +6099,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/techTune/{requestId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/techTune/{requestId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/techTune/{requestId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/techTune/{requestId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrequestId%7D", Uri.EscapeDataString(requestId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -6299,13 +6132,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/techTune/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/techTune/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTechTuneDefaultImplementation(apiResponseLocalVar, version, requestId, accountId);
+                        AfterGetTechTuneDefaultImplementation(apiResponseLocalVar, requestId, accountId);
 
                         Events.ExecuteOnGetTechTune(apiResponseLocalVar);
 
@@ -6315,7 +6148,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTechTuneDefaultImplementation(e, "/api/{version}/orson/ai/techTune/{requestId}", uriBuilderLocalVar.Path, version, requestId, accountId);
+                OnErrorGetTechTuneDefaultImplementation(e, "/orson/ai/techTune/{requestId}", uriBuilderLocalVar.Path, requestId, accountId);
                 Events.ExecuteOnErrorGetTechTune(e);
                 throw;
             }
@@ -6414,7 +6247,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTopics(ref decimal version, ref string requestId, ref long accountId);
+        partial void FormatGetTopics(ref string requestId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -6431,13 +6264,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetTopicsDefaultImplementation(IGetTopicsApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId)
+        private void AfterGetTopicsDefaultImplementation(IGetTopicsApiResponse apiResponseLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetTopics(ref suppressDefaultLog, apiResponseLocalVar, version, requestId, accountId);
+            AfterGetTopics(ref suppressDefaultLog, apiResponseLocalVar, requestId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6447,10 +6279,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetTopics(ref bool suppressDefaultLog, IGetTopicsApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId);
+        partial void AfterGetTopics(ref bool suppressDefaultLog, IGetTopicsApiResponse apiResponseLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6458,13 +6289,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetTopicsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId)
+        private void OnErrorGetTopicsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTopics(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, requestId, accountId);
+            OnErrorGetTopics(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, requestId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6476,24 +6306,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetTopics(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId);
+        partial void OnErrorGetTopics(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Get Topics Get the result of an in progress Topics Analysis from an earlier POST.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTopicsApiResponse"/>&gt;</returns>
-        public async Task<IGetTopicsApiResponse?> GetTopicsOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTopicsApiResponse?> GetTopicsOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTopicsAsync(version, requestId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetTopicsAsync(requestId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6505,12 +6333,11 @@ namespace Org.OpenAPITools.Api
         /// Get Topics Get the result of an in progress Topics Analysis from an earlier POST.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTopicsApiResponse"/>&gt;</returns>
-        public async Task<IGetTopicsApiResponse> GetTopicsAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTopicsApiResponse> GetTopicsAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6518,7 +6345,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetTopics(requestId);
 
-                FormatGetTopics(ref version, ref requestId, ref accountId);
+                FormatGetTopics(ref requestId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6526,9 +6353,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/topics/{requestId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/topics/{requestId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/topics/{requestId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/topics/{requestId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrequestId%7D", Uri.EscapeDataString(requestId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -6560,13 +6386,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/topics/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/topics/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTopicsDefaultImplementation(apiResponseLocalVar, version, requestId, accountId);
+                        AfterGetTopicsDefaultImplementation(apiResponseLocalVar, requestId, accountId);
 
                         Events.ExecuteOnGetTopics(apiResponseLocalVar);
 
@@ -6576,7 +6402,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTopicsDefaultImplementation(e, "/api/{version}/orson/ai/topics/{requestId}", uriBuilderLocalVar.Path, version, requestId, accountId);
+                OnErrorGetTopicsDefaultImplementation(e, "/orson/ai/topics/{requestId}", uriBuilderLocalVar.Path, requestId, accountId);
                 Events.ExecuteOnErrorGetTopics(e);
                 throw;
             }
@@ -6675,7 +6501,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetVoiceCanvas(ref decimal version, ref string requestId, ref long accountId);
+        partial void FormatGetVoiceCanvas(ref string requestId, ref long accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -6692,13 +6518,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetVoiceCanvasDefaultImplementation(IGetVoiceCanvasApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId)
+        private void AfterGetVoiceCanvasDefaultImplementation(IGetVoiceCanvasApiResponse apiResponseLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetVoiceCanvas(ref suppressDefaultLog, apiResponseLocalVar, version, requestId, accountId);
+            AfterGetVoiceCanvas(ref suppressDefaultLog, apiResponseLocalVar, requestId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6708,10 +6533,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetVoiceCanvas(ref bool suppressDefaultLog, IGetVoiceCanvasApiResponse apiResponseLocalVar, decimal version, string requestId, long accountId);
+        partial void AfterGetVoiceCanvas(ref bool suppressDefaultLog, IGetVoiceCanvasApiResponse apiResponseLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6719,13 +6543,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetVoiceCanvasDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId)
+        private void OnErrorGetVoiceCanvasDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetVoiceCanvas(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, requestId, accountId);
+            OnErrorGetVoiceCanvas(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, requestId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6737,24 +6560,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="requestId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetVoiceCanvas(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string requestId, long accountId);
+        partial void OnErrorGetVoiceCanvas(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string requestId, long accountId);
 
         /// <summary>
         /// Get VoiceCanvas images Get a result or continue waiting for a pending request for VoiceCanvas Images.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVoiceCanvasApiResponse"/>&gt;</returns>
-        public async Task<IGetVoiceCanvasApiResponse?> GetVoiceCanvasOrDefaultAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetVoiceCanvasApiResponse?> GetVoiceCanvasOrDefaultAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetVoiceCanvasAsync(version, requestId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetVoiceCanvasAsync(requestId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6766,12 +6587,11 @@ namespace Org.OpenAPITools.Api
         /// Get VoiceCanvas images Get a result or continue waiting for a pending request for VoiceCanvas Images.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="requestId">Orson Request Id</param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVoiceCanvasApiResponse"/>&gt;</returns>
-        public async Task<IGetVoiceCanvasApiResponse> GetVoiceCanvasAsync(decimal version, string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetVoiceCanvasApiResponse> GetVoiceCanvasAsync(string requestId, long accountId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6779,7 +6599,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetVoiceCanvas(requestId);
 
-                FormatGetVoiceCanvas(ref version, ref requestId, ref accountId);
+                FormatGetVoiceCanvas(ref requestId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6787,9 +6607,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/voiceCanvas/{requestId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/voiceCanvas/{requestId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/voiceCanvas/{requestId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/voiceCanvas/{requestId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BrequestId%7D", Uri.EscapeDataString(requestId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -6821,13 +6640,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/voiceCanvas/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/voiceCanvas/{requestId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetVoiceCanvasDefaultImplementation(apiResponseLocalVar, version, requestId, accountId);
+                        AfterGetVoiceCanvasDefaultImplementation(apiResponseLocalVar, requestId, accountId);
 
                         Events.ExecuteOnGetVoiceCanvas(apiResponseLocalVar);
 
@@ -6837,7 +6656,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetVoiceCanvasDefaultImplementation(e, "/api/{version}/orson/ai/voiceCanvas/{requestId}", uriBuilderLocalVar.Path, version, requestId, accountId);
+                OnErrorGetVoiceCanvasDefaultImplementation(e, "/orson/ai/voiceCanvas/{requestId}", uriBuilderLocalVar.Path, requestId, accountId);
                 Events.ExecuteOnErrorGetVoiceCanvas(e);
                 throw;
             }
@@ -6936,7 +6755,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatStartVideoRender(ref decimal version, ref long accountId, ref string data);
+        partial void FormatStartVideoRender(ref long accountId, ref string data);
 
         /// <summary>
         /// Validates the request parameters
@@ -6953,13 +6772,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="data"></param>
-        private void AfterStartVideoRenderDefaultImplementation(IStartVideoRenderApiResponse apiResponseLocalVar, decimal version, long accountId, string data)
+        private void AfterStartVideoRenderDefaultImplementation(IStartVideoRenderApiResponse apiResponseLocalVar, long accountId, string data)
         {
             bool suppressDefaultLog = false;
-            AfterStartVideoRender(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, data);
+            AfterStartVideoRender(ref suppressDefaultLog, apiResponseLocalVar, accountId, data);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6969,10 +6787,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="data"></param>
-        partial void AfterStartVideoRender(ref bool suppressDefaultLog, IStartVideoRenderApiResponse apiResponseLocalVar, decimal version, long accountId, string data);
+        partial void AfterStartVideoRender(ref bool suppressDefaultLog, IStartVideoRenderApiResponse apiResponseLocalVar, long accountId, string data);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6980,13 +6797,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="data"></param>
-        private void OnErrorStartVideoRenderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string data)
+        private void OnErrorStartVideoRenderDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string data)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorStartVideoRender(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, data);
+            OnErrorStartVideoRender(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, data);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6998,24 +6814,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="data"></param>
-        partial void OnErrorStartVideoRender(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string data);
+        partial void OnErrorStartVideoRender(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string data);
 
         /// <summary>
         /// Starts a StoryStitch video render Starts a StoryStitch video render to produce your final video, returning the status details.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="data">Request Data String</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IStartVideoRenderApiResponse"/>&gt;</returns>
-        public async Task<IStartVideoRenderApiResponse?> StartVideoRenderOrDefaultAsync(decimal version, long accountId, string data, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IStartVideoRenderApiResponse?> StartVideoRenderOrDefaultAsync(long accountId, string data, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await StartVideoRenderAsync(version, accountId, data, cancellationToken).ConfigureAwait(false);
+                return await StartVideoRenderAsync(accountId, data, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7027,12 +6841,11 @@ namespace Org.OpenAPITools.Api
         /// Starts a StoryStitch video render Starts a StoryStitch video render to produce your final video, returning the status details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="data">Request Data String</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IStartVideoRenderApiResponse"/>&gt;</returns>
-        public async Task<IStartVideoRenderApiResponse> StartVideoRenderAsync(decimal version, long accountId, string data, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IStartVideoRenderApiResponse> StartVideoRenderAsync(long accountId, string data, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7040,7 +6853,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateStartVideoRender(data);
 
-                FormatStartVideoRender(ref version, ref accountId, ref data);
+                FormatStartVideoRender(ref accountId, ref data);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7048,9 +6861,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/stories/renders"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/stories/renders");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/stories/renders"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/stories/renders");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7082,13 +6894,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/stories/renders", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/stories/renders", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterStartVideoRenderDefaultImplementation(apiResponseLocalVar, version, accountId, data);
+                        AfterStartVideoRenderDefaultImplementation(apiResponseLocalVar, accountId, data);
 
                         Events.ExecuteOnStartVideoRender(apiResponseLocalVar);
 
@@ -7098,7 +6910,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorStartVideoRenderDefaultImplementation(e, "/api/{version}/orson/stories/renders", uriBuilderLocalVar.Path, version, accountId, data);
+                OnErrorStartVideoRenderDefaultImplementation(e, "/orson/stories/renders", uriBuilderLocalVar.Path, accountId, data);
                 Events.ExecuteOnErrorStartVideoRender(e);
                 throw;
             }
@@ -7197,7 +7009,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatStt(ref decimal version, ref long accountId, ref Option<string> thirdPartyAccountId, ref Option<string> sourceLanguage, ref Option<string> targetLanguage, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
+        partial void FormatStt(ref long accountId, ref Option<string> thirdPartyAccountId, ref Option<string> sourceLanguage, ref Option<string> targetLanguage, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
 
         /// <summary>
         /// Validates the request parameters
@@ -7234,7 +7046,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="sourceLanguage"></param>
@@ -7242,10 +7053,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void AfterSttDefaultImplementation(ISttApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<string> sourceLanguage, Option<string> targetLanguage, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void AfterSttDefaultImplementation(ISttApiResponse apiResponseLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<string> sourceLanguage, Option<string> targetLanguage, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLog = false;
-            AfterStt(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
+            AfterStt(ref suppressDefaultLog, apiResponseLocalVar, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7255,7 +7066,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="sourceLanguage"></param>
@@ -7263,7 +7073,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void AfterStt(ref bool suppressDefaultLog, ISttApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<string> sourceLanguage, Option<string> targetLanguage, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void AfterStt(ref bool suppressDefaultLog, ISttApiResponse apiResponseLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<string> sourceLanguage, Option<string> targetLanguage, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7271,7 +7081,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="sourceLanguage"></param>
@@ -7279,10 +7088,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void OnErrorSttDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<string> sourceLanguage, Option<string> targetLanguage, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void OnErrorSttDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<string> sourceLanguage, Option<string> targetLanguage, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorStt(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
+            OnErrorStt(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7294,7 +7103,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="sourceLanguage"></param>
@@ -7302,12 +7110,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void OnErrorStt(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<string> sourceLanguage, Option<string> targetLanguage, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void OnErrorStt(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<string> sourceLanguage, Option<string> targetLanguage, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Speach to Text Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="sourceLanguage">Source Language (optional)</param>
@@ -7317,11 +7124,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISttApiResponse"/>&gt;</returns>
-        public async Task<ISttApiResponse?> SttOrDefaultAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<string> sourceLanguage = default, Option<string> targetLanguage = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISttApiResponse?> SttOrDefaultAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<string> sourceLanguage = default, Option<string> targetLanguage = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SttAsync(version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback, cancellationToken).ConfigureAwait(false);
+                return await SttAsync(accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7333,7 +7140,6 @@ namespace Org.OpenAPITools.Api
         /// Speach to Text Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="sourceLanguage">Source Language (optional)</param>
@@ -7343,7 +7149,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISttApiResponse"/>&gt;</returns>
-        public async Task<ISttApiResponse> SttAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<string> sourceLanguage = default, Option<string> targetLanguage = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISttApiResponse> SttAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<string> sourceLanguage = default, Option<string> targetLanguage = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7351,7 +7157,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateStt(thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
 
-                FormatStt(ref version, ref accountId, ref thirdPartyAccountId, ref sourceLanguage, ref targetLanguage, ref file, ref url, ref callback);
+                FormatStt(ref accountId, ref thirdPartyAccountId, ref sourceLanguage, ref targetLanguage, ref file, ref url, ref callback);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7359,9 +7165,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/stt"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/stt");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/stt"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/stt");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7410,13 +7215,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/stt", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/stt", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSttDefaultImplementation(apiResponseLocalVar, version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
+                        AfterSttDefaultImplementation(apiResponseLocalVar, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
 
                         Events.ExecuteOnStt(apiResponseLocalVar);
 
@@ -7426,7 +7231,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSttDefaultImplementation(e, "/api/{version}/orson/ai/stt", uriBuilderLocalVar.Path, version, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
+                OnErrorSttDefaultImplementation(e, "/orson/ai/stt", uriBuilderLocalVar.Path, accountId, thirdPartyAccountId, sourceLanguage, targetLanguage, file, url, callback);
                 Events.ExecuteOnErrorStt(e);
                 throw;
             }
@@ -7525,7 +7330,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSummarizeTopics(ref decimal version, ref long accountId, ref Option<string> thirdPartyAccountId, ref Option<string> doc, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<int> limit, ref Option<int> offset, ref Option<string> callback);
+        partial void FormatSummarizeTopics(ref long accountId, ref Option<string> thirdPartyAccountId, ref Option<string> doc, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<int> limit, ref Option<int> offset, ref Option<string> callback);
 
         /// <summary>
         /// Validates the request parameters
@@ -7558,7 +7363,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="doc"></param>
@@ -7567,10 +7371,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="offset"></param>
         /// <param name="callback"></param>
-        private void AfterSummarizeTopicsDefaultImplementation(ISummarizeTopicsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<string> doc, Option<System.IO.Stream> file, Option<string> url, Option<int> limit, Option<int> offset, Option<string> callback)
+        private void AfterSummarizeTopicsDefaultImplementation(ISummarizeTopicsApiResponse apiResponseLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<string> doc, Option<System.IO.Stream> file, Option<string> url, Option<int> limit, Option<int> offset, Option<string> callback)
         {
             bool suppressDefaultLog = false;
-            AfterSummarizeTopics(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback);
+            AfterSummarizeTopics(ref suppressDefaultLog, apiResponseLocalVar, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7580,7 +7384,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="doc"></param>
@@ -7589,7 +7392,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="offset"></param>
         /// <param name="callback"></param>
-        partial void AfterSummarizeTopics(ref bool suppressDefaultLog, ISummarizeTopicsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<string> doc, Option<System.IO.Stream> file, Option<string> url, Option<int> limit, Option<int> offset, Option<string> callback);
+        partial void AfterSummarizeTopics(ref bool suppressDefaultLog, ISummarizeTopicsApiResponse apiResponseLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<string> doc, Option<System.IO.Stream> file, Option<string> url, Option<int> limit, Option<int> offset, Option<string> callback);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7597,7 +7400,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="doc"></param>
@@ -7606,10 +7408,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="offset"></param>
         /// <param name="callback"></param>
-        private void OnErrorSummarizeTopicsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<string> doc, Option<System.IO.Stream> file, Option<string> url, Option<int> limit, Option<int> offset, Option<string> callback)
+        private void OnErrorSummarizeTopicsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<string> doc, Option<System.IO.Stream> file, Option<string> url, Option<int> limit, Option<int> offset, Option<string> callback)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSummarizeTopics(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback);
+            OnErrorSummarizeTopics(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7621,7 +7423,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="doc"></param>
@@ -7630,12 +7431,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="offset"></param>
         /// <param name="callback"></param>
-        partial void OnErrorSummarizeTopics(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> thirdPartyAccountId, Option<string> doc, Option<System.IO.Stream> file, Option<string> url, Option<int> limit, Option<int> offset, Option<string> callback);
+        partial void OnErrorSummarizeTopics(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> thirdPartyAccountId, Option<string> doc, Option<System.IO.Stream> file, Option<string> url, Option<int> limit, Option<int> offset, Option<string> callback);
 
         /// <summary>
         /// Summarize Topics Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="doc">The text to get topics for. (optional)</param>
@@ -7646,11 +7446,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISummarizeTopicsApiResponse"/>&gt;</returns>
-        public async Task<ISummarizeTopicsApiResponse?> SummarizeTopicsOrDefaultAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<string> doc = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<int> limit = default, Option<int> offset = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISummarizeTopicsApiResponse?> SummarizeTopicsOrDefaultAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<string> doc = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<int> limit = default, Option<int> offset = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SummarizeTopicsAsync(version, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback, cancellationToken).ConfigureAwait(false);
+                return await SummarizeTopicsAsync(accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7662,7 +7462,6 @@ namespace Org.OpenAPITools.Api
         /// Summarize Topics Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
         /// <param name="doc">The text to get topics for. (optional)</param>
@@ -7673,7 +7472,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISummarizeTopicsApiResponse"/>&gt;</returns>
-        public async Task<ISummarizeTopicsApiResponse> SummarizeTopicsAsync(decimal version, long accountId, Option<string> thirdPartyAccountId = default, Option<string> doc = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<int> limit = default, Option<int> offset = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISummarizeTopicsApiResponse> SummarizeTopicsAsync(long accountId, Option<string> thirdPartyAccountId = default, Option<string> doc = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<int> limit = default, Option<int> offset = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7681,7 +7480,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSummarizeTopics(thirdPartyAccountId, doc, file, url, callback);
 
-                FormatSummarizeTopics(ref version, ref accountId, ref thirdPartyAccountId, ref doc, ref file, ref url, ref limit, ref offset, ref callback);
+                FormatSummarizeTopics(ref accountId, ref thirdPartyAccountId, ref doc, ref file, ref url, ref limit, ref offset, ref callback);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7689,9 +7488,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/topics"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/topics");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/topics"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/topics");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7743,13 +7541,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/topics", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/topics", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSummarizeTopicsDefaultImplementation(apiResponseLocalVar, version, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback);
+                        AfterSummarizeTopicsDefaultImplementation(apiResponseLocalVar, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback);
 
                         Events.ExecuteOnSummarizeTopics(apiResponseLocalVar);
 
@@ -7759,7 +7557,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSummarizeTopicsDefaultImplementation(e, "/api/{version}/orson/ai/topics", uriBuilderLocalVar.Path, version, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback);
+                OnErrorSummarizeTopicsDefaultImplementation(e, "/orson/ai/topics", uriBuilderLocalVar.Path, accountId, thirdPartyAccountId, doc, file, url, limit, offset, callback);
                 Events.ExecuteOnErrorSummarizeTopics(e);
                 throw;
             }
@@ -7858,7 +7656,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatTechTune(ref decimal version, ref long accountId, ref int numFacesExpected, ref Option<string> thirdPartyAccountId, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
+        partial void FormatTechTune(ref long accountId, ref int numFacesExpected, ref Option<string> thirdPartyAccountId, ref Option<System.IO.Stream> file, ref Option<string> url, ref Option<string> callback);
 
         /// <summary>
         /// Validates the request parameters
@@ -7887,17 +7685,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="numFacesExpected"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void AfterTechTuneDefaultImplementation(ITechTuneApiResponse apiResponseLocalVar, decimal version, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void AfterTechTuneDefaultImplementation(ITechTuneApiResponse apiResponseLocalVar, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLog = false;
-            AfterTechTune(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback);
+            AfterTechTune(ref suppressDefaultLog, apiResponseLocalVar, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7907,14 +7704,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="numFacesExpected"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void AfterTechTune(ref bool suppressDefaultLog, ITechTuneApiResponse apiResponseLocalVar, decimal version, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void AfterTechTune(ref bool suppressDefaultLog, ITechTuneApiResponse apiResponseLocalVar, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7922,17 +7718,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="numFacesExpected"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        private void OnErrorTechTuneDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
+        private void OnErrorTechTuneDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorTechTune(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback);
+            OnErrorTechTune(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7944,19 +7739,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="numFacesExpected"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="file"></param>
         /// <param name="url"></param>
         /// <param name="callback"></param>
-        partial void OnErrorTechTune(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
+        partial void OnErrorTechTune(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId, Option<System.IO.Stream> file, Option<string> url, Option<string> callback);
 
         /// <summary>
         /// Detect Technical Issues Analyses a movie file to detect technical issues, such as too few people in frame.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="numFacesExpected">Number of expected faces</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -7965,11 +7758,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITechTuneApiResponse"/>&gt;</returns>
-        public async Task<ITechTuneApiResponse?> TechTuneOrDefaultAsync(decimal version, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITechTuneApiResponse?> TechTuneOrDefaultAsync(long accountId, int numFacesExpected, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await TechTuneAsync(version, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback, cancellationToken).ConfigureAwait(false);
+                return await TechTuneAsync(accountId, numFacesExpected, thirdPartyAccountId, file, url, callback, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7981,7 +7774,6 @@ namespace Org.OpenAPITools.Api
         /// Detect Technical Issues Analyses a movie file to detect technical issues, such as too few people in frame.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="numFacesExpected">Number of expected faces</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -7990,7 +7782,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITechTuneApiResponse"/>&gt;</returns>
-        public async Task<ITechTuneApiResponse> TechTuneAsync(decimal version, long accountId, int numFacesExpected, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITechTuneApiResponse> TechTuneAsync(long accountId, int numFacesExpected, Option<string> thirdPartyAccountId = default, Option<System.IO.Stream> file = default, Option<string> url = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7998,7 +7790,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateTechTune(thirdPartyAccountId, file, url, callback);
 
-                FormatTechTune(ref version, ref accountId, ref numFacesExpected, ref thirdPartyAccountId, ref file, ref url, ref callback);
+                FormatTechTune(ref accountId, ref numFacesExpected, ref thirdPartyAccountId, ref file, ref url, ref callback);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8006,9 +7798,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/techTune"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/techTune");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/techTune"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/techTune");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8052,13 +7843,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/techTune", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/techTune", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterTechTuneDefaultImplementation(apiResponseLocalVar, version, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback);
+                        AfterTechTuneDefaultImplementation(apiResponseLocalVar, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback);
 
                         Events.ExecuteOnTechTune(apiResponseLocalVar);
 
@@ -8068,7 +7859,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorTechTuneDefaultImplementation(e, "/api/{version}/orson/ai/techTune", uriBuilderLocalVar.Path, version, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback);
+                OnErrorTechTuneDefaultImplementation(e, "/orson/ai/techTune", uriBuilderLocalVar.Path, accountId, numFacesExpected, thirdPartyAccountId, file, url, callback);
                 Events.ExecuteOnErrorTechTune(e);
                 throw;
             }
@@ -8167,7 +7958,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatTts(ref decimal version, ref long accountId, ref string text, ref Option<string> thirdPartyAccountId, ref Option<string> language, ref Option<string> voice, ref Option<string> callback);
+        partial void FormatTts(ref long accountId, ref string text, ref Option<string> thirdPartyAccountId, ref Option<string> language, ref Option<string> voice, ref Option<string> callback);
 
         /// <summary>
         /// Validates the request parameters
@@ -8200,17 +7991,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="text"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="language"></param>
         /// <param name="voice"></param>
         /// <param name="callback"></param>
-        private void AfterTtsDefaultImplementation(ITtsApiResponse apiResponseLocalVar, decimal version, long accountId, string text, Option<string> thirdPartyAccountId, Option<string> language, Option<string> voice, Option<string> callback)
+        private void AfterTtsDefaultImplementation(ITtsApiResponse apiResponseLocalVar, long accountId, string text, Option<string> thirdPartyAccountId, Option<string> language, Option<string> voice, Option<string> callback)
         {
             bool suppressDefaultLog = false;
-            AfterTts(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, text, thirdPartyAccountId, language, voice, callback);
+            AfterTts(ref suppressDefaultLog, apiResponseLocalVar, accountId, text, thirdPartyAccountId, language, voice, callback);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8220,14 +8010,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="text"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="language"></param>
         /// <param name="voice"></param>
         /// <param name="callback"></param>
-        partial void AfterTts(ref bool suppressDefaultLog, ITtsApiResponse apiResponseLocalVar, decimal version, long accountId, string text, Option<string> thirdPartyAccountId, Option<string> language, Option<string> voice, Option<string> callback);
+        partial void AfterTts(ref bool suppressDefaultLog, ITtsApiResponse apiResponseLocalVar, long accountId, string text, Option<string> thirdPartyAccountId, Option<string> language, Option<string> voice, Option<string> callback);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8235,17 +8024,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="text"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="language"></param>
         /// <param name="voice"></param>
         /// <param name="callback"></param>
-        private void OnErrorTtsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string text, Option<string> thirdPartyAccountId, Option<string> language, Option<string> voice, Option<string> callback)
+        private void OnErrorTtsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string text, Option<string> thirdPartyAccountId, Option<string> language, Option<string> voice, Option<string> callback)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorTts(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, text, thirdPartyAccountId, language, voice, callback);
+            OnErrorTts(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, text, thirdPartyAccountId, language, voice, callback);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8257,19 +8045,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="text"></param>
         /// <param name="thirdPartyAccountId"></param>
         /// <param name="language"></param>
         /// <param name="voice"></param>
         /// <param name="callback"></param>
-        partial void OnErrorTts(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string text, Option<string> thirdPartyAccountId, Option<string> language, Option<string> voice, Option<string> callback);
+        partial void OnErrorTts(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string text, Option<string> thirdPartyAccountId, Option<string> language, Option<string> voice, Option<string> callback);
 
         /// <summary>
         /// Text to Speach Creates an audio file for the given text, with the option of language and voice selection.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="text">Text</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -8278,11 +8064,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITtsApiResponse"/>&gt;</returns>
-        public async Task<ITtsApiResponse?> TtsOrDefaultAsync(decimal version, long accountId, string text, Option<string> thirdPartyAccountId = default, Option<string> language = default, Option<string> voice = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITtsApiResponse?> TtsOrDefaultAsync(long accountId, string text, Option<string> thirdPartyAccountId = default, Option<string> language = default, Option<string> voice = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await TtsAsync(version, accountId, text, thirdPartyAccountId, language, voice, callback, cancellationToken).ConfigureAwait(false);
+                return await TtsAsync(accountId, text, thirdPartyAccountId, language, voice, callback, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8294,7 +8080,6 @@ namespace Org.OpenAPITools.Api
         /// Text to Speach Creates an audio file for the given text, with the option of language and voice selection.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="text">Text</param>
         /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional)</param>
@@ -8303,7 +8088,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITtsApiResponse"/>&gt;</returns>
-        public async Task<ITtsApiResponse> TtsAsync(decimal version, long accountId, string text, Option<string> thirdPartyAccountId = default, Option<string> language = default, Option<string> voice = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITtsApiResponse> TtsAsync(long accountId, string text, Option<string> thirdPartyAccountId = default, Option<string> language = default, Option<string> voice = default, Option<string> callback = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8311,7 +8096,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateTts(text, thirdPartyAccountId, language, voice, callback);
 
-                FormatTts(ref version, ref accountId, ref text, ref thirdPartyAccountId, ref language, ref voice, ref callback);
+                FormatTts(ref accountId, ref text, ref thirdPartyAccountId, ref language, ref voice, ref callback);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8319,9 +8104,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/orson/ai/tts"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/orson/ai/tts");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/orson/ai/tts"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/orson/ai/tts");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8365,13 +8149,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/orson/ai/tts", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/orson/ai/tts", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterTtsDefaultImplementation(apiResponseLocalVar, version, accountId, text, thirdPartyAccountId, language, voice, callback);
+                        AfterTtsDefaultImplementation(apiResponseLocalVar, accountId, text, thirdPartyAccountId, language, voice, callback);
 
                         Events.ExecuteOnTts(apiResponseLocalVar);
 
@@ -8381,7 +8165,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorTtsDefaultImplementation(e, "/api/{version}/orson/ai/tts", uriBuilderLocalVar.Path, version, accountId, text, thirdPartyAccountId, language, voice, callback);
+                OnErrorTtsDefaultImplementation(e, "/orson/ai/tts", uriBuilderLocalVar.Path, accountId, text, thirdPartyAccountId, language, voice, callback);
                 Events.ExecuteOnErrorTts(e);
                 throw;
             }

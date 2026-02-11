@@ -45,13 +45,12 @@ namespace Org.OpenAPITools.Api
         /// Creates a territory.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the territory</param>
         /// <param name="active">If true set the game level as active. Default is true. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTerritoryApiResponse"/>&gt;</returns>
-        Task<ICreateTerritoryApiResponse> CreateTerritoryAsync(decimal version, long accountId, string name, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTerritoryApiResponse> CreateTerritoryAsync(long accountId, string name, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Territory
@@ -59,13 +58,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a territory.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the territory</param>
         /// <param name="active">If true set the game level as active. Default is true. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTerritoryApiResponse"/>?&gt;</returns>
-        Task<ICreateTerritoryApiResponse?> CreateTerritoryOrDefaultAsync(decimal version, long accountId, string name, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTerritoryApiResponse?> CreateTerritoryOrDefaultAsync(long accountId, string name, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Territory
@@ -74,12 +72,11 @@ namespace Org.OpenAPITools.Api
         /// Deletes a territory.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="territoryId">the id of the territory to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTerritoryApiResponse"/>&gt;</returns>
-        Task<IDeleteTerritoryApiResponse> DeleteTerritoryAsync(decimal version, long accountId, long territoryId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteTerritoryApiResponse> DeleteTerritoryAsync(long accountId, long territoryId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Territory
@@ -87,12 +84,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes a territory.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="territoryId">the id of the territory to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTerritoryApiResponse"/>?&gt;</returns>
-        Task<IDeleteTerritoryApiResponse?> DeleteTerritoryOrDefaultAsync(decimal version, long accountId, long territoryId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteTerritoryApiResponse?> DeleteTerritoryOrDefaultAsync(long accountId, long territoryId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Territory
@@ -101,11 +97,10 @@ namespace Org.OpenAPITools.Api
         /// Get a territory.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="territoryId">the id of the territory to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTerritoryApiResponse"/>&gt;</returns>
-        Task<IGetTerritoryApiResponse> GetTerritoryAsync(decimal version, long territoryId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTerritoryApiResponse> GetTerritoryAsync(long territoryId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Territory
@@ -113,11 +108,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a territory.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="territoryId">the id of the territory to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTerritoryApiResponse"/>?&gt;</returns>
-        Task<IGetTerritoryApiResponse?> GetTerritoryOrDefaultAsync(decimal version, long territoryId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTerritoryApiResponse?> GetTerritoryOrDefaultAsync(long territoryId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Territories
@@ -126,7 +120,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on territories.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
         /// <param name="keyword">Return results that match this keyword. (optional)</param>
@@ -134,7 +127,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTerritoriesApiResponse"/>&gt;</returns>
-        Task<ISearchTerritoriesApiResponse> SearchTerritoriesAsync(decimal version, string sortField, bool descending, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTerritoriesApiResponse> SearchTerritoriesAsync(string sortField, bool descending, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Territories
@@ -142,7 +135,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on territories.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
         /// <param name="keyword">Return results that match this keyword. (optional)</param>
@@ -150,7 +142,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTerritoriesApiResponse"/>?&gt;</returns>
-        Task<ISearchTerritoriesApiResponse?> SearchTerritoriesOrDefaultAsync(decimal version, string sortField, bool descending, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTerritoriesApiResponse?> SearchTerritoriesOrDefaultAsync(string sortField, bool descending, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Territory
@@ -159,14 +151,13 @@ namespace Org.OpenAPITools.Api
         /// Updates a territory.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="territoryId">the id of the territory to update</param>
         /// <param name="name">The name of the territory (optional)</param>
         /// <param name="active">If true set the game level as active. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTerritoryApiResponse"/>&gt;</returns>
-        Task<IUpdateTerritoryApiResponse> UpdateTerritoryAsync(decimal version, long accountId, long territoryId, Option<string> name = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTerritoryApiResponse> UpdateTerritoryAsync(long accountId, long territoryId, Option<string> name = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Territory
@@ -174,14 +165,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a territory.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="territoryId">the id of the territory to update</param>
         /// <param name="name">The name of the territory (optional)</param>
         /// <param name="active">If true set the game level as active. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTerritoryApiResponse"/>?&gt;</returns>
-        Task<IUpdateTerritoryApiResponse?> UpdateTerritoryOrDefaultAsync(decimal version, long accountId, long territoryId, Option<string> name = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTerritoryApiResponse?> UpdateTerritoryOrDefaultAsync(long accountId, long territoryId, Option<string> name = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -397,7 +387,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateTerritory(ref decimal version, ref long accountId, ref string name, ref Option<bool> active);
+        partial void FormatCreateTerritory(ref long accountId, ref string name, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -414,14 +404,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
-        private void AfterCreateTerritoryDefaultImplementation(ICreateTerritoryApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<bool> active)
+        private void AfterCreateTerritoryDefaultImplementation(ICreateTerritoryApiResponse apiResponseLocalVar, long accountId, string name, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterCreateTerritory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, active);
+            AfterCreateTerritory(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -431,11 +420,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
-        partial void AfterCreateTerritory(ref bool suppressDefaultLog, ICreateTerritoryApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<bool> active);
+        partial void AfterCreateTerritory(ref bool suppressDefaultLog, ICreateTerritoryApiResponse apiResponseLocalVar, long accountId, string name, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -443,14 +431,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
-        private void OnErrorCreateTerritoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<bool> active)
+        private void OnErrorCreateTerritoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateTerritory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, active);
+            OnErrorCreateTerritory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -462,26 +449,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
-        partial void OnErrorCreateTerritory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<bool> active);
+        partial void OnErrorCreateTerritory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<bool> active);
 
         /// <summary>
         /// Create Territory Creates a territory.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the territory</param>
         /// <param name="active">If true set the game level as active. Default is true. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTerritoryApiResponse"/>&gt;</returns>
-        public async Task<ICreateTerritoryApiResponse?> CreateTerritoryOrDefaultAsync(decimal version, long accountId, string name, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTerritoryApiResponse?> CreateTerritoryOrDefaultAsync(long accountId, string name, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateTerritoryAsync(version, accountId, name, active, cancellationToken).ConfigureAwait(false);
+                return await CreateTerritoryAsync(accountId, name, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -493,13 +478,12 @@ namespace Org.OpenAPITools.Api
         /// Create Territory Creates a territory.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the territory</param>
         /// <param name="active">If true set the game level as active. Default is true. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTerritoryApiResponse"/>&gt;</returns>
-        public async Task<ICreateTerritoryApiResponse> CreateTerritoryAsync(decimal version, long accountId, string name, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTerritoryApiResponse> CreateTerritoryAsync(long accountId, string name, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -507,7 +491,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateTerritory(name);
 
-                FormatCreateTerritory(ref version, ref accountId, ref name, ref active);
+                FormatCreateTerritory(ref accountId, ref name, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -515,9 +499,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/territory/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/territory/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/territory/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/territory/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -552,13 +535,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/territory/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/territory/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateTerritoryDefaultImplementation(apiResponseLocalVar, version, accountId, name, active);
+                        AfterCreateTerritoryDefaultImplementation(apiResponseLocalVar, accountId, name, active);
 
                         Events.ExecuteOnCreateTerritory(apiResponseLocalVar);
 
@@ -568,7 +551,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateTerritoryDefaultImplementation(e, "/api/{version}/territory/create", uriBuilderLocalVar.Path, version, accountId, name, active);
+                OnErrorCreateTerritoryDefaultImplementation(e, "/territory/create", uriBuilderLocalVar.Path, accountId, name, active);
                 Events.ExecuteOnErrorCreateTerritory(e);
                 throw;
             }
@@ -667,19 +650,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteTerritory(ref decimal version, ref long accountId, ref long territoryId);
+        partial void FormatDeleteTerritory(ref long accountId, ref long territoryId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="territoryId"></param>
-        private void AfterDeleteTerritoryDefaultImplementation(IDeleteTerritoryApiResponse apiResponseLocalVar, decimal version, long accountId, long territoryId)
+        private void AfterDeleteTerritoryDefaultImplementation(IDeleteTerritoryApiResponse apiResponseLocalVar, long accountId, long territoryId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteTerritory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, territoryId);
+            AfterDeleteTerritory(ref suppressDefaultLog, apiResponseLocalVar, accountId, territoryId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -689,10 +671,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="territoryId"></param>
-        partial void AfterDeleteTerritory(ref bool suppressDefaultLog, IDeleteTerritoryApiResponse apiResponseLocalVar, decimal version, long accountId, long territoryId);
+        partial void AfterDeleteTerritory(ref bool suppressDefaultLog, IDeleteTerritoryApiResponse apiResponseLocalVar, long accountId, long territoryId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -700,13 +681,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="territoryId"></param>
-        private void OnErrorDeleteTerritoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long territoryId)
+        private void OnErrorDeleteTerritoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long territoryId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteTerritory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, territoryId);
+            OnErrorDeleteTerritory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, territoryId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -718,24 +698,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="territoryId"></param>
-        partial void OnErrorDeleteTerritory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long territoryId);
+        partial void OnErrorDeleteTerritory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long territoryId);
 
         /// <summary>
         /// Delete Territory Deletes a territory.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="territoryId">the id of the territory to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTerritoryApiResponse"/>&gt;</returns>
-        public async Task<IDeleteTerritoryApiResponse?> DeleteTerritoryOrDefaultAsync(decimal version, long accountId, long territoryId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteTerritoryApiResponse?> DeleteTerritoryOrDefaultAsync(long accountId, long territoryId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteTerritoryAsync(version, accountId, territoryId, cancellationToken).ConfigureAwait(false);
+                return await DeleteTerritoryAsync(accountId, territoryId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -747,18 +725,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Territory Deletes a territory.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="territoryId">the id of the territory to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTerritoryApiResponse"/>&gt;</returns>
-        public async Task<IDeleteTerritoryApiResponse> DeleteTerritoryAsync(decimal version, long accountId, long territoryId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteTerritoryApiResponse> DeleteTerritoryAsync(long accountId, long territoryId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteTerritory(ref version, ref accountId, ref territoryId);
+                FormatDeleteTerritory(ref accountId, ref territoryId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -766,9 +743,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/territory/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/territory/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/territory/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/territory/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -800,13 +776,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/territory/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/territory/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteTerritoryDefaultImplementation(apiResponseLocalVar, version, accountId, territoryId);
+                        AfterDeleteTerritoryDefaultImplementation(apiResponseLocalVar, accountId, territoryId);
 
                         Events.ExecuteOnDeleteTerritory(apiResponseLocalVar);
 
@@ -816,7 +792,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteTerritoryDefaultImplementation(e, "/api/{version}/territory/delete", uriBuilderLocalVar.Path, version, accountId, territoryId);
+                OnErrorDeleteTerritoryDefaultImplementation(e, "/territory/delete", uriBuilderLocalVar.Path, accountId, territoryId);
                 Events.ExecuteOnErrorDeleteTerritory(e);
                 throw;
             }
@@ -915,18 +891,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTerritory(ref decimal version, ref long territoryId);
+        partial void FormatGetTerritory(ref long territoryId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="territoryId"></param>
-        private void AfterGetTerritoryDefaultImplementation(IGetTerritoryApiResponse apiResponseLocalVar, decimal version, long territoryId)
+        private void AfterGetTerritoryDefaultImplementation(IGetTerritoryApiResponse apiResponseLocalVar, long territoryId)
         {
             bool suppressDefaultLog = false;
-            AfterGetTerritory(ref suppressDefaultLog, apiResponseLocalVar, version, territoryId);
+            AfterGetTerritory(ref suppressDefaultLog, apiResponseLocalVar, territoryId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -936,9 +911,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="territoryId"></param>
-        partial void AfterGetTerritory(ref bool suppressDefaultLog, IGetTerritoryApiResponse apiResponseLocalVar, decimal version, long territoryId);
+        partial void AfterGetTerritory(ref bool suppressDefaultLog, IGetTerritoryApiResponse apiResponseLocalVar, long territoryId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -946,12 +920,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="territoryId"></param>
-        private void OnErrorGetTerritoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long territoryId)
+        private void OnErrorGetTerritoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long territoryId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTerritory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, territoryId);
+            OnErrorGetTerritory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, territoryId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -963,22 +936,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="territoryId"></param>
-        partial void OnErrorGetTerritory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long territoryId);
+        partial void OnErrorGetTerritory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long territoryId);
 
         /// <summary>
         /// Get Territory Get a territory.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="territoryId">the id of the territory to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTerritoryApiResponse"/>&gt;</returns>
-        public async Task<IGetTerritoryApiResponse?> GetTerritoryOrDefaultAsync(decimal version, long territoryId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTerritoryApiResponse?> GetTerritoryOrDefaultAsync(long territoryId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTerritoryAsync(version, territoryId, cancellationToken).ConfigureAwait(false);
+                return await GetTerritoryAsync(territoryId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -990,17 +961,16 @@ namespace Org.OpenAPITools.Api
         /// Get Territory Get a territory.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="territoryId">the id of the territory to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTerritoryApiResponse"/>&gt;</returns>
-        public async Task<IGetTerritoryApiResponse> GetTerritoryAsync(decimal version, long territoryId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTerritoryApiResponse> GetTerritoryAsync(long territoryId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetTerritory(ref version, ref territoryId);
+                FormatGetTerritory(ref territoryId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1008,9 +978,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/territory/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/territory/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/territory/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/territory/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1041,13 +1010,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/territory/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/territory/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTerritoryDefaultImplementation(apiResponseLocalVar, version, territoryId);
+                        AfterGetTerritoryDefaultImplementation(apiResponseLocalVar, territoryId);
 
                         Events.ExecuteOnGetTerritory(apiResponseLocalVar);
 
@@ -1057,7 +1026,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTerritoryDefaultImplementation(e, "/api/{version}/territory/get", uriBuilderLocalVar.Path, version, territoryId);
+                OnErrorGetTerritoryDefaultImplementation(e, "/territory/get", uriBuilderLocalVar.Path, territoryId);
                 Events.ExecuteOnErrorGetTerritory(e);
                 throw;
             }
@@ -1156,7 +1125,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchTerritories(ref decimal version, ref string sortField, ref bool descending, ref Option<string> keyword, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchTerritories(ref string sortField, ref bool descending, ref Option<string> keyword, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1177,16 +1146,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchTerritoriesDefaultImplementation(ISearchTerritoriesApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, Option<string> keyword, Option<int> start, Option<int> limit)
+        private void AfterSearchTerritoriesDefaultImplementation(ISearchTerritoriesApiResponse apiResponseLocalVar, string sortField, bool descending, Option<string> keyword, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchTerritories(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, keyword, start, limit);
+            AfterSearchTerritories(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, keyword, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1196,13 +1164,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchTerritories(ref bool suppressDefaultLog, ISearchTerritoriesApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, Option<string> keyword, Option<int> start, Option<int> limit);
+        partial void AfterSearchTerritories(ref bool suppressDefaultLog, ISearchTerritoriesApiResponse apiResponseLocalVar, string sortField, bool descending, Option<string> keyword, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1210,16 +1177,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchTerritoriesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, Option<string> keyword, Option<int> start, Option<int> limit)
+        private void OnErrorSearchTerritoriesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, Option<string> keyword, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchTerritories(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, keyword, start, limit);
+            OnErrorSearchTerritories(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, keyword, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1231,18 +1197,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchTerritories(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, Option<string> keyword, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchTerritories(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, Option<string> keyword, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Territories Searches on territories.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
         /// <param name="keyword">Return results that match this keyword. (optional)</param>
@@ -1250,11 +1214,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTerritoriesApiResponse"/>&gt;</returns>
-        public async Task<ISearchTerritoriesApiResponse?> SearchTerritoriesOrDefaultAsync(decimal version, string sortField, bool descending, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTerritoriesApiResponse?> SearchTerritoriesOrDefaultAsync(string sortField, bool descending, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchTerritoriesAsync(version, sortField, descending, keyword, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchTerritoriesAsync(sortField, descending, keyword, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1266,7 +1230,6 @@ namespace Org.OpenAPITools.Api
         /// Search Territories Searches on territories.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
         /// <param name="keyword">Return results that match this keyword. (optional)</param>
@@ -1274,7 +1237,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTerritoriesApiResponse"/>&gt;</returns>
-        public async Task<ISearchTerritoriesApiResponse> SearchTerritoriesAsync(decimal version, string sortField, bool descending, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTerritoriesApiResponse> SearchTerritoriesAsync(string sortField, bool descending, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1282,7 +1245,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchTerritories(sortField, keyword);
 
-                FormatSearchTerritories(ref version, ref sortField, ref descending, ref keyword, ref start, ref limit);
+                FormatSearchTerritories(ref sortField, ref descending, ref keyword, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1290,9 +1253,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/territory/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/territory/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/territory/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/territory/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1333,13 +1295,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/territory/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/territory/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchTerritoriesDefaultImplementation(apiResponseLocalVar, version, sortField, descending, keyword, start, limit);
+                        AfterSearchTerritoriesDefaultImplementation(apiResponseLocalVar, sortField, descending, keyword, start, limit);
 
                         Events.ExecuteOnSearchTerritories(apiResponseLocalVar);
 
@@ -1349,7 +1311,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchTerritoriesDefaultImplementation(e, "/api/{version}/territory/search", uriBuilderLocalVar.Path, version, sortField, descending, keyword, start, limit);
+                OnErrorSearchTerritoriesDefaultImplementation(e, "/territory/search", uriBuilderLocalVar.Path, sortField, descending, keyword, start, limit);
                 Events.ExecuteOnErrorSearchTerritories(e);
                 throw;
             }
@@ -1448,7 +1410,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateTerritory(ref decimal version, ref long accountId, ref long territoryId, ref Option<string> name, ref Option<bool> active);
+        partial void FormatUpdateTerritory(ref long accountId, ref long territoryId, ref Option<string> name, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -1465,15 +1427,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="territoryId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
-        private void AfterUpdateTerritoryDefaultImplementation(IUpdateTerritoryApiResponse apiResponseLocalVar, decimal version, long accountId, long territoryId, Option<string> name, Option<bool> active)
+        private void AfterUpdateTerritoryDefaultImplementation(IUpdateTerritoryApiResponse apiResponseLocalVar, long accountId, long territoryId, Option<string> name, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateTerritory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, territoryId, name, active);
+            AfterUpdateTerritory(ref suppressDefaultLog, apiResponseLocalVar, accountId, territoryId, name, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1483,12 +1444,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="territoryId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
-        partial void AfterUpdateTerritory(ref bool suppressDefaultLog, IUpdateTerritoryApiResponse apiResponseLocalVar, decimal version, long accountId, long territoryId, Option<string> name, Option<bool> active);
+        partial void AfterUpdateTerritory(ref bool suppressDefaultLog, IUpdateTerritoryApiResponse apiResponseLocalVar, long accountId, long territoryId, Option<string> name, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1496,15 +1456,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="territoryId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
-        private void OnErrorUpdateTerritoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long territoryId, Option<string> name, Option<bool> active)
+        private void OnErrorUpdateTerritoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long territoryId, Option<string> name, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateTerritory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, territoryId, name, active);
+            OnErrorUpdateTerritory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, territoryId, name, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1516,28 +1475,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="territoryId"></param>
         /// <param name="name"></param>
         /// <param name="active"></param>
-        partial void OnErrorUpdateTerritory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long territoryId, Option<string> name, Option<bool> active);
+        partial void OnErrorUpdateTerritory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long territoryId, Option<string> name, Option<bool> active);
 
         /// <summary>
         /// Update Territory Updates a territory.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="territoryId">the id of the territory to update</param>
         /// <param name="name">The name of the territory (optional)</param>
         /// <param name="active">If true set the game level as active. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTerritoryApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTerritoryApiResponse?> UpdateTerritoryOrDefaultAsync(decimal version, long accountId, long territoryId, Option<string> name = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTerritoryApiResponse?> UpdateTerritoryOrDefaultAsync(long accountId, long territoryId, Option<string> name = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateTerritoryAsync(version, accountId, territoryId, name, active, cancellationToken).ConfigureAwait(false);
+                return await UpdateTerritoryAsync(accountId, territoryId, name, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1549,14 +1506,13 @@ namespace Org.OpenAPITools.Api
         /// Update Territory Updates a territory.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="territoryId">the id of the territory to update</param>
         /// <param name="name">The name of the territory (optional)</param>
         /// <param name="active">If true set the game level as active. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTerritoryApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTerritoryApiResponse> UpdateTerritoryAsync(decimal version, long accountId, long territoryId, Option<string> name = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTerritoryApiResponse> UpdateTerritoryAsync(long accountId, long territoryId, Option<string> name = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1564,7 +1520,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateTerritory(name);
 
-                FormatUpdateTerritory(ref version, ref accountId, ref territoryId, ref name, ref active);
+                FormatUpdateTerritory(ref accountId, ref territoryId, ref name, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1572,9 +1528,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/territory/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/territory/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/territory/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/territory/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1612,13 +1567,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/territory/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/territory/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateTerritoryDefaultImplementation(apiResponseLocalVar, version, accountId, territoryId, name, active);
+                        AfterUpdateTerritoryDefaultImplementation(apiResponseLocalVar, accountId, territoryId, name, active);
 
                         Events.ExecuteOnUpdateTerritory(apiResponseLocalVar);
 
@@ -1628,7 +1583,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateTerritoryDefaultImplementation(e, "/api/{version}/territory/update", uriBuilderLocalVar.Path, version, accountId, territoryId, name, active);
+                OnErrorUpdateTerritoryDefaultImplementation(e, "/territory/update", uriBuilderLocalVar.Path, accountId, territoryId, name, active);
                 Events.ExecuteOnErrorUpdateTerritory(e);
                 throw;
             }

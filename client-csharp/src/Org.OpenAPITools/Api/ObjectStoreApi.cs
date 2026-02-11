@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to add the field to</param>
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="fieldType">field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddFieldApiResponse"/>&gt;</returns>
-        Task<IAddFieldApiResponse> AddFieldAsync(decimal version, long accountId, string appKey, string objectName, string fieldName, string fieldType, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddFieldApiResponse> AddFieldAsync(long accountId, string appKey, string objectName, string fieldName, string fieldType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Field
@@ -61,7 +60,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to add the field to</param>
@@ -69,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="fieldType">field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddFieldApiResponse"/>?&gt;</returns>
-        Task<IAddFieldApiResponse?> AddFieldOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, string fieldName, string fieldType, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddFieldApiResponse?> AddFieldOrDefaultAsync(long accountId, string appKey, string objectName, string fieldName, string fieldType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Data
@@ -78,13 +76,12 @@ namespace Org.OpenAPITools.Api
         /// Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">the name of the object to create data for</param>
         /// <param name="accountId">the account id (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateDataApiResponse"/>&gt;</returns>
-        Task<ICreateDataApiResponse> CreateDataAsync(decimal version, string objectName, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateDataApiResponse> CreateDataAsync(string objectName, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Data
@@ -92,13 +89,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="objectName">the name of the object to create data for</param>
         /// <param name="accountId">the account id (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateDataApiResponse"/>?&gt;</returns>
-        Task<ICreateDataApiResponse?> CreateDataOrDefaultAsync(decimal version, string objectName, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateDataApiResponse?> CreateDataOrDefaultAsync(string objectName, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Object
@@ -107,13 +103,12 @@ namespace Org.OpenAPITools.Api
         /// Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to create</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateObjectApiResponse"/>&gt;</returns>
-        Task<ICreateObjectApiResponse> CreateObjectAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateObjectApiResponse> CreateObjectAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Object
@@ -121,13 +116,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to create</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateObjectApiResponse"/>?&gt;</returns>
-        Task<ICreateObjectApiResponse?> CreateObjectOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateObjectApiResponse?> CreateObjectOrDefaultAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Data
@@ -136,13 +130,12 @@ namespace Org.OpenAPITools.Api
         /// Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteDataApiResponse"/>&gt;</returns>
-        Task<IDeleteDataApiResponse> DeleteDataAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteDataApiResponse> DeleteDataAsync(string objectName, string objectId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Data
@@ -150,13 +143,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteDataApiResponse"/>?&gt;</returns>
-        Task<IDeleteDataApiResponse?> DeleteDataOrDefaultAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteDataApiResponse?> DeleteDataOrDefaultAsync(string objectName, string objectId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Field
@@ -165,14 +157,13 @@ namespace Org.OpenAPITools.Api
         /// Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to remove the field from</param>
         /// <param name="fieldName">field name The name of the field to remove.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFieldApiResponse"/>&gt;</returns>
-        Task<IDeleteFieldApiResponse> DeleteFieldAsync(decimal version, long accountId, string appKey, string objectName, string fieldName, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFieldApiResponse> DeleteFieldAsync(long accountId, string appKey, string objectName, string fieldName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Field
@@ -180,14 +171,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to remove the field from</param>
         /// <param name="fieldName">field name The name of the field to remove.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFieldApiResponse"/>?&gt;</returns>
-        Task<IDeleteFieldApiResponse?> DeleteFieldOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, string fieldName, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFieldApiResponse?> DeleteFieldOrDefaultAsync(long accountId, string appKey, string objectName, string fieldName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Object
@@ -196,13 +186,12 @@ namespace Org.OpenAPITools.Api
         /// Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="appKey">the application key</param>
         /// <param name="objectName">the name of the object to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteObjectApiResponse"/>&gt;</returns>
-        Task<IDeleteObjectApiResponse> DeleteObjectAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteObjectApiResponse> DeleteObjectAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Object
@@ -210,13 +199,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="appKey">the application key</param>
         /// <param name="objectName">the name of the object to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteObjectApiResponse"/>?&gt;</returns>
-        Task<IDeleteObjectApiResponse?> DeleteObjectOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteObjectApiResponse?> DeleteObjectOrDefaultAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Data
@@ -225,14 +213,13 @@ namespace Org.OpenAPITools.Api
         /// Get a specific record from a specified object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="include"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDataApiResponse"/>&gt;</returns>
-        Task<IGetDataApiResponse> GetDataAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetDataApiResponse> GetDataAsync(string objectName, string objectId, Option<long> accountId = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Data
@@ -240,14 +227,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a specific record from a specified object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="include"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDataApiResponse"/>?&gt;</returns>
-        Task<IGetDataApiResponse?> GetDataOrDefaultAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetDataApiResponse?> GetDataOrDefaultAsync(string objectName, string objectId, Option<long> accountId = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Object
@@ -256,13 +242,12 @@ namespace Org.OpenAPITools.Api
         /// Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to get the definition for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetObjectApiResponse"/>&gt;</returns>
-        Task<IGetObjectApiResponse> GetObjectAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetObjectApiResponse> GetObjectAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Object
@@ -270,13 +255,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to get the definition for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetObjectApiResponse"/>?&gt;</returns>
-        Task<IGetObjectApiResponse?> GetObjectOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetObjectApiResponse?> GetObjectOrDefaultAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Data
@@ -285,7 +269,6 @@ namespace Org.OpenAPITools.Api
         /// Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="count">If true just return the record count of the search. False (default) will return the actual records</param>
         /// <param name="start">The start of the pagination</param>
@@ -296,7 +279,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="include"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchDataApiResponse"/>&gt;</returns>
-        Task<ISearchDataApiResponse> SearchDataAsync(decimal version, string objectName, bool count, long start, long limit, Option<long> accountId = default, Option<string> criteria = default, Option<string> order = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchDataApiResponse> SearchDataAsync(string objectName, bool count, long start, long limit, Option<long> accountId = default, Option<string> criteria = default, Option<string> order = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Data
@@ -304,7 +287,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="count">If true just return the record count of the search. False (default) will return the actual records</param>
         /// <param name="start">The start of the pagination</param>
@@ -315,7 +297,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="include"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchDataApiResponse"/>?&gt;</returns>
-        Task<ISearchDataApiResponse?> SearchDataOrDefaultAsync(decimal version, string objectName, bool count, long start, long limit, Option<long> accountId = default, Option<string> criteria = default, Option<string> order = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchDataApiResponse?> SearchDataOrDefaultAsync(string objectName, bool count, long start, long limit, Option<long> accountId = default, Option<string> criteria = default, Option<string> order = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Objects
@@ -324,7 +306,6 @@ namespace Org.OpenAPITools.Api
         /// Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="start">The start of the pagination</param>
@@ -332,7 +313,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The name of the object(s) to search for, can be a partial match (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchObjectApiResponse"/>&gt;</returns>
-        Task<ISearchObjectApiResponse> SearchObjectAsync(decimal version, long accountId, string appKey, long start, long limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchObjectApiResponse> SearchObjectAsync(long accountId, string appKey, long start, long limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Objects
@@ -340,7 +321,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="start">The start of the pagination</param>
@@ -348,7 +328,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The name of the object(s) to search for, can be a partial match (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchObjectApiResponse"/>?&gt;</returns>
-        Task<ISearchObjectApiResponse?> SearchObjectOrDefaultAsync(decimal version, long accountId, string appKey, long start, long limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchObjectApiResponse?> SearchObjectOrDefaultAsync(long accountId, string appKey, long start, long limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Data
@@ -357,14 +337,13 @@ namespace Org.OpenAPITools.Api
         /// Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateDataApiResponse"/>&gt;</returns>
-        Task<IUpdateDataApiResponse> UpdateDataAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateDataApiResponse> UpdateDataAsync(string objectName, string objectId, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Data
@@ -372,14 +351,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateDataApiResponse"/>?&gt;</returns>
-        Task<IUpdateDataApiResponse?> UpdateDataOrDefaultAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateDataApiResponse?> UpdateDataOrDefaultAsync(string objectName, string objectId, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -787,7 +765,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddField(ref decimal version, ref long accountId, ref string appKey, ref string objectName, ref string fieldName, ref string fieldType);
+        partial void FormatAddField(ref long accountId, ref string appKey, ref string objectName, ref string fieldName, ref string fieldType);
 
         /// <summary>
         /// Validates the request parameters
@@ -816,16 +794,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
         /// <param name="fieldName"></param>
         /// <param name="fieldType"></param>
-        private void AfterAddFieldDefaultImplementation(IAddFieldApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName, string fieldName, string fieldType)
+        private void AfterAddFieldDefaultImplementation(IAddFieldApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName, string fieldName, string fieldType)
         {
             bool suppressDefaultLog = false;
-            AfterAddField(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, objectName, fieldName, fieldType);
+            AfterAddField(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, objectName, fieldName, fieldType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -835,13 +812,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
         /// <param name="fieldName"></param>
         /// <param name="fieldType"></param>
-        partial void AfterAddField(ref bool suppressDefaultLog, IAddFieldApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName, string fieldName, string fieldType);
+        partial void AfterAddField(ref bool suppressDefaultLog, IAddFieldApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName, string fieldName, string fieldType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -849,16 +825,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
         /// <param name="fieldName"></param>
         /// <param name="fieldType"></param>
-        private void OnErrorAddFieldDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName, string fieldName, string fieldType)
+        private void OnErrorAddFieldDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName, string fieldName, string fieldType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddField(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, objectName, fieldName, fieldType);
+            OnErrorAddField(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, objectName, fieldName, fieldType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -870,18 +845,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
         /// <param name="fieldName"></param>
         /// <param name="fieldType"></param>
-        partial void OnErrorAddField(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName, string fieldName, string fieldType);
+        partial void OnErrorAddField(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName, string fieldName, string fieldType);
 
         /// <summary>
         /// Create Field Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to add the field to</param>
@@ -889,11 +862,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="fieldType">field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddFieldApiResponse"/>&gt;</returns>
-        public async Task<IAddFieldApiResponse?> AddFieldOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, string fieldName, string fieldType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddFieldApiResponse?> AddFieldOrDefaultAsync(long accountId, string appKey, string objectName, string fieldName, string fieldType, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddFieldAsync(version, accountId, appKey, objectName, fieldName, fieldType, cancellationToken).ConfigureAwait(false);
+                return await AddFieldAsync(accountId, appKey, objectName, fieldName, fieldType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -905,7 +878,6 @@ namespace Org.OpenAPITools.Api
         /// Create Field Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to add the field to</param>
@@ -913,7 +885,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="fieldType">field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddFieldApiResponse"/>&gt;</returns>
-        public async Task<IAddFieldApiResponse> AddFieldAsync(decimal version, long accountId, string appKey, string objectName, string fieldName, string fieldType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddFieldApiResponse> AddFieldAsync(long accountId, string appKey, string objectName, string fieldName, string fieldType, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -921,7 +893,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddField(appKey, objectName, fieldName, fieldType);
 
-                FormatAddField(ref version, ref accountId, ref appKey, ref objectName, ref fieldName, ref fieldType);
+                FormatAddField(ref accountId, ref appKey, ref objectName, ref fieldName, ref fieldType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -929,9 +901,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/field/add"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/field/add");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/field/add"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/field/add");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -966,13 +937,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/field/add", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/field/add", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddFieldDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, objectName, fieldName, fieldType);
+                        AfterAddFieldDefaultImplementation(apiResponseLocalVar, accountId, appKey, objectName, fieldName, fieldType);
 
                         Events.ExecuteOnAddField(apiResponseLocalVar);
 
@@ -982,7 +953,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddFieldDefaultImplementation(e, "/api/{version}/object/field/add", uriBuilderLocalVar.Path, version, accountId, appKey, objectName, fieldName, fieldType);
+                OnErrorAddFieldDefaultImplementation(e, "/object/field/add", uriBuilderLocalVar.Path, accountId, appKey, objectName, fieldName, fieldType);
                 Events.ExecuteOnErrorAddField(e);
                 throw;
             }
@@ -1081,7 +1052,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateData(ref decimal version, ref string objectName, ref Option<long> accountId, ref Option<string> body);
+        partial void FormatCreateData(ref string objectName, ref Option<long> accountId, ref Option<string> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1102,14 +1073,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        private void AfterCreateDataDefaultImplementation(ICreateDataApiResponse apiResponseLocalVar, decimal version, string objectName, Option<long> accountId, Option<string> body)
+        private void AfterCreateDataDefaultImplementation(ICreateDataApiResponse apiResponseLocalVar, string objectName, Option<long> accountId, Option<string> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateData(ref suppressDefaultLog, apiResponseLocalVar, version, objectName, accountId, body);
+            AfterCreateData(ref suppressDefaultLog, apiResponseLocalVar, objectName, accountId, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1119,11 +1089,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        partial void AfterCreateData(ref bool suppressDefaultLog, ICreateDataApiResponse apiResponseLocalVar, decimal version, string objectName, Option<long> accountId, Option<string> body);
+        partial void AfterCreateData(ref bool suppressDefaultLog, ICreateDataApiResponse apiResponseLocalVar, string objectName, Option<long> accountId, Option<string> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1131,14 +1100,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, Option<long> accountId, Option<string> body)
+        private void OnErrorCreateDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, Option<long> accountId, Option<string> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, objectName, accountId, body);
+            OnErrorCreateData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, objectName, accountId, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1150,26 +1118,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, Option<long> accountId, Option<string> body);
+        partial void OnErrorCreateData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, Option<long> accountId, Option<string> body);
 
         /// <summary>
         /// Create Data Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="objectName">the name of the object to create data for</param>
         /// <param name="accountId">the account id (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateDataApiResponse"/>&gt;</returns>
-        public async Task<ICreateDataApiResponse?> CreateDataOrDefaultAsync(decimal version, string objectName, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateDataApiResponse?> CreateDataOrDefaultAsync(string objectName, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateDataAsync(version, objectName, accountId, body, cancellationToken).ConfigureAwait(false);
+                return await CreateDataAsync(objectName, accountId, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1181,13 +1147,12 @@ namespace Org.OpenAPITools.Api
         /// Create Data Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">the name of the object to create data for</param>
         /// <param name="accountId">the account id (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateDataApiResponse"/>&gt;</returns>
-        public async Task<ICreateDataApiResponse> CreateDataAsync(decimal version, string objectName, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateDataApiResponse> CreateDataAsync(string objectName, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1195,7 +1160,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateData(objectName, body);
 
-                FormatCreateData(ref version, ref objectName, ref accountId, ref body);
+                FormatCreateData(ref objectName, ref accountId, ref body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1203,9 +1168,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/data/{objectName}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/data/{objectName}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/data/{objectName}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/data/{objectName}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BobjectName%7D", Uri.EscapeDataString(objectName.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1243,13 +1207,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/data/{objectName}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/data/{objectName}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateDataDefaultImplementation(apiResponseLocalVar, version, objectName, accountId, body);
+                        AfterCreateDataDefaultImplementation(apiResponseLocalVar, objectName, accountId, body);
 
                         Events.ExecuteOnCreateData(apiResponseLocalVar);
 
@@ -1259,7 +1223,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateDataDefaultImplementation(e, "/api/{version}/object/data/{objectName}", uriBuilderLocalVar.Path, version, objectName, accountId, body);
+                OnErrorCreateDataDefaultImplementation(e, "/object/data/{objectName}", uriBuilderLocalVar.Path, objectName, accountId, body);
                 Events.ExecuteOnErrorCreateData(e);
                 throw;
             }
@@ -1358,7 +1322,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateObject(ref decimal version, ref long accountId, ref string appKey, ref string objectName);
+        partial void FormatCreateObject(ref long accountId, ref string appKey, ref string objectName);
 
         /// <summary>
         /// Validates the request parameters
@@ -1379,14 +1343,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        private void AfterCreateObjectDefaultImplementation(ICreateObjectApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName)
+        private void AfterCreateObjectDefaultImplementation(ICreateObjectApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName)
         {
             bool suppressDefaultLog = false;
-            AfterCreateObject(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, objectName);
+            AfterCreateObject(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, objectName);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1396,11 +1359,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        partial void AfterCreateObject(ref bool suppressDefaultLog, ICreateObjectApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName);
+        partial void AfterCreateObject(ref bool suppressDefaultLog, ICreateObjectApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1408,14 +1370,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        private void OnErrorCreateObjectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName)
+        private void OnErrorCreateObjectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateObject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, objectName);
+            OnErrorCreateObject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, objectName);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1427,26 +1388,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        partial void OnErrorCreateObject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName);
+        partial void OnErrorCreateObject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName);
 
         /// <summary>
         /// Create Object Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to create</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateObjectApiResponse"/>&gt;</returns>
-        public async Task<ICreateObjectApiResponse?> CreateObjectOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateObjectApiResponse?> CreateObjectOrDefaultAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateObjectAsync(version, accountId, appKey, objectName, cancellationToken).ConfigureAwait(false);
+                return await CreateObjectAsync(accountId, appKey, objectName, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1458,13 +1417,12 @@ namespace Org.OpenAPITools.Api
         /// Create Object Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to create</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateObjectApiResponse"/>&gt;</returns>
-        public async Task<ICreateObjectApiResponse> CreateObjectAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateObjectApiResponse> CreateObjectAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1472,7 +1430,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateObject(appKey, objectName);
 
-                FormatCreateObject(ref version, ref accountId, ref appKey, ref objectName);
+                FormatCreateObject(ref accountId, ref appKey, ref objectName);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1480,9 +1438,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1515,13 +1472,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateObjectDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, objectName);
+                        AfterCreateObjectDefaultImplementation(apiResponseLocalVar, accountId, appKey, objectName);
 
                         Events.ExecuteOnCreateObject(apiResponseLocalVar);
 
@@ -1531,7 +1488,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateObjectDefaultImplementation(e, "/api/{version}/object/create", uriBuilderLocalVar.Path, version, accountId, appKey, objectName);
+                OnErrorCreateObjectDefaultImplementation(e, "/object/create", uriBuilderLocalVar.Path, accountId, appKey, objectName);
                 Events.ExecuteOnErrorCreateObject(e);
                 throw;
             }
@@ -1630,7 +1587,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteData(ref decimal version, ref string objectName, ref string objectId, ref Option<long> accountId);
+        partial void FormatDeleteData(ref string objectName, ref string objectId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1651,14 +1608,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteDataDefaultImplementation(IDeleteDataApiResponse apiResponseLocalVar, decimal version, string objectName, string objectId, Option<long> accountId)
+        private void AfterDeleteDataDefaultImplementation(IDeleteDataApiResponse apiResponseLocalVar, string objectName, string objectId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteData(ref suppressDefaultLog, apiResponseLocalVar, version, objectName, objectId, accountId);
+            AfterDeleteData(ref suppressDefaultLog, apiResponseLocalVar, objectName, objectId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1668,11 +1624,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteData(ref bool suppressDefaultLog, IDeleteDataApiResponse apiResponseLocalVar, decimal version, string objectName, string objectId, Option<long> accountId);
+        partial void AfterDeleteData(ref bool suppressDefaultLog, IDeleteDataApiResponse apiResponseLocalVar, string objectName, string objectId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1680,14 +1635,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, string objectId, Option<long> accountId)
+        private void OnErrorDeleteDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, string objectId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, objectName, objectId, accountId);
+            OnErrorDeleteData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, objectName, objectId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1699,26 +1653,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, string objectId, Option<long> accountId);
+        partial void OnErrorDeleteData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, string objectId, Option<long> accountId);
 
         /// <summary>
         /// Delete Data Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteDataApiResponse"/>&gt;</returns>
-        public async Task<IDeleteDataApiResponse?> DeleteDataOrDefaultAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteDataApiResponse?> DeleteDataOrDefaultAsync(string objectName, string objectId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteDataAsync(version, objectName, objectId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteDataAsync(objectName, objectId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1730,13 +1682,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Data Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteDataApiResponse"/>&gt;</returns>
-        public async Task<IDeleteDataApiResponse> DeleteDataAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteDataApiResponse> DeleteDataAsync(string objectName, string objectId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1744,7 +1695,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteData(objectName, objectId);
 
-                FormatDeleteData(ref version, ref objectName, ref objectId, ref accountId);
+                FormatDeleteData(ref objectName, ref objectId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1752,9 +1703,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/data/{objectName}/{objectId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/data/{objectName}/{objectId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/data/{objectName}/{objectId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/data/{objectName}/{objectId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BobjectName%7D", Uri.EscapeDataString(objectName.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BobjectId%7D", Uri.EscapeDataString(objectId.ToString()));
 
@@ -1788,13 +1738,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/data/{objectName}/{objectId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/data/{objectName}/{objectId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteDataDefaultImplementation(apiResponseLocalVar, version, objectName, objectId, accountId);
+                        AfterDeleteDataDefaultImplementation(apiResponseLocalVar, objectName, objectId, accountId);
 
                         Events.ExecuteOnDeleteData(apiResponseLocalVar);
 
@@ -1804,7 +1754,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteDataDefaultImplementation(e, "/api/{version}/object/data/{objectName}/{objectId}", uriBuilderLocalVar.Path, version, objectName, objectId, accountId);
+                OnErrorDeleteDataDefaultImplementation(e, "/object/data/{objectName}/{objectId}", uriBuilderLocalVar.Path, objectName, objectId, accountId);
                 Events.ExecuteOnErrorDeleteData(e);
                 throw;
             }
@@ -1903,7 +1853,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteField(ref decimal version, ref long accountId, ref string appKey, ref string objectName, ref string fieldName);
+        partial void FormatDeleteField(ref long accountId, ref string appKey, ref string objectName, ref string fieldName);
 
         /// <summary>
         /// Validates the request parameters
@@ -1928,15 +1878,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
         /// <param name="fieldName"></param>
-        private void AfterDeleteFieldDefaultImplementation(IDeleteFieldApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName, string fieldName)
+        private void AfterDeleteFieldDefaultImplementation(IDeleteFieldApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName, string fieldName)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteField(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, objectName, fieldName);
+            AfterDeleteField(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, objectName, fieldName);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1946,12 +1895,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
         /// <param name="fieldName"></param>
-        partial void AfterDeleteField(ref bool suppressDefaultLog, IDeleteFieldApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName, string fieldName);
+        partial void AfterDeleteField(ref bool suppressDefaultLog, IDeleteFieldApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName, string fieldName);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1959,15 +1907,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
         /// <param name="fieldName"></param>
-        private void OnErrorDeleteFieldDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName, string fieldName)
+        private void OnErrorDeleteFieldDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName, string fieldName)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteField(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, objectName, fieldName);
+            OnErrorDeleteField(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, objectName, fieldName);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1979,28 +1926,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
         /// <param name="fieldName"></param>
-        partial void OnErrorDeleteField(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName, string fieldName);
+        partial void OnErrorDeleteField(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName, string fieldName);
 
         /// <summary>
         /// Delete Field Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to remove the field from</param>
         /// <param name="fieldName">field name The name of the field to remove.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFieldApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFieldApiResponse?> DeleteFieldOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, string fieldName, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFieldApiResponse?> DeleteFieldOrDefaultAsync(long accountId, string appKey, string objectName, string fieldName, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteFieldAsync(version, accountId, appKey, objectName, fieldName, cancellationToken).ConfigureAwait(false);
+                return await DeleteFieldAsync(accountId, appKey, objectName, fieldName, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2012,14 +1957,13 @@ namespace Org.OpenAPITools.Api
         /// Delete Field Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to remove the field from</param>
         /// <param name="fieldName">field name The name of the field to remove.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFieldApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFieldApiResponse> DeleteFieldAsync(decimal version, long accountId, string appKey, string objectName, string fieldName, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFieldApiResponse> DeleteFieldAsync(long accountId, string appKey, string objectName, string fieldName, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2027,7 +1971,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteField(appKey, objectName, fieldName);
 
-                FormatDeleteField(ref version, ref accountId, ref appKey, ref objectName, ref fieldName);
+                FormatDeleteField(ref accountId, ref appKey, ref objectName, ref fieldName);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2035,9 +1979,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/field/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/field/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/field/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/field/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2071,13 +2014,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/field/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/field/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteFieldDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, objectName, fieldName);
+                        AfterDeleteFieldDefaultImplementation(apiResponseLocalVar, accountId, appKey, objectName, fieldName);
 
                         Events.ExecuteOnDeleteField(apiResponseLocalVar);
 
@@ -2087,7 +2030,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteFieldDefaultImplementation(e, "/api/{version}/object/field/delete", uriBuilderLocalVar.Path, version, accountId, appKey, objectName, fieldName);
+                OnErrorDeleteFieldDefaultImplementation(e, "/object/field/delete", uriBuilderLocalVar.Path, accountId, appKey, objectName, fieldName);
                 Events.ExecuteOnErrorDeleteField(e);
                 throw;
             }
@@ -2186,7 +2129,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteObject(ref decimal version, ref long accountId, ref string appKey, ref string objectName);
+        partial void FormatDeleteObject(ref long accountId, ref string appKey, ref string objectName);
 
         /// <summary>
         /// Validates the request parameters
@@ -2207,14 +2150,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        private void AfterDeleteObjectDefaultImplementation(IDeleteObjectApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName)
+        private void AfterDeleteObjectDefaultImplementation(IDeleteObjectApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteObject(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, objectName);
+            AfterDeleteObject(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, objectName);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2224,11 +2166,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        partial void AfterDeleteObject(ref bool suppressDefaultLog, IDeleteObjectApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName);
+        partial void AfterDeleteObject(ref bool suppressDefaultLog, IDeleteObjectApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2236,14 +2177,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        private void OnErrorDeleteObjectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName)
+        private void OnErrorDeleteObjectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteObject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, objectName);
+            OnErrorDeleteObject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, objectName);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2255,26 +2195,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        partial void OnErrorDeleteObject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName);
+        partial void OnErrorDeleteObject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName);
 
         /// <summary>
         /// Delete Object Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="appKey">the application key</param>
         /// <param name="objectName">the name of the object to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteObjectApiResponse"/>&gt;</returns>
-        public async Task<IDeleteObjectApiResponse?> DeleteObjectOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteObjectApiResponse?> DeleteObjectOrDefaultAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteObjectAsync(version, accountId, appKey, objectName, cancellationToken).ConfigureAwait(false);
+                return await DeleteObjectAsync(accountId, appKey, objectName, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2286,13 +2224,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Object Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="appKey">the application key</param>
         /// <param name="objectName">the name of the object to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteObjectApiResponse"/>&gt;</returns>
-        public async Task<IDeleteObjectApiResponse> DeleteObjectAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteObjectApiResponse> DeleteObjectAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2300,7 +2237,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteObject(appKey, objectName);
 
-                FormatDeleteObject(ref version, ref accountId, ref appKey, ref objectName);
+                FormatDeleteObject(ref accountId, ref appKey, ref objectName);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2308,9 +2245,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2343,13 +2279,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteObjectDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, objectName);
+                        AfterDeleteObjectDefaultImplementation(apiResponseLocalVar, accountId, appKey, objectName);
 
                         Events.ExecuteOnDeleteObject(apiResponseLocalVar);
 
@@ -2359,7 +2295,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteObjectDefaultImplementation(e, "/api/{version}/object/delete", uriBuilderLocalVar.Path, version, accountId, appKey, objectName);
+                OnErrorDeleteObjectDefaultImplementation(e, "/object/delete", uriBuilderLocalVar.Path, accountId, appKey, objectName);
                 Events.ExecuteOnErrorDeleteObject(e);
                 throw;
             }
@@ -2458,7 +2394,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetData(ref decimal version, ref string objectName, ref string objectId, ref Option<long> accountId, ref Option<string> include);
+        partial void FormatGetData(ref string objectName, ref string objectId, ref Option<long> accountId, ref Option<string> include);
 
         /// <summary>
         /// Validates the request parameters
@@ -2483,15 +2419,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
         /// <param name="include"></param>
-        private void AfterGetDataDefaultImplementation(IGetDataApiResponse apiResponseLocalVar, decimal version, string objectName, string objectId, Option<long> accountId, Option<string> include)
+        private void AfterGetDataDefaultImplementation(IGetDataApiResponse apiResponseLocalVar, string objectName, string objectId, Option<long> accountId, Option<string> include)
         {
             bool suppressDefaultLog = false;
-            AfterGetData(ref suppressDefaultLog, apiResponseLocalVar, version, objectName, objectId, accountId, include);
+            AfterGetData(ref suppressDefaultLog, apiResponseLocalVar, objectName, objectId, accountId, include);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2501,12 +2436,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
         /// <param name="include"></param>
-        partial void AfterGetData(ref bool suppressDefaultLog, IGetDataApiResponse apiResponseLocalVar, decimal version, string objectName, string objectId, Option<long> accountId, Option<string> include);
+        partial void AfterGetData(ref bool suppressDefaultLog, IGetDataApiResponse apiResponseLocalVar, string objectName, string objectId, Option<long> accountId, Option<string> include);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2514,15 +2448,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
         /// <param name="include"></param>
-        private void OnErrorGetDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, string objectId, Option<long> accountId, Option<string> include)
+        private void OnErrorGetDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, string objectId, Option<long> accountId, Option<string> include)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, objectName, objectId, accountId, include);
+            OnErrorGetData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, objectName, objectId, accountId, include);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2534,28 +2467,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
         /// <param name="include"></param>
-        partial void OnErrorGetData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, string objectId, Option<long> accountId, Option<string> include);
+        partial void OnErrorGetData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, string objectId, Option<long> accountId, Option<string> include);
 
         /// <summary>
         /// Get Data Get a specific record from a specified object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="include"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDataApiResponse"/>&gt;</returns>
-        public async Task<IGetDataApiResponse?> GetDataOrDefaultAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetDataApiResponse?> GetDataOrDefaultAsync(string objectName, string objectId, Option<long> accountId = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetDataAsync(version, objectName, objectId, accountId, include, cancellationToken).ConfigureAwait(false);
+                return await GetDataAsync(objectName, objectId, accountId, include, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2567,14 +2498,13 @@ namespace Org.OpenAPITools.Api
         /// Get Data Get a specific record from a specified object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="include"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDataApiResponse"/>&gt;</returns>
-        public async Task<IGetDataApiResponse> GetDataAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetDataApiResponse> GetDataAsync(string objectName, string objectId, Option<long> accountId = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2582,7 +2512,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetData(objectName, objectId, include);
 
-                FormatGetData(ref version, ref objectName, ref objectId, ref accountId, ref include);
+                FormatGetData(ref objectName, ref objectId, ref accountId, ref include);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2590,9 +2520,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/data/{objectName}/{objectId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/data/{objectName}/{objectId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/data/{objectName}/{objectId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/data/{objectName}/{objectId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BobjectName%7D", Uri.EscapeDataString(objectName.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BobjectId%7D", Uri.EscapeDataString(objectId.ToString()));
 
@@ -2629,13 +2558,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/data/{objectName}/{objectId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/data/{objectName}/{objectId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetDataDefaultImplementation(apiResponseLocalVar, version, objectName, objectId, accountId, include);
+                        AfterGetDataDefaultImplementation(apiResponseLocalVar, objectName, objectId, accountId, include);
 
                         Events.ExecuteOnGetData(apiResponseLocalVar);
 
@@ -2645,7 +2574,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetDataDefaultImplementation(e, "/api/{version}/object/data/{objectName}/{objectId}", uriBuilderLocalVar.Path, version, objectName, objectId, accountId, include);
+                OnErrorGetDataDefaultImplementation(e, "/object/data/{objectName}/{objectId}", uriBuilderLocalVar.Path, objectName, objectId, accountId, include);
                 Events.ExecuteOnErrorGetData(e);
                 throw;
             }
@@ -2744,7 +2673,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetObject(ref decimal version, ref long accountId, ref string appKey, ref string objectName);
+        partial void FormatGetObject(ref long accountId, ref string appKey, ref string objectName);
 
         /// <summary>
         /// Validates the request parameters
@@ -2765,14 +2694,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        private void AfterGetObjectDefaultImplementation(IGetObjectApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName)
+        private void AfterGetObjectDefaultImplementation(IGetObjectApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName)
         {
             bool suppressDefaultLog = false;
-            AfterGetObject(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, objectName);
+            AfterGetObject(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, objectName);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2782,11 +2710,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        partial void AfterGetObject(ref bool suppressDefaultLog, IGetObjectApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string objectName);
+        partial void AfterGetObject(ref bool suppressDefaultLog, IGetObjectApiResponse apiResponseLocalVar, long accountId, string appKey, string objectName);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2794,14 +2721,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        private void OnErrorGetObjectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName)
+        private void OnErrorGetObjectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetObject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, objectName);
+            OnErrorGetObject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, objectName);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2813,26 +2739,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="objectName"></param>
-        partial void OnErrorGetObject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string objectName);
+        partial void OnErrorGetObject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string objectName);
 
         /// <summary>
         /// Get Object Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to get the definition for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetObjectApiResponse"/>&gt;</returns>
-        public async Task<IGetObjectApiResponse?> GetObjectOrDefaultAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetObjectApiResponse?> GetObjectOrDefaultAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetObjectAsync(version, accountId, appKey, objectName, cancellationToken).ConfigureAwait(false);
+                return await GetObjectAsync(accountId, appKey, objectName, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2844,13 +2768,12 @@ namespace Org.OpenAPITools.Api
         /// Get Object Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="objectName">The name of the object to get the definition for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetObjectApiResponse"/>&gt;</returns>
-        public async Task<IGetObjectApiResponse> GetObjectAsync(decimal version, long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetObjectApiResponse> GetObjectAsync(long accountId, string appKey, string objectName, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2858,7 +2781,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetObject(appKey, objectName);
 
-                FormatGetObject(ref version, ref accountId, ref appKey, ref objectName);
+                FormatGetObject(ref accountId, ref appKey, ref objectName);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2866,9 +2789,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2901,13 +2823,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetObjectDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, objectName);
+                        AfterGetObjectDefaultImplementation(apiResponseLocalVar, accountId, appKey, objectName);
 
                         Events.ExecuteOnGetObject(apiResponseLocalVar);
 
@@ -2917,7 +2839,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetObjectDefaultImplementation(e, "/api/{version}/object/get", uriBuilderLocalVar.Path, version, accountId, appKey, objectName);
+                OnErrorGetObjectDefaultImplementation(e, "/object/get", uriBuilderLocalVar.Path, accountId, appKey, objectName);
                 Events.ExecuteOnErrorGetObject(e);
                 throw;
             }
@@ -3016,7 +2938,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchData(ref decimal version, ref string objectName, ref bool count, ref long start, ref long limit, ref Option<long> accountId, ref Option<string> criteria, ref Option<string> order, ref Option<string> include);
+        partial void FormatSearchData(ref string objectName, ref bool count, ref long start, ref long limit, ref Option<long> accountId, ref Option<string> criteria, ref Option<string> order, ref Option<string> include);
 
         /// <summary>
         /// Validates the request parameters
@@ -3045,7 +2967,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="count"></param>
         /// <param name="start"></param>
@@ -3054,10 +2975,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="criteria"></param>
         /// <param name="order"></param>
         /// <param name="include"></param>
-        private void AfterSearchDataDefaultImplementation(ISearchDataApiResponse apiResponseLocalVar, decimal version, string objectName, bool count, long start, long limit, Option<long> accountId, Option<string> criteria, Option<string> order, Option<string> include)
+        private void AfterSearchDataDefaultImplementation(ISearchDataApiResponse apiResponseLocalVar, string objectName, bool count, long start, long limit, Option<long> accountId, Option<string> criteria, Option<string> order, Option<string> include)
         {
             bool suppressDefaultLog = false;
-            AfterSearchData(ref suppressDefaultLog, apiResponseLocalVar, version, objectName, count, start, limit, accountId, criteria, order, include);
+            AfterSearchData(ref suppressDefaultLog, apiResponseLocalVar, objectName, count, start, limit, accountId, criteria, order, include);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3067,7 +2988,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="count"></param>
         /// <param name="start"></param>
@@ -3076,7 +2996,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="criteria"></param>
         /// <param name="order"></param>
         /// <param name="include"></param>
-        partial void AfterSearchData(ref bool suppressDefaultLog, ISearchDataApiResponse apiResponseLocalVar, decimal version, string objectName, bool count, long start, long limit, Option<long> accountId, Option<string> criteria, Option<string> order, Option<string> include);
+        partial void AfterSearchData(ref bool suppressDefaultLog, ISearchDataApiResponse apiResponseLocalVar, string objectName, bool count, long start, long limit, Option<long> accountId, Option<string> criteria, Option<string> order, Option<string> include);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3084,7 +3004,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="count"></param>
         /// <param name="start"></param>
@@ -3093,10 +3012,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="criteria"></param>
         /// <param name="order"></param>
         /// <param name="include"></param>
-        private void OnErrorSearchDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, bool count, long start, long limit, Option<long> accountId, Option<string> criteria, Option<string> order, Option<string> include)
+        private void OnErrorSearchDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, bool count, long start, long limit, Option<long> accountId, Option<string> criteria, Option<string> order, Option<string> include)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, objectName, count, start, limit, accountId, criteria, order, include);
+            OnErrorSearchData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, objectName, count, start, limit, accountId, criteria, order, include);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3108,7 +3027,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="count"></param>
         /// <param name="start"></param>
@@ -3117,12 +3035,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="criteria"></param>
         /// <param name="order"></param>
         /// <param name="include"></param>
-        partial void OnErrorSearchData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, bool count, long start, long limit, Option<long> accountId, Option<string> criteria, Option<string> order, Option<string> include);
+        partial void OnErrorSearchData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, bool count, long start, long limit, Option<long> accountId, Option<string> criteria, Option<string> order, Option<string> include);
 
         /// <summary>
         /// Search Data Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="count">If true just return the record count of the search. False (default) will return the actual records</param>
         /// <param name="start">The start of the pagination</param>
@@ -3133,11 +3050,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="include"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchDataApiResponse"/>&gt;</returns>
-        public async Task<ISearchDataApiResponse?> SearchDataOrDefaultAsync(decimal version, string objectName, bool count, long start, long limit, Option<long> accountId = default, Option<string> criteria = default, Option<string> order = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchDataApiResponse?> SearchDataOrDefaultAsync(string objectName, bool count, long start, long limit, Option<long> accountId = default, Option<string> criteria = default, Option<string> order = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchDataAsync(version, objectName, count, start, limit, accountId, criteria, order, include, cancellationToken).ConfigureAwait(false);
+                return await SearchDataAsync(objectName, count, start, limit, accountId, criteria, order, include, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3149,7 +3066,6 @@ namespace Org.OpenAPITools.Api
         /// Search Data Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="count">If true just return the record count of the search. False (default) will return the actual records</param>
         /// <param name="start">The start of the pagination</param>
@@ -3160,7 +3076,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="include"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchDataApiResponse"/>&gt;</returns>
-        public async Task<ISearchDataApiResponse> SearchDataAsync(decimal version, string objectName, bool count, long start, long limit, Option<long> accountId = default, Option<string> criteria = default, Option<string> order = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchDataApiResponse> SearchDataAsync(string objectName, bool count, long start, long limit, Option<long> accountId = default, Option<string> criteria = default, Option<string> order = default, Option<string> include = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3168,7 +3084,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchData(objectName, criteria, order, include);
 
-                FormatSearchData(ref version, ref objectName, ref count, ref start, ref limit, ref accountId, ref criteria, ref order, ref include);
+                FormatSearchData(ref objectName, ref count, ref start, ref limit, ref accountId, ref criteria, ref order, ref include);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3176,9 +3092,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/data/{objectName}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/data/{objectName}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/data/{objectName}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/data/{objectName}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BobjectName%7D", Uri.EscapeDataString(objectName.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -3224,13 +3139,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/data/{objectName}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/data/{objectName}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchDataDefaultImplementation(apiResponseLocalVar, version, objectName, count, start, limit, accountId, criteria, order, include);
+                        AfterSearchDataDefaultImplementation(apiResponseLocalVar, objectName, count, start, limit, accountId, criteria, order, include);
 
                         Events.ExecuteOnSearchData(apiResponseLocalVar);
 
@@ -3240,7 +3155,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchDataDefaultImplementation(e, "/api/{version}/object/data/{objectName}", uriBuilderLocalVar.Path, version, objectName, count, start, limit, accountId, criteria, order, include);
+                OnErrorSearchDataDefaultImplementation(e, "/object/data/{objectName}", uriBuilderLocalVar.Path, objectName, count, start, limit, accountId, criteria, order, include);
                 Events.ExecuteOnErrorSearchData(e);
                 throw;
             }
@@ -3339,7 +3254,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchObject(ref decimal version, ref long accountId, ref string appKey, ref long start, ref long limit, ref Option<string> keyword);
+        partial void FormatSearchObject(ref long accountId, ref string appKey, ref long start, ref long limit, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -3360,16 +3275,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        private void AfterSearchObjectDefaultImplementation(ISearchObjectApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long start, long limit, Option<string> keyword)
+        private void AfterSearchObjectDefaultImplementation(ISearchObjectApiResponse apiResponseLocalVar, long accountId, string appKey, long start, long limit, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterSearchObject(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, start, limit, keyword);
+            AfterSearchObject(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, start, limit, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3379,13 +3293,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        partial void AfterSearchObject(ref bool suppressDefaultLog, ISearchObjectApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, long start, long limit, Option<string> keyword);
+        partial void AfterSearchObject(ref bool suppressDefaultLog, ISearchObjectApiResponse apiResponseLocalVar, long accountId, string appKey, long start, long limit, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3393,16 +3306,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        private void OnErrorSearchObjectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long start, long limit, Option<string> keyword)
+        private void OnErrorSearchObjectDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long start, long limit, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchObject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, start, limit, keyword);
+            OnErrorSearchObject(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, start, limit, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3414,18 +3326,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorSearchObject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, long start, long limit, Option<string> keyword);
+        partial void OnErrorSearchObject(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, long start, long limit, Option<string> keyword);
 
         /// <summary>
         /// Search Objects Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="start">The start of the pagination</param>
@@ -3433,11 +3343,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The name of the object(s) to search for, can be a partial match (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchObjectApiResponse"/>&gt;</returns>
-        public async Task<ISearchObjectApiResponse?> SearchObjectOrDefaultAsync(decimal version, long accountId, string appKey, long start, long limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchObjectApiResponse?> SearchObjectOrDefaultAsync(long accountId, string appKey, long start, long limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchObjectAsync(version, accountId, appKey, start, limit, keyword, cancellationToken).ConfigureAwait(false);
+                return await SearchObjectAsync(accountId, appKey, start, limit, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3449,7 +3359,6 @@ namespace Org.OpenAPITools.Api
         /// Search Objects Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the logged in user</param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="start">The start of the pagination</param>
@@ -3457,7 +3366,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The name of the object(s) to search for, can be a partial match (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchObjectApiResponse"/>&gt;</returns>
-        public async Task<ISearchObjectApiResponse> SearchObjectAsync(decimal version, long accountId, string appKey, long start, long limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchObjectApiResponse> SearchObjectAsync(long accountId, string appKey, long start, long limit, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3465,7 +3374,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchObject(appKey, keyword);
 
-                FormatSearchObject(ref version, ref accountId, ref appKey, ref start, ref limit, ref keyword);
+                FormatSearchObject(ref accountId, ref appKey, ref start, ref limit, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3473,9 +3382,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3512,13 +3420,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchObjectDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, start, limit, keyword);
+                        AfterSearchObjectDefaultImplementation(apiResponseLocalVar, accountId, appKey, start, limit, keyword);
 
                         Events.ExecuteOnSearchObject(apiResponseLocalVar);
 
@@ -3528,7 +3436,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchObjectDefaultImplementation(e, "/api/{version}/object/search", uriBuilderLocalVar.Path, version, accountId, appKey, start, limit, keyword);
+                OnErrorSearchObjectDefaultImplementation(e, "/object/search", uriBuilderLocalVar.Path, accountId, appKey, start, limit, keyword);
                 Events.ExecuteOnErrorSearchObject(e);
                 throw;
             }
@@ -3627,7 +3535,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateData(ref decimal version, ref string objectName, ref string objectId, ref Option<long> accountId, ref Option<string> body);
+        partial void FormatUpdateData(ref string objectName, ref string objectId, ref Option<long> accountId, ref Option<string> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -3652,15 +3560,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        private void AfterUpdateDataDefaultImplementation(IUpdateDataApiResponse apiResponseLocalVar, decimal version, string objectName, string objectId, Option<long> accountId, Option<string> body)
+        private void AfterUpdateDataDefaultImplementation(IUpdateDataApiResponse apiResponseLocalVar, string objectName, string objectId, Option<long> accountId, Option<string> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateData(ref suppressDefaultLog, apiResponseLocalVar, version, objectName, objectId, accountId, body);
+            AfterUpdateData(ref suppressDefaultLog, apiResponseLocalVar, objectName, objectId, accountId, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3670,12 +3577,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateData(ref bool suppressDefaultLog, IUpdateDataApiResponse apiResponseLocalVar, decimal version, string objectName, string objectId, Option<long> accountId, Option<string> body);
+        partial void AfterUpdateData(ref bool suppressDefaultLog, IUpdateDataApiResponse apiResponseLocalVar, string objectName, string objectId, Option<long> accountId, Option<string> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3683,15 +3589,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, string objectId, Option<long> accountId, Option<string> body)
+        private void OnErrorUpdateDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, string objectId, Option<long> accountId, Option<string> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, objectName, objectId, accountId, body);
+            OnErrorUpdateData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, objectName, objectId, accountId, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3703,28 +3608,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="objectName"></param>
         /// <param name="objectId"></param>
         /// <param name="accountId"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string objectName, string objectId, Option<long> accountId, Option<string> body);
+        partial void OnErrorUpdateData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string objectName, string objectId, Option<long> accountId, Option<string> body);
 
         /// <summary>
         /// Update Data Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateDataApiResponse"/>&gt;</returns>
-        public async Task<IUpdateDataApiResponse?> UpdateDataOrDefaultAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateDataApiResponse?> UpdateDataOrDefaultAsync(string objectName, string objectId, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateDataAsync(version, objectName, objectId, accountId, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateDataAsync(objectName, objectId, accountId, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3736,14 +3639,13 @@ namespace Org.OpenAPITools.Api
         /// Update Data Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="objectName">The name of the object to search upon</param>
         /// <param name="objectId">objectId The id of the record to return</param>
         /// <param name="accountId">The account id of the logged in user (optional)</param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateDataApiResponse"/>&gt;</returns>
-        public async Task<IUpdateDataApiResponse> UpdateDataAsync(decimal version, string objectName, string objectId, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateDataApiResponse> UpdateDataAsync(string objectName, string objectId, Option<long> accountId = default, Option<string> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3751,7 +3653,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateData(objectName, objectId, body);
 
-                FormatUpdateData(ref version, ref objectName, ref objectId, ref accountId, ref body);
+                FormatUpdateData(ref objectName, ref objectId, ref accountId, ref body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3759,9 +3661,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/object/data/{objectName}/{objectId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/object/data/{objectName}/{objectId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/object/data/{objectName}/{objectId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/object/data/{objectName}/{objectId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BobjectName%7D", Uri.EscapeDataString(objectName.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BobjectId%7D", Uri.EscapeDataString(objectId.ToString()));
 
@@ -3800,13 +3701,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/object/data/{objectName}/{objectId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/object/data/{objectName}/{objectId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateDataDefaultImplementation(apiResponseLocalVar, version, objectName, objectId, accountId, body);
+                        AfterUpdateDataDefaultImplementation(apiResponseLocalVar, objectName, objectId, accountId, body);
 
                         Events.ExecuteOnUpdateData(apiResponseLocalVar);
 
@@ -3816,7 +3717,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateDataDefaultImplementation(e, "/api/{version}/object/data/{objectName}/{objectId}", uriBuilderLocalVar.Path, version, objectName, objectId, accountId, body);
+                OnErrorUpdateDataDefaultImplementation(e, "/object/data/{objectName}/{objectId}", uriBuilderLocalVar.Path, objectName, objectId, accountId, body);
                 Events.ExecuteOnErrorUpdateData(e);
                 throw;
             }

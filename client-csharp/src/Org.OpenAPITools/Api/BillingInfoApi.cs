@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="paymentMethodId">Payment Method Id (optional)</param>
         /// <param name="accountName">the name of the account (optional)</param>
@@ -71,7 +70,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">Meta Data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddPaymentMethodApiResponse"/>&gt;</returns>
-        Task<IAddPaymentMethodApiResponse> AddPaymentMethodAsync(decimal version, long accountId, Option<long> paymentMethodId = default, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<bool> defaultPaymentMethod = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddPaymentMethodApiResponse> AddPaymentMethodAsync(long accountId, Option<long> paymentMethodId = default, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<bool> defaultPaymentMethod = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Payment Method
@@ -79,7 +78,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="paymentMethodId">Payment Method Id (optional)</param>
         /// <param name="accountName">the name of the account (optional)</param>
@@ -105,7 +103,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">Meta Data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddPaymentMethodApiResponse"/>?&gt;</returns>
-        Task<IAddPaymentMethodApiResponse?> AddPaymentMethodOrDefaultAsync(decimal version, long accountId, Option<long> paymentMethodId = default, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<bool> defaultPaymentMethod = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddPaymentMethodApiResponse?> AddPaymentMethodOrDefaultAsync(long accountId, Option<long> paymentMethodId = default, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<bool> defaultPaymentMethod = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Payment Method
@@ -114,7 +112,6 @@ namespace Org.OpenAPITools.Api
         /// Add a new method of payment.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="accountName">Account Name of the credit card user (optional)</param>
         /// <param name="firstName">The first name on the credit card (optional)</param>
@@ -142,7 +139,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">Application Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePaymentMethodApiResponse"/>&gt;</returns>
-        Task<ICreatePaymentMethodApiResponse> CreatePaymentMethodAsync(decimal version, long accountId, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<bool> defaultPaymentMethod = default, Option<string> authToken = default, Option<string> provider = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePaymentMethodApiResponse> CreatePaymentMethodAsync(long accountId, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<bool> defaultPaymentMethod = default, Option<string> authToken = default, Option<string> provider = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Payment Method
@@ -150,7 +147,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Add a new method of payment.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="accountName">Account Name of the credit card user (optional)</param>
         /// <param name="firstName">The first name on the credit card (optional)</param>
@@ -178,7 +174,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">Application Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePaymentMethodApiResponse"/>?&gt;</returns>
-        Task<ICreatePaymentMethodApiResponse?> CreatePaymentMethodOrDefaultAsync(decimal version, long accountId, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<bool> defaultPaymentMethod = default, Option<string> authToken = default, Option<string> provider = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePaymentMethodApiResponse?> CreatePaymentMethodOrDefaultAsync(long accountId, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<bool> defaultPaymentMethod = default, Option<string> authToken = default, Option<string> provider = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Smart Contract
@@ -187,14 +183,13 @@ namespace Org.OpenAPITools.Api
         /// Adds a smart contract.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="tokenName">The token name</param>
         /// <param name="tokenSymbol">The token symbol</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSmartContractApiResponse"/>&gt;</returns>
-        Task<ICreateSmartContractApiResponse> CreateSmartContractAsync(decimal version, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateSmartContractApiResponse> CreateSmartContractAsync(long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Smart Contract
@@ -202,14 +197,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Adds a smart contract.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="tokenName">The token name</param>
         /// <param name="tokenSymbol">The token symbol</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSmartContractApiResponse"/>?&gt;</returns>
-        Task<ICreateSmartContractApiResponse?> CreateSmartContractOrDefaultAsync(decimal version, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateSmartContractApiResponse?> CreateSmartContractOrDefaultAsync(long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Crypto Balances
@@ -218,13 +212,12 @@ namespace Org.OpenAPITools.Api
         /// Get the cypto balance details for a user
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="ownerAccountId">The account to retreive balances for (optional)</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCryptoBalanceApiResponse"/>&gt;</returns>
-        Task<IGetCryptoBalanceApiResponse> GetCryptoBalanceAsync(decimal version, long accountId, Option<long> ownerAccountId = default, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCryptoBalanceApiResponse> GetCryptoBalanceAsync(long accountId, Option<long> ownerAccountId = default, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Crypto Balances
@@ -232,13 +225,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the cypto balance details for a user
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="ownerAccountId">The account to retreive balances for (optional)</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCryptoBalanceApiResponse"/>?&gt;</returns>
-        Task<IGetCryptoBalanceApiResponse?> GetCryptoBalanceOrDefaultAsync(decimal version, long accountId, Option<long> ownerAccountId = default, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCryptoBalanceApiResponse?> GetCryptoBalanceOrDefaultAsync(long accountId, Option<long> ownerAccountId = default, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Payment Method
@@ -247,13 +239,12 @@ namespace Org.OpenAPITools.Api
         /// Get the details of the user&#39;s payment method or their current default method of payment
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="getCurrentBalance">Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPaymentMethodApiResponse"/>&gt;</returns>
-        Task<IGetPaymentMethodApiResponse> GetPaymentMethodAsync(decimal version, long accountId, Option<long> paymentMethodId = default, Option<bool> getCurrentBalance = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPaymentMethodApiResponse> GetPaymentMethodAsync(long accountId, Option<long> paymentMethodId = default, Option<bool> getCurrentBalance = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Payment Method
@@ -261,13 +252,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the details of the user&#39;s payment method or their current default method of payment
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="getCurrentBalance">Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPaymentMethodApiResponse"/>?&gt;</returns>
-        Task<IGetPaymentMethodApiResponse?> GetPaymentMethodOrDefaultAsync(decimal version, long accountId, Option<long> paymentMethodId = default, Option<bool> getCurrentBalance = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPaymentMethodApiResponse?> GetPaymentMethodOrDefaultAsync(long accountId, Option<long> paymentMethodId = default, Option<bool> getCurrentBalance = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Payment Methods
@@ -276,7 +266,6 @@ namespace Org.OpenAPITools.Api
         /// Search the payment methods of an account
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Account Id to search on</param>
         /// <param name="provider">Provider to search on (optional, default to &quot;AUTHORIZE_NET&quot;)</param>
         /// <param name="type">the type to search on (optional)</param>
@@ -287,7 +276,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the search (optional, default to 5)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPaymentMethodApiResponse"/>&gt;</returns>
-        Task<ISearchPaymentMethodApiResponse> SearchPaymentMethodAsync(decimal version, long accountId, Option<string> provider = default, Option<string> type = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPaymentMethodApiResponse> SearchPaymentMethodAsync(long accountId, Option<string> provider = default, Option<string> type = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Payment Methods
@@ -295,7 +284,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search the payment methods of an account
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Account Id to search on</param>
         /// <param name="provider">Provider to search on (optional, default to &quot;AUTHORIZE_NET&quot;)</param>
         /// <param name="type">the type to search on (optional)</param>
@@ -306,7 +294,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the search (optional, default to 5)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPaymentMethodApiResponse"/>?&gt;</returns>
-        Task<ISearchPaymentMethodApiResponse?> SearchPaymentMethodOrDefaultAsync(decimal version, long accountId, Option<string> provider = default, Option<string> type = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchPaymentMethodApiResponse?> SearchPaymentMethodOrDefaultAsync(long accountId, Option<string> provider = default, Option<string> type = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -554,7 +542,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddPaymentMethod(ref decimal version, ref long accountId, ref Option<long> paymentMethodId, ref Option<string> accountName, ref Option<string> firstName, ref Option<string> lastName, ref Option<string> address, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> phone, ref Option<string> creditCardNumber, ref Option<string> expirationDate, ref Option<string> ccv, ref Option<string> accountNumber, ref Option<string> bankName, ref Option<string> routingNumber, ref Option<bool> defaultPaymentMethod, ref Option<string> paymentMethodNickname, ref Option<string> taxId, ref Option<string> providerCustomerProfileId, ref Option<string> providerPaymentProfileId, ref Option<string> metaData);
+        partial void FormatAddPaymentMethod(ref long accountId, ref Option<long> paymentMethodId, ref Option<string> accountName, ref Option<string> firstName, ref Option<string> lastName, ref Option<string> address, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> phone, ref Option<string> creditCardNumber, ref Option<string> expirationDate, ref Option<string> ccv, ref Option<string> accountNumber, ref Option<string> bankName, ref Option<string> routingNumber, ref Option<bool> defaultPaymentMethod, ref Option<string> paymentMethodNickname, ref Option<string> taxId, ref Option<string> providerCustomerProfileId, ref Option<string> providerPaymentProfileId, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -647,7 +635,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="paymentMethodId"></param>
         /// <param name="accountName"></param>
@@ -671,10 +658,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="providerCustomerProfileId"></param>
         /// <param name="providerPaymentProfileId"></param>
         /// <param name="metaData"></param>
-        private void AfterAddPaymentMethodDefaultImplementation(IAddPaymentMethodApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> paymentMethodId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<bool> defaultPaymentMethod, Option<string> paymentMethodNickname, Option<string> taxId, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData)
+        private void AfterAddPaymentMethodDefaultImplementation(IAddPaymentMethodApiResponse apiResponseLocalVar, long accountId, Option<long> paymentMethodId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<bool> defaultPaymentMethod, Option<string> paymentMethodNickname, Option<string> taxId, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterAddPaymentMethod(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
+            AfterAddPaymentMethod(ref suppressDefaultLog, apiResponseLocalVar, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -684,7 +671,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="paymentMethodId"></param>
         /// <param name="accountName"></param>
@@ -708,7 +694,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="providerCustomerProfileId"></param>
         /// <param name="providerPaymentProfileId"></param>
         /// <param name="metaData"></param>
-        partial void AfterAddPaymentMethod(ref bool suppressDefaultLog, IAddPaymentMethodApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> paymentMethodId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<bool> defaultPaymentMethod, Option<string> paymentMethodNickname, Option<string> taxId, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData);
+        partial void AfterAddPaymentMethod(ref bool suppressDefaultLog, IAddPaymentMethodApiResponse apiResponseLocalVar, long accountId, Option<long> paymentMethodId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<bool> defaultPaymentMethod, Option<string> paymentMethodNickname, Option<string> taxId, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -716,7 +702,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="paymentMethodId"></param>
         /// <param name="accountName"></param>
@@ -740,10 +725,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="providerCustomerProfileId"></param>
         /// <param name="providerPaymentProfileId"></param>
         /// <param name="metaData"></param>
-        private void OnErrorAddPaymentMethodDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> paymentMethodId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<bool> defaultPaymentMethod, Option<string> paymentMethodNickname, Option<string> taxId, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData)
+        private void OnErrorAddPaymentMethodDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> paymentMethodId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<bool> defaultPaymentMethod, Option<string> paymentMethodNickname, Option<string> taxId, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddPaymentMethod(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
+            OnErrorAddPaymentMethod(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -755,7 +740,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="paymentMethodId"></param>
         /// <param name="accountName"></param>
@@ -779,12 +763,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="providerCustomerProfileId"></param>
         /// <param name="providerPaymentProfileId"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorAddPaymentMethod(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> paymentMethodId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<bool> defaultPaymentMethod, Option<string> paymentMethodNickname, Option<string> taxId, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData);
+        partial void OnErrorAddPaymentMethod(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> paymentMethodId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<bool> defaultPaymentMethod, Option<string> paymentMethodNickname, Option<string> taxId, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData);
 
         /// <summary>
         /// Update Payment Method Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="paymentMethodId">Payment Method Id (optional)</param>
         /// <param name="accountName">the name of the account (optional)</param>
@@ -810,11 +793,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">Meta Data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddPaymentMethodApiResponse"/>&gt;</returns>
-        public async Task<IAddPaymentMethodApiResponse?> AddPaymentMethodOrDefaultAsync(decimal version, long accountId, Option<long> paymentMethodId = default, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<bool> defaultPaymentMethod = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddPaymentMethodApiResponse?> AddPaymentMethodOrDefaultAsync(long accountId, Option<long> paymentMethodId = default, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<bool> defaultPaymentMethod = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddPaymentMethodAsync(version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData, cancellationToken).ConfigureAwait(false);
+                return await AddPaymentMethodAsync(accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -826,7 +809,6 @@ namespace Org.OpenAPITools.Api
         /// Update Payment Method Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="paymentMethodId">Payment Method Id (optional)</param>
         /// <param name="accountName">the name of the account (optional)</param>
@@ -852,7 +834,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">Meta Data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddPaymentMethodApiResponse"/>&gt;</returns>
-        public async Task<IAddPaymentMethodApiResponse> AddPaymentMethodAsync(decimal version, long accountId, Option<long> paymentMethodId = default, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<bool> defaultPaymentMethod = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddPaymentMethodApiResponse> AddPaymentMethodAsync(long accountId, Option<long> paymentMethodId = default, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<bool> defaultPaymentMethod = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -860,7 +842,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddPaymentMethod(accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
 
-                FormatAddPaymentMethod(ref version, ref accountId, ref paymentMethodId, ref accountName, ref firstName, ref lastName, ref address, ref city, ref state, ref postalCode, ref country, ref phone, ref creditCardNumber, ref expirationDate, ref ccv, ref accountNumber, ref bankName, ref routingNumber, ref defaultPaymentMethod, ref paymentMethodNickname, ref taxId, ref providerCustomerProfileId, ref providerPaymentProfileId, ref metaData);
+                FormatAddPaymentMethod(ref accountId, ref paymentMethodId, ref accountName, ref firstName, ref lastName, ref address, ref city, ref state, ref postalCode, ref country, ref phone, ref creditCardNumber, ref expirationDate, ref ccv, ref accountNumber, ref bankName, ref routingNumber, ref defaultPaymentMethod, ref paymentMethodNickname, ref taxId, ref providerCustomerProfileId, ref providerPaymentProfileId, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -868,9 +850,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billing/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billing/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billing/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billing/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -967,13 +948,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billing/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billing/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddPaymentMethodDefaultImplementation(apiResponseLocalVar, version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
+                        AfterAddPaymentMethodDefaultImplementation(apiResponseLocalVar, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
 
                         Events.ExecuteOnAddPaymentMethod(apiResponseLocalVar);
 
@@ -983,7 +964,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddPaymentMethodDefaultImplementation(e, "/api/{version}/billing/update", uriBuilderLocalVar.Path, version, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
+                OnErrorAddPaymentMethodDefaultImplementation(e, "/billing/update", uriBuilderLocalVar.Path, accountId, paymentMethodId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, defaultPaymentMethod, paymentMethodNickname, taxId, providerCustomerProfileId, providerPaymentProfileId, metaData);
                 Events.ExecuteOnErrorAddPaymentMethod(e);
                 throw;
             }
@@ -1082,7 +1063,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreatePaymentMethod(ref decimal version, ref long accountId, ref Option<string> accountName, ref Option<string> firstName, ref Option<string> lastName, ref Option<string> address, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> phone, ref Option<string> creditCardNumber, ref Option<string> expirationDate, ref Option<string> ccv, ref Option<string> accountNumber, ref Option<string> bankName, ref Option<string> routingNumber, ref Option<string> paymentMethodNickname, ref Option<string> taxId, ref Option<bool> defaultPaymentMethod, ref Option<string> authToken, ref Option<string> provider, ref Option<string> providerCustomerProfileId, ref Option<string> providerPaymentProfileId, ref Option<string> metaData, ref Option<string> appKey);
+        partial void FormatCreatePaymentMethod(ref long accountId, ref Option<string> accountName, ref Option<string> firstName, ref Option<string> lastName, ref Option<string> address, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> phone, ref Option<string> creditCardNumber, ref Option<string> expirationDate, ref Option<string> ccv, ref Option<string> accountNumber, ref Option<string> bankName, ref Option<string> routingNumber, ref Option<string> paymentMethodNickname, ref Option<string> taxId, ref Option<bool> defaultPaymentMethod, ref Option<string> authToken, ref Option<string> provider, ref Option<string> providerCustomerProfileId, ref Option<string> providerPaymentProfileId, ref Option<string> metaData, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1187,7 +1168,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="accountName"></param>
         /// <param name="firstName"></param>
@@ -1213,10 +1193,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="providerPaymentProfileId"></param>
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
-        private void AfterCreatePaymentMethodDefaultImplementation(ICreatePaymentMethodApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<string> paymentMethodNickname, Option<string> taxId, Option<bool> defaultPaymentMethod, Option<string> authToken, Option<string> provider, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData, Option<string> appKey)
+        private void AfterCreatePaymentMethodDefaultImplementation(ICreatePaymentMethodApiResponse apiResponseLocalVar, long accountId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<string> paymentMethodNickname, Option<string> taxId, Option<bool> defaultPaymentMethod, Option<string> authToken, Option<string> provider, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterCreatePaymentMethod(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
+            AfterCreatePaymentMethod(ref suppressDefaultLog, apiResponseLocalVar, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1226,7 +1206,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="accountName"></param>
         /// <param name="firstName"></param>
@@ -1252,7 +1231,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="providerPaymentProfileId"></param>
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
-        partial void AfterCreatePaymentMethod(ref bool suppressDefaultLog, ICreatePaymentMethodApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<string> paymentMethodNickname, Option<string> taxId, Option<bool> defaultPaymentMethod, Option<string> authToken, Option<string> provider, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData, Option<string> appKey);
+        partial void AfterCreatePaymentMethod(ref bool suppressDefaultLog, ICreatePaymentMethodApiResponse apiResponseLocalVar, long accountId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<string> paymentMethodNickname, Option<string> taxId, Option<bool> defaultPaymentMethod, Option<string> authToken, Option<string> provider, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1260,7 +1239,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="accountName"></param>
         /// <param name="firstName"></param>
@@ -1286,10 +1264,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="providerPaymentProfileId"></param>
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
-        private void OnErrorCreatePaymentMethodDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<string> paymentMethodNickname, Option<string> taxId, Option<bool> defaultPaymentMethod, Option<string> authToken, Option<string> provider, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData, Option<string> appKey)
+        private void OnErrorCreatePaymentMethodDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<string> paymentMethodNickname, Option<string> taxId, Option<bool> defaultPaymentMethod, Option<string> authToken, Option<string> provider, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreatePaymentMethod(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
+            OnErrorCreatePaymentMethod(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1301,7 +1279,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="accountName"></param>
         /// <param name="firstName"></param>
@@ -1327,12 +1304,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="providerPaymentProfileId"></param>
         /// <param name="metaData"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorCreatePaymentMethod(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<string> paymentMethodNickname, Option<string> taxId, Option<bool> defaultPaymentMethod, Option<string> authToken, Option<string> provider, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData, Option<string> appKey);
+        partial void OnErrorCreatePaymentMethod(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> accountName, Option<string> firstName, Option<string> lastName, Option<string> address, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> phone, Option<string> creditCardNumber, Option<string> expirationDate, Option<string> ccv, Option<string> accountNumber, Option<string> bankName, Option<string> routingNumber, Option<string> paymentMethodNickname, Option<string> taxId, Option<bool> defaultPaymentMethod, Option<string> authToken, Option<string> provider, Option<string> providerCustomerProfileId, Option<string> providerPaymentProfileId, Option<string> metaData, Option<string> appKey);
 
         /// <summary>
         /// Create Payment Method Add a new method of payment.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="accountName">Account Name of the credit card user (optional)</param>
         /// <param name="firstName">The first name on the credit card (optional)</param>
@@ -1360,11 +1336,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">Application Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePaymentMethodApiResponse"/>&gt;</returns>
-        public async Task<ICreatePaymentMethodApiResponse?> CreatePaymentMethodOrDefaultAsync(decimal version, long accountId, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<bool> defaultPaymentMethod = default, Option<string> authToken = default, Option<string> provider = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePaymentMethodApiResponse?> CreatePaymentMethodOrDefaultAsync(long accountId, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<bool> defaultPaymentMethod = default, Option<string> authToken = default, Option<string> provider = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreatePaymentMethodAsync(version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey, cancellationToken).ConfigureAwait(false);
+                return await CreatePaymentMethodAsync(accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1376,7 +1352,6 @@ namespace Org.OpenAPITools.Api
         /// Create Payment Method Add a new method of payment.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="accountName">Account Name of the credit card user (optional)</param>
         /// <param name="firstName">The first name on the credit card (optional)</param>
@@ -1404,7 +1379,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">Application Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePaymentMethodApiResponse"/>&gt;</returns>
-        public async Task<ICreatePaymentMethodApiResponse> CreatePaymentMethodAsync(decimal version, long accountId, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<bool> defaultPaymentMethod = default, Option<string> authToken = default, Option<string> provider = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePaymentMethodApiResponse> CreatePaymentMethodAsync(long accountId, Option<string> accountName = default, Option<string> firstName = default, Option<string> lastName = default, Option<string> address = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> phone = default, Option<string> creditCardNumber = default, Option<string> expirationDate = default, Option<string> ccv = default, Option<string> accountNumber = default, Option<string> bankName = default, Option<string> routingNumber = default, Option<string> paymentMethodNickname = default, Option<string> taxId = default, Option<bool> defaultPaymentMethod = default, Option<string> authToken = default, Option<string> provider = default, Option<string> providerCustomerProfileId = default, Option<string> providerPaymentProfileId = default, Option<string> metaData = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1412,7 +1387,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreatePaymentMethod(accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
 
-                FormatCreatePaymentMethod(ref version, ref accountId, ref accountName, ref firstName, ref lastName, ref address, ref city, ref state, ref postalCode, ref country, ref phone, ref creditCardNumber, ref expirationDate, ref ccv, ref accountNumber, ref bankName, ref routingNumber, ref paymentMethodNickname, ref taxId, ref defaultPaymentMethod, ref authToken, ref provider, ref providerCustomerProfileId, ref providerPaymentProfileId, ref metaData, ref appKey);
+                FormatCreatePaymentMethod(ref accountId, ref accountName, ref firstName, ref lastName, ref address, ref city, ref state, ref postalCode, ref country, ref phone, ref creditCardNumber, ref expirationDate, ref ccv, ref accountNumber, ref bankName, ref routingNumber, ref paymentMethodNickname, ref taxId, ref defaultPaymentMethod, ref authToken, ref provider, ref providerCustomerProfileId, ref providerPaymentProfileId, ref metaData, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1420,9 +1395,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billing/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billing/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billing/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billing/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1525,13 +1499,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billing/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billing/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreatePaymentMethodDefaultImplementation(apiResponseLocalVar, version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
+                        AfterCreatePaymentMethodDefaultImplementation(apiResponseLocalVar, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
 
                         Events.ExecuteOnCreatePaymentMethod(apiResponseLocalVar);
 
@@ -1541,7 +1515,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreatePaymentMethodDefaultImplementation(e, "/api/{version}/billing/create", uriBuilderLocalVar.Path, version, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
+                OnErrorCreatePaymentMethodDefaultImplementation(e, "/billing/create", uriBuilderLocalVar.Path, accountId, accountName, firstName, lastName, address, city, state, postalCode, country, phone, creditCardNumber, expirationDate, ccv, accountNumber, bankName, routingNumber, paymentMethodNickname, taxId, defaultPaymentMethod, authToken, provider, providerCustomerProfileId, providerPaymentProfileId, metaData, appKey);
                 Events.ExecuteOnErrorCreatePaymentMethod(e);
                 throw;
             }
@@ -1640,7 +1614,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateSmartContract(ref decimal version, ref long accountId, ref string tokenName, ref string tokenSymbol, ref Option<long> paymentMethodId);
+        partial void FormatCreateSmartContract(ref long accountId, ref string tokenName, ref string tokenSymbol, ref Option<long> paymentMethodId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1661,15 +1635,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="tokenName"></param>
         /// <param name="tokenSymbol"></param>
         /// <param name="paymentMethodId"></param>
-        private void AfterCreateSmartContractDefaultImplementation(ICreateSmartContractApiResponse apiResponseLocalVar, decimal version, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId)
+        private void AfterCreateSmartContractDefaultImplementation(ICreateSmartContractApiResponse apiResponseLocalVar, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId)
         {
             bool suppressDefaultLog = false;
-            AfterCreateSmartContract(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, tokenName, tokenSymbol, paymentMethodId);
+            AfterCreateSmartContract(ref suppressDefaultLog, apiResponseLocalVar, accountId, tokenName, tokenSymbol, paymentMethodId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1679,12 +1652,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="tokenName"></param>
         /// <param name="tokenSymbol"></param>
         /// <param name="paymentMethodId"></param>
-        partial void AfterCreateSmartContract(ref bool suppressDefaultLog, ICreateSmartContractApiResponse apiResponseLocalVar, decimal version, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId);
+        partial void AfterCreateSmartContract(ref bool suppressDefaultLog, ICreateSmartContractApiResponse apiResponseLocalVar, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1692,15 +1664,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="tokenName"></param>
         /// <param name="tokenSymbol"></param>
         /// <param name="paymentMethodId"></param>
-        private void OnErrorCreateSmartContractDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId)
+        private void OnErrorCreateSmartContractDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateSmartContract(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, tokenName, tokenSymbol, paymentMethodId);
+            OnErrorCreateSmartContract(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, tokenName, tokenSymbol, paymentMethodId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1712,28 +1683,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="tokenName"></param>
         /// <param name="tokenSymbol"></param>
         /// <param name="paymentMethodId"></param>
-        partial void OnErrorCreateSmartContract(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId);
+        partial void OnErrorCreateSmartContract(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId);
 
         /// <summary>
         /// Create Smart Contract Adds a smart contract.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="tokenName">The token name</param>
         /// <param name="tokenSymbol">The token symbol</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSmartContractApiResponse"/>&gt;</returns>
-        public async Task<ICreateSmartContractApiResponse?> CreateSmartContractOrDefaultAsync(decimal version, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateSmartContractApiResponse?> CreateSmartContractOrDefaultAsync(long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateSmartContractAsync(version, accountId, tokenName, tokenSymbol, paymentMethodId, cancellationToken).ConfigureAwait(false);
+                return await CreateSmartContractAsync(accountId, tokenName, tokenSymbol, paymentMethodId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1745,14 +1714,13 @@ namespace Org.OpenAPITools.Api
         /// Create Smart Contract Adds a smart contract.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="tokenName">The token name</param>
         /// <param name="tokenSymbol">The token symbol</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSmartContractApiResponse"/>&gt;</returns>
-        public async Task<ICreateSmartContractApiResponse> CreateSmartContractAsync(decimal version, long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateSmartContractApiResponse> CreateSmartContractAsync(long accountId, string tokenName, string tokenSymbol, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1760,7 +1728,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateSmartContract(tokenName, tokenSymbol);
 
-                FormatCreateSmartContract(ref version, ref accountId, ref tokenName, ref tokenSymbol, ref paymentMethodId);
+                FormatCreateSmartContract(ref accountId, ref tokenName, ref tokenSymbol, ref paymentMethodId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1768,9 +1736,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billing/crypto/transfer"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billing/crypto/transfer");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billing/crypto/transfer"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billing/crypto/transfer");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1806,13 +1773,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billing/crypto/transfer", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billing/crypto/transfer", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateSmartContractDefaultImplementation(apiResponseLocalVar, version, accountId, tokenName, tokenSymbol, paymentMethodId);
+                        AfterCreateSmartContractDefaultImplementation(apiResponseLocalVar, accountId, tokenName, tokenSymbol, paymentMethodId);
 
                         Events.ExecuteOnCreateSmartContract(apiResponseLocalVar);
 
@@ -1822,7 +1789,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateSmartContractDefaultImplementation(e, "/api/{version}/billing/crypto/transfer", uriBuilderLocalVar.Path, version, accountId, tokenName, tokenSymbol, paymentMethodId);
+                OnErrorCreateSmartContractDefaultImplementation(e, "/billing/crypto/transfer", uriBuilderLocalVar.Path, accountId, tokenName, tokenSymbol, paymentMethodId);
                 Events.ExecuteOnErrorCreateSmartContract(e);
                 throw;
             }
@@ -1921,20 +1888,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCryptoBalance(ref decimal version, ref long accountId, ref Option<long> ownerAccountId, ref Option<long> paymentMethodId);
+        partial void FormatGetCryptoBalance(ref long accountId, ref Option<long> ownerAccountId, ref Option<long> paymentMethodId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerAccountId"></param>
         /// <param name="paymentMethodId"></param>
-        private void AfterGetCryptoBalanceDefaultImplementation(IGetCryptoBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> ownerAccountId, Option<long> paymentMethodId)
+        private void AfterGetCryptoBalanceDefaultImplementation(IGetCryptoBalanceApiResponse apiResponseLocalVar, long accountId, Option<long> ownerAccountId, Option<long> paymentMethodId)
         {
             bool suppressDefaultLog = false;
-            AfterGetCryptoBalance(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, ownerAccountId, paymentMethodId);
+            AfterGetCryptoBalance(ref suppressDefaultLog, apiResponseLocalVar, accountId, ownerAccountId, paymentMethodId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1944,11 +1910,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerAccountId"></param>
         /// <param name="paymentMethodId"></param>
-        partial void AfterGetCryptoBalance(ref bool suppressDefaultLog, IGetCryptoBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> ownerAccountId, Option<long> paymentMethodId);
+        partial void AfterGetCryptoBalance(ref bool suppressDefaultLog, IGetCryptoBalanceApiResponse apiResponseLocalVar, long accountId, Option<long> ownerAccountId, Option<long> paymentMethodId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1956,14 +1921,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerAccountId"></param>
         /// <param name="paymentMethodId"></param>
-        private void OnErrorGetCryptoBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> ownerAccountId, Option<long> paymentMethodId)
+        private void OnErrorGetCryptoBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> ownerAccountId, Option<long> paymentMethodId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCryptoBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, ownerAccountId, paymentMethodId);
+            OnErrorGetCryptoBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, ownerAccountId, paymentMethodId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1975,26 +1939,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerAccountId"></param>
         /// <param name="paymentMethodId"></param>
-        partial void OnErrorGetCryptoBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> ownerAccountId, Option<long> paymentMethodId);
+        partial void OnErrorGetCryptoBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> ownerAccountId, Option<long> paymentMethodId);
 
         /// <summary>
         /// Get Crypto Balances Get the cypto balance details for a user
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="ownerAccountId">The account to retreive balances for (optional)</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCryptoBalanceApiResponse"/>&gt;</returns>
-        public async Task<IGetCryptoBalanceApiResponse?> GetCryptoBalanceOrDefaultAsync(decimal version, long accountId, Option<long> ownerAccountId = default, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCryptoBalanceApiResponse?> GetCryptoBalanceOrDefaultAsync(long accountId, Option<long> ownerAccountId = default, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCryptoBalanceAsync(version, accountId, ownerAccountId, paymentMethodId, cancellationToken).ConfigureAwait(false);
+                return await GetCryptoBalanceAsync(accountId, ownerAccountId, paymentMethodId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2006,19 +1968,18 @@ namespace Org.OpenAPITools.Api
         /// Get Crypto Balances Get the cypto balance details for a user
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="ownerAccountId">The account to retreive balances for (optional)</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCryptoBalanceApiResponse"/>&gt;</returns>
-        public async Task<IGetCryptoBalanceApiResponse> GetCryptoBalanceAsync(decimal version, long accountId, Option<long> ownerAccountId = default, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCryptoBalanceApiResponse> GetCryptoBalanceAsync(long accountId, Option<long> ownerAccountId = default, Option<long> paymentMethodId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetCryptoBalance(ref version, ref accountId, ref ownerAccountId, ref paymentMethodId);
+                FormatGetCryptoBalance(ref accountId, ref ownerAccountId, ref paymentMethodId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2026,9 +1987,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billing/crypto/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billing/crypto/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billing/crypto/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billing/crypto/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2065,13 +2025,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billing/crypto/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billing/crypto/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCryptoBalanceDefaultImplementation(apiResponseLocalVar, version, accountId, ownerAccountId, paymentMethodId);
+                        AfterGetCryptoBalanceDefaultImplementation(apiResponseLocalVar, accountId, ownerAccountId, paymentMethodId);
 
                         Events.ExecuteOnGetCryptoBalance(apiResponseLocalVar);
 
@@ -2081,7 +2041,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCryptoBalanceDefaultImplementation(e, "/api/{version}/billing/crypto/get", uriBuilderLocalVar.Path, version, accountId, ownerAccountId, paymentMethodId);
+                OnErrorGetCryptoBalanceDefaultImplementation(e, "/billing/crypto/get", uriBuilderLocalVar.Path, accountId, ownerAccountId, paymentMethodId);
                 Events.ExecuteOnErrorGetCryptoBalance(e);
                 throw;
             }
@@ -2180,20 +2140,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPaymentMethod(ref decimal version, ref long accountId, ref Option<long> paymentMethodId, ref Option<bool> getCurrentBalance);
+        partial void FormatGetPaymentMethod(ref long accountId, ref Option<long> paymentMethodId, ref Option<bool> getCurrentBalance);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="paymentMethodId"></param>
         /// <param name="getCurrentBalance"></param>
-        private void AfterGetPaymentMethodDefaultImplementation(IGetPaymentMethodApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> paymentMethodId, Option<bool> getCurrentBalance)
+        private void AfterGetPaymentMethodDefaultImplementation(IGetPaymentMethodApiResponse apiResponseLocalVar, long accountId, Option<long> paymentMethodId, Option<bool> getCurrentBalance)
         {
             bool suppressDefaultLog = false;
-            AfterGetPaymentMethod(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, paymentMethodId, getCurrentBalance);
+            AfterGetPaymentMethod(ref suppressDefaultLog, apiResponseLocalVar, accountId, paymentMethodId, getCurrentBalance);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2203,11 +2162,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="paymentMethodId"></param>
         /// <param name="getCurrentBalance"></param>
-        partial void AfterGetPaymentMethod(ref bool suppressDefaultLog, IGetPaymentMethodApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> paymentMethodId, Option<bool> getCurrentBalance);
+        partial void AfterGetPaymentMethod(ref bool suppressDefaultLog, IGetPaymentMethodApiResponse apiResponseLocalVar, long accountId, Option<long> paymentMethodId, Option<bool> getCurrentBalance);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2215,14 +2173,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="paymentMethodId"></param>
         /// <param name="getCurrentBalance"></param>
-        private void OnErrorGetPaymentMethodDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> paymentMethodId, Option<bool> getCurrentBalance)
+        private void OnErrorGetPaymentMethodDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> paymentMethodId, Option<bool> getCurrentBalance)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPaymentMethod(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, paymentMethodId, getCurrentBalance);
+            OnErrorGetPaymentMethod(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, paymentMethodId, getCurrentBalance);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2234,26 +2191,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="paymentMethodId"></param>
         /// <param name="getCurrentBalance"></param>
-        partial void OnErrorGetPaymentMethod(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> paymentMethodId, Option<bool> getCurrentBalance);
+        partial void OnErrorGetPaymentMethod(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> paymentMethodId, Option<bool> getCurrentBalance);
 
         /// <summary>
         /// Get Payment Method Get the details of the user&#39;s payment method or their current default method of payment
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="getCurrentBalance">Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPaymentMethodApiResponse"/>&gt;</returns>
-        public async Task<IGetPaymentMethodApiResponse?> GetPaymentMethodOrDefaultAsync(decimal version, long accountId, Option<long> paymentMethodId = default, Option<bool> getCurrentBalance = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPaymentMethodApiResponse?> GetPaymentMethodOrDefaultAsync(long accountId, Option<long> paymentMethodId = default, Option<bool> getCurrentBalance = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPaymentMethodAsync(version, accountId, paymentMethodId, getCurrentBalance, cancellationToken).ConfigureAwait(false);
+                return await GetPaymentMethodAsync(accountId, paymentMethodId, getCurrentBalance, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2265,19 +2220,18 @@ namespace Org.OpenAPITools.Api
         /// Get Payment Method Get the details of the user&#39;s payment method or their current default method of payment
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the the request</param>
         /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)</param>
         /// <param name="getCurrentBalance">Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPaymentMethodApiResponse"/>&gt;</returns>
-        public async Task<IGetPaymentMethodApiResponse> GetPaymentMethodAsync(decimal version, long accountId, Option<long> paymentMethodId = default, Option<bool> getCurrentBalance = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPaymentMethodApiResponse> GetPaymentMethodAsync(long accountId, Option<long> paymentMethodId = default, Option<bool> getCurrentBalance = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetPaymentMethod(ref version, ref accountId, ref paymentMethodId, ref getCurrentBalance);
+                FormatGetPaymentMethod(ref accountId, ref paymentMethodId, ref getCurrentBalance);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2285,9 +2239,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billing/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billing/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billing/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billing/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2324,13 +2277,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billing/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billing/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPaymentMethodDefaultImplementation(apiResponseLocalVar, version, accountId, paymentMethodId, getCurrentBalance);
+                        AfterGetPaymentMethodDefaultImplementation(apiResponseLocalVar, accountId, paymentMethodId, getCurrentBalance);
 
                         Events.ExecuteOnGetPaymentMethod(apiResponseLocalVar);
 
@@ -2340,7 +2293,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPaymentMethodDefaultImplementation(e, "/api/{version}/billing/get", uriBuilderLocalVar.Path, version, accountId, paymentMethodId, getCurrentBalance);
+                OnErrorGetPaymentMethodDefaultImplementation(e, "/billing/get", uriBuilderLocalVar.Path, accountId, paymentMethodId, getCurrentBalance);
                 Events.ExecuteOnErrorGetPaymentMethod(e);
                 throw;
             }
@@ -2439,7 +2392,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchPaymentMethod(ref decimal version, ref long accountId, ref Option<string> provider, ref Option<string> type, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchPaymentMethod(ref long accountId, ref Option<string> provider, ref Option<string> type, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -2468,7 +2421,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="provider"></param>
         /// <param name="type"></param>
@@ -2477,10 +2429,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchPaymentMethodDefaultImplementation(ISearchPaymentMethodApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> provider, Option<string> type, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchPaymentMethodDefaultImplementation(ISearchPaymentMethodApiResponse apiResponseLocalVar, long accountId, Option<string> provider, Option<string> type, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchPaymentMethod(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, provider, type, keyword, sortField, descending, start, limit);
+            AfterSearchPaymentMethod(ref suppressDefaultLog, apiResponseLocalVar, accountId, provider, type, keyword, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2490,7 +2442,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="provider"></param>
         /// <param name="type"></param>
@@ -2499,7 +2450,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchPaymentMethod(ref bool suppressDefaultLog, ISearchPaymentMethodApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> provider, Option<string> type, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchPaymentMethod(ref bool suppressDefaultLog, ISearchPaymentMethodApiResponse apiResponseLocalVar, long accountId, Option<string> provider, Option<string> type, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2507,7 +2458,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="provider"></param>
         /// <param name="type"></param>
@@ -2516,10 +2466,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchPaymentMethodDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> provider, Option<string> type, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchPaymentMethodDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> provider, Option<string> type, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchPaymentMethod(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, provider, type, keyword, sortField, descending, start, limit);
+            OnErrorSearchPaymentMethod(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, provider, type, keyword, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2531,7 +2481,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="provider"></param>
         /// <param name="type"></param>
@@ -2540,12 +2489,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchPaymentMethod(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> provider, Option<string> type, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchPaymentMethod(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> provider, Option<string> type, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Payment Methods Search the payment methods of an account
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Account Id to search on</param>
         /// <param name="provider">Provider to search on (optional, default to &quot;AUTHORIZE_NET&quot;)</param>
         /// <param name="type">the type to search on (optional)</param>
@@ -2556,11 +2504,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the search (optional, default to 5)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPaymentMethodApiResponse"/>&gt;</returns>
-        public async Task<ISearchPaymentMethodApiResponse?> SearchPaymentMethodOrDefaultAsync(decimal version, long accountId, Option<string> provider = default, Option<string> type = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPaymentMethodApiResponse?> SearchPaymentMethodOrDefaultAsync(long accountId, Option<string> provider = default, Option<string> type = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchPaymentMethodAsync(version, accountId, provider, type, keyword, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchPaymentMethodAsync(accountId, provider, type, keyword, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2572,7 +2520,6 @@ namespace Org.OpenAPITools.Api
         /// Search Payment Methods Search the payment methods of an account
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Account Id to search on</param>
         /// <param name="provider">Provider to search on (optional, default to &quot;AUTHORIZE_NET&quot;)</param>
         /// <param name="type">the type to search on (optional)</param>
@@ -2583,7 +2530,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the search (optional, default to 5)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchPaymentMethodApiResponse"/>&gt;</returns>
-        public async Task<ISearchPaymentMethodApiResponse> SearchPaymentMethodAsync(decimal version, long accountId, Option<string> provider = default, Option<string> type = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchPaymentMethodApiResponse> SearchPaymentMethodAsync(long accountId, Option<string> provider = default, Option<string> type = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2591,7 +2538,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchPaymentMethod(provider, type, keyword, sortField);
 
-                FormatSearchPaymentMethod(ref version, ref accountId, ref provider, ref type, ref keyword, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchPaymentMethod(ref accountId, ref provider, ref type, ref keyword, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2599,9 +2546,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/billing/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/billing/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/billing/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/billing/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2653,13 +2599,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/billing/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/billing/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchPaymentMethodDefaultImplementation(apiResponseLocalVar, version, accountId, provider, type, keyword, sortField, descending, start, limit);
+                        AfterSearchPaymentMethodDefaultImplementation(apiResponseLocalVar, accountId, provider, type, keyword, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchPaymentMethod(apiResponseLocalVar);
 
@@ -2669,7 +2615,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchPaymentMethodDefaultImplementation(e, "/api/{version}/billing/search", uriBuilderLocalVar.Path, version, accountId, provider, type, keyword, sortField, descending, start, limit);
+                OnErrorSearchPaymentMethodDefaultImplementation(e, "/billing/search", uriBuilderLocalVar.Path, accountId, provider, type, keyword, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchPaymentMethod(e);
                 throw;
             }

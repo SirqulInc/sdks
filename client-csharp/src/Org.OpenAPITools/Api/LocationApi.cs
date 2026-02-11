@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates trilateration samples for a source device (i.e. a router).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="udid">The unique identifier of the source device</param>
         /// <param name="sourceTime">The current timestamp of the source device (optional)</param>
         /// <param name="minimumSampleSize">the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)</param>
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="dataFile">Binary file containing data (multipart upload) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICacheTrilaterationDataApiResponse"/>&gt;</returns>
-        Task<ICacheTrilaterationDataApiResponse> CacheTrilaterationDataAsync(decimal version, string udid, Option<long> sourceTime = default, Option<int> minimumSampleSize = default, Option<string> data = default, Option<System.IO.Stream> dataFile = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICacheTrilaterationDataApiResponse> CacheTrilaterationDataAsync(string udid, Option<long> sourceTime = default, Option<int> minimumSampleSize = default, Option<string> data = default, Option<System.IO.Stream> dataFile = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Trilateration Data with File
@@ -61,7 +60,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates trilateration samples for a source device (i.e. a router).
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="udid">The unique identifier of the source device</param>
         /// <param name="sourceTime">The current timestamp of the source device (optional)</param>
         /// <param name="minimumSampleSize">the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)</param>
@@ -69,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="dataFile">Binary file containing data (multipart upload) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICacheTrilaterationDataApiResponse"/>?&gt;</returns>
-        Task<ICacheTrilaterationDataApiResponse?> CacheTrilaterationDataOrDefaultAsync(decimal version, string udid, Option<long> sourceTime = default, Option<int> minimumSampleSize = default, Option<string> data = default, Option<System.IO.Stream> dataFile = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICacheTrilaterationDataApiResponse?> CacheTrilaterationDataOrDefaultAsync(string udid, Option<long> sourceTime = default, Option<int> minimumSampleSize = default, Option<string> data = default, Option<System.IO.Stream> dataFile = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Trilateration Data with Rest
@@ -78,11 +76,10 @@ namespace Org.OpenAPITools.Api
         /// Creates trilateration samples for a source device (i.e. a router).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICacheTrilaterationDataGzipApiResponse"/>&gt;</returns>
-        Task<ICacheTrilaterationDataGzipApiResponse> CacheTrilaterationDataGzipAsync(decimal version, Option<TrilatCacheRequest> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICacheTrilaterationDataGzipApiResponse> CacheTrilaterationDataGzipAsync(Option<TrilatCacheRequest> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Trilateration Data with Rest
@@ -90,11 +87,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates trilateration samples for a source device (i.e. a router).
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICacheTrilaterationDataGzipApiResponse"/>?&gt;</returns>
-        Task<ICacheTrilaterationDataGzipApiResponse?> CacheTrilaterationDataGzipOrDefaultAsync(decimal version, Option<TrilatCacheRequest> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICacheTrilaterationDataGzipApiResponse?> CacheTrilaterationDataGzipOrDefaultAsync(Option<TrilatCacheRequest> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Location by IP
@@ -103,11 +99,10 @@ namespace Org.OpenAPITools.Api
         /// Get location information based on an IP address.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ip">the ip address of the client device (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationByIpApiResponse"/>&gt;</returns>
-        Task<IGetLocationByIpApiResponse> GetLocationByIpAsync(decimal version, Option<string> ip = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetLocationByIpApiResponse> GetLocationByIpAsync(Option<string> ip = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Location by IP
@@ -115,11 +110,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get location information based on an IP address.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="ip">the ip address of the client device (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationByIpApiResponse"/>?&gt;</returns>
-        Task<IGetLocationByIpApiResponse?> GetLocationByIpOrDefaultAsync(decimal version, Option<string> ip = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetLocationByIpApiResponse?> GetLocationByIpOrDefaultAsync(Option<string> ip = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Location by Trilateration
@@ -128,7 +122,6 @@ namespace Org.OpenAPITools.Api
         /// Send in device data and calculate a position based on signal strengths.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account making the request, if provided the last know location will be updated (optional)</param>
         /// <param name="latitude">The known GPS latitude to compare to the calculated version (optional)</param>
         /// <param name="longitude">The known GPS longitude to compare to the calculated version (optional)</param>
@@ -136,7 +129,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">Optional response filters (not used currently) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationByTrilaterationApiResponse"/>&gt;</returns>
-        Task<IGetLocationByTrilaterationApiResponse> GetLocationByTrilaterationAsync(decimal version, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> data = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetLocationByTrilaterationApiResponse> GetLocationByTrilaterationAsync(Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> data = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Location by Trilateration
@@ -144,7 +137,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Send in device data and calculate a position based on signal strengths.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account making the request, if provided the last know location will be updated (optional)</param>
         /// <param name="latitude">The known GPS latitude to compare to the calculated version (optional)</param>
         /// <param name="longitude">The known GPS longitude to compare to the calculated version (optional)</param>
@@ -152,7 +144,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">Optional response filters (not used currently) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationByTrilaterationApiResponse"/>?&gt;</returns>
-        Task<IGetLocationByTrilaterationApiResponse?> GetLocationByTrilaterationOrDefaultAsync(decimal version, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> data = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetLocationByTrilaterationApiResponse?> GetLocationByTrilaterationOrDefaultAsync(Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> data = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Regions or Postal Codes
@@ -161,7 +153,6 @@ namespace Org.OpenAPITools.Api
         /// Searches geographic locations by proximity via address or keyword.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (optional)</param>
         /// <param name="accountId">the account id (optional)</param>
         /// <param name="currentlatitude">This parameter is deprecated. (optional)</param>
@@ -183,7 +174,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationsApiResponse"/>&gt;</returns>
-        Task<IGetLocationsApiResponse> GetLocationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> currentlatitude = default, Option<double> currentlongitude = default, Option<double> currentLatitude = default, Option<double> currentLongitude = default, Option<string> query = default, Option<string> zipcode = default, Option<string> zipCode = default, Option<double> selectedMaplatitude = default, Option<double> selectedMaplongitude = default, Option<double> selectedMapLatitude = default, Option<double> selectedMapLongitude = default, Option<double> searchRange = default, Option<bool> useGeocode = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetLocationsApiResponse> GetLocationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> currentlatitude = default, Option<double> currentlongitude = default, Option<double> currentLatitude = default, Option<double> currentLongitude = default, Option<string> query = default, Option<string> zipcode = default, Option<string> zipCode = default, Option<double> selectedMaplatitude = default, Option<double> selectedMaplongitude = default, Option<double> selectedMapLatitude = default, Option<double> selectedMapLongitude = default, Option<double> searchRange = default, Option<bool> useGeocode = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Regions or Postal Codes
@@ -191,7 +182,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches geographic locations by proximity via address or keyword.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (optional)</param>
         /// <param name="accountId">the account id (optional)</param>
         /// <param name="currentlatitude">This parameter is deprecated. (optional)</param>
@@ -213,7 +203,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationsApiResponse"/>?&gt;</returns>
-        Task<IGetLocationsApiResponse?> GetLocationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> currentlatitude = default, Option<double> currentlongitude = default, Option<double> currentLatitude = default, Option<double> currentLongitude = default, Option<string> query = default, Option<string> zipcode = default, Option<string> zipCode = default, Option<double> selectedMaplatitude = default, Option<double> selectedMaplongitude = default, Option<double> selectedMapLatitude = default, Option<double> selectedMapLongitude = default, Option<double> searchRange = default, Option<bool> useGeocode = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetLocationsApiResponse?> GetLocationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> currentlatitude = default, Option<double> currentlongitude = default, Option<double> currentLatitude = default, Option<double> currentLongitude = default, Option<string> query = default, Option<string> zipcode = default, Option<string> zipCode = default, Option<double> selectedMaplatitude = default, Option<double> selectedMaplongitude = default, Option<double> selectedMapLatitude = default, Option<double> selectedMapLongitude = default, Option<double> searchRange = default, Option<bool> useGeocode = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -429,7 +419,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCacheTrilaterationData(ref decimal version, ref string udid, ref Option<long> sourceTime, ref Option<int> minimumSampleSize, ref Option<string> data, ref Option<System.IO.Stream> dataFile);
+        partial void FormatCacheTrilaterationData(ref string udid, ref Option<long> sourceTime, ref Option<int> minimumSampleSize, ref Option<string> data, ref Option<System.IO.Stream> dataFile);
 
         /// <summary>
         /// Validates the request parameters
@@ -454,16 +444,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="udid"></param>
         /// <param name="sourceTime"></param>
         /// <param name="minimumSampleSize"></param>
         /// <param name="data"></param>
         /// <param name="dataFile"></param>
-        private void AfterCacheTrilaterationDataDefaultImplementation(ICacheTrilaterationDataApiResponse apiResponseLocalVar, decimal version, string udid, Option<long> sourceTime, Option<int> minimumSampleSize, Option<string> data, Option<System.IO.Stream> dataFile)
+        private void AfterCacheTrilaterationDataDefaultImplementation(ICacheTrilaterationDataApiResponse apiResponseLocalVar, string udid, Option<long> sourceTime, Option<int> minimumSampleSize, Option<string> data, Option<System.IO.Stream> dataFile)
         {
             bool suppressDefaultLog = false;
-            AfterCacheTrilaterationData(ref suppressDefaultLog, apiResponseLocalVar, version, udid, sourceTime, minimumSampleSize, data, dataFile);
+            AfterCacheTrilaterationData(ref suppressDefaultLog, apiResponseLocalVar, udid, sourceTime, minimumSampleSize, data, dataFile);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -473,13 +462,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="udid"></param>
         /// <param name="sourceTime"></param>
         /// <param name="minimumSampleSize"></param>
         /// <param name="data"></param>
         /// <param name="dataFile"></param>
-        partial void AfterCacheTrilaterationData(ref bool suppressDefaultLog, ICacheTrilaterationDataApiResponse apiResponseLocalVar, decimal version, string udid, Option<long> sourceTime, Option<int> minimumSampleSize, Option<string> data, Option<System.IO.Stream> dataFile);
+        partial void AfterCacheTrilaterationData(ref bool suppressDefaultLog, ICacheTrilaterationDataApiResponse apiResponseLocalVar, string udid, Option<long> sourceTime, Option<int> minimumSampleSize, Option<string> data, Option<System.IO.Stream> dataFile);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -487,16 +475,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="udid"></param>
         /// <param name="sourceTime"></param>
         /// <param name="minimumSampleSize"></param>
         /// <param name="data"></param>
         /// <param name="dataFile"></param>
-        private void OnErrorCacheTrilaterationDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string udid, Option<long> sourceTime, Option<int> minimumSampleSize, Option<string> data, Option<System.IO.Stream> dataFile)
+        private void OnErrorCacheTrilaterationDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string udid, Option<long> sourceTime, Option<int> minimumSampleSize, Option<string> data, Option<System.IO.Stream> dataFile)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCacheTrilaterationData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, udid, sourceTime, minimumSampleSize, data, dataFile);
+            OnErrorCacheTrilaterationData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, udid, sourceTime, minimumSampleSize, data, dataFile);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -508,18 +495,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="udid"></param>
         /// <param name="sourceTime"></param>
         /// <param name="minimumSampleSize"></param>
         /// <param name="data"></param>
         /// <param name="dataFile"></param>
-        partial void OnErrorCacheTrilaterationData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string udid, Option<long> sourceTime, Option<int> minimumSampleSize, Option<string> data, Option<System.IO.Stream> dataFile);
+        partial void OnErrorCacheTrilaterationData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string udid, Option<long> sourceTime, Option<int> minimumSampleSize, Option<string> data, Option<System.IO.Stream> dataFile);
 
         /// <summary>
         /// Create Trilateration Data with File Creates trilateration samples for a source device (i.e. a router).
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="udid">The unique identifier of the source device</param>
         /// <param name="sourceTime">The current timestamp of the source device (optional)</param>
         /// <param name="minimumSampleSize">the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)</param>
@@ -527,11 +512,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="dataFile">Binary file containing data (multipart upload) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICacheTrilaterationDataApiResponse"/>&gt;</returns>
-        public async Task<ICacheTrilaterationDataApiResponse?> CacheTrilaterationDataOrDefaultAsync(decimal version, string udid, Option<long> sourceTime = default, Option<int> minimumSampleSize = default, Option<string> data = default, Option<System.IO.Stream> dataFile = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICacheTrilaterationDataApiResponse?> CacheTrilaterationDataOrDefaultAsync(string udid, Option<long> sourceTime = default, Option<int> minimumSampleSize = default, Option<string> data = default, Option<System.IO.Stream> dataFile = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CacheTrilaterationDataAsync(version, udid, sourceTime, minimumSampleSize, data, dataFile, cancellationToken).ConfigureAwait(false);
+                return await CacheTrilaterationDataAsync(udid, sourceTime, minimumSampleSize, data, dataFile, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -543,7 +528,6 @@ namespace Org.OpenAPITools.Api
         /// Create Trilateration Data with File Creates trilateration samples for a source device (i.e. a router).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="udid">The unique identifier of the source device</param>
         /// <param name="sourceTime">The current timestamp of the source device (optional)</param>
         /// <param name="minimumSampleSize">the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)</param>
@@ -551,7 +535,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="dataFile">Binary file containing data (multipart upload) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICacheTrilaterationDataApiResponse"/>&gt;</returns>
-        public async Task<ICacheTrilaterationDataApiResponse> CacheTrilaterationDataAsync(decimal version, string udid, Option<long> sourceTime = default, Option<int> minimumSampleSize = default, Option<string> data = default, Option<System.IO.Stream> dataFile = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICacheTrilaterationDataApiResponse> CacheTrilaterationDataAsync(string udid, Option<long> sourceTime = default, Option<int> minimumSampleSize = default, Option<string> data = default, Option<System.IO.Stream> dataFile = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -559,7 +543,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCacheTrilaterationData(udid, data, dataFile);
 
-                FormatCacheTrilaterationData(ref version, ref udid, ref sourceTime, ref minimumSampleSize, ref data, ref dataFile);
+                FormatCacheTrilaterationData(ref udid, ref sourceTime, ref minimumSampleSize, ref data, ref dataFile);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -567,9 +551,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location/trilaterate/cache"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location/trilaterate/cache");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location/trilaterate/cache"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location/trilaterate/cache");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -612,13 +595,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location/trilaterate/cache", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location/trilaterate/cache", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCacheTrilaterationDataDefaultImplementation(apiResponseLocalVar, version, udid, sourceTime, minimumSampleSize, data, dataFile);
+                        AfterCacheTrilaterationDataDefaultImplementation(apiResponseLocalVar, udid, sourceTime, minimumSampleSize, data, dataFile);
 
                         Events.ExecuteOnCacheTrilaterationData(apiResponseLocalVar);
 
@@ -628,7 +611,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCacheTrilaterationDataDefaultImplementation(e, "/api/{version}/location/trilaterate/cache", uriBuilderLocalVar.Path, version, udid, sourceTime, minimumSampleSize, data, dataFile);
+                OnErrorCacheTrilaterationDataDefaultImplementation(e, "/location/trilaterate/cache", uriBuilderLocalVar.Path, udid, sourceTime, minimumSampleSize, data, dataFile);
                 Events.ExecuteOnErrorCacheTrilaterationData(e);
                 throw;
             }
@@ -727,7 +710,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCacheTrilaterationDataGzip(ref decimal version, Option<TrilatCacheRequest> body);
+        partial void FormatCacheTrilaterationDataGzip(Option<TrilatCacheRequest> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -744,12 +727,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCacheTrilaterationDataGzipDefaultImplementation(ICacheTrilaterationDataGzipApiResponse apiResponseLocalVar, decimal version, Option<TrilatCacheRequest> body)
+        private void AfterCacheTrilaterationDataGzipDefaultImplementation(ICacheTrilaterationDataGzipApiResponse apiResponseLocalVar, Option<TrilatCacheRequest> body)
         {
             bool suppressDefaultLog = false;
-            AfterCacheTrilaterationDataGzip(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCacheTrilaterationDataGzip(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -759,9 +741,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCacheTrilaterationDataGzip(ref bool suppressDefaultLog, ICacheTrilaterationDataGzipApiResponse apiResponseLocalVar, decimal version, Option<TrilatCacheRequest> body);
+        partial void AfterCacheTrilaterationDataGzip(ref bool suppressDefaultLog, ICacheTrilaterationDataGzipApiResponse apiResponseLocalVar, Option<TrilatCacheRequest> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -769,12 +750,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCacheTrilaterationDataGzipDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<TrilatCacheRequest> body)
+        private void OnErrorCacheTrilaterationDataGzipDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<TrilatCacheRequest> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCacheTrilaterationDataGzip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCacheTrilaterationDataGzip(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -786,22 +766,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCacheTrilaterationDataGzip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<TrilatCacheRequest> body);
+        partial void OnErrorCacheTrilaterationDataGzip(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<TrilatCacheRequest> body);
 
         /// <summary>
         /// Create Trilateration Data with Rest Creates trilateration samples for a source device (i.e. a router).
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICacheTrilaterationDataGzipApiResponse"/>&gt;</returns>
-        public async Task<ICacheTrilaterationDataGzipApiResponse?> CacheTrilaterationDataGzipOrDefaultAsync(decimal version, Option<TrilatCacheRequest> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICacheTrilaterationDataGzipApiResponse?> CacheTrilaterationDataGzipOrDefaultAsync(Option<TrilatCacheRequest> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CacheTrilaterationDataGzipAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CacheTrilaterationDataGzipAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -813,11 +791,10 @@ namespace Org.OpenAPITools.Api
         /// Create Trilateration Data with Rest Creates trilateration samples for a source device (i.e. a router).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICacheTrilaterationDataGzipApiResponse"/>&gt;</returns>
-        public async Task<ICacheTrilaterationDataGzipApiResponse> CacheTrilaterationDataGzipAsync(decimal version, Option<TrilatCacheRequest> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICacheTrilaterationDataGzipApiResponse> CacheTrilaterationDataGzipAsync(Option<TrilatCacheRequest> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -825,7 +802,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCacheTrilaterationDataGzip(body);
 
-                FormatCacheTrilaterationDataGzip(ref version, body);
+                FormatCacheTrilaterationDataGzip(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -833,9 +810,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location/trilaterate/cache/submit"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location/trilaterate/cache/submit");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location/trilaterate/cache/submit"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location/trilaterate/cache/submit");
 
                     if (body.IsSet)
                         httpRequestMessageLocalVar.Content = (body.Value as object) is System.IO.Stream stream
@@ -865,13 +841,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location/trilaterate/cache/submit", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location/trilaterate/cache/submit", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCacheTrilaterationDataGzipDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCacheTrilaterationDataGzipDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCacheTrilaterationDataGzip(apiResponseLocalVar);
 
@@ -881,7 +857,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCacheTrilaterationDataGzipDefaultImplementation(e, "/api/{version}/location/trilaterate/cache/submit", uriBuilderLocalVar.Path, version, body);
+                OnErrorCacheTrilaterationDataGzipDefaultImplementation(e, "/location/trilaterate/cache/submit", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCacheTrilaterationDataGzip(e);
                 throw;
             }
@@ -980,7 +956,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetLocationByIp(ref decimal version, ref Option<string> ip);
+        partial void FormatGetLocationByIp(ref Option<string> ip);
 
         /// <summary>
         /// Validates the request parameters
@@ -997,12 +973,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ip"></param>
-        private void AfterGetLocationByIpDefaultImplementation(IGetLocationByIpApiResponse apiResponseLocalVar, decimal version, Option<string> ip)
+        private void AfterGetLocationByIpDefaultImplementation(IGetLocationByIpApiResponse apiResponseLocalVar, Option<string> ip)
         {
             bool suppressDefaultLog = false;
-            AfterGetLocationByIp(ref suppressDefaultLog, apiResponseLocalVar, version, ip);
+            AfterGetLocationByIp(ref suppressDefaultLog, apiResponseLocalVar, ip);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1012,9 +987,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ip"></param>
-        partial void AfterGetLocationByIp(ref bool suppressDefaultLog, IGetLocationByIpApiResponse apiResponseLocalVar, decimal version, Option<string> ip);
+        partial void AfterGetLocationByIp(ref bool suppressDefaultLog, IGetLocationByIpApiResponse apiResponseLocalVar, Option<string> ip);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1022,12 +996,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ip"></param>
-        private void OnErrorGetLocationByIpDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> ip)
+        private void OnErrorGetLocationByIpDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> ip)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetLocationByIp(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, ip);
+            OnErrorGetLocationByIp(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, ip);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1039,22 +1012,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="ip"></param>
-        partial void OnErrorGetLocationByIp(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> ip);
+        partial void OnErrorGetLocationByIp(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> ip);
 
         /// <summary>
         /// Get Location by IP Get location information based on an IP address.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="ip">the ip address of the client device (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationByIpApiResponse"/>&gt;</returns>
-        public async Task<IGetLocationByIpApiResponse?> GetLocationByIpOrDefaultAsync(decimal version, Option<string> ip = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetLocationByIpApiResponse?> GetLocationByIpOrDefaultAsync(Option<string> ip = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetLocationByIpAsync(version, ip, cancellationToken).ConfigureAwait(false);
+                return await GetLocationByIpAsync(ip, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1066,11 +1037,10 @@ namespace Org.OpenAPITools.Api
         /// Get Location by IP Get location information based on an IP address.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="ip">the ip address of the client device (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationByIpApiResponse"/>&gt;</returns>
-        public async Task<IGetLocationByIpApiResponse> GetLocationByIpAsync(decimal version, Option<string> ip = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetLocationByIpApiResponse> GetLocationByIpAsync(Option<string> ip = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1078,7 +1048,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetLocationByIp(ip);
 
-                FormatGetLocationByIp(ref version, ref ip);
+                FormatGetLocationByIp(ref ip);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1086,9 +1056,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location/ip"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location/ip");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location/ip"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location/ip");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1120,13 +1089,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location/ip", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location/ip", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetLocationByIpDefaultImplementation(apiResponseLocalVar, version, ip);
+                        AfterGetLocationByIpDefaultImplementation(apiResponseLocalVar, ip);
 
                         Events.ExecuteOnGetLocationByIp(apiResponseLocalVar);
 
@@ -1136,7 +1105,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetLocationByIpDefaultImplementation(e, "/api/{version}/location/ip", uriBuilderLocalVar.Path, version, ip);
+                OnErrorGetLocationByIpDefaultImplementation(e, "/location/ip", uriBuilderLocalVar.Path, ip);
                 Events.ExecuteOnErrorGetLocationByIp(e);
                 throw;
             }
@@ -1235,7 +1204,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetLocationByTrilateration(ref decimal version, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> data, ref Option<string> responseFilters);
+        partial void FormatGetLocationByTrilateration(ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> data, ref Option<string> responseFilters);
 
         /// <summary>
         /// Validates the request parameters
@@ -1256,16 +1225,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="data"></param>
         /// <param name="responseFilters"></param>
-        private void AfterGetLocationByTrilaterationDefaultImplementation(IGetLocationByTrilaterationApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> data, Option<string> responseFilters)
+        private void AfterGetLocationByTrilaterationDefaultImplementation(IGetLocationByTrilaterationApiResponse apiResponseLocalVar, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> data, Option<string> responseFilters)
         {
             bool suppressDefaultLog = false;
-            AfterGetLocationByTrilateration(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, latitude, longitude, data, responseFilters);
+            AfterGetLocationByTrilateration(ref suppressDefaultLog, apiResponseLocalVar, accountId, latitude, longitude, data, responseFilters);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1275,13 +1243,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="data"></param>
         /// <param name="responseFilters"></param>
-        partial void AfterGetLocationByTrilateration(ref bool suppressDefaultLog, IGetLocationByTrilaterationApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> data, Option<string> responseFilters);
+        partial void AfterGetLocationByTrilateration(ref bool suppressDefaultLog, IGetLocationByTrilaterationApiResponse apiResponseLocalVar, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> data, Option<string> responseFilters);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1289,16 +1256,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="data"></param>
         /// <param name="responseFilters"></param>
-        private void OnErrorGetLocationByTrilaterationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> data, Option<string> responseFilters)
+        private void OnErrorGetLocationByTrilaterationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> data, Option<string> responseFilters)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetLocationByTrilateration(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, latitude, longitude, data, responseFilters);
+            OnErrorGetLocationByTrilateration(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, latitude, longitude, data, responseFilters);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1310,18 +1276,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="data"></param>
         /// <param name="responseFilters"></param>
-        partial void OnErrorGetLocationByTrilateration(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> data, Option<string> responseFilters);
+        partial void OnErrorGetLocationByTrilateration(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> data, Option<string> responseFilters);
 
         /// <summary>
         /// Get Location by Trilateration Send in device data and calculate a position based on signal strengths.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account making the request, if provided the last know location will be updated (optional)</param>
         /// <param name="latitude">The known GPS latitude to compare to the calculated version (optional)</param>
         /// <param name="longitude">The known GPS longitude to compare to the calculated version (optional)</param>
@@ -1329,11 +1293,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">Optional response filters (not used currently) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationByTrilaterationApiResponse"/>&gt;</returns>
-        public async Task<IGetLocationByTrilaterationApiResponse?> GetLocationByTrilaterationOrDefaultAsync(decimal version, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> data = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetLocationByTrilaterationApiResponse?> GetLocationByTrilaterationOrDefaultAsync(Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> data = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetLocationByTrilaterationAsync(version, accountId, latitude, longitude, data, responseFilters, cancellationToken).ConfigureAwait(false);
+                return await GetLocationByTrilaterationAsync(accountId, latitude, longitude, data, responseFilters, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1345,7 +1309,6 @@ namespace Org.OpenAPITools.Api
         /// Get Location by Trilateration Send in device data and calculate a position based on signal strengths.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account making the request, if provided the last know location will be updated (optional)</param>
         /// <param name="latitude">The known GPS latitude to compare to the calculated version (optional)</param>
         /// <param name="longitude">The known GPS longitude to compare to the calculated version (optional)</param>
@@ -1353,7 +1316,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseFilters">Optional response filters (not used currently) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationByTrilaterationApiResponse"/>&gt;</returns>
-        public async Task<IGetLocationByTrilaterationApiResponse> GetLocationByTrilaterationAsync(decimal version, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> data = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetLocationByTrilaterationApiResponse> GetLocationByTrilaterationAsync(Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> data = default, Option<string> responseFilters = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1361,7 +1324,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetLocationByTrilateration(data, responseFilters);
 
-                FormatGetLocationByTrilateration(ref version, ref accountId, ref latitude, ref longitude, ref data, ref responseFilters);
+                FormatGetLocationByTrilateration(ref accountId, ref latitude, ref longitude, ref data, ref responseFilters);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1369,9 +1332,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/account/location/trilaterate"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/account/location/trilaterate");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/account/location/trilaterate"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/account/location/trilaterate");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1415,13 +1377,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/account/location/trilaterate", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/account/location/trilaterate", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetLocationByTrilaterationDefaultImplementation(apiResponseLocalVar, version, accountId, latitude, longitude, data, responseFilters);
+                        AfterGetLocationByTrilaterationDefaultImplementation(apiResponseLocalVar, accountId, latitude, longitude, data, responseFilters);
 
                         Events.ExecuteOnGetLocationByTrilateration(apiResponseLocalVar);
 
@@ -1431,7 +1393,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetLocationByTrilaterationDefaultImplementation(e, "/api/{version}/account/location/trilaterate", uriBuilderLocalVar.Path, version, accountId, latitude, longitude, data, responseFilters);
+                OnErrorGetLocationByTrilaterationDefaultImplementation(e, "/account/location/trilaterate", uriBuilderLocalVar.Path, accountId, latitude, longitude, data, responseFilters);
                 Events.ExecuteOnErrorGetLocationByTrilateration(e);
                 throw;
             }
@@ -1530,7 +1492,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetLocations(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> currentlatitude, ref Option<double> currentlongitude, ref Option<double> currentLatitude, ref Option<double> currentLongitude, ref Option<string> query, ref Option<string> zipcode, ref Option<string> zipCode, ref Option<double> selectedMaplatitude, ref Option<double> selectedMaplongitude, ref Option<double> selectedMapLatitude, ref Option<double> selectedMapLongitude, ref Option<double> searchRange, ref Option<bool> useGeocode, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit);
+        partial void FormatGetLocations(ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> currentlatitude, ref Option<double> currentlongitude, ref Option<double> currentLatitude, ref Option<double> currentLongitude, ref Option<string> query, ref Option<string> zipcode, ref Option<string> zipCode, ref Option<double> selectedMaplatitude, ref Option<double> selectedMaplongitude, ref Option<double> selectedMapLatitude, ref Option<double> selectedMapLongitude, ref Option<double> searchRange, ref Option<bool> useGeocode, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1559,7 +1521,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="currentlatitude"></param>
@@ -1579,10 +1540,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        private void AfterGetLocationsDefaultImplementation(IGetLocationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> currentlatitude, Option<double> currentlongitude, Option<double> currentLatitude, Option<double> currentLongitude, Option<string> query, Option<string> zipcode, Option<string> zipCode, Option<double> selectedMaplatitude, Option<double> selectedMaplongitude, Option<double> selectedMapLatitude, Option<double> selectedMapLongitude, Option<double> searchRange, Option<bool> useGeocode, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
+        private void AfterGetLocationsDefaultImplementation(IGetLocationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> currentlatitude, Option<double> currentlongitude, Option<double> currentLatitude, Option<double> currentLongitude, Option<string> query, Option<string> zipcode, Option<string> zipCode, Option<double> selectedMaplatitude, Option<double> selectedMaplongitude, Option<double> selectedMapLatitude, Option<double> selectedMapLongitude, Option<double> searchRange, Option<bool> useGeocode, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetLocations(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
+            AfterGetLocations(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1592,7 +1553,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="currentlatitude"></param>
@@ -1612,7 +1572,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        partial void AfterGetLocations(ref bool suppressDefaultLog, IGetLocationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> currentlatitude, Option<double> currentlongitude, Option<double> currentLatitude, Option<double> currentLongitude, Option<string> query, Option<string> zipcode, Option<string> zipCode, Option<double> selectedMaplatitude, Option<double> selectedMaplongitude, Option<double> selectedMapLatitude, Option<double> selectedMapLongitude, Option<double> searchRange, Option<bool> useGeocode, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
+        partial void AfterGetLocations(ref bool suppressDefaultLog, IGetLocationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> currentlatitude, Option<double> currentlongitude, Option<double> currentLatitude, Option<double> currentLongitude, Option<string> query, Option<string> zipcode, Option<string> zipCode, Option<double> selectedMaplatitude, Option<double> selectedMaplongitude, Option<double> selectedMapLatitude, Option<double> selectedMapLongitude, Option<double> searchRange, Option<bool> useGeocode, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1620,7 +1580,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="currentlatitude"></param>
@@ -1640,10 +1599,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> currentlatitude, Option<double> currentlongitude, Option<double> currentLatitude, Option<double> currentLongitude, Option<string> query, Option<string> zipcode, Option<string> zipCode, Option<double> selectedMaplatitude, Option<double> selectedMaplongitude, Option<double> selectedMapLatitude, Option<double> selectedMapLongitude, Option<double> searchRange, Option<bool> useGeocode, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
+        private void OnErrorGetLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> currentlatitude, Option<double> currentlongitude, Option<double> currentLatitude, Option<double> currentLongitude, Option<string> query, Option<string> zipcode, Option<string> zipCode, Option<double> selectedMaplatitude, Option<double> selectedMaplongitude, Option<double> selectedMapLatitude, Option<double> selectedMapLongitude, Option<double> searchRange, Option<bool> useGeocode, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
+            OnErrorGetLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1655,7 +1614,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="currentlatitude"></param>
@@ -1675,12 +1633,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> currentlatitude, Option<double> currentlongitude, Option<double> currentLatitude, Option<double> currentLongitude, Option<string> query, Option<string> zipcode, Option<string> zipCode, Option<double> selectedMaplatitude, Option<double> selectedMaplongitude, Option<double> selectedMapLatitude, Option<double> selectedMapLongitude, Option<double> searchRange, Option<bool> useGeocode, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
+        partial void OnErrorGetLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> currentlatitude, Option<double> currentlongitude, Option<double> currentLatitude, Option<double> currentLongitude, Option<string> query, Option<string> zipcode, Option<string> zipCode, Option<double> selectedMaplatitude, Option<double> selectedMaplongitude, Option<double> selectedMapLatitude, Option<double> selectedMapLongitude, Option<double> searchRange, Option<bool> useGeocode, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
 
         /// <summary>
         /// Search Regions or Postal Codes Searches geographic locations by proximity via address or keyword.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (optional)</param>
         /// <param name="accountId">the account id (optional)</param>
         /// <param name="currentlatitude">This parameter is deprecated. (optional)</param>
@@ -1702,11 +1659,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationsApiResponse"/>&gt;</returns>
-        public async Task<IGetLocationsApiResponse?> GetLocationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> currentlatitude = default, Option<double> currentlongitude = default, Option<double> currentLatitude = default, Option<double> currentLongitude = default, Option<string> query = default, Option<string> zipcode = default, Option<string> zipCode = default, Option<double> selectedMaplatitude = default, Option<double> selectedMaplongitude = default, Option<double> selectedMapLatitude = default, Option<double> selectedMapLongitude = default, Option<double> searchRange = default, Option<bool> useGeocode = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetLocationsApiResponse?> GetLocationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> currentlatitude = default, Option<double> currentlongitude = default, Option<double> currentLatitude = default, Option<double> currentLongitude = default, Option<string> query = default, Option<string> zipcode = default, Option<string> zipCode = default, Option<double> selectedMaplatitude = default, Option<double> selectedMaplongitude = default, Option<double> selectedMapLatitude = default, Option<double> selectedMapLongitude = default, Option<double> searchRange = default, Option<bool> useGeocode = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetLocationsAsync(version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit, cancellationToken).ConfigureAwait(false);
+                return await GetLocationsAsync(deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1718,7 +1675,6 @@ namespace Org.OpenAPITools.Api
         /// Search Regions or Postal Codes Searches geographic locations by proximity via address or keyword.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (optional)</param>
         /// <param name="accountId">the account id (optional)</param>
         /// <param name="currentlatitude">This parameter is deprecated. (optional)</param>
@@ -1740,7 +1696,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLocationsApiResponse"/>&gt;</returns>
-        public async Task<IGetLocationsApiResponse> GetLocationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> currentlatitude = default, Option<double> currentlongitude = default, Option<double> currentLatitude = default, Option<double> currentLongitude = default, Option<string> query = default, Option<string> zipcode = default, Option<string> zipCode = default, Option<double> selectedMaplatitude = default, Option<double> selectedMaplongitude = default, Option<double> selectedMapLatitude = default, Option<double> selectedMapLongitude = default, Option<double> searchRange = default, Option<bool> useGeocode = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetLocationsApiResponse> GetLocationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> currentlatitude = default, Option<double> currentlongitude = default, Option<double> currentLatitude = default, Option<double> currentLongitude = default, Option<string> query = default, Option<string> zipcode = default, Option<string> zipCode = default, Option<double> selectedMaplatitude = default, Option<double> selectedMaplongitude = default, Option<double> selectedMapLatitude = default, Option<double> selectedMapLongitude = default, Option<double> searchRange = default, Option<bool> useGeocode = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1748,7 +1704,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetLocations(deviceId, query, zipcode, zipCode);
 
-                FormatGetLocations(ref version, ref deviceId, ref accountId, ref currentlatitude, ref currentlongitude, ref currentLatitude, ref currentLongitude, ref query, ref zipcode, ref zipCode, ref selectedMaplatitude, ref selectedMaplongitude, ref selectedMapLatitude, ref selectedMapLongitude, ref searchRange, ref useGeocode, ref i, ref start, ref l, ref limit);
+                FormatGetLocations(ref deviceId, ref accountId, ref currentlatitude, ref currentlongitude, ref currentLatitude, ref currentLongitude, ref query, ref zipcode, ref zipCode, ref selectedMaplatitude, ref selectedMaplongitude, ref selectedMapLatitude, ref selectedMapLongitude, ref searchRange, ref useGeocode, ref i, ref start, ref l, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1756,9 +1712,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1844,13 +1799,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetLocationsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
+                        AfterGetLocationsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
 
                         Events.ExecuteOnGetLocations(apiResponseLocalVar);
 
@@ -1860,7 +1815,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetLocationsDefaultImplementation(e, "/api/{version}/location/search", uriBuilderLocalVar.Path, version, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
+                OnErrorGetLocationsDefaultImplementation(e, "/location/search", uriBuilderLocalVar.Path, deviceId, accountId, currentlatitude, currentlongitude, currentLatitude, currentLongitude, query, zipcode, zipCode, selectedMaplatitude, selectedMaplongitude, selectedMapLatitude, selectedMapLongitude, searchRange, useGeocode, i, start, l, limit);
                 Events.ExecuteOnErrorGetLocations(e);
                 throw;
             }

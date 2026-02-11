@@ -45,12 +45,11 @@ namespace Org.OpenAPITools.Api
         /// Create a new vehicle type
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="vehicleType">A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVehicleTypeApiResponse"/>&gt;</returns>
-        Task<ICreateVehicleTypeApiResponse> CreateVehicleTypeAsync(decimal version, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateVehicleTypeApiResponse> CreateVehicleTypeAsync(string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Vehicle Type
@@ -58,12 +57,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a new vehicle type
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="vehicleType">A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVehicleTypeApiResponse"/>?&gt;</returns>
-        Task<ICreateVehicleTypeApiResponse?> CreateVehicleTypeOrDefaultAsync(decimal version, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateVehicleTypeApiResponse?> CreateVehicleTypeOrDefaultAsync(string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Vehicle Type
@@ -72,11 +70,10 @@ namespace Org.OpenAPITools.Api
         /// Delete a vehicle type
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVehicleTypeApiResponse"/>&gt;</returns>
-        Task<IDeleteVehicleTypeApiResponse> DeleteVehicleTypeAsync(decimal version, long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteVehicleTypeApiResponse> DeleteVehicleTypeAsync(long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Vehicle Type
@@ -84,11 +81,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a vehicle type
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVehicleTypeApiResponse"/>?&gt;</returns>
-        Task<IDeleteVehicleTypeApiResponse?> DeleteVehicleTypeOrDefaultAsync(decimal version, long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteVehicleTypeApiResponse?> DeleteVehicleTypeOrDefaultAsync(long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vehicle Type
@@ -97,11 +93,10 @@ namespace Org.OpenAPITools.Api
         /// Get a vehicle type
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVehicleTypeApiResponse"/>&gt;</returns>
-        Task<IGetVehicleTypeApiResponse> GetVehicleTypeAsync(decimal version, long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetVehicleTypeApiResponse> GetVehicleTypeAsync(long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vehicle Type
@@ -109,11 +104,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a vehicle type
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVehicleTypeApiResponse"/>?&gt;</returns>
-        Task<IGetVehicleTypeApiResponse?> GetVehicleTypeOrDefaultAsync(decimal version, long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetVehicleTypeApiResponse?> GetVehicleTypeOrDefaultAsync(long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Vehicle Type
@@ -122,7 +116,6 @@ namespace Org.OpenAPITools.Api
         /// Search for types of vehicles
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -132,7 +125,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId">Filter by service hub (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchVehicleTypesApiResponse"/>&gt;</returns>
-        Task<ISearchVehicleTypesApiResponse> SearchVehicleTypesAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchVehicleTypesApiResponse> SearchVehicleTypesAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Vehicle Type
@@ -140,7 +133,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for types of vehicles
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -150,7 +142,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId">Filter by service hub (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchVehicleTypesApiResponse"/>?&gt;</returns>
-        Task<ISearchVehicleTypesApiResponse?> SearchVehicleTypesOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchVehicleTypesApiResponse?> SearchVehicleTypesOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vehicle Type
@@ -159,13 +151,12 @@ namespace Org.OpenAPITools.Api
         /// Update a vehicle type
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the vehicle type to update</param>
         /// <param name="vehicleType">The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateVehicleTypeApiResponse"/>&gt;</returns>
-        Task<IUpdateVehicleTypeApiResponse> UpdateVehicleTypeAsync(decimal version, long vehicleTypeId, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateVehicleTypeApiResponse> UpdateVehicleTypeAsync(long vehicleTypeId, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vehicle Type
@@ -173,13 +164,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a vehicle type
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the vehicle type to update</param>
         /// <param name="vehicleType">The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateVehicleTypeApiResponse"/>?&gt;</returns>
-        Task<IUpdateVehicleTypeApiResponse?> UpdateVehicleTypeOrDefaultAsync(decimal version, long vehicleTypeId, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateVehicleTypeApiResponse?> UpdateVehicleTypeOrDefaultAsync(long vehicleTypeId, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -395,7 +385,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateVehicleType(ref decimal version, ref string vehicleType, Option<VehicleType> body);
+        partial void FormatCreateVehicleType(ref string vehicleType, Option<VehicleType> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -416,13 +406,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleType"></param>
         /// <param name="body"></param>
-        private void AfterCreateVehicleTypeDefaultImplementation(ICreateVehicleTypeApiResponse apiResponseLocalVar, decimal version, string vehicleType, Option<VehicleType> body)
+        private void AfterCreateVehicleTypeDefaultImplementation(ICreateVehicleTypeApiResponse apiResponseLocalVar, string vehicleType, Option<VehicleType> body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateVehicleType(ref suppressDefaultLog, apiResponseLocalVar, version, vehicleType, body);
+            AfterCreateVehicleType(ref suppressDefaultLog, apiResponseLocalVar, vehicleType, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -432,10 +421,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleType"></param>
         /// <param name="body"></param>
-        partial void AfterCreateVehicleType(ref bool suppressDefaultLog, ICreateVehicleTypeApiResponse apiResponseLocalVar, decimal version, string vehicleType, Option<VehicleType> body);
+        partial void AfterCreateVehicleType(ref bool suppressDefaultLog, ICreateVehicleTypeApiResponse apiResponseLocalVar, string vehicleType, Option<VehicleType> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -443,13 +431,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleType"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateVehicleTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string vehicleType, Option<VehicleType> body)
+        private void OnErrorCreateVehicleTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string vehicleType, Option<VehicleType> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateVehicleType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, vehicleType, body);
+            OnErrorCreateVehicleType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, vehicleType, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -461,24 +448,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleType"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateVehicleType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string vehicleType, Option<VehicleType> body);
+        partial void OnErrorCreateVehicleType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string vehicleType, Option<VehicleType> body);
 
         /// <summary>
         /// Create Vehicle Type Create a new vehicle type
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="vehicleType">A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVehicleTypeApiResponse"/>&gt;</returns>
-        public async Task<ICreateVehicleTypeApiResponse?> CreateVehicleTypeOrDefaultAsync(decimal version, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateVehicleTypeApiResponse?> CreateVehicleTypeOrDefaultAsync(string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateVehicleTypeAsync(version, vehicleType, body, cancellationToken).ConfigureAwait(false);
+                return await CreateVehicleTypeAsync(vehicleType, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -490,12 +475,11 @@ namespace Org.OpenAPITools.Api
         /// Create Vehicle Type Create a new vehicle type
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="vehicleType">A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVehicleTypeApiResponse"/>&gt;</returns>
-        public async Task<ICreateVehicleTypeApiResponse> CreateVehicleTypeAsync(decimal version, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateVehicleTypeApiResponse> CreateVehicleTypeAsync(string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -503,7 +487,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateVehicleType(vehicleType, body);
 
-                FormatCreateVehicleType(ref version, ref vehicleType, body);
+                FormatCreateVehicleType(ref vehicleType, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -511,9 +495,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vehicle/type"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vehicle/type");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vehicle/type"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vehicle/type");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -549,13 +532,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vehicle/type", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vehicle/type", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateVehicleTypeDefaultImplementation(apiResponseLocalVar, version, vehicleType, body);
+                        AfterCreateVehicleTypeDefaultImplementation(apiResponseLocalVar, vehicleType, body);
 
                         Events.ExecuteOnCreateVehicleType(apiResponseLocalVar);
 
@@ -565,7 +548,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateVehicleTypeDefaultImplementation(e, "/api/{version}/vehicle/type", uriBuilderLocalVar.Path, version, vehicleType, body);
+                OnErrorCreateVehicleTypeDefaultImplementation(e, "/vehicle/type", uriBuilderLocalVar.Path, vehicleType, body);
                 Events.ExecuteOnErrorCreateVehicleType(e);
                 throw;
             }
@@ -664,18 +647,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteVehicleType(ref decimal version, ref long vehicleTypeId);
+        partial void FormatDeleteVehicleType(ref long vehicleTypeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
-        private void AfterDeleteVehicleTypeDefaultImplementation(IDeleteVehicleTypeApiResponse apiResponseLocalVar, decimal version, long vehicleTypeId)
+        private void AfterDeleteVehicleTypeDefaultImplementation(IDeleteVehicleTypeApiResponse apiResponseLocalVar, long vehicleTypeId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteVehicleType(ref suppressDefaultLog, apiResponseLocalVar, version, vehicleTypeId);
+            AfterDeleteVehicleType(ref suppressDefaultLog, apiResponseLocalVar, vehicleTypeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -685,9 +667,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
-        partial void AfterDeleteVehicleType(ref bool suppressDefaultLog, IDeleteVehicleTypeApiResponse apiResponseLocalVar, decimal version, long vehicleTypeId);
+        partial void AfterDeleteVehicleType(ref bool suppressDefaultLog, IDeleteVehicleTypeApiResponse apiResponseLocalVar, long vehicleTypeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -695,12 +676,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
-        private void OnErrorDeleteVehicleTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long vehicleTypeId)
+        private void OnErrorDeleteVehicleTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long vehicleTypeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteVehicleType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, vehicleTypeId);
+            OnErrorDeleteVehicleType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, vehicleTypeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -712,22 +692,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
-        partial void OnErrorDeleteVehicleType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long vehicleTypeId);
+        partial void OnErrorDeleteVehicleType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long vehicleTypeId);
 
         /// <summary>
         /// Delete Vehicle Type Delete a vehicle type
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVehicleTypeApiResponse"/>&gt;</returns>
-        public async Task<IDeleteVehicleTypeApiResponse?> DeleteVehicleTypeOrDefaultAsync(decimal version, long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteVehicleTypeApiResponse?> DeleteVehicleTypeOrDefaultAsync(long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteVehicleTypeAsync(version, vehicleTypeId, cancellationToken).ConfigureAwait(false);
+                return await DeleteVehicleTypeAsync(vehicleTypeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -739,17 +717,16 @@ namespace Org.OpenAPITools.Api
         /// Delete Vehicle Type Delete a vehicle type
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVehicleTypeApiResponse"/>&gt;</returns>
-        public async Task<IDeleteVehicleTypeApiResponse> DeleteVehicleTypeAsync(decimal version, long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteVehicleTypeApiResponse> DeleteVehicleTypeAsync(long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteVehicleType(ref version, ref vehicleTypeId);
+                FormatDeleteVehicleType(ref vehicleTypeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -757,9 +734,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vehicle/type/{vehicleTypeId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vehicle/type/{vehicleTypeId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vehicle/type/{vehicleTypeId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vehicle/type/{vehicleTypeId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BvehicleTypeId%7D", Uri.EscapeDataString(vehicleTypeId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -776,13 +752,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vehicle/type/{vehicleTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vehicle/type/{vehicleTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteVehicleTypeDefaultImplementation(apiResponseLocalVar, version, vehicleTypeId);
+                        AfterDeleteVehicleTypeDefaultImplementation(apiResponseLocalVar, vehicleTypeId);
 
                         Events.ExecuteOnDeleteVehicleType(apiResponseLocalVar);
 
@@ -792,7 +768,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteVehicleTypeDefaultImplementation(e, "/api/{version}/vehicle/type/{vehicleTypeId}", uriBuilderLocalVar.Path, version, vehicleTypeId);
+                OnErrorDeleteVehicleTypeDefaultImplementation(e, "/vehicle/type/{vehicleTypeId}", uriBuilderLocalVar.Path, vehicleTypeId);
                 Events.ExecuteOnErrorDeleteVehicleType(e);
                 throw;
             }
@@ -859,18 +835,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetVehicleType(ref decimal version, ref long vehicleTypeId);
+        partial void FormatGetVehicleType(ref long vehicleTypeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
-        private void AfterGetVehicleTypeDefaultImplementation(IGetVehicleTypeApiResponse apiResponseLocalVar, decimal version, long vehicleTypeId)
+        private void AfterGetVehicleTypeDefaultImplementation(IGetVehicleTypeApiResponse apiResponseLocalVar, long vehicleTypeId)
         {
             bool suppressDefaultLog = false;
-            AfterGetVehicleType(ref suppressDefaultLog, apiResponseLocalVar, version, vehicleTypeId);
+            AfterGetVehicleType(ref suppressDefaultLog, apiResponseLocalVar, vehicleTypeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -880,9 +855,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
-        partial void AfterGetVehicleType(ref bool suppressDefaultLog, IGetVehicleTypeApiResponse apiResponseLocalVar, decimal version, long vehicleTypeId);
+        partial void AfterGetVehicleType(ref bool suppressDefaultLog, IGetVehicleTypeApiResponse apiResponseLocalVar, long vehicleTypeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -890,12 +864,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
-        private void OnErrorGetVehicleTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long vehicleTypeId)
+        private void OnErrorGetVehicleTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long vehicleTypeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetVehicleType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, vehicleTypeId);
+            OnErrorGetVehicleType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, vehicleTypeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -907,22 +880,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
-        partial void OnErrorGetVehicleType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long vehicleTypeId);
+        partial void OnErrorGetVehicleType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long vehicleTypeId);
 
         /// <summary>
         /// Get Vehicle Type Get a vehicle type
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVehicleTypeApiResponse"/>&gt;</returns>
-        public async Task<IGetVehicleTypeApiResponse?> GetVehicleTypeOrDefaultAsync(decimal version, long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetVehicleTypeApiResponse?> GetVehicleTypeOrDefaultAsync(long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetVehicleTypeAsync(version, vehicleTypeId, cancellationToken).ConfigureAwait(false);
+                return await GetVehicleTypeAsync(vehicleTypeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -934,17 +905,16 @@ namespace Org.OpenAPITools.Api
         /// Get Vehicle Type Get a vehicle type
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVehicleTypeApiResponse"/>&gt;</returns>
-        public async Task<IGetVehicleTypeApiResponse> GetVehicleTypeAsync(decimal version, long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetVehicleTypeApiResponse> GetVehicleTypeAsync(long vehicleTypeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetVehicleType(ref version, ref vehicleTypeId);
+                FormatGetVehicleType(ref vehicleTypeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -952,9 +922,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vehicle/type/{vehicleTypeId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vehicle/type/{vehicleTypeId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vehicle/type/{vehicleTypeId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vehicle/type/{vehicleTypeId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BvehicleTypeId%7D", Uri.EscapeDataString(vehicleTypeId.ToString()));
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -980,13 +949,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vehicle/type/{vehicleTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vehicle/type/{vehicleTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetVehicleTypeDefaultImplementation(apiResponseLocalVar, version, vehicleTypeId);
+                        AfterGetVehicleTypeDefaultImplementation(apiResponseLocalVar, vehicleTypeId);
 
                         Events.ExecuteOnGetVehicleType(apiResponseLocalVar);
 
@@ -996,7 +965,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetVehicleTypeDefaultImplementation(e, "/api/{version}/vehicle/type/{vehicleTypeId}", uriBuilderLocalVar.Path, version, vehicleTypeId);
+                OnErrorGetVehicleTypeDefaultImplementation(e, "/vehicle/type/{vehicleTypeId}", uriBuilderLocalVar.Path, vehicleTypeId);
                 Events.ExecuteOnErrorGetVehicleType(e);
                 throw;
             }
@@ -1095,7 +1064,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchVehicleTypes(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> retailerId, ref Option<long> hubId);
+        partial void FormatSearchVehicleTypes(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<long> retailerId, ref Option<long> hubId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1112,7 +1081,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1120,10 +1088,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="retailerId"></param>
         /// <param name="hubId"></param>
-        private void AfterSearchVehicleTypesDefaultImplementation(ISearchVehicleTypesApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId)
+        private void AfterSearchVehicleTypesDefaultImplementation(ISearchVehicleTypesApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId)
         {
             bool suppressDefaultLog = false;
-            AfterSearchVehicleTypes(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+            AfterSearchVehicleTypes(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, retailerId, hubId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1133,7 +1101,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1141,7 +1108,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="retailerId"></param>
         /// <param name="hubId"></param>
-        partial void AfterSearchVehicleTypes(ref bool suppressDefaultLog, ISearchVehicleTypesApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId);
+        partial void AfterSearchVehicleTypes(ref bool suppressDefaultLog, ISearchVehicleTypesApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1149,7 +1116,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1157,10 +1123,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="retailerId"></param>
         /// <param name="hubId"></param>
-        private void OnErrorSearchVehicleTypesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId)
+        private void OnErrorSearchVehicleTypesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchVehicleTypes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+            OnErrorSearchVehicleTypes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, retailerId, hubId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1172,7 +1138,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -1180,12 +1145,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly"></param>
         /// <param name="retailerId"></param>
         /// <param name="hubId"></param>
-        partial void OnErrorSearchVehicleTypes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId);
+        partial void OnErrorSearchVehicleTypes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId, Option<long> hubId);
 
         /// <summary>
         /// Search Vehicle Type Search for types of vehicles
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1195,11 +1159,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId">Filter by service hub (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchVehicleTypesApiResponse"/>&gt;</returns>
-        public async Task<ISearchVehicleTypesApiResponse?> SearchVehicleTypesOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchVehicleTypesApiResponse?> SearchVehicleTypesOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchVehicleTypesAsync(version, sortField, descending, start, limit, activeOnly, retailerId, hubId, cancellationToken).ConfigureAwait(false);
+                return await SearchVehicleTypesAsync(sortField, descending, start, limit, activeOnly, retailerId, hubId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1211,7 +1175,6 @@ namespace Org.OpenAPITools.Api
         /// Search Vehicle Type Search for types of vehicles
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The field to sort by</param>
         /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -1221,7 +1184,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hubId">Filter by service hub (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchVehicleTypesApiResponse"/>&gt;</returns>
-        public async Task<ISearchVehicleTypesApiResponse> SearchVehicleTypesAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchVehicleTypesApiResponse> SearchVehicleTypesAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<long> retailerId = default, Option<long> hubId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1229,7 +1192,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchVehicleTypes(sortField);
 
-                FormatSearchVehicleTypes(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref retailerId, ref hubId);
+                FormatSearchVehicleTypes(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref retailerId, ref hubId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1237,9 +1200,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vehicle/type"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vehicle/type");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vehicle/type"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vehicle/type");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
                     parseQueryStringLocalVar["sortField"] = ClientUtils.ParameterToString(sortField);
@@ -1279,13 +1241,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vehicle/type", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vehicle/type", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchVehicleTypesDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+                        AfterSearchVehicleTypesDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, retailerId, hubId);
 
                         Events.ExecuteOnSearchVehicleTypes(apiResponseLocalVar);
 
@@ -1295,7 +1257,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchVehicleTypesDefaultImplementation(e, "/api/{version}/vehicle/type", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, retailerId, hubId);
+                OnErrorSearchVehicleTypesDefaultImplementation(e, "/vehicle/type", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, retailerId, hubId);
                 Events.ExecuteOnErrorSearchVehicleTypes(e);
                 throw;
             }
@@ -1394,7 +1356,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateVehicleType(ref decimal version, ref long vehicleTypeId, ref string vehicleType, Option<VehicleType> body);
+        partial void FormatUpdateVehicleType(ref long vehicleTypeId, ref string vehicleType, Option<VehicleType> body);
 
         /// <summary>
         /// Validates the request parameters
@@ -1415,14 +1377,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
         /// <param name="vehicleType"></param>
         /// <param name="body"></param>
-        private void AfterUpdateVehicleTypeDefaultImplementation(IUpdateVehicleTypeApiResponse apiResponseLocalVar, decimal version, long vehicleTypeId, string vehicleType, Option<VehicleType> body)
+        private void AfterUpdateVehicleTypeDefaultImplementation(IUpdateVehicleTypeApiResponse apiResponseLocalVar, long vehicleTypeId, string vehicleType, Option<VehicleType> body)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateVehicleType(ref suppressDefaultLog, apiResponseLocalVar, version, vehicleTypeId, vehicleType, body);
+            AfterUpdateVehicleType(ref suppressDefaultLog, apiResponseLocalVar, vehicleTypeId, vehicleType, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1432,11 +1393,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
         /// <param name="vehicleType"></param>
         /// <param name="body"></param>
-        partial void AfterUpdateVehicleType(ref bool suppressDefaultLog, IUpdateVehicleTypeApiResponse apiResponseLocalVar, decimal version, long vehicleTypeId, string vehicleType, Option<VehicleType> body);
+        partial void AfterUpdateVehicleType(ref bool suppressDefaultLog, IUpdateVehicleTypeApiResponse apiResponseLocalVar, long vehicleTypeId, string vehicleType, Option<VehicleType> body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1444,14 +1404,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
         /// <param name="vehicleType"></param>
         /// <param name="body"></param>
-        private void OnErrorUpdateVehicleTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long vehicleTypeId, string vehicleType, Option<VehicleType> body)
+        private void OnErrorUpdateVehicleTypeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long vehicleTypeId, string vehicleType, Option<VehicleType> body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateVehicleType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, vehicleTypeId, vehicleType, body);
+            OnErrorUpdateVehicleType(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, vehicleTypeId, vehicleType, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1463,26 +1422,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId"></param>
         /// <param name="vehicleType"></param>
         /// <param name="body"></param>
-        partial void OnErrorUpdateVehicleType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long vehicleTypeId, string vehicleType, Option<VehicleType> body);
+        partial void OnErrorUpdateVehicleType(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long vehicleTypeId, string vehicleType, Option<VehicleType> body);
 
         /// <summary>
         /// Update Vehicle Type Update a vehicle type
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the vehicle type to update</param>
         /// <param name="vehicleType">The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateVehicleTypeApiResponse"/>&gt;</returns>
-        public async Task<IUpdateVehicleTypeApiResponse?> UpdateVehicleTypeOrDefaultAsync(decimal version, long vehicleTypeId, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateVehicleTypeApiResponse?> UpdateVehicleTypeOrDefaultAsync(long vehicleTypeId, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateVehicleTypeAsync(version, vehicleTypeId, vehicleType, body, cancellationToken).ConfigureAwait(false);
+                return await UpdateVehicleTypeAsync(vehicleTypeId, vehicleType, body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1494,13 +1451,12 @@ namespace Org.OpenAPITools.Api
         /// Update Vehicle Type Update a vehicle type
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="vehicleTypeId">The id of the vehicle type to update</param>
         /// <param name="vehicleType">The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
         /// <param name="body"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateVehicleTypeApiResponse"/>&gt;</returns>
-        public async Task<IUpdateVehicleTypeApiResponse> UpdateVehicleTypeAsync(decimal version, long vehicleTypeId, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateVehicleTypeApiResponse> UpdateVehicleTypeAsync(long vehicleTypeId, string vehicleType, Option<VehicleType> body = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1508,7 +1464,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateVehicleType(vehicleType, body);
 
-                FormatUpdateVehicleType(ref version, ref vehicleTypeId, ref vehicleType, body);
+                FormatUpdateVehicleType(ref vehicleTypeId, ref vehicleType, body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1516,9 +1472,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vehicle/type/{vehicleTypeId}"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vehicle/type/{vehicleTypeId}");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vehicle/type/{vehicleTypeId}"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vehicle/type/{vehicleTypeId}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BvehicleTypeId%7D", Uri.EscapeDataString(vehicleTypeId.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -1555,13 +1510,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vehicle/type/{vehicleTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vehicle/type/{vehicleTypeId}", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateVehicleTypeDefaultImplementation(apiResponseLocalVar, version, vehicleTypeId, vehicleType, body);
+                        AfterUpdateVehicleTypeDefaultImplementation(apiResponseLocalVar, vehicleTypeId, vehicleType, body);
 
                         Events.ExecuteOnUpdateVehicleType(apiResponseLocalVar);
 
@@ -1571,7 +1526,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateVehicleTypeDefaultImplementation(e, "/api/{version}/vehicle/type/{vehicleTypeId}", uriBuilderLocalVar.Path, version, vehicleTypeId, vehicleType, body);
+                OnErrorUpdateVehicleTypeDefaultImplementation(e, "/vehicle/type/{vehicleTypeId}", uriBuilderLocalVar.Path, vehicleTypeId, vehicleType, body);
                 Events.ExecuteOnErrorUpdateVehicleType(e);
                 throw;
             }

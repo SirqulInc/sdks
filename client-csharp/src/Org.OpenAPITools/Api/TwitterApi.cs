@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Makes an authorization call to twitter for a user to login and allow any app permissions.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAuthorizeTwitterApiResponse"/>&gt;</returns>
-        Task<IAuthorizeTwitterApiResponse> AuthorizeTwitterAsync(decimal version, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAuthorizeTwitterApiResponse> AuthorizeTwitterAsync(string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Authorize Twitter
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Makes an authorization call to twitter for a user to login and allow any app permissions.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAuthorizeTwitterApiResponse"/>?&gt;</returns>
-        Task<IAuthorizeTwitterApiResponse?> AuthorizeTwitterOrDefaultAsync(decimal version, string appKey, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAuthorizeTwitterApiResponse?> AuthorizeTwitterOrDefaultAsync(string appKey, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Twitter
@@ -70,7 +68,6 @@ namespace Org.OpenAPITools.Api
         /// Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accessToken">The access token</param>
         /// <param name="accessTokenSecret">The secret access token</param>
         /// <param name="appKey">The application key</param>
@@ -80,7 +77,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginTwitterApiResponse"/>&gt;</returns>
-        Task<ILoginTwitterApiResponse> LoginTwitterAsync(decimal version, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginTwitterApiResponse> LoginTwitterAsync(string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login Twitter
@@ -88,7 +85,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accessToken">The access token</param>
         /// <param name="accessTokenSecret">The secret access token</param>
         /// <param name="appKey">The application key</param>
@@ -98,7 +94,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginTwitterApiResponse"/>?&gt;</returns>
-        Task<ILoginTwitterApiResponse?> LoginTwitterOrDefaultAsync(decimal version, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILoginTwitterApiResponse?> LoginTwitterOrDefaultAsync(string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -218,7 +214,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAuthorizeTwitter(ref decimal version, ref string appKey);
+        partial void FormatAuthorizeTwitter(ref string appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -235,12 +231,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
-        private void AfterAuthorizeTwitterDefaultImplementation(IAuthorizeTwitterApiResponse apiResponseLocalVar, decimal version, string appKey)
+        private void AfterAuthorizeTwitterDefaultImplementation(IAuthorizeTwitterApiResponse apiResponseLocalVar, string appKey)
         {
             bool suppressDefaultLog = false;
-            AfterAuthorizeTwitter(ref suppressDefaultLog, apiResponseLocalVar, version, appKey);
+            AfterAuthorizeTwitter(ref suppressDefaultLog, apiResponseLocalVar, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -250,9 +245,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
-        partial void AfterAuthorizeTwitter(ref bool suppressDefaultLog, IAuthorizeTwitterApiResponse apiResponseLocalVar, decimal version, string appKey);
+        partial void AfterAuthorizeTwitter(ref bool suppressDefaultLog, IAuthorizeTwitterApiResponse apiResponseLocalVar, string appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -260,12 +254,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
-        private void OnErrorAuthorizeTwitterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey)
+        private void OnErrorAuthorizeTwitterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAuthorizeTwitter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey);
+            OnErrorAuthorizeTwitter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -277,22 +270,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorAuthorizeTwitter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey);
+        partial void OnErrorAuthorizeTwitter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey);
 
         /// <summary>
         /// Authorize Twitter Makes an authorization call to twitter for a user to login and allow any app permissions.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAuthorizeTwitterApiResponse"/>&gt;</returns>
-        public async Task<IAuthorizeTwitterApiResponse?> AuthorizeTwitterOrDefaultAsync(decimal version, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAuthorizeTwitterApiResponse?> AuthorizeTwitterOrDefaultAsync(string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AuthorizeTwitterAsync(version, appKey, cancellationToken).ConfigureAwait(false);
+                return await AuthorizeTwitterAsync(appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -304,11 +295,10 @@ namespace Org.OpenAPITools.Api
         /// Authorize Twitter Makes an authorization call to twitter for a user to login and allow any app permissions.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAuthorizeTwitterApiResponse"/>&gt;</returns>
-        public async Task<IAuthorizeTwitterApiResponse> AuthorizeTwitterAsync(decimal version, string appKey, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAuthorizeTwitterApiResponse> AuthorizeTwitterAsync(string appKey, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -316,7 +306,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAuthorizeTwitter(appKey);
 
-                FormatAuthorizeTwitter(ref version, ref appKey);
+                FormatAuthorizeTwitter(ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -324,9 +314,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/twitter/authorize"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/twitter/authorize");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/twitter/authorize"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/twitter/authorize");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -357,13 +346,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/twitter/authorize", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/twitter/authorize", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAuthorizeTwitterDefaultImplementation(apiResponseLocalVar, version, appKey);
+                        AfterAuthorizeTwitterDefaultImplementation(apiResponseLocalVar, appKey);
 
                         Events.ExecuteOnAuthorizeTwitter(apiResponseLocalVar);
 
@@ -373,7 +362,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAuthorizeTwitterDefaultImplementation(e, "/api/{version}/twitter/authorize", uriBuilderLocalVar.Path, version, appKey);
+                OnErrorAuthorizeTwitterDefaultImplementation(e, "/twitter/authorize", uriBuilderLocalVar.Path, appKey);
                 Events.ExecuteOnErrorAuthorizeTwitter(e);
                 throw;
             }
@@ -472,7 +461,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLoginTwitter(ref decimal version, ref string accessToken, ref string accessTokenSecret, ref string appKey, ref string responseFilters, ref Option<string> deviceId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatLoginTwitter(ref string accessToken, ref string accessTokenSecret, ref string appKey, ref string responseFilters, ref Option<string> deviceId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -505,7 +494,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="accessTokenSecret"></param>
         /// <param name="appKey"></param>
@@ -513,10 +501,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterLoginTwitterDefaultImplementation(ILoginTwitterApiResponse apiResponseLocalVar, decimal version, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId, Option<double> latitude, Option<double> longitude)
+        private void AfterLoginTwitterDefaultImplementation(ILoginTwitterApiResponse apiResponseLocalVar, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterLoginTwitter(ref suppressDefaultLog, apiResponseLocalVar, version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
+            AfterLoginTwitter(ref suppressDefaultLog, apiResponseLocalVar, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -526,7 +514,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="accessTokenSecret"></param>
         /// <param name="appKey"></param>
@@ -534,7 +521,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterLoginTwitter(ref bool suppressDefaultLog, ILoginTwitterApiResponse apiResponseLocalVar, decimal version, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId, Option<double> latitude, Option<double> longitude);
+        partial void AfterLoginTwitter(ref bool suppressDefaultLog, ILoginTwitterApiResponse apiResponseLocalVar, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -542,7 +529,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="accessTokenSecret"></param>
         /// <param name="appKey"></param>
@@ -550,10 +536,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorLoginTwitterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorLoginTwitterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLoginTwitter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
+            OnErrorLoginTwitter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -565,7 +551,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accessToken"></param>
         /// <param name="accessTokenSecret"></param>
         /// <param name="appKey"></param>
@@ -573,12 +558,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorLoginTwitter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorLoginTwitter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Login Twitter Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accessToken">The access token</param>
         /// <param name="accessTokenSecret">The secret access token</param>
         /// <param name="appKey">The application key</param>
@@ -588,11 +572,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginTwitterApiResponse"/>&gt;</returns>
-        public async Task<ILoginTwitterApiResponse?> LoginTwitterOrDefaultAsync(decimal version, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginTwitterApiResponse?> LoginTwitterOrDefaultAsync(string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LoginTwitterAsync(version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await LoginTwitterAsync(accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -604,7 +588,6 @@ namespace Org.OpenAPITools.Api
         /// Login Twitter Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accessToken">The access token</param>
         /// <param name="accessTokenSecret">The secret access token</param>
         /// <param name="appKey">The application key</param>
@@ -614,7 +597,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILoginTwitterApiResponse"/>&gt;</returns>
-        public async Task<ILoginTwitterApiResponse> LoginTwitterAsync(decimal version, string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILoginTwitterApiResponse> LoginTwitterAsync(string accessToken, string accessTokenSecret, string appKey, string responseFilters, Option<string> deviceId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -622,7 +605,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateLoginTwitter(accessToken, accessTokenSecret, appKey, responseFilters, deviceId);
 
-                FormatLoginTwitter(ref version, ref accessToken, ref accessTokenSecret, ref appKey, ref responseFilters, ref deviceId, ref latitude, ref longitude);
+                FormatLoginTwitter(ref accessToken, ref accessTokenSecret, ref appKey, ref responseFilters, ref deviceId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -630,9 +613,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/twitter/login"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/twitter/login");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/twitter/login"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/twitter/login");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -675,13 +657,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/twitter/login", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/twitter/login", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterLoginTwitterDefaultImplementation(apiResponseLocalVar, version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
+                        AfterLoginTwitterDefaultImplementation(apiResponseLocalVar, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
 
                         Events.ExecuteOnLoginTwitter(apiResponseLocalVar);
 
@@ -691,7 +673,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorLoginTwitterDefaultImplementation(e, "/api/{version}/twitter/login", uriBuilderLocalVar.Path, version, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
+                OnErrorLoginTwitterDefaultImplementation(e, "/twitter/login", uriBuilderLocalVar.Path, accessToken, accessTokenSecret, appKey, responseFilters, deviceId, latitude, longitude);
                 Events.ExecuteOnErrorLoginTwitter(e);
                 throw;
             }

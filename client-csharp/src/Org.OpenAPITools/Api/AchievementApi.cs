@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">the application key (optional)</param>
@@ -58,8 +57,8 @@ namespace Org.OpenAPITools.Api
         /// <param name="start">The start of the index for pagination (optional)</param>
         /// <param name="limit">the limit for pagination (has a hard limit of 1000) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IApiVersionAchievementTierSearchPostApiResponse"/>&gt;</returns>
-        Task<IApiVersionAchievementTierSearchPostApiResponse> ApiVersionAchievementTierSearchPostAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> achievementType = default, Option<string> rankType = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> descendingGoal = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns><see cref="Task"/>&lt;<see cref="IAchievementTierSearchPostApiResponse"/>&gt;</returns>
+        Task<IAchievementTierSearchPostApiResponse> AchievementTierSearchPostAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> achievementType = default, Option<string> rankType = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> descendingGoal = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Searches an Achievement Tier
@@ -67,7 +66,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">the application key (optional)</param>
@@ -80,8 +78,8 @@ namespace Org.OpenAPITools.Api
         /// <param name="start">The start of the index for pagination (optional)</param>
         /// <param name="limit">the limit for pagination (has a hard limit of 1000) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IApiVersionAchievementTierSearchPostApiResponse"/>?&gt;</returns>
-        Task<IApiVersionAchievementTierSearchPostApiResponse?> ApiVersionAchievementTierSearchPostOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> achievementType = default, Option<string> rankType = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> descendingGoal = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns><see cref="Task"/>&lt;<see cref="IAchievementTierSearchPostApiResponse"/>?&gt;</returns>
+        Task<IAchievementTierSearchPostApiResponse?> AchievementTierSearchPostOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> achievementType = default, Option<string> rankType = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> descendingGoal = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Achievement
@@ -90,7 +88,6 @@ namespace Org.OpenAPITools.Api
         /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key the achievement is for</param>
         /// <param name="title">the title of the achievement (255 character limit)</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
@@ -106,7 +103,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAchievementApiResponse"/>&gt;</returns>
-        Task<ICreateAchievementApiResponse> CreateAchievementAsync(decimal version, string appKey, string title, Option<string> deviceId = default, Option<long> accountId = default, Option<string> analyticsTag = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<int> maxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAchievementApiResponse> CreateAchievementAsync(string appKey, string title, Option<string> deviceId = default, Option<long> accountId = default, Option<string> analyticsTag = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<int> maxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Achievement
@@ -114,7 +111,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key the achievement is for</param>
         /// <param name="title">the title of the achievement (255 character limit)</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
@@ -130,7 +126,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAchievementApiResponse"/>?&gt;</returns>
-        Task<ICreateAchievementApiResponse?> CreateAchievementOrDefaultAsync(decimal version, string appKey, string title, Option<string> deviceId = default, Option<long> accountId = default, Option<string> analyticsTag = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<int> maxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAchievementApiResponse?> CreateAchievementOrDefaultAsync(string appKey, string title, Option<string> deviceId = default, Option<long> accountId = default, Option<string> analyticsTag = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<int> maxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Achievement Tier
@@ -139,7 +135,6 @@ namespace Org.OpenAPITools.Api
         /// Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementId">the achievement id for adding a new tier</param>
         /// <param name="scoreAllInstances">score all instances</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
@@ -156,7 +151,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId">The ID of the game object to associate with the achievement (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAchievementTierApiResponse"/>&gt;</returns>
-        Task<ICreateAchievementTierApiResponse> CreateAchievementTierAsync(decimal version, long achievementId, bool scoreAllInstances, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<int> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAchievementTierApiResponse> CreateAchievementTierAsync(long achievementId, bool scoreAllInstances, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<int> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Achievement Tier
@@ -164,7 +159,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="achievementId">the achievement id for adding a new tier</param>
         /// <param name="scoreAllInstances">score all instances</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
@@ -181,7 +175,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId">The ID of the game object to associate with the achievement (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAchievementTierApiResponse"/>?&gt;</returns>
-        Task<ICreateAchievementTierApiResponse?> CreateAchievementTierOrDefaultAsync(decimal version, long achievementId, bool scoreAllInstances, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<int> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAchievementTierApiResponse?> CreateAchievementTierOrDefaultAsync(long achievementId, bool scoreAllInstances, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<int> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Achievement
@@ -190,12 +184,11 @@ namespace Org.OpenAPITools.Api
         /// Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementId">The ID of the achievement</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAchievementApiResponse"/>&gt;</returns>
-        Task<IDeleteAchievementApiResponse> DeleteAchievementAsync(decimal version, long achievementId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteAchievementApiResponse> DeleteAchievementAsync(long achievementId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Achievement
@@ -203,12 +196,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="achievementId">The ID of the achievement</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAchievementApiResponse"/>?&gt;</returns>
-        Task<IDeleteAchievementApiResponse?> DeleteAchievementOrDefaultAsync(decimal version, long achievementId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteAchievementApiResponse?> DeleteAchievementOrDefaultAsync(long achievementId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Achievement Tier
@@ -217,12 +209,11 @@ namespace Org.OpenAPITools.Api
         /// Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementTierId">the achievement id for deletion</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAchievementTierApiResponse"/>&gt;</returns>
-        Task<IDeleteAchievementTierApiResponse> DeleteAchievementTierAsync(decimal version, long achievementTierId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteAchievementTierApiResponse> DeleteAchievementTierAsync(long achievementTierId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Achievement Tier
@@ -230,12 +221,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="achievementTierId">the achievement id for deletion</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAchievementTierApiResponse"/>?&gt;</returns>
-        Task<IDeleteAchievementTierApiResponse?> DeleteAchievementTierOrDefaultAsync(decimal version, long achievementTierId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteAchievementTierApiResponse?> DeleteAchievementTierOrDefaultAsync(long achievementTierId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Achievement
@@ -244,14 +234,13 @@ namespace Org.OpenAPITools.Api
         /// Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementId">The ID of the achievement</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="achievementType">achievementType (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAchievementApiResponse"/>&gt;</returns>
-        Task<IGetAchievementApiResponse> GetAchievementAsync(decimal version, long achievementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> achievementType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAchievementApiResponse> GetAchievementAsync(long achievementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> achievementType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Achievement
@@ -259,14 +248,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="achievementId">The ID of the achievement</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="achievementType">achievementType (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAchievementApiResponse"/>?&gt;</returns>
-        Task<IGetAchievementApiResponse?> GetAchievementOrDefaultAsync(decimal version, long achievementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> achievementType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAchievementApiResponse?> GetAchievementOrDefaultAsync(long achievementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> achievementType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets an achievement tier
@@ -275,12 +263,11 @@ namespace Org.OpenAPITools.Api
         /// Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
         /// <param name="achievementTierId">the achievement tier id that is being retrieved</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAchievementTierApiResponse"/>&gt;</returns>
-        Task<IGetAchievementTierApiResponse> GetAchievementTierAsync(decimal version, long accountId, long achievementTierId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAchievementTierApiResponse> GetAchievementTierAsync(long accountId, long achievementTierId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets an achievement tier
@@ -288,12 +275,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
         /// <param name="achievementTierId">the achievement tier id that is being retrieved</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAchievementTierApiResponse"/>?&gt;</returns>
-        Task<IGetAchievementTierApiResponse?> GetAchievementTierOrDefaultAsync(decimal version, long accountId, long achievementTierId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAchievementTierApiResponse?> GetAchievementTierOrDefaultAsync(long accountId, long achievementTierId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Achievement Progress
@@ -302,7 +288,6 @@ namespace Org.OpenAPITools.Api
         /// Gets a list of user achievements.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="returnNulls">determines whether to return null fields in the response</param>
         /// <param name="includeUndiscovered">determines whether to return achievements that the user has not discovered yet</param>
@@ -316,7 +301,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserAchievementsApiResponse"/>&gt;</returns>
-        Task<IGetUserAchievementsApiResponse> GetUserAchievementsAsync(decimal version, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> rankType = default, Option<string> achievementType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserAchievementsApiResponse> GetUserAchievementsAsync(string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> rankType = default, Option<string> achievementType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Achievement Progress
@@ -324,7 +309,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a list of user achievements.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="returnNulls">determines whether to return null fields in the response</param>
         /// <param name="includeUndiscovered">determines whether to return achievements that the user has not discovered yet</param>
@@ -338,7 +322,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserAchievementsApiResponse"/>?&gt;</returns>
-        Task<IGetUserAchievementsApiResponse?> GetUserAchievementsOrDefaultAsync(decimal version, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> rankType = default, Option<string> achievementType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserAchievementsApiResponse?> GetUserAchievementsOrDefaultAsync(string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> rankType = default, Option<string> achievementType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Achievement Tags
@@ -347,11 +331,10 @@ namespace Org.OpenAPITools.Api
         /// List achievement tags by application
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">filter results by application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAchievementTagsApiResponse"/>&gt;</returns>
-        Task<IListAchievementTagsApiResponse> ListAchievementTagsAsync(decimal version, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListAchievementTagsApiResponse> ListAchievementTagsAsync(Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Achievement Tags
@@ -359,11 +342,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// List achievement tags by application
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">filter results by application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAchievementTagsApiResponse"/>?&gt;</returns>
-        Task<IListAchievementTagsApiResponse?> ListAchievementTagsOrDefaultAsync(decimal version, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListAchievementTagsApiResponse?> ListAchievementTagsOrDefaultAsync(Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Achievements
@@ -372,7 +354,6 @@ namespace Org.OpenAPITools.Api
         /// List achievements by billable.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">the start index for pagination</param>
@@ -386,7 +367,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAchievementsApiResponse"/>&gt;</returns>
-        Task<IListAchievementsApiResponse> ListAchievementsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListAchievementsApiResponse> ListAchievementsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Achievements
@@ -394,7 +375,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// List achievements by billable.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">the start index for pagination</param>
@@ -408,7 +388,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAchievementsApiResponse"/>?&gt;</returns>
-        Task<IListAchievementsApiResponse?> ListAchievementsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListAchievementsApiResponse?> ListAchievementsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Achievements
@@ -417,7 +397,6 @@ namespace Org.OpenAPITools.Api
         /// Searches achievements by application for consumers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -432,7 +411,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAchievementsApiResponse"/>&gt;</returns>
-        Task<ISearchAchievementsApiResponse> SearchAchievementsAsync(decimal version, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAchievementsApiResponse> SearchAchievementsAsync(string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Achievements
@@ -440,7 +419,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches achievements by application for consumers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -455,7 +433,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAchievementsApiResponse"/>?&gt;</returns>
-        Task<ISearchAchievementsApiResponse?> SearchAchievementsOrDefaultAsync(decimal version, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAchievementsApiResponse?> SearchAchievementsOrDefaultAsync(string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Achievement
@@ -464,7 +442,6 @@ namespace Org.OpenAPITools.Api
         /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="achievementId">the achievement ID for updating an existing achievement (optional)</param>
@@ -482,7 +459,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAchievementApiResponse"/>&gt;</returns>
-        Task<IUpdateAchievementApiResponse> UpdateAchievementAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> achievementId = default, Option<string> analyticsTag = default, Option<string> title = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<bool> nullMinIncrement = default, Option<int> maxIncrement = default, Option<bool> nullMaxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAchievementApiResponse> UpdateAchievementAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> achievementId = default, Option<string> analyticsTag = default, Option<string> title = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<bool> nullMinIncrement = default, Option<int> maxIncrement = default, Option<bool> nullMaxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Achievement
@@ -490,7 +467,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="achievementId">the achievement ID for updating an existing achievement (optional)</param>
@@ -508,7 +484,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAchievementApiResponse"/>?&gt;</returns>
-        Task<IUpdateAchievementApiResponse?> UpdateAchievementOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> achievementId = default, Option<string> analyticsTag = default, Option<string> title = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<bool> nullMinIncrement = default, Option<int> maxIncrement = default, Option<bool> nullMaxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAchievementApiResponse?> UpdateAchievementOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> achievementId = default, Option<string> analyticsTag = default, Option<string> title = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<bool> nullMinIncrement = default, Option<int> maxIncrement = default, Option<bool> nullMaxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Achievement Tier
@@ -517,7 +493,6 @@ namespace Org.OpenAPITools.Api
         /// Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementTierId">the achievement tier id for updating</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -534,7 +509,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="scoreAllInstances">score all instances (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAchievementTierApiResponse"/>&gt;</returns>
-        Task<IUpdateAchievementTierApiResponse> UpdateAchievementTierAsync(decimal version, long achievementTierId, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<bool> scoreAllInstances = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAchievementTierApiResponse> UpdateAchievementTierAsync(long achievementTierId, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<bool> scoreAllInstances = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Achievement Tier
@@ -542,7 +517,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="achievementTierId">the achievement tier id for updating</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -559,7 +533,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="scoreAllInstances">score all instances (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAchievementTierApiResponse"/>?&gt;</returns>
-        Task<IUpdateAchievementTierApiResponse?> UpdateAchievementTierOrDefaultAsync(decimal version, long achievementTierId, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<bool> scoreAllInstances = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAchievementTierApiResponse?> UpdateAchievementTierOrDefaultAsync(long achievementTierId, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<bool> scoreAllInstances = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Achievement Progress
@@ -568,7 +542,6 @@ namespace Org.OpenAPITools.Api
         /// Update user achievement progress.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="achievementId">the achievement id (achievementId or tag required) (optional)</param>
         /// <param name="tag">the analytic tag to identify an achievement (achievementId or tag required) (optional)</param>
@@ -579,7 +552,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProgress">determines whether to return the achievement progress response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserAchievementApiResponse"/>&gt;</returns>
-        Task<IUpdateUserAchievementApiResponse> UpdateUserAchievementAsync(decimal version, long accountId, Option<long> achievementId = default, Option<string> tag = default, Option<long> customId = default, Option<long> increment = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> returnProgress = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateUserAchievementApiResponse> UpdateUserAchievementAsync(long accountId, Option<long> achievementId = default, Option<string> tag = default, Option<long> customId = default, Option<long> increment = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> returnProgress = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Achievement Progress
@@ -587,7 +560,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update user achievement progress.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="achievementId">the achievement id (achievementId or tag required) (optional)</param>
         /// <param name="tag">the analytic tag to identify an achievement (achievementId or tag required) (optional)</param>
@@ -598,13 +570,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProgress">determines whether to return the achievement progress response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserAchievementApiResponse"/>?&gt;</returns>
-        Task<IUpdateUserAchievementApiResponse?> UpdateUserAchievementOrDefaultAsync(decimal version, long accountId, Option<long> achievementId = default, Option<string> tag = default, Option<long> customId = default, Option<long> increment = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> returnProgress = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateUserAchievementApiResponse?> UpdateUserAchievementOrDefaultAsync(long accountId, Option<long> achievementId = default, Option<string> tag = default, Option<long> customId = default, Option<long> increment = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> returnProgress = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
-    /// The <see cref="IApiVersionAchievementTierSearchPostApiResponse"/>
+    /// The <see cref="IAchievementTierSearchPostApiResponse"/>
     /// </summary>
-    public interface IApiVersionAchievementTierSearchPostApiResponse : Org.OpenAPITools.Client.IApiResponse, IOk<Org.OpenAPITools.Model.AchievementTierResponse?>
+    public interface IAchievementTierSearchPostApiResponse : Org.OpenAPITools.Client.IApiResponse, IOk<Org.OpenAPITools.Model.AchievementTierResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -777,21 +749,21 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// The event raised after the server response
         /// </summary>
-        public event EventHandler<ApiResponseEventArgs>? OnApiVersionAchievementTierSearchPost;
+        public event EventHandler<ApiResponseEventArgs>? OnAchievementTierSearchPost;
 
         /// <summary>
         /// The event raised after an error querying the server
         /// </summary>
-        public event EventHandler<ExceptionEventArgs>? OnErrorApiVersionAchievementTierSearchPost;
+        public event EventHandler<ExceptionEventArgs>? OnErrorAchievementTierSearchPost;
 
-        internal void ExecuteOnApiVersionAchievementTierSearchPost(AchievementApi.ApiVersionAchievementTierSearchPostApiResponse apiResponse)
+        internal void ExecuteOnAchievementTierSearchPost(AchievementApi.AchievementTierSearchPostApiResponse apiResponse)
         {
-            OnApiVersionAchievementTierSearchPost?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+            OnAchievementTierSearchPost?.Invoke(this, new ApiResponseEventArgs(apiResponse));
         }
 
-        internal void ExecuteOnErrorApiVersionAchievementTierSearchPost(Exception exception)
+        internal void ExecuteOnErrorAchievementTierSearchPost(Exception exception)
         {
-            OnErrorApiVersionAchievementTierSearchPost?.Invoke(this, new ExceptionEventArgs(exception));
+            OnErrorAchievementTierSearchPost?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -1102,7 +1074,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatApiVersionAchievementTierSearchPost(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> keyword, ref Option<long> achievementType, ref Option<string> rankType, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> descendingGoal, ref Option<long> start, ref Option<long> limit);
+        partial void FormatAchievementTierSearchPost(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> keyword, ref Option<long> achievementType, ref Option<string> rankType, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> descendingGoal, ref Option<long> start, ref Option<long> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1113,7 +1085,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType"></param>
         /// <param name="sortField"></param>
         /// <returns></returns>
-        private void ValidateApiVersionAchievementTierSearchPost(Option<string> deviceId, Option<string> appKey, Option<string> keyword, Option<string> rankType, Option<string> sortField)
+        private void ValidateAchievementTierSearchPost(Option<string> deviceId, Option<string> appKey, Option<string> keyword, Option<string> rankType, Option<string> sortField)
         {
             if (deviceId.IsSet && deviceId.Value == null)
                 throw new ArgumentNullException(nameof(deviceId));
@@ -1135,7 +1107,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1147,10 +1118,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descendingGoal"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterApiVersionAchievementTierSearchPostDefaultImplementation(IApiVersionAchievementTierSearchPostApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> achievementType, Option<string> rankType, Option<string> sortField, Option<bool> descending, Option<bool> descendingGoal, Option<long> start, Option<long> limit)
+        private void AfterAchievementTierSearchPostDefaultImplementation(IAchievementTierSearchPostApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> achievementType, Option<string> rankType, Option<string> sortField, Option<bool> descending, Option<bool> descendingGoal, Option<long> start, Option<long> limit)
         {
             bool suppressDefaultLog = false;
-            AfterApiVersionAchievementTierSearchPost(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
+            AfterAchievementTierSearchPost(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1160,7 +1131,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1172,7 +1142,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descendingGoal"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterApiVersionAchievementTierSearchPost(ref bool suppressDefaultLog, IApiVersionAchievementTierSearchPostApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> achievementType, Option<string> rankType, Option<string> sortField, Option<bool> descending, Option<bool> descendingGoal, Option<long> start, Option<long> limit);
+        partial void AfterAchievementTierSearchPost(ref bool suppressDefaultLog, IAchievementTierSearchPostApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> achievementType, Option<string> rankType, Option<string> sortField, Option<bool> descending, Option<bool> descendingGoal, Option<long> start, Option<long> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1180,7 +1150,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1192,10 +1161,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descendingGoal"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorApiVersionAchievementTierSearchPostDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> achievementType, Option<string> rankType, Option<string> sortField, Option<bool> descending, Option<bool> descendingGoal, Option<long> start, Option<long> limit)
+        private void OnErrorAchievementTierSearchPostDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> achievementType, Option<string> rankType, Option<string> sortField, Option<bool> descending, Option<bool> descendingGoal, Option<long> start, Option<long> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorApiVersionAchievementTierSearchPost(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
+            OnErrorAchievementTierSearchPost(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1207,7 +1176,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1219,12 +1187,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descendingGoal"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorApiVersionAchievementTierSearchPost(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> achievementType, Option<string> rankType, Option<string> sortField, Option<bool> descending, Option<bool> descendingGoal, Option<long> start, Option<long> limit);
+        partial void OnErrorAchievementTierSearchPost(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<long> achievementType, Option<string> rankType, Option<string> sortField, Option<bool> descending, Option<bool> descendingGoal, Option<long> start, Option<long> limit);
 
         /// <summary>
         /// Searches an Achievement Tier Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">the application key (optional)</param>
@@ -1237,12 +1204,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="start">The start of the index for pagination (optional)</param>
         /// <param name="limit">the limit for pagination (has a hard limit of 1000) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IApiVersionAchievementTierSearchPostApiResponse"/>&gt;</returns>
-        public async Task<IApiVersionAchievementTierSearchPostApiResponse?> ApiVersionAchievementTierSearchPostOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> achievementType = default, Option<string> rankType = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> descendingGoal = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns><see cref="Task"/>&lt;<see cref="IAchievementTierSearchPostApiResponse"/>&gt;</returns>
+        public async Task<IAchievementTierSearchPostApiResponse?> AchievementTierSearchPostOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> achievementType = default, Option<string> rankType = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> descendingGoal = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ApiVersionAchievementTierSearchPostAsync(version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit, cancellationToken).ConfigureAwait(false);
+                return await AchievementTierSearchPostAsync(deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1254,7 +1221,6 @@ namespace Org.OpenAPITools.Api
         /// Searches an Achievement Tier Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="appKey">the application key (optional)</param>
@@ -1267,16 +1233,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="start">The start of the index for pagination (optional)</param>
         /// <param name="limit">the limit for pagination (has a hard limit of 1000) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IApiVersionAchievementTierSearchPostApiResponse"/>&gt;</returns>
-        public async Task<IApiVersionAchievementTierSearchPostApiResponse> ApiVersionAchievementTierSearchPostAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> achievementType = default, Option<string> rankType = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> descendingGoal = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns><see cref="Task"/>&lt;<see cref="IAchievementTierSearchPostApiResponse"/>&gt;</returns>
+        public async Task<IAchievementTierSearchPostApiResponse> AchievementTierSearchPostAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<long> achievementType = default, Option<string> rankType = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> descendingGoal = default, Option<long> start = default, Option<long> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                ValidateApiVersionAchievementTierSearchPost(deviceId, appKey, keyword, rankType, sortField);
+                ValidateAchievementTierSearchPost(deviceId, appKey, keyword, rankType, sortField);
 
-                FormatApiVersionAchievementTierSearchPost(ref version, ref deviceId, ref accountId, ref appKey, ref keyword, ref achievementType, ref rankType, ref sortField, ref descending, ref descendingGoal, ref start, ref limit);
+                FormatAchievementTierSearchPost(ref deviceId, ref accountId, ref appKey, ref keyword, ref achievementType, ref rankType, ref sortField, ref descending, ref descendingGoal, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1284,9 +1250,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/tier/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/tier/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/tier/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/tier/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1342,21 +1307,21 @@ namespace Org.OpenAPITools.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        ILogger<ApiVersionAchievementTierSearchPostApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<ApiVersionAchievementTierSearchPostApiResponse>();
-                        ApiVersionAchievementTierSearchPostApiResponse apiResponseLocalVar;
+                        ILogger<AchievementTierSearchPostApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<AchievementTierSearchPostApiResponse>();
+                        AchievementTierSearchPostApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/tier/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/tier/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterApiVersionAchievementTierSearchPostDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
+                        AfterAchievementTierSearchPostDefaultImplementation(apiResponseLocalVar, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
 
-                        Events.ExecuteOnApiVersionAchievementTierSearchPost(apiResponseLocalVar);
+                        Events.ExecuteOnAchievementTierSearchPost(apiResponseLocalVar);
 
                         return apiResponseLocalVar;
                     }
@@ -1364,24 +1329,24 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorApiVersionAchievementTierSearchPostDefaultImplementation(e, "/api/{version}/achievement/tier/search", uriBuilderLocalVar.Path, version, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
-                Events.ExecuteOnErrorApiVersionAchievementTierSearchPost(e);
+                OnErrorAchievementTierSearchPostDefaultImplementation(e, "/achievement/tier/search", uriBuilderLocalVar.Path, deviceId, accountId, appKey, keyword, achievementType, rankType, sortField, descending, descendingGoal, start, limit);
+                Events.ExecuteOnErrorAchievementTierSearchPost(e);
                 throw;
             }
         }
 
         /// <summary>
-        /// The <see cref="ApiVersionAchievementTierSearchPostApiResponse"/>
+        /// The <see cref="AchievementTierSearchPostApiResponse"/>
         /// </summary>
-        public partial class ApiVersionAchievementTierSearchPostApiResponse : Org.OpenAPITools.Client.ApiResponse, IApiVersionAchievementTierSearchPostApiResponse
+        public partial class AchievementTierSearchPostApiResponse : Org.OpenAPITools.Client.ApiResponse, IAchievementTierSearchPostApiResponse
         {
             /// <summary>
             /// The logger
             /// </summary>
-            public ILogger<ApiVersionAchievementTierSearchPostApiResponse> Logger { get; }
+            public ILogger<AchievementTierSearchPostApiResponse> Logger { get; }
 
             /// <summary>
-            /// The <see cref="ApiVersionAchievementTierSearchPostApiResponse"/>
+            /// The <see cref="AchievementTierSearchPostApiResponse"/>
             /// </summary>
             /// <param name="logger"></param>
             /// <param name="httpRequestMessage"></param>
@@ -1390,14 +1355,14 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public ApiVersionAchievementTierSearchPostApiResponse(ILogger<ApiVersionAchievementTierSearchPostApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public AchievementTierSearchPostApiResponse(ILogger<AchievementTierSearchPostApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
             }
 
             /// <summary>
-            /// The <see cref="ApiVersionAchievementTierSearchPostApiResponse"/>
+            /// The <see cref="AchievementTierSearchPostApiResponse"/>
             /// </summary>
             /// <param name="logger"></param>
             /// <param name="httpRequestMessage"></param>
@@ -1406,7 +1371,7 @@ namespace Org.OpenAPITools.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public ApiVersionAchievementTierSearchPostApiResponse(ILogger<ApiVersionAchievementTierSearchPostApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public AchievementTierSearchPostApiResponse(ILogger<AchievementTierSearchPostApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
@@ -1463,7 +1428,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateAchievement(ref decimal version, ref string appKey, ref string title, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> analyticsTag, ref Option<string> description, ref Option<string> rankType, ref Option<int> rankIncrement, ref Option<int> minIncrement, ref Option<int> maxIncrement, ref Option<bool> validate, ref Option<bool> active, ref Option<string> triggerDefinition);
+        partial void FormatCreateAchievement(ref string appKey, ref string title, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> analyticsTag, ref Option<string> description, ref Option<string> rankType, ref Option<int> rankIncrement, ref Option<int> minIncrement, ref Option<int> maxIncrement, ref Option<bool> validate, ref Option<bool> active, ref Option<string> triggerDefinition);
 
         /// <summary>
         /// Validates the request parameters
@@ -1504,7 +1469,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
         /// <param name="deviceId"></param>
@@ -1518,10 +1482,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="validate"></param>
         /// <param name="active"></param>
         /// <param name="triggerDefinition"></param>
-        private void AfterCreateAchievementDefaultImplementation(ICreateAchievementApiResponse apiResponseLocalVar, decimal version, string appKey, string title, Option<string> deviceId, Option<long> accountId, Option<string> analyticsTag, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<int> maxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition)
+        private void AfterCreateAchievementDefaultImplementation(ICreateAchievementApiResponse apiResponseLocalVar, string appKey, string title, Option<string> deviceId, Option<long> accountId, Option<string> analyticsTag, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<int> maxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition)
         {
             bool suppressDefaultLog = false;
-            AfterCreateAchievement(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
+            AfterCreateAchievement(ref suppressDefaultLog, apiResponseLocalVar, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1531,7 +1495,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
         /// <param name="deviceId"></param>
@@ -1545,7 +1508,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="validate"></param>
         /// <param name="active"></param>
         /// <param name="triggerDefinition"></param>
-        partial void AfterCreateAchievement(ref bool suppressDefaultLog, ICreateAchievementApiResponse apiResponseLocalVar, decimal version, string appKey, string title, Option<string> deviceId, Option<long> accountId, Option<string> analyticsTag, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<int> maxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition);
+        partial void AfterCreateAchievement(ref bool suppressDefaultLog, ICreateAchievementApiResponse apiResponseLocalVar, string appKey, string title, Option<string> deviceId, Option<long> accountId, Option<string> analyticsTag, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<int> maxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1553,7 +1516,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
         /// <param name="deviceId"></param>
@@ -1567,10 +1529,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="validate"></param>
         /// <param name="active"></param>
         /// <param name="triggerDefinition"></param>
-        private void OnErrorCreateAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string title, Option<string> deviceId, Option<long> accountId, Option<string> analyticsTag, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<int> maxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition)
+        private void OnErrorCreateAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string title, Option<string> deviceId, Option<long> accountId, Option<string> analyticsTag, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<int> maxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
+            OnErrorCreateAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1582,7 +1544,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="title"></param>
         /// <param name="deviceId"></param>
@@ -1596,12 +1557,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="validate"></param>
         /// <param name="active"></param>
         /// <param name="triggerDefinition"></param>
-        partial void OnErrorCreateAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string title, Option<string> deviceId, Option<long> accountId, Option<string> analyticsTag, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<int> maxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition);
+        partial void OnErrorCreateAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string title, Option<string> deviceId, Option<long> accountId, Option<string> analyticsTag, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<int> maxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition);
 
         /// <summary>
         /// Create Achievement Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key the achievement is for</param>
         /// <param name="title">the title of the achievement (255 character limit)</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
@@ -1617,11 +1577,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAchievementApiResponse"/>&gt;</returns>
-        public async Task<ICreateAchievementApiResponse?> CreateAchievementOrDefaultAsync(decimal version, string appKey, string title, Option<string> deviceId = default, Option<long> accountId = default, Option<string> analyticsTag = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<int> maxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAchievementApiResponse?> CreateAchievementOrDefaultAsync(string appKey, string title, Option<string> deviceId = default, Option<long> accountId = default, Option<string> analyticsTag = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<int> maxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateAchievementAsync(version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition, cancellationToken).ConfigureAwait(false);
+                return await CreateAchievementAsync(appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1633,7 +1593,6 @@ namespace Org.OpenAPITools.Api
         /// Create Achievement Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key the achievement is for</param>
         /// <param name="title">the title of the achievement (255 character limit)</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
@@ -1649,7 +1608,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAchievementApiResponse"/>&gt;</returns>
-        public async Task<ICreateAchievementApiResponse> CreateAchievementAsync(decimal version, string appKey, string title, Option<string> deviceId = default, Option<long> accountId = default, Option<string> analyticsTag = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<int> maxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAchievementApiResponse> CreateAchievementAsync(string appKey, string title, Option<string> deviceId = default, Option<long> accountId = default, Option<string> analyticsTag = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<int> maxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1657,7 +1616,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateAchievement(appKey, title, deviceId, analyticsTag, description, rankType, triggerDefinition);
 
-                FormatCreateAchievement(ref version, ref appKey, ref title, ref deviceId, ref accountId, ref analyticsTag, ref description, ref rankType, ref rankIncrement, ref minIncrement, ref maxIncrement, ref validate, ref active, ref triggerDefinition);
+                FormatCreateAchievement(ref appKey, ref title, ref deviceId, ref accountId, ref analyticsTag, ref description, ref rankType, ref rankIncrement, ref minIncrement, ref maxIncrement, ref validate, ref active, ref triggerDefinition);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1665,9 +1624,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1732,13 +1690,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateAchievementDefaultImplementation(apiResponseLocalVar, version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
+                        AfterCreateAchievementDefaultImplementation(apiResponseLocalVar, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
 
                         Events.ExecuteOnCreateAchievement(apiResponseLocalVar);
 
@@ -1748,7 +1706,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateAchievementDefaultImplementation(e, "/api/{version}/achievement/create", uriBuilderLocalVar.Path, version, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
+                OnErrorCreateAchievementDefaultImplementation(e, "/achievement/create", uriBuilderLocalVar.Path, appKey, title, deviceId, accountId, analyticsTag, description, rankType, rankIncrement, minIncrement, maxIncrement, validate, active, triggerDefinition);
                 Events.ExecuteOnErrorCreateAchievement(e);
                 throw;
             }
@@ -1847,7 +1805,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateAchievementTier(ref decimal version, ref long achievementId, ref bool scoreAllInstances, ref Option<string> deviceId, ref Option<long> accountId, ref Option<System.IO.Stream> icon, ref Option<long> iconAssetId, ref Option<string> title, ref Option<string> description, ref Option<long> goalCount, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<int> gameObjectId);
+        partial void FormatCreateAchievementTier(ref long achievementId, ref bool scoreAllInstances, ref Option<string> deviceId, ref Option<long> accountId, ref Option<System.IO.Stream> icon, ref Option<long> iconAssetId, ref Option<string> title, ref Option<string> description, ref Option<long> goalCount, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<int> gameObjectId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1876,7 +1834,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="scoreAllInstances"></param>
         /// <param name="deviceId"></param>
@@ -1891,10 +1848,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
-        private void AfterCreateAchievementTierDefaultImplementation(ICreateAchievementTierApiResponse apiResponseLocalVar, decimal version, long achievementId, bool scoreAllInstances, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<int> gameObjectId)
+        private void AfterCreateAchievementTierDefaultImplementation(ICreateAchievementTierApiResponse apiResponseLocalVar, long achievementId, bool scoreAllInstances, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<int> gameObjectId)
         {
             bool suppressDefaultLog = false;
-            AfterCreateAchievementTier(ref suppressDefaultLog, apiResponseLocalVar, version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
+            AfterCreateAchievementTier(ref suppressDefaultLog, apiResponseLocalVar, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1904,7 +1861,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="scoreAllInstances"></param>
         /// <param name="deviceId"></param>
@@ -1919,7 +1875,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
-        partial void AfterCreateAchievementTier(ref bool suppressDefaultLog, ICreateAchievementTierApiResponse apiResponseLocalVar, decimal version, long achievementId, bool scoreAllInstances, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<int> gameObjectId);
+        partial void AfterCreateAchievementTier(ref bool suppressDefaultLog, ICreateAchievementTierApiResponse apiResponseLocalVar, long achievementId, bool scoreAllInstances, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<int> gameObjectId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1927,7 +1883,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="scoreAllInstances"></param>
         /// <param name="deviceId"></param>
@@ -1942,10 +1897,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
-        private void OnErrorCreateAchievementTierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementId, bool scoreAllInstances, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<int> gameObjectId)
+        private void OnErrorCreateAchievementTierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementId, bool scoreAllInstances, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<int> gameObjectId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateAchievementTier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
+            OnErrorCreateAchievementTier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1957,7 +1912,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="scoreAllInstances"></param>
         /// <param name="deviceId"></param>
@@ -1972,12 +1926,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="packId"></param>
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
-        partial void OnErrorCreateAchievementTier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementId, bool scoreAllInstances, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<int> gameObjectId);
+        partial void OnErrorCreateAchievementTier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementId, bool scoreAllInstances, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<int> gameObjectId);
 
         /// <summary>
         /// Create Achievement Tier Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="achievementId">the achievement id for adding a new tier</param>
         /// <param name="scoreAllInstances">score all instances</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
@@ -1994,11 +1947,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId">The ID of the game object to associate with the achievement (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAchievementTierApiResponse"/>&gt;</returns>
-        public async Task<ICreateAchievementTierApiResponse?> CreateAchievementTierOrDefaultAsync(decimal version, long achievementId, bool scoreAllInstances, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<int> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAchievementTierApiResponse?> CreateAchievementTierOrDefaultAsync(long achievementId, bool scoreAllInstances, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<int> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateAchievementTierAsync(version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, cancellationToken).ConfigureAwait(false);
+                return await CreateAchievementTierAsync(achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2010,7 +1963,6 @@ namespace Org.OpenAPITools.Api
         /// Create Achievement Tier Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementId">the achievement id for adding a new tier</param>
         /// <param name="scoreAllInstances">score all instances</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
@@ -2027,7 +1979,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameObjectId">The ID of the game object to associate with the achievement (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAchievementTierApiResponse"/>&gt;</returns>
-        public async Task<ICreateAchievementTierApiResponse> CreateAchievementTierAsync(decimal version, long achievementId, bool scoreAllInstances, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<int> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAchievementTierApiResponse> CreateAchievementTierAsync(long achievementId, bool scoreAllInstances, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<int> gameObjectId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2035,7 +1987,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateAchievementTier(deviceId, icon, title, description);
 
-                FormatCreateAchievementTier(ref version, ref achievementId, ref scoreAllInstances, ref deviceId, ref accountId, ref icon, ref iconAssetId, ref title, ref description, ref goalCount, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId);
+                FormatCreateAchievementTier(ref achievementId, ref scoreAllInstances, ref deviceId, ref accountId, ref icon, ref iconAssetId, ref title, ref description, ref goalCount, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2043,9 +1995,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/tier/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/tier/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/tier/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/tier/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2113,13 +2064,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/tier/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/tier/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateAchievementTierDefaultImplementation(apiResponseLocalVar, version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
+                        AfterCreateAchievementTierDefaultImplementation(apiResponseLocalVar, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
 
                         Events.ExecuteOnCreateAchievementTier(apiResponseLocalVar);
 
@@ -2129,7 +2080,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateAchievementTierDefaultImplementation(e, "/api/{version}/achievement/tier/create", uriBuilderLocalVar.Path, version, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
+                OnErrorCreateAchievementTierDefaultImplementation(e, "/achievement/tier/create", uriBuilderLocalVar.Path, achievementId, scoreAllInstances, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId);
                 Events.ExecuteOnErrorCreateAchievementTier(e);
                 throw;
             }
@@ -2228,19 +2179,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteAchievement(ref decimal version, ref long achievementId, ref Option<long> accountId);
+        partial void FormatDeleteAchievement(ref long achievementId, ref Option<long> accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteAchievementDefaultImplementation(IDeleteAchievementApiResponse apiResponseLocalVar, decimal version, long achievementId, Option<long> accountId)
+        private void AfterDeleteAchievementDefaultImplementation(IDeleteAchievementApiResponse apiResponseLocalVar, long achievementId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteAchievement(ref suppressDefaultLog, apiResponseLocalVar, version, achievementId, accountId);
+            AfterDeleteAchievement(ref suppressDefaultLog, apiResponseLocalVar, achievementId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2250,10 +2200,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteAchievement(ref bool suppressDefaultLog, IDeleteAchievementApiResponse apiResponseLocalVar, decimal version, long achievementId, Option<long> accountId);
+        partial void AfterDeleteAchievement(ref bool suppressDefaultLog, IDeleteAchievementApiResponse apiResponseLocalVar, long achievementId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2261,13 +2210,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementId, Option<long> accountId)
+        private void OnErrorDeleteAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, achievementId, accountId);
+            OnErrorDeleteAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, achievementId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2279,24 +2227,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementId, Option<long> accountId);
+        partial void OnErrorDeleteAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementId, Option<long> accountId);
 
         /// <summary>
         /// Delete Achievement Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="achievementId">The ID of the achievement</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAchievementApiResponse"/>&gt;</returns>
-        public async Task<IDeleteAchievementApiResponse?> DeleteAchievementOrDefaultAsync(decimal version, long achievementId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteAchievementApiResponse?> DeleteAchievementOrDefaultAsync(long achievementId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteAchievementAsync(version, achievementId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteAchievementAsync(achievementId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2308,18 +2254,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Achievement Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementId">The ID of the achievement</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAchievementApiResponse"/>&gt;</returns>
-        public async Task<IDeleteAchievementApiResponse> DeleteAchievementAsync(decimal version, long achievementId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteAchievementApiResponse> DeleteAchievementAsync(long achievementId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteAchievement(ref version, ref achievementId, ref accountId);
+                FormatDeleteAchievement(ref achievementId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2327,9 +2272,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2363,13 +2307,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteAchievementDefaultImplementation(apiResponseLocalVar, version, achievementId, accountId);
+                        AfterDeleteAchievementDefaultImplementation(apiResponseLocalVar, achievementId, accountId);
 
                         Events.ExecuteOnDeleteAchievement(apiResponseLocalVar);
 
@@ -2379,7 +2323,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteAchievementDefaultImplementation(e, "/api/{version}/achievement/delete", uriBuilderLocalVar.Path, version, achievementId, accountId);
+                OnErrorDeleteAchievementDefaultImplementation(e, "/achievement/delete", uriBuilderLocalVar.Path, achievementId, accountId);
                 Events.ExecuteOnErrorDeleteAchievement(e);
                 throw;
             }
@@ -2478,19 +2422,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteAchievementTier(ref decimal version, ref long achievementTierId, ref Option<long> accountId);
+        partial void FormatDeleteAchievementTier(ref long achievementTierId, ref Option<long> accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementTierId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteAchievementTierDefaultImplementation(IDeleteAchievementTierApiResponse apiResponseLocalVar, decimal version, long achievementTierId, Option<long> accountId)
+        private void AfterDeleteAchievementTierDefaultImplementation(IDeleteAchievementTierApiResponse apiResponseLocalVar, long achievementTierId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteAchievementTier(ref suppressDefaultLog, apiResponseLocalVar, version, achievementTierId, accountId);
+            AfterDeleteAchievementTier(ref suppressDefaultLog, apiResponseLocalVar, achievementTierId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2500,10 +2443,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementTierId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteAchievementTier(ref bool suppressDefaultLog, IDeleteAchievementTierApiResponse apiResponseLocalVar, decimal version, long achievementTierId, Option<long> accountId);
+        partial void AfterDeleteAchievementTier(ref bool suppressDefaultLog, IDeleteAchievementTierApiResponse apiResponseLocalVar, long achievementTierId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2511,13 +2453,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementTierId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteAchievementTierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementTierId, Option<long> accountId)
+        private void OnErrorDeleteAchievementTierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementTierId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteAchievementTier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, achievementTierId, accountId);
+            OnErrorDeleteAchievementTier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, achievementTierId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2529,24 +2470,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementTierId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteAchievementTier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementTierId, Option<long> accountId);
+        partial void OnErrorDeleteAchievementTier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementTierId, Option<long> accountId);
 
         /// <summary>
         /// Delete Achievement Tier Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="achievementTierId">the achievement id for deletion</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAchievementTierApiResponse"/>&gt;</returns>
-        public async Task<IDeleteAchievementTierApiResponse?> DeleteAchievementTierOrDefaultAsync(decimal version, long achievementTierId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteAchievementTierApiResponse?> DeleteAchievementTierOrDefaultAsync(long achievementTierId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteAchievementTierAsync(version, achievementTierId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteAchievementTierAsync(achievementTierId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2558,18 +2497,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Achievement Tier Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementTierId">the achievement id for deletion</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAchievementTierApiResponse"/>&gt;</returns>
-        public async Task<IDeleteAchievementTierApiResponse> DeleteAchievementTierAsync(decimal version, long achievementTierId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteAchievementTierApiResponse> DeleteAchievementTierAsync(long achievementTierId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteAchievementTier(ref version, ref achievementTierId, ref accountId);
+                FormatDeleteAchievementTier(ref achievementTierId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2577,9 +2515,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/tier/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/tier/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/tier/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/tier/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2613,13 +2550,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/tier/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/tier/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteAchievementTierDefaultImplementation(apiResponseLocalVar, version, achievementTierId, accountId);
+                        AfterDeleteAchievementTierDefaultImplementation(apiResponseLocalVar, achievementTierId, accountId);
 
                         Events.ExecuteOnDeleteAchievementTier(apiResponseLocalVar);
 
@@ -2629,7 +2566,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteAchievementTierDefaultImplementation(e, "/api/{version}/achievement/tier/delete", uriBuilderLocalVar.Path, version, achievementTierId, accountId);
+                OnErrorDeleteAchievementTierDefaultImplementation(e, "/achievement/tier/delete", uriBuilderLocalVar.Path, achievementTierId, accountId);
                 Events.ExecuteOnErrorDeleteAchievementTier(e);
                 throw;
             }
@@ -2728,7 +2665,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAchievement(ref decimal version, ref long achievementId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> achievementType);
+        partial void FormatGetAchievement(ref long achievementId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> achievementType);
 
         /// <summary>
         /// Validates the request parameters
@@ -2749,15 +2686,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementType"></param>
-        private void AfterGetAchievementDefaultImplementation(IGetAchievementApiResponse apiResponseLocalVar, decimal version, long achievementId, Option<string> deviceId, Option<long> accountId, Option<string> achievementType)
+        private void AfterGetAchievementDefaultImplementation(IGetAchievementApiResponse apiResponseLocalVar, long achievementId, Option<string> deviceId, Option<long> accountId, Option<string> achievementType)
         {
             bool suppressDefaultLog = false;
-            AfterGetAchievement(ref suppressDefaultLog, apiResponseLocalVar, version, achievementId, deviceId, accountId, achievementType);
+            AfterGetAchievement(ref suppressDefaultLog, apiResponseLocalVar, achievementId, deviceId, accountId, achievementType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2767,12 +2703,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementType"></param>
-        partial void AfterGetAchievement(ref bool suppressDefaultLog, IGetAchievementApiResponse apiResponseLocalVar, decimal version, long achievementId, Option<string> deviceId, Option<long> accountId, Option<string> achievementType);
+        partial void AfterGetAchievement(ref bool suppressDefaultLog, IGetAchievementApiResponse apiResponseLocalVar, long achievementId, Option<string> deviceId, Option<long> accountId, Option<string> achievementType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2780,15 +2715,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementType"></param>
-        private void OnErrorGetAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementId, Option<string> deviceId, Option<long> accountId, Option<string> achievementType)
+        private void OnErrorGetAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementId, Option<string> deviceId, Option<long> accountId, Option<string> achievementType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, achievementId, deviceId, accountId, achievementType);
+            OnErrorGetAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, achievementId, deviceId, accountId, achievementType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2800,28 +2734,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementType"></param>
-        partial void OnErrorGetAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementId, Option<string> deviceId, Option<long> accountId, Option<string> achievementType);
+        partial void OnErrorGetAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementId, Option<string> deviceId, Option<long> accountId, Option<string> achievementType);
 
         /// <summary>
         /// Get Achievement Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="achievementId">The ID of the achievement</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="achievementType">achievementType (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAchievementApiResponse"/>&gt;</returns>
-        public async Task<IGetAchievementApiResponse?> GetAchievementOrDefaultAsync(decimal version, long achievementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> achievementType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAchievementApiResponse?> GetAchievementOrDefaultAsync(long achievementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> achievementType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAchievementAsync(version, achievementId, deviceId, accountId, achievementType, cancellationToken).ConfigureAwait(false);
+                return await GetAchievementAsync(achievementId, deviceId, accountId, achievementType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2833,14 +2765,13 @@ namespace Org.OpenAPITools.Api
         /// Get Achievement Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementId">The ID of the achievement</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="achievementType">achievementType (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAchievementApiResponse"/>&gt;</returns>
-        public async Task<IGetAchievementApiResponse> GetAchievementAsync(decimal version, long achievementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> achievementType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAchievementApiResponse> GetAchievementAsync(long achievementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> achievementType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2848,7 +2779,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAchievement(deviceId, achievementType);
 
-                FormatGetAchievement(ref version, ref achievementId, ref deviceId, ref accountId, ref achievementType);
+                FormatGetAchievement(ref achievementId, ref deviceId, ref accountId, ref achievementType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2856,9 +2787,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2898,13 +2828,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAchievementDefaultImplementation(apiResponseLocalVar, version, achievementId, deviceId, accountId, achievementType);
+                        AfterGetAchievementDefaultImplementation(apiResponseLocalVar, achievementId, deviceId, accountId, achievementType);
 
                         Events.ExecuteOnGetAchievement(apiResponseLocalVar);
 
@@ -2914,7 +2844,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAchievementDefaultImplementation(e, "/api/{version}/achievement/get", uriBuilderLocalVar.Path, version, achievementId, deviceId, accountId, achievementType);
+                OnErrorGetAchievementDefaultImplementation(e, "/achievement/get", uriBuilderLocalVar.Path, achievementId, deviceId, accountId, achievementType);
                 Events.ExecuteOnErrorGetAchievement(e);
                 throw;
             }
@@ -3013,19 +2943,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAchievementTier(ref decimal version, ref long accountId, ref long achievementTierId);
+        partial void FormatGetAchievementTier(ref long accountId, ref long achievementTierId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementTierId"></param>
-        private void AfterGetAchievementTierDefaultImplementation(IGetAchievementTierApiResponse apiResponseLocalVar, decimal version, long accountId, long achievementTierId)
+        private void AfterGetAchievementTierDefaultImplementation(IGetAchievementTierApiResponse apiResponseLocalVar, long accountId, long achievementTierId)
         {
             bool suppressDefaultLog = false;
-            AfterGetAchievementTier(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, achievementTierId);
+            AfterGetAchievementTier(ref suppressDefaultLog, apiResponseLocalVar, accountId, achievementTierId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3035,10 +2964,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementTierId"></param>
-        partial void AfterGetAchievementTier(ref bool suppressDefaultLog, IGetAchievementTierApiResponse apiResponseLocalVar, decimal version, long accountId, long achievementTierId);
+        partial void AfterGetAchievementTier(ref bool suppressDefaultLog, IGetAchievementTierApiResponse apiResponseLocalVar, long accountId, long achievementTierId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3046,13 +2974,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementTierId"></param>
-        private void OnErrorGetAchievementTierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long achievementTierId)
+        private void OnErrorGetAchievementTierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long achievementTierId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAchievementTier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, achievementTierId);
+            OnErrorGetAchievementTier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, achievementTierId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3064,24 +2991,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementTierId"></param>
-        partial void OnErrorGetAchievementTier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long achievementTierId);
+        partial void OnErrorGetAchievementTier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long achievementTierId);
 
         /// <summary>
         /// Gets an achievement tier Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
         /// <param name="achievementTierId">the achievement tier id that is being retrieved</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAchievementTierApiResponse"/>&gt;</returns>
-        public async Task<IGetAchievementTierApiResponse?> GetAchievementTierOrDefaultAsync(decimal version, long accountId, long achievementTierId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAchievementTierApiResponse?> GetAchievementTierOrDefaultAsync(long accountId, long achievementTierId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAchievementTierAsync(version, accountId, achievementTierId, cancellationToken).ConfigureAwait(false);
+                return await GetAchievementTierAsync(accountId, achievementTierId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3093,18 +3018,17 @@ namespace Org.OpenAPITools.Api
         /// Gets an achievement tier Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
         /// <param name="achievementTierId">the achievement tier id that is being retrieved</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAchievementTierApiResponse"/>&gt;</returns>
-        public async Task<IGetAchievementTierApiResponse> GetAchievementTierAsync(decimal version, long accountId, long achievementTierId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAchievementTierApiResponse> GetAchievementTierAsync(long accountId, long achievementTierId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetAchievementTier(ref version, ref accountId, ref achievementTierId);
+                FormatGetAchievementTier(ref accountId, ref achievementTierId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3112,9 +3036,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/tier/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/tier/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/tier/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/tier/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3146,13 +3069,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/tier/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/tier/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAchievementTierDefaultImplementation(apiResponseLocalVar, version, accountId, achievementTierId);
+                        AfterGetAchievementTierDefaultImplementation(apiResponseLocalVar, accountId, achievementTierId);
 
                         Events.ExecuteOnGetAchievementTier(apiResponseLocalVar);
 
@@ -3162,7 +3085,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAchievementTierDefaultImplementation(e, "/api/{version}/achievement/tier/get", uriBuilderLocalVar.Path, version, accountId, achievementTierId);
+                OnErrorGetAchievementTierDefaultImplementation(e, "/achievement/tier/get", uriBuilderLocalVar.Path, accountId, achievementTierId);
                 Events.ExecuteOnErrorGetAchievementTier(e);
                 throw;
             }
@@ -3261,7 +3184,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUserAchievements(ref decimal version, ref string appKey, ref bool returnNulls, ref bool includeUndiscovered, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionAccountEmail, ref Option<long> connectionAccountId, ref Option<string> rankType, ref Option<string> achievementType, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetUserAchievements(ref string appKey, ref bool returnNulls, ref bool includeUndiscovered, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionAccountEmail, ref Option<long> connectionAccountId, ref Option<string> rankType, ref Option<string> achievementType, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -3294,7 +3217,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="returnNulls"></param>
         /// <param name="includeUndiscovered"></param>
@@ -3306,10 +3228,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="achievementType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetUserAchievementsDefaultImplementation(IGetUserAchievementsApiResponse apiResponseLocalVar, decimal version, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> rankType, Option<string> achievementType, Option<double> latitude, Option<double> longitude)
+        private void AfterGetUserAchievementsDefaultImplementation(IGetUserAchievementsApiResponse apiResponseLocalVar, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> rankType, Option<string> achievementType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetUserAchievements(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
+            AfterGetUserAchievements(ref suppressDefaultLog, apiResponseLocalVar, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3319,7 +3241,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="returnNulls"></param>
         /// <param name="includeUndiscovered"></param>
@@ -3331,7 +3252,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="achievementType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetUserAchievements(ref bool suppressDefaultLog, IGetUserAchievementsApiResponse apiResponseLocalVar, decimal version, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> rankType, Option<string> achievementType, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetUserAchievements(ref bool suppressDefaultLog, IGetUserAchievementsApiResponse apiResponseLocalVar, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> rankType, Option<string> achievementType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3339,7 +3260,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="returnNulls"></param>
         /// <param name="includeUndiscovered"></param>
@@ -3351,10 +3271,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="achievementType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetUserAchievementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> rankType, Option<string> achievementType, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetUserAchievementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> rankType, Option<string> achievementType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUserAchievements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
+            OnErrorGetUserAchievements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3366,7 +3286,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="returnNulls"></param>
         /// <param name="includeUndiscovered"></param>
@@ -3378,12 +3297,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="achievementType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetUserAchievements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> rankType, Option<string> achievementType, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetUserAchievements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountEmail, Option<long> connectionAccountId, Option<string> rankType, Option<string> achievementType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Achievement Progress Gets a list of user achievements.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="returnNulls">determines whether to return null fields in the response</param>
         /// <param name="includeUndiscovered">determines whether to return achievements that the user has not discovered yet</param>
@@ -3397,11 +3315,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserAchievementsApiResponse"/>&gt;</returns>
-        public async Task<IGetUserAchievementsApiResponse?> GetUserAchievementsOrDefaultAsync(decimal version, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> rankType = default, Option<string> achievementType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserAchievementsApiResponse?> GetUserAchievementsOrDefaultAsync(string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> rankType = default, Option<string> achievementType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUserAchievementsAsync(version, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetUserAchievementsAsync(appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3413,7 +3331,6 @@ namespace Org.OpenAPITools.Api
         /// Get Achievement Progress Gets a list of user achievements.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key for filtering results by application</param>
         /// <param name="returnNulls">determines whether to return null fields in the response</param>
         /// <param name="includeUndiscovered">determines whether to return achievements that the user has not discovered yet</param>
@@ -3427,7 +3344,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserAchievementsApiResponse"/>&gt;</returns>
-        public async Task<IGetUserAchievementsApiResponse> GetUserAchievementsAsync(decimal version, string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> rankType = default, Option<string> achievementType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserAchievementsApiResponse> GetUserAchievementsAsync(string appKey, bool returnNulls, bool includeUndiscovered, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountEmail = default, Option<long> connectionAccountId = default, Option<string> rankType = default, Option<string> achievementType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3435,7 +3352,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetUserAchievements(appKey, deviceId, connectionAccountEmail, rankType, achievementType);
 
-                FormatGetUserAchievements(ref version, ref appKey, ref returnNulls, ref includeUndiscovered, ref deviceId, ref accountId, ref connectionAccountEmail, ref connectionAccountId, ref rankType, ref achievementType, ref latitude, ref longitude);
+                FormatGetUserAchievements(ref appKey, ref returnNulls, ref includeUndiscovered, ref deviceId, ref accountId, ref connectionAccountEmail, ref connectionAccountId, ref rankType, ref achievementType, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3443,9 +3360,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/progress/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/progress/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/progress/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/progress/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3502,13 +3418,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/progress/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/progress/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUserAchievementsDefaultImplementation(apiResponseLocalVar, version, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
+                        AfterGetUserAchievementsDefaultImplementation(apiResponseLocalVar, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
 
                         Events.ExecuteOnGetUserAchievements(apiResponseLocalVar);
 
@@ -3518,7 +3434,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUserAchievementsDefaultImplementation(e, "/api/{version}/achievement/progress/get", uriBuilderLocalVar.Path, version, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
+                OnErrorGetUserAchievementsDefaultImplementation(e, "/achievement/progress/get", uriBuilderLocalVar.Path, appKey, returnNulls, includeUndiscovered, deviceId, accountId, connectionAccountEmail, connectionAccountId, rankType, achievementType, latitude, longitude);
                 Events.ExecuteOnErrorGetUserAchievements(e);
                 throw;
             }
@@ -3617,7 +3533,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListAchievementTags(ref decimal version, ref Option<string> appKey);
+        partial void FormatListAchievementTags(ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -3634,12 +3550,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
-        private void AfterListAchievementTagsDefaultImplementation(IListAchievementTagsApiResponse apiResponseLocalVar, decimal version, Option<string> appKey)
+        private void AfterListAchievementTagsDefaultImplementation(IListAchievementTagsApiResponse apiResponseLocalVar, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterListAchievementTags(ref suppressDefaultLog, apiResponseLocalVar, version, appKey);
+            AfterListAchievementTags(ref suppressDefaultLog, apiResponseLocalVar, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3649,9 +3564,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
-        partial void AfterListAchievementTags(ref bool suppressDefaultLog, IListAchievementTagsApiResponse apiResponseLocalVar, decimal version, Option<string> appKey);
+        partial void AfterListAchievementTags(ref bool suppressDefaultLog, IListAchievementTagsApiResponse apiResponseLocalVar, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3659,12 +3573,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
-        private void OnErrorListAchievementTagsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> appKey)
+        private void OnErrorListAchievementTagsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListAchievementTags(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey);
+            OnErrorListAchievementTags(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3676,22 +3589,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorListAchievementTags(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> appKey);
+        partial void OnErrorListAchievementTags(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> appKey);
 
         /// <summary>
         /// List Achievement Tags List achievement tags by application
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">filter results by application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAchievementTagsApiResponse"/>&gt;</returns>
-        public async Task<IListAchievementTagsApiResponse?> ListAchievementTagsOrDefaultAsync(decimal version, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListAchievementTagsApiResponse?> ListAchievementTagsOrDefaultAsync(Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListAchievementTagsAsync(version, appKey, cancellationToken).ConfigureAwait(false);
+                return await ListAchievementTagsAsync(appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3703,11 +3614,10 @@ namespace Org.OpenAPITools.Api
         /// List Achievement Tags List achievement tags by application
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">filter results by application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAchievementTagsApiResponse"/>&gt;</returns>
-        public async Task<IListAchievementTagsApiResponse> ListAchievementTagsAsync(decimal version, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListAchievementTagsApiResponse> ListAchievementTagsAsync(Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3715,7 +3625,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListAchievementTags(appKey);
 
-                FormatListAchievementTags(ref version, ref appKey);
+                FormatListAchievementTags(ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3723,9 +3633,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/tag/list"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/tag/list");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/tag/list"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/tag/list");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3757,13 +3666,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/tag/list", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/tag/list", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListAchievementTagsDefaultImplementation(apiResponseLocalVar, version, appKey);
+                        AfterListAchievementTagsDefaultImplementation(apiResponseLocalVar, appKey);
 
                         Events.ExecuteOnListAchievementTags(apiResponseLocalVar);
 
@@ -3773,7 +3682,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListAchievementTagsDefaultImplementation(e, "/api/{version}/achievement/tag/list", uriBuilderLocalVar.Path, version, appKey);
+                OnErrorListAchievementTagsDefaultImplementation(e, "/achievement/tag/list", uriBuilderLocalVar.Path, appKey);
                 Events.ExecuteOnErrorListAchievementTags(e);
                 throw;
             }
@@ -3872,7 +3781,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListAchievements(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> achievementType, ref Option<string> rankType);
+        partial void FormatListAchievements(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> achievementType, ref Option<string> rankType);
 
         /// <summary>
         /// Validates the request parameters
@@ -3909,7 +3818,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -3921,10 +3829,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="achievementType"></param>
         /// <param name="rankType"></param>
-        private void AfterListAchievementsDefaultImplementation(IListAchievementsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<string> achievementType, Option<string> rankType)
+        private void AfterListAchievementsDefaultImplementation(IListAchievementsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<string> achievementType, Option<string> rankType)
         {
             bool suppressDefaultLog = false;
-            AfterListAchievements(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
+            AfterListAchievements(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3934,7 +3842,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -3946,7 +3853,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="achievementType"></param>
         /// <param name="rankType"></param>
-        partial void AfterListAchievements(ref bool suppressDefaultLog, IListAchievementsApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<string> achievementType, Option<string> rankType);
+        partial void AfterListAchievements(ref bool suppressDefaultLog, IListAchievementsApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<string> achievementType, Option<string> rankType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3954,7 +3861,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -3966,10 +3872,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="achievementType"></param>
         /// <param name="rankType"></param>
-        private void OnErrorListAchievementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<string> achievementType, Option<string> rankType)
+        private void OnErrorListAchievementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<string> achievementType, Option<string> rankType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListAchievements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
+            OnErrorListAchievements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3981,7 +3887,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -3993,12 +3898,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="achievementType"></param>
         /// <param name="rankType"></param>
-        partial void OnErrorListAchievements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<string> achievementType, Option<string> rankType);
+        partial void OnErrorListAchievements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> appKey, Option<string> keyword, Option<string> achievementType, Option<string> rankType);
 
         /// <summary>
         /// List Achievements List achievements by billable.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">the start index for pagination</param>
@@ -4012,11 +3916,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAchievementsApiResponse"/>&gt;</returns>
-        public async Task<IListAchievementsApiResponse?> ListAchievementsOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListAchievementsApiResponse?> ListAchievementsOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListAchievementsAsync(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType, cancellationToken).ConfigureAwait(false);
+                return await ListAchievementsAsync(sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4028,7 +3932,6 @@ namespace Org.OpenAPITools.Api
         /// List Achievements List achievements by billable.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
         /// <param name="start">the start index for pagination</param>
@@ -4042,7 +3945,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListAchievementsApiResponse"/>&gt;</returns>
-        public async Task<IListAchievementsApiResponse> ListAchievementsAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListAchievementsApiResponse> ListAchievementsAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4050,7 +3953,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListAchievements(sortField, deviceId, appKey, keyword, achievementType, rankType);
 
-                FormatListAchievements(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref deviceId, ref accountId, ref appKey, ref keyword, ref achievementType, ref rankType);
+                FormatListAchievements(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref deviceId, ref accountId, ref appKey, ref keyword, ref achievementType, ref rankType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4058,9 +3961,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/list"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/list");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/list"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/list");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4113,13 +4015,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/list", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/list", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListAchievementsDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
+                        AfterListAchievementsDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
 
                         Events.ExecuteOnListAchievements(apiResponseLocalVar);
 
@@ -4129,7 +4031,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListAchievementsDefaultImplementation(e, "/api/{version}/achievement/list", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
+                OnErrorListAchievementsDefaultImplementation(e, "/achievement/list", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, deviceId, accountId, appKey, keyword, achievementType, rankType);
                 Events.ExecuteOnErrorListAchievements(e);
                 throw;
             }
@@ -4228,7 +4130,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchAchievements(ref decimal version, ref string appKey, ref string sortField, ref bool descending, ref bool includeTiers, ref bool includeInactiveTiers, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> keyword, ref Option<string> achievementType, ref Option<string> rankType);
+        partial void FormatSearchAchievements(ref string appKey, ref string sortField, ref bool descending, ref bool includeTiers, ref bool includeInactiveTiers, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> keyword, ref Option<string> achievementType, ref Option<string> rankType);
 
         /// <summary>
         /// Validates the request parameters
@@ -4265,7 +4167,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -4278,10 +4179,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="achievementType"></param>
         /// <param name="rankType"></param>
-        private void AfterSearchAchievementsDefaultImplementation(ISearchAchievementsApiResponse apiResponseLocalVar, decimal version, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<string> achievementType, Option<string> rankType)
+        private void AfterSearchAchievementsDefaultImplementation(ISearchAchievementsApiResponse apiResponseLocalVar, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<string> achievementType, Option<string> rankType)
         {
             bool suppressDefaultLog = false;
-            AfterSearchAchievements(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
+            AfterSearchAchievements(ref suppressDefaultLog, apiResponseLocalVar, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4291,7 +4192,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -4304,7 +4204,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="achievementType"></param>
         /// <param name="rankType"></param>
-        partial void AfterSearchAchievements(ref bool suppressDefaultLog, ISearchAchievementsApiResponse apiResponseLocalVar, decimal version, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<string> achievementType, Option<string> rankType);
+        partial void AfterSearchAchievements(ref bool suppressDefaultLog, ISearchAchievementsApiResponse apiResponseLocalVar, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<string> achievementType, Option<string> rankType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4312,7 +4212,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -4325,10 +4224,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="achievementType"></param>
         /// <param name="rankType"></param>
-        private void OnErrorSearchAchievementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<string> achievementType, Option<string> rankType)
+        private void OnErrorSearchAchievementsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<string> achievementType, Option<string> rankType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchAchievements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
+            OnErrorSearchAchievements(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4340,7 +4239,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -4353,12 +4251,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="achievementType"></param>
         /// <param name="rankType"></param>
-        partial void OnErrorSearchAchievements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<string> achievementType, Option<string> rankType);
+        partial void OnErrorSearchAchievements(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<string> achievementType, Option<string> rankType);
 
         /// <summary>
         /// Search Achievements Searches achievements by application for consumers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -4373,11 +4270,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAchievementsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAchievementsApiResponse?> SearchAchievementsOrDefaultAsync(decimal version, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAchievementsApiResponse?> SearchAchievementsOrDefaultAsync(string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchAchievementsAsync(version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType, cancellationToken).ConfigureAwait(false);
+                return await SearchAchievementsAsync(appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4389,7 +4286,6 @@ namespace Org.OpenAPITools.Api
         /// Search Achievements Searches achievements by application for consumers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -4404,7 +4300,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAchievementsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAchievementsApiResponse> SearchAchievementsAsync(decimal version, string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAchievementsApiResponse> SearchAchievementsAsync(string appKey, string sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<string> achievementType = default, Option<string> rankType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4412,7 +4308,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchAchievements(appKey, sortField, deviceId, keyword, achievementType, rankType);
 
-                FormatSearchAchievements(ref version, ref appKey, ref sortField, ref descending, ref includeTiers, ref includeInactiveTiers, ref start, ref limit, ref deviceId, ref accountId, ref keyword, ref achievementType, ref rankType);
+                FormatSearchAchievements(ref appKey, ref sortField, ref descending, ref includeTiers, ref includeInactiveTiers, ref start, ref limit, ref deviceId, ref accountId, ref keyword, ref achievementType, ref rankType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4420,9 +4316,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4474,13 +4369,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchAchievementsDefaultImplementation(apiResponseLocalVar, version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
+                        AfterSearchAchievementsDefaultImplementation(apiResponseLocalVar, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
 
                         Events.ExecuteOnSearchAchievements(apiResponseLocalVar);
 
@@ -4490,7 +4385,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchAchievementsDefaultImplementation(e, "/api/{version}/achievement/search", uriBuilderLocalVar.Path, version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
+                OnErrorSearchAchievementsDefaultImplementation(e, "/achievement/search", uriBuilderLocalVar.Path, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, deviceId, accountId, keyword, achievementType, rankType);
                 Events.ExecuteOnErrorSearchAchievements(e);
                 throw;
             }
@@ -4589,7 +4484,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateAchievement(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> achievementId, ref Option<string> analyticsTag, ref Option<string> title, ref Option<string> description, ref Option<string> rankType, ref Option<int> rankIncrement, ref Option<int> minIncrement, ref Option<bool> nullMinIncrement, ref Option<int> maxIncrement, ref Option<bool> nullMaxIncrement, ref Option<bool> validate, ref Option<bool> active, ref Option<string> triggerDefinition);
+        partial void FormatUpdateAchievement(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> achievementId, ref Option<string> analyticsTag, ref Option<string> title, ref Option<string> description, ref Option<string> rankType, ref Option<int> rankIncrement, ref Option<int> minIncrement, ref Option<bool> nullMinIncrement, ref Option<int> maxIncrement, ref Option<bool> nullMaxIncrement, ref Option<bool> validate, ref Option<bool> active, ref Option<string> triggerDefinition);
 
         /// <summary>
         /// Validates the request parameters
@@ -4626,7 +4521,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementId"></param>
@@ -4642,10 +4536,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="validate"></param>
         /// <param name="active"></param>
         /// <param name="triggerDefinition"></param>
-        private void AfterUpdateAchievementDefaultImplementation(IUpdateAchievementApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> achievementId, Option<string> analyticsTag, Option<string> title, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<bool> nullMinIncrement, Option<int> maxIncrement, Option<bool> nullMaxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition)
+        private void AfterUpdateAchievementDefaultImplementation(IUpdateAchievementApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> achievementId, Option<string> analyticsTag, Option<string> title, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<bool> nullMinIncrement, Option<int> maxIncrement, Option<bool> nullMaxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateAchievement(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
+            AfterUpdateAchievement(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4655,7 +4549,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementId"></param>
@@ -4671,7 +4564,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="validate"></param>
         /// <param name="active"></param>
         /// <param name="triggerDefinition"></param>
-        partial void AfterUpdateAchievement(ref bool suppressDefaultLog, IUpdateAchievementApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> achievementId, Option<string> analyticsTag, Option<string> title, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<bool> nullMinIncrement, Option<int> maxIncrement, Option<bool> nullMaxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition);
+        partial void AfterUpdateAchievement(ref bool suppressDefaultLog, IUpdateAchievementApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> achievementId, Option<string> analyticsTag, Option<string> title, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<bool> nullMinIncrement, Option<int> maxIncrement, Option<bool> nullMaxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4679,7 +4572,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementId"></param>
@@ -4695,10 +4587,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="validate"></param>
         /// <param name="active"></param>
         /// <param name="triggerDefinition"></param>
-        private void OnErrorUpdateAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> achievementId, Option<string> analyticsTag, Option<string> title, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<bool> nullMinIncrement, Option<int> maxIncrement, Option<bool> nullMaxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition)
+        private void OnErrorUpdateAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> achievementId, Option<string> analyticsTag, Option<string> title, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<bool> nullMinIncrement, Option<int> maxIncrement, Option<bool> nullMaxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
+            OnErrorUpdateAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4710,7 +4602,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementId"></param>
@@ -4726,12 +4617,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="validate"></param>
         /// <param name="active"></param>
         /// <param name="triggerDefinition"></param>
-        partial void OnErrorUpdateAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> achievementId, Option<string> analyticsTag, Option<string> title, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<bool> nullMinIncrement, Option<int> maxIncrement, Option<bool> nullMaxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition);
+        partial void OnErrorUpdateAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> achievementId, Option<string> analyticsTag, Option<string> title, Option<string> description, Option<string> rankType, Option<int> rankIncrement, Option<int> minIncrement, Option<bool> nullMinIncrement, Option<int> maxIncrement, Option<bool> nullMaxIncrement, Option<bool> validate, Option<bool> active, Option<string> triggerDefinition);
 
         /// <summary>
         /// Update Achievement Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="achievementId">the achievement ID for updating an existing achievement (optional)</param>
@@ -4749,11 +4639,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAchievementApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAchievementApiResponse?> UpdateAchievementOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> achievementId = default, Option<string> analyticsTag = default, Option<string> title = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<bool> nullMinIncrement = default, Option<int> maxIncrement = default, Option<bool> nullMaxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAchievementApiResponse?> UpdateAchievementOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> achievementId = default, Option<string> analyticsTag = default, Option<string> title = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<bool> nullMinIncrement = default, Option<int> maxIncrement = default, Option<bool> nullMaxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateAchievementAsync(version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition, cancellationToken).ConfigureAwait(false);
+                return await UpdateAchievementAsync(deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4765,7 +4655,6 @@ namespace Org.OpenAPITools.Api
         /// Update Achievement Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="achievementId">the achievement ID for updating an existing achievement (optional)</param>
@@ -4783,7 +4672,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAchievementApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAchievementApiResponse> UpdateAchievementAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> achievementId = default, Option<string> analyticsTag = default, Option<string> title = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<bool> nullMinIncrement = default, Option<int> maxIncrement = default, Option<bool> nullMaxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAchievementApiResponse> UpdateAchievementAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> achievementId = default, Option<string> analyticsTag = default, Option<string> title = default, Option<string> description = default, Option<string> rankType = default, Option<int> rankIncrement = default, Option<int> minIncrement = default, Option<bool> nullMinIncrement = default, Option<int> maxIncrement = default, Option<bool> nullMaxIncrement = default, Option<bool> validate = default, Option<bool> active = default, Option<string> triggerDefinition = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4791,7 +4680,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateAchievement(deviceId, analyticsTag, title, description, rankType, triggerDefinition);
 
-                FormatUpdateAchievement(ref version, ref deviceId, ref accountId, ref achievementId, ref analyticsTag, ref title, ref description, ref rankType, ref rankIncrement, ref minIncrement, ref nullMinIncrement, ref maxIncrement, ref nullMaxIncrement, ref validate, ref active, ref triggerDefinition);
+                FormatUpdateAchievement(ref deviceId, ref accountId, ref achievementId, ref analyticsTag, ref title, ref description, ref rankType, ref rankIncrement, ref minIncrement, ref nullMinIncrement, ref maxIncrement, ref nullMaxIncrement, ref validate, ref active, ref triggerDefinition);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4799,9 +4688,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4875,13 +4763,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateAchievementDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
+                        AfterUpdateAchievementDefaultImplementation(apiResponseLocalVar, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
 
                         Events.ExecuteOnUpdateAchievement(apiResponseLocalVar);
 
@@ -4891,7 +4779,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateAchievementDefaultImplementation(e, "/api/{version}/achievement/update", uriBuilderLocalVar.Path, version, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
+                OnErrorUpdateAchievementDefaultImplementation(e, "/achievement/update", uriBuilderLocalVar.Path, deviceId, accountId, achievementId, analyticsTag, title, description, rankType, rankIncrement, minIncrement, nullMinIncrement, maxIncrement, nullMaxIncrement, validate, active, triggerDefinition);
                 Events.ExecuteOnErrorUpdateAchievement(e);
                 throw;
             }
@@ -4990,7 +4878,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateAchievementTier(ref decimal version, ref long achievementTierId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<System.IO.Stream> icon, ref Option<long> iconAssetId, ref Option<string> title, ref Option<string> description, ref Option<long> goalCount, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<long> gameObjectId, ref Option<bool> scoreAllInstances);
+        partial void FormatUpdateAchievementTier(ref long achievementTierId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<System.IO.Stream> icon, ref Option<long> iconAssetId, ref Option<string> title, ref Option<string> description, ref Option<long> goalCount, ref Option<long> missionId, ref Option<long> gameId, ref Option<long> packId, ref Option<long> gameLevelId, ref Option<long> gameObjectId, ref Option<bool> scoreAllInstances);
 
         /// <summary>
         /// Validates the request parameters
@@ -5019,7 +4907,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementTierId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5034,10 +4921,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
         /// <param name="scoreAllInstances"></param>
-        private void AfterUpdateAchievementTierDefaultImplementation(IUpdateAchievementTierApiResponse apiResponseLocalVar, decimal version, long achievementTierId, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<bool> scoreAllInstances)
+        private void AfterUpdateAchievementTierDefaultImplementation(IUpdateAchievementTierApiResponse apiResponseLocalVar, long achievementTierId, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<bool> scoreAllInstances)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateAchievementTier(ref suppressDefaultLog, apiResponseLocalVar, version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
+            AfterUpdateAchievementTier(ref suppressDefaultLog, apiResponseLocalVar, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5047,7 +4934,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementTierId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5062,7 +4948,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
         /// <param name="scoreAllInstances"></param>
-        partial void AfterUpdateAchievementTier(ref bool suppressDefaultLog, IUpdateAchievementTierApiResponse apiResponseLocalVar, decimal version, long achievementTierId, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<bool> scoreAllInstances);
+        partial void AfterUpdateAchievementTier(ref bool suppressDefaultLog, IUpdateAchievementTierApiResponse apiResponseLocalVar, long achievementTierId, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<bool> scoreAllInstances);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5070,7 +4956,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementTierId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5085,10 +4970,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
         /// <param name="scoreAllInstances"></param>
-        private void OnErrorUpdateAchievementTierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementTierId, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<bool> scoreAllInstances)
+        private void OnErrorUpdateAchievementTierDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementTierId, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<bool> scoreAllInstances)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateAchievementTier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
+            OnErrorUpdateAchievementTier(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5100,7 +4985,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="achievementTierId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5115,12 +4999,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="gameLevelId"></param>
         /// <param name="gameObjectId"></param>
         /// <param name="scoreAllInstances"></param>
-        partial void OnErrorUpdateAchievementTier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long achievementTierId, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<bool> scoreAllInstances);
+        partial void OnErrorUpdateAchievementTier(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long achievementTierId, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> icon, Option<long> iconAssetId, Option<string> title, Option<string> description, Option<long> goalCount, Option<long> missionId, Option<long> gameId, Option<long> packId, Option<long> gameLevelId, Option<long> gameObjectId, Option<bool> scoreAllInstances);
 
         /// <summary>
         /// Update Achievement Tier Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="achievementTierId">the achievement tier id for updating</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -5137,11 +5020,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="scoreAllInstances">score all instances (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAchievementTierApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAchievementTierApiResponse?> UpdateAchievementTierOrDefaultAsync(decimal version, long achievementTierId, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<bool> scoreAllInstances = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAchievementTierApiResponse?> UpdateAchievementTierOrDefaultAsync(long achievementTierId, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<bool> scoreAllInstances = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateAchievementTierAsync(version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances, cancellationToken).ConfigureAwait(false);
+                return await UpdateAchievementTierAsync(achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5153,7 +5036,6 @@ namespace Org.OpenAPITools.Api
         /// Update Achievement Tier Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="achievementTierId">the achievement tier id for updating</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -5170,7 +5052,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="scoreAllInstances">score all instances (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAchievementTierApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAchievementTierApiResponse> UpdateAchievementTierAsync(decimal version, long achievementTierId, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<bool> scoreAllInstances = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAchievementTierApiResponse> UpdateAchievementTierAsync(long achievementTierId, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> icon = default, Option<long> iconAssetId = default, Option<string> title = default, Option<string> description = default, Option<long> goalCount = default, Option<long> missionId = default, Option<long> gameId = default, Option<long> packId = default, Option<long> gameLevelId = default, Option<long> gameObjectId = default, Option<bool> scoreAllInstances = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5178,7 +5060,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateAchievementTier(deviceId, icon, title, description);
 
-                FormatUpdateAchievementTier(ref version, ref achievementTierId, ref deviceId, ref accountId, ref icon, ref iconAssetId, ref title, ref description, ref goalCount, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId, ref scoreAllInstances);
+                FormatUpdateAchievementTier(ref achievementTierId, ref deviceId, ref accountId, ref icon, ref iconAssetId, ref title, ref description, ref goalCount, ref missionId, ref gameId, ref packId, ref gameLevelId, ref gameObjectId, ref scoreAllInstances);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5186,9 +5068,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/tier/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/tier/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/tier/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/tier/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5258,13 +5139,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/tier/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/tier/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateAchievementTierDefaultImplementation(apiResponseLocalVar, version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
+                        AfterUpdateAchievementTierDefaultImplementation(apiResponseLocalVar, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
 
                         Events.ExecuteOnUpdateAchievementTier(apiResponseLocalVar);
 
@@ -5274,7 +5155,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateAchievementTierDefaultImplementation(e, "/api/{version}/achievement/tier/update", uriBuilderLocalVar.Path, version, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
+                OnErrorUpdateAchievementTierDefaultImplementation(e, "/achievement/tier/update", uriBuilderLocalVar.Path, achievementTierId, deviceId, accountId, icon, iconAssetId, title, description, goalCount, missionId, gameId, packId, gameLevelId, gameObjectId, scoreAllInstances);
                 Events.ExecuteOnErrorUpdateAchievementTier(e);
                 throw;
             }
@@ -5373,7 +5254,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateUserAchievement(ref decimal version, ref long accountId, ref Option<long> achievementId, ref Option<string> tag, ref Option<long> customId, ref Option<long> increment, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> returnProgress);
+        partial void FormatUpdateUserAchievement(ref long accountId, ref Option<long> achievementId, ref Option<string> tag, ref Option<long> customId, ref Option<long> increment, ref Option<long> startDate, ref Option<long> endDate, ref Option<bool> returnProgress);
 
         /// <summary>
         /// Validates the request parameters
@@ -5390,7 +5271,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementId"></param>
         /// <param name="tag"></param>
@@ -5399,10 +5279,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="returnProgress"></param>
-        private void AfterUpdateUserAchievementDefaultImplementation(IUpdateUserAchievementApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> achievementId, Option<string> tag, Option<long> customId, Option<long> increment, Option<long> startDate, Option<long> endDate, Option<bool> returnProgress)
+        private void AfterUpdateUserAchievementDefaultImplementation(IUpdateUserAchievementApiResponse apiResponseLocalVar, long accountId, Option<long> achievementId, Option<string> tag, Option<long> customId, Option<long> increment, Option<long> startDate, Option<long> endDate, Option<bool> returnProgress)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateUserAchievement(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
+            AfterUpdateUserAchievement(ref suppressDefaultLog, apiResponseLocalVar, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5412,7 +5292,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementId"></param>
         /// <param name="tag"></param>
@@ -5421,7 +5300,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="returnProgress"></param>
-        partial void AfterUpdateUserAchievement(ref bool suppressDefaultLog, IUpdateUserAchievementApiResponse apiResponseLocalVar, decimal version, long accountId, Option<long> achievementId, Option<string> tag, Option<long> customId, Option<long> increment, Option<long> startDate, Option<long> endDate, Option<bool> returnProgress);
+        partial void AfterUpdateUserAchievement(ref bool suppressDefaultLog, IUpdateUserAchievementApiResponse apiResponseLocalVar, long accountId, Option<long> achievementId, Option<string> tag, Option<long> customId, Option<long> increment, Option<long> startDate, Option<long> endDate, Option<bool> returnProgress);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5429,7 +5308,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementId"></param>
         /// <param name="tag"></param>
@@ -5438,10 +5316,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="returnProgress"></param>
-        private void OnErrorUpdateUserAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> achievementId, Option<string> tag, Option<long> customId, Option<long> increment, Option<long> startDate, Option<long> endDate, Option<bool> returnProgress)
+        private void OnErrorUpdateUserAchievementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> achievementId, Option<string> tag, Option<long> customId, Option<long> increment, Option<long> startDate, Option<long> endDate, Option<bool> returnProgress)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateUserAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
+            OnErrorUpdateUserAchievement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5453,7 +5331,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="achievementId"></param>
         /// <param name="tag"></param>
@@ -5462,12 +5339,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <param name="returnProgress"></param>
-        partial void OnErrorUpdateUserAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<long> achievementId, Option<string> tag, Option<long> customId, Option<long> increment, Option<long> startDate, Option<long> endDate, Option<bool> returnProgress);
+        partial void OnErrorUpdateUserAchievement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<long> achievementId, Option<string> tag, Option<long> customId, Option<long> increment, Option<long> startDate, Option<long> endDate, Option<bool> returnProgress);
 
         /// <summary>
         /// Update Achievement Progress Update user achievement progress.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="achievementId">the achievement id (achievementId or tag required) (optional)</param>
         /// <param name="tag">the analytic tag to identify an achievement (achievementId or tag required) (optional)</param>
@@ -5478,11 +5354,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProgress">determines whether to return the achievement progress response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserAchievementApiResponse"/>&gt;</returns>
-        public async Task<IUpdateUserAchievementApiResponse?> UpdateUserAchievementOrDefaultAsync(decimal version, long accountId, Option<long> achievementId = default, Option<string> tag = default, Option<long> customId = default, Option<long> increment = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> returnProgress = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateUserAchievementApiResponse?> UpdateUserAchievementOrDefaultAsync(long accountId, Option<long> achievementId = default, Option<string> tag = default, Option<long> customId = default, Option<long> increment = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> returnProgress = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateUserAchievementAsync(version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress, cancellationToken).ConfigureAwait(false);
+                return await UpdateUserAchievementAsync(accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5494,7 +5370,6 @@ namespace Org.OpenAPITools.Api
         /// Update Achievement Progress Update user achievement progress.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user</param>
         /// <param name="achievementId">the achievement id (achievementId or tag required) (optional)</param>
         /// <param name="tag">the analytic tag to identify an achievement (achievementId or tag required) (optional)</param>
@@ -5505,7 +5380,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProgress">determines whether to return the achievement progress response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserAchievementApiResponse"/>&gt;</returns>
-        public async Task<IUpdateUserAchievementApiResponse> UpdateUserAchievementAsync(decimal version, long accountId, Option<long> achievementId = default, Option<string> tag = default, Option<long> customId = default, Option<long> increment = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> returnProgress = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateUserAchievementApiResponse> UpdateUserAchievementAsync(long accountId, Option<long> achievementId = default, Option<string> tag = default, Option<long> customId = default, Option<long> increment = default, Option<long> startDate = default, Option<long> endDate = default, Option<bool> returnProgress = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5513,7 +5388,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateUserAchievement(tag);
 
-                FormatUpdateUserAchievement(ref version, ref accountId, ref achievementId, ref tag, ref customId, ref increment, ref startDate, ref endDate, ref returnProgress);
+                FormatUpdateUserAchievement(ref accountId, ref achievementId, ref tag, ref customId, ref increment, ref startDate, ref endDate, ref returnProgress);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5521,9 +5396,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/achievement/progress/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/achievement/progress/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/achievement/progress/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/achievement/progress/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5575,13 +5449,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/achievement/progress/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/achievement/progress/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateUserAchievementDefaultImplementation(apiResponseLocalVar, version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
+                        AfterUpdateUserAchievementDefaultImplementation(apiResponseLocalVar, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
 
                         Events.ExecuteOnUpdateUserAchievement(apiResponseLocalVar);
 
@@ -5591,7 +5465,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateUserAchievementDefaultImplementation(e, "/api/{version}/achievement/progress/update", uriBuilderLocalVar.Path, version, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
+                OnErrorUpdateUserAchievementDefaultImplementation(e, "/achievement/progress/update", uriBuilderLocalVar.Path, accountId, achievementId, tag, customId, increment, startDate, endDate, returnProgress);
                 Events.ExecuteOnErrorUpdateUserAchievement(e);
                 throw;
             }

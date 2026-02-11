@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a listing.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user&#39;s account ID</param>
         /// <param name="name">the name of the listing</param>
         /// <param name="filterIds">comma separated list of filter IDs (optional)</param>
@@ -62,7 +61,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateListingApiResponse"/>&gt;</returns>
-        Task<ICreateListingApiResponse> CreateListingAsync(decimal version, long accountId, string name, Option<string> filterIds = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateListingApiResponse> CreateListingAsync(long accountId, string name, Option<string> filterIds = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Listing
@@ -70,7 +69,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a listing.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user&#39;s account ID</param>
         /// <param name="name">the name of the listing</param>
         /// <param name="filterIds">comma separated list of filter IDs (optional)</param>
@@ -87,7 +85,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateListingApiResponse"/>?&gt;</returns>
-        Task<ICreateListingApiResponse?> CreateListingOrDefaultAsync(decimal version, long accountId, string name, Option<string> filterIds = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateListingApiResponse?> CreateListingOrDefaultAsync(long accountId, string name, Option<string> filterIds = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Listing
@@ -96,12 +94,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a listing.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="listingId">the id of the listing to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteListingApiResponse"/>&gt;</returns>
-        Task<IDeleteListingApiResponse> DeleteListingAsync(decimal version, long accountId, long listingId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteListingApiResponse> DeleteListingAsync(long accountId, long listingId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Listing
@@ -109,12 +106,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a listing.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="listingId">the id of the listing to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteListingApiResponse"/>?&gt;</returns>
-        Task<IDeleteListingApiResponse?> DeleteListingOrDefaultAsync(decimal version, long accountId, long listingId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteListingApiResponse?> DeleteListingOrDefaultAsync(long accountId, long listingId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Listing
@@ -123,11 +119,10 @@ namespace Org.OpenAPITools.Api
         /// Get a listing by id.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="listingId">the id of the listing to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetListingApiResponse"/>&gt;</returns>
-        Task<IGetListingApiResponse> GetListingAsync(decimal version, long listingId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetListingApiResponse> GetListingAsync(long listingId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Listing
@@ -135,11 +130,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a listing by id.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="listingId">the id of the listing to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetListingApiResponse"/>?&gt;</returns>
-        Task<IGetListingApiResponse?> GetListingOrDefaultAsync(decimal version, long listingId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetListingApiResponse?> GetListingOrDefaultAsync(long listingId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Listings
@@ -148,7 +142,6 @@ namespace Org.OpenAPITools.Api
         /// Search for event listings from the start time to end time
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="keyword">search the event name and description for this keyword (optional)</param>
         /// <param name="start">the record to begin the return set on (optional, default to 0)</param>
@@ -166,7 +159,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId">external group identifier used by a third party (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchListingApiResponse"/>&gt;</returns>
-        Task<ISearchListingApiResponse> SearchListingAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> useListingOrderIds = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchListingApiResponse> SearchListingAsync(Option<long> accountId = default, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> useListingOrderIds = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Listings
@@ -174,7 +167,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for event listings from the start time to end time
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="keyword">search the event name and description for this keyword (optional)</param>
         /// <param name="start">the record to begin the return set on (optional, default to 0)</param>
@@ -192,7 +184,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId">external group identifier used by a third party (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchListingApiResponse"/>?&gt;</returns>
-        Task<ISearchListingApiResponse?> SearchListingOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> useListingOrderIds = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchListingApiResponse?> SearchListingOrDefaultAsync(Option<long> accountId = default, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> useListingOrderIds = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Summary Listing
@@ -201,7 +193,6 @@ namespace Org.OpenAPITools.Api
         /// Search for a list of summary listings from the start time up to 8 days out.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="startDate">the start date to search from (optional)</param>
         /// <param name="categoryIds">the list of categories to search on (optional)</param>
@@ -209,7 +200,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useListingOrderIds">determines whether to use configured listing order ids (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISummaryListingApiResponse"/>&gt;</returns>
-        Task<ISummaryListingApiResponse> SummaryListingAsync(decimal version, Option<long> accountId = default, Option<long> startDate = default, Option<string> categoryIds = default, Option<int> daysToInclude = default, Option<bool> useListingOrderIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISummaryListingApiResponse> SummaryListingAsync(Option<long> accountId = default, Option<long> startDate = default, Option<string> categoryIds = default, Option<int> daysToInclude = default, Option<bool> useListingOrderIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Summary Listing
@@ -217,7 +208,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for a list of summary listings from the start time up to 8 days out.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="startDate">the start date to search from (optional)</param>
         /// <param name="categoryIds">the list of categories to search on (optional)</param>
@@ -225,7 +215,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useListingOrderIds">determines whether to use configured listing order ids (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISummaryListingApiResponse"/>?&gt;</returns>
-        Task<ISummaryListingApiResponse?> SummaryListingOrDefaultAsync(decimal version, Option<long> accountId = default, Option<long> startDate = default, Option<string> categoryIds = default, Option<int> daysToInclude = default, Option<bool> useListingOrderIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISummaryListingApiResponse?> SummaryListingOrDefaultAsync(Option<long> accountId = default, Option<long> startDate = default, Option<string> categoryIds = default, Option<int> daysToInclude = default, Option<bool> useListingOrderIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Listing
@@ -234,7 +224,6 @@ namespace Org.OpenAPITools.Api
         /// Updates a listing.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user&#39;s account ID</param>
         /// <param name="listingId">the listing to update</param>
         /// <param name="filterIds">comma separated list of filter IDs (optional)</param>
@@ -252,7 +241,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateListingApiResponse"/>&gt;</returns>
-        Task<IUpdateListingApiResponse> UpdateListingAsync(decimal version, long accountId, long listingId, Option<string> filterIds = default, Option<string> name = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateListingApiResponse> UpdateListingAsync(long accountId, long listingId, Option<string> filterIds = default, Option<string> name = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Listing
@@ -260,7 +249,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a listing.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user&#39;s account ID</param>
         /// <param name="listingId">the listing to update</param>
         /// <param name="filterIds">comma separated list of filter IDs (optional)</param>
@@ -278,7 +266,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateListingApiResponse"/>?&gt;</returns>
-        Task<IUpdateListingApiResponse?> UpdateListingOrDefaultAsync(decimal version, long accountId, long listingId, Option<string> filterIds = default, Option<string> name = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateListingApiResponse?> UpdateListingOrDefaultAsync(long accountId, long listingId, Option<string> filterIds = default, Option<string> name = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -526,7 +514,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateListing(ref decimal version, ref long accountId, ref string name, ref Option<string> filterIds, ref Option<string> description, ref Option<long> start, ref Option<long> end, ref Option<string> locationName, ref Option<string> locationDescription, ref Option<bool> isPrivate, ref Option<string> externalId, ref Option<string> externalId2, ref Option<string> externalGroupId, ref Option<bool> active, ref Option<string> metaData);
+        partial void FormatCreateListing(ref long accountId, ref string name, ref Option<string> filterIds, ref Option<string> description, ref Option<long> start, ref Option<long> end, ref Option<string> locationName, ref Option<string> locationDescription, ref Option<bool> isPrivate, ref Option<string> externalId, ref Option<string> externalId2, ref Option<string> externalGroupId, ref Option<bool> active, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -575,7 +563,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="filterIds"></param>
@@ -590,10 +577,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        private void AfterCreateListingDefaultImplementation(ICreateListingApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> filterIds, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData)
+        private void AfterCreateListingDefaultImplementation(ICreateListingApiResponse apiResponseLocalVar, long accountId, string name, Option<string> filterIds, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterCreateListing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+            AfterCreateListing(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -603,7 +590,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="filterIds"></param>
@@ -618,7 +604,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        partial void AfterCreateListing(ref bool suppressDefaultLog, ICreateListingApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> filterIds, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData);
+        partial void AfterCreateListing(ref bool suppressDefaultLog, ICreateListingApiResponse apiResponseLocalVar, long accountId, string name, Option<string> filterIds, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -626,7 +612,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="filterIds"></param>
@@ -641,10 +626,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        private void OnErrorCreateListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> filterIds, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData)
+        private void OnErrorCreateListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> filterIds, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+            OnErrorCreateListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -656,7 +641,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="filterIds"></param>
@@ -671,12 +655,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorCreateListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> filterIds, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData);
+        partial void OnErrorCreateListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> filterIds, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData);
 
         /// <summary>
         /// Create Listing Creates a listing.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user&#39;s account ID</param>
         /// <param name="name">the name of the listing</param>
         /// <param name="filterIds">comma separated list of filter IDs (optional)</param>
@@ -693,11 +676,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateListingApiResponse"/>&gt;</returns>
-        public async Task<ICreateListingApiResponse?> CreateListingOrDefaultAsync(decimal version, long accountId, string name, Option<string> filterIds = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateListingApiResponse?> CreateListingOrDefaultAsync(long accountId, string name, Option<string> filterIds = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateListingAsync(version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, cancellationToken).ConfigureAwait(false);
+                return await CreateListingAsync(accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -709,7 +692,6 @@ namespace Org.OpenAPITools.Api
         /// Create Listing Creates a listing.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user&#39;s account ID</param>
         /// <param name="name">the name of the listing</param>
         /// <param name="filterIds">comma separated list of filter IDs (optional)</param>
@@ -726,7 +708,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateListingApiResponse"/>&gt;</returns>
-        public async Task<ICreateListingApiResponse> CreateListingAsync(decimal version, long accountId, string name, Option<string> filterIds = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateListingApiResponse> CreateListingAsync(long accountId, string name, Option<string> filterIds = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -734,7 +716,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateListing(name, filterIds, description, locationName, locationDescription, externalId, externalId2, externalGroupId, metaData);
 
-                FormatCreateListing(ref version, ref accountId, ref name, ref filterIds, ref description, ref start, ref end, ref locationName, ref locationDescription, ref isPrivate, ref externalId, ref externalId2, ref externalGroupId, ref active, ref metaData);
+                FormatCreateListing(ref accountId, ref name, ref filterIds, ref description, ref start, ref end, ref locationName, ref locationDescription, ref isPrivate, ref externalId, ref externalId2, ref externalGroupId, ref active, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -742,9 +724,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/listing/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/listing/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/listing/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/listing/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -812,13 +793,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/listing/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/listing/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateListingDefaultImplementation(apiResponseLocalVar, version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+                        AfterCreateListingDefaultImplementation(apiResponseLocalVar, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
 
                         Events.ExecuteOnCreateListing(apiResponseLocalVar);
 
@@ -828,7 +809,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateListingDefaultImplementation(e, "/api/{version}/listing/create", uriBuilderLocalVar.Path, version, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+                OnErrorCreateListingDefaultImplementation(e, "/listing/create", uriBuilderLocalVar.Path, accountId, name, filterIds, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
                 Events.ExecuteOnErrorCreateListing(e);
                 throw;
             }
@@ -927,19 +908,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteListing(ref decimal version, ref long accountId, ref long listingId);
+        partial void FormatDeleteListing(ref long accountId, ref long listingId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="listingId"></param>
-        private void AfterDeleteListingDefaultImplementation(IDeleteListingApiResponse apiResponseLocalVar, decimal version, long accountId, long listingId)
+        private void AfterDeleteListingDefaultImplementation(IDeleteListingApiResponse apiResponseLocalVar, long accountId, long listingId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteListing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, listingId);
+            AfterDeleteListing(ref suppressDefaultLog, apiResponseLocalVar, accountId, listingId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -949,10 +929,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="listingId"></param>
-        partial void AfterDeleteListing(ref bool suppressDefaultLog, IDeleteListingApiResponse apiResponseLocalVar, decimal version, long accountId, long listingId);
+        partial void AfterDeleteListing(ref bool suppressDefaultLog, IDeleteListingApiResponse apiResponseLocalVar, long accountId, long listingId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -960,13 +939,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="listingId"></param>
-        private void OnErrorDeleteListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long listingId)
+        private void OnErrorDeleteListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long listingId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, listingId);
+            OnErrorDeleteListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, listingId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -978,24 +956,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="listingId"></param>
-        partial void OnErrorDeleteListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long listingId);
+        partial void OnErrorDeleteListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long listingId);
 
         /// <summary>
         /// Delete Listing Delete a listing.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="listingId">the id of the listing to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteListingApiResponse"/>&gt;</returns>
-        public async Task<IDeleteListingApiResponse?> DeleteListingOrDefaultAsync(decimal version, long accountId, long listingId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteListingApiResponse?> DeleteListingOrDefaultAsync(long accountId, long listingId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteListingAsync(version, accountId, listingId, cancellationToken).ConfigureAwait(false);
+                return await DeleteListingAsync(accountId, listingId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1007,18 +983,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Listing Delete a listing.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="listingId">the id of the listing to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteListingApiResponse"/>&gt;</returns>
-        public async Task<IDeleteListingApiResponse> DeleteListingAsync(decimal version, long accountId, long listingId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteListingApiResponse> DeleteListingAsync(long accountId, long listingId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteListing(ref version, ref accountId, ref listingId);
+                FormatDeleteListing(ref accountId, ref listingId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1026,9 +1001,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/listing/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/listing/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/listing/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/listing/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1060,13 +1034,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/listing/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/listing/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteListingDefaultImplementation(apiResponseLocalVar, version, accountId, listingId);
+                        AfterDeleteListingDefaultImplementation(apiResponseLocalVar, accountId, listingId);
 
                         Events.ExecuteOnDeleteListing(apiResponseLocalVar);
 
@@ -1076,7 +1050,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteListingDefaultImplementation(e, "/api/{version}/listing/delete", uriBuilderLocalVar.Path, version, accountId, listingId);
+                OnErrorDeleteListingDefaultImplementation(e, "/listing/delete", uriBuilderLocalVar.Path, accountId, listingId);
                 Events.ExecuteOnErrorDeleteListing(e);
                 throw;
             }
@@ -1175,18 +1149,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetListing(ref decimal version, ref long listingId);
+        partial void FormatGetListing(ref long listingId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="listingId"></param>
-        private void AfterGetListingDefaultImplementation(IGetListingApiResponse apiResponseLocalVar, decimal version, long listingId)
+        private void AfterGetListingDefaultImplementation(IGetListingApiResponse apiResponseLocalVar, long listingId)
         {
             bool suppressDefaultLog = false;
-            AfterGetListing(ref suppressDefaultLog, apiResponseLocalVar, version, listingId);
+            AfterGetListing(ref suppressDefaultLog, apiResponseLocalVar, listingId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1196,9 +1169,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="listingId"></param>
-        partial void AfterGetListing(ref bool suppressDefaultLog, IGetListingApiResponse apiResponseLocalVar, decimal version, long listingId);
+        partial void AfterGetListing(ref bool suppressDefaultLog, IGetListingApiResponse apiResponseLocalVar, long listingId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1206,12 +1178,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="listingId"></param>
-        private void OnErrorGetListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long listingId)
+        private void OnErrorGetListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long listingId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, listingId);
+            OnErrorGetListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, listingId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1223,22 +1194,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="listingId"></param>
-        partial void OnErrorGetListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long listingId);
+        partial void OnErrorGetListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long listingId);
 
         /// <summary>
         /// Get Listing Get a listing by id.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="listingId">the id of the listing to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetListingApiResponse"/>&gt;</returns>
-        public async Task<IGetListingApiResponse?> GetListingOrDefaultAsync(decimal version, long listingId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetListingApiResponse?> GetListingOrDefaultAsync(long listingId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetListingAsync(version, listingId, cancellationToken).ConfigureAwait(false);
+                return await GetListingAsync(listingId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1250,17 +1219,16 @@ namespace Org.OpenAPITools.Api
         /// Get Listing Get a listing by id.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="listingId">the id of the listing to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetListingApiResponse"/>&gt;</returns>
-        public async Task<IGetListingApiResponse> GetListingAsync(decimal version, long listingId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetListingApiResponse> GetListingAsync(long listingId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetListing(ref version, ref listingId);
+                FormatGetListing(ref listingId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1268,9 +1236,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/listing/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/listing/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/listing/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/listing/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1301,13 +1268,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/listing/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/listing/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetListingDefaultImplementation(apiResponseLocalVar, version, listingId);
+                        AfterGetListingDefaultImplementation(apiResponseLocalVar, listingId);
 
                         Events.ExecuteOnGetListing(apiResponseLocalVar);
 
@@ -1317,7 +1284,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetListingDefaultImplementation(e, "/api/{version}/listing/get", uriBuilderLocalVar.Path, version, listingId);
+                OnErrorGetListingDefaultImplementation(e, "/listing/get", uriBuilderLocalVar.Path, listingId);
                 Events.ExecuteOnErrorGetListing(e);
                 throw;
             }
@@ -1416,7 +1383,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchListing(ref decimal version, ref Option<long> accountId, ref Option<string> keyword, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> useListingOrderIds, ref Option<string> externalId, ref Option<string> externalId2, ref Option<string> externalGroupId);
+        partial void FormatSearchListing(ref Option<long> accountId, ref Option<string> keyword, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> useListingOrderIds, ref Option<string> externalId, ref Option<string> externalId2, ref Option<string> externalGroupId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1453,7 +1420,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
@@ -1469,10 +1435,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId"></param>
         /// <param name="externalId2"></param>
         /// <param name="externalGroupId"></param>
-        private void AfterSearchListingDefaultImplementation(ISearchListingApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<double> latitude, Option<double> longitude, Option<long> startDate, Option<long> endDate, Option<string> categoryIds, Option<string> filterIds, Option<bool> useListingOrderIds, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId)
+        private void AfterSearchListingDefaultImplementation(ISearchListingApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<double> latitude, Option<double> longitude, Option<long> startDate, Option<long> endDate, Option<string> categoryIds, Option<string> filterIds, Option<bool> useListingOrderIds, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId)
         {
             bool suppressDefaultLog = false;
-            AfterSearchListing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
+            AfterSearchListing(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1482,7 +1448,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
@@ -1498,7 +1463,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId"></param>
         /// <param name="externalId2"></param>
         /// <param name="externalGroupId"></param>
-        partial void AfterSearchListing(ref bool suppressDefaultLog, ISearchListingApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<double> latitude, Option<double> longitude, Option<long> startDate, Option<long> endDate, Option<string> categoryIds, Option<string> filterIds, Option<bool> useListingOrderIds, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId);
+        partial void AfterSearchListing(ref bool suppressDefaultLog, ISearchListingApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<double> latitude, Option<double> longitude, Option<long> startDate, Option<long> endDate, Option<string> categoryIds, Option<string> filterIds, Option<bool> useListingOrderIds, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1506,7 +1471,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
@@ -1522,10 +1486,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId"></param>
         /// <param name="externalId2"></param>
         /// <param name="externalGroupId"></param>
-        private void OnErrorSearchListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<double> latitude, Option<double> longitude, Option<long> startDate, Option<long> endDate, Option<string> categoryIds, Option<string> filterIds, Option<bool> useListingOrderIds, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId)
+        private void OnErrorSearchListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<double> latitude, Option<double> longitude, Option<long> startDate, Option<long> endDate, Option<string> categoryIds, Option<string> filterIds, Option<bool> useListingOrderIds, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
+            OnErrorSearchListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1537,7 +1501,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="start"></param>
@@ -1553,12 +1516,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalId"></param>
         /// <param name="externalId2"></param>
         /// <param name="externalGroupId"></param>
-        partial void OnErrorSearchListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<double> latitude, Option<double> longitude, Option<long> startDate, Option<long> endDate, Option<string> categoryIds, Option<string> filterIds, Option<bool> useListingOrderIds, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId);
+        partial void OnErrorSearchListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> keyword, Option<int> start, Option<int> limit, Option<bool> activeOnly, Option<double> latitude, Option<double> longitude, Option<long> startDate, Option<long> endDate, Option<string> categoryIds, Option<string> filterIds, Option<bool> useListingOrderIds, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId);
 
         /// <summary>
         /// Search Listings Search for event listings from the start time to end time
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="keyword">search the event name and description for this keyword (optional)</param>
         /// <param name="start">the record to begin the return set on (optional, default to 0)</param>
@@ -1576,11 +1538,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId">external group identifier used by a third party (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchListingApiResponse"/>&gt;</returns>
-        public async Task<ISearchListingApiResponse?> SearchListingOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> useListingOrderIds = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchListingApiResponse?> SearchListingOrDefaultAsync(Option<long> accountId = default, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> useListingOrderIds = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchListingAsync(version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId, cancellationToken).ConfigureAwait(false);
+                return await SearchListingAsync(accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1592,7 +1554,6 @@ namespace Org.OpenAPITools.Api
         /// Search Listings Search for event listings from the start time to end time
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="keyword">search the event name and description for this keyword (optional)</param>
         /// <param name="start">the record to begin the return set on (optional, default to 0)</param>
@@ -1610,7 +1571,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId">external group identifier used by a third party (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchListingApiResponse"/>&gt;</returns>
-        public async Task<ISearchListingApiResponse> SearchListingAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> useListingOrderIds = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchListingApiResponse> SearchListingAsync(Option<long> accountId = default, Option<string> keyword = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, Option<double> latitude = default, Option<double> longitude = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> useListingOrderIds = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1618,7 +1579,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchListing(keyword, categoryIds, filterIds, externalId, externalId2, externalGroupId);
 
-                FormatSearchListing(ref version, ref accountId, ref keyword, ref start, ref limit, ref activeOnly, ref latitude, ref longitude, ref startDate, ref endDate, ref categoryIds, ref filterIds, ref useListingOrderIds, ref externalId, ref externalId2, ref externalGroupId);
+                FormatSearchListing(ref accountId, ref keyword, ref start, ref limit, ref activeOnly, ref latitude, ref longitude, ref startDate, ref endDate, ref categoryIds, ref filterIds, ref useListingOrderIds, ref externalId, ref externalId2, ref externalGroupId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1626,9 +1587,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/listing/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/listing/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/listing/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/listing/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1702,13 +1662,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/listing/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/listing/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchListingDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
+                        AfterSearchListingDefaultImplementation(apiResponseLocalVar, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
 
                         Events.ExecuteOnSearchListing(apiResponseLocalVar);
 
@@ -1718,7 +1678,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchListingDefaultImplementation(e, "/api/{version}/listing/search", uriBuilderLocalVar.Path, version, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
+                OnErrorSearchListingDefaultImplementation(e, "/listing/search", uriBuilderLocalVar.Path, accountId, keyword, start, limit, activeOnly, latitude, longitude, startDate, endDate, categoryIds, filterIds, useListingOrderIds, externalId, externalId2, externalGroupId);
                 Events.ExecuteOnErrorSearchListing(e);
                 throw;
             }
@@ -1817,7 +1777,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSummaryListing(ref decimal version, ref Option<long> accountId, ref Option<long> startDate, ref Option<string> categoryIds, ref Option<int> daysToInclude, ref Option<bool> useListingOrderIds);
+        partial void FormatSummaryListing(ref Option<long> accountId, ref Option<long> startDate, ref Option<string> categoryIds, ref Option<int> daysToInclude, ref Option<bool> useListingOrderIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -1834,16 +1794,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="startDate"></param>
         /// <param name="categoryIds"></param>
         /// <param name="daysToInclude"></param>
         /// <param name="useListingOrderIds"></param>
-        private void AfterSummaryListingDefaultImplementation(ISummaryListingApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<long> startDate, Option<string> categoryIds, Option<int> daysToInclude, Option<bool> useListingOrderIds)
+        private void AfterSummaryListingDefaultImplementation(ISummaryListingApiResponse apiResponseLocalVar, Option<long> accountId, Option<long> startDate, Option<string> categoryIds, Option<int> daysToInclude, Option<bool> useListingOrderIds)
         {
             bool suppressDefaultLog = false;
-            AfterSummaryListing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
+            AfterSummaryListing(ref suppressDefaultLog, apiResponseLocalVar, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1853,13 +1812,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="startDate"></param>
         /// <param name="categoryIds"></param>
         /// <param name="daysToInclude"></param>
         /// <param name="useListingOrderIds"></param>
-        partial void AfterSummaryListing(ref bool suppressDefaultLog, ISummaryListingApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<long> startDate, Option<string> categoryIds, Option<int> daysToInclude, Option<bool> useListingOrderIds);
+        partial void AfterSummaryListing(ref bool suppressDefaultLog, ISummaryListingApiResponse apiResponseLocalVar, Option<long> accountId, Option<long> startDate, Option<string> categoryIds, Option<int> daysToInclude, Option<bool> useListingOrderIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1867,16 +1825,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="startDate"></param>
         /// <param name="categoryIds"></param>
         /// <param name="daysToInclude"></param>
         /// <param name="useListingOrderIds"></param>
-        private void OnErrorSummaryListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<long> startDate, Option<string> categoryIds, Option<int> daysToInclude, Option<bool> useListingOrderIds)
+        private void OnErrorSummaryListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<long> startDate, Option<string> categoryIds, Option<int> daysToInclude, Option<bool> useListingOrderIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSummaryListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
+            OnErrorSummaryListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1888,18 +1845,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="startDate"></param>
         /// <param name="categoryIds"></param>
         /// <param name="daysToInclude"></param>
         /// <param name="useListingOrderIds"></param>
-        partial void OnErrorSummaryListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<long> startDate, Option<string> categoryIds, Option<int> daysToInclude, Option<bool> useListingOrderIds);
+        partial void OnErrorSummaryListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<long> startDate, Option<string> categoryIds, Option<int> daysToInclude, Option<bool> useListingOrderIds);
 
         /// <summary>
         /// Summary Listing Search for a list of summary listings from the start time up to 8 days out.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="startDate">the start date to search from (optional)</param>
         /// <param name="categoryIds">the list of categories to search on (optional)</param>
@@ -1907,11 +1862,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="useListingOrderIds">determines whether to use configured listing order ids (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISummaryListingApiResponse"/>&gt;</returns>
-        public async Task<ISummaryListingApiResponse?> SummaryListingOrDefaultAsync(decimal version, Option<long> accountId = default, Option<long> startDate = default, Option<string> categoryIds = default, Option<int> daysToInclude = default, Option<bool> useListingOrderIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISummaryListingApiResponse?> SummaryListingOrDefaultAsync(Option<long> accountId = default, Option<long> startDate = default, Option<string> categoryIds = default, Option<int> daysToInclude = default, Option<bool> useListingOrderIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SummaryListingAsync(version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds, cancellationToken).ConfigureAwait(false);
+                return await SummaryListingAsync(accountId, startDate, categoryIds, daysToInclude, useListingOrderIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1923,7 +1878,6 @@ namespace Org.OpenAPITools.Api
         /// Summary Listing Search for a list of summary listings from the start time up to 8 days out.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account id of the user (optional)</param>
         /// <param name="startDate">the start date to search from (optional)</param>
         /// <param name="categoryIds">the list of categories to search on (optional)</param>
@@ -1931,7 +1885,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="useListingOrderIds">determines whether to use configured listing order ids (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISummaryListingApiResponse"/>&gt;</returns>
-        public async Task<ISummaryListingApiResponse> SummaryListingAsync(decimal version, Option<long> accountId = default, Option<long> startDate = default, Option<string> categoryIds = default, Option<int> daysToInclude = default, Option<bool> useListingOrderIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISummaryListingApiResponse> SummaryListingAsync(Option<long> accountId = default, Option<long> startDate = default, Option<string> categoryIds = default, Option<int> daysToInclude = default, Option<bool> useListingOrderIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1939,7 +1893,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSummaryListing(categoryIds);
 
-                FormatSummaryListing(ref version, ref accountId, ref startDate, ref categoryIds, ref daysToInclude, ref useListingOrderIds);
+                FormatSummaryListing(ref accountId, ref startDate, ref categoryIds, ref daysToInclude, ref useListingOrderIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1947,9 +1901,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/listing/summary"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/listing/summary");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/listing/summary"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/listing/summary");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1993,13 +1946,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/listing/summary", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/listing/summary", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSummaryListingDefaultImplementation(apiResponseLocalVar, version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
+                        AfterSummaryListingDefaultImplementation(apiResponseLocalVar, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
 
                         Events.ExecuteOnSummaryListing(apiResponseLocalVar);
 
@@ -2009,7 +1962,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSummaryListingDefaultImplementation(e, "/api/{version}/listing/summary", uriBuilderLocalVar.Path, version, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
+                OnErrorSummaryListingDefaultImplementation(e, "/listing/summary", uriBuilderLocalVar.Path, accountId, startDate, categoryIds, daysToInclude, useListingOrderIds);
                 Events.ExecuteOnErrorSummaryListing(e);
                 throw;
             }
@@ -2108,7 +2061,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateListing(ref decimal version, ref long accountId, ref long listingId, ref Option<string> filterIds, ref Option<string> name, ref Option<string> description, ref Option<long> start, ref Option<long> end, ref Option<string> locationName, ref Option<string> locationDescription, ref Option<bool> isPrivate, ref Option<string> externalId, ref Option<string> externalId2, ref Option<string> externalGroupId, ref Option<bool> active, ref Option<string> metaData);
+        partial void FormatUpdateListing(ref long accountId, ref long listingId, ref Option<string> filterIds, ref Option<string> name, ref Option<string> description, ref Option<long> start, ref Option<long> end, ref Option<string> locationName, ref Option<string> locationDescription, ref Option<bool> isPrivate, ref Option<string> externalId, ref Option<string> externalId2, ref Option<string> externalGroupId, ref Option<bool> active, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -2157,7 +2110,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="listingId"></param>
         /// <param name="filterIds"></param>
@@ -2173,10 +2125,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        private void AfterUpdateListingDefaultImplementation(IUpdateListingApiResponse apiResponseLocalVar, decimal version, long accountId, long listingId, Option<string> filterIds, Option<string> name, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData)
+        private void AfterUpdateListingDefaultImplementation(IUpdateListingApiResponse apiResponseLocalVar, long accountId, long listingId, Option<string> filterIds, Option<string> name, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateListing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+            AfterUpdateListing(ref suppressDefaultLog, apiResponseLocalVar, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2186,7 +2138,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="listingId"></param>
         /// <param name="filterIds"></param>
@@ -2202,7 +2153,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        partial void AfterUpdateListing(ref bool suppressDefaultLog, IUpdateListingApiResponse apiResponseLocalVar, decimal version, long accountId, long listingId, Option<string> filterIds, Option<string> name, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData);
+        partial void AfterUpdateListing(ref bool suppressDefaultLog, IUpdateListingApiResponse apiResponseLocalVar, long accountId, long listingId, Option<string> filterIds, Option<string> name, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2210,7 +2161,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="listingId"></param>
         /// <param name="filterIds"></param>
@@ -2226,10 +2176,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        private void OnErrorUpdateListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long listingId, Option<string> filterIds, Option<string> name, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData)
+        private void OnErrorUpdateListingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long listingId, Option<string> filterIds, Option<string> name, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+            OnErrorUpdateListing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2241,7 +2191,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="listingId"></param>
         /// <param name="filterIds"></param>
@@ -2257,12 +2206,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalGroupId"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorUpdateListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long listingId, Option<string> filterIds, Option<string> name, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData);
+        partial void OnErrorUpdateListing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long listingId, Option<string> filterIds, Option<string> name, Option<string> description, Option<long> start, Option<long> end, Option<string> locationName, Option<string> locationDescription, Option<bool> isPrivate, Option<string> externalId, Option<string> externalId2, Option<string> externalGroupId, Option<bool> active, Option<string> metaData);
 
         /// <summary>
         /// Update Listing Updates a listing.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user&#39;s account ID</param>
         /// <param name="listingId">the listing to update</param>
         /// <param name="filterIds">comma separated list of filter IDs (optional)</param>
@@ -2280,11 +2228,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateListingApiResponse"/>&gt;</returns>
-        public async Task<IUpdateListingApiResponse?> UpdateListingOrDefaultAsync(decimal version, long accountId, long listingId, Option<string> filterIds = default, Option<string> name = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateListingApiResponse?> UpdateListingOrDefaultAsync(long accountId, long listingId, Option<string> filterIds = default, Option<string> name = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateListingAsync(version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, cancellationToken).ConfigureAwait(false);
+                return await UpdateListingAsync(accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2296,7 +2244,6 @@ namespace Org.OpenAPITools.Api
         /// Update Listing Updates a listing.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user&#39;s account ID</param>
         /// <param name="listingId">the listing to update</param>
         /// <param name="filterIds">comma separated list of filter IDs (optional)</param>
@@ -2314,7 +2261,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateListingApiResponse"/>&gt;</returns>
-        public async Task<IUpdateListingApiResponse> UpdateListingAsync(decimal version, long accountId, long listingId, Option<string> filterIds = default, Option<string> name = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateListingApiResponse> UpdateListingAsync(long accountId, long listingId, Option<string> filterIds = default, Option<string> name = default, Option<string> description = default, Option<long> start = default, Option<long> end = default, Option<string> locationName = default, Option<string> locationDescription = default, Option<bool> isPrivate = default, Option<string> externalId = default, Option<string> externalId2 = default, Option<string> externalGroupId = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2322,7 +2269,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateListing(filterIds, name, description, locationName, locationDescription, externalId, externalId2, externalGroupId, metaData);
 
-                FormatUpdateListing(ref version, ref accountId, ref listingId, ref filterIds, ref name, ref description, ref start, ref end, ref locationName, ref locationDescription, ref isPrivate, ref externalId, ref externalId2, ref externalGroupId, ref active, ref metaData);
+                FormatUpdateListing(ref accountId, ref listingId, ref filterIds, ref name, ref description, ref start, ref end, ref locationName, ref locationDescription, ref isPrivate, ref externalId, ref externalId2, ref externalGroupId, ref active, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2330,9 +2277,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/listing/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/listing/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/listing/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/listing/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2403,13 +2349,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/listing/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/listing/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateListingDefaultImplementation(apiResponseLocalVar, version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+                        AfterUpdateListingDefaultImplementation(apiResponseLocalVar, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
 
                         Events.ExecuteOnUpdateListing(apiResponseLocalVar);
 
@@ -2419,7 +2365,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateListingDefaultImplementation(e, "/api/{version}/listing/update", uriBuilderLocalVar.Path, version, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
+                OnErrorUpdateListingDefaultImplementation(e, "/listing/update", uriBuilderLocalVar.Path, accountId, listingId, filterIds, name, description, start, end, locationName, locationDescription, isPrivate, externalId, externalId2, externalGroupId, active, metaData);
                 Events.ExecuteOnErrorUpdateListing(e);
                 throw;
             }

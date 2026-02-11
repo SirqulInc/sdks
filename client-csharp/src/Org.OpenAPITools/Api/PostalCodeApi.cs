@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a Postal Code
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="code">the postal code</param>
         /// <param name="latitude">the latitude of the postal code</param>
@@ -55,7 +54,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">whether the postal code created should be active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePostalCodeApiResponse"/>&gt;</returns>
-        Task<ICreatePostalCodeApiResponse> CreatePostalCodeAsync(decimal version, long accountId, string code, double latitude, double longitude, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePostalCodeApiResponse> CreatePostalCodeAsync(long accountId, string code, double latitude, double longitude, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Postal Code
@@ -63,7 +62,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a Postal Code
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="code">the postal code</param>
         /// <param name="latitude">the latitude of the postal code</param>
@@ -73,7 +71,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">whether the postal code created should be active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePostalCodeApiResponse"/>?&gt;</returns>
-        Task<ICreatePostalCodeApiResponse?> CreatePostalCodeOrDefaultAsync(decimal version, long accountId, string code, double latitude, double longitude, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreatePostalCodeApiResponse?> CreatePostalCodeOrDefaultAsync(long accountId, string code, double latitude, double longitude, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Postal Code
@@ -82,12 +80,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a Postal Code
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="postalCodeId">the id of the postal code to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePostalCodeApiResponse"/>&gt;</returns>
-        Task<IDeletePostalCodeApiResponse> DeletePostalCodeAsync(decimal version, long accountId, long postalCodeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePostalCodeApiResponse> DeletePostalCodeAsync(long accountId, long postalCodeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Postal Code
@@ -95,12 +92,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a Postal Code
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="postalCodeId">the id of the postal code to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePostalCodeApiResponse"/>?&gt;</returns>
-        Task<IDeletePostalCodeApiResponse?> DeletePostalCodeOrDefaultAsync(decimal version, long accountId, long postalCodeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePostalCodeApiResponse?> DeletePostalCodeOrDefaultAsync(long accountId, long postalCodeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Postal Code
@@ -109,11 +105,10 @@ namespace Org.OpenAPITools.Api
         /// Get a Postal Code
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="postalCodeId">the id of the postal code to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPostalCodeApiResponse"/>&gt;</returns>
-        Task<IGetPostalCodeApiResponse> GetPostalCodeAsync(decimal version, long postalCodeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPostalCodeApiResponse> GetPostalCodeAsync(long postalCodeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Postal Code
@@ -121,11 +116,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a Postal Code
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="postalCodeId">the id of the postal code to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPostalCodeApiResponse"/>?&gt;</returns>
-        Task<IGetPostalCodeApiResponse?> GetPostalCodeOrDefaultAsync(decimal version, long postalCodeId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPostalCodeApiResponse?> GetPostalCodeOrDefaultAsync(long postalCodeId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Postal Codes
@@ -134,7 +128,6 @@ namespace Org.OpenAPITools.Api
         /// Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort the results on</param>
         /// <param name="descending">whether to order results in ascending or descending order</param>
         /// <param name="latitude">the latitude of the postal code to search on (optional)</param>
@@ -145,7 +138,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPostalCodesApiResponse"/>&gt;</returns>
-        Task<IGetPostalCodesApiResponse> GetPostalCodesAsync(decimal version, string sortField, bool descending, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<double> miles = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPostalCodesApiResponse> GetPostalCodesAsync(string sortField, bool descending, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<double> miles = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Postal Codes
@@ -153,7 +146,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort the results on</param>
         /// <param name="descending">whether to order results in ascending or descending order</param>
         /// <param name="latitude">the latitude of the postal code to search on (optional)</param>
@@ -164,7 +156,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPostalCodesApiResponse"/>?&gt;</returns>
-        Task<IGetPostalCodesApiResponse?> GetPostalCodesOrDefaultAsync(decimal version, string sortField, bool descending, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<double> miles = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPostalCodesApiResponse?> GetPostalCodesOrDefaultAsync(string sortField, bool descending, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<double> miles = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Postal Code
@@ -173,7 +165,6 @@ namespace Org.OpenAPITools.Api
         /// Update a Postal Code
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="postalCodeId">the id of the postal code to update</param>
         /// <param name="code">the postal code to update (optional)</param>
@@ -184,7 +175,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">whether the postal code is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePostalCodeApiResponse"/>&gt;</returns>
-        Task<IUpdatePostalCodeApiResponse> UpdatePostalCodeAsync(decimal version, long accountId, long postalCodeId, Option<string> code = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdatePostalCodeApiResponse> UpdatePostalCodeAsync(long accountId, long postalCodeId, Option<string> code = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Postal Code
@@ -192,7 +183,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a Postal Code
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="postalCodeId">the id of the postal code to update</param>
         /// <param name="code">the postal code to update (optional)</param>
@@ -203,7 +193,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">whether the postal code is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePostalCodeApiResponse"/>?&gt;</returns>
-        Task<IUpdatePostalCodeApiResponse?> UpdatePostalCodeOrDefaultAsync(decimal version, long accountId, long postalCodeId, Option<string> code = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdatePostalCodeApiResponse?> UpdatePostalCodeOrDefaultAsync(long accountId, long postalCodeId, Option<string> code = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -419,7 +409,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreatePostalCode(ref decimal version, ref long accountId, ref string code, ref double latitude, ref double longitude, ref Option<string> stateCode, ref Option<string> city, ref Option<bool> active);
+        partial void FormatCreatePostalCode(ref long accountId, ref string code, ref double latitude, ref double longitude, ref Option<string> stateCode, ref Option<string> city, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -444,7 +434,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="code"></param>
         /// <param name="latitude"></param>
@@ -452,10 +441,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="stateCode"></param>
         /// <param name="city"></param>
         /// <param name="active"></param>
-        private void AfterCreatePostalCodeDefaultImplementation(ICreatePostalCodeApiResponse apiResponseLocalVar, decimal version, long accountId, string code, double latitude, double longitude, Option<string> stateCode, Option<string> city, Option<bool> active)
+        private void AfterCreatePostalCodeDefaultImplementation(ICreatePostalCodeApiResponse apiResponseLocalVar, long accountId, string code, double latitude, double longitude, Option<string> stateCode, Option<string> city, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterCreatePostalCode(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, code, latitude, longitude, stateCode, city, active);
+            AfterCreatePostalCode(ref suppressDefaultLog, apiResponseLocalVar, accountId, code, latitude, longitude, stateCode, city, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -465,7 +454,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="code"></param>
         /// <param name="latitude"></param>
@@ -473,7 +461,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="stateCode"></param>
         /// <param name="city"></param>
         /// <param name="active"></param>
-        partial void AfterCreatePostalCode(ref bool suppressDefaultLog, ICreatePostalCodeApiResponse apiResponseLocalVar, decimal version, long accountId, string code, double latitude, double longitude, Option<string> stateCode, Option<string> city, Option<bool> active);
+        partial void AfterCreatePostalCode(ref bool suppressDefaultLog, ICreatePostalCodeApiResponse apiResponseLocalVar, long accountId, string code, double latitude, double longitude, Option<string> stateCode, Option<string> city, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -481,7 +469,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="code"></param>
         /// <param name="latitude"></param>
@@ -489,10 +476,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="stateCode"></param>
         /// <param name="city"></param>
         /// <param name="active"></param>
-        private void OnErrorCreatePostalCodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string code, double latitude, double longitude, Option<string> stateCode, Option<string> city, Option<bool> active)
+        private void OnErrorCreatePostalCodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string code, double latitude, double longitude, Option<string> stateCode, Option<string> city, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreatePostalCode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, code, latitude, longitude, stateCode, city, active);
+            OnErrorCreatePostalCode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, code, latitude, longitude, stateCode, city, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -504,7 +491,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="code"></param>
         /// <param name="latitude"></param>
@@ -512,12 +498,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="stateCode"></param>
         /// <param name="city"></param>
         /// <param name="active"></param>
-        partial void OnErrorCreatePostalCode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string code, double latitude, double longitude, Option<string> stateCode, Option<string> city, Option<bool> active);
+        partial void OnErrorCreatePostalCode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string code, double latitude, double longitude, Option<string> stateCode, Option<string> city, Option<bool> active);
 
         /// <summary>
         /// Create Postal Code Create a Postal Code
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="code">the postal code</param>
         /// <param name="latitude">the latitude of the postal code</param>
@@ -527,11 +512,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">whether the postal code created should be active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePostalCodeApiResponse"/>&gt;</returns>
-        public async Task<ICreatePostalCodeApiResponse?> CreatePostalCodeOrDefaultAsync(decimal version, long accountId, string code, double latitude, double longitude, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePostalCodeApiResponse?> CreatePostalCodeOrDefaultAsync(long accountId, string code, double latitude, double longitude, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreatePostalCodeAsync(version, accountId, code, latitude, longitude, stateCode, city, active, cancellationToken).ConfigureAwait(false);
+                return await CreatePostalCodeAsync(accountId, code, latitude, longitude, stateCode, city, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -543,7 +528,6 @@ namespace Org.OpenAPITools.Api
         /// Create Postal Code Create a Postal Code
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="code">the postal code</param>
         /// <param name="latitude">the latitude of the postal code</param>
@@ -553,7 +537,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">whether the postal code created should be active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreatePostalCodeApiResponse"/>&gt;</returns>
-        public async Task<ICreatePostalCodeApiResponse> CreatePostalCodeAsync(decimal version, long accountId, string code, double latitude, double longitude, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreatePostalCodeApiResponse> CreatePostalCodeAsync(long accountId, string code, double latitude, double longitude, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -561,7 +545,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreatePostalCode(code, stateCode, city);
 
-                FormatCreatePostalCode(ref version, ref accountId, ref code, ref latitude, ref longitude, ref stateCode, ref city, ref active);
+                FormatCreatePostalCode(ref accountId, ref code, ref latitude, ref longitude, ref stateCode, ref city, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -569,9 +553,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/postalCode/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/postalCode/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/postalCode/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/postalCode/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -614,13 +597,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/postalCode/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/postalCode/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreatePostalCodeDefaultImplementation(apiResponseLocalVar, version, accountId, code, latitude, longitude, stateCode, city, active);
+                        AfterCreatePostalCodeDefaultImplementation(apiResponseLocalVar, accountId, code, latitude, longitude, stateCode, city, active);
 
                         Events.ExecuteOnCreatePostalCode(apiResponseLocalVar);
 
@@ -630,7 +613,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreatePostalCodeDefaultImplementation(e, "/api/{version}/postalCode/create", uriBuilderLocalVar.Path, version, accountId, code, latitude, longitude, stateCode, city, active);
+                OnErrorCreatePostalCodeDefaultImplementation(e, "/postalCode/create", uriBuilderLocalVar.Path, accountId, code, latitude, longitude, stateCode, city, active);
                 Events.ExecuteOnErrorCreatePostalCode(e);
                 throw;
             }
@@ -729,19 +712,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeletePostalCode(ref decimal version, ref long accountId, ref long postalCodeId);
+        partial void FormatDeletePostalCode(ref long accountId, ref long postalCodeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postalCodeId"></param>
-        private void AfterDeletePostalCodeDefaultImplementation(IDeletePostalCodeApiResponse apiResponseLocalVar, decimal version, long accountId, long postalCodeId)
+        private void AfterDeletePostalCodeDefaultImplementation(IDeletePostalCodeApiResponse apiResponseLocalVar, long accountId, long postalCodeId)
         {
             bool suppressDefaultLog = false;
-            AfterDeletePostalCode(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, postalCodeId);
+            AfterDeletePostalCode(ref suppressDefaultLog, apiResponseLocalVar, accountId, postalCodeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -751,10 +733,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postalCodeId"></param>
-        partial void AfterDeletePostalCode(ref bool suppressDefaultLog, IDeletePostalCodeApiResponse apiResponseLocalVar, decimal version, long accountId, long postalCodeId);
+        partial void AfterDeletePostalCode(ref bool suppressDefaultLog, IDeletePostalCodeApiResponse apiResponseLocalVar, long accountId, long postalCodeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -762,13 +743,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postalCodeId"></param>
-        private void OnErrorDeletePostalCodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long postalCodeId)
+        private void OnErrorDeletePostalCodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long postalCodeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeletePostalCode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, postalCodeId);
+            OnErrorDeletePostalCode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, postalCodeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -780,24 +760,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postalCodeId"></param>
-        partial void OnErrorDeletePostalCode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long postalCodeId);
+        partial void OnErrorDeletePostalCode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long postalCodeId);
 
         /// <summary>
         /// Delete Postal Code Delete a Postal Code
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="postalCodeId">the id of the postal code to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePostalCodeApiResponse"/>&gt;</returns>
-        public async Task<IDeletePostalCodeApiResponse?> DeletePostalCodeOrDefaultAsync(decimal version, long accountId, long postalCodeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePostalCodeApiResponse?> DeletePostalCodeOrDefaultAsync(long accountId, long postalCodeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeletePostalCodeAsync(version, accountId, postalCodeId, cancellationToken).ConfigureAwait(false);
+                return await DeletePostalCodeAsync(accountId, postalCodeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -809,18 +787,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Postal Code Delete a Postal Code
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="postalCodeId">the id of the postal code to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePostalCodeApiResponse"/>&gt;</returns>
-        public async Task<IDeletePostalCodeApiResponse> DeletePostalCodeAsync(decimal version, long accountId, long postalCodeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePostalCodeApiResponse> DeletePostalCodeAsync(long accountId, long postalCodeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeletePostalCode(ref version, ref accountId, ref postalCodeId);
+                FormatDeletePostalCode(ref accountId, ref postalCodeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -828,9 +805,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/postalCode/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/postalCode/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/postalCode/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/postalCode/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -862,13 +838,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/postalCode/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/postalCode/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeletePostalCodeDefaultImplementation(apiResponseLocalVar, version, accountId, postalCodeId);
+                        AfterDeletePostalCodeDefaultImplementation(apiResponseLocalVar, accountId, postalCodeId);
 
                         Events.ExecuteOnDeletePostalCode(apiResponseLocalVar);
 
@@ -878,7 +854,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeletePostalCodeDefaultImplementation(e, "/api/{version}/postalCode/delete", uriBuilderLocalVar.Path, version, accountId, postalCodeId);
+                OnErrorDeletePostalCodeDefaultImplementation(e, "/postalCode/delete", uriBuilderLocalVar.Path, accountId, postalCodeId);
                 Events.ExecuteOnErrorDeletePostalCode(e);
                 throw;
             }
@@ -977,18 +953,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPostalCode(ref decimal version, ref long postalCodeId);
+        partial void FormatGetPostalCode(ref long postalCodeId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="postalCodeId"></param>
-        private void AfterGetPostalCodeDefaultImplementation(IGetPostalCodeApiResponse apiResponseLocalVar, decimal version, long postalCodeId)
+        private void AfterGetPostalCodeDefaultImplementation(IGetPostalCodeApiResponse apiResponseLocalVar, long postalCodeId)
         {
             bool suppressDefaultLog = false;
-            AfterGetPostalCode(ref suppressDefaultLog, apiResponseLocalVar, version, postalCodeId);
+            AfterGetPostalCode(ref suppressDefaultLog, apiResponseLocalVar, postalCodeId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -998,9 +973,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="postalCodeId"></param>
-        partial void AfterGetPostalCode(ref bool suppressDefaultLog, IGetPostalCodeApiResponse apiResponseLocalVar, decimal version, long postalCodeId);
+        partial void AfterGetPostalCode(ref bool suppressDefaultLog, IGetPostalCodeApiResponse apiResponseLocalVar, long postalCodeId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1008,12 +982,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="postalCodeId"></param>
-        private void OnErrorGetPostalCodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long postalCodeId)
+        private void OnErrorGetPostalCodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long postalCodeId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPostalCode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, postalCodeId);
+            OnErrorGetPostalCode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, postalCodeId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1025,22 +998,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="postalCodeId"></param>
-        partial void OnErrorGetPostalCode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long postalCodeId);
+        partial void OnErrorGetPostalCode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long postalCodeId);
 
         /// <summary>
         /// Get Postal Code Get a Postal Code
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="postalCodeId">the id of the postal code to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPostalCodeApiResponse"/>&gt;</returns>
-        public async Task<IGetPostalCodeApiResponse?> GetPostalCodeOrDefaultAsync(decimal version, long postalCodeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPostalCodeApiResponse?> GetPostalCodeOrDefaultAsync(long postalCodeId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPostalCodeAsync(version, postalCodeId, cancellationToken).ConfigureAwait(false);
+                return await GetPostalCodeAsync(postalCodeId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1052,17 +1023,16 @@ namespace Org.OpenAPITools.Api
         /// Get Postal Code Get a Postal Code
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="postalCodeId">the id of the postal code to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPostalCodeApiResponse"/>&gt;</returns>
-        public async Task<IGetPostalCodeApiResponse> GetPostalCodeAsync(decimal version, long postalCodeId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPostalCodeApiResponse> GetPostalCodeAsync(long postalCodeId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetPostalCode(ref version, ref postalCodeId);
+                FormatGetPostalCode(ref postalCodeId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1070,9 +1040,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/postalCode/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/postalCode/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/postalCode/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/postalCode/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1103,13 +1072,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/postalCode/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/postalCode/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPostalCodeDefaultImplementation(apiResponseLocalVar, version, postalCodeId);
+                        AfterGetPostalCodeDefaultImplementation(apiResponseLocalVar, postalCodeId);
 
                         Events.ExecuteOnGetPostalCode(apiResponseLocalVar);
 
@@ -1119,7 +1088,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPostalCodeDefaultImplementation(e, "/api/{version}/postalCode/get", uriBuilderLocalVar.Path, version, postalCodeId);
+                OnErrorGetPostalCodeDefaultImplementation(e, "/postalCode/get", uriBuilderLocalVar.Path, postalCodeId);
                 Events.ExecuteOnErrorGetPostalCode(e);
                 throw;
             }
@@ -1218,7 +1187,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPostalCodes(ref decimal version, ref string sortField, ref bool descending, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> keyword, ref Option<double> miles, ref Option<int> start, ref Option<int> limit);
+        partial void FormatGetPostalCodes(ref string sortField, ref bool descending, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> keyword, ref Option<double> miles, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1239,7 +1208,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="latitude"></param>
@@ -1248,10 +1216,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="miles"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterGetPostalCodesDefaultImplementation(IGetPostalCodesApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<double> miles, Option<int> start, Option<int> limit)
+        private void AfterGetPostalCodesDefaultImplementation(IGetPostalCodesApiResponse apiResponseLocalVar, string sortField, bool descending, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<double> miles, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetPostalCodes(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, latitude, longitude, keyword, miles, start, limit);
+            AfterGetPostalCodes(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, latitude, longitude, keyword, miles, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1261,7 +1229,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="latitude"></param>
@@ -1270,7 +1237,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="miles"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterGetPostalCodes(ref bool suppressDefaultLog, IGetPostalCodesApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<double> miles, Option<int> start, Option<int> limit);
+        partial void AfterGetPostalCodes(ref bool suppressDefaultLog, IGetPostalCodesApiResponse apiResponseLocalVar, string sortField, bool descending, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<double> miles, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1278,7 +1245,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="latitude"></param>
@@ -1287,10 +1253,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="miles"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetPostalCodesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<double> miles, Option<int> start, Option<int> limit)
+        private void OnErrorGetPostalCodesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<double> miles, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPostalCodes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, latitude, longitude, keyword, miles, start, limit);
+            OnErrorGetPostalCodes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, latitude, longitude, keyword, miles, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1302,7 +1268,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="latitude"></param>
@@ -1311,12 +1276,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="miles"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetPostalCodes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<double> miles, Option<int> start, Option<int> limit);
+        partial void OnErrorGetPostalCodes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, Option<double> latitude, Option<double> longitude, Option<string> keyword, Option<double> miles, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Postal Codes Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort the results on</param>
         /// <param name="descending">whether to order results in ascending or descending order</param>
         /// <param name="latitude">the latitude of the postal code to search on (optional)</param>
@@ -1327,11 +1291,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPostalCodesApiResponse"/>&gt;</returns>
-        public async Task<IGetPostalCodesApiResponse?> GetPostalCodesOrDefaultAsync(decimal version, string sortField, bool descending, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<double> miles = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPostalCodesApiResponse?> GetPostalCodesOrDefaultAsync(string sortField, bool descending, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<double> miles = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPostalCodesAsync(version, sortField, descending, latitude, longitude, keyword, miles, start, limit, cancellationToken).ConfigureAwait(false);
+                return await GetPostalCodesAsync(sortField, descending, latitude, longitude, keyword, miles, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1343,7 +1307,6 @@ namespace Org.OpenAPITools.Api
         /// Search Postal Codes Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">the field to sort the results on</param>
         /// <param name="descending">whether to order results in ascending or descending order</param>
         /// <param name="latitude">the latitude of the postal code to search on (optional)</param>
@@ -1354,7 +1317,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPostalCodesApiResponse"/>&gt;</returns>
-        public async Task<IGetPostalCodesApiResponse> GetPostalCodesAsync(decimal version, string sortField, bool descending, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<double> miles = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPostalCodesApiResponse> GetPostalCodesAsync(string sortField, bool descending, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, Option<double> miles = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1362,7 +1325,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetPostalCodes(sortField, keyword);
 
-                FormatGetPostalCodes(ref version, ref sortField, ref descending, ref latitude, ref longitude, ref keyword, ref miles, ref start, ref limit);
+                FormatGetPostalCodes(ref sortField, ref descending, ref latitude, ref longitude, ref keyword, ref miles, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1370,9 +1333,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/postalCode/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/postalCode/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/postalCode/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/postalCode/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1422,13 +1384,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/postalCode/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/postalCode/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPostalCodesDefaultImplementation(apiResponseLocalVar, version, sortField, descending, latitude, longitude, keyword, miles, start, limit);
+                        AfterGetPostalCodesDefaultImplementation(apiResponseLocalVar, sortField, descending, latitude, longitude, keyword, miles, start, limit);
 
                         Events.ExecuteOnGetPostalCodes(apiResponseLocalVar);
 
@@ -1438,7 +1400,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPostalCodesDefaultImplementation(e, "/api/{version}/postalCode/search", uriBuilderLocalVar.Path, version, sortField, descending, latitude, longitude, keyword, miles, start, limit);
+                OnErrorGetPostalCodesDefaultImplementation(e, "/postalCode/search", uriBuilderLocalVar.Path, sortField, descending, latitude, longitude, keyword, miles, start, limit);
                 Events.ExecuteOnErrorGetPostalCodes(e);
                 throw;
             }
@@ -1537,7 +1499,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdatePostalCode(ref decimal version, ref long accountId, ref long postalCodeId, ref Option<string> code, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> stateCode, ref Option<string> city, ref Option<bool> active);
+        partial void FormatUpdatePostalCode(ref long accountId, ref long postalCodeId, ref Option<string> code, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> stateCode, ref Option<string> city, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -1562,7 +1524,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postalCodeId"></param>
         /// <param name="code"></param>
@@ -1571,10 +1532,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="stateCode"></param>
         /// <param name="city"></param>
         /// <param name="active"></param>
-        private void AfterUpdatePostalCodeDefaultImplementation(IUpdatePostalCodeApiResponse apiResponseLocalVar, decimal version, long accountId, long postalCodeId, Option<string> code, Option<double> latitude, Option<double> longitude, Option<string> stateCode, Option<string> city, Option<bool> active)
+        private void AfterUpdatePostalCodeDefaultImplementation(IUpdatePostalCodeApiResponse apiResponseLocalVar, long accountId, long postalCodeId, Option<string> code, Option<double> latitude, Option<double> longitude, Option<string> stateCode, Option<string> city, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterUpdatePostalCode(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
+            AfterUpdatePostalCode(ref suppressDefaultLog, apiResponseLocalVar, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1584,7 +1545,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postalCodeId"></param>
         /// <param name="code"></param>
@@ -1593,7 +1553,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="stateCode"></param>
         /// <param name="city"></param>
         /// <param name="active"></param>
-        partial void AfterUpdatePostalCode(ref bool suppressDefaultLog, IUpdatePostalCodeApiResponse apiResponseLocalVar, decimal version, long accountId, long postalCodeId, Option<string> code, Option<double> latitude, Option<double> longitude, Option<string> stateCode, Option<string> city, Option<bool> active);
+        partial void AfterUpdatePostalCode(ref bool suppressDefaultLog, IUpdatePostalCodeApiResponse apiResponseLocalVar, long accountId, long postalCodeId, Option<string> code, Option<double> latitude, Option<double> longitude, Option<string> stateCode, Option<string> city, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1601,7 +1561,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postalCodeId"></param>
         /// <param name="code"></param>
@@ -1610,10 +1569,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="stateCode"></param>
         /// <param name="city"></param>
         /// <param name="active"></param>
-        private void OnErrorUpdatePostalCodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long postalCodeId, Option<string> code, Option<double> latitude, Option<double> longitude, Option<string> stateCode, Option<string> city, Option<bool> active)
+        private void OnErrorUpdatePostalCodeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long postalCodeId, Option<string> code, Option<double> latitude, Option<double> longitude, Option<string> stateCode, Option<string> city, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdatePostalCode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
+            OnErrorUpdatePostalCode(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1625,7 +1584,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postalCodeId"></param>
         /// <param name="code"></param>
@@ -1634,12 +1592,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="stateCode"></param>
         /// <param name="city"></param>
         /// <param name="active"></param>
-        partial void OnErrorUpdatePostalCode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long postalCodeId, Option<string> code, Option<double> latitude, Option<double> longitude, Option<string> stateCode, Option<string> city, Option<bool> active);
+        partial void OnErrorUpdatePostalCode(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long postalCodeId, Option<string> code, Option<double> latitude, Option<double> longitude, Option<string> stateCode, Option<string> city, Option<bool> active);
 
         /// <summary>
         /// Update Postal Code Update a Postal Code
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="postalCodeId">the id of the postal code to update</param>
         /// <param name="code">the postal code to update (optional)</param>
@@ -1650,11 +1607,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">whether the postal code is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePostalCodeApiResponse"/>&gt;</returns>
-        public async Task<IUpdatePostalCodeApiResponse?> UpdatePostalCodeOrDefaultAsync(decimal version, long accountId, long postalCodeId, Option<string> code = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdatePostalCodeApiResponse?> UpdatePostalCodeOrDefaultAsync(long accountId, long postalCodeId, Option<string> code = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdatePostalCodeAsync(version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active, cancellationToken).ConfigureAwait(false);
+                return await UpdatePostalCodeAsync(accountId, postalCodeId, code, latitude, longitude, stateCode, city, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1666,7 +1623,6 @@ namespace Org.OpenAPITools.Api
         /// Update Postal Code Update a Postal Code
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="postalCodeId">the id of the postal code to update</param>
         /// <param name="code">the postal code to update (optional)</param>
@@ -1677,7 +1633,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">whether the postal code is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdatePostalCodeApiResponse"/>&gt;</returns>
-        public async Task<IUpdatePostalCodeApiResponse> UpdatePostalCodeAsync(decimal version, long accountId, long postalCodeId, Option<string> code = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdatePostalCodeApiResponse> UpdatePostalCodeAsync(long accountId, long postalCodeId, Option<string> code = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> stateCode = default, Option<string> city = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1685,7 +1641,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdatePostalCode(code, stateCode, city);
 
-                FormatUpdatePostalCode(ref version, ref accountId, ref postalCodeId, ref code, ref latitude, ref longitude, ref stateCode, ref city, ref active);
+                FormatUpdatePostalCode(ref accountId, ref postalCodeId, ref code, ref latitude, ref longitude, ref stateCode, ref city, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1693,9 +1649,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/postalCode/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/postalCode/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/postalCode/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/postalCode/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1745,13 +1700,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/postalCode/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/postalCode/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdatePostalCodeDefaultImplementation(apiResponseLocalVar, version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
+                        AfterUpdatePostalCodeDefaultImplementation(apiResponseLocalVar, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
 
                         Events.ExecuteOnUpdatePostalCode(apiResponseLocalVar);
 
@@ -1761,7 +1716,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdatePostalCodeDefaultImplementation(e, "/api/{version}/postalCode/update", uriBuilderLocalVar.Path, version, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
+                OnErrorUpdatePostalCodeDefaultImplementation(e, "/postalCode/update", uriBuilderLocalVar.Path, accountId, postalCodeId, code, latitude, longitude, stateCode, city, active);
                 Events.ExecuteOnErrorUpdatePostalCode(e);
                 throw;
             }

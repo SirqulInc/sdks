@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a location record for an application that can support crowd sourced locations.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="name">The name of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -77,7 +76,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The longitude to center the search on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerLocationConsumerApiResponse"/>&gt;</returns>
-        Task<ICreateRetailerLocationConsumerApiResponse> CreateRetailerLocationConsumerAsync(decimal version, string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<string> tags = default, Option<long> logoAssetId = default, Option<long> picture1AssetId = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> metaData = default, Option<bool> publicLocation = default, Option<bool> active = default, Option<string> locationType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRetailerLocationConsumerApiResponse> CreateRetailerLocationConsumerAsync(string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<string> tags = default, Option<long> logoAssetId = default, Option<long> picture1AssetId = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> metaData = default, Option<bool> publicLocation = default, Option<bool> active = default, Option<string> locationType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Retailer Location (Consumer)
@@ -85,7 +84,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a location record for an application that can support crowd sourced locations.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="name">The name of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -117,7 +115,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The longitude to center the search on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerLocationConsumerApiResponse"/>?&gt;</returns>
-        Task<ICreateRetailerLocationConsumerApiResponse?> CreateRetailerLocationConsumerOrDefaultAsync(decimal version, string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<string> tags = default, Option<long> logoAssetId = default, Option<long> picture1AssetId = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> metaData = default, Option<bool> publicLocation = default, Option<bool> active = default, Option<string> locationType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRetailerLocationConsumerApiResponse?> CreateRetailerLocationConsumerOrDefaultAsync(string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<string> tags = default, Option<long> logoAssetId = default, Option<long> picture1AssetId = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> metaData = default, Option<bool> publicLocation = default, Option<bool> active = default, Option<string> locationType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Retailer Location
@@ -126,7 +124,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerId">The ID of the retailer</param>
         /// <param name="name">The name of the retailer location</param>
         /// <param name="streetAddress">The street address of the retailer location</param>
@@ -168,7 +165,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseIncludes">Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerLocationsApiResponse"/>&gt;</returns>
-        Task<ICreateRetailerLocationsApiResponse> CreateRetailerLocationsAsync(decimal version, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress2 = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> responseIncludes = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRetailerLocationsApiResponse> CreateRetailerLocationsAsync(long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress2 = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> responseIncludes = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Retailer Location
@@ -176,7 +173,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="retailerId">The ID of the retailer</param>
         /// <param name="name">The name of the retailer location</param>
         /// <param name="streetAddress">The street address of the retailer location</param>
@@ -218,7 +214,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseIncludes">Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerLocationsApiResponse"/>?&gt;</returns>
-        Task<ICreateRetailerLocationsApiResponse?> CreateRetailerLocationsOrDefaultAsync(decimal version, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress2 = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> responseIncludes = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateRetailerLocationsApiResponse?> CreateRetailerLocationsOrDefaultAsync(long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress2 = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> responseIncludes = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Retailer Location
@@ -227,13 +223,12 @@ namespace Org.OpenAPITools.Api
         /// Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (optional)</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
         /// <param name="retailerLocationId">the id of the retailer location to delete (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRetailerLocationApiResponse"/>&gt;</returns>
-        Task<IDeleteRetailerLocationApiResponse> DeleteRetailerLocationAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRetailerLocationApiResponse> DeleteRetailerLocationAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Retailer Location
@@ -241,13 +236,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (optional)</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
         /// <param name="retailerLocationId">the id of the retailer location to delete (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRetailerLocationApiResponse"/>?&gt;</returns>
-        Task<IDeleteRetailerLocationApiResponse?> DeleteRetailerLocationOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteRetailerLocationApiResponse?> DeleteRetailerLocationOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Retailer Location
@@ -256,14 +250,13 @@ namespace Org.OpenAPITools.Api
         /// Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The ID of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="retailerLocationToken">the unique token of the retailer location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerLocationApiResponse"/>&gt;</returns>
-        Task<IGetRetailerLocationApiResponse> GetRetailerLocationAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> retailerLocationToken = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetailerLocationApiResponse> GetRetailerLocationAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> retailerLocationToken = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Retailer Location
@@ -271,14 +264,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The ID of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="retailerLocationToken">the unique token of the retailer location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerLocationApiResponse"/>?&gt;</returns>
-        Task<IGetRetailerLocationApiResponse?> GetRetailerLocationOrDefaultAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> retailerLocationToken = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetailerLocationApiResponse?> GetRetailerLocationOrDefaultAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> retailerLocationToken = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Retailer Location (Consumer)
@@ -287,13 +279,12 @@ namespace Org.OpenAPITools.Api
         /// Gets the details of a retailer location as a consumer.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The retailer location id</param>
         /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerLocationConsumerApiResponse"/>&gt;</returns>
-        Task<IGetRetailerLocationConsumerApiResponse> GetRetailerLocationConsumerAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetailerLocationConsumerApiResponse> GetRetailerLocationConsumerAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Retailer Location (Consumer)
@@ -301,13 +292,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the details of a retailer location as a consumer.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The retailer location id</param>
         /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerLocationConsumerApiResponse"/>?&gt;</returns>
-        Task<IGetRetailerLocationConsumerApiResponse?> GetRetailerLocationConsumerOrDefaultAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetRetailerLocationConsumerApiResponse?> GetRetailerLocationConsumerOrDefaultAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Distance Search Retailer Locations (Indexed)
@@ -316,7 +306,6 @@ namespace Org.OpenAPITools.Api
         /// Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude to center the search on</param>
         /// <param name="longitude">The longitude to center the search on</param>
         /// <param name="searchRange">The search range in the distanceUnit specified; default is MILES.</param>
@@ -353,7 +342,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIndexedRetailerLocationDistanceSearchApiResponse"/>&gt;</returns>
-        Task<IIndexedRetailerLocationDistanceSearchApiResponse> IndexedRetailerLocationDistanceSearchAsync(decimal version, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId = default, Option<string> address = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<string> distanceUnit = default, Option<bool> returnFavorited = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IIndexedRetailerLocationDistanceSearchApiResponse> IndexedRetailerLocationDistanceSearchAsync(double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId = default, Option<string> address = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<string> distanceUnit = default, Option<bool> returnFavorited = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Distance Search Retailer Locations (Indexed)
@@ -361,7 +350,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude to center the search on</param>
         /// <param name="longitude">The longitude to center the search on</param>
         /// <param name="searchRange">The search range in the distanceUnit specified; default is MILES.</param>
@@ -398,7 +386,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIndexedRetailerLocationDistanceSearchApiResponse"/>?&gt;</returns>
-        Task<IIndexedRetailerLocationDistanceSearchApiResponse?> IndexedRetailerLocationDistanceSearchOrDefaultAsync(decimal version, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId = default, Option<string> address = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<string> distanceUnit = default, Option<bool> returnFavorited = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IIndexedRetailerLocationDistanceSearchApiResponse?> IndexedRetailerLocationDistanceSearchOrDefaultAsync(double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId = default, Option<string> address = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<string> distanceUnit = default, Option<bool> returnFavorited = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Keyword Search Retailer Locations (Indexed)
@@ -407,7 +395,6 @@ namespace Org.OpenAPITools.Api
         /// Retailer location (faster) indexed search. This searches all retailer locations.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="start">The start index for pagination (optional)</param>
         /// <param name="limit">The limit for pagination (optional)</param>
@@ -438,7 +425,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIndexedRetailerLocationSearchApiResponse"/>&gt;</returns>
-        Task<IIndexedRetailerLocationSearchApiResponse> IndexedRetailerLocationSearchAsync(decimal version, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IIndexedRetailerLocationSearchApiResponse> IndexedRetailerLocationSearchAsync(Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Keyword Search Retailer Locations (Indexed)
@@ -446,7 +433,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Retailer location (faster) indexed search. This searches all retailer locations.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="start">The start index for pagination (optional)</param>
         /// <param name="limit">The limit for pagination (optional)</param>
@@ -477,7 +463,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIndexedRetailerLocationSearchApiResponse"/>?&gt;</returns>
-        Task<IIndexedRetailerLocationSearchApiResponse?> IndexedRetailerLocationSearchOrDefaultAsync(decimal version, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IIndexedRetailerLocationSearchApiResponse?> IndexedRetailerLocationSearchOrDefaultAsync(Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Retailer Locations (Owned)
@@ -486,7 +472,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on retailer locations that the account has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="q">This parameter is deprecated. (optional)</param>
@@ -514,7 +499,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRetailerLocationsApiResponse"/>&gt;</returns>
-        Task<ISearchRetailerLocationsApiResponse> SearchRetailerLocationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> showPublicLocations = default, Option<bool> activeOnly = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRetailerLocationsApiResponse> SearchRetailerLocationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> showPublicLocations = default, Option<bool> activeOnly = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Retailer Locations (Owned)
@@ -522,7 +507,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on retailer locations that the account has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="q">This parameter is deprecated. (optional)</param>
@@ -550,7 +534,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRetailerLocationsApiResponse"/>?&gt;</returns>
-        Task<ISearchRetailerLocationsApiResponse?> SearchRetailerLocationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> showPublicLocations = default, Option<bool> activeOnly = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchRetailerLocationsApiResponse?> SearchRetailerLocationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> showPublicLocations = default, Option<bool> activeOnly = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Retailer Location
@@ -559,7 +543,6 @@ namespace Org.OpenAPITools.Api
         /// Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The ID of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -603,7 +586,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">Custom string field for doing full-text searches (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRetailerLocationsApiResponse"/>&gt;</returns>
-        Task<IUpdateRetailerLocationsApiResponse> UpdateRetailerLocationsAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<string> metaData = default, Option<string> paymentProvider = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRetailerLocationsApiResponse> UpdateRetailerLocationsAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<string> metaData = default, Option<string> paymentProvider = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Retailer Location
@@ -611,7 +594,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The ID of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -655,7 +637,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">Custom string field for doing full-text searches (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRetailerLocationsApiResponse"/>?&gt;</returns>
-        Task<IUpdateRetailerLocationsApiResponse?> UpdateRetailerLocationsOrDefaultAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<string> metaData = default, Option<string> paymentProvider = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateRetailerLocationsApiResponse?> UpdateRetailerLocationsOrDefaultAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<string> metaData = default, Option<string> paymentProvider = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -999,7 +981,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateRetailerLocationConsumer(ref decimal version, ref string appKey, ref string name, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> detailsHeader, ref Option<string> detailsBody, ref Option<string> hours, ref Option<string> tags, ref Option<long> logoAssetId, ref Option<long> picture1AssetId, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> metaData, ref Option<bool> publicLocation, ref Option<bool> active, ref Option<string> locationType, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatCreateRetailerLocationConsumer(ref string appKey, ref string name, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> detailsHeader, ref Option<string> detailsBody, ref Option<string> hours, ref Option<string> tags, ref Option<long> logoAssetId, ref Option<long> picture1AssetId, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> metaData, ref Option<bool> publicLocation, ref Option<bool> active, ref Option<string> locationType, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1096,7 +1078,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
@@ -1126,10 +1107,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterCreateRetailerLocationConsumerDefaultImplementation(ICreateRetailerLocationConsumerApiResponse apiResponseLocalVar, decimal version, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<string> tags, Option<long> logoAssetId, Option<long> picture1AssetId, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<string> metaData, Option<bool> publicLocation, Option<bool> active, Option<string> locationType, Option<double> latitude, Option<double> longitude)
+        private void AfterCreateRetailerLocationConsumerDefaultImplementation(ICreateRetailerLocationConsumerApiResponse apiResponseLocalVar, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<string> tags, Option<long> logoAssetId, Option<long> picture1AssetId, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<string> metaData, Option<bool> publicLocation, Option<bool> active, Option<string> locationType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterCreateRetailerLocationConsumer(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
+            AfterCreateRetailerLocationConsumer(ref suppressDefaultLog, apiResponseLocalVar, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1139,7 +1120,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
@@ -1169,7 +1149,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterCreateRetailerLocationConsumer(ref bool suppressDefaultLog, ICreateRetailerLocationConsumerApiResponse apiResponseLocalVar, decimal version, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<string> tags, Option<long> logoAssetId, Option<long> picture1AssetId, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<string> metaData, Option<bool> publicLocation, Option<bool> active, Option<string> locationType, Option<double> latitude, Option<double> longitude);
+        partial void AfterCreateRetailerLocationConsumer(ref bool suppressDefaultLog, ICreateRetailerLocationConsumerApiResponse apiResponseLocalVar, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<string> tags, Option<long> logoAssetId, Option<long> picture1AssetId, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<string> metaData, Option<bool> publicLocation, Option<bool> active, Option<string> locationType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1177,7 +1157,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
@@ -1207,10 +1186,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorCreateRetailerLocationConsumerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<string> tags, Option<long> logoAssetId, Option<long> picture1AssetId, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<string> metaData, Option<bool> publicLocation, Option<bool> active, Option<string> locationType, Option<double> latitude, Option<double> longitude)
+        private void OnErrorCreateRetailerLocationConsumerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<string> tags, Option<long> logoAssetId, Option<long> picture1AssetId, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<string> metaData, Option<bool> publicLocation, Option<bool> active, Option<string> locationType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateRetailerLocationConsumer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
+            OnErrorCreateRetailerLocationConsumer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1222,7 +1201,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="name"></param>
         /// <param name="deviceId"></param>
@@ -1252,12 +1230,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorCreateRetailerLocationConsumer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<string> tags, Option<long> logoAssetId, Option<long> picture1AssetId, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<string> metaData, Option<bool> publicLocation, Option<bool> active, Option<string> locationType, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorCreateRetailerLocationConsumer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string name, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<string> tags, Option<long> logoAssetId, Option<long> picture1AssetId, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<string> metaData, Option<bool> publicLocation, Option<bool> active, Option<string> locationType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create Retailer Location (Consumer) Creates a location record for an application that can support crowd sourced locations.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="name">The name of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -1289,11 +1266,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The longitude to center the search on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerLocationConsumerApiResponse"/>&gt;</returns>
-        public async Task<ICreateRetailerLocationConsumerApiResponse?> CreateRetailerLocationConsumerOrDefaultAsync(decimal version, string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<string> tags = default, Option<long> logoAssetId = default, Option<long> picture1AssetId = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> metaData = default, Option<bool> publicLocation = default, Option<bool> active = default, Option<string> locationType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRetailerLocationConsumerApiResponse?> CreateRetailerLocationConsumerOrDefaultAsync(string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<string> tags = default, Option<long> logoAssetId = default, Option<long> picture1AssetId = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> metaData = default, Option<bool> publicLocation = default, Option<bool> active = default, Option<string> locationType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateRetailerLocationConsumerAsync(version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await CreateRetailerLocationConsumerAsync(appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1305,7 +1282,6 @@ namespace Org.OpenAPITools.Api
         /// Create Retailer Location (Consumer) Creates a location record for an application that can support crowd sourced locations.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">the application key</param>
         /// <param name="name">The name of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -1337,7 +1313,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The longitude to center the search on (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerLocationConsumerApiResponse"/>&gt;</returns>
-        public async Task<ICreateRetailerLocationConsumerApiResponse> CreateRetailerLocationConsumerAsync(decimal version, string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<string> tags = default, Option<long> logoAssetId = default, Option<long> picture1AssetId = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> metaData = default, Option<bool> publicLocation = default, Option<bool> active = default, Option<string> locationType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRetailerLocationConsumerApiResponse> CreateRetailerLocationConsumerAsync(string appKey, string name, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<string> tags = default, Option<long> logoAssetId = default, Option<long> picture1AssetId = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> metaData = default, Option<bool> publicLocation = default, Option<bool> active = default, Option<string> locationType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1345,7 +1321,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateRetailerLocationConsumer(appKey, name, deviceId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, categoryIds, filterIds, metaData, locationType);
 
-                FormatCreateRetailerLocationConsumer(ref version, ref appKey, ref name, ref deviceId, ref accountId, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref detailsHeader, ref detailsBody, ref hours, ref tags, ref logoAssetId, ref picture1AssetId, ref picture2AssetId, ref categoryIds, ref filterIds, ref metaData, ref publicLocation, ref active, ref locationType, ref latitude, ref longitude);
+                FormatCreateRetailerLocationConsumer(ref appKey, ref name, ref deviceId, ref accountId, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref detailsHeader, ref detailsBody, ref hours, ref tags, ref logoAssetId, ref picture1AssetId, ref picture2AssetId, ref categoryIds, ref filterIds, ref metaData, ref publicLocation, ref active, ref locationType, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1353,9 +1329,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1468,13 +1443,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateRetailerLocationConsumerDefaultImplementation(apiResponseLocalVar, version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
+                        AfterCreateRetailerLocationConsumerDefaultImplementation(apiResponseLocalVar, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
 
                         Events.ExecuteOnCreateRetailerLocationConsumer(apiResponseLocalVar);
 
@@ -1484,7 +1459,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateRetailerLocationConsumerDefaultImplementation(e, "/api/{version}/location/create", uriBuilderLocalVar.Path, version, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
+                OnErrorCreateRetailerLocationConsumerDefaultImplementation(e, "/location/create", uriBuilderLocalVar.Path, appKey, name, deviceId, accountId, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, detailsHeader, detailsBody, hours, tags, logoAssetId, picture1AssetId, picture2AssetId, categoryIds, filterIds, metaData, publicLocation, active, locationType, latitude, longitude);
                 Events.ExecuteOnErrorCreateRetailerLocationConsumer(e);
                 throw;
             }
@@ -1583,7 +1558,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateRetailerLocations(ref decimal version, ref long retailerId, ref string name, ref string streetAddress, ref string city, ref string state, ref string postalCode, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> streetAddress2, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> internalId, ref Option<string> detailsHeader, ref Option<string> detailsBody, ref Option<string> hours, ref Option<System.IO.Stream> logo, ref Option<long> logoAssetId, ref Option<System.IO.Stream> picture1, ref Option<long> picture1AssetId, ref Option<System.IO.Stream> picture2, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> building, ref Option<string> googlePlaceId, ref Option<string> yelpId, ref Option<bool> active, ref Option<bool> publicLocation, ref Option<string> locationType, ref Option<string> audienceIds, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<string> responseFormat, ref Option<string> responseIncludes);
+        partial void FormatCreateRetailerLocations(ref long retailerId, ref string name, ref string streetAddress, ref string city, ref string state, ref string postalCode, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> streetAddress2, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> internalId, ref Option<string> detailsHeader, ref Option<string> detailsBody, ref Option<string> hours, ref Option<System.IO.Stream> logo, ref Option<long> logoAssetId, ref Option<System.IO.Stream> picture1, ref Option<long> picture1AssetId, ref Option<System.IO.Stream> picture2, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> building, ref Option<string> googlePlaceId, ref Option<string> yelpId, ref Option<bool> active, ref Option<bool> publicLocation, ref Option<string> locationType, ref Option<string> audienceIds, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<string> responseFormat, ref Option<string> responseIncludes);
 
         /// <summary>
         /// Validates the request parameters
@@ -1716,7 +1691,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="name"></param>
         /// <param name="streetAddress"></param>
@@ -1756,10 +1730,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="responseFormat"></param>
         /// <param name="responseIncludes"></param>
-        private void AfterCreateRetailerLocationsDefaultImplementation(ICreateRetailerLocationsApiResponse apiResponseLocalVar, decimal version, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress2, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> responseIncludes)
+        private void AfterCreateRetailerLocationsDefaultImplementation(ICreateRetailerLocationsApiResponse apiResponseLocalVar, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress2, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> responseIncludes)
         {
             bool suppressDefaultLog = false;
-            AfterCreateRetailerLocations(ref suppressDefaultLog, apiResponseLocalVar, version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
+            AfterCreateRetailerLocations(ref suppressDefaultLog, apiResponseLocalVar, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1769,7 +1743,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="name"></param>
         /// <param name="streetAddress"></param>
@@ -1809,7 +1782,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="responseFormat"></param>
         /// <param name="responseIncludes"></param>
-        partial void AfterCreateRetailerLocations(ref bool suppressDefaultLog, ICreateRetailerLocationsApiResponse apiResponseLocalVar, decimal version, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress2, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> responseIncludes);
+        partial void AfterCreateRetailerLocations(ref bool suppressDefaultLog, ICreateRetailerLocationsApiResponse apiResponseLocalVar, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress2, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> responseIncludes);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1817,7 +1790,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="name"></param>
         /// <param name="streetAddress"></param>
@@ -1857,10 +1829,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="responseFormat"></param>
         /// <param name="responseIncludes"></param>
-        private void OnErrorCreateRetailerLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress2, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> responseIncludes)
+        private void OnErrorCreateRetailerLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress2, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> responseIncludes)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateRetailerLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
+            OnErrorCreateRetailerLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1872,7 +1844,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerId"></param>
         /// <param name="name"></param>
         /// <param name="streetAddress"></param>
@@ -1912,12 +1883,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="responseFormat"></param>
         /// <param name="responseIncludes"></param>
-        partial void OnErrorCreateRetailerLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress2, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> responseIncludes);
+        partial void OnErrorCreateRetailerLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId, Option<long> accountId, Option<string> streetAddress2, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> responseIncludes);
 
         /// <summary>
         /// Create Retailer Location Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="retailerId">The ID of the retailer</param>
         /// <param name="name">The name of the retailer location</param>
         /// <param name="streetAddress">The street address of the retailer location</param>
@@ -1959,11 +1929,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseIncludes">Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerLocationsApiResponse"/>&gt;</returns>
-        public async Task<ICreateRetailerLocationsApiResponse?> CreateRetailerLocationsOrDefaultAsync(decimal version, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress2 = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> responseIncludes = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRetailerLocationsApiResponse?> CreateRetailerLocationsOrDefaultAsync(long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress2 = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> responseIncludes = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateRetailerLocationsAsync(version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes, cancellationToken).ConfigureAwait(false);
+                return await CreateRetailerLocationsAsync(retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1975,7 +1945,6 @@ namespace Org.OpenAPITools.Api
         /// Create Retailer Location Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerId">The ID of the retailer</param>
         /// <param name="name">The name of the retailer location</param>
         /// <param name="streetAddress">The street address of the retailer location</param>
@@ -2017,7 +1986,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="responseIncludes">Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateRetailerLocationsApiResponse"/>&gt;</returns>
-        public async Task<ICreateRetailerLocationsApiResponse> CreateRetailerLocationsAsync(decimal version, long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress2 = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> responseIncludes = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateRetailerLocationsApiResponse> CreateRetailerLocationsAsync(long retailerId, string name, string streetAddress, string city, string state, string postalCode, Option<string> deviceId = default, Option<long> accountId = default, Option<string> streetAddress2 = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> responseIncludes = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2025,7 +1994,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateRetailerLocations(name, streetAddress, city, state, postalCode, deviceId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, picture1, picture2, categoryIds, filterIds, building, googlePlaceId, yelpId, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
 
-                FormatCreateRetailerLocations(ref version, ref retailerId, ref name, ref streetAddress, ref city, ref state, ref postalCode, ref deviceId, ref accountId, ref streetAddress2, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref internalId, ref detailsHeader, ref detailsBody, ref hours, ref logo, ref logoAssetId, ref picture1, ref picture1AssetId, ref picture2, ref picture2AssetId, ref categoryIds, ref filterIds, ref latitude, ref longitude, ref building, ref googlePlaceId, ref yelpId, ref active, ref publicLocation, ref locationType, ref audienceIds, ref audienceIdsToAdd, ref audienceIdsToRemove, ref responseFormat, ref responseIncludes);
+                FormatCreateRetailerLocations(ref retailerId, ref name, ref streetAddress, ref city, ref state, ref postalCode, ref deviceId, ref accountId, ref streetAddress2, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref internalId, ref detailsHeader, ref detailsBody, ref hours, ref logo, ref logoAssetId, ref picture1, ref picture1AssetId, ref picture2, ref picture2AssetId, ref categoryIds, ref filterIds, ref latitude, ref longitude, ref building, ref googlePlaceId, ref yelpId, ref active, ref publicLocation, ref locationType, ref audienceIds, ref audienceIdsToAdd, ref audienceIdsToRemove, ref responseFormat, ref responseIncludes);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2033,9 +2002,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/location/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/location/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/location/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/location/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2170,13 +2138,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/location/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/location/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateRetailerLocationsDefaultImplementation(apiResponseLocalVar, version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
+                        AfterCreateRetailerLocationsDefaultImplementation(apiResponseLocalVar, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
 
                         Events.ExecuteOnCreateRetailerLocations(apiResponseLocalVar);
 
@@ -2186,7 +2154,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateRetailerLocationsDefaultImplementation(e, "/api/{version}/retailer/location/create", uriBuilderLocalVar.Path, version, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
+                OnErrorCreateRetailerLocationsDefaultImplementation(e, "/retailer/location/create", uriBuilderLocalVar.Path, retailerId, name, streetAddress, city, state, postalCode, deviceId, accountId, streetAddress2, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, responseIncludes);
                 Events.ExecuteOnErrorCreateRetailerLocations(e);
                 throw;
             }
@@ -2285,7 +2253,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteRetailerLocation(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> retailerLocationId);
+        partial void FormatDeleteRetailerLocation(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> retailerLocationId);
 
         /// <summary>
         /// Validates the request parameters
@@ -2302,14 +2270,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationId"></param>
-        private void AfterDeleteRetailerLocationDefaultImplementation(IDeleteRetailerLocationApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> retailerLocationId)
+        private void AfterDeleteRetailerLocationDefaultImplementation(IDeleteRetailerLocationApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> retailerLocationId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteRetailerLocation(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, retailerLocationId);
+            AfterDeleteRetailerLocation(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, retailerLocationId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2319,11 +2286,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationId"></param>
-        partial void AfterDeleteRetailerLocation(ref bool suppressDefaultLog, IDeleteRetailerLocationApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> retailerLocationId);
+        partial void AfterDeleteRetailerLocation(ref bool suppressDefaultLog, IDeleteRetailerLocationApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> retailerLocationId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2331,14 +2297,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationId"></param>
-        private void OnErrorDeleteRetailerLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> retailerLocationId)
+        private void OnErrorDeleteRetailerLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> retailerLocationId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteRetailerLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, retailerLocationId);
+            OnErrorDeleteRetailerLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, retailerLocationId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2350,26 +2315,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationId"></param>
-        partial void OnErrorDeleteRetailerLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> retailerLocationId);
+        partial void OnErrorDeleteRetailerLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> retailerLocationId);
 
         /// <summary>
         /// Delete Retailer Location Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (optional)</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
         /// <param name="retailerLocationId">the id of the retailer location to delete (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRetailerLocationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRetailerLocationApiResponse?> DeleteRetailerLocationOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRetailerLocationApiResponse?> DeleteRetailerLocationOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteRetailerLocationAsync(version, deviceId, accountId, retailerLocationId, cancellationToken).ConfigureAwait(false);
+                return await DeleteRetailerLocationAsync(deviceId, accountId, retailerLocationId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2381,13 +2344,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Retailer Location Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (optional)</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
         /// <param name="retailerLocationId">the id of the retailer location to delete (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteRetailerLocationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteRetailerLocationApiResponse> DeleteRetailerLocationAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteRetailerLocationApiResponse> DeleteRetailerLocationAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> retailerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2395,7 +2357,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteRetailerLocation(deviceId);
 
-                FormatDeleteRetailerLocation(ref version, ref deviceId, ref accountId, ref retailerLocationId);
+                FormatDeleteRetailerLocation(ref deviceId, ref accountId, ref retailerLocationId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2403,9 +2365,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/location/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/location/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/location/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/location/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2443,13 +2404,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/location/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/location/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteRetailerLocationDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, retailerLocationId);
+                        AfterDeleteRetailerLocationDefaultImplementation(apiResponseLocalVar, deviceId, accountId, retailerLocationId);
 
                         Events.ExecuteOnDeleteRetailerLocation(apiResponseLocalVar);
 
@@ -2459,7 +2420,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteRetailerLocationDefaultImplementation(e, "/api/{version}/retailer/location/delete", uriBuilderLocalVar.Path, version, deviceId, accountId, retailerLocationId);
+                OnErrorDeleteRetailerLocationDefaultImplementation(e, "/retailer/location/delete", uriBuilderLocalVar.Path, deviceId, accountId, retailerLocationId);
                 Events.ExecuteOnErrorDeleteRetailerLocation(e);
                 throw;
             }
@@ -2558,7 +2519,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetRetailerLocation(ref decimal version, ref long retailerLocationId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> retailerLocationToken);
+        partial void FormatGetRetailerLocation(ref long retailerLocationId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> retailerLocationToken);
 
         /// <summary>
         /// Validates the request parameters
@@ -2579,15 +2540,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationToken"></param>
-        private void AfterGetRetailerLocationDefaultImplementation(IGetRetailerLocationApiResponse apiResponseLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> retailerLocationToken)
+        private void AfterGetRetailerLocationDefaultImplementation(IGetRetailerLocationApiResponse apiResponseLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> retailerLocationToken)
         {
             bool suppressDefaultLog = false;
-            AfterGetRetailerLocation(ref suppressDefaultLog, apiResponseLocalVar, version, retailerLocationId, deviceId, accountId, retailerLocationToken);
+            AfterGetRetailerLocation(ref suppressDefaultLog, apiResponseLocalVar, retailerLocationId, deviceId, accountId, retailerLocationToken);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2597,12 +2557,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationToken"></param>
-        partial void AfterGetRetailerLocation(ref bool suppressDefaultLog, IGetRetailerLocationApiResponse apiResponseLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> retailerLocationToken);
+        partial void AfterGetRetailerLocation(ref bool suppressDefaultLog, IGetRetailerLocationApiResponse apiResponseLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> retailerLocationToken);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2610,15 +2569,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationToken"></param>
-        private void OnErrorGetRetailerLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> retailerLocationToken)
+        private void OnErrorGetRetailerLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> retailerLocationToken)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRetailerLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, retailerLocationId, deviceId, accountId, retailerLocationToken);
+            OnErrorGetRetailerLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, retailerLocationId, deviceId, accountId, retailerLocationToken);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2630,28 +2588,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="retailerLocationToken"></param>
-        partial void OnErrorGetRetailerLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> retailerLocationToken);
+        partial void OnErrorGetRetailerLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> retailerLocationToken);
 
         /// <summary>
         /// Get Retailer Location Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The ID of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="retailerLocationToken">the unique token of the retailer location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerLocationApiResponse"/>&gt;</returns>
-        public async Task<IGetRetailerLocationApiResponse?> GetRetailerLocationOrDefaultAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> retailerLocationToken = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetailerLocationApiResponse?> GetRetailerLocationOrDefaultAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> retailerLocationToken = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRetailerLocationAsync(version, retailerLocationId, deviceId, accountId, retailerLocationToken, cancellationToken).ConfigureAwait(false);
+                return await GetRetailerLocationAsync(retailerLocationId, deviceId, accountId, retailerLocationToken, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2663,14 +2619,13 @@ namespace Org.OpenAPITools.Api
         /// Get Retailer Location Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The ID of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="retailerLocationToken">the unique token of the retailer location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerLocationApiResponse"/>&gt;</returns>
-        public async Task<IGetRetailerLocationApiResponse> GetRetailerLocationAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> retailerLocationToken = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetailerLocationApiResponse> GetRetailerLocationAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> retailerLocationToken = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2678,7 +2633,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetRetailerLocation(deviceId, retailerLocationToken);
 
-                FormatGetRetailerLocation(ref version, ref retailerLocationId, ref deviceId, ref accountId, ref retailerLocationToken);
+                FormatGetRetailerLocation(ref retailerLocationId, ref deviceId, ref accountId, ref retailerLocationToken);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2686,9 +2641,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/location/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/location/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/location/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/location/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2728,13 +2682,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/location/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/location/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRetailerLocationDefaultImplementation(apiResponseLocalVar, version, retailerLocationId, deviceId, accountId, retailerLocationToken);
+                        AfterGetRetailerLocationDefaultImplementation(apiResponseLocalVar, retailerLocationId, deviceId, accountId, retailerLocationToken);
 
                         Events.ExecuteOnGetRetailerLocation(apiResponseLocalVar);
 
@@ -2744,7 +2698,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRetailerLocationDefaultImplementation(e, "/api/{version}/retailer/location/get", uriBuilderLocalVar.Path, version, retailerLocationId, deviceId, accountId, retailerLocationToken);
+                OnErrorGetRetailerLocationDefaultImplementation(e, "/retailer/location/get", uriBuilderLocalVar.Path, retailerLocationId, deviceId, accountId, retailerLocationToken);
                 Events.ExecuteOnErrorGetRetailerLocation(e);
                 throw;
             }
@@ -2843,7 +2797,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetRetailerLocationConsumer(ref decimal version, ref long retailerLocationId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatGetRetailerLocationConsumer(ref long retailerLocationId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -2860,14 +2814,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetRetailerLocationConsumerDefaultImplementation(IGetRetailerLocationConsumerApiResponse apiResponseLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId)
+        private void AfterGetRetailerLocationConsumerDefaultImplementation(IGetRetailerLocationConsumerApiResponse apiResponseLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetRetailerLocationConsumer(ref suppressDefaultLog, apiResponseLocalVar, version, retailerLocationId, deviceId, accountId);
+            AfterGetRetailerLocationConsumer(ref suppressDefaultLog, apiResponseLocalVar, retailerLocationId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2877,11 +2830,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetRetailerLocationConsumer(ref bool suppressDefaultLog, IGetRetailerLocationConsumerApiResponse apiResponseLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterGetRetailerLocationConsumer(ref bool suppressDefaultLog, IGetRetailerLocationConsumerApiResponse apiResponseLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2889,14 +2841,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetRetailerLocationConsumerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorGetRetailerLocationConsumerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetRetailerLocationConsumer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, retailerLocationId, deviceId, accountId);
+            OnErrorGetRetailerLocationConsumer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, retailerLocationId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2908,26 +2859,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetRetailerLocationConsumer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorGetRetailerLocationConsumer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Get Retailer Location (Consumer) Gets the details of a retailer location as a consumer.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The retailer location id</param>
         /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerLocationConsumerApiResponse"/>&gt;</returns>
-        public async Task<IGetRetailerLocationConsumerApiResponse?> GetRetailerLocationConsumerOrDefaultAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetailerLocationConsumerApiResponse?> GetRetailerLocationConsumerOrDefaultAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetRetailerLocationConsumerAsync(version, retailerLocationId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetRetailerLocationConsumerAsync(retailerLocationId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2939,13 +2888,12 @@ namespace Org.OpenAPITools.Api
         /// Get Retailer Location (Consumer) Gets the details of a retailer location as a consumer.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The retailer location id</param>
         /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetRetailerLocationConsumerApiResponse"/>&gt;</returns>
-        public async Task<IGetRetailerLocationConsumerApiResponse> GetRetailerLocationConsumerAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetRetailerLocationConsumerApiResponse> GetRetailerLocationConsumerAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2953,7 +2901,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetRetailerLocationConsumer(deviceId);
 
-                FormatGetRetailerLocationConsumer(ref version, ref retailerLocationId, ref deviceId, ref accountId);
+                FormatGetRetailerLocationConsumer(ref retailerLocationId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2961,9 +2909,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/location/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/location/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/location/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/location/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3000,13 +2947,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/location/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/location/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetRetailerLocationConsumerDefaultImplementation(apiResponseLocalVar, version, retailerLocationId, deviceId, accountId);
+                        AfterGetRetailerLocationConsumerDefaultImplementation(apiResponseLocalVar, retailerLocationId, deviceId, accountId);
 
                         Events.ExecuteOnGetRetailerLocationConsumer(apiResponseLocalVar);
 
@@ -3016,7 +2963,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetRetailerLocationConsumerDefaultImplementation(e, "/api/{version}/location/get", uriBuilderLocalVar.Path, version, retailerLocationId, deviceId, accountId);
+                OnErrorGetRetailerLocationConsumerDefaultImplementation(e, "/location/get", uriBuilderLocalVar.Path, retailerLocationId, deviceId, accountId);
                 Events.ExecuteOnErrorGetRetailerLocationConsumer(e);
                 throw;
             }
@@ -3115,7 +3062,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatIndexedRetailerLocationDistanceSearch(ref decimal version, ref double latitude, ref double longitude, ref double searchRange, ref int start, ref int limit, ref Option<long> accountId, ref Option<string> address, ref Option<bool> hasOffers, ref Option<string> categories, ref Option<string> filters, ref Option<string> audiences, ref Option<string> retailerIds, ref Option<string> retailerLocationIds, ref Option<string> tags, ref Option<string> locationType, ref Option<string> sortField, ref Option<bool> descending, ref Option<string> q, ref Option<string> keyword, ref Option<string> keywordOperator, ref Option<string> searchExpression, ref Option<string> distanceUnit, ref Option<bool> returnFavorited, ref Option<bool> returnRetailer, ref Option<bool> returnAssets, ref Option<bool> returnOffers, ref Option<bool> returnCategories, ref Option<bool> returnFilters, ref Option<bool> returnAudiences, ref Option<bool> returnQrCode, ref Option<bool> returnExternalCategoryData, ref Option<bool> includeFavorite, ref Option<bool> includeLiked, ref Option<bool> includeRating);
+        partial void FormatIndexedRetailerLocationDistanceSearch(ref double latitude, ref double longitude, ref double searchRange, ref int start, ref int limit, ref Option<long> accountId, ref Option<string> address, ref Option<bool> hasOffers, ref Option<string> categories, ref Option<string> filters, ref Option<string> audiences, ref Option<string> retailerIds, ref Option<string> retailerLocationIds, ref Option<string> tags, ref Option<string> locationType, ref Option<string> sortField, ref Option<bool> descending, ref Option<string> q, ref Option<string> keyword, ref Option<string> keywordOperator, ref Option<string> searchExpression, ref Option<string> distanceUnit, ref Option<bool> returnFavorited, ref Option<bool> returnRetailer, ref Option<bool> returnAssets, ref Option<bool> returnOffers, ref Option<bool> returnCategories, ref Option<bool> returnFilters, ref Option<bool> returnAudiences, ref Option<bool> returnQrCode, ref Option<bool> returnExternalCategoryData, ref Option<bool> includeFavorite, ref Option<bool> includeLiked, ref Option<bool> includeRating);
 
         /// <summary>
         /// Validates the request parameters
@@ -3184,7 +3131,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="searchRange"></param>
@@ -3219,10 +3165,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        private void AfterIndexedRetailerLocationDistanceSearchDefaultImplementation(IIndexedRetailerLocationDistanceSearchApiResponse apiResponseLocalVar, decimal version, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId, Option<string> address, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<string> distanceUnit, Option<bool> returnFavorited, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
+        private void AfterIndexedRetailerLocationDistanceSearchDefaultImplementation(IIndexedRetailerLocationDistanceSearchApiResponse apiResponseLocalVar, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId, Option<string> address, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<string> distanceUnit, Option<bool> returnFavorited, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
         {
             bool suppressDefaultLog = false;
-            AfterIndexedRetailerLocationDistanceSearch(ref suppressDefaultLog, apiResponseLocalVar, version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+            AfterIndexedRetailerLocationDistanceSearch(ref suppressDefaultLog, apiResponseLocalVar, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3232,7 +3178,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="searchRange"></param>
@@ -3267,7 +3212,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        partial void AfterIndexedRetailerLocationDistanceSearch(ref bool suppressDefaultLog, IIndexedRetailerLocationDistanceSearchApiResponse apiResponseLocalVar, decimal version, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId, Option<string> address, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<string> distanceUnit, Option<bool> returnFavorited, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
+        partial void AfterIndexedRetailerLocationDistanceSearch(ref bool suppressDefaultLog, IIndexedRetailerLocationDistanceSearchApiResponse apiResponseLocalVar, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId, Option<string> address, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<string> distanceUnit, Option<bool> returnFavorited, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3275,7 +3220,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="searchRange"></param>
@@ -3310,10 +3254,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        private void OnErrorIndexedRetailerLocationDistanceSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId, Option<string> address, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<string> distanceUnit, Option<bool> returnFavorited, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
+        private void OnErrorIndexedRetailerLocationDistanceSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId, Option<string> address, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<string> distanceUnit, Option<bool> returnFavorited, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorIndexedRetailerLocationDistanceSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+            OnErrorIndexedRetailerLocationDistanceSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3325,7 +3269,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="searchRange"></param>
@@ -3360,12 +3303,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        partial void OnErrorIndexedRetailerLocationDistanceSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId, Option<string> address, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<string> distanceUnit, Option<bool> returnFavorited, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
+        partial void OnErrorIndexedRetailerLocationDistanceSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId, Option<string> address, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<string> distanceUnit, Option<bool> returnFavorited, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
 
         /// <summary>
         /// Distance Search Retailer Locations (Indexed) Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude to center the search on</param>
         /// <param name="longitude">The longitude to center the search on</param>
         /// <param name="searchRange">The search range in the distanceUnit specified; default is MILES.</param>
@@ -3402,11 +3344,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIndexedRetailerLocationDistanceSearchApiResponse"/>&gt;</returns>
-        public async Task<IIndexedRetailerLocationDistanceSearchApiResponse?> IndexedRetailerLocationDistanceSearchOrDefaultAsync(decimal version, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId = default, Option<string> address = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<string> distanceUnit = default, Option<bool> returnFavorited = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IIndexedRetailerLocationDistanceSearchApiResponse?> IndexedRetailerLocationDistanceSearchOrDefaultAsync(double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId = default, Option<string> address = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<string> distanceUnit = default, Option<bool> returnFavorited = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await IndexedRetailerLocationDistanceSearchAsync(version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, cancellationToken).ConfigureAwait(false);
+                return await IndexedRetailerLocationDistanceSearchAsync(latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3418,7 +3360,6 @@ namespace Org.OpenAPITools.Api
         /// Distance Search Retailer Locations (Indexed) Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude to center the search on</param>
         /// <param name="longitude">The longitude to center the search on</param>
         /// <param name="searchRange">The search range in the distanceUnit specified; default is MILES.</param>
@@ -3455,7 +3396,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIndexedRetailerLocationDistanceSearchApiResponse"/>&gt;</returns>
-        public async Task<IIndexedRetailerLocationDistanceSearchApiResponse> IndexedRetailerLocationDistanceSearchAsync(decimal version, double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId = default, Option<string> address = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<string> distanceUnit = default, Option<bool> returnFavorited = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IIndexedRetailerLocationDistanceSearchApiResponse> IndexedRetailerLocationDistanceSearchAsync(double latitude, double longitude, double searchRange, int start, int limit, Option<long> accountId = default, Option<string> address = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<string> distanceUnit = default, Option<bool> returnFavorited = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3463,7 +3404,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateIndexedRetailerLocationDistanceSearch(address, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, q, keyword, keywordOperator, searchExpression, distanceUnit);
 
-                FormatIndexedRetailerLocationDistanceSearch(ref version, ref latitude, ref longitude, ref searchRange, ref start, ref limit, ref accountId, ref address, ref hasOffers, ref categories, ref filters, ref audiences, ref retailerIds, ref retailerLocationIds, ref tags, ref locationType, ref sortField, ref descending, ref q, ref keyword, ref keywordOperator, ref searchExpression, ref distanceUnit, ref returnFavorited, ref returnRetailer, ref returnAssets, ref returnOffers, ref returnCategories, ref returnFilters, ref returnAudiences, ref returnQrCode, ref returnExternalCategoryData, ref includeFavorite, ref includeLiked, ref includeRating);
+                FormatIndexedRetailerLocationDistanceSearch(ref latitude, ref longitude, ref searchRange, ref start, ref limit, ref accountId, ref address, ref hasOffers, ref categories, ref filters, ref audiences, ref retailerIds, ref retailerLocationIds, ref tags, ref locationType, ref sortField, ref descending, ref q, ref keyword, ref keywordOperator, ref searchExpression, ref distanceUnit, ref returnFavorited, ref returnRetailer, ref returnAssets, ref returnOffers, ref returnCategories, ref returnFilters, ref returnAudiences, ref returnQrCode, ref returnExternalCategoryData, ref includeFavorite, ref includeLiked, ref includeRating);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3471,9 +3412,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/location/idistancesearch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/location/idistancesearch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/location/idistancesearch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/location/idistancesearch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3595,13 +3535,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/location/idistancesearch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/location/idistancesearch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterIndexedRetailerLocationDistanceSearchDefaultImplementation(apiResponseLocalVar, version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+                        AfterIndexedRetailerLocationDistanceSearchDefaultImplementation(apiResponseLocalVar, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
 
                         Events.ExecuteOnIndexedRetailerLocationDistanceSearch(apiResponseLocalVar);
 
@@ -3611,7 +3551,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorIndexedRetailerLocationDistanceSearchDefaultImplementation(e, "/api/{version}/retailer/location/idistancesearch", uriBuilderLocalVar.Path, version, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+                OnErrorIndexedRetailerLocationDistanceSearchDefaultImplementation(e, "/retailer/location/idistancesearch", uriBuilderLocalVar.Path, latitude, longitude, searchRange, start, limit, accountId, address, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, distanceUnit, returnFavorited, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
                 Events.ExecuteOnErrorIndexedRetailerLocationDistanceSearch(e);
                 throw;
             }
@@ -3710,7 +3650,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatIndexedRetailerLocationSearch(ref decimal version, ref Option<long> accountId, ref Option<int> start, ref Option<int> limit, ref Option<bool> hasOffers, ref Option<string> categories, ref Option<string> filters, ref Option<string> audiences, ref Option<string> retailerIds, ref Option<string> retailerLocationIds, ref Option<string> tags, ref Option<string> locationType, ref Option<string> sortField, ref Option<bool> descending, ref Option<string> q, ref Option<string> keyword, ref Option<string> keywordOperator, ref Option<string> searchExpression, ref Option<bool> returnRetailer, ref Option<bool> returnAssets, ref Option<bool> returnOffers, ref Option<bool> returnCategories, ref Option<bool> returnFilters, ref Option<bool> returnAudiences, ref Option<bool> returnQrCode, ref Option<bool> returnExternalCategoryData, ref Option<bool> includeFavorite, ref Option<bool> includeLiked, ref Option<bool> includeRating);
+        partial void FormatIndexedRetailerLocationSearch(ref Option<long> accountId, ref Option<int> start, ref Option<int> limit, ref Option<bool> hasOffers, ref Option<string> categories, ref Option<string> filters, ref Option<string> audiences, ref Option<string> retailerIds, ref Option<string> retailerLocationIds, ref Option<string> tags, ref Option<string> locationType, ref Option<string> sortField, ref Option<bool> descending, ref Option<string> q, ref Option<string> keyword, ref Option<string> keywordOperator, ref Option<string> searchExpression, ref Option<bool> returnRetailer, ref Option<bool> returnAssets, ref Option<bool> returnOffers, ref Option<bool> returnCategories, ref Option<bool> returnFilters, ref Option<bool> returnAudiences, ref Option<bool> returnQrCode, ref Option<bool> returnExternalCategoryData, ref Option<bool> includeFavorite, ref Option<bool> includeLiked, ref Option<bool> includeRating);
 
         /// <summary>
         /// Validates the request parameters
@@ -3771,7 +3711,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -3800,10 +3739,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        private void AfterIndexedRetailerLocationSearchDefaultImplementation(IIndexedRetailerLocationSearchApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
+        private void AfterIndexedRetailerLocationSearchDefaultImplementation(IIndexedRetailerLocationSearchApiResponse apiResponseLocalVar, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
         {
             bool suppressDefaultLog = false;
-            AfterIndexedRetailerLocationSearch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+            AfterIndexedRetailerLocationSearch(ref suppressDefaultLog, apiResponseLocalVar, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3813,7 +3752,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -3842,7 +3780,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        partial void AfterIndexedRetailerLocationSearch(ref bool suppressDefaultLog, IIndexedRetailerLocationSearchApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
+        partial void AfterIndexedRetailerLocationSearch(ref bool suppressDefaultLog, IIndexedRetailerLocationSearchApiResponse apiResponseLocalVar, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3850,7 +3788,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -3879,10 +3816,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        private void OnErrorIndexedRetailerLocationSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
+        private void OnErrorIndexedRetailerLocationSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorIndexedRetailerLocationSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+            OnErrorIndexedRetailerLocationSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3894,7 +3831,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
@@ -3923,12 +3859,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        partial void OnErrorIndexedRetailerLocationSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
+        partial void OnErrorIndexedRetailerLocationSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<int> start, Option<int> limit, Option<bool> hasOffers, Option<string> categories, Option<string> filters, Option<string> audiences, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> tags, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<string> q, Option<string> keyword, Option<string> keywordOperator, Option<string> searchExpression, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> returnExternalCategoryData, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
 
         /// <summary>
         /// Keyword Search Retailer Locations (Indexed) Retailer location (faster) indexed search. This searches all retailer locations.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="start">The start index for pagination (optional)</param>
         /// <param name="limit">The limit for pagination (optional)</param>
@@ -3959,11 +3894,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIndexedRetailerLocationSearchApiResponse"/>&gt;</returns>
-        public async Task<IIndexedRetailerLocationSearchApiResponse?> IndexedRetailerLocationSearchOrDefaultAsync(decimal version, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IIndexedRetailerLocationSearchApiResponse?> IndexedRetailerLocationSearchOrDefaultAsync(Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await IndexedRetailerLocationSearchAsync(version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, cancellationToken).ConfigureAwait(false);
+                return await IndexedRetailerLocationSearchAsync(accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3975,7 +3910,6 @@ namespace Org.OpenAPITools.Api
         /// Keyword Search Retailer Locations (Indexed) Retailer location (faster) indexed search. This searches all retailer locations.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="start">The start index for pagination (optional)</param>
         /// <param name="limit">The limit for pagination (optional)</param>
@@ -4006,7 +3940,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IIndexedRetailerLocationSearchApiResponse"/>&gt;</returns>
-        public async Task<IIndexedRetailerLocationSearchApiResponse> IndexedRetailerLocationSearchAsync(decimal version, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IIndexedRetailerLocationSearchApiResponse> IndexedRetailerLocationSearchAsync(Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, Option<bool> hasOffers = default, Option<string> categories = default, Option<string> filters = default, Option<string> audiences = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> tags = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<string> q = default, Option<string> keyword = default, Option<string> keywordOperator = default, Option<string> searchExpression = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> returnExternalCategoryData = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4014,7 +3948,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateIndexedRetailerLocationSearch(categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, q, keyword, keywordOperator, searchExpression);
 
-                FormatIndexedRetailerLocationSearch(ref version, ref accountId, ref start, ref limit, ref hasOffers, ref categories, ref filters, ref audiences, ref retailerIds, ref retailerLocationIds, ref tags, ref locationType, ref sortField, ref descending, ref q, ref keyword, ref keywordOperator, ref searchExpression, ref returnRetailer, ref returnAssets, ref returnOffers, ref returnCategories, ref returnFilters, ref returnAudiences, ref returnQrCode, ref returnExternalCategoryData, ref includeFavorite, ref includeLiked, ref includeRating);
+                FormatIndexedRetailerLocationSearch(ref accountId, ref start, ref limit, ref hasOffers, ref categories, ref filters, ref audiences, ref retailerIds, ref retailerLocationIds, ref tags, ref locationType, ref sortField, ref descending, ref q, ref keyword, ref keywordOperator, ref searchExpression, ref returnRetailer, ref returnAssets, ref returnOffers, ref returnCategories, ref returnFilters, ref returnAudiences, ref returnQrCode, ref returnExternalCategoryData, ref includeFavorite, ref includeLiked, ref includeRating);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4022,9 +3956,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/location/isearch"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/location/isearch");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/location/isearch"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/location/isearch");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4137,13 +4070,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/location/isearch", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/location/isearch", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterIndexedRetailerLocationSearchDefaultImplementation(apiResponseLocalVar, version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+                        AfterIndexedRetailerLocationSearchDefaultImplementation(apiResponseLocalVar, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
 
                         Events.ExecuteOnIndexedRetailerLocationSearch(apiResponseLocalVar);
 
@@ -4153,7 +4086,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorIndexedRetailerLocationSearchDefaultImplementation(e, "/api/{version}/retailer/location/isearch", uriBuilderLocalVar.Path, version, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
+                OnErrorIndexedRetailerLocationSearchDefaultImplementation(e, "/retailer/location/isearch", uriBuilderLocalVar.Path, accountId, start, limit, hasOffers, categories, filters, audiences, retailerIds, retailerLocationIds, tags, locationType, sortField, descending, q, keyword, keywordOperator, searchExpression, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, returnExternalCategoryData, includeFavorite, includeLiked, includeRating);
                 Events.ExecuteOnErrorIndexedRetailerLocationSearch(e);
                 throw;
             }
@@ -4252,7 +4185,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchRetailerLocations(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<string> retailerIds, ref Option<string> retailerLocationIds, ref Option<string> locationType, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<bool> showPublicLocations, ref Option<bool> activeOnly, ref Option<bool> returnRetailer, ref Option<bool> returnAssets, ref Option<bool> returnOffers, ref Option<bool> returnCategories, ref Option<bool> returnFilters, ref Option<bool> returnAudiences, ref Option<bool> returnQrCode, ref Option<bool> includeFavorite, ref Option<bool> includeLiked, ref Option<bool> includeRating);
+        partial void FormatSearchRetailerLocations(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<string> retailerIds, ref Option<string> retailerLocationIds, ref Option<string> locationType, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<bool> showPublicLocations, ref Option<bool> activeOnly, ref Option<bool> returnRetailer, ref Option<bool> returnAssets, ref Option<bool> returnOffers, ref Option<bool> returnCategories, ref Option<bool> returnFilters, ref Option<bool> returnAudiences, ref Option<bool> returnQrCode, ref Option<bool> includeFavorite, ref Option<bool> includeLiked, ref Option<bool> includeRating);
 
         /// <summary>
         /// Validates the request parameters
@@ -4293,7 +4226,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
@@ -4319,10 +4251,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        private void AfterSearchRetailerLocationsDefaultImplementation(ISearchRetailerLocationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> showPublicLocations, Option<bool> activeOnly, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
+        private void AfterSearchRetailerLocationsDefaultImplementation(ISearchRetailerLocationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> showPublicLocations, Option<bool> activeOnly, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
         {
             bool suppressDefaultLog = false;
-            AfterSearchRetailerLocations(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
+            AfterSearchRetailerLocations(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4332,7 +4264,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
@@ -4358,7 +4289,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        partial void AfterSearchRetailerLocations(ref bool suppressDefaultLog, ISearchRetailerLocationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> showPublicLocations, Option<bool> activeOnly, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
+        partial void AfterSearchRetailerLocations(ref bool suppressDefaultLog, ISearchRetailerLocationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> showPublicLocations, Option<bool> activeOnly, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4366,7 +4297,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
@@ -4392,10 +4322,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        private void OnErrorSearchRetailerLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> showPublicLocations, Option<bool> activeOnly, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
+        private void OnErrorSearchRetailerLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> showPublicLocations, Option<bool> activeOnly, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchRetailerLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
+            OnErrorSearchRetailerLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4407,7 +4337,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
@@ -4433,12 +4362,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeFavorite"></param>
         /// <param name="includeLiked"></param>
         /// <param name="includeRating"></param>
-        partial void OnErrorSearchRetailerLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> showPublicLocations, Option<bool> activeOnly, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
+        partial void OnErrorSearchRetailerLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> retailerIds, Option<string> retailerLocationIds, Option<string> locationType, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> showPublicLocations, Option<bool> activeOnly, Option<bool> returnRetailer, Option<bool> returnAssets, Option<bool> returnOffers, Option<bool> returnCategories, Option<bool> returnFilters, Option<bool> returnAudiences, Option<bool> returnQrCode, Option<bool> includeFavorite, Option<bool> includeLiked, Option<bool> includeRating);
 
         /// <summary>
         /// Search Retailer Locations (Owned) Searches on retailer locations that the account has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="q">This parameter is deprecated. (optional)</param>
@@ -4466,11 +4394,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRetailerLocationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRetailerLocationsApiResponse?> SearchRetailerLocationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> showPublicLocations = default, Option<bool> activeOnly = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRetailerLocationsApiResponse?> SearchRetailerLocationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> showPublicLocations = default, Option<bool> activeOnly = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchRetailerLocationsAsync(version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating, cancellationToken).ConfigureAwait(false);
+                return await SearchRetailerLocationsAsync(deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4482,7 +4410,6 @@ namespace Org.OpenAPITools.Api
         /// Search Retailer Locations (Owned) Searches on retailer locations that the account has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="q">This parameter is deprecated. (optional)</param>
@@ -4510,7 +4437,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeRating">Include rating info in response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchRetailerLocationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchRetailerLocationsApiResponse> SearchRetailerLocationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> showPublicLocations = default, Option<bool> activeOnly = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchRetailerLocationsApiResponse> SearchRetailerLocationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> retailerIds = default, Option<string> retailerLocationIds = default, Option<string> locationType = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> showPublicLocations = default, Option<bool> activeOnly = default, Option<bool> returnRetailer = default, Option<bool> returnAssets = default, Option<bool> returnOffers = default, Option<bool> returnCategories = default, Option<bool> returnFilters = default, Option<bool> returnAudiences = default, Option<bool> returnQrCode = default, Option<bool> includeFavorite = default, Option<bool> includeLiked = default, Option<bool> includeRating = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4518,7 +4445,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchRetailerLocations(deviceId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField);
 
-                FormatSearchRetailerLocations(ref version, ref deviceId, ref accountId, ref q, ref keyword, ref retailerIds, ref retailerLocationIds, ref locationType, ref sortField, ref descending, ref i, ref start, ref l, ref limit, ref showPublicLocations, ref activeOnly, ref returnRetailer, ref returnAssets, ref returnOffers, ref returnCategories, ref returnFilters, ref returnAudiences, ref returnQrCode, ref includeFavorite, ref includeLiked, ref includeRating);
+                FormatSearchRetailerLocations(ref deviceId, ref accountId, ref q, ref keyword, ref retailerIds, ref retailerLocationIds, ref locationType, ref sortField, ref descending, ref i, ref start, ref l, ref limit, ref showPublicLocations, ref activeOnly, ref returnRetailer, ref returnAssets, ref returnOffers, ref returnCategories, ref returnFilters, ref returnAudiences, ref returnQrCode, ref includeFavorite, ref includeLiked, ref includeRating);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4526,9 +4453,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/location/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/location/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/location/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/location/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4632,13 +4558,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/location/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/location/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchRetailerLocationsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
+                        AfterSearchRetailerLocationsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
 
                         Events.ExecuteOnSearchRetailerLocations(apiResponseLocalVar);
 
@@ -4648,7 +4574,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchRetailerLocationsDefaultImplementation(e, "/api/{version}/retailer/location/search", uriBuilderLocalVar.Path, version, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
+                OnErrorSearchRetailerLocationsDefaultImplementation(e, "/retailer/location/search", uriBuilderLocalVar.Path, deviceId, accountId, q, keyword, retailerIds, retailerLocationIds, locationType, sortField, descending, i, start, l, limit, showPublicLocations, activeOnly, returnRetailer, returnAssets, returnOffers, returnCategories, returnFilters, returnAudiences, returnQrCode, includeFavorite, includeLiked, includeRating);
                 Events.ExecuteOnErrorSearchRetailerLocations(e);
                 throw;
             }
@@ -4747,7 +4673,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateRetailerLocations(ref decimal version, ref long retailerLocationId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> internalId, ref Option<string> detailsHeader, ref Option<string> detailsBody, ref Option<string> hours, ref Option<System.IO.Stream> logo, ref Option<long> logoAssetId, ref Option<System.IO.Stream> picture1, ref Option<long> picture1AssetId, ref Option<System.IO.Stream> picture2, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> building, ref Option<string> googlePlaceId, ref Option<string> yelpId, ref Option<string> metaData, ref Option<string> paymentProvider, ref Option<bool> active, ref Option<bool> publicLocation, ref Option<string> locationType, ref Option<string> audienceIds, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<string> responseFormat, ref Option<string> tags);
+        partial void FormatUpdateRetailerLocations(ref long retailerLocationId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> streetAddress, ref Option<string> streetAddress2, ref Option<string> city, ref Option<string> state, ref Option<string> postalCode, ref Option<string> country, ref Option<string> businessPhone, ref Option<string> businessPhoneExt, ref Option<string> website, ref Option<string> email, ref Option<string> internalId, ref Option<string> detailsHeader, ref Option<string> detailsBody, ref Option<string> hours, ref Option<System.IO.Stream> logo, ref Option<long> logoAssetId, ref Option<System.IO.Stream> picture1, ref Option<long> picture1AssetId, ref Option<System.IO.Stream> picture2, ref Option<long> picture2AssetId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> building, ref Option<string> googlePlaceId, ref Option<string> yelpId, ref Option<string> metaData, ref Option<string> paymentProvider, ref Option<bool> active, ref Option<bool> publicLocation, ref Option<string> locationType, ref Option<string> audienceIds, ref Option<string> audienceIdsToAdd, ref Option<string> audienceIdsToRemove, ref Option<string> responseFormat, ref Option<string> tags);
 
         /// <summary>
         /// Validates the request parameters
@@ -4888,7 +4814,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4930,10 +4855,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="responseFormat"></param>
         /// <param name="tags"></param>
-        private void AfterUpdateRetailerLocationsDefaultImplementation(IUpdateRetailerLocationsApiResponse apiResponseLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<string> metaData, Option<string> paymentProvider, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> tags)
+        private void AfterUpdateRetailerLocationsDefaultImplementation(IUpdateRetailerLocationsApiResponse apiResponseLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<string> metaData, Option<string> paymentProvider, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> tags)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateRetailerLocations(ref suppressDefaultLog, apiResponseLocalVar, version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
+            AfterUpdateRetailerLocations(ref suppressDefaultLog, apiResponseLocalVar, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4943,7 +4868,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -4985,7 +4909,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="responseFormat"></param>
         /// <param name="tags"></param>
-        partial void AfterUpdateRetailerLocations(ref bool suppressDefaultLog, IUpdateRetailerLocationsApiResponse apiResponseLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<string> metaData, Option<string> paymentProvider, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> tags);
+        partial void AfterUpdateRetailerLocations(ref bool suppressDefaultLog, IUpdateRetailerLocationsApiResponse apiResponseLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<string> metaData, Option<string> paymentProvider, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> tags);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4993,7 +4917,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5035,10 +4958,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="responseFormat"></param>
         /// <param name="tags"></param>
-        private void OnErrorUpdateRetailerLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<string> metaData, Option<string> paymentProvider, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> tags)
+        private void OnErrorUpdateRetailerLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<string> metaData, Option<string> paymentProvider, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> tags)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateRetailerLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
+            OnErrorUpdateRetailerLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5050,7 +4973,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -5092,12 +5014,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="audienceIdsToRemove"></param>
         /// <param name="responseFormat"></param>
         /// <param name="tags"></param>
-        partial void OnErrorUpdateRetailerLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<string> metaData, Option<string> paymentProvider, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> tags);
+        partial void OnErrorUpdateRetailerLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long retailerLocationId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> streetAddress, Option<string> streetAddress2, Option<string> city, Option<string> state, Option<string> postalCode, Option<string> country, Option<string> businessPhone, Option<string> businessPhoneExt, Option<string> website, Option<string> email, Option<string> internalId, Option<string> detailsHeader, Option<string> detailsBody, Option<string> hours, Option<System.IO.Stream> logo, Option<long> logoAssetId, Option<System.IO.Stream> picture1, Option<long> picture1AssetId, Option<System.IO.Stream> picture2, Option<long> picture2AssetId, Option<string> categoryIds, Option<string> filterIds, Option<double> latitude, Option<double> longitude, Option<string> building, Option<string> googlePlaceId, Option<string> yelpId, Option<string> metaData, Option<string> paymentProvider, Option<bool> active, Option<bool> publicLocation, Option<string> locationType, Option<string> audienceIds, Option<string> audienceIdsToAdd, Option<string> audienceIdsToRemove, Option<string> responseFormat, Option<string> tags);
 
         /// <summary>
         /// Update Retailer Location Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The ID of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -5141,11 +5062,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">Custom string field for doing full-text searches (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRetailerLocationsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRetailerLocationsApiResponse?> UpdateRetailerLocationsOrDefaultAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<string> metaData = default, Option<string> paymentProvider = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRetailerLocationsApiResponse?> UpdateRetailerLocationsOrDefaultAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<string> metaData = default, Option<string> paymentProvider = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateRetailerLocationsAsync(version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags, cancellationToken).ConfigureAwait(false);
+                return await UpdateRetailerLocationsAsync(retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5157,7 +5078,6 @@ namespace Org.OpenAPITools.Api
         /// Update Retailer Location Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="retailerLocationId">The ID of the retailer location</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -5201,7 +5121,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">Custom string field for doing full-text searches (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateRetailerLocationsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateRetailerLocationsApiResponse> UpdateRetailerLocationsAsync(decimal version, long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<string> metaData = default, Option<string> paymentProvider = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateRetailerLocationsApiResponse> UpdateRetailerLocationsAsync(long retailerLocationId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> streetAddress = default, Option<string> streetAddress2 = default, Option<string> city = default, Option<string> state = default, Option<string> postalCode = default, Option<string> country = default, Option<string> businessPhone = default, Option<string> businessPhoneExt = default, Option<string> website = default, Option<string> email = default, Option<string> internalId = default, Option<string> detailsHeader = default, Option<string> detailsBody = default, Option<string> hours = default, Option<System.IO.Stream> logo = default, Option<long> logoAssetId = default, Option<System.IO.Stream> picture1 = default, Option<long> picture1AssetId = default, Option<System.IO.Stream> picture2 = default, Option<long> picture2AssetId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> building = default, Option<string> googlePlaceId = default, Option<string> yelpId = default, Option<string> metaData = default, Option<string> paymentProvider = default, Option<bool> active = default, Option<bool> publicLocation = default, Option<string> locationType = default, Option<string> audienceIds = default, Option<string> audienceIdsToAdd = default, Option<string> audienceIdsToRemove = default, Option<string> responseFormat = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5209,7 +5129,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateRetailerLocations(deviceId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, picture1, picture2, categoryIds, filterIds, building, googlePlaceId, yelpId, metaData, paymentProvider, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
 
-                FormatUpdateRetailerLocations(ref version, ref retailerLocationId, ref deviceId, ref accountId, ref name, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref internalId, ref detailsHeader, ref detailsBody, ref hours, ref logo, ref logoAssetId, ref picture1, ref picture1AssetId, ref picture2, ref picture2AssetId, ref categoryIds, ref filterIds, ref latitude, ref longitude, ref building, ref googlePlaceId, ref yelpId, ref metaData, ref paymentProvider, ref active, ref publicLocation, ref locationType, ref audienceIds, ref audienceIdsToAdd, ref audienceIdsToRemove, ref responseFormat, ref tags);
+                FormatUpdateRetailerLocations(ref retailerLocationId, ref deviceId, ref accountId, ref name, ref streetAddress, ref streetAddress2, ref city, ref state, ref postalCode, ref country, ref businessPhone, ref businessPhoneExt, ref website, ref email, ref internalId, ref detailsHeader, ref detailsBody, ref hours, ref logo, ref logoAssetId, ref picture1, ref picture1AssetId, ref picture2, ref picture2AssetId, ref categoryIds, ref filterIds, ref latitude, ref longitude, ref building, ref googlePlaceId, ref yelpId, ref metaData, ref paymentProvider, ref active, ref publicLocation, ref locationType, ref audienceIds, ref audienceIdsToAdd, ref audienceIdsToRemove, ref responseFormat, ref tags);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5217,9 +5137,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/location/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/location/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/location/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/location/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5370,13 +5289,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/location/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/location/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateRetailerLocationsDefaultImplementation(apiResponseLocalVar, version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
+                        AfterUpdateRetailerLocationsDefaultImplementation(apiResponseLocalVar, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
 
                         Events.ExecuteOnUpdateRetailerLocations(apiResponseLocalVar);
 
@@ -5386,7 +5305,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateRetailerLocationsDefaultImplementation(e, "/api/{version}/retailer/location/update", uriBuilderLocalVar.Path, version, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
+                OnErrorUpdateRetailerLocationsDefaultImplementation(e, "/retailer/location/update", uriBuilderLocalVar.Path, retailerLocationId, deviceId, accountId, name, streetAddress, streetAddress2, city, state, postalCode, country, businessPhone, businessPhoneExt, website, email, internalId, detailsHeader, detailsBody, hours, logo, logoAssetId, picture1, picture1AssetId, picture2, picture2AssetId, categoryIds, filterIds, latitude, longitude, building, googlePlaceId, yelpId, metaData, paymentProvider, active, publicLocation, locationType, audienceIds, audienceIdsToAdd, audienceIdsToRemove, responseFormat, tags);
                 Events.ExecuteOnErrorUpdateRetailerLocations(e);
                 throw;
             }

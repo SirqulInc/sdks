@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Adds an offer, offer location, retailer location, or category to your favorites.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="favoritableId">The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}</param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}</param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -54,7 +53,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddFavoriteApiResponse"/>&gt;</returns>
-        Task<IAddFavoriteApiResponse> AddFavoriteAsync(decimal version, long favoritableId, string favoritableType, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddFavoriteApiResponse> AddFavoriteAsync(long favoritableId, string favoritableType, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Favorite
@@ -62,7 +61,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Adds an offer, offer location, retailer location, or category to your favorites.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="favoritableId">The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}</param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}</param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -71,7 +69,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddFavoriteApiResponse"/>?&gt;</returns>
-        Task<IAddFavoriteApiResponse?> AddFavoriteOrDefaultAsync(decimal version, long favoritableId, string favoritableType, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddFavoriteApiResponse?> AddFavoriteOrDefaultAsync(long favoritableId, string favoritableType, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Favorite
@@ -80,7 +78,6 @@ namespace Org.OpenAPITools.Api
         /// Removes a favorited item from the user&#39;s favorites list.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="favoriteId">The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)</param>
@@ -88,7 +85,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="favoritableType">The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFavoriteApiResponse"/>&gt;</returns>
-        Task<IDeleteFavoriteApiResponse> DeleteFavoriteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> favoriteId = default, Option<long> favoritableId = default, Option<string> favoritableType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFavoriteApiResponse> DeleteFavoriteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> favoriteId = default, Option<long> favoritableId = default, Option<string> favoritableType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Favorite
@@ -96,7 +93,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Removes a favorited item from the user&#39;s favorites list.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="favoriteId">The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)</param>
@@ -104,7 +100,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="favoritableType">The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFavoriteApiResponse"/>?&gt;</returns>
-        Task<IDeleteFavoriteApiResponse?> DeleteFavoriteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> favoriteId = default, Option<long> favoritableId = default, Option<string> favoritableType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFavoriteApiResponse?> DeleteFavoriteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> favoriteId = default, Option<long> favoritableId = default, Option<string> favoritableType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Favorite
@@ -113,7 +109,6 @@ namespace Org.OpenAPITools.Api
         /// Retrieves a single favorited item.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="favoriteId">The ID of the favorite reference record</param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
@@ -121,7 +116,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFavoriteApiResponse"/>&gt;</returns>
-        Task<IGetFavoriteApiResponse> GetFavoriteAsync(decimal version, long favoriteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFavoriteApiResponse> GetFavoriteAsync(long favoriteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Favorite
@@ -129,7 +124,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Retrieves a single favorited item.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="favoriteId">The ID of the favorite reference record</param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
@@ -137,7 +131,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFavoriteApiResponse"/>?&gt;</returns>
-        Task<IGetFavoriteApiResponse?> GetFavoriteOrDefaultAsync(decimal version, long favoriteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFavoriteApiResponse?> GetFavoriteOrDefaultAsync(long favoriteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Favorites
@@ -146,7 +140,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on the user&#39;s favorites.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
         /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, DISPLAY}</param>
         /// <param name="descending">Determines whether the results are in descending order</param>
@@ -163,7 +156,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchFavoritesApiResponse"/>&gt;</returns>
-        Task<ISearchFavoritesApiResponse> SearchFavoritesAsync(decimal version, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchFavoritesApiResponse> SearchFavoritesAsync(string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Favorites
@@ -171,7 +164,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on the user&#39;s favorites.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
         /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, DISPLAY}</param>
         /// <param name="descending">Determines whether the results are in descending order</param>
@@ -188,7 +180,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchFavoritesApiResponse"/>?&gt;</returns>
-        Task<ISearchFavoritesApiResponse?> SearchFavoritesOrDefaultAsync(decimal version, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchFavoritesApiResponse?> SearchFavoritesOrDefaultAsync(string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Who has Favorited
@@ -197,7 +189,6 @@ namespace Org.OpenAPITools.Api
         /// Searches for everyone that has favorited an item
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="favoritableId">The ID of the favoritableType to search on</param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
         /// <param name="start">The start index for pagination</param>
@@ -209,7 +200,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to limit that account list (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IWhoHasFavoritedApiResponse"/>&gt;</returns>
-        Task<IWhoHasFavoritedApiResponse> WhoHasFavoritedAsync(decimal version, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IWhoHasFavoritedApiResponse> WhoHasFavoritedAsync(long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Who has Favorited
@@ -217,7 +208,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches for everyone that has favorited an item
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="favoritableId">The ID of the favoritableType to search on</param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
         /// <param name="start">The start index for pagination</param>
@@ -229,7 +219,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to limit that account list (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IWhoHasFavoritedApiResponse"/>?&gt;</returns>
-        Task<IWhoHasFavoritedApiResponse?> WhoHasFavoritedOrDefaultAsync(decimal version, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IWhoHasFavoritedApiResponse?> WhoHasFavoritedOrDefaultAsync(long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -445,7 +435,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddFavorite(ref decimal version, ref long favoritableId, ref string favoritableType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAddFavorite(ref long favoritableId, ref string favoritableType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -466,17 +456,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAddFavoriteDefaultImplementation(IAddFavoriteApiResponse apiResponseLocalVar, decimal version, long favoritableId, string favoritableType, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterAddFavoriteDefaultImplementation(IAddFavoriteApiResponse apiResponseLocalVar, long favoritableId, string favoritableType, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAddFavorite(ref suppressDefaultLog, apiResponseLocalVar, version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
+            AfterAddFavorite(ref suppressDefaultLog, apiResponseLocalVar, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -486,14 +475,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAddFavorite(ref bool suppressDefaultLog, IAddFavoriteApiResponse apiResponseLocalVar, decimal version, long favoritableId, string favoritableType, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterAddFavorite(ref bool suppressDefaultLog, IAddFavoriteApiResponse apiResponseLocalVar, long favoritableId, string favoritableType, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -501,17 +489,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAddFavoriteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long favoritableId, string favoritableType, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAddFavoriteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long favoritableId, string favoritableType, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddFavorite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
+            OnErrorAddFavorite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -523,19 +510,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAddFavorite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long favoritableId, string favoritableType, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAddFavorite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long favoritableId, string favoritableType, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create Favorite Adds an offer, offer location, retailer location, or category to your favorites.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="favoritableId">The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}</param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}</param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -544,11 +529,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddFavoriteApiResponse"/>&gt;</returns>
-        public async Task<IAddFavoriteApiResponse?> AddFavoriteOrDefaultAsync(decimal version, long favoritableId, string favoritableType, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddFavoriteApiResponse?> AddFavoriteOrDefaultAsync(long favoritableId, string favoritableType, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddFavoriteAsync(version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AddFavoriteAsync(favoritableId, favoritableType, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -560,7 +545,6 @@ namespace Org.OpenAPITools.Api
         /// Create Favorite Adds an offer, offer location, retailer location, or category to your favorites.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="favoritableId">The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}</param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}</param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -569,7 +553,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddFavoriteApiResponse"/>&gt;</returns>
-        public async Task<IAddFavoriteApiResponse> AddFavoriteAsync(decimal version, long favoritableId, string favoritableType, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddFavoriteApiResponse> AddFavoriteAsync(long favoritableId, string favoritableType, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -577,7 +561,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddFavorite(favoritableType, deviceId);
 
-                FormatAddFavorite(ref version, ref favoritableId, ref favoritableType, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatAddFavorite(ref favoritableId, ref favoritableType, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -585,9 +569,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/favorite/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/favorite/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/favorite/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/favorite/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -631,13 +614,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/favorite/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/favorite/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddFavoriteDefaultImplementation(apiResponseLocalVar, version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
+                        AfterAddFavoriteDefaultImplementation(apiResponseLocalVar, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnAddFavorite(apiResponseLocalVar);
 
@@ -647,7 +630,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddFavoriteDefaultImplementation(e, "/api/{version}/favorite/create", uriBuilderLocalVar.Path, version, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
+                OnErrorAddFavoriteDefaultImplementation(e, "/favorite/create", uriBuilderLocalVar.Path, favoritableId, favoritableType, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorAddFavorite(e);
                 throw;
             }
@@ -746,7 +729,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteFavorite(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> favoriteId, ref Option<long> favoritableId, ref Option<string> favoritableType);
+        partial void FormatDeleteFavorite(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> favoriteId, ref Option<long> favoritableId, ref Option<string> favoritableType);
 
         /// <summary>
         /// Validates the request parameters
@@ -767,16 +750,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="favoriteId"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
-        private void AfterDeleteFavoriteDefaultImplementation(IDeleteFavoriteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> favoriteId, Option<long> favoritableId, Option<string> favoritableType)
+        private void AfterDeleteFavoriteDefaultImplementation(IDeleteFavoriteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> favoriteId, Option<long> favoritableId, Option<string> favoritableType)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteFavorite(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, favoriteId, favoritableId, favoritableType);
+            AfterDeleteFavorite(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, favoriteId, favoritableId, favoritableType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -786,13 +768,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="favoriteId"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
-        partial void AfterDeleteFavorite(ref bool suppressDefaultLog, IDeleteFavoriteApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> favoriteId, Option<long> favoritableId, Option<string> favoritableType);
+        partial void AfterDeleteFavorite(ref bool suppressDefaultLog, IDeleteFavoriteApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> favoriteId, Option<long> favoritableId, Option<string> favoritableType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -800,16 +781,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="favoriteId"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
-        private void OnErrorDeleteFavoriteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> favoriteId, Option<long> favoritableId, Option<string> favoritableType)
+        private void OnErrorDeleteFavoriteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> favoriteId, Option<long> favoritableId, Option<string> favoritableType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteFavorite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, favoriteId, favoritableId, favoritableType);
+            OnErrorDeleteFavorite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, favoriteId, favoritableId, favoritableType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -821,18 +801,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="favoriteId"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
-        partial void OnErrorDeleteFavorite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> favoriteId, Option<long> favoritableId, Option<string> favoritableType);
+        partial void OnErrorDeleteFavorite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> favoriteId, Option<long> favoritableId, Option<string> favoritableType);
 
         /// <summary>
         /// Delete Favorite Removes a favorited item from the user&#39;s favorites list.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="favoriteId">The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)</param>
@@ -840,11 +818,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="favoritableType">The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFavoriteApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFavoriteApiResponse?> DeleteFavoriteOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> favoriteId = default, Option<long> favoritableId = default, Option<string> favoritableType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFavoriteApiResponse?> DeleteFavoriteOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> favoriteId = default, Option<long> favoritableId = default, Option<string> favoritableType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteFavoriteAsync(version, deviceId, accountId, favoriteId, favoritableId, favoritableType, cancellationToken).ConfigureAwait(false);
+                return await DeleteFavoriteAsync(deviceId, accountId, favoriteId, favoritableId, favoritableType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -856,7 +834,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Favorite Removes a favorited item from the user&#39;s favorites list.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="favoriteId">The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)</param>
@@ -864,7 +841,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="favoritableType">The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFavoriteApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFavoriteApiResponse> DeleteFavoriteAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> favoriteId = default, Option<long> favoritableId = default, Option<string> favoritableType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFavoriteApiResponse> DeleteFavoriteAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> favoriteId = default, Option<long> favoritableId = default, Option<string> favoritableType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -872,7 +849,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteFavorite(deviceId, favoritableType);
 
-                FormatDeleteFavorite(ref version, ref deviceId, ref accountId, ref favoriteId, ref favoritableId, ref favoritableType);
+                FormatDeleteFavorite(ref deviceId, ref accountId, ref favoriteId, ref favoritableId, ref favoritableType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -880,9 +857,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/favorite/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/favorite/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/favorite/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/favorite/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -926,13 +902,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/favorite/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/favorite/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteFavoriteDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, favoriteId, favoritableId, favoritableType);
+                        AfterDeleteFavoriteDefaultImplementation(apiResponseLocalVar, deviceId, accountId, favoriteId, favoritableId, favoritableType);
 
                         Events.ExecuteOnDeleteFavorite(apiResponseLocalVar);
 
@@ -942,7 +918,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteFavoriteDefaultImplementation(e, "/api/{version}/favorite/delete", uriBuilderLocalVar.Path, version, deviceId, accountId, favoriteId, favoritableId, favoritableType);
+                OnErrorDeleteFavoriteDefaultImplementation(e, "/favorite/delete", uriBuilderLocalVar.Path, deviceId, accountId, favoriteId, favoritableId, favoritableType);
                 Events.ExecuteOnErrorDeleteFavorite(e);
                 throw;
             }
@@ -1041,7 +1017,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetFavorite(ref decimal version, ref long favoriteId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetFavorite(ref long favoriteId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1058,16 +1034,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoriteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetFavoriteDefaultImplementation(IGetFavoriteApiResponse apiResponseLocalVar, decimal version, long favoriteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterGetFavoriteDefaultImplementation(IGetFavoriteApiResponse apiResponseLocalVar, long favoriteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetFavorite(ref suppressDefaultLog, apiResponseLocalVar, version, favoriteId, deviceId, accountId, latitude, longitude);
+            AfterGetFavorite(ref suppressDefaultLog, apiResponseLocalVar, favoriteId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1077,13 +1052,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoriteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetFavorite(ref bool suppressDefaultLog, IGetFavoriteApiResponse apiResponseLocalVar, decimal version, long favoriteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetFavorite(ref bool suppressDefaultLog, IGetFavoriteApiResponse apiResponseLocalVar, long favoriteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1091,16 +1065,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoriteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetFavoriteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long favoriteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetFavoriteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long favoriteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetFavorite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, favoriteId, deviceId, accountId, latitude, longitude);
+            OnErrorGetFavorite(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, favoriteId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1112,18 +1085,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoriteId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetFavorite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long favoriteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetFavorite(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long favoriteId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Favorite Retrieves a single favorited item.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="favoriteId">The ID of the favorite reference record</param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1131,11 +1102,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFavoriteApiResponse"/>&gt;</returns>
-        public async Task<IGetFavoriteApiResponse?> GetFavoriteOrDefaultAsync(decimal version, long favoriteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFavoriteApiResponse?> GetFavoriteOrDefaultAsync(long favoriteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetFavoriteAsync(version, favoriteId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetFavoriteAsync(favoriteId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1147,7 +1118,6 @@ namespace Org.OpenAPITools.Api
         /// Get Favorite Retrieves a single favorited item.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="favoriteId">The ID of the favorite reference record</param>
         /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1155,7 +1125,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFavoriteApiResponse"/>&gt;</returns>
-        public async Task<IGetFavoriteApiResponse> GetFavoriteAsync(decimal version, long favoriteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFavoriteApiResponse> GetFavoriteAsync(long favoriteId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1163,7 +1133,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetFavorite(deviceId);
 
-                FormatGetFavorite(ref version, ref favoriteId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatGetFavorite(ref favoriteId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1171,9 +1141,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/favorite/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/favorite/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/favorite/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/favorite/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1216,13 +1185,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/favorite/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/favorite/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetFavoriteDefaultImplementation(apiResponseLocalVar, version, favoriteId, deviceId, accountId, latitude, longitude);
+                        AfterGetFavoriteDefaultImplementation(apiResponseLocalVar, favoriteId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnGetFavorite(apiResponseLocalVar);
 
@@ -1232,7 +1201,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetFavoriteDefaultImplementation(e, "/api/{version}/favorite/get", uriBuilderLocalVar.Path, version, favoriteId, deviceId, accountId, latitude, longitude);
+                OnErrorGetFavoriteDefaultImplementation(e, "/favorite/get", uriBuilderLocalVar.Path, favoriteId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorGetFavorite(e);
                 throw;
             }
@@ -1331,7 +1300,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchFavorites(ref decimal version, ref string favoritableType, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref bool returnFullResponse, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> secondaryType, ref Option<string> keyword, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatSearchFavorites(ref string favoritableType, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref bool returnFullResponse, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> secondaryType, ref Option<string> keyword, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1364,7 +1333,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableType"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1379,10 +1347,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterSearchFavoritesDefaultImplementation(ISearchFavoritesApiResponse apiResponseLocalVar, decimal version, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> secondaryType, Option<string> keyword, Option<double> latitude, Option<double> longitude)
+        private void AfterSearchFavoritesDefaultImplementation(ISearchFavoritesApiResponse apiResponseLocalVar, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> secondaryType, Option<string> keyword, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterSearchFavorites(ref suppressDefaultLog, apiResponseLocalVar, version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
+            AfterSearchFavorites(ref suppressDefaultLog, apiResponseLocalVar, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1392,7 +1360,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableType"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1407,7 +1374,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterSearchFavorites(ref bool suppressDefaultLog, ISearchFavoritesApiResponse apiResponseLocalVar, decimal version, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> secondaryType, Option<string> keyword, Option<double> latitude, Option<double> longitude);
+        partial void AfterSearchFavorites(ref bool suppressDefaultLog, ISearchFavoritesApiResponse apiResponseLocalVar, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> secondaryType, Option<string> keyword, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1415,7 +1382,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableType"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1430,10 +1396,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorSearchFavoritesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> secondaryType, Option<string> keyword, Option<double> latitude, Option<double> longitude)
+        private void OnErrorSearchFavoritesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> secondaryType, Option<string> keyword, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchFavorites(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
+            OnErrorSearchFavorites(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1445,7 +1411,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableType"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1460,12 +1425,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorSearchFavorites(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> secondaryType, Option<string> keyword, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorSearchFavorites(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> secondaryType, Option<string> keyword, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Search Favorites Searches on the user&#39;s favorites.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
         /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, DISPLAY}</param>
         /// <param name="descending">Determines whether the results are in descending order</param>
@@ -1482,11 +1446,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchFavoritesApiResponse"/>&gt;</returns>
-        public async Task<ISearchFavoritesApiResponse?> SearchFavoritesOrDefaultAsync(decimal version, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchFavoritesApiResponse?> SearchFavoritesOrDefaultAsync(string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchFavoritesAsync(version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await SearchFavoritesAsync(favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1498,7 +1462,6 @@ namespace Org.OpenAPITools.Api
         /// Search Favorites Searches on the user&#39;s favorites.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
         /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, DISPLAY}</param>
         /// <param name="descending">Determines whether the results are in descending order</param>
@@ -1515,7 +1478,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchFavoritesApiResponse"/>&gt;</returns>
-        public async Task<ISearchFavoritesApiResponse> SearchFavoritesAsync(decimal version, string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchFavoritesApiResponse> SearchFavoritesAsync(string favoritableType, string sortField, bool descending, int start, int limit, bool activeOnly, bool returnFullResponse, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> secondaryType = default, Option<string> keyword = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1523,7 +1486,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchFavorites(favoritableType, sortField, deviceId, secondaryType, keyword);
 
-                FormatSearchFavorites(ref version, ref favoritableType, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref returnFullResponse, ref deviceId, ref accountId, ref connectionAccountId, ref secondaryType, ref keyword, ref latitude, ref longitude);
+                FormatSearchFavorites(ref favoritableType, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref returnFullResponse, ref deviceId, ref accountId, ref connectionAccountId, ref secondaryType, ref keyword, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1531,9 +1494,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/favorite/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/favorite/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/favorite/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/favorite/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1591,13 +1553,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/favorite/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/favorite/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchFavoritesDefaultImplementation(apiResponseLocalVar, version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
+                        AfterSearchFavoritesDefaultImplementation(apiResponseLocalVar, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
 
                         Events.ExecuteOnSearchFavorites(apiResponseLocalVar);
 
@@ -1607,7 +1569,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchFavoritesDefaultImplementation(e, "/api/{version}/favorite/search", uriBuilderLocalVar.Path, version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
+                OnErrorSearchFavoritesDefaultImplementation(e, "/favorite/search", uriBuilderLocalVar.Path, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, deviceId, accountId, connectionAccountId, secondaryType, keyword, latitude, longitude);
                 Events.ExecuteOnErrorSearchFavorites(e);
                 throw;
             }
@@ -1706,7 +1668,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatWhoHasFavorited(ref decimal version, ref long favoritableId, ref string favoritableType, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> keyword);
+        partial void FormatWhoHasFavorited(ref long favoritableId, ref string favoritableType, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -1731,7 +1693,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
         /// <param name="start"></param>
@@ -1741,10 +1702,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="keyword"></param>
-        private void AfterWhoHasFavoritedDefaultImplementation(IWhoHasFavoritedApiResponse apiResponseLocalVar, decimal version, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword)
+        private void AfterWhoHasFavoritedDefaultImplementation(IWhoHasFavoritedApiResponse apiResponseLocalVar, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterWhoHasFavorited(ref suppressDefaultLog, apiResponseLocalVar, version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
+            AfterWhoHasFavorited(ref suppressDefaultLog, apiResponseLocalVar, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1754,7 +1715,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
         /// <param name="start"></param>
@@ -1764,7 +1724,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="keyword"></param>
-        partial void AfterWhoHasFavorited(ref bool suppressDefaultLog, IWhoHasFavoritedApiResponse apiResponseLocalVar, decimal version, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword);
+        partial void AfterWhoHasFavorited(ref bool suppressDefaultLog, IWhoHasFavoritedApiResponse apiResponseLocalVar, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1772,7 +1732,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
         /// <param name="start"></param>
@@ -1782,10 +1741,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="keyword"></param>
-        private void OnErrorWhoHasFavoritedDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword)
+        private void OnErrorWhoHasFavoritedDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorWhoHasFavorited(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
+            OnErrorWhoHasFavorited(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1797,7 +1756,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="favoritableId"></param>
         /// <param name="favoritableType"></param>
         /// <param name="start"></param>
@@ -1807,12 +1765,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorWhoHasFavorited(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword);
+        partial void OnErrorWhoHasFavorited(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> keyword);
 
         /// <summary>
         /// Who has Favorited Searches for everyone that has favorited an item
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="favoritableId">The ID of the favoritableType to search on</param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
         /// <param name="start">The start index for pagination</param>
@@ -1824,11 +1781,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to limit that account list (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IWhoHasFavoritedApiResponse"/>&gt;</returns>
-        public async Task<IWhoHasFavoritedApiResponse?> WhoHasFavoritedOrDefaultAsync(decimal version, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IWhoHasFavoritedApiResponse?> WhoHasFavoritedOrDefaultAsync(long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await WhoHasFavoritedAsync(version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword, cancellationToken).ConfigureAwait(false);
+                return await WhoHasFavoritedAsync(favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1840,7 +1797,6 @@ namespace Org.OpenAPITools.Api
         /// Who has Favorited Searches for everyone that has favorited an item
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="favoritableId">The ID of the favoritableType to search on</param>
         /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
         /// <param name="start">The start index for pagination</param>
@@ -1852,7 +1808,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">The keyword to limit that account list (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IWhoHasFavoritedApiResponse"/>&gt;</returns>
-        public async Task<IWhoHasFavoritedApiResponse> WhoHasFavoritedAsync(decimal version, long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IWhoHasFavoritedApiResponse> WhoHasFavoritedAsync(long favoritableId, string favoritableType, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1860,7 +1816,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateWhoHasFavorited(favoritableType, deviceId, keyword);
 
-                FormatWhoHasFavorited(ref version, ref favoritableId, ref favoritableType, ref start, ref limit, ref deviceId, ref accountId, ref latitude, ref longitude, ref keyword);
+                FormatWhoHasFavorited(ref favoritableId, ref favoritableType, ref start, ref limit, ref deviceId, ref accountId, ref latitude, ref longitude, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1868,9 +1824,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/favorite/whois"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/favorite/whois");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/favorite/whois"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/favorite/whois");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1919,13 +1874,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/favorite/whois", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/favorite/whois", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterWhoHasFavoritedDefaultImplementation(apiResponseLocalVar, version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
+                        AfterWhoHasFavoritedDefaultImplementation(apiResponseLocalVar, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
 
                         Events.ExecuteOnWhoHasFavorited(apiResponseLocalVar);
 
@@ -1935,7 +1890,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorWhoHasFavoritedDefaultImplementation(e, "/api/{version}/favorite/whois", uriBuilderLocalVar.Path, version, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
+                OnErrorWhoHasFavoritedDefaultImplementation(e, "/favorite/whois", uriBuilderLocalVar.Path, favoritableId, favoritableType, start, limit, deviceId, accountId, latitude, longitude, keyword);
                 Events.ExecuteOnErrorWhoHasFavorited(e);
                 throw;
             }

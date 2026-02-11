@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Batch create tracking legs
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="data">JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -55,7 +54,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="slaveUID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchSaveTrackingApiResponse"/>&gt;</returns>
-        Task<IBatchSaveTrackingApiResponse> BatchSaveTrackingAsync(decimal version, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> generateAccounts = default, Option<bool> updateAccountLocations = default, Option<string> defaultTag = default, Option<string> slaveUID = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBatchSaveTrackingApiResponse> BatchSaveTrackingAsync(string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> generateAccounts = default, Option<bool> updateAccountLocations = default, Option<string> defaultTag = default, Option<string> slaveUID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Batch Tracking
@@ -63,7 +62,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Batch create tracking legs
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="data">JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -73,7 +71,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="slaveUID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchSaveTrackingApiResponse"/>?&gt;</returns>
-        Task<IBatchSaveTrackingApiResponse?> BatchSaveTrackingOrDefaultAsync(decimal version, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> generateAccounts = default, Option<bool> updateAccountLocations = default, Option<string> defaultTag = default, Option<string> slaveUID = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBatchSaveTrackingApiResponse?> BatchSaveTrackingOrDefaultAsync(string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> generateAccounts = default, Option<bool> updateAccountLocations = default, Option<string> defaultTag = default, Option<string> slaveUID = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Predicted Locations
@@ -82,7 +80,6 @@ namespace Org.OpenAPITools.Api
         /// Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional)</param>
         /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional)</param>
@@ -94,7 +91,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sortOrder">The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (optional, default to MATCHES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPredictedLocationsApiResponse"/>&gt;</returns>
-        Task<IGetPredictedLocationsApiResponse> GetPredictedLocationsAsync(decimal version, long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<long> threshold = default, Option<string> distanceUnit = default, Option<double> searchRange = default, Option<string> sortOrder = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPredictedLocationsApiResponse> GetPredictedLocationsAsync(long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<long> threshold = default, Option<string> distanceUnit = default, Option<double> searchRange = default, Option<string> sortOrder = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Predicted Locations
@@ -102,7 +99,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional)</param>
         /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional)</param>
@@ -114,7 +110,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sortOrder">The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (optional, default to MATCHES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPredictedLocationsApiResponse"/>?&gt;</returns>
-        Task<IGetPredictedLocationsApiResponse?> GetPredictedLocationsOrDefaultAsync(decimal version, long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<long> threshold = default, Option<string> distanceUnit = default, Option<double> searchRange = default, Option<string> sortOrder = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPredictedLocationsApiResponse?> GetPredictedLocationsOrDefaultAsync(long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<long> threshold = default, Option<string> distanceUnit = default, Option<double> searchRange = default, Option<string> sortOrder = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Tracking Path
@@ -123,13 +119,12 @@ namespace Org.OpenAPITools.Api
         /// Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="startStepId">The stepId to begin from</param>
         /// <param name="endStepId">The stepId to end with</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPredictedPathApiResponse"/>&gt;</returns>
-        Task<IGetPredictedPathApiResponse> GetPredictedPathAsync(decimal version, long accountId, long startStepId, long endStepId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPredictedPathApiResponse> GetPredictedPathAsync(long accountId, long startStepId, long endStepId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Tracking Path
@@ -137,13 +132,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="startStepId">The stepId to begin from</param>
         /// <param name="endStepId">The stepId to end with</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPredictedPathApiResponse"/>?&gt;</returns>
-        Task<IGetPredictedPathApiResponse?> GetPredictedPathOrDefaultAsync(decimal version, long accountId, long startStepId, long endStepId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPredictedPathApiResponse?> GetPredictedPathOrDefaultAsync(long accountId, long startStepId, long endStepId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Preferred Locations
@@ -152,7 +146,6 @@ namespace Org.OpenAPITools.Api
         /// Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional)</param>
         /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional)</param>
@@ -166,7 +159,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="distanceUnit">Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (optional, default to MILES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPreferredLocationsApiResponse"/>&gt;</returns>
-        Task<IGetPreferredLocationsApiResponse> GetPreferredLocationsAsync(decimal version, long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPreferredLocationsApiResponse> GetPreferredLocationsAsync(long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Preferred Locations
@@ -174,7 +167,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional)</param>
         /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional)</param>
@@ -188,7 +180,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="distanceUnit">Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (optional, default to MILES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPreferredLocationsApiResponse"/>?&gt;</returns>
-        Task<IGetPreferredLocationsApiResponse?> GetPreferredLocationsOrDefaultAsync(decimal version, long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPreferredLocationsApiResponse?> GetPreferredLocationsOrDefaultAsync(long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tracking
@@ -197,7 +189,6 @@ namespace Org.OpenAPITools.Api
         /// Retrieve tracking data to be able to show where a user has been.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="ownerId">the account id of the person the user wants to tracking data for (optional)</param>
@@ -208,7 +199,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="getLastPoint">gets the last known location of the user (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTrackingLegsApiResponse"/>&gt;</returns>
-        Task<IGetTrackingLegsApiResponse> GetTrackingLegsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<bool> getLastPoint = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTrackingLegsApiResponse> GetTrackingLegsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<bool> getLastPoint = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tracking
@@ -216,7 +207,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Retrieve tracking data to be able to show where a user has been.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="ownerId">the account id of the person the user wants to tracking data for (optional)</param>
@@ -227,7 +217,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="getLastPoint">gets the last known location of the user (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTrackingLegsApiResponse"/>?&gt;</returns>
-        Task<IGetTrackingLegsApiResponse?> GetTrackingLegsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<bool> getLastPoint = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTrackingLegsApiResponse?> GetTrackingLegsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<bool> getLastPoint = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Tracking Leg
@@ -236,7 +226,6 @@ namespace Org.OpenAPITools.Api
         /// Send tracking points to be able to generate pathing data
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="startLat">the latitude of the first point</param>
         /// <param name="startLng">the longitude of the first point</param>
         /// <param name="startDate">the start date (in UTC milliseconds) of the first point</param>
@@ -251,7 +240,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">name the leg for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTrackingLegApiResponse"/>&gt;</returns>
-        Task<ISaveTrackingLegApiResponse> SaveTrackingLegAsync(decimal version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, Option<string> steps = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaveTrackingLegApiResponse> SaveTrackingLegAsync(double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, Option<string> steps = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Tracking Leg
@@ -259,7 +248,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Send tracking points to be able to generate pathing data
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="startLat">the latitude of the first point</param>
         /// <param name="startLng">the longitude of the first point</param>
         /// <param name="startDate">the start date (in UTC milliseconds) of the first point</param>
@@ -274,7 +262,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">name the leg for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTrackingLegApiResponse"/>?&gt;</returns>
-        Task<ISaveTrackingLegApiResponse?> SaveTrackingLegOrDefaultAsync(decimal version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, Option<string> steps = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaveTrackingLegApiResponse?> SaveTrackingLegOrDefaultAsync(double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, Option<string> steps = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Tracking Step
@@ -283,7 +271,6 @@ namespace Org.OpenAPITools.Api
         /// Send tracking points to be able to generate pathing data
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="legId">the leg to add the step to</param>
         /// <param name="startLat">the latitude of the first point</param>
         /// <param name="startLng">the longitude of the first point</param>
@@ -297,7 +284,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="duration">the total duration (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTrackingStepApiResponse"/>&gt;</returns>
-        Task<ISaveTrackingStepApiResponse> SaveTrackingStepAsync(decimal version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaveTrackingStepApiResponse> SaveTrackingStepAsync(long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Tracking Step
@@ -305,7 +292,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Send tracking points to be able to generate pathing data
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="legId">the leg to add the step to</param>
         /// <param name="startLat">the latitude of the first point</param>
         /// <param name="startLng">the longitude of the first point</param>
@@ -319,7 +305,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="duration">the total duration (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTrackingStepApiResponse"/>?&gt;</returns>
-        Task<ISaveTrackingStepApiResponse?> SaveTrackingStepOrDefaultAsync(decimal version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaveTrackingStepApiResponse?> SaveTrackingStepOrDefaultAsync(long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Tracking
@@ -328,7 +314,6 @@ namespace Org.OpenAPITools.Api
         /// Search for all accounts that have tracking legs data by the given constraints.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="keyword">Used for LIKE search of first or last name on the acocunt (optional)</param>
         /// <param name="startDate">Range to begin in UTC milliseconds (optional)</param>
@@ -345,7 +330,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAccountsWithTrackingLegsApiResponse"/>&gt;</returns>
-        Task<ISearchAccountsWithTrackingLegsApiResponse> SearchAccountsWithTrackingLegsAsync(decimal version, long accountId, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> audienceIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAccountsWithTrackingLegsApiResponse> SearchAccountsWithTrackingLegsAsync(long accountId, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> audienceIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Tracking
@@ -353,7 +338,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for all accounts that have tracking legs data by the given constraints.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="keyword">Used for LIKE search of first or last name on the acocunt (optional)</param>
         /// <param name="startDate">Range to begin in UTC milliseconds (optional)</param>
@@ -370,7 +354,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAccountsWithTrackingLegsApiResponse"/>?&gt;</returns>
-        Task<ISearchAccountsWithTrackingLegsApiResponse?> SearchAccountsWithTrackingLegsOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> audienceIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAccountsWithTrackingLegsApiResponse?> SearchAccountsWithTrackingLegsOrDefaultAsync(long accountId, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> audienceIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tracking (Billable)
@@ -379,7 +363,6 @@ namespace Org.OpenAPITools.Api
         /// Retrieve tracking data for billable/account scoped queries.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id to search tracking for</param>
         /// <param name="appKey">The application key</param>
         /// <param name="trackingDeviceId">The id of the tracking device (optional)</param>
@@ -390,7 +373,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTrackingLegsApiResponse"/>&gt;</returns>
-        Task<ISearchTrackingLegsApiResponse> SearchTrackingLegsAsync(decimal version, long accountId, string appKey, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTrackingLegsApiResponse> SearchTrackingLegsAsync(long accountId, string appKey, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tracking (Billable)
@@ -398,7 +381,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Retrieve tracking data for billable/account scoped queries.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id to search tracking for</param>
         /// <param name="appKey">The application key</param>
         /// <param name="trackingDeviceId">The id of the tracking device (optional)</param>
@@ -409,7 +391,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTrackingLegsApiResponse"/>?&gt;</returns>
-        Task<ISearchTrackingLegsApiResponse?> SearchTrackingLegsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTrackingLegsApiResponse?> SearchTrackingLegsOrDefaultAsync(long accountId, string appKey, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -753,7 +735,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatBatchSaveTracking(ref decimal version, ref string data, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> generateAccounts, ref Option<bool> updateAccountLocations, ref Option<string> defaultTag, ref Option<string> slaveUID);
+        partial void FormatBatchSaveTracking(ref string data, ref Option<string> deviceId, ref Option<long> accountId, ref Option<bool> generateAccounts, ref Option<bool> updateAccountLocations, ref Option<string> defaultTag, ref Option<string> slaveUID);
 
         /// <summary>
         /// Validates the request parameters
@@ -782,7 +764,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -790,10 +771,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="updateAccountLocations"></param>
         /// <param name="defaultTag"></param>
         /// <param name="slaveUID"></param>
-        private void AfterBatchSaveTrackingDefaultImplementation(IBatchSaveTrackingApiResponse apiResponseLocalVar, decimal version, string data, Option<string> deviceId, Option<long> accountId, Option<bool> generateAccounts, Option<bool> updateAccountLocations, Option<string> defaultTag, Option<string> slaveUID)
+        private void AfterBatchSaveTrackingDefaultImplementation(IBatchSaveTrackingApiResponse apiResponseLocalVar, string data, Option<string> deviceId, Option<long> accountId, Option<bool> generateAccounts, Option<bool> updateAccountLocations, Option<string> defaultTag, Option<string> slaveUID)
         {
             bool suppressDefaultLog = false;
-            AfterBatchSaveTracking(ref suppressDefaultLog, apiResponseLocalVar, version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
+            AfterBatchSaveTracking(ref suppressDefaultLog, apiResponseLocalVar, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -803,7 +784,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -811,7 +791,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="updateAccountLocations"></param>
         /// <param name="defaultTag"></param>
         /// <param name="slaveUID"></param>
-        partial void AfterBatchSaveTracking(ref bool suppressDefaultLog, IBatchSaveTrackingApiResponse apiResponseLocalVar, decimal version, string data, Option<string> deviceId, Option<long> accountId, Option<bool> generateAccounts, Option<bool> updateAccountLocations, Option<string> defaultTag, Option<string> slaveUID);
+        partial void AfterBatchSaveTracking(ref bool suppressDefaultLog, IBatchSaveTrackingApiResponse apiResponseLocalVar, string data, Option<string> deviceId, Option<long> accountId, Option<bool> generateAccounts, Option<bool> updateAccountLocations, Option<string> defaultTag, Option<string> slaveUID);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -819,7 +799,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -827,10 +806,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="updateAccountLocations"></param>
         /// <param name="defaultTag"></param>
         /// <param name="slaveUID"></param>
-        private void OnErrorBatchSaveTrackingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string data, Option<string> deviceId, Option<long> accountId, Option<bool> generateAccounts, Option<bool> updateAccountLocations, Option<string> defaultTag, Option<string> slaveUID)
+        private void OnErrorBatchSaveTrackingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string data, Option<string> deviceId, Option<long> accountId, Option<bool> generateAccounts, Option<bool> updateAccountLocations, Option<string> defaultTag, Option<string> slaveUID)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorBatchSaveTracking(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
+            OnErrorBatchSaveTracking(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -842,7 +821,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -850,12 +828,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="updateAccountLocations"></param>
         /// <param name="defaultTag"></param>
         /// <param name="slaveUID"></param>
-        partial void OnErrorBatchSaveTracking(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string data, Option<string> deviceId, Option<long> accountId, Option<bool> generateAccounts, Option<bool> updateAccountLocations, Option<string> defaultTag, Option<string> slaveUID);
+        partial void OnErrorBatchSaveTracking(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string data, Option<string> deviceId, Option<long> accountId, Option<bool> generateAccounts, Option<bool> updateAccountLocations, Option<string> defaultTag, Option<string> slaveUID);
 
         /// <summary>
         /// Create Batch Tracking Batch create tracking legs
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="data">JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -865,11 +842,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="slaveUID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchSaveTrackingApiResponse"/>&gt;</returns>
-        public async Task<IBatchSaveTrackingApiResponse?> BatchSaveTrackingOrDefaultAsync(decimal version, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> generateAccounts = default, Option<bool> updateAccountLocations = default, Option<string> defaultTag = default, Option<string> slaveUID = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBatchSaveTrackingApiResponse?> BatchSaveTrackingOrDefaultAsync(string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> generateAccounts = default, Option<bool> updateAccountLocations = default, Option<string> defaultTag = default, Option<string> slaveUID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await BatchSaveTrackingAsync(version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID, cancellationToken).ConfigureAwait(false);
+                return await BatchSaveTrackingAsync(data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -881,7 +858,6 @@ namespace Org.OpenAPITools.Api
         /// Create Batch Tracking Batch create tracking legs
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="data">JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -891,7 +867,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="slaveUID"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchSaveTrackingApiResponse"/>&gt;</returns>
-        public async Task<IBatchSaveTrackingApiResponse> BatchSaveTrackingAsync(decimal version, string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> generateAccounts = default, Option<bool> updateAccountLocations = default, Option<string> defaultTag = default, Option<string> slaveUID = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBatchSaveTrackingApiResponse> BatchSaveTrackingAsync(string data, Option<string> deviceId = default, Option<long> accountId = default, Option<bool> generateAccounts = default, Option<bool> updateAccountLocations = default, Option<string> defaultTag = default, Option<string> slaveUID = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -899,7 +875,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateBatchSaveTracking(data, deviceId, defaultTag, slaveUID);
 
-                FormatBatchSaveTracking(ref version, ref data, ref deviceId, ref accountId, ref generateAccounts, ref updateAccountLocations, ref defaultTag, ref slaveUID);
+                FormatBatchSaveTracking(ref data, ref deviceId, ref accountId, ref generateAccounts, ref updateAccountLocations, ref defaultTag, ref slaveUID);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -907,9 +883,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/batch/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/batch/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/batch/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/batch/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -958,13 +933,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/batch/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/batch/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterBatchSaveTrackingDefaultImplementation(apiResponseLocalVar, version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
+                        AfterBatchSaveTrackingDefaultImplementation(apiResponseLocalVar, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
 
                         Events.ExecuteOnBatchSaveTracking(apiResponseLocalVar);
 
@@ -974,7 +949,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorBatchSaveTrackingDefaultImplementation(e, "/api/{version}/tracking/batch/create", uriBuilderLocalVar.Path, version, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
+                OnErrorBatchSaveTrackingDefaultImplementation(e, "/tracking/batch/create", uriBuilderLocalVar.Path, data, deviceId, accountId, generateAccounts, updateAccountLocations, defaultTag, slaveUID);
                 Events.ExecuteOnErrorBatchSaveTracking(e);
                 throw;
             }
@@ -1073,7 +1048,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPredictedLocations(ref decimal version, ref long accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> dateCheck, ref Option<string> hourCheck, ref Option<long> threshold, ref Option<string> distanceUnit, ref Option<double> searchRange, ref Option<string> sortOrder);
+        partial void FormatGetPredictedLocations(ref long accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> dateCheck, ref Option<string> hourCheck, ref Option<long> threshold, ref Option<string> distanceUnit, ref Option<double> searchRange, ref Option<string> sortOrder);
 
         /// <summary>
         /// Validates the request parameters
@@ -1098,7 +1073,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -1108,10 +1082,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="distanceUnit"></param>
         /// <param name="searchRange"></param>
         /// <param name="sortOrder"></param>
-        private void AfterGetPredictedLocationsDefaultImplementation(IGetPredictedLocationsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<long> threshold, Option<string> distanceUnit, Option<double> searchRange, Option<string> sortOrder)
+        private void AfterGetPredictedLocationsDefaultImplementation(IGetPredictedLocationsApiResponse apiResponseLocalVar, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<long> threshold, Option<string> distanceUnit, Option<double> searchRange, Option<string> sortOrder)
         {
             bool suppressDefaultLog = false;
-            AfterGetPredictedLocations(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
+            AfterGetPredictedLocations(ref suppressDefaultLog, apiResponseLocalVar, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1121,7 +1095,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -1131,7 +1104,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="distanceUnit"></param>
         /// <param name="searchRange"></param>
         /// <param name="sortOrder"></param>
-        partial void AfterGetPredictedLocations(ref bool suppressDefaultLog, IGetPredictedLocationsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<long> threshold, Option<string> distanceUnit, Option<double> searchRange, Option<string> sortOrder);
+        partial void AfterGetPredictedLocations(ref bool suppressDefaultLog, IGetPredictedLocationsApiResponse apiResponseLocalVar, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<long> threshold, Option<string> distanceUnit, Option<double> searchRange, Option<string> sortOrder);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1139,7 +1112,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -1149,10 +1121,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="distanceUnit"></param>
         /// <param name="searchRange"></param>
         /// <param name="sortOrder"></param>
-        private void OnErrorGetPredictedLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<long> threshold, Option<string> distanceUnit, Option<double> searchRange, Option<string> sortOrder)
+        private void OnErrorGetPredictedLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<long> threshold, Option<string> distanceUnit, Option<double> searchRange, Option<string> sortOrder)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPredictedLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
+            OnErrorGetPredictedLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1164,7 +1136,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -1174,12 +1145,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="distanceUnit"></param>
         /// <param name="searchRange"></param>
         /// <param name="sortOrder"></param>
-        partial void OnErrorGetPredictedLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<long> threshold, Option<string> distanceUnit, Option<double> searchRange, Option<string> sortOrder);
+        partial void OnErrorGetPredictedLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<long> threshold, Option<string> distanceUnit, Option<double> searchRange, Option<string> sortOrder);
 
         /// <summary>
         /// Get Predicted Locations Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional)</param>
         /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional)</param>
@@ -1191,11 +1161,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="sortOrder">The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (optional, default to MATCHES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPredictedLocationsApiResponse"/>&gt;</returns>
-        public async Task<IGetPredictedLocationsApiResponse?> GetPredictedLocationsOrDefaultAsync(decimal version, long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<long> threshold = default, Option<string> distanceUnit = default, Option<double> searchRange = default, Option<string> sortOrder = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPredictedLocationsApiResponse?> GetPredictedLocationsOrDefaultAsync(long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<long> threshold = default, Option<string> distanceUnit = default, Option<double> searchRange = default, Option<string> sortOrder = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPredictedLocationsAsync(version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder, cancellationToken).ConfigureAwait(false);
+                return await GetPredictedLocationsAsync(accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1207,7 +1177,6 @@ namespace Org.OpenAPITools.Api
         /// Get Predicted Locations Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional)</param>
         /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional)</param>
@@ -1219,7 +1188,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="sortOrder">The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (optional, default to MATCHES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPredictedLocationsApiResponse"/>&gt;</returns>
-        public async Task<IGetPredictedLocationsApiResponse> GetPredictedLocationsAsync(decimal version, long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<long> threshold = default, Option<string> distanceUnit = default, Option<double> searchRange = default, Option<string> sortOrder = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPredictedLocationsApiResponse> GetPredictedLocationsAsync(long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<long> threshold = default, Option<string> distanceUnit = default, Option<double> searchRange = default, Option<string> sortOrder = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1227,7 +1196,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetPredictedLocations(hourCheck, distanceUnit, sortOrder);
 
-                FormatGetPredictedLocations(ref version, ref accountId, ref latitude, ref longitude, ref dateCheck, ref hourCheck, ref threshold, ref distanceUnit, ref searchRange, ref sortOrder);
+                FormatGetPredictedLocations(ref accountId, ref latitude, ref longitude, ref dateCheck, ref hourCheck, ref threshold, ref distanceUnit, ref searchRange, ref sortOrder);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1235,9 +1204,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/predicted/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/predicted/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/predicted/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/predicted/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1292,13 +1260,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/predicted/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/predicted/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPredictedLocationsDefaultImplementation(apiResponseLocalVar, version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
+                        AfterGetPredictedLocationsDefaultImplementation(apiResponseLocalVar, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
 
                         Events.ExecuteOnGetPredictedLocations(apiResponseLocalVar);
 
@@ -1308,7 +1276,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPredictedLocationsDefaultImplementation(e, "/api/{version}/tracking/predicted/get", uriBuilderLocalVar.Path, version, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
+                OnErrorGetPredictedLocationsDefaultImplementation(e, "/tracking/predicted/get", uriBuilderLocalVar.Path, accountId, latitude, longitude, dateCheck, hourCheck, threshold, distanceUnit, searchRange, sortOrder);
                 Events.ExecuteOnErrorGetPredictedLocations(e);
                 throw;
             }
@@ -1407,20 +1375,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPredictedPath(ref decimal version, ref long accountId, ref long startStepId, ref long endStepId);
+        partial void FormatGetPredictedPath(ref long accountId, ref long startStepId, ref long endStepId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="startStepId"></param>
         /// <param name="endStepId"></param>
-        private void AfterGetPredictedPathDefaultImplementation(IGetPredictedPathApiResponse apiResponseLocalVar, decimal version, long accountId, long startStepId, long endStepId)
+        private void AfterGetPredictedPathDefaultImplementation(IGetPredictedPathApiResponse apiResponseLocalVar, long accountId, long startStepId, long endStepId)
         {
             bool suppressDefaultLog = false;
-            AfterGetPredictedPath(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, startStepId, endStepId);
+            AfterGetPredictedPath(ref suppressDefaultLog, apiResponseLocalVar, accountId, startStepId, endStepId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1430,11 +1397,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="startStepId"></param>
         /// <param name="endStepId"></param>
-        partial void AfterGetPredictedPath(ref bool suppressDefaultLog, IGetPredictedPathApiResponse apiResponseLocalVar, decimal version, long accountId, long startStepId, long endStepId);
+        partial void AfterGetPredictedPath(ref bool suppressDefaultLog, IGetPredictedPathApiResponse apiResponseLocalVar, long accountId, long startStepId, long endStepId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1442,14 +1408,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="startStepId"></param>
         /// <param name="endStepId"></param>
-        private void OnErrorGetPredictedPathDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long startStepId, long endStepId)
+        private void OnErrorGetPredictedPathDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long startStepId, long endStepId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPredictedPath(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, startStepId, endStepId);
+            OnErrorGetPredictedPath(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, startStepId, endStepId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1461,26 +1426,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="startStepId"></param>
         /// <param name="endStepId"></param>
-        partial void OnErrorGetPredictedPath(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long startStepId, long endStepId);
+        partial void OnErrorGetPredictedPath(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long startStepId, long endStepId);
 
         /// <summary>
         /// Get Tracking Path Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="startStepId">The stepId to begin from</param>
         /// <param name="endStepId">The stepId to end with</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPredictedPathApiResponse"/>&gt;</returns>
-        public async Task<IGetPredictedPathApiResponse?> GetPredictedPathOrDefaultAsync(decimal version, long accountId, long startStepId, long endStepId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPredictedPathApiResponse?> GetPredictedPathOrDefaultAsync(long accountId, long startStepId, long endStepId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPredictedPathAsync(version, accountId, startStepId, endStepId, cancellationToken).ConfigureAwait(false);
+                return await GetPredictedPathAsync(accountId, startStepId, endStepId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1492,19 +1455,18 @@ namespace Org.OpenAPITools.Api
         /// Get Tracking Path Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="startStepId">The stepId to begin from</param>
         /// <param name="endStepId">The stepId to end with</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPredictedPathApiResponse"/>&gt;</returns>
-        public async Task<IGetPredictedPathApiResponse> GetPredictedPathAsync(decimal version, long accountId, long startStepId, long endStepId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPredictedPathApiResponse> GetPredictedPathAsync(long accountId, long startStepId, long endStepId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetPredictedPath(ref version, ref accountId, ref startStepId, ref endStepId);
+                FormatGetPredictedPath(ref accountId, ref startStepId, ref endStepId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1512,9 +1474,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/path/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/path/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/path/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/path/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1547,13 +1508,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/path/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/path/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPredictedPathDefaultImplementation(apiResponseLocalVar, version, accountId, startStepId, endStepId);
+                        AfterGetPredictedPathDefaultImplementation(apiResponseLocalVar, accountId, startStepId, endStepId);
 
                         Events.ExecuteOnGetPredictedPath(apiResponseLocalVar);
 
@@ -1563,7 +1524,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPredictedPathDefaultImplementation(e, "/api/{version}/tracking/path/get", uriBuilderLocalVar.Path, version, accountId, startStepId, endStepId);
+                OnErrorGetPredictedPathDefaultImplementation(e, "/tracking/path/get", uriBuilderLocalVar.Path, accountId, startStepId, endStepId);
                 Events.ExecuteOnErrorGetPredictedPath(e);
                 throw;
             }
@@ -1662,7 +1623,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPreferredLocations(ref decimal version, ref long accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> dateCheck, ref Option<string> hourCheck, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<double> searchRange, ref Option<string> distanceUnit);
+        partial void FormatGetPreferredLocations(ref long accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<long> dateCheck, ref Option<string> hourCheck, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<double> searchRange, ref Option<string> distanceUnit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1687,7 +1648,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -1699,10 +1659,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="searchRange"></param>
         /// <param name="distanceUnit"></param>
-        private void AfterGetPreferredLocationsDefaultImplementation(IGetPreferredLocationsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<string> distanceUnit)
+        private void AfterGetPreferredLocationsDefaultImplementation(IGetPreferredLocationsApiResponse apiResponseLocalVar, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<string> distanceUnit)
         {
             bool suppressDefaultLog = false;
-            AfterGetPreferredLocations(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
+            AfterGetPreferredLocations(ref suppressDefaultLog, apiResponseLocalVar, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1712,7 +1672,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -1724,7 +1683,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="searchRange"></param>
         /// <param name="distanceUnit"></param>
-        partial void AfterGetPreferredLocations(ref bool suppressDefaultLog, IGetPreferredLocationsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<string> distanceUnit);
+        partial void AfterGetPreferredLocations(ref bool suppressDefaultLog, IGetPreferredLocationsApiResponse apiResponseLocalVar, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<string> distanceUnit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1732,7 +1691,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -1744,10 +1702,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="searchRange"></param>
         /// <param name="distanceUnit"></param>
-        private void OnErrorGetPreferredLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<string> distanceUnit)
+        private void OnErrorGetPreferredLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<string> distanceUnit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPreferredLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
+            OnErrorGetPreferredLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1759,7 +1717,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
@@ -1771,12 +1728,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit"></param>
         /// <param name="searchRange"></param>
         /// <param name="distanceUnit"></param>
-        partial void OnErrorGetPreferredLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<string> distanceUnit);
+        partial void OnErrorGetPreferredLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<double> latitude, Option<double> longitude, Option<long> dateCheck, Option<string> hourCheck, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<double> searchRange, Option<string> distanceUnit);
 
         /// <summary>
         /// Search Preferred Locations Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional)</param>
         /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional)</param>
@@ -1790,11 +1746,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="distanceUnit">Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (optional, default to MILES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPreferredLocationsApiResponse"/>&gt;</returns>
-        public async Task<IGetPreferredLocationsApiResponse?> GetPreferredLocationsOrDefaultAsync(decimal version, long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPreferredLocationsApiResponse?> GetPreferredLocationsOrDefaultAsync(long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPreferredLocationsAsync(version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit, cancellationToken).ConfigureAwait(false);
+                return await GetPreferredLocationsAsync(accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1806,7 +1762,6 @@ namespace Org.OpenAPITools.Api
         /// Search Preferred Locations Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the customer</param>
         /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional)</param>
         /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional)</param>
@@ -1820,7 +1775,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="distanceUnit">Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (optional, default to MILES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPreferredLocationsApiResponse"/>&gt;</returns>
-        public async Task<IGetPreferredLocationsApiResponse> GetPreferredLocationsAsync(decimal version, long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPreferredLocationsApiResponse> GetPreferredLocationsAsync(long accountId, Option<double> latitude = default, Option<double> longitude = default, Option<long> dateCheck = default, Option<string> hourCheck = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<double> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1828,7 +1783,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetPreferredLocations(hourCheck, sortField, distanceUnit);
 
-                FormatGetPreferredLocations(ref version, ref accountId, ref latitude, ref longitude, ref dateCheck, ref hourCheck, ref sortField, ref descending, ref start, ref limit, ref searchRange, ref distanceUnit);
+                FormatGetPreferredLocations(ref accountId, ref latitude, ref longitude, ref dateCheck, ref hourCheck, ref sortField, ref descending, ref start, ref limit, ref searchRange, ref distanceUnit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1836,9 +1791,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/preferred/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/preferred/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/preferred/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/preferred/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1899,13 +1853,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/preferred/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/preferred/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPreferredLocationsDefaultImplementation(apiResponseLocalVar, version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
+                        AfterGetPreferredLocationsDefaultImplementation(apiResponseLocalVar, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
 
                         Events.ExecuteOnGetPreferredLocations(apiResponseLocalVar);
 
@@ -1915,7 +1869,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPreferredLocationsDefaultImplementation(e, "/api/{version}/tracking/preferred/search", uriBuilderLocalVar.Path, version, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
+                OnErrorGetPreferredLocationsDefaultImplementation(e, "/tracking/preferred/search", uriBuilderLocalVar.Path, accountId, latitude, longitude, dateCheck, hourCheck, sortField, descending, start, limit, searchRange, distanceUnit);
                 Events.ExecuteOnErrorGetPreferredLocations(e);
                 throw;
             }
@@ -2014,7 +1968,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTrackingLegs(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> ownerId, ref Option<string> trackingDeviceId, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<bool> getLastPoint);
+        partial void FormatGetTrackingLegs(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> ownerId, ref Option<string> trackingDeviceId, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<bool> getLastPoint);
 
         /// <summary>
         /// Validates the request parameters
@@ -2039,7 +1993,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerId"></param>
@@ -2048,10 +2001,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="tags"></param>
         /// <param name="getLastPoint"></param>
-        private void AfterGetTrackingLegsDefaultImplementation(IGetTrackingLegsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<bool> getLastPoint)
+        private void AfterGetTrackingLegsDefaultImplementation(IGetTrackingLegsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<bool> getLastPoint)
         {
             bool suppressDefaultLog = false;
-            AfterGetTrackingLegs(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
+            AfterGetTrackingLegs(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2061,7 +2014,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerId"></param>
@@ -2070,7 +2022,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="tags"></param>
         /// <param name="getLastPoint"></param>
-        partial void AfterGetTrackingLegs(ref bool suppressDefaultLog, IGetTrackingLegsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<bool> getLastPoint);
+        partial void AfterGetTrackingLegs(ref bool suppressDefaultLog, IGetTrackingLegsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<bool> getLastPoint);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2078,7 +2030,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerId"></param>
@@ -2087,10 +2038,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="tags"></param>
         /// <param name="getLastPoint"></param>
-        private void OnErrorGetTrackingLegsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<bool> getLastPoint)
+        private void OnErrorGetTrackingLegsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<bool> getLastPoint)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTrackingLegs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
+            OnErrorGetTrackingLegs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2102,7 +2053,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="ownerId"></param>
@@ -2111,12 +2061,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="tags"></param>
         /// <param name="getLastPoint"></param>
-        partial void OnErrorGetTrackingLegs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<bool> getLastPoint);
+        partial void OnErrorGetTrackingLegs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> ownerId, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<bool> getLastPoint);
 
         /// <summary>
         /// Search Tracking Retrieve tracking data to be able to show where a user has been.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="ownerId">the account id of the person the user wants to tracking data for (optional)</param>
@@ -2127,11 +2076,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="getLastPoint">gets the last known location of the user (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTrackingLegsApiResponse"/>&gt;</returns>
-        public async Task<IGetTrackingLegsApiResponse?> GetTrackingLegsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<bool> getLastPoint = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTrackingLegsApiResponse?> GetTrackingLegsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<bool> getLastPoint = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTrackingLegsAsync(version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint, cancellationToken).ConfigureAwait(false);
+                return await GetTrackingLegsAsync(deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2143,7 +2092,6 @@ namespace Org.OpenAPITools.Api
         /// Search Tracking Retrieve tracking data to be able to show where a user has been.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="ownerId">the account id of the person the user wants to tracking data for (optional)</param>
@@ -2154,7 +2102,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="getLastPoint">gets the last known location of the user (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTrackingLegsApiResponse"/>&gt;</returns>
-        public async Task<IGetTrackingLegsApiResponse> GetTrackingLegsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<bool> getLastPoint = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTrackingLegsApiResponse> GetTrackingLegsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> ownerId = default, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<bool> getLastPoint = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2162,7 +2110,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetTrackingLegs(deviceId, trackingDeviceId, tags);
 
-                FormatGetTrackingLegs(ref version, ref deviceId, ref accountId, ref ownerId, ref trackingDeviceId, ref startDate, ref endDate, ref tags, ref getLastPoint);
+                FormatGetTrackingLegs(ref deviceId, ref accountId, ref ownerId, ref trackingDeviceId, ref startDate, ref endDate, ref tags, ref getLastPoint);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2170,9 +2118,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2225,13 +2172,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTrackingLegsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
+                        AfterGetTrackingLegsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
 
                         Events.ExecuteOnGetTrackingLegs(apiResponseLocalVar);
 
@@ -2241,7 +2188,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTrackingLegsDefaultImplementation(e, "/api/{version}/tracking/search", uriBuilderLocalVar.Path, version, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
+                OnErrorGetTrackingLegsDefaultImplementation(e, "/tracking/search", uriBuilderLocalVar.Path, deviceId, accountId, ownerId, trackingDeviceId, startDate, endDate, tags, getLastPoint);
                 Events.ExecuteOnErrorGetTrackingLegs(e);
                 throw;
             }
@@ -2340,7 +2287,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSaveTrackingLeg(ref decimal version, ref double startLat, ref double startLng, ref long startDate, ref double endLat, ref double endLng, ref long endDate, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> distance, ref Option<long> duration, ref Option<string> steps, ref Option<string> tags);
+        partial void FormatSaveTrackingLeg(ref double startLat, ref double startLng, ref long startDate, ref double endLat, ref double endLng, ref long endDate, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> distance, ref Option<long> duration, ref Option<string> steps, ref Option<string> tags);
 
         /// <summary>
         /// Validates the request parameters
@@ -2365,7 +2312,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="startLat"></param>
         /// <param name="startLng"></param>
         /// <param name="startDate"></param>
@@ -2378,10 +2324,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="duration"></param>
         /// <param name="steps"></param>
         /// <param name="tags"></param>
-        private void AfterSaveTrackingLegDefaultImplementation(ISaveTrackingLegApiResponse apiResponseLocalVar, decimal version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration, Option<string> steps, Option<string> tags)
+        private void AfterSaveTrackingLegDefaultImplementation(ISaveTrackingLegApiResponse apiResponseLocalVar, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration, Option<string> steps, Option<string> tags)
         {
             bool suppressDefaultLog = false;
-            AfterSaveTrackingLeg(ref suppressDefaultLog, apiResponseLocalVar, version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
+            AfterSaveTrackingLeg(ref suppressDefaultLog, apiResponseLocalVar, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2391,7 +2337,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="startLat"></param>
         /// <param name="startLng"></param>
         /// <param name="startDate"></param>
@@ -2404,7 +2349,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="duration"></param>
         /// <param name="steps"></param>
         /// <param name="tags"></param>
-        partial void AfterSaveTrackingLeg(ref bool suppressDefaultLog, ISaveTrackingLegApiResponse apiResponseLocalVar, decimal version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration, Option<string> steps, Option<string> tags);
+        partial void AfterSaveTrackingLeg(ref bool suppressDefaultLog, ISaveTrackingLegApiResponse apiResponseLocalVar, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration, Option<string> steps, Option<string> tags);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2412,7 +2357,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="startLat"></param>
         /// <param name="startLng"></param>
         /// <param name="startDate"></param>
@@ -2425,10 +2369,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="duration"></param>
         /// <param name="steps"></param>
         /// <param name="tags"></param>
-        private void OnErrorSaveTrackingLegDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration, Option<string> steps, Option<string> tags)
+        private void OnErrorSaveTrackingLegDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration, Option<string> steps, Option<string> tags)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSaveTrackingLeg(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
+            OnErrorSaveTrackingLeg(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2440,7 +2384,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="startLat"></param>
         /// <param name="startLng"></param>
         /// <param name="startDate"></param>
@@ -2453,12 +2396,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="duration"></param>
         /// <param name="steps"></param>
         /// <param name="tags"></param>
-        partial void OnErrorSaveTrackingLeg(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration, Option<string> steps, Option<string> tags);
+        partial void OnErrorSaveTrackingLeg(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration, Option<string> steps, Option<string> tags);
 
         /// <summary>
         /// Create Tracking Leg Send tracking points to be able to generate pathing data
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="startLat">the latitude of the first point</param>
         /// <param name="startLng">the longitude of the first point</param>
         /// <param name="startDate">the start date (in UTC milliseconds) of the first point</param>
@@ -2473,11 +2415,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">name the leg for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTrackingLegApiResponse"/>&gt;</returns>
-        public async Task<ISaveTrackingLegApiResponse?> SaveTrackingLegOrDefaultAsync(decimal version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, Option<string> steps = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaveTrackingLegApiResponse?> SaveTrackingLegOrDefaultAsync(double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, Option<string> steps = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SaveTrackingLegAsync(version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags, cancellationToken).ConfigureAwait(false);
+                return await SaveTrackingLegAsync(startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2489,7 +2431,6 @@ namespace Org.OpenAPITools.Api
         /// Create Tracking Leg Send tracking points to be able to generate pathing data
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="startLat">the latitude of the first point</param>
         /// <param name="startLng">the longitude of the first point</param>
         /// <param name="startDate">the start date (in UTC milliseconds) of the first point</param>
@@ -2504,7 +2445,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags">name the leg for searching (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTrackingLegApiResponse"/>&gt;</returns>
-        public async Task<ISaveTrackingLegApiResponse> SaveTrackingLegAsync(decimal version, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, Option<string> steps = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaveTrackingLegApiResponse> SaveTrackingLegAsync(double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, Option<string> steps = default, Option<string> tags = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2512,7 +2453,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSaveTrackingLeg(deviceId, steps, tags);
 
-                FormatSaveTrackingLeg(ref version, ref startLat, ref startLng, ref startDate, ref endLat, ref endLng, ref endDate, ref deviceId, ref accountId, ref distance, ref duration, ref steps, ref tags);
+                FormatSaveTrackingLeg(ref startLat, ref startLng, ref startDate, ref endLat, ref endLng, ref endDate, ref deviceId, ref accountId, ref distance, ref duration, ref steps, ref tags);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2520,9 +2461,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/leg/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/leg/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/leg/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/leg/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2576,13 +2516,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/leg/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/leg/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSaveTrackingLegDefaultImplementation(apiResponseLocalVar, version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
+                        AfterSaveTrackingLegDefaultImplementation(apiResponseLocalVar, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
 
                         Events.ExecuteOnSaveTrackingLeg(apiResponseLocalVar);
 
@@ -2592,7 +2532,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSaveTrackingLegDefaultImplementation(e, "/api/{version}/tracking/leg/create", uriBuilderLocalVar.Path, version, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
+                OnErrorSaveTrackingLegDefaultImplementation(e, "/tracking/leg/create", uriBuilderLocalVar.Path, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, steps, tags);
                 Events.ExecuteOnErrorSaveTrackingLeg(e);
                 throw;
             }
@@ -2691,7 +2631,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSaveTrackingStep(ref decimal version, ref long legId, ref double startLat, ref double startLng, ref long startDate, ref double endLat, ref double endLng, ref long endDate, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> distance, ref Option<long> duration);
+        partial void FormatSaveTrackingStep(ref long legId, ref double startLat, ref double startLng, ref long startDate, ref double endLat, ref double endLng, ref long endDate, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> distance, ref Option<long> duration);
 
         /// <summary>
         /// Validates the request parameters
@@ -2708,7 +2648,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="legId"></param>
         /// <param name="startLat"></param>
         /// <param name="startLng"></param>
@@ -2720,10 +2659,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="distance"></param>
         /// <param name="duration"></param>
-        private void AfterSaveTrackingStepDefaultImplementation(ISaveTrackingStepApiResponse apiResponseLocalVar, decimal version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration)
+        private void AfterSaveTrackingStepDefaultImplementation(ISaveTrackingStepApiResponse apiResponseLocalVar, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration)
         {
             bool suppressDefaultLog = false;
-            AfterSaveTrackingStep(ref suppressDefaultLog, apiResponseLocalVar, version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
+            AfterSaveTrackingStep(ref suppressDefaultLog, apiResponseLocalVar, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2733,7 +2672,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="legId"></param>
         /// <param name="startLat"></param>
         /// <param name="startLng"></param>
@@ -2745,7 +2683,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="distance"></param>
         /// <param name="duration"></param>
-        partial void AfterSaveTrackingStep(ref bool suppressDefaultLog, ISaveTrackingStepApiResponse apiResponseLocalVar, decimal version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration);
+        partial void AfterSaveTrackingStep(ref bool suppressDefaultLog, ISaveTrackingStepApiResponse apiResponseLocalVar, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2753,7 +2691,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="legId"></param>
         /// <param name="startLat"></param>
         /// <param name="startLng"></param>
@@ -2765,10 +2702,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="distance"></param>
         /// <param name="duration"></param>
-        private void OnErrorSaveTrackingStepDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration)
+        private void OnErrorSaveTrackingStepDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSaveTrackingStep(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
+            OnErrorSaveTrackingStep(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2780,7 +2717,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="legId"></param>
         /// <param name="startLat"></param>
         /// <param name="startLng"></param>
@@ -2792,12 +2728,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="accountId"></param>
         /// <param name="distance"></param>
         /// <param name="duration"></param>
-        partial void OnErrorSaveTrackingStep(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration);
+        partial void OnErrorSaveTrackingStep(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId, Option<long> accountId, Option<double> distance, Option<long> duration);
 
         /// <summary>
         /// Create Tracking Step Send tracking points to be able to generate pathing data
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="legId">the leg to add the step to</param>
         /// <param name="startLat">the latitude of the first point</param>
         /// <param name="startLng">the longitude of the first point</param>
@@ -2811,11 +2746,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="duration">the total duration (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTrackingStepApiResponse"/>&gt;</returns>
-        public async Task<ISaveTrackingStepApiResponse?> SaveTrackingStepOrDefaultAsync(decimal version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaveTrackingStepApiResponse?> SaveTrackingStepOrDefaultAsync(long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SaveTrackingStepAsync(version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, cancellationToken).ConfigureAwait(false);
+                return await SaveTrackingStepAsync(legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2827,7 +2762,6 @@ namespace Org.OpenAPITools.Api
         /// Create Tracking Step Send tracking points to be able to generate pathing data
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="legId">the leg to add the step to</param>
         /// <param name="startLat">the latitude of the first point</param>
         /// <param name="startLng">the longitude of the first point</param>
@@ -2841,7 +2775,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="duration">the total duration (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTrackingStepApiResponse"/>&gt;</returns>
-        public async Task<ISaveTrackingStepApiResponse> SaveTrackingStepAsync(decimal version, long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaveTrackingStepApiResponse> SaveTrackingStepAsync(long legId, double startLat, double startLng, long startDate, double endLat, double endLng, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<double> distance = default, Option<long> duration = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2849,7 +2783,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSaveTrackingStep(deviceId);
 
-                FormatSaveTrackingStep(ref version, ref legId, ref startLat, ref startLng, ref startDate, ref endLat, ref endLng, ref endDate, ref deviceId, ref accountId, ref distance, ref duration);
+                FormatSaveTrackingStep(ref legId, ref startLat, ref startLng, ref startDate, ref endLat, ref endLng, ref endDate, ref deviceId, ref accountId, ref distance, ref duration);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2857,9 +2791,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/step/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/step/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/step/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/step/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2908,13 +2841,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/step/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/step/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSaveTrackingStepDefaultImplementation(apiResponseLocalVar, version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
+                        AfterSaveTrackingStepDefaultImplementation(apiResponseLocalVar, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
 
                         Events.ExecuteOnSaveTrackingStep(apiResponseLocalVar);
 
@@ -2924,7 +2857,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSaveTrackingStepDefaultImplementation(e, "/api/{version}/tracking/step/create", uriBuilderLocalVar.Path, version, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
+                OnErrorSaveTrackingStepDefaultImplementation(e, "/tracking/step/create", uriBuilderLocalVar.Path, legId, startLat, startLng, startDate, endLat, endLng, endDate, deviceId, accountId, distance, duration);
                 Events.ExecuteOnErrorSaveTrackingStep(e);
                 throw;
             }
@@ -3023,7 +2956,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchAccountsWithTrackingLegs(ref decimal version, ref long accountId, ref Option<string> keyword, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<string> audienceIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<double> range, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
+        partial void FormatSearchAccountsWithTrackingLegs(ref long accountId, ref Option<string> keyword, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<string> audienceIds, ref Option<double> latitude, ref Option<double> longitude, ref Option<double> range, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -3052,7 +2985,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="startDate"></param>
@@ -3067,10 +2999,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchAccountsWithTrackingLegsDefaultImplementation(ISearchAccountsWithTrackingLegsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> audienceIds, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void AfterSearchAccountsWithTrackingLegsDefaultImplementation(ISearchAccountsWithTrackingLegsApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> audienceIds, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchAccountsWithTrackingLegs(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
+            AfterSearchAccountsWithTrackingLegs(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3080,7 +3012,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="startDate"></param>
@@ -3095,7 +3026,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchAccountsWithTrackingLegs(ref bool suppressDefaultLog, ISearchAccountsWithTrackingLegsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> audienceIds, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void AfterSearchAccountsWithTrackingLegs(ref bool suppressDefaultLog, ISearchAccountsWithTrackingLegsApiResponse apiResponseLocalVar, long accountId, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> audienceIds, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3103,7 +3034,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="startDate"></param>
@@ -3118,10 +3048,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchAccountsWithTrackingLegsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> audienceIds, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void OnErrorSearchAccountsWithTrackingLegsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> audienceIds, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchAccountsWithTrackingLegs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
+            OnErrorSearchAccountsWithTrackingLegs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3133,7 +3063,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="startDate"></param>
@@ -3148,12 +3077,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchAccountsWithTrackingLegs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> audienceIds, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void OnErrorSearchAccountsWithTrackingLegs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<string> audienceIds, Option<double> latitude, Option<double> longitude, Option<double> range, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// List Tracking Search for all accounts that have tracking legs data by the given constraints.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="keyword">Used for LIKE search of first or last name on the acocunt (optional)</param>
         /// <param name="startDate">Range to begin in UTC milliseconds (optional)</param>
@@ -3170,11 +3098,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAccountsWithTrackingLegsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAccountsWithTrackingLegsApiResponse?> SearchAccountsWithTrackingLegsOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> audienceIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAccountsWithTrackingLegsApiResponse?> SearchAccountsWithTrackingLegsOrDefaultAsync(long accountId, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> audienceIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchAccountsWithTrackingLegsAsync(version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchAccountsWithTrackingLegsAsync(accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3186,7 +3114,6 @@ namespace Org.OpenAPITools.Api
         /// List Tracking Search for all accounts that have tracking legs data by the given constraints.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="keyword">Used for LIKE search of first or last name on the acocunt (optional)</param>
         /// <param name="startDate">Range to begin in UTC milliseconds (optional)</param>
@@ -3203,7 +3130,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAccountsWithTrackingLegsApiResponse"/>&gt;</returns>
-        public async Task<ISearchAccountsWithTrackingLegsApiResponse> SearchAccountsWithTrackingLegsAsync(decimal version, long accountId, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> audienceIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAccountsWithTrackingLegsApiResponse> SearchAccountsWithTrackingLegsAsync(long accountId, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<string> audienceIds = default, Option<double> latitude = default, Option<double> longitude = default, Option<double> range = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3211,7 +3138,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchAccountsWithTrackingLegs(keyword, tags, audienceIds, sortField);
 
-                FormatSearchAccountsWithTrackingLegs(ref version, ref accountId, ref keyword, ref startDate, ref endDate, ref tags, ref audienceIds, ref latitude, ref longitude, ref range, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
+                FormatSearchAccountsWithTrackingLegs(ref accountId, ref keyword, ref startDate, ref endDate, ref tags, ref audienceIds, ref latitude, ref longitude, ref range, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3219,9 +3146,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/list"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/list");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/list"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/list");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3291,13 +3217,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/list", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/list", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchAccountsWithTrackingLegsDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
+                        AfterSearchAccountsWithTrackingLegsDefaultImplementation(apiResponseLocalVar, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
 
                         Events.ExecuteOnSearchAccountsWithTrackingLegs(apiResponseLocalVar);
 
@@ -3307,7 +3233,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchAccountsWithTrackingLegsDefaultImplementation(e, "/api/{version}/tracking/list", uriBuilderLocalVar.Path, version, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
+                OnErrorSearchAccountsWithTrackingLegsDefaultImplementation(e, "/tracking/list", uriBuilderLocalVar.Path, accountId, keyword, startDate, endDate, tags, audienceIds, latitude, longitude, range, sortField, descending, start, limit, activeOnly);
                 Events.ExecuteOnErrorSearchAccountsWithTrackingLegs(e);
                 throw;
             }
@@ -3406,7 +3332,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchTrackingLegs(ref decimal version, ref long accountId, ref string appKey, ref Option<string> trackingDeviceId, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchTrackingLegs(ref long accountId, ref string appKey, ref Option<string> trackingDeviceId, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> tags, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -3431,7 +3357,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="trackingDeviceId"></param>
@@ -3440,10 +3365,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchTrackingLegsDefaultImplementation(ISearchTrackingLegsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<int> start, Option<int> limit)
+        private void AfterSearchTrackingLegsDefaultImplementation(ISearchTrackingLegsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchTrackingLegs(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
+            AfterSearchTrackingLegs(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3453,7 +3378,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="trackingDeviceId"></param>
@@ -3462,7 +3386,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchTrackingLegs(ref bool suppressDefaultLog, ISearchTrackingLegsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<int> start, Option<int> limit);
+        partial void AfterSearchTrackingLegs(ref bool suppressDefaultLog, ISearchTrackingLegsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3470,7 +3394,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="trackingDeviceId"></param>
@@ -3479,10 +3402,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchTrackingLegsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<int> start, Option<int> limit)
+        private void OnErrorSearchTrackingLegsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchTrackingLegs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
+            OnErrorSearchTrackingLegs(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3494,7 +3417,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="trackingDeviceId"></param>
@@ -3503,12 +3425,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="tags"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchTrackingLegs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchTrackingLegs(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> trackingDeviceId, Option<long> startDate, Option<long> endDate, Option<string> tags, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Tracking (Billable) Retrieve tracking data for billable/account scoped queries.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id to search tracking for</param>
         /// <param name="appKey">The application key</param>
         /// <param name="trackingDeviceId">The id of the tracking device (optional)</param>
@@ -3519,11 +3440,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTrackingLegsApiResponse"/>&gt;</returns>
-        public async Task<ISearchTrackingLegsApiResponse?> SearchTrackingLegsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTrackingLegsApiResponse?> SearchTrackingLegsOrDefaultAsync(long accountId, string appKey, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchTrackingLegsAsync(version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchTrackingLegsAsync(accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3535,7 +3456,6 @@ namespace Org.OpenAPITools.Api
         /// Search Tracking (Billable) Retrieve tracking data for billable/account scoped queries.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id to search tracking for</param>
         /// <param name="appKey">The application key</param>
         /// <param name="trackingDeviceId">The id of the tracking device (optional)</param>
@@ -3546,7 +3466,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTrackingLegsApiResponse"/>&gt;</returns>
-        public async Task<ISearchTrackingLegsApiResponse> SearchTrackingLegsAsync(decimal version, long accountId, string appKey, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTrackingLegsApiResponse> SearchTrackingLegsAsync(long accountId, string appKey, Option<string> trackingDeviceId = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> tags = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3554,7 +3474,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchTrackingLegs(appKey, trackingDeviceId, tags);
 
-                FormatSearchTrackingLegs(ref version, ref accountId, ref appKey, ref trackingDeviceId, ref startDate, ref endDate, ref tags, ref start, ref limit);
+                FormatSearchTrackingLegs(ref accountId, ref appKey, ref trackingDeviceId, ref startDate, ref endDate, ref tags, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3562,9 +3482,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/tracking/searchByBillable"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/tracking/searchByBillable");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/tracking/searchByBillable"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/tracking/searchByBillable");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3614,13 +3533,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/tracking/searchByBillable", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/tracking/searchByBillable", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchTrackingLegsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
+                        AfterSearchTrackingLegsDefaultImplementation(apiResponseLocalVar, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
 
                         Events.ExecuteOnSearchTrackingLegs(apiResponseLocalVar);
 
@@ -3630,7 +3549,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchTrackingLegsDefaultImplementation(e, "/api/{version}/tracking/searchByBillable", uriBuilderLocalVar.Path, version, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
+                OnErrorSearchTrackingLegsDefaultImplementation(e, "/tracking/searchByBillable", uriBuilderLocalVar.Path, accountId, appKey, trackingDeviceId, startDate, endDate, tags, start, limit);
                 Events.ExecuteOnErrorSearchTrackingLegs(e);
                 throw;
             }

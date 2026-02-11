@@ -45,13 +45,12 @@ namespace Org.OpenAPITools.Api
         /// Generate images with OpenAI.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="postBody">Post Body Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IImageGenerationApiResponse"/>&gt;</returns>
-        Task<IImageGenerationApiResponse> ImageGenerationAsync(decimal version, long accountId, string postBody, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IImageGenerationApiResponse> ImageGenerationAsync(long accountId, string postBody, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Generate images with OpenAI
@@ -59,13 +58,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Generate images with OpenAI.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="postBody">Post Body Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IImageGenerationApiResponse"/>?&gt;</returns>
-        Task<IImageGenerationApiResponse?> ImageGenerationOrDefaultAsync(decimal version, long accountId, string postBody, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IImageGenerationApiResponse?> ImageGenerationOrDefaultAsync(long accountId, string postBody, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -153,7 +151,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatImageGeneration(ref decimal version, ref long accountId, ref string postBody, ref Option<bool> returnRawResponse);
+        partial void FormatImageGeneration(ref long accountId, ref string postBody, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -170,14 +168,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postBody"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterImageGenerationDefaultImplementation(IImageGenerationApiResponse apiResponseLocalVar, decimal version, long accountId, string postBody, Option<bool> returnRawResponse)
+        private void AfterImageGenerationDefaultImplementation(IImageGenerationApiResponse apiResponseLocalVar, long accountId, string postBody, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterImageGeneration(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, postBody, returnRawResponse);
+            AfterImageGeneration(ref suppressDefaultLog, apiResponseLocalVar, accountId, postBody, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -187,11 +184,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postBody"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterImageGeneration(ref bool suppressDefaultLog, IImageGenerationApiResponse apiResponseLocalVar, decimal version, long accountId, string postBody, Option<bool> returnRawResponse);
+        partial void AfterImageGeneration(ref bool suppressDefaultLog, IImageGenerationApiResponse apiResponseLocalVar, long accountId, string postBody, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -199,14 +195,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postBody"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorImageGenerationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string postBody, Option<bool> returnRawResponse)
+        private void OnErrorImageGenerationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string postBody, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorImageGeneration(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, postBody, returnRawResponse);
+            OnErrorImageGeneration(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, postBody, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -218,26 +213,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="postBody"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorImageGeneration(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string postBody, Option<bool> returnRawResponse);
+        partial void OnErrorImageGeneration(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string postBody, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Generate images with OpenAI Generate images with OpenAI.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="postBody">Post Body Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IImageGenerationApiResponse"/>&gt;</returns>
-        public async Task<IImageGenerationApiResponse?> ImageGenerationOrDefaultAsync(decimal version, long accountId, string postBody, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IImageGenerationApiResponse?> ImageGenerationOrDefaultAsync(long accountId, string postBody, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ImageGenerationAsync(version, accountId, postBody, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await ImageGenerationAsync(accountId, postBody, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -249,13 +242,12 @@ namespace Org.OpenAPITools.Api
         /// Generate images with OpenAI Generate images with OpenAI.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="postBody">Post Body Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IImageGenerationApiResponse"/>&gt;</returns>
-        public async Task<IImageGenerationApiResponse> ImageGenerationAsync(decimal version, long accountId, string postBody, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IImageGenerationApiResponse> ImageGenerationAsync(long accountId, string postBody, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -263,7 +255,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateImageGeneration(postBody);
 
-                FormatImageGeneration(ref version, ref accountId, ref postBody, ref returnRawResponse);
+                FormatImageGeneration(ref accountId, ref postBody, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -271,9 +263,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/openai/v1/images/generations"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/openai/v1/images/generations");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/openai/v1/images/generations"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/openai/v1/images/generations");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -308,13 +299,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/openai/v1/images/generations", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/openai/v1/images/generations", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterImageGenerationDefaultImplementation(apiResponseLocalVar, version, accountId, postBody, returnRawResponse);
+                        AfterImageGenerationDefaultImplementation(apiResponseLocalVar, accountId, postBody, returnRawResponse);
 
                         Events.ExecuteOnImageGeneration(apiResponseLocalVar);
 
@@ -324,7 +315,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorImageGenerationDefaultImplementation(e, "/api/{version}/openai/v1/images/generations", uriBuilderLocalVar.Path, version, accountId, postBody, returnRawResponse);
+                OnErrorImageGenerationDefaultImplementation(e, "/openai/v1/images/generations", uriBuilderLocalVar.Path, accountId, postBody, returnRawResponse);
                 Events.ExecuteOnErrorImageGeneration(e);
                 throw;
             }

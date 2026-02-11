@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="batchId">the id of the batch</param>
         /// <param name="responseGroup">The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL</param>
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetStatusCSVApiResponse"/>&gt;</returns>
-        Task<IGetStatusCSVApiResponse> GetStatusCSVAsync(decimal version, long accountId, long batchId, string responseGroup, long start, long limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetStatusCSVApiResponse> GetStatusCSVAsync(long accountId, long batchId, string responseGroup, long start, long limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Detail Status
@@ -61,7 +60,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="batchId">the id of the batch</param>
         /// <param name="responseGroup">The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL</param>
@@ -69,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetStatusCSVApiResponse"/>?&gt;</returns>
-        Task<IGetStatusCSVApiResponse?> GetStatusCSVOrDefaultAsync(decimal version, long accountId, long batchId, string responseGroup, long start, long limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetStatusCSVApiResponse?> GetStatusCSVOrDefaultAsync(long accountId, long batchId, string responseGroup, long start, long limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Status
@@ -78,13 +76,12 @@ namespace Org.OpenAPITools.Api
         /// Retrieves batches for a user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="start">the start of the pagination</param>
         /// <param name="limit">the limit of the pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListStatusCSVApiResponse"/>&gt;</returns>
-        Task<IListStatusCSVApiResponse> ListStatusCSVAsync(decimal version, long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListStatusCSVApiResponse> ListStatusCSVAsync(long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Status
@@ -92,13 +89,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Retrieves batches for a user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="start">the start of the pagination</param>
         /// <param name="limit">the limit of the pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListStatusCSVApiResponse"/>?&gt;</returns>
-        Task<IListStatusCSVApiResponse?> ListStatusCSVOrDefaultAsync(decimal version, long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListStatusCSVApiResponse?> ListStatusCSVOrDefaultAsync(long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Status
@@ -107,12 +103,11 @@ namespace Org.OpenAPITools.Api
         /// Checks status of batch upload.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="batchId">the id of the batch to get its status</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IStatusCSVApiResponse"/>&gt;</returns>
-        Task<IStatusCSVApiResponse> StatusCSVAsync(decimal version, long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IStatusCSVApiResponse> StatusCSVAsync(long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Batch Status
@@ -120,12 +115,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Checks status of batch upload.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="batchId">the id of the batch to get its status</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IStatusCSVApiResponse"/>?&gt;</returns>
-        Task<IStatusCSVApiResponse?> StatusCSVOrDefaultAsync(decimal version, long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IStatusCSVApiResponse?> StatusCSVOrDefaultAsync(long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload CSV
@@ -134,7 +128,6 @@ namespace Org.OpenAPITools.Api
         /// Uploads a CSV import file.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="uploadType">the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS</param>
         /// <param name="importFile">the import file to reference</param>
@@ -142,7 +135,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUploadCSVApiResponse"/>&gt;</returns>
-        Task<IUploadCSVApiResponse> UploadCSVAsync(decimal version, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUploadCSVApiResponse> UploadCSVAsync(long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload CSV
@@ -150,7 +143,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Uploads a CSV import file.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="uploadType">the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS</param>
         /// <param name="importFile">the import file to reference</param>
@@ -158,7 +150,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUploadCSVApiResponse"/>?&gt;</returns>
-        Task<IUploadCSVApiResponse?> UploadCSVOrDefaultAsync(decimal version, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUploadCSVApiResponse?> UploadCSVOrDefaultAsync(long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -342,7 +334,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetStatusCSV(ref decimal version, ref long accountId, ref long batchId, ref string responseGroup, ref long start, ref long limit);
+        partial void FormatGetStatusCSV(ref long accountId, ref long batchId, ref string responseGroup, ref long start, ref long limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -359,16 +351,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
         /// <param name="responseGroup"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterGetStatusCSVDefaultImplementation(IGetStatusCSVApiResponse apiResponseLocalVar, decimal version, long accountId, long batchId, string responseGroup, long start, long limit)
+        private void AfterGetStatusCSVDefaultImplementation(IGetStatusCSVApiResponse apiResponseLocalVar, long accountId, long batchId, string responseGroup, long start, long limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetStatusCSV(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, batchId, responseGroup, start, limit);
+            AfterGetStatusCSV(ref suppressDefaultLog, apiResponseLocalVar, accountId, batchId, responseGroup, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -378,13 +369,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
         /// <param name="responseGroup"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterGetStatusCSV(ref bool suppressDefaultLog, IGetStatusCSVApiResponse apiResponseLocalVar, decimal version, long accountId, long batchId, string responseGroup, long start, long limit);
+        partial void AfterGetStatusCSV(ref bool suppressDefaultLog, IGetStatusCSVApiResponse apiResponseLocalVar, long accountId, long batchId, string responseGroup, long start, long limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -392,16 +382,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
         /// <param name="responseGroup"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetStatusCSVDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long batchId, string responseGroup, long start, long limit)
+        private void OnErrorGetStatusCSVDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long batchId, string responseGroup, long start, long limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetStatusCSV(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, batchId, responseGroup, start, limit);
+            OnErrorGetStatusCSV(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, batchId, responseGroup, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -413,18 +402,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
         /// <param name="responseGroup"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetStatusCSV(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long batchId, string responseGroup, long start, long limit);
+        partial void OnErrorGetStatusCSV(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long batchId, string responseGroup, long start, long limit);
 
         /// <summary>
         /// Detail Status 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="batchId">the id of the batch</param>
         /// <param name="responseGroup">The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL</param>
@@ -432,11 +419,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetStatusCSVApiResponse"/>&gt;</returns>
-        public async Task<IGetStatusCSVApiResponse?> GetStatusCSVOrDefaultAsync(decimal version, long accountId, long batchId, string responseGroup, long start, long limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetStatusCSVApiResponse?> GetStatusCSVOrDefaultAsync(long accountId, long batchId, string responseGroup, long start, long limit, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetStatusCSVAsync(version, accountId, batchId, responseGroup, start, limit, cancellationToken).ConfigureAwait(false);
+                return await GetStatusCSVAsync(accountId, batchId, responseGroup, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -448,7 +435,6 @@ namespace Org.OpenAPITools.Api
         /// Detail Status 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the logged in user</param>
         /// <param name="batchId">the id of the batch</param>
         /// <param name="responseGroup">The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL</param>
@@ -456,7 +442,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetStatusCSVApiResponse"/>&gt;</returns>
-        public async Task<IGetStatusCSVApiResponse> GetStatusCSVAsync(decimal version, long accountId, long batchId, string responseGroup, long start, long limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetStatusCSVApiResponse> GetStatusCSVAsync(long accountId, long batchId, string responseGroup, long start, long limit, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -464,7 +450,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetStatusCSV(responseGroup);
 
-                FormatGetStatusCSV(ref version, ref accountId, ref batchId, ref responseGroup, ref start, ref limit);
+                FormatGetStatusCSV(ref accountId, ref batchId, ref responseGroup, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -472,9 +458,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/csvimport/batch/status/details"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/csvimport/batch/status/details");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/csvimport/batch/status/details"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/csvimport/batch/status/details");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -509,13 +494,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/csvimport/batch/status/details", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/csvimport/batch/status/details", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetStatusCSVDefaultImplementation(apiResponseLocalVar, version, accountId, batchId, responseGroup, start, limit);
+                        AfterGetStatusCSVDefaultImplementation(apiResponseLocalVar, accountId, batchId, responseGroup, start, limit);
 
                         Events.ExecuteOnGetStatusCSV(apiResponseLocalVar);
 
@@ -525,7 +510,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetStatusCSVDefaultImplementation(e, "/api/{version}/csvimport/batch/status/details", uriBuilderLocalVar.Path, version, accountId, batchId, responseGroup, start, limit);
+                OnErrorGetStatusCSVDefaultImplementation(e, "/csvimport/batch/status/details", uriBuilderLocalVar.Path, accountId, batchId, responseGroup, start, limit);
                 Events.ExecuteOnErrorGetStatusCSV(e);
                 throw;
             }
@@ -624,20 +609,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListStatusCSV(ref decimal version, ref long accountId, ref int start, ref int limit);
+        partial void FormatListStatusCSV(ref long accountId, ref int start, ref int limit);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterListStatusCSVDefaultImplementation(IListStatusCSVApiResponse apiResponseLocalVar, decimal version, long accountId, int start, int limit)
+        private void AfterListStatusCSVDefaultImplementation(IListStatusCSVApiResponse apiResponseLocalVar, long accountId, int start, int limit)
         {
             bool suppressDefaultLog = false;
-            AfterListStatusCSV(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, start, limit);
+            AfterListStatusCSV(ref suppressDefaultLog, apiResponseLocalVar, accountId, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -647,11 +631,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterListStatusCSV(ref bool suppressDefaultLog, IListStatusCSVApiResponse apiResponseLocalVar, decimal version, long accountId, int start, int limit);
+        partial void AfterListStatusCSV(ref bool suppressDefaultLog, IListStatusCSVApiResponse apiResponseLocalVar, long accountId, int start, int limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -659,14 +642,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorListStatusCSVDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int start, int limit)
+        private void OnErrorListStatusCSVDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int start, int limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListStatusCSV(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, start, limit);
+            OnErrorListStatusCSV(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -678,26 +660,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorListStatusCSV(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int start, int limit);
+        partial void OnErrorListStatusCSV(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int start, int limit);
 
         /// <summary>
         /// Search Status Retrieves batches for a user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="start">the start of the pagination</param>
         /// <param name="limit">the limit of the pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListStatusCSVApiResponse"/>&gt;</returns>
-        public async Task<IListStatusCSVApiResponse?> ListStatusCSVOrDefaultAsync(decimal version, long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListStatusCSVApiResponse?> ListStatusCSVOrDefaultAsync(long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListStatusCSVAsync(version, accountId, start, limit, cancellationToken).ConfigureAwait(false);
+                return await ListStatusCSVAsync(accountId, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -709,19 +689,18 @@ namespace Org.OpenAPITools.Api
         /// Search Status Retrieves batches for a user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="start">the start of the pagination</param>
         /// <param name="limit">the limit of the pagination</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListStatusCSVApiResponse"/>&gt;</returns>
-        public async Task<IListStatusCSVApiResponse> ListStatusCSVAsync(decimal version, long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListStatusCSVApiResponse> ListStatusCSVAsync(long accountId, int start, int limit, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatListStatusCSV(ref version, ref accountId, ref start, ref limit);
+                FormatListStatusCSV(ref accountId, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -729,9 +708,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/csvimport/batch/list"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/csvimport/batch/list");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/csvimport/batch/list"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/csvimport/batch/list");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -764,13 +742,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/csvimport/batch/list", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/csvimport/batch/list", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListStatusCSVDefaultImplementation(apiResponseLocalVar, version, accountId, start, limit);
+                        AfterListStatusCSVDefaultImplementation(apiResponseLocalVar, accountId, start, limit);
 
                         Events.ExecuteOnListStatusCSV(apiResponseLocalVar);
 
@@ -780,7 +758,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListStatusCSVDefaultImplementation(e, "/api/{version}/csvimport/batch/list", uriBuilderLocalVar.Path, version, accountId, start, limit);
+                OnErrorListStatusCSVDefaultImplementation(e, "/csvimport/batch/list", uriBuilderLocalVar.Path, accountId, start, limit);
                 Events.ExecuteOnErrorListStatusCSV(e);
                 throw;
             }
@@ -879,19 +857,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatStatusCSV(ref decimal version, ref long accountId, ref long batchId);
+        partial void FormatStatusCSV(ref long accountId, ref long batchId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
-        private void AfterStatusCSVDefaultImplementation(IStatusCSVApiResponse apiResponseLocalVar, decimal version, long accountId, long batchId)
+        private void AfterStatusCSVDefaultImplementation(IStatusCSVApiResponse apiResponseLocalVar, long accountId, long batchId)
         {
             bool suppressDefaultLog = false;
-            AfterStatusCSV(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, batchId);
+            AfterStatusCSV(ref suppressDefaultLog, apiResponseLocalVar, accountId, batchId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -901,10 +878,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
-        partial void AfterStatusCSV(ref bool suppressDefaultLog, IStatusCSVApiResponse apiResponseLocalVar, decimal version, long accountId, long batchId);
+        partial void AfterStatusCSV(ref bool suppressDefaultLog, IStatusCSVApiResponse apiResponseLocalVar, long accountId, long batchId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -912,13 +888,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
-        private void OnErrorStatusCSVDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long batchId)
+        private void OnErrorStatusCSVDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long batchId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorStatusCSV(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, batchId);
+            OnErrorStatusCSV(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, batchId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -930,24 +905,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="batchId"></param>
-        partial void OnErrorStatusCSV(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long batchId);
+        partial void OnErrorStatusCSV(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long batchId);
 
         /// <summary>
         /// Batch Status Checks status of batch upload.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="batchId">the id of the batch to get its status</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IStatusCSVApiResponse"/>&gt;</returns>
-        public async Task<IStatusCSVApiResponse?> StatusCSVOrDefaultAsync(decimal version, long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IStatusCSVApiResponse?> StatusCSVOrDefaultAsync(long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await StatusCSVAsync(version, accountId, batchId, cancellationToken).ConfigureAwait(false);
+                return await StatusCSVAsync(accountId, batchId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -959,18 +932,17 @@ namespace Org.OpenAPITools.Api
         /// Batch Status Checks status of batch upload.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="batchId">the id of the batch to get its status</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IStatusCSVApiResponse"/>&gt;</returns>
-        public async Task<IStatusCSVApiResponse> StatusCSVAsync(decimal version, long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IStatusCSVApiResponse> StatusCSVAsync(long accountId, long batchId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatStatusCSV(ref version, ref accountId, ref batchId);
+                FormatStatusCSV(ref accountId, ref batchId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -978,9 +950,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/csvimport/batch/status"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/csvimport/batch/status");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/csvimport/batch/status"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/csvimport/batch/status");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1012,13 +983,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/csvimport/batch/status", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/csvimport/batch/status", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterStatusCSVDefaultImplementation(apiResponseLocalVar, version, accountId, batchId);
+                        AfterStatusCSVDefaultImplementation(apiResponseLocalVar, accountId, batchId);
 
                         Events.ExecuteOnStatusCSV(apiResponseLocalVar);
 
@@ -1028,7 +999,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorStatusCSVDefaultImplementation(e, "/api/{version}/csvimport/batch/status", uriBuilderLocalVar.Path, version, accountId, batchId);
+                OnErrorStatusCSVDefaultImplementation(e, "/csvimport/batch/status", uriBuilderLocalVar.Path, accountId, batchId);
                 Events.ExecuteOnErrorStatusCSV(e);
                 throw;
             }
@@ -1127,7 +1098,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUploadCSV(ref decimal version, ref long accountId, ref string uploadType, ref System.IO.Stream importFile, ref string fileFormat, ref Option<string> appKey);
+        partial void FormatUploadCSV(ref long accountId, ref string uploadType, ref System.IO.Stream importFile, ref string fileFormat, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1156,16 +1127,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="uploadType"></param>
         /// <param name="importFile"></param>
         /// <param name="fileFormat"></param>
         /// <param name="appKey"></param>
-        private void AfterUploadCSVDefaultImplementation(IUploadCSVApiResponse apiResponseLocalVar, decimal version, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey)
+        private void AfterUploadCSVDefaultImplementation(IUploadCSVApiResponse apiResponseLocalVar, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterUploadCSV(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, uploadType, importFile, fileFormat, appKey);
+            AfterUploadCSV(ref suppressDefaultLog, apiResponseLocalVar, accountId, uploadType, importFile, fileFormat, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1175,13 +1145,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="uploadType"></param>
         /// <param name="importFile"></param>
         /// <param name="fileFormat"></param>
         /// <param name="appKey"></param>
-        partial void AfterUploadCSV(ref bool suppressDefaultLog, IUploadCSVApiResponse apiResponseLocalVar, decimal version, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey);
+        partial void AfterUploadCSV(ref bool suppressDefaultLog, IUploadCSVApiResponse apiResponseLocalVar, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1189,16 +1158,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="uploadType"></param>
         /// <param name="importFile"></param>
         /// <param name="fileFormat"></param>
         /// <param name="appKey"></param>
-        private void OnErrorUploadCSVDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey)
+        private void OnErrorUploadCSVDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUploadCSV(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, uploadType, importFile, fileFormat, appKey);
+            OnErrorUploadCSV(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, uploadType, importFile, fileFormat, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1210,18 +1178,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="uploadType"></param>
         /// <param name="importFile"></param>
         /// <param name="fileFormat"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorUploadCSV(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey);
+        partial void OnErrorUploadCSV(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey);
 
         /// <summary>
         /// Upload CSV Uploads a CSV import file.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="uploadType">the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS</param>
         /// <param name="importFile">the import file to reference</param>
@@ -1229,11 +1195,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUploadCSVApiResponse"/>&gt;</returns>
-        public async Task<IUploadCSVApiResponse?> UploadCSVOrDefaultAsync(decimal version, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUploadCSVApiResponse?> UploadCSVOrDefaultAsync(long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UploadCSVAsync(version, accountId, uploadType, importFile, fileFormat, appKey, cancellationToken).ConfigureAwait(false);
+                return await UploadCSVAsync(accountId, uploadType, importFile, fileFormat, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1245,7 +1211,6 @@ namespace Org.OpenAPITools.Api
         /// Upload CSV Uploads a CSV import file.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the id of the account</param>
         /// <param name="uploadType">the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS</param>
         /// <param name="importFile">the import file to reference</param>
@@ -1253,7 +1218,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUploadCSVApiResponse"/>&gt;</returns>
-        public async Task<IUploadCSVApiResponse> UploadCSVAsync(decimal version, long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUploadCSVApiResponse> UploadCSVAsync(long accountId, string uploadType, System.IO.Stream importFile, string fileFormat, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1261,7 +1226,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUploadCSV(uploadType, importFile, fileFormat, appKey);
 
-                FormatUploadCSV(ref version, ref accountId, ref uploadType, ref importFile, ref fileFormat, ref appKey);
+                FormatUploadCSV(ref accountId, ref uploadType, ref importFile, ref fileFormat, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1269,9 +1234,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/csvimport/upload"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/csvimport/upload");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/csvimport/upload"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/csvimport/upload");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1308,13 +1272,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/csvimport/upload", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/csvimport/upload", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUploadCSVDefaultImplementation(apiResponseLocalVar, version, accountId, uploadType, importFile, fileFormat, appKey);
+                        AfterUploadCSVDefaultImplementation(apiResponseLocalVar, accountId, uploadType, importFile, fileFormat, appKey);
 
                         Events.ExecuteOnUploadCSV(apiResponseLocalVar);
 
@@ -1324,7 +1288,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUploadCSVDefaultImplementation(e, "/api/{version}/csvimport/upload", uriBuilderLocalVar.Path, version, accountId, uploadType, importFile, fileFormat, appKey);
+                OnErrorUploadCSVDefaultImplementation(e, "/csvimport/upload", uriBuilderLocalVar.Path, accountId, uploadType, importFile, fileFormat, appKey);
                 Events.ExecuteOnErrorUploadCSV(e);
                 throw;
             }

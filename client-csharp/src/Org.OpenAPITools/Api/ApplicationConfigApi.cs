@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="appKey">The application key that the newly created applicationConfig will be associated to</param>
         /// <param name="configVersion">The application configuration, has to be unique within the application</param>
@@ -55,7 +54,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="udid">The device udid for device specific configurations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationConfigApiResponse"/>&gt;</returns>
-        Task<ICreateApplicationConfigApiResponse> CreateApplicationConfigAsync(decimal version, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateApplicationConfigApiResponse> CreateApplicationConfigAsync(long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create AppConfig
@@ -63,7 +62,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="appKey">The application key that the newly created applicationConfig will be associated to</param>
         /// <param name="configVersion">The application configuration, has to be unique within the application</param>
@@ -73,7 +71,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="udid">The device udid for device specific configurations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationConfigApiResponse"/>?&gt;</returns>
-        Task<ICreateApplicationConfigApiResponse?> CreateApplicationConfigOrDefaultAsync(decimal version, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateApplicationConfigApiResponse?> CreateApplicationConfigOrDefaultAsync(long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete AppConfig
@@ -82,12 +80,11 @@ namespace Org.OpenAPITools.Api
         /// Mark the application configuration for deletion.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationConfigApiResponse"/>&gt;</returns>
-        Task<IDeleteApplicationConfigApiResponse> DeleteApplicationConfigAsync(decimal version, long accountId, long configId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteApplicationConfigApiResponse> DeleteApplicationConfigAsync(long accountId, long configId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete AppConfig
@@ -95,12 +92,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Mark the application configuration for deletion.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationConfigApiResponse"/>?&gt;</returns>
-        Task<IDeleteApplicationConfigApiResponse?> DeleteApplicationConfigOrDefaultAsync(decimal version, long accountId, long configId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteApplicationConfigApiResponse?> DeleteApplicationConfigOrDefaultAsync(long accountId, long configId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get AppConfig
@@ -109,12 +105,11 @@ namespace Org.OpenAPITools.Api
         /// Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationConfigApiResponse"/>&gt;</returns>
-        Task<IGetApplicationConfigApiResponse> GetApplicationConfigAsync(decimal version, long accountId, long configId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationConfigApiResponse> GetApplicationConfigAsync(long accountId, long configId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get AppConfig
@@ -122,12 +117,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationConfigApiResponse"/>?&gt;</returns>
-        Task<IGetApplicationConfigApiResponse?> GetApplicationConfigOrDefaultAsync(decimal version, long accountId, long configId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationConfigApiResponse?> GetApplicationConfigOrDefaultAsync(long accountId, long configId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get AppConfig by Version
@@ -136,7 +130,6 @@ namespace Org.OpenAPITools.Api
         /// Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="configVersion">The version of the application configuration</param>
         /// <param name="retailerId">Only returns the config that matches the given retailer (optional)</param>
@@ -145,7 +138,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="allowOlderVersions">Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationConfigByConfigVersionApiResponse"/>&gt;</returns>
-        Task<IGetApplicationConfigByConfigVersionApiResponse> GetApplicationConfigByConfigVersionAsync(decimal version, string appKey, string configVersion, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<bool> allowOlderVersions = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationConfigByConfigVersionApiResponse> GetApplicationConfigByConfigVersionAsync(string appKey, string configVersion, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<bool> allowOlderVersions = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get AppConfig by Version
@@ -153,7 +146,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="configVersion">The version of the application configuration</param>
         /// <param name="retailerId">Only returns the config that matches the given retailer (optional)</param>
@@ -162,7 +154,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="allowOlderVersions">Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationConfigByConfigVersionApiResponse"/>?&gt;</returns>
-        Task<IGetApplicationConfigByConfigVersionApiResponse?> GetApplicationConfigByConfigVersionOrDefaultAsync(decimal version, string appKey, string configVersion, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<bool> allowOlderVersions = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationConfigByConfigVersionApiResponse?> GetApplicationConfigByConfigVersionOrDefaultAsync(string appKey, string configVersion, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<bool> allowOlderVersions = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search AppConfigs
@@ -171,7 +163,6 @@ namespace Org.OpenAPITools.Api
         /// Gets all versions of application configurations in a particular app by the given appKey.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="appKey">The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)</param>
         /// <param name="retailerId">Only returns the configs that matches the given retailer (optional)</param>
@@ -184,7 +175,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (There is a hard limit of 100) (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationConfigApiResponse"/>&gt;</returns>
-        Task<ISearchApplicationConfigApiResponse> SearchApplicationConfigAsync(decimal version, long accountId, Option<string> appKey = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<string> configVersion = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApplicationConfigApiResponse> SearchApplicationConfigAsync(long accountId, Option<string> appKey = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<string> configVersion = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search AppConfigs
@@ -192,7 +183,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets all versions of application configurations in a particular app by the given appKey.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="appKey">The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)</param>
         /// <param name="retailerId">Only returns the configs that matches the given retailer (optional)</param>
@@ -205,7 +195,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (There is a hard limit of 100) (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationConfigApiResponse"/>?&gt;</returns>
-        Task<ISearchApplicationConfigApiResponse?> SearchApplicationConfigOrDefaultAsync(decimal version, long accountId, Option<string> appKey = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<string> configVersion = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApplicationConfigApiResponse?> SearchApplicationConfigOrDefaultAsync(long accountId, Option<string> appKey = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<string> configVersion = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update AppConfig
@@ -214,7 +204,6 @@ namespace Org.OpenAPITools.Api
         /// pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration to update</param>
         /// <param name="appKey">The application key that the updated applicationConfig will be associated to (optional)</param>
@@ -225,7 +214,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="udid">The device udid for device specific configurations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationConfigApiResponse"/>&gt;</returns>
-        Task<IUpdateApplicationConfigApiResponse> UpdateApplicationConfigAsync(decimal version, long accountId, long configId, Option<string> appKey = default, Option<string> configVersion = default, Option<long> assetId = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateApplicationConfigApiResponse> UpdateApplicationConfigAsync(long accountId, long configId, Option<string> appKey = default, Option<string> configVersion = default, Option<long> assetId = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update AppConfig
@@ -233,7 +222,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration to update</param>
         /// <param name="appKey">The application key that the updated applicationConfig will be associated to (optional)</param>
@@ -244,7 +232,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="udid">The device udid for device specific configurations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationConfigApiResponse"/>?&gt;</returns>
-        Task<IUpdateApplicationConfigApiResponse?> UpdateApplicationConfigOrDefaultAsync(decimal version, long accountId, long configId, Option<string> appKey = default, Option<string> configVersion = default, Option<long> assetId = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateApplicationConfigApiResponse?> UpdateApplicationConfigOrDefaultAsync(long accountId, long configId, Option<string> appKey = default, Option<string> configVersion = default, Option<long> assetId = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -492,7 +480,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateApplicationConfig(ref decimal version, ref long accountId, ref string appKey, ref string configVersion, ref long assetId, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> udid);
+        partial void FormatCreateApplicationConfig(ref long accountId, ref string appKey, ref string configVersion, ref long assetId, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> udid);
 
         /// <summary>
         /// Validates the request parameters
@@ -517,7 +505,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="configVersion"></param>
@@ -525,10 +512,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
-        private void AfterCreateApplicationConfigDefaultImplementation(ICreateApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid)
+        private void AfterCreateApplicationConfigDefaultImplementation(ICreateApplicationConfigApiResponse apiResponseLocalVar, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid)
         {
             bool suppressDefaultLog = false;
-            AfterCreateApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+            AfterCreateApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -538,7 +525,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="configVersion"></param>
@@ -546,7 +532,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
-        partial void AfterCreateApplicationConfig(ref bool suppressDefaultLog, ICreateApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid);
+        partial void AfterCreateApplicationConfig(ref bool suppressDefaultLog, ICreateApplicationConfigApiResponse apiResponseLocalVar, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -554,7 +540,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="configVersion"></param>
@@ -562,10 +547,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
-        private void OnErrorCreateApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid)
+        private void OnErrorCreateApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+            OnErrorCreateApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -577,7 +562,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="configVersion"></param>
@@ -585,12 +569,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
-        partial void OnErrorCreateApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid);
+        partial void OnErrorCreateApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid);
 
         /// <summary>
         /// Create AppConfig Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="appKey">The application key that the newly created applicationConfig will be associated to</param>
         /// <param name="configVersion">The application configuration, has to be unique within the application</param>
@@ -600,11 +583,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="udid">The device udid for device specific configurations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<ICreateApplicationConfigApiResponse?> CreateApplicationConfigOrDefaultAsync(decimal version, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateApplicationConfigApiResponse?> CreateApplicationConfigOrDefaultAsync(long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateApplicationConfigAsync(version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, cancellationToken).ConfigureAwait(false);
+                return await CreateApplicationConfigAsync(accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -616,7 +599,6 @@ namespace Org.OpenAPITools.Api
         /// Create AppConfig Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="appKey">The application key that the newly created applicationConfig will be associated to</param>
         /// <param name="configVersion">The application configuration, has to be unique within the application</param>
@@ -626,7 +608,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="udid">The device udid for device specific configurations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<ICreateApplicationConfigApiResponse> CreateApplicationConfigAsync(decimal version, long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateApplicationConfigApiResponse> CreateApplicationConfigAsync(long accountId, string appKey, string configVersion, long assetId, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -634,7 +616,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateApplicationConfig(appKey, configVersion, udid);
 
-                FormatCreateApplicationConfig(ref version, ref accountId, ref appKey, ref configVersion, ref assetId, ref retailerId, ref retailerLocationId, ref udid);
+                FormatCreateApplicationConfig(ref accountId, ref appKey, ref configVersion, ref assetId, ref retailerId, ref retailerLocationId, ref udid);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -642,9 +624,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/appconfig/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/appconfig/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/appconfig/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/appconfig/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -687,13 +668,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/appconfig/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/appconfig/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateApplicationConfigDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+                        AfterCreateApplicationConfigDefaultImplementation(apiResponseLocalVar, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
 
                         Events.ExecuteOnCreateApplicationConfig(apiResponseLocalVar);
 
@@ -703,7 +684,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateApplicationConfigDefaultImplementation(e, "/api/{version}/appconfig/create", uriBuilderLocalVar.Path, version, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+                OnErrorCreateApplicationConfigDefaultImplementation(e, "/appconfig/create", uriBuilderLocalVar.Path, accountId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
                 Events.ExecuteOnErrorCreateApplicationConfig(e);
                 throw;
             }
@@ -802,19 +783,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteApplicationConfig(ref decimal version, ref long accountId, ref long configId);
+        partial void FormatDeleteApplicationConfig(ref long accountId, ref long configId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
-        private void AfterDeleteApplicationConfigDefaultImplementation(IDeleteApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, long configId)
+        private void AfterDeleteApplicationConfigDefaultImplementation(IDeleteApplicationConfigApiResponse apiResponseLocalVar, long accountId, long configId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, configId);
+            AfterDeleteApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, accountId, configId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -824,10 +804,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
-        partial void AfterDeleteApplicationConfig(ref bool suppressDefaultLog, IDeleteApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, long configId);
+        partial void AfterDeleteApplicationConfig(ref bool suppressDefaultLog, IDeleteApplicationConfigApiResponse apiResponseLocalVar, long accountId, long configId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -835,13 +814,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
-        private void OnErrorDeleteApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long configId)
+        private void OnErrorDeleteApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long configId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, configId);
+            OnErrorDeleteApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, configId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -853,24 +831,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
-        partial void OnErrorDeleteApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long configId);
+        partial void OnErrorDeleteApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long configId);
 
         /// <summary>
         /// Delete AppConfig Mark the application configuration for deletion.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<IDeleteApplicationConfigApiResponse?> DeleteApplicationConfigOrDefaultAsync(decimal version, long accountId, long configId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteApplicationConfigApiResponse?> DeleteApplicationConfigOrDefaultAsync(long accountId, long configId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteApplicationConfigAsync(version, accountId, configId, cancellationToken).ConfigureAwait(false);
+                return await DeleteApplicationConfigAsync(accountId, configId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -882,18 +858,17 @@ namespace Org.OpenAPITools.Api
         /// Delete AppConfig Mark the application configuration for deletion.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<IDeleteApplicationConfigApiResponse> DeleteApplicationConfigAsync(decimal version, long accountId, long configId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteApplicationConfigApiResponse> DeleteApplicationConfigAsync(long accountId, long configId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteApplicationConfig(ref version, ref accountId, ref configId);
+                FormatDeleteApplicationConfig(ref accountId, ref configId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -901,9 +876,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/appconfig/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/appconfig/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/appconfig/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/appconfig/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -935,13 +909,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/appconfig/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/appconfig/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteApplicationConfigDefaultImplementation(apiResponseLocalVar, version, accountId, configId);
+                        AfterDeleteApplicationConfigDefaultImplementation(apiResponseLocalVar, accountId, configId);
 
                         Events.ExecuteOnDeleteApplicationConfig(apiResponseLocalVar);
 
@@ -951,7 +925,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteApplicationConfigDefaultImplementation(e, "/api/{version}/appconfig/delete", uriBuilderLocalVar.Path, version, accountId, configId);
+                OnErrorDeleteApplicationConfigDefaultImplementation(e, "/appconfig/delete", uriBuilderLocalVar.Path, accountId, configId);
                 Events.ExecuteOnErrorDeleteApplicationConfig(e);
                 throw;
             }
@@ -1050,19 +1024,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetApplicationConfig(ref decimal version, ref long accountId, ref long configId);
+        partial void FormatGetApplicationConfig(ref long accountId, ref long configId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
-        private void AfterGetApplicationConfigDefaultImplementation(IGetApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, long configId)
+        private void AfterGetApplicationConfigDefaultImplementation(IGetApplicationConfigApiResponse apiResponseLocalVar, long accountId, long configId)
         {
             bool suppressDefaultLog = false;
-            AfterGetApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, configId);
+            AfterGetApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, accountId, configId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1072,10 +1045,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
-        partial void AfterGetApplicationConfig(ref bool suppressDefaultLog, IGetApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, long configId);
+        partial void AfterGetApplicationConfig(ref bool suppressDefaultLog, IGetApplicationConfigApiResponse apiResponseLocalVar, long accountId, long configId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1083,13 +1055,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
-        private void OnErrorGetApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long configId)
+        private void OnErrorGetApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long configId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, configId);
+            OnErrorGetApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, configId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1101,24 +1072,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
-        partial void OnErrorGetApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long configId);
+        partial void OnErrorGetApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long configId);
 
         /// <summary>
         /// Get AppConfig Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationConfigApiResponse?> GetApplicationConfigOrDefaultAsync(decimal version, long accountId, long configId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationConfigApiResponse?> GetApplicationConfigOrDefaultAsync(long accountId, long configId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetApplicationConfigAsync(version, accountId, configId, cancellationToken).ConfigureAwait(false);
+                return await GetApplicationConfigAsync(accountId, configId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1130,18 +1099,17 @@ namespace Org.OpenAPITools.Api
         /// Get AppConfig Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationConfigApiResponse> GetApplicationConfigAsync(decimal version, long accountId, long configId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationConfigApiResponse> GetApplicationConfigAsync(long accountId, long configId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetApplicationConfig(ref version, ref accountId, ref configId);
+                FormatGetApplicationConfig(ref accountId, ref configId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1149,9 +1117,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/appconfig/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/appconfig/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/appconfig/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/appconfig/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1183,13 +1150,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/appconfig/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/appconfig/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetApplicationConfigDefaultImplementation(apiResponseLocalVar, version, accountId, configId);
+                        AfterGetApplicationConfigDefaultImplementation(apiResponseLocalVar, accountId, configId);
 
                         Events.ExecuteOnGetApplicationConfig(apiResponseLocalVar);
 
@@ -1199,7 +1166,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetApplicationConfigDefaultImplementation(e, "/api/{version}/appconfig/get", uriBuilderLocalVar.Path, version, accountId, configId);
+                OnErrorGetApplicationConfigDefaultImplementation(e, "/appconfig/get", uriBuilderLocalVar.Path, accountId, configId);
                 Events.ExecuteOnErrorGetApplicationConfig(e);
                 throw;
             }
@@ -1298,7 +1265,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetApplicationConfigByConfigVersion(ref decimal version, ref string appKey, ref string configVersion, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> udid, ref Option<bool> allowOlderVersions);
+        partial void FormatGetApplicationConfigByConfigVersion(ref string appKey, ref string configVersion, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> udid, ref Option<bool> allowOlderVersions);
 
         /// <summary>
         /// Validates the request parameters
@@ -1323,17 +1290,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="configVersion"></param>
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
         /// <param name="allowOlderVersions"></param>
-        private void AfterGetApplicationConfigByConfigVersionDefaultImplementation(IGetApplicationConfigByConfigVersionApiResponse apiResponseLocalVar, decimal version, string appKey, string configVersion, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<bool> allowOlderVersions)
+        private void AfterGetApplicationConfigByConfigVersionDefaultImplementation(IGetApplicationConfigByConfigVersionApiResponse apiResponseLocalVar, string appKey, string configVersion, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<bool> allowOlderVersions)
         {
             bool suppressDefaultLog = false;
-            AfterGetApplicationConfigByConfigVersion(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
+            AfterGetApplicationConfigByConfigVersion(ref suppressDefaultLog, apiResponseLocalVar, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1343,14 +1309,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="configVersion"></param>
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
         /// <param name="allowOlderVersions"></param>
-        partial void AfterGetApplicationConfigByConfigVersion(ref bool suppressDefaultLog, IGetApplicationConfigByConfigVersionApiResponse apiResponseLocalVar, decimal version, string appKey, string configVersion, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<bool> allowOlderVersions);
+        partial void AfterGetApplicationConfigByConfigVersion(ref bool suppressDefaultLog, IGetApplicationConfigByConfigVersionApiResponse apiResponseLocalVar, string appKey, string configVersion, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<bool> allowOlderVersions);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1358,17 +1323,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="configVersion"></param>
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
         /// <param name="allowOlderVersions"></param>
-        private void OnErrorGetApplicationConfigByConfigVersionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string configVersion, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<bool> allowOlderVersions)
+        private void OnErrorGetApplicationConfigByConfigVersionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string configVersion, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<bool> allowOlderVersions)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetApplicationConfigByConfigVersion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
+            OnErrorGetApplicationConfigByConfigVersion(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1380,19 +1344,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="configVersion"></param>
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
         /// <param name="allowOlderVersions"></param>
-        partial void OnErrorGetApplicationConfigByConfigVersion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string configVersion, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<bool> allowOlderVersions);
+        partial void OnErrorGetApplicationConfigByConfigVersion(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string configVersion, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<bool> allowOlderVersions);
 
         /// <summary>
         /// Get AppConfig by Version Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="configVersion">The version of the application configuration</param>
         /// <param name="retailerId">Only returns the config that matches the given retailer (optional)</param>
@@ -1401,11 +1363,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="allowOlderVersions">Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationConfigByConfigVersionApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationConfigByConfigVersionApiResponse?> GetApplicationConfigByConfigVersionOrDefaultAsync(decimal version, string appKey, string configVersion, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<bool> allowOlderVersions = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationConfigByConfigVersionApiResponse?> GetApplicationConfigByConfigVersionOrDefaultAsync(string appKey, string configVersion, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<bool> allowOlderVersions = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetApplicationConfigByConfigVersionAsync(version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions, cancellationToken).ConfigureAwait(false);
+                return await GetApplicationConfigByConfigVersionAsync(appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1417,7 +1379,6 @@ namespace Org.OpenAPITools.Api
         /// Get AppConfig by Version Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="configVersion">The version of the application configuration</param>
         /// <param name="retailerId">Only returns the config that matches the given retailer (optional)</param>
@@ -1426,7 +1387,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="allowOlderVersions">Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationConfigByConfigVersionApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationConfigByConfigVersionApiResponse> GetApplicationConfigByConfigVersionAsync(decimal version, string appKey, string configVersion, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<bool> allowOlderVersions = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationConfigByConfigVersionApiResponse> GetApplicationConfigByConfigVersionAsync(string appKey, string configVersion, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<bool> allowOlderVersions = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1434,7 +1395,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetApplicationConfigByConfigVersion(appKey, configVersion, udid);
 
-                FormatGetApplicationConfigByConfigVersion(ref version, ref appKey, ref configVersion, ref retailerId, ref retailerLocationId, ref udid, ref allowOlderVersions);
+                FormatGetApplicationConfigByConfigVersion(ref appKey, ref configVersion, ref retailerId, ref retailerLocationId, ref udid, ref allowOlderVersions);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1442,9 +1403,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/appconfig/getbyversion"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/appconfig/getbyversion");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/appconfig/getbyversion"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/appconfig/getbyversion");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1488,13 +1448,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/appconfig/getbyversion", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/appconfig/getbyversion", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetApplicationConfigByConfigVersionDefaultImplementation(apiResponseLocalVar, version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
+                        AfterGetApplicationConfigByConfigVersionDefaultImplementation(apiResponseLocalVar, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
 
                         Events.ExecuteOnGetApplicationConfigByConfigVersion(apiResponseLocalVar);
 
@@ -1504,7 +1464,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetApplicationConfigByConfigVersionDefaultImplementation(e, "/api/{version}/appconfig/getbyversion", uriBuilderLocalVar.Path, version, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
+                OnErrorGetApplicationConfigByConfigVersionDefaultImplementation(e, "/appconfig/getbyversion", uriBuilderLocalVar.Path, appKey, configVersion, retailerId, retailerLocationId, udid, allowOlderVersions);
                 Events.ExecuteOnErrorGetApplicationConfigByConfigVersion(e);
                 throw;
             }
@@ -1603,7 +1563,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchApplicationConfig(ref decimal version, ref long accountId, ref Option<string> appKey, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> udid, ref Option<string> configVersion, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchApplicationConfig(ref long accountId, ref Option<string> appKey, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> udid, ref Option<string> configVersion, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1632,7 +1592,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retailerId"></param>
@@ -1643,10 +1602,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchApplicationConfigDefaultImplementation(ISearchApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> appKey, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<string> configVersion, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchApplicationConfigDefaultImplementation(ISearchApplicationConfigApiResponse apiResponseLocalVar, long accountId, Option<string> appKey, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<string> configVersion, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
+            AfterSearchApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1656,7 +1615,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retailerId"></param>
@@ -1667,7 +1625,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchApplicationConfig(ref bool suppressDefaultLog, ISearchApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> appKey, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<string> configVersion, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchApplicationConfig(ref bool suppressDefaultLog, ISearchApplicationConfigApiResponse apiResponseLocalVar, long accountId, Option<string> appKey, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<string> configVersion, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1675,7 +1633,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retailerId"></param>
@@ -1686,10 +1643,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> appKey, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<string> configVersion, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> appKey, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<string> configVersion, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
+            OnErrorSearchApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1701,7 +1658,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="retailerId"></param>
@@ -1712,12 +1668,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> appKey, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<string> configVersion, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> appKey, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid, Option<string> configVersion, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search AppConfigs Gets all versions of application configurations in a particular app by the given appKey.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="appKey">The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)</param>
         /// <param name="retailerId">Only returns the configs that matches the given retailer (optional)</param>
@@ -1730,11 +1685,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (There is a hard limit of 100) (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<ISearchApplicationConfigApiResponse?> SearchApplicationConfigOrDefaultAsync(decimal version, long accountId, Option<string> appKey = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<string> configVersion = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApplicationConfigApiResponse?> SearchApplicationConfigOrDefaultAsync(long accountId, Option<string> appKey = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<string> configVersion = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchApplicationConfigAsync(version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchApplicationConfigAsync(accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1746,7 +1701,6 @@ namespace Org.OpenAPITools.Api
         /// Search AppConfigs Gets all versions of application configurations in a particular app by the given appKey.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="appKey">The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)</param>
         /// <param name="retailerId">Only returns the configs that matches the given retailer (optional)</param>
@@ -1759,7 +1713,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit for pagination (There is a hard limit of 100) (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<ISearchApplicationConfigApiResponse> SearchApplicationConfigAsync(decimal version, long accountId, Option<string> appKey = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<string> configVersion = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApplicationConfigApiResponse> SearchApplicationConfigAsync(long accountId, Option<string> appKey = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, Option<string> configVersion = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1767,7 +1721,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchApplicationConfig(appKey, udid, configVersion, sortField);
 
-                FormatSearchApplicationConfig(ref version, ref accountId, ref appKey, ref retailerId, ref retailerLocationId, ref udid, ref configVersion, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchApplicationConfig(ref accountId, ref appKey, ref retailerId, ref retailerLocationId, ref udid, ref configVersion, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1775,9 +1729,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/appconfig/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/appconfig/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/appconfig/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/appconfig/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1835,13 +1788,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/appconfig/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/appconfig/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchApplicationConfigDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
+                        AfterSearchApplicationConfigDefaultImplementation(apiResponseLocalVar, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchApplicationConfig(apiResponseLocalVar);
 
@@ -1851,7 +1804,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchApplicationConfigDefaultImplementation(e, "/api/{version}/appconfig/search", uriBuilderLocalVar.Path, version, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
+                OnErrorSearchApplicationConfigDefaultImplementation(e, "/appconfig/search", uriBuilderLocalVar.Path, accountId, appKey, retailerId, retailerLocationId, udid, configVersion, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchApplicationConfig(e);
                 throw;
             }
@@ -1950,7 +1903,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateApplicationConfig(ref decimal version, ref long accountId, ref long configId, ref Option<string> appKey, ref Option<string> configVersion, ref Option<long> assetId, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> udid);
+        partial void FormatUpdateApplicationConfig(ref long accountId, ref long configId, ref Option<string> appKey, ref Option<string> configVersion, ref Option<long> assetId, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> udid);
 
         /// <summary>
         /// Validates the request parameters
@@ -1975,7 +1928,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
         /// <param name="appKey"></param>
@@ -1984,10 +1936,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
-        private void AfterUpdateApplicationConfigDefaultImplementation(IUpdateApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, long configId, Option<string> appKey, Option<string> configVersion, Option<long> assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid)
+        private void AfterUpdateApplicationConfigDefaultImplementation(IUpdateApplicationConfigApiResponse apiResponseLocalVar, long accountId, long configId, Option<string> appKey, Option<string> configVersion, Option<long> assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+            AfterUpdateApplicationConfig(ref suppressDefaultLog, apiResponseLocalVar, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1997,7 +1949,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
         /// <param name="appKey"></param>
@@ -2006,7 +1957,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
-        partial void AfterUpdateApplicationConfig(ref bool suppressDefaultLog, IUpdateApplicationConfigApiResponse apiResponseLocalVar, decimal version, long accountId, long configId, Option<string> appKey, Option<string> configVersion, Option<long> assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid);
+        partial void AfterUpdateApplicationConfig(ref bool suppressDefaultLog, IUpdateApplicationConfigApiResponse apiResponseLocalVar, long accountId, long configId, Option<string> appKey, Option<string> configVersion, Option<long> assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2014,7 +1965,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
         /// <param name="appKey"></param>
@@ -2023,10 +1973,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
-        private void OnErrorUpdateApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long configId, Option<string> appKey, Option<string> configVersion, Option<long> assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid)
+        private void OnErrorUpdateApplicationConfigDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long configId, Option<string> appKey, Option<string> configVersion, Option<long> assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+            OnErrorUpdateApplicationConfig(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2038,7 +1988,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="configId"></param>
         /// <param name="appKey"></param>
@@ -2047,12 +1996,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerId"></param>
         /// <param name="retailerLocationId"></param>
         /// <param name="udid"></param>
-        partial void OnErrorUpdateApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long configId, Option<string> appKey, Option<string> configVersion, Option<long> assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid);
+        partial void OnErrorUpdateApplicationConfig(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long configId, Option<string> appKey, Option<string> configVersion, Option<long> assetId, Option<long> retailerId, Option<long> retailerLocationId, Option<string> udid);
 
         /// <summary>
         /// Update AppConfig pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration to update</param>
         /// <param name="appKey">The application key that the updated applicationConfig will be associated to (optional)</param>
@@ -2063,11 +2011,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="udid">The device udid for device specific configurations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<IUpdateApplicationConfigApiResponse?> UpdateApplicationConfigOrDefaultAsync(decimal version, long accountId, long configId, Option<string> appKey = default, Option<string> configVersion = default, Option<long> assetId = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateApplicationConfigApiResponse?> UpdateApplicationConfigOrDefaultAsync(long accountId, long configId, Option<string> appKey = default, Option<string> configVersion = default, Option<long> assetId = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateApplicationConfigAsync(version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, cancellationToken).ConfigureAwait(false);
+                return await UpdateApplicationConfigAsync(accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2079,7 +2027,6 @@ namespace Org.OpenAPITools.Api
         /// Update AppConfig pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account ID of the user</param>
         /// <param name="configId">The config ID of the application configuration to update</param>
         /// <param name="appKey">The application key that the updated applicationConfig will be associated to (optional)</param>
@@ -2090,7 +2037,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="udid">The device udid for device specific configurations (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationConfigApiResponse"/>&gt;</returns>
-        public async Task<IUpdateApplicationConfigApiResponse> UpdateApplicationConfigAsync(decimal version, long accountId, long configId, Option<string> appKey = default, Option<string> configVersion = default, Option<long> assetId = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateApplicationConfigApiResponse> UpdateApplicationConfigAsync(long accountId, long configId, Option<string> appKey = default, Option<string> configVersion = default, Option<long> assetId = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2098,7 +2045,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateApplicationConfig(appKey, configVersion, udid);
 
-                FormatUpdateApplicationConfig(ref version, ref accountId, ref configId, ref appKey, ref configVersion, ref assetId, ref retailerId, ref retailerLocationId, ref udid);
+                FormatUpdateApplicationConfig(ref accountId, ref configId, ref appKey, ref configVersion, ref assetId, ref retailerId, ref retailerLocationId, ref udid);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2106,9 +2053,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/appconfig/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/appconfig/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/appconfig/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/appconfig/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2158,13 +2104,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/appconfig/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/appconfig/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateApplicationConfigDefaultImplementation(apiResponseLocalVar, version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+                        AfterUpdateApplicationConfigDefaultImplementation(apiResponseLocalVar, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
 
                         Events.ExecuteOnUpdateApplicationConfig(apiResponseLocalVar);
 
@@ -2174,7 +2120,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateApplicationConfigDefaultImplementation(e, "/api/{version}/appconfig/update", uriBuilderLocalVar.Path, version, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
+                OnErrorUpdateApplicationConfigDefaultImplementation(e, "/appconfig/update", uriBuilderLocalVar.Path, accountId, configId, appKey, configVersion, assetId, retailerId, retailerLocationId, udid);
                 Events.ExecuteOnErrorUpdateApplicationConfig(e);
                 throw;
             }

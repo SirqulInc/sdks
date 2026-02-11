@@ -45,11 +45,10 @@ namespace Org.OpenAPITools.Api
         /// Creates a reference for an entity for syncing data between servers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body">The entity reference object</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEntityReferenceApiResponse"/>&gt;</returns>
-        Task<ICreateEntityReferenceApiResponse> CreateEntityReferenceAsync(decimal version, EntityReference body, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateEntityReferenceApiResponse> CreateEntityReferenceAsync(EntityReference body, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create an entity reference.
@@ -57,11 +56,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a reference for an entity for syncing data between servers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="body">The entity reference object</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEntityReferenceApiResponse"/>?&gt;</returns>
-        Task<ICreateEntityReferenceApiResponse?> CreateEntityReferenceOrDefaultAsync(decimal version, EntityReference body, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateEntityReferenceApiResponse?> CreateEntityReferenceOrDefaultAsync(EntityReference body, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -149,7 +147,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateEntityReference(ref decimal version, EntityReference body);
+        partial void FormatCreateEntityReference(EntityReference body);
 
         /// <summary>
         /// Validates the request parameters
@@ -166,12 +164,11 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void AfterCreateEntityReferenceDefaultImplementation(ICreateEntityReferenceApiResponse apiResponseLocalVar, decimal version, EntityReference body)
+        private void AfterCreateEntityReferenceDefaultImplementation(ICreateEntityReferenceApiResponse apiResponseLocalVar, EntityReference body)
         {
             bool suppressDefaultLog = false;
-            AfterCreateEntityReference(ref suppressDefaultLog, apiResponseLocalVar, version, body);
+            AfterCreateEntityReference(ref suppressDefaultLog, apiResponseLocalVar, body);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -181,9 +178,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void AfterCreateEntityReference(ref bool suppressDefaultLog, ICreateEntityReferenceApiResponse apiResponseLocalVar, decimal version, EntityReference body);
+        partial void AfterCreateEntityReference(ref bool suppressDefaultLog, ICreateEntityReferenceApiResponse apiResponseLocalVar, EntityReference body);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -191,12 +187,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        private void OnErrorCreateEntityReferenceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, EntityReference body)
+        private void OnErrorCreateEntityReferenceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, EntityReference body)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateEntityReference(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, body);
+            OnErrorCreateEntityReference(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, body);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -208,22 +203,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="body"></param>
-        partial void OnErrorCreateEntityReference(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, EntityReference body);
+        partial void OnErrorCreateEntityReference(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, EntityReference body);
 
         /// <summary>
         /// Create an entity reference. Creates a reference for an entity for syncing data between servers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="body">The entity reference object</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEntityReferenceApiResponse"/>&gt;</returns>
-        public async Task<ICreateEntityReferenceApiResponse?> CreateEntityReferenceOrDefaultAsync(decimal version, EntityReference body, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateEntityReferenceApiResponse?> CreateEntityReferenceOrDefaultAsync(EntityReference body, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateEntityReferenceAsync(version, body, cancellationToken).ConfigureAwait(false);
+                return await CreateEntityReferenceAsync(body, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -235,11 +228,10 @@ namespace Org.OpenAPITools.Api
         /// Create an entity reference. Creates a reference for an entity for syncing data between servers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="body">The entity reference object</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateEntityReferenceApiResponse"/>&gt;</returns>
-        public async Task<ICreateEntityReferenceApiResponse> CreateEntityReferenceAsync(decimal version, EntityReference body, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateEntityReferenceApiResponse> CreateEntityReferenceAsync(EntityReference body, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -247,7 +239,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateEntityReference(body);
 
-                FormatCreateEntityReference(ref version, body);
+                FormatCreateEntityReference(body);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -255,9 +247,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/entity/reference"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/entity/reference");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/entity/reference"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/entity/reference");
 
                     httpRequestMessageLocalVar.Content = (body as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -295,13 +286,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/entity/reference", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/entity/reference", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateEntityReferenceDefaultImplementation(apiResponseLocalVar, version, body);
+                        AfterCreateEntityReferenceDefaultImplementation(apiResponseLocalVar, body);
 
                         Events.ExecuteOnCreateEntityReference(apiResponseLocalVar);
 
@@ -311,7 +302,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateEntityReferenceDefaultImplementation(e, "/api/{version}/entity/reference", uriBuilderLocalVar.Path, version, body);
+                OnErrorCreateEntityReferenceDefaultImplementation(e, "/entity/reference", uriBuilderLocalVar.Path, body);
                 Events.ExecuteOnErrorCreateEntityReference(e);
                 throw;
             }

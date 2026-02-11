@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user creating the leaderboard. (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
         /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)</param>
@@ -61,7 +60,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">custom meta data for the leaderboard (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateLeaderboardApiResponse"/>&gt;</returns>
-        Task<ICreateLeaderboardApiResponse> CreateLeaderboardAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<string> sortField = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateLeaderboardApiResponse> CreateLeaderboardAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<string> sortField = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
@@ -69,7 +68,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user creating the leaderboard. (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
         /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)</param>
@@ -85,7 +83,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">custom meta data for the leaderboard (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateLeaderboardApiResponse"/>?&gt;</returns>
-        Task<ICreateLeaderboardApiResponse?> CreateLeaderboardOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<string> sortField = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateLeaderboardApiResponse?> CreateLeaderboardOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<string> sortField = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete the Leader Board
@@ -94,12 +92,11 @@ namespace Org.OpenAPITools.Api
         /// Removes a leader board id.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id to delete.</param>
         /// <param name="accountId">The account id of the user making the request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteLeaderboardApiResponse"/>&gt;</returns>
-        Task<IDeleteLeaderboardApiResponse> DeleteLeaderboardAsync(decimal version, long leaderboardId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteLeaderboardApiResponse> DeleteLeaderboardAsync(long leaderboardId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete the Leader Board
@@ -107,12 +104,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Removes a leader board id.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id to delete.</param>
         /// <param name="accountId">The account id of the user making the request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteLeaderboardApiResponse"/>?&gt;</returns>
-        Task<IDeleteLeaderboardApiResponse?> DeleteLeaderboardOrDefaultAsync(decimal version, long leaderboardId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteLeaderboardApiResponse?> DeleteLeaderboardOrDefaultAsync(long leaderboardId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Read a leaderboard by id and retrieve the matching ranking list
@@ -121,13 +117,12 @@ namespace Org.OpenAPITools.Api
         /// Read a leaderboard by id and retrieve the matching ranking list
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id.</param>
         /// <param name="accountId">A valid account. (optional)</param>
         /// <param name="includeFullRankingList">set to true if need to return the leaderboard&#39;s full ranking list (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLeaderboardApiResponse"/>&gt;</returns>
-        Task<IGetLeaderboardApiResponse> GetLeaderboardAsync(decimal version, long leaderboardId, Option<long> accountId = default, Option<bool> includeFullRankingList = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetLeaderboardApiResponse> GetLeaderboardAsync(long leaderboardId, Option<long> accountId = default, Option<bool> includeFullRankingList = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Read a leaderboard by id and retrieve the matching ranking list
@@ -135,13 +130,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Read a leaderboard by id and retrieve the matching ranking list
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id.</param>
         /// <param name="accountId">A valid account. (optional)</param>
         /// <param name="includeFullRankingList">set to true if need to return the leaderboard&#39;s full ranking list (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLeaderboardApiResponse"/>?&gt;</returns>
-        Task<IGetLeaderboardApiResponse?> GetLeaderboardOrDefaultAsync(decimal version, long leaderboardId, Option<long> accountId = default, Option<bool> includeFullRankingList = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetLeaderboardApiResponse?> GetLeaderboardOrDefaultAsync(long leaderboardId, Option<long> accountId = default, Option<bool> includeFullRankingList = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search leaderboard and retrieve the matching ranking list
@@ -150,7 +144,6 @@ namespace Org.OpenAPITools.Api
         /// Search leaderboard and retrieve the matching ranking list
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user requesting the search. (optional)</param>
         /// <param name="appKey">The application key. (optional)</param>
         /// <param name="globalOnly">only include global leaderboards (this overrides the appKey filter) (optional)</param>
@@ -165,7 +158,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit the result to some number. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLeaderboardsApiResponse"/>&gt;</returns>
-        Task<ISearchLeaderboardsApiResponse> SearchLeaderboardsAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<bool> globalOnly = default, Option<string> keyword = default, Option<string> leaderboardIds = default, Option<string> rankTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeInactive = default, Option<bool> includeAppResponse = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchLeaderboardsApiResponse> SearchLeaderboardsAsync(Option<long> accountId = default, Option<string> appKey = default, Option<bool> globalOnly = default, Option<string> keyword = default, Option<string> leaderboardIds = default, Option<string> rankTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeInactive = default, Option<bool> includeAppResponse = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search leaderboard and retrieve the matching ranking list
@@ -173,7 +166,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search leaderboard and retrieve the matching ranking list
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user requesting the search. (optional)</param>
         /// <param name="appKey">The application key. (optional)</param>
         /// <param name="globalOnly">only include global leaderboards (this overrides the appKey filter) (optional)</param>
@@ -188,7 +180,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit the result to some number. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLeaderboardsApiResponse"/>?&gt;</returns>
-        Task<ISearchLeaderboardsApiResponse?> SearchLeaderboardsOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<bool> globalOnly = default, Option<string> keyword = default, Option<string> leaderboardIds = default, Option<string> rankTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeInactive = default, Option<bool> includeAppResponse = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchLeaderboardsApiResponse?> SearchLeaderboardsOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<bool> globalOnly = default, Option<string> keyword = default, Option<string> leaderboardIds = default, Option<string> rankTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeInactive = default, Option<bool> includeAppResponse = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
@@ -197,7 +189,6 @@ namespace Org.OpenAPITools.Api
         /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id to update.</param>
         /// <param name="accountId">The account id of the user updating the leaderboard. (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
@@ -215,7 +206,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">custom meta data for the leaderboard (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLeaderboardApiResponse"/>&gt;</returns>
-        Task<IUpdateLeaderboardApiResponse> UpdateLeaderboardAsync(decimal version, long leaderboardId, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<bool> active = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateLeaderboardApiResponse> UpdateLeaderboardAsync(long leaderboardId, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<bool> active = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
@@ -223,7 +214,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id to update.</param>
         /// <param name="accountId">The account id of the user updating the leaderboard. (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
@@ -241,7 +231,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">custom meta data for the leaderboard (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLeaderboardApiResponse"/>?&gt;</returns>
-        Task<IUpdateLeaderboardApiResponse?> UpdateLeaderboardOrDefaultAsync(decimal version, long leaderboardId, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<bool> active = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateLeaderboardApiResponse?> UpdateLeaderboardOrDefaultAsync(long leaderboardId, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<bool> active = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -457,7 +447,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateLeaderboard(ref decimal version, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> rankType, ref Option<string> leaderboardMode, ref Option<System.IO.Stream> iconMedia, ref Option<long> iconAssetId, ref Option<System.IO.Stream> bannerMedia, ref Option<long> bannerAssetId, ref Option<int> limitation, ref Option<string> sortField, ref Option<string> title, ref Option<string> description, ref Option<string> metaData);
+        partial void FormatCreateLeaderboard(ref Option<long> accountId, ref Option<string> appKey, ref Option<string> rankType, ref Option<string> leaderboardMode, ref Option<System.IO.Stream> iconMedia, ref Option<long> iconAssetId, ref Option<System.IO.Stream> bannerMedia, ref Option<long> bannerAssetId, ref Option<int> limitation, ref Option<string> sortField, ref Option<string> title, ref Option<string> description, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -506,7 +496,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
@@ -520,10 +509,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="metaData"></param>
-        private void AfterCreateLeaderboardDefaultImplementation(ICreateLeaderboardApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<string> sortField, Option<string> title, Option<string> description, Option<string> metaData)
+        private void AfterCreateLeaderboardDefaultImplementation(ICreateLeaderboardApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<string> sortField, Option<string> title, Option<string> description, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterCreateLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
+            AfterCreateLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -533,7 +522,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
@@ -547,7 +535,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="metaData"></param>
-        partial void AfterCreateLeaderboard(ref bool suppressDefaultLog, ICreateLeaderboardApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<string> sortField, Option<string> title, Option<string> description, Option<string> metaData);
+        partial void AfterCreateLeaderboard(ref bool suppressDefaultLog, ICreateLeaderboardApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<string> sortField, Option<string> title, Option<string> description, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -555,7 +543,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
@@ -569,10 +556,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="metaData"></param>
-        private void OnErrorCreateLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<string> sortField, Option<string> title, Option<string> description, Option<string> metaData)
+        private void OnErrorCreateLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<string> sortField, Option<string> title, Option<string> description, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
+            OnErrorCreateLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -584,7 +571,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="rankType"></param>
@@ -598,12 +584,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorCreateLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<string> sortField, Option<string> title, Option<string> description, Option<string> metaData);
+        partial void OnErrorCreateLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<string> sortField, Option<string> title, Option<string> description, Option<string> metaData);
 
         /// <summary>
         /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user creating the leaderboard. (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
         /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)</param>
@@ -619,11 +604,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">custom meta data for the leaderboard (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateLeaderboardApiResponse"/>&gt;</returns>
-        public async Task<ICreateLeaderboardApiResponse?> CreateLeaderboardOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<string> sortField = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateLeaderboardApiResponse?> CreateLeaderboardOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<string> sortField = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateLeaderboardAsync(version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData, cancellationToken).ConfigureAwait(false);
+                return await CreateLeaderboardAsync(accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -635,7 +620,6 @@ namespace Org.OpenAPITools.Api
         /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user creating the leaderboard. (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
         /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)</param>
@@ -651,7 +635,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">custom meta data for the leaderboard (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateLeaderboardApiResponse"/>&gt;</returns>
-        public async Task<ICreateLeaderboardApiResponse> CreateLeaderboardAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<string> sortField = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateLeaderboardApiResponse> CreateLeaderboardAsync(Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<string> sortField = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -659,7 +643,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateLeaderboard(appKey, rankType, leaderboardMode, iconMedia, bannerMedia, sortField, title, description, metaData);
 
-                FormatCreateLeaderboard(ref version, ref accountId, ref appKey, ref rankType, ref leaderboardMode, ref iconMedia, ref iconAssetId, ref bannerMedia, ref bannerAssetId, ref limitation, ref sortField, ref title, ref description, ref metaData);
+                FormatCreateLeaderboard(ref accountId, ref appKey, ref rankType, ref leaderboardMode, ref iconMedia, ref iconAssetId, ref bannerMedia, ref bannerAssetId, ref limitation, ref sortField, ref title, ref description, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -667,9 +651,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/leaderboard/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/leaderboard/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/leaderboard/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/leaderboard/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -737,13 +720,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/leaderboard/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/leaderboard/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateLeaderboardDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
+                        AfterCreateLeaderboardDefaultImplementation(apiResponseLocalVar, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
 
                         Events.ExecuteOnCreateLeaderboard(apiResponseLocalVar);
 
@@ -753,7 +736,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateLeaderboardDefaultImplementation(e, "/api/{version}/leaderboard/create", uriBuilderLocalVar.Path, version, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
+                OnErrorCreateLeaderboardDefaultImplementation(e, "/leaderboard/create", uriBuilderLocalVar.Path, accountId, appKey, rankType, leaderboardMode, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, sortField, title, description, metaData);
                 Events.ExecuteOnErrorCreateLeaderboard(e);
                 throw;
             }
@@ -852,19 +835,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteLeaderboard(ref decimal version, ref long leaderboardId, ref Option<long> accountId);
+        partial void FormatDeleteLeaderboard(ref long leaderboardId, ref Option<long> accountId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteLeaderboardDefaultImplementation(IDeleteLeaderboardApiResponse apiResponseLocalVar, decimal version, long leaderboardId, Option<long> accountId)
+        private void AfterDeleteLeaderboardDefaultImplementation(IDeleteLeaderboardApiResponse apiResponseLocalVar, long leaderboardId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, version, leaderboardId, accountId);
+            AfterDeleteLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, leaderboardId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -874,10 +856,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteLeaderboard(ref bool suppressDefaultLog, IDeleteLeaderboardApiResponse apiResponseLocalVar, decimal version, long leaderboardId, Option<long> accountId);
+        partial void AfterDeleteLeaderboard(ref bool suppressDefaultLog, IDeleteLeaderboardApiResponse apiResponseLocalVar, long leaderboardId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -885,13 +866,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long leaderboardId, Option<long> accountId)
+        private void OnErrorDeleteLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long leaderboardId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, leaderboardId, accountId);
+            OnErrorDeleteLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, leaderboardId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -903,24 +883,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long leaderboardId, Option<long> accountId);
+        partial void OnErrorDeleteLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long leaderboardId, Option<long> accountId);
 
         /// <summary>
         /// Delete the Leader Board Removes a leader board id.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id to delete.</param>
         /// <param name="accountId">The account id of the user making the request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteLeaderboardApiResponse"/>&gt;</returns>
-        public async Task<IDeleteLeaderboardApiResponse?> DeleteLeaderboardOrDefaultAsync(decimal version, long leaderboardId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteLeaderboardApiResponse?> DeleteLeaderboardOrDefaultAsync(long leaderboardId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteLeaderboardAsync(version, leaderboardId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteLeaderboardAsync(leaderboardId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -932,18 +910,17 @@ namespace Org.OpenAPITools.Api
         /// Delete the Leader Board Removes a leader board id.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id to delete.</param>
         /// <param name="accountId">The account id of the user making the request. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteLeaderboardApiResponse"/>&gt;</returns>
-        public async Task<IDeleteLeaderboardApiResponse> DeleteLeaderboardAsync(decimal version, long leaderboardId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteLeaderboardApiResponse> DeleteLeaderboardAsync(long leaderboardId, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteLeaderboard(ref version, ref leaderboardId, ref accountId);
+                FormatDeleteLeaderboard(ref leaderboardId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -951,9 +928,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/leaderboard/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/leaderboard/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/leaderboard/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/leaderboard/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -987,13 +963,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/leaderboard/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/leaderboard/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteLeaderboardDefaultImplementation(apiResponseLocalVar, version, leaderboardId, accountId);
+                        AfterDeleteLeaderboardDefaultImplementation(apiResponseLocalVar, leaderboardId, accountId);
 
                         Events.ExecuteOnDeleteLeaderboard(apiResponseLocalVar);
 
@@ -1003,7 +979,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteLeaderboardDefaultImplementation(e, "/api/{version}/leaderboard/delete", uriBuilderLocalVar.Path, version, leaderboardId, accountId);
+                OnErrorDeleteLeaderboardDefaultImplementation(e, "/leaderboard/delete", uriBuilderLocalVar.Path, leaderboardId, accountId);
                 Events.ExecuteOnErrorDeleteLeaderboard(e);
                 throw;
             }
@@ -1102,20 +1078,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetLeaderboard(ref decimal version, ref long leaderboardId, ref Option<long> accountId, ref Option<bool> includeFullRankingList);
+        partial void FormatGetLeaderboard(ref long leaderboardId, ref Option<long> accountId, ref Option<bool> includeFullRankingList);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeFullRankingList"></param>
-        private void AfterGetLeaderboardDefaultImplementation(IGetLeaderboardApiResponse apiResponseLocalVar, decimal version, long leaderboardId, Option<long> accountId, Option<bool> includeFullRankingList)
+        private void AfterGetLeaderboardDefaultImplementation(IGetLeaderboardApiResponse apiResponseLocalVar, long leaderboardId, Option<long> accountId, Option<bool> includeFullRankingList)
         {
             bool suppressDefaultLog = false;
-            AfterGetLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, version, leaderboardId, accountId, includeFullRankingList);
+            AfterGetLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, leaderboardId, accountId, includeFullRankingList);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1125,11 +1100,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeFullRankingList"></param>
-        partial void AfterGetLeaderboard(ref bool suppressDefaultLog, IGetLeaderboardApiResponse apiResponseLocalVar, decimal version, long leaderboardId, Option<long> accountId, Option<bool> includeFullRankingList);
+        partial void AfterGetLeaderboard(ref bool suppressDefaultLog, IGetLeaderboardApiResponse apiResponseLocalVar, long leaderboardId, Option<long> accountId, Option<bool> includeFullRankingList);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1137,14 +1111,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeFullRankingList"></param>
-        private void OnErrorGetLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long leaderboardId, Option<long> accountId, Option<bool> includeFullRankingList)
+        private void OnErrorGetLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long leaderboardId, Option<long> accountId, Option<bool> includeFullRankingList)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, leaderboardId, accountId, includeFullRankingList);
+            OnErrorGetLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, leaderboardId, accountId, includeFullRankingList);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1156,26 +1129,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
         /// <param name="includeFullRankingList"></param>
-        partial void OnErrorGetLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long leaderboardId, Option<long> accountId, Option<bool> includeFullRankingList);
+        partial void OnErrorGetLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long leaderboardId, Option<long> accountId, Option<bool> includeFullRankingList);
 
         /// <summary>
         /// Read a leaderboard by id and retrieve the matching ranking list Read a leaderboard by id and retrieve the matching ranking list
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id.</param>
         /// <param name="accountId">A valid account. (optional)</param>
         /// <param name="includeFullRankingList">set to true if need to return the leaderboard&#39;s full ranking list (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLeaderboardApiResponse"/>&gt;</returns>
-        public async Task<IGetLeaderboardApiResponse?> GetLeaderboardOrDefaultAsync(decimal version, long leaderboardId, Option<long> accountId = default, Option<bool> includeFullRankingList = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetLeaderboardApiResponse?> GetLeaderboardOrDefaultAsync(long leaderboardId, Option<long> accountId = default, Option<bool> includeFullRankingList = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetLeaderboardAsync(version, leaderboardId, accountId, includeFullRankingList, cancellationToken).ConfigureAwait(false);
+                return await GetLeaderboardAsync(leaderboardId, accountId, includeFullRankingList, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1187,19 +1158,18 @@ namespace Org.OpenAPITools.Api
         /// Read a leaderboard by id and retrieve the matching ranking list Read a leaderboard by id and retrieve the matching ranking list
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id.</param>
         /// <param name="accountId">A valid account. (optional)</param>
         /// <param name="includeFullRankingList">set to true if need to return the leaderboard&#39;s full ranking list (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetLeaderboardApiResponse"/>&gt;</returns>
-        public async Task<IGetLeaderboardApiResponse> GetLeaderboardAsync(decimal version, long leaderboardId, Option<long> accountId = default, Option<bool> includeFullRankingList = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetLeaderboardApiResponse> GetLeaderboardAsync(long leaderboardId, Option<long> accountId = default, Option<bool> includeFullRankingList = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetLeaderboard(ref version, ref leaderboardId, ref accountId, ref includeFullRankingList);
+                FormatGetLeaderboard(ref leaderboardId, ref accountId, ref includeFullRankingList);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1207,9 +1177,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/leaderboard/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/leaderboard/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/leaderboard/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/leaderboard/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1246,13 +1215,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/leaderboard/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/leaderboard/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetLeaderboardDefaultImplementation(apiResponseLocalVar, version, leaderboardId, accountId, includeFullRankingList);
+                        AfterGetLeaderboardDefaultImplementation(apiResponseLocalVar, leaderboardId, accountId, includeFullRankingList);
 
                         Events.ExecuteOnGetLeaderboard(apiResponseLocalVar);
 
@@ -1262,7 +1231,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetLeaderboardDefaultImplementation(e, "/api/{version}/leaderboard/get", uriBuilderLocalVar.Path, version, leaderboardId, accountId, includeFullRankingList);
+                OnErrorGetLeaderboardDefaultImplementation(e, "/leaderboard/get", uriBuilderLocalVar.Path, leaderboardId, accountId, includeFullRankingList);
                 Events.ExecuteOnErrorGetLeaderboard(e);
                 throw;
             }
@@ -1361,7 +1330,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchLeaderboards(ref decimal version, ref Option<long> accountId, ref Option<string> appKey, ref Option<bool> globalOnly, ref Option<string> keyword, ref Option<string> leaderboardIds, ref Option<string> rankTypes, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> includeInactive, ref Option<bool> includeAppResponse, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchLeaderboards(ref Option<long> accountId, ref Option<string> appKey, ref Option<bool> globalOnly, ref Option<string> keyword, ref Option<string> leaderboardIds, ref Option<string> rankTypes, ref Option<string> sortField, ref Option<bool> descending, ref Option<bool> includeInactive, ref Option<bool> includeAppResponse, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1394,7 +1363,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="globalOnly"></param>
@@ -1407,10 +1375,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeAppResponse"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchLeaderboardsDefaultImplementation(ISearchLeaderboardsApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<bool> globalOnly, Option<string> keyword, Option<string> leaderboardIds, Option<string> rankTypes, Option<string> sortField, Option<bool> descending, Option<bool> includeInactive, Option<bool> includeAppResponse, Option<int> start, Option<int> limit)
+        private void AfterSearchLeaderboardsDefaultImplementation(ISearchLeaderboardsApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<bool> globalOnly, Option<string> keyword, Option<string> leaderboardIds, Option<string> rankTypes, Option<string> sortField, Option<bool> descending, Option<bool> includeInactive, Option<bool> includeAppResponse, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchLeaderboards(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
+            AfterSearchLeaderboards(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1420,7 +1388,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="globalOnly"></param>
@@ -1433,7 +1400,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeAppResponse"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchLeaderboards(ref bool suppressDefaultLog, ISearchLeaderboardsApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<bool> globalOnly, Option<string> keyword, Option<string> leaderboardIds, Option<string> rankTypes, Option<string> sortField, Option<bool> descending, Option<bool> includeInactive, Option<bool> includeAppResponse, Option<int> start, Option<int> limit);
+        partial void AfterSearchLeaderboards(ref bool suppressDefaultLog, ISearchLeaderboardsApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey, Option<bool> globalOnly, Option<string> keyword, Option<string> leaderboardIds, Option<string> rankTypes, Option<string> sortField, Option<bool> descending, Option<bool> includeInactive, Option<bool> includeAppResponse, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1441,7 +1408,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="globalOnly"></param>
@@ -1454,10 +1420,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeAppResponse"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchLeaderboardsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<bool> globalOnly, Option<string> keyword, Option<string> leaderboardIds, Option<string> rankTypes, Option<string> sortField, Option<bool> descending, Option<bool> includeInactive, Option<bool> includeAppResponse, Option<int> start, Option<int> limit)
+        private void OnErrorSearchLeaderboardsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<bool> globalOnly, Option<string> keyword, Option<string> leaderboardIds, Option<string> rankTypes, Option<string> sortField, Option<bool> descending, Option<bool> includeInactive, Option<bool> includeAppResponse, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchLeaderboards(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
+            OnErrorSearchLeaderboards(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1469,7 +1435,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="globalOnly"></param>
@@ -1482,12 +1447,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeAppResponse"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchLeaderboards(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey, Option<bool> globalOnly, Option<string> keyword, Option<string> leaderboardIds, Option<string> rankTypes, Option<string> sortField, Option<bool> descending, Option<bool> includeInactive, Option<bool> includeAppResponse, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchLeaderboards(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey, Option<bool> globalOnly, Option<string> keyword, Option<string> leaderboardIds, Option<string> rankTypes, Option<string> sortField, Option<bool> descending, Option<bool> includeInactive, Option<bool> includeAppResponse, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search leaderboard and retrieve the matching ranking list Search leaderboard and retrieve the matching ranking list
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user requesting the search. (optional)</param>
         /// <param name="appKey">The application key. (optional)</param>
         /// <param name="globalOnly">only include global leaderboards (this overrides the appKey filter) (optional)</param>
@@ -1502,11 +1466,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit the result to some number. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLeaderboardsApiResponse"/>&gt;</returns>
-        public async Task<ISearchLeaderboardsApiResponse?> SearchLeaderboardsOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<bool> globalOnly = default, Option<string> keyword = default, Option<string> leaderboardIds = default, Option<string> rankTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeInactive = default, Option<bool> includeAppResponse = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchLeaderboardsApiResponse?> SearchLeaderboardsOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, Option<bool> globalOnly = default, Option<string> keyword = default, Option<string> leaderboardIds = default, Option<string> rankTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeInactive = default, Option<bool> includeAppResponse = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchLeaderboardsAsync(version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchLeaderboardsAsync(accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1518,7 +1482,6 @@ namespace Org.OpenAPITools.Api
         /// Search leaderboard and retrieve the matching ranking list Search leaderboard and retrieve the matching ranking list
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user requesting the search. (optional)</param>
         /// <param name="appKey">The application key. (optional)</param>
         /// <param name="globalOnly">only include global leaderboards (this overrides the appKey filter) (optional)</param>
@@ -1533,7 +1496,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">Limit the result to some number. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLeaderboardsApiResponse"/>&gt;</returns>
-        public async Task<ISearchLeaderboardsApiResponse> SearchLeaderboardsAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, Option<bool> globalOnly = default, Option<string> keyword = default, Option<string> leaderboardIds = default, Option<string> rankTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeInactive = default, Option<bool> includeAppResponse = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchLeaderboardsApiResponse> SearchLeaderboardsAsync(Option<long> accountId = default, Option<string> appKey = default, Option<bool> globalOnly = default, Option<string> keyword = default, Option<string> leaderboardIds = default, Option<string> rankTypes = default, Option<string> sortField = default, Option<bool> descending = default, Option<bool> includeInactive = default, Option<bool> includeAppResponse = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1541,7 +1504,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchLeaderboards(appKey, keyword, leaderboardIds, rankTypes, sortField);
 
-                FormatSearchLeaderboards(ref version, ref accountId, ref appKey, ref globalOnly, ref keyword, ref leaderboardIds, ref rankTypes, ref sortField, ref descending, ref includeInactive, ref includeAppResponse, ref start, ref limit);
+                FormatSearchLeaderboards(ref accountId, ref appKey, ref globalOnly, ref keyword, ref leaderboardIds, ref rankTypes, ref sortField, ref descending, ref includeInactive, ref includeAppResponse, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1549,9 +1512,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/leaderboard/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/leaderboard/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/leaderboard/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/leaderboard/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1616,13 +1578,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/leaderboard/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/leaderboard/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchLeaderboardsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
+                        AfterSearchLeaderboardsDefaultImplementation(apiResponseLocalVar, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
 
                         Events.ExecuteOnSearchLeaderboards(apiResponseLocalVar);
 
@@ -1632,7 +1594,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchLeaderboardsDefaultImplementation(e, "/api/{version}/leaderboard/search", uriBuilderLocalVar.Path, version, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
+                OnErrorSearchLeaderboardsDefaultImplementation(e, "/leaderboard/search", uriBuilderLocalVar.Path, accountId, appKey, globalOnly, keyword, leaderboardIds, rankTypes, sortField, descending, includeInactive, includeAppResponse, start, limit);
                 Events.ExecuteOnErrorSearchLeaderboards(e);
                 throw;
             }
@@ -1731,7 +1693,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateLeaderboard(ref decimal version, ref long leaderboardId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> rankType, ref Option<string> leaderboardMode, ref Option<string> sortField, ref Option<System.IO.Stream> iconMedia, ref Option<long> iconAssetId, ref Option<System.IO.Stream> bannerMedia, ref Option<long> bannerAssetId, ref Option<int> limitation, ref Option<bool> active, ref Option<string> title, ref Option<string> description, ref Option<string> metaData);
+        partial void FormatUpdateLeaderboard(ref long leaderboardId, ref Option<long> accountId, ref Option<string> appKey, ref Option<string> rankType, ref Option<string> leaderboardMode, ref Option<string> sortField, ref Option<System.IO.Stream> iconMedia, ref Option<long> iconAssetId, ref Option<System.IO.Stream> bannerMedia, ref Option<long> bannerAssetId, ref Option<int> limitation, ref Option<bool> active, ref Option<string> title, ref Option<string> description, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -1780,7 +1742,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1796,10 +1757,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="metaData"></param>
-        private void AfterUpdateLeaderboardDefaultImplementation(IUpdateLeaderboardApiResponse apiResponseLocalVar, decimal version, long leaderboardId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<string> sortField, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<bool> active, Option<string> title, Option<string> description, Option<string> metaData)
+        private void AfterUpdateLeaderboardDefaultImplementation(IUpdateLeaderboardApiResponse apiResponseLocalVar, long leaderboardId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<string> sortField, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<bool> active, Option<string> title, Option<string> description, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
+            AfterUpdateLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1809,7 +1770,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1825,7 +1785,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="metaData"></param>
-        partial void AfterUpdateLeaderboard(ref bool suppressDefaultLog, IUpdateLeaderboardApiResponse apiResponseLocalVar, decimal version, long leaderboardId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<string> sortField, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<bool> active, Option<string> title, Option<string> description, Option<string> metaData);
+        partial void AfterUpdateLeaderboard(ref bool suppressDefaultLog, IUpdateLeaderboardApiResponse apiResponseLocalVar, long leaderboardId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<string> sortField, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<bool> active, Option<string> title, Option<string> description, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1833,7 +1793,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1849,10 +1808,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="metaData"></param>
-        private void OnErrorUpdateLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long leaderboardId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<string> sortField, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<bool> active, Option<string> title, Option<string> description, Option<string> metaData)
+        private void OnErrorUpdateLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long leaderboardId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<string> sortField, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<bool> active, Option<string> title, Option<string> description, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
+            OnErrorUpdateLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1864,7 +1823,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="leaderboardId"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
@@ -1880,12 +1838,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorUpdateLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long leaderboardId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<string> sortField, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<bool> active, Option<string> title, Option<string> description, Option<string> metaData);
+        partial void OnErrorUpdateLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long leaderboardId, Option<long> accountId, Option<string> appKey, Option<string> rankType, Option<string> leaderboardMode, Option<string> sortField, Option<System.IO.Stream> iconMedia, Option<long> iconAssetId, Option<System.IO.Stream> bannerMedia, Option<long> bannerAssetId, Option<int> limitation, Option<bool> active, Option<string> title, Option<string> description, Option<string> metaData);
 
         /// <summary>
         /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id to update.</param>
         /// <param name="accountId">The account id of the user updating the leaderboard. (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
@@ -1903,11 +1860,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">custom meta data for the leaderboard (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLeaderboardApiResponse"/>&gt;</returns>
-        public async Task<IUpdateLeaderboardApiResponse?> UpdateLeaderboardOrDefaultAsync(decimal version, long leaderboardId, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<bool> active = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateLeaderboardApiResponse?> UpdateLeaderboardOrDefaultAsync(long leaderboardId, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<bool> active = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateLeaderboardAsync(version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData, cancellationToken).ConfigureAwait(false);
+                return await UpdateLeaderboardAsync(leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1919,7 +1876,6 @@ namespace Org.OpenAPITools.Api
         /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="leaderboardId">The leaderboard id to update.</param>
         /// <param name="accountId">The account id of the user updating the leaderboard. (optional)</param>
         /// <param name="appKey">The application key (optional)</param>
@@ -1937,7 +1893,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">custom meta data for the leaderboard (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateLeaderboardApiResponse"/>&gt;</returns>
-        public async Task<IUpdateLeaderboardApiResponse> UpdateLeaderboardAsync(decimal version, long leaderboardId, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<bool> active = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateLeaderboardApiResponse> UpdateLeaderboardAsync(long leaderboardId, Option<long> accountId = default, Option<string> appKey = default, Option<string> rankType = default, Option<string> leaderboardMode = default, Option<string> sortField = default, Option<System.IO.Stream> iconMedia = default, Option<long> iconAssetId = default, Option<System.IO.Stream> bannerMedia = default, Option<long> bannerAssetId = default, Option<int> limitation = default, Option<bool> active = default, Option<string> title = default, Option<string> description = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1945,7 +1901,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateLeaderboard(appKey, rankType, leaderboardMode, sortField, iconMedia, bannerMedia, title, description, metaData);
 
-                FormatUpdateLeaderboard(ref version, ref leaderboardId, ref accountId, ref appKey, ref rankType, ref leaderboardMode, ref sortField, ref iconMedia, ref iconAssetId, ref bannerMedia, ref bannerAssetId, ref limitation, ref active, ref title, ref description, ref metaData);
+                FormatUpdateLeaderboard(ref leaderboardId, ref accountId, ref appKey, ref rankType, ref leaderboardMode, ref sortField, ref iconMedia, ref iconAssetId, ref bannerMedia, ref bannerAssetId, ref limitation, ref active, ref title, ref description, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1953,9 +1909,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/leaderboard/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/leaderboard/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/leaderboard/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/leaderboard/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2028,13 +1983,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/leaderboard/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/leaderboard/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateLeaderboardDefaultImplementation(apiResponseLocalVar, version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
+                        AfterUpdateLeaderboardDefaultImplementation(apiResponseLocalVar, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
 
                         Events.ExecuteOnUpdateLeaderboard(apiResponseLocalVar);
 
@@ -2044,7 +1999,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateLeaderboardDefaultImplementation(e, "/api/{version}/leaderboard/update", uriBuilderLocalVar.Path, version, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
+                OnErrorUpdateLeaderboardDefaultImplementation(e, "/leaderboard/update", uriBuilderLocalVar.Path, leaderboardId, accountId, appKey, rankType, leaderboardMode, sortField, iconMedia, iconAssetId, bannerMedia, bannerAssetId, limitation, active, title, description, metaData);
                 Events.ExecuteOnErrorUpdateLeaderboard(e);
                 throw;
             }

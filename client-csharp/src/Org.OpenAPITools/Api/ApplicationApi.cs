@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appName">The name of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -127,7 +126,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="openAISecretKey">OpenAI Secret API Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationApiResponse"/>&gt;</returns>
-        Task<ICreateApplicationApiResponse> CreateApplicationAsync(decimal version, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateApplicationApiResponse> CreateApplicationAsync(string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Application
@@ -135,7 +134,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appName">The name of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -217,7 +215,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="openAISecretKey">OpenAI Secret API Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationApiResponse"/>?&gt;</returns>
-        Task<ICreateApplicationApiResponse?> CreateApplicationOrDefaultAsync(decimal version, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateApplicationApiResponse?> CreateApplicationOrDefaultAsync(string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Ad Placement
@@ -226,7 +224,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a new ad placement for an application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The appKey of the application the ad placement is for</param>
         /// <param name="size">The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -240,7 +237,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationPlacementApiResponse"/>&gt;</returns>
-        Task<ICreateApplicationPlacementApiResponse> CreateApplicationPlacementAsync(decimal version, string appKey, string size, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateApplicationPlacementApiResponse> CreateApplicationPlacementAsync(string appKey, string size, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Ad Placement
@@ -248,7 +245,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a new ad placement for an application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The appKey of the application the ad placement is for</param>
         /// <param name="size">The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -262,7 +258,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationPlacementApiResponse"/>?&gt;</returns>
-        Task<ICreateApplicationPlacementApiResponse?> CreateApplicationPlacementOrDefaultAsync(decimal version, string appKey, string size, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateApplicationPlacementApiResponse?> CreateApplicationPlacementOrDefaultAsync(string appKey, string size, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Application
@@ -271,12 +267,11 @@ namespace Org.OpenAPITools.Api
         /// Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional)</param>
         /// <param name="appKey">The key of the application to be deleted (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationApiResponse"/>&gt;</returns>
-        Task<IDeleteApplicationApiResponse> DeleteApplicationAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteApplicationApiResponse> DeleteApplicationAsync(Option<long> accountId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Application
@@ -284,12 +279,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional)</param>
         /// <param name="appKey">The key of the application to be deleted (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationApiResponse"/>?&gt;</returns>
-        Task<IDeleteApplicationApiResponse?> DeleteApplicationOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteApplicationApiResponse?> DeleteApplicationOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Ad Placement
@@ -298,13 +292,12 @@ namespace Org.OpenAPITools.Api
         /// Deletes an ad placement for an application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement to delete, the user must have rights to the application the ad placement is for</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationPlacementApiResponse"/>&gt;</returns>
-        Task<IDeleteApplicationPlacementApiResponse> DeleteApplicationPlacementAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteApplicationPlacementApiResponse> DeleteApplicationPlacementAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Ad Placement
@@ -312,13 +305,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes an ad placement for an application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement to delete, the user must have rights to the application the ad placement is for</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationPlacementApiResponse"/>?&gt;</returns>
-        Task<IDeleteApplicationPlacementApiResponse?> DeleteApplicationPlacementOrDefaultAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteApplicationPlacementApiResponse?> DeleteApplicationPlacementOrDefaultAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Application
@@ -327,12 +319,11 @@ namespace Org.OpenAPITools.Api
         /// Get a specific application by appKey
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application (optional)</param>
         /// <param name="applicationId">Application Id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationApiResponse"/>&gt;</returns>
-        Task<IGetApplicationApiResponse> GetApplicationAsync(decimal version, Option<string> appKey = default, Option<long> applicationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationApiResponse> GetApplicationAsync(Option<string> appKey = default, Option<long> applicationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Application
@@ -340,12 +331,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a specific application by appKey
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application (optional)</param>
         /// <param name="applicationId">Application Id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationApiResponse"/>?&gt;</returns>
-        Task<IGetApplicationApiResponse?> GetApplicationOrDefaultAsync(decimal version, Option<string> appKey = default, Option<long> applicationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationApiResponse?> GetApplicationOrDefaultAsync(Option<string> appKey = default, Option<long> applicationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Ad Placement
@@ -354,13 +344,12 @@ namespace Org.OpenAPITools.Api
         /// Get details of an ad placement
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationPlacementApiResponse"/>&gt;</returns>
-        Task<IGetApplicationPlacementApiResponse> GetApplicationPlacementAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationPlacementApiResponse> GetApplicationPlacementAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Ad Placement
@@ -368,13 +357,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get details of an ad placement
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationPlacementApiResponse"/>?&gt;</returns>
-        Task<IGetApplicationPlacementApiResponse?> GetApplicationPlacementOrDefaultAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationPlacementApiResponse?> GetApplicationPlacementOrDefaultAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get API versions
@@ -383,10 +371,9 @@ namespace Org.OpenAPITools.Api
         /// Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationVersionsApiResponse"/>&gt;</returns>
-        Task<IGetApplicationVersionsApiResponse> GetApplicationVersionsAsync(decimal version, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationVersionsApiResponse> GetApplicationVersionsAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get API versions
@@ -394,10 +381,9 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationVersionsApiResponse"/>?&gt;</returns>
-        Task<IGetApplicationVersionsApiResponse?> GetApplicationVersionsOrDefaultAsync(decimal version, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetApplicationVersionsApiResponse?> GetApplicationVersionsOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Application Users
@@ -406,7 +392,6 @@ namespace Org.OpenAPITools.Api
         /// Get a list of users per application
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="q">Q (optional) (deprecated)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -417,7 +402,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUniqueUsersByAppApiResponse"/>&gt;</returns>
-        Task<IGetUniqueUsersByAppApiResponse> GetUniqueUsersByAppAsync(decimal version, string appKey, Option<string> q = default, Option<string> keyword = default, Option<long> since = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUniqueUsersByAppApiResponse> GetUniqueUsersByAppAsync(string appKey, Option<string> q = default, Option<string> keyword = default, Option<long> since = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Application Users
@@ -425,7 +410,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list of users per application
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="q">Q (optional) (deprecated)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -436,7 +420,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUniqueUsersByAppApiResponse"/>?&gt;</returns>
-        Task<IGetUniqueUsersByAppApiResponse?> GetUniqueUsersByAppOrDefaultAsync(decimal version, string appKey, Option<string> q = default, Option<string> keyword = default, Option<long> since = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUniqueUsersByAppApiResponse?> GetUniqueUsersByAppOrDefaultAsync(string appKey, Option<string> q = default, Option<string> keyword = default, Option<long> since = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Applications
@@ -445,7 +429,6 @@ namespace Org.OpenAPITools.Api
         /// List active applications matching the criteria (as a consumer)
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the application owner/manager (optional)</param>
         /// <param name="q">Q (optional) (deprecated)</param>
         /// <param name="keyword">The keyword used to search for title, about, and description fields (optional)</param>
@@ -468,7 +451,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListApplicationsApiResponse"/>&gt;</returns>
-        Task<IListApplicationsApiResponse> ListApplicationsAsync(decimal version, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> platforms = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> categoryIds = default, Option<string> sortField = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> filterBillable = default, Option<bool> filterContentAdmin = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> applicationIds = default, Option<bool> hasObjectStore = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListApplicationsApiResponse> ListApplicationsAsync(Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> platforms = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> categoryIds = default, Option<string> sortField = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> filterBillable = default, Option<bool> filterContentAdmin = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> applicationIds = default, Option<bool> hasObjectStore = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Applications
@@ -476,7 +459,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// List active applications matching the criteria (as a consumer)
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the application owner/manager (optional)</param>
         /// <param name="q">Q (optional) (deprecated)</param>
         /// <param name="keyword">The keyword used to search for title, about, and description fields (optional)</param>
@@ -499,7 +481,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListApplicationsApiResponse"/>?&gt;</returns>
-        Task<IListApplicationsApiResponse?> ListApplicationsOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> platforms = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> categoryIds = default, Option<string> sortField = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> filterBillable = default, Option<bool> filterContentAdmin = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> applicationIds = default, Option<bool> hasObjectStore = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListApplicationsApiResponse?> ListApplicationsOrDefaultAsync(Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> platforms = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> categoryIds = default, Option<string> sortField = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> filterBillable = default, Option<bool> filterContentAdmin = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> applicationIds = default, Option<bool> hasObjectStore = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Ad Placements
@@ -508,7 +490,6 @@ namespace Org.OpenAPITools.Api
         /// Searches placements for an application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -516,7 +497,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationPlacementApiResponse"/>&gt;</returns>
-        Task<ISearchApplicationPlacementApiResponse> SearchApplicationPlacementAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApplicationPlacementApiResponse> SearchApplicationPlacementAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Ad Placements
@@ -524,7 +505,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches placements for an application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -532,7 +512,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationPlacementApiResponse"/>?&gt;</returns>
-        Task<ISearchApplicationPlacementApiResponse?> SearchApplicationPlacementOrDefaultAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApplicationPlacementApiResponse?> SearchApplicationPlacementOrDefaultAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Application Settings
@@ -541,7 +521,6 @@ namespace Org.OpenAPITools.Api
         /// Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">The account id used to view another person&#39;s account (optional)</param>
@@ -552,7 +531,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit per result set for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationSettingsApiResponse"/>&gt;</returns>
-        Task<ISearchApplicationSettingsApiResponse> SearchApplicationSettingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApplicationSettingsApiResponse> SearchApplicationSettingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Application Settings
@@ -560,7 +539,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">The account id used to view another person&#39;s account (optional)</param>
@@ -571,7 +549,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit per result set for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationSettingsApiResponse"/>?&gt;</returns>
-        Task<ISearchApplicationSettingsApiResponse?> SearchApplicationSettingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApplicationSettingsApiResponse?> SearchApplicationSettingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Applications
@@ -580,7 +558,6 @@ namespace Org.OpenAPITools.Api
         /// Search for applications matching the criteria that the logged in user has access to
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The location of the device (optional)</param>
@@ -599,7 +576,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationsApiResponse"/>&gt;</returns>
-        Task<ISearchApplicationsApiResponse> SearchApplicationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> q = default, Option<string> keyword = default, Option<string> qSearchFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApplicationsApiResponse> SearchApplicationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> q = default, Option<string> keyword = default, Option<string> qSearchFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Applications
@@ -607,7 +584,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for applications matching the criteria that the logged in user has access to
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The location of the device (optional)</param>
@@ -626,7 +602,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationsApiResponse"/>?&gt;</returns>
-        Task<ISearchApplicationsApiResponse?> SearchApplicationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> q = default, Option<string> keyword = default, Option<string> qSearchFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchApplicationsApiResponse?> SearchApplicationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> q = default, Option<string> keyword = default, Option<string> qSearchFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Application
@@ -635,7 +611,6 @@ namespace Org.OpenAPITools.Api
         /// Update an application record
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="appName">The name of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -718,7 +693,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="openAISecretKey">OpenAI Secret API Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationApiResponse"/>&gt;</returns>
-        Task<IUpdateApplicationApiResponse> UpdateApplicationAsync(decimal version, string appKey, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateApplicationApiResponse> UpdateApplicationAsync(string appKey, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Application
@@ -726,7 +701,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an application record
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="appName">The name of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -809,7 +783,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="openAISecretKey">OpenAI Secret API Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationApiResponse"/>?&gt;</returns>
-        Task<IUpdateApplicationApiResponse?> UpdateApplicationOrDefaultAsync(decimal version, string appKey, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateApplicationApiResponse?> UpdateApplicationOrDefaultAsync(string appKey, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change Appliation Status
@@ -818,13 +792,12 @@ namespace Org.OpenAPITools.Api
         /// Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application.</param>
         /// <param name="appKey">The key of the application to be deleted</param>
         /// <param name="active">If true then set to active, false otherwise</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationActiveApiResponse"/>&gt;</returns>
-        Task<IUpdateApplicationActiveApiResponse> UpdateApplicationActiveAsync(decimal version, long accountId, string appKey, bool active, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateApplicationActiveApiResponse> UpdateApplicationActiveAsync(long accountId, string appKey, bool active, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change Appliation Status
@@ -832,13 +805,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application.</param>
         /// <param name="appKey">The key of the application to be deleted</param>
         /// <param name="active">If true then set to active, false otherwise</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationActiveApiResponse"/>?&gt;</returns>
-        Task<IUpdateApplicationActiveApiResponse?> UpdateApplicationActiveOrDefaultAsync(decimal version, long accountId, string appKey, bool active, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateApplicationActiveApiResponse?> UpdateApplicationActiveOrDefaultAsync(long accountId, string appKey, bool active, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Ad Placement
@@ -847,7 +819,6 @@ namespace Org.OpenAPITools.Api
         /// Updates an ad placement for an application.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement to update, the user must have rights to the application the ad placement is for</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -861,7 +832,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationPlacementApiResponse"/>&gt;</returns>
-        Task<IUpdateApplicationPlacementApiResponse> UpdateApplicationPlacementAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<string> size = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateApplicationPlacementApiResponse> UpdateApplicationPlacementAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<string> size = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Ad Placement
@@ -869,7 +840,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates an ad placement for an application.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement to update, the user must have rights to the application the ad placement is for</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -883,7 +853,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationPlacementApiResponse"/>?&gt;</returns>
-        Task<IUpdateApplicationPlacementApiResponse?> UpdateApplicationPlacementOrDefaultAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<string> size = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateApplicationPlacementApiResponse?> UpdateApplicationPlacementOrDefaultAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<string> size = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Application Certificate
@@ -892,14 +862,13 @@ namespace Org.OpenAPITools.Api
         /// Uploads a certificate for an application that the user has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application</param>
         /// <param name="deviceId">Device Id (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional)</param>
         /// <param name="certificate">Certificate (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUploadApplicationCertificateApiResponse"/>&gt;</returns>
-        Task<IUploadApplicationCertificateApiResponse> UploadApplicationCertificateAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> certificate = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUploadApplicationCertificateApiResponse> UploadApplicationCertificateAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> certificate = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Application Certificate
@@ -907,14 +876,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Uploads a certificate for an application that the user has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application</param>
         /// <param name="deviceId">Device Id (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional)</param>
         /// <param name="certificate">Certificate (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUploadApplicationCertificateApiResponse"/>?&gt;</returns>
-        Task<IUploadApplicationCertificateApiResponse?> UploadApplicationCertificateOrDefaultAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> certificate = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUploadApplicationCertificateApiResponse?> UploadApplicationCertificateOrDefaultAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> certificate = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -1482,7 +1450,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateApplication(ref decimal version, ref string appName, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> about, ref Option<string> bundleId, ref Option<long> appIconAssetId, ref Option<long> appLogoAssetId, ref Option<string> facebookAppId, ref Option<string> facebookAppSecret, ref Option<string> googleApiKey, ref Option<bool> updateEULADate, ref Option<string> eulaVersion, ref Option<string> landingPageUrl, ref Option<bool> showInActivities, ref Option<string> activityDescription, ref Option<string> inviteWelcomeText, ref Option<string> invitePageUrl, ref Option<string> urlScheme, ref Option<string> platforms, ref Option<string> downloadUrls, ref Option<string> categoryIds, ref Option<string> scoringType, ref Option<int> hintCost, ref Option<int> maxScore, ref Option<float> ticketsPerPoint, ref Option<bool> hasGameData, ref Option<bool> publicNotifications, ref Option<bool> useMatchingAlgorithm, ref Option<bool> globalTickets, ref Option<float> buildVersion, ref Option<float> apiVersion, ref Option<string> placementName, ref Option<string> placementDescription, ref Option<string> placementSize, ref Option<int> placementHeight, ref Option<int> placementWidth, ref Option<int> placementRefreshInterval, ref Option<bool> createObjectStore, ref Option<bool> publicContentApproval, ref Option<bool> productionMode, ref Option<int> minimumSessionLength, ref Option<int> sessionGapLength, ref Option<bool> localAdsEnabled, ref Option<string> sqootApiKey, ref Option<string> trilatProcessingType, ref Option<int> maxSampleSize, ref Option<double> minRSSI, ref Option<string> modules, ref Option<int> authorizedCount, ref Option<string> authorizedServers, ref Option<string> defaultTimezone, ref Option<string> smtpPass, ref Option<string> metaData, ref Option<string> placementMetaData, ref Option<bool> ipsFloor, ref Option<bool> enableAPNSBadge, ref Option<bool> includeInReport, ref Option<long> defaultAppFilterId, ref Option<bool> enableWelcomeEmail, ref Option<string> appleAppId, ref Option<string> appleTeamId, ref Option<string> appleAuthKeyId, ref Option<System.IO.Stream> appleAuthKey, ref Option<string> appleIssuerId, ref Option<string> appStoreKeyId, ref Option<System.IO.Stream> appStoreKey, ref Option<System.IO.Stream> googlePrivateKeyFile, ref Option<string> authorizeNetApiKey, ref Option<string> authorizeNetTransactionKey, ref Option<string> emailSender, ref Option<string> smtpUser, ref Option<string> smtpHost, ref Option<string> vatomBusinessId, ref Option<string> vatomRestClientId, ref Option<string> vatomRestSecretKey, ref Option<string> twilioAccountSID, ref Option<string> twilioAuthToken, ref Option<string> twilioSenderPhoneNumber, ref Option<string> openAISecretKey);
+        partial void FormatCreateApplication(ref string appName, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> about, ref Option<string> bundleId, ref Option<long> appIconAssetId, ref Option<long> appLogoAssetId, ref Option<string> facebookAppId, ref Option<string> facebookAppSecret, ref Option<string> googleApiKey, ref Option<bool> updateEULADate, ref Option<string> eulaVersion, ref Option<string> landingPageUrl, ref Option<bool> showInActivities, ref Option<string> activityDescription, ref Option<string> inviteWelcomeText, ref Option<string> invitePageUrl, ref Option<string> urlScheme, ref Option<string> platforms, ref Option<string> downloadUrls, ref Option<string> categoryIds, ref Option<string> scoringType, ref Option<int> hintCost, ref Option<int> maxScore, ref Option<float> ticketsPerPoint, ref Option<bool> hasGameData, ref Option<bool> publicNotifications, ref Option<bool> useMatchingAlgorithm, ref Option<bool> globalTickets, ref Option<float> buildVersion, ref Option<float> apiVersion, ref Option<string> placementName, ref Option<string> placementDescription, ref Option<string> placementSize, ref Option<int> placementHeight, ref Option<int> placementWidth, ref Option<int> placementRefreshInterval, ref Option<bool> createObjectStore, ref Option<bool> publicContentApproval, ref Option<bool> productionMode, ref Option<int> minimumSessionLength, ref Option<int> sessionGapLength, ref Option<bool> localAdsEnabled, ref Option<string> sqootApiKey, ref Option<string> trilatProcessingType, ref Option<int> maxSampleSize, ref Option<double> minRSSI, ref Option<string> modules, ref Option<int> authorizedCount, ref Option<string> authorizedServers, ref Option<string> defaultTimezone, ref Option<string> smtpPass, ref Option<string> metaData, ref Option<string> placementMetaData, ref Option<bool> ipsFloor, ref Option<bool> enableAPNSBadge, ref Option<bool> includeInReport, ref Option<long> defaultAppFilterId, ref Option<bool> enableWelcomeEmail, ref Option<string> appleAppId, ref Option<string> appleTeamId, ref Option<string> appleAuthKeyId, ref Option<System.IO.Stream> appleAuthKey, ref Option<string> appleIssuerId, ref Option<string> appStoreKeyId, ref Option<System.IO.Stream> appStoreKey, ref Option<System.IO.Stream> googlePrivateKeyFile, ref Option<string> authorizeNetApiKey, ref Option<string> authorizeNetTransactionKey, ref Option<string> emailSender, ref Option<string> smtpUser, ref Option<string> smtpHost, ref Option<string> vatomBusinessId, ref Option<string> vatomRestClientId, ref Option<string> vatomRestSecretKey, ref Option<string> twilioAccountSID, ref Option<string> twilioAuthToken, ref Option<string> twilioSenderPhoneNumber, ref Option<string> openAISecretKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1687,7 +1655,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appName"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1767,10 +1734,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="twilioAuthToken"></param>
         /// <param name="twilioSenderPhoneNumber"></param>
         /// <param name="openAISecretKey"></param>
-        private void AfterCreateApplicationDefaultImplementation(ICreateApplicationApiResponse apiResponseLocalVar, decimal version, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey)
+        private void AfterCreateApplicationDefaultImplementation(ICreateApplicationApiResponse apiResponseLocalVar, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey)
         {
             bool suppressDefaultLog = false;
-            AfterCreateApplication(ref suppressDefaultLog, apiResponseLocalVar, version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+            AfterCreateApplication(ref suppressDefaultLog, apiResponseLocalVar, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1780,7 +1747,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appName"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1860,7 +1826,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="twilioAuthToken"></param>
         /// <param name="twilioSenderPhoneNumber"></param>
         /// <param name="openAISecretKey"></param>
-        partial void AfterCreateApplication(ref bool suppressDefaultLog, ICreateApplicationApiResponse apiResponseLocalVar, decimal version, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey);
+        partial void AfterCreateApplication(ref bool suppressDefaultLog, ICreateApplicationApiResponse apiResponseLocalVar, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1868,7 +1834,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appName"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -1948,10 +1913,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="twilioAuthToken"></param>
         /// <param name="twilioSenderPhoneNumber"></param>
         /// <param name="openAISecretKey"></param>
-        private void OnErrorCreateApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey)
+        private void OnErrorCreateApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+            OnErrorCreateApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1963,7 +1928,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appName"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -2043,12 +2007,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="twilioAuthToken"></param>
         /// <param name="twilioSenderPhoneNumber"></param>
         /// <param name="openAISecretKey"></param>
-        partial void OnErrorCreateApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey);
+        partial void OnErrorCreateApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey);
 
         /// <summary>
         /// Create Application Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appName">The name of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -2130,11 +2093,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="openAISecretKey">OpenAI Secret API Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationApiResponse"/>&gt;</returns>
-        public async Task<ICreateApplicationApiResponse?> CreateApplicationOrDefaultAsync(decimal version, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateApplicationApiResponse?> CreateApplicationOrDefaultAsync(string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateApplicationAsync(version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, cancellationToken).ConfigureAwait(false);
+                return await CreateApplicationAsync(appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2146,7 +2109,6 @@ namespace Org.OpenAPITools.Api
         /// Create Application Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appName">The name of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -2228,7 +2190,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="openAISecretKey">OpenAI Secret API Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationApiResponse"/>&gt;</returns>
-        public async Task<ICreateApplicationApiResponse> CreateApplicationAsync(decimal version, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateApplicationApiResponse> CreateApplicationAsync(string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2236,7 +2198,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateApplication(appName, deviceId, about, bundleId, facebookAppId, facebookAppSecret, googleApiKey, eulaVersion, landingPageUrl, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, placementName, placementDescription, placementSize, sqootApiKey, trilatProcessingType, modules, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
 
-                FormatCreateApplication(ref version, ref appName, ref deviceId, ref accountId, ref about, ref bundleId, ref appIconAssetId, ref appLogoAssetId, ref facebookAppId, ref facebookAppSecret, ref googleApiKey, ref updateEULADate, ref eulaVersion, ref landingPageUrl, ref showInActivities, ref activityDescription, ref inviteWelcomeText, ref invitePageUrl, ref urlScheme, ref platforms, ref downloadUrls, ref categoryIds, ref scoringType, ref hintCost, ref maxScore, ref ticketsPerPoint, ref hasGameData, ref publicNotifications, ref useMatchingAlgorithm, ref globalTickets, ref buildVersion, ref apiVersion, ref placementName, ref placementDescription, ref placementSize, ref placementHeight, ref placementWidth, ref placementRefreshInterval, ref createObjectStore, ref publicContentApproval, ref productionMode, ref minimumSessionLength, ref sessionGapLength, ref localAdsEnabled, ref sqootApiKey, ref trilatProcessingType, ref maxSampleSize, ref minRSSI, ref modules, ref authorizedCount, ref authorizedServers, ref defaultTimezone, ref smtpPass, ref metaData, ref placementMetaData, ref ipsFloor, ref enableAPNSBadge, ref includeInReport, ref defaultAppFilterId, ref enableWelcomeEmail, ref appleAppId, ref appleTeamId, ref appleAuthKeyId, ref appleAuthKey, ref appleIssuerId, ref appStoreKeyId, ref appStoreKey, ref googlePrivateKeyFile, ref authorizeNetApiKey, ref authorizeNetTransactionKey, ref emailSender, ref smtpUser, ref smtpHost, ref vatomBusinessId, ref vatomRestClientId, ref vatomRestSecretKey, ref twilioAccountSID, ref twilioAuthToken, ref twilioSenderPhoneNumber, ref openAISecretKey);
+                FormatCreateApplication(ref appName, ref deviceId, ref accountId, ref about, ref bundleId, ref appIconAssetId, ref appLogoAssetId, ref facebookAppId, ref facebookAppSecret, ref googleApiKey, ref updateEULADate, ref eulaVersion, ref landingPageUrl, ref showInActivities, ref activityDescription, ref inviteWelcomeText, ref invitePageUrl, ref urlScheme, ref platforms, ref downloadUrls, ref categoryIds, ref scoringType, ref hintCost, ref maxScore, ref ticketsPerPoint, ref hasGameData, ref publicNotifications, ref useMatchingAlgorithm, ref globalTickets, ref buildVersion, ref apiVersion, ref placementName, ref placementDescription, ref placementSize, ref placementHeight, ref placementWidth, ref placementRefreshInterval, ref createObjectStore, ref publicContentApproval, ref productionMode, ref minimumSessionLength, ref sessionGapLength, ref localAdsEnabled, ref sqootApiKey, ref trilatProcessingType, ref maxSampleSize, ref minRSSI, ref modules, ref authorizedCount, ref authorizedServers, ref defaultTimezone, ref smtpPass, ref metaData, ref placementMetaData, ref ipsFloor, ref enableAPNSBadge, ref includeInReport, ref defaultAppFilterId, ref enableWelcomeEmail, ref appleAppId, ref appleTeamId, ref appleAuthKeyId, ref appleAuthKey, ref appleIssuerId, ref appStoreKeyId, ref appStoreKey, ref googlePrivateKeyFile, ref authorizeNetApiKey, ref authorizeNetTransactionKey, ref emailSender, ref smtpUser, ref smtpHost, ref vatomBusinessId, ref vatomRestClientId, ref vatomRestSecretKey, ref twilioAccountSID, ref twilioAuthToken, ref twilioSenderPhoneNumber, ref openAISecretKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2244,9 +2206,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2511,13 +2472,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateApplicationDefaultImplementation(apiResponseLocalVar, version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+                        AfterCreateApplicationDefaultImplementation(apiResponseLocalVar, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
 
                         Events.ExecuteOnCreateApplication(apiResponseLocalVar);
 
@@ -2527,7 +2488,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateApplicationDefaultImplementation(e, "/api/{version}/application/create", uriBuilderLocalVar.Path, version, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+                OnErrorCreateApplicationDefaultImplementation(e, "/application/create", uriBuilderLocalVar.Path, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
                 Events.ExecuteOnErrorCreateApplication(e);
                 throw;
             }
@@ -2626,7 +2587,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateApplicationPlacement(ref decimal version, ref string appKey, ref string size, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> description, ref Option<int> height, ref Option<int> width, ref Option<int> refreshInterval, ref Option<long> defaultImageId, ref Option<bool> active);
+        partial void FormatCreateApplicationPlacement(ref string appKey, ref string size, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> description, ref Option<int> height, ref Option<int> width, ref Option<int> refreshInterval, ref Option<long> defaultImageId, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -2659,7 +2620,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="size"></param>
         /// <param name="deviceId"></param>
@@ -2671,10 +2631,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="refreshInterval"></param>
         /// <param name="defaultImageId"></param>
         /// <param name="active"></param>
-        private void AfterCreateApplicationPlacementDefaultImplementation(ICreateApplicationPlacementApiResponse apiResponseLocalVar, decimal version, string appKey, string size, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active)
+        private void AfterCreateApplicationPlacementDefaultImplementation(ICreateApplicationPlacementApiResponse apiResponseLocalVar, string appKey, string size, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterCreateApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
+            AfterCreateApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2684,7 +2644,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="size"></param>
         /// <param name="deviceId"></param>
@@ -2696,7 +2655,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="refreshInterval"></param>
         /// <param name="defaultImageId"></param>
         /// <param name="active"></param>
-        partial void AfterCreateApplicationPlacement(ref bool suppressDefaultLog, ICreateApplicationPlacementApiResponse apiResponseLocalVar, decimal version, string appKey, string size, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active);
+        partial void AfterCreateApplicationPlacement(ref bool suppressDefaultLog, ICreateApplicationPlacementApiResponse apiResponseLocalVar, string appKey, string size, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2704,7 +2663,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="size"></param>
         /// <param name="deviceId"></param>
@@ -2716,10 +2674,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="refreshInterval"></param>
         /// <param name="defaultImageId"></param>
         /// <param name="active"></param>
-        private void OnErrorCreateApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string size, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active)
+        private void OnErrorCreateApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string size, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
+            OnErrorCreateApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2731,7 +2689,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="size"></param>
         /// <param name="deviceId"></param>
@@ -2743,12 +2700,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="refreshInterval"></param>
         /// <param name="defaultImageId"></param>
         /// <param name="active"></param>
-        partial void OnErrorCreateApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string size, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active);
+        partial void OnErrorCreateApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string size, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active);
 
         /// <summary>
         /// Create Ad Placement Creates a new ad placement for an application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The appKey of the application the ad placement is for</param>
         /// <param name="size">The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -2762,11 +2718,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<ICreateApplicationPlacementApiResponse?> CreateApplicationPlacementOrDefaultAsync(decimal version, string appKey, string size, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateApplicationPlacementApiResponse?> CreateApplicationPlacementOrDefaultAsync(string appKey, string size, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateApplicationPlacementAsync(version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active, cancellationToken).ConfigureAwait(false);
+                return await CreateApplicationPlacementAsync(appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2778,7 +2734,6 @@ namespace Org.OpenAPITools.Api
         /// Create Ad Placement Creates a new ad placement for an application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The appKey of the application the ad placement is for</param>
         /// <param name="size">The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -2792,7 +2747,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<ICreateApplicationPlacementApiResponse> CreateApplicationPlacementAsync(decimal version, string appKey, string size, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateApplicationPlacementApiResponse> CreateApplicationPlacementAsync(string appKey, string size, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2800,7 +2755,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateApplicationPlacement(appKey, size, deviceId, name, description);
 
-                FormatCreateApplicationPlacement(ref version, ref appKey, ref size, ref deviceId, ref accountId, ref name, ref description, ref height, ref width, ref refreshInterval, ref defaultImageId, ref active);
+                FormatCreateApplicationPlacement(ref appKey, ref size, ref deviceId, ref accountId, ref name, ref description, ref height, ref width, ref refreshInterval, ref defaultImageId, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2808,9 +2763,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/placement/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/placement/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/placement/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/placement/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2869,13 +2823,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/placement/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/placement/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateApplicationPlacementDefaultImplementation(apiResponseLocalVar, version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
+                        AfterCreateApplicationPlacementDefaultImplementation(apiResponseLocalVar, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
 
                         Events.ExecuteOnCreateApplicationPlacement(apiResponseLocalVar);
 
@@ -2885,7 +2839,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateApplicationPlacementDefaultImplementation(e, "/api/{version}/application/placement/create", uriBuilderLocalVar.Path, version, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
+                OnErrorCreateApplicationPlacementDefaultImplementation(e, "/application/placement/create", uriBuilderLocalVar.Path, appKey, size, deviceId, accountId, name, description, height, width, refreshInterval, defaultImageId, active);
                 Events.ExecuteOnErrorCreateApplicationPlacement(e);
                 throw;
             }
@@ -2984,7 +2938,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteApplication(ref decimal version, ref Option<long> accountId, ref Option<string> appKey);
+        partial void FormatDeleteApplication(ref Option<long> accountId, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -3001,13 +2955,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        private void AfterDeleteApplicationDefaultImplementation(IDeleteApplicationApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey)
+        private void AfterDeleteApplicationDefaultImplementation(IDeleteApplicationApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteApplication(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey);
+            AfterDeleteApplication(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3017,10 +2970,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        partial void AfterDeleteApplication(ref bool suppressDefaultLog, IDeleteApplicationApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> appKey);
+        partial void AfterDeleteApplication(ref bool suppressDefaultLog, IDeleteApplicationApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3028,13 +2980,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        private void OnErrorDeleteApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey)
+        private void OnErrorDeleteApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey);
+            OnErrorDeleteApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3046,24 +2997,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorDeleteApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> appKey);
+        partial void OnErrorDeleteApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> appKey);
 
         /// <summary>
         /// Delete Application Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional)</param>
         /// <param name="appKey">The key of the application to be deleted (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteApplicationApiResponse?> DeleteApplicationOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteApplicationApiResponse?> DeleteApplicationOrDefaultAsync(Option<long> accountId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteApplicationAsync(version, accountId, appKey, cancellationToken).ConfigureAwait(false);
+                return await DeleteApplicationAsync(accountId, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3075,12 +3024,11 @@ namespace Org.OpenAPITools.Api
         /// Delete Application Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional)</param>
         /// <param name="appKey">The key of the application to be deleted (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteApplicationApiResponse> DeleteApplicationAsync(decimal version, Option<long> accountId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteApplicationApiResponse> DeleteApplicationAsync(Option<long> accountId = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3088,7 +3036,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteApplication(appKey);
 
-                FormatDeleteApplication(ref version, ref accountId, ref appKey);
+                FormatDeleteApplication(ref accountId, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3096,9 +3044,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3133,13 +3080,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteApplicationDefaultImplementation(apiResponseLocalVar, version, accountId, appKey);
+                        AfterDeleteApplicationDefaultImplementation(apiResponseLocalVar, accountId, appKey);
 
                         Events.ExecuteOnDeleteApplication(apiResponseLocalVar);
 
@@ -3149,7 +3096,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteApplicationDefaultImplementation(e, "/api/{version}/application/delete", uriBuilderLocalVar.Path, version, accountId, appKey);
+                OnErrorDeleteApplicationDefaultImplementation(e, "/application/delete", uriBuilderLocalVar.Path, accountId, appKey);
                 Events.ExecuteOnErrorDeleteApplication(e);
                 throw;
             }
@@ -3248,7 +3195,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteApplicationPlacement(ref decimal version, ref long placementId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteApplicationPlacement(ref long placementId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3265,14 +3212,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteApplicationPlacementDefaultImplementation(IDeleteApplicationPlacementApiResponse apiResponseLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteApplicationPlacementDefaultImplementation(IDeleteApplicationPlacementApiResponse apiResponseLocalVar, long placementId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, version, placementId, deviceId, accountId);
+            AfterDeleteApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, placementId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3282,11 +3228,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteApplicationPlacement(ref bool suppressDefaultLog, IDeleteApplicationPlacementApiResponse apiResponseLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteApplicationPlacement(ref bool suppressDefaultLog, IDeleteApplicationPlacementApiResponse apiResponseLocalVar, long placementId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3294,14 +3239,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long placementId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, placementId, deviceId, accountId);
+            OnErrorDeleteApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, placementId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3313,26 +3257,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long placementId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Ad Placement Deletes an ad placement for an application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement to delete, the user must have rights to the application the ad placement is for</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<IDeleteApplicationPlacementApiResponse?> DeleteApplicationPlacementOrDefaultAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteApplicationPlacementApiResponse?> DeleteApplicationPlacementOrDefaultAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteApplicationPlacementAsync(version, placementId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteApplicationPlacementAsync(placementId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3344,13 +3286,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Ad Placement Deletes an ad placement for an application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement to delete, the user must have rights to the application the ad placement is for</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<IDeleteApplicationPlacementApiResponse> DeleteApplicationPlacementAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteApplicationPlacementApiResponse> DeleteApplicationPlacementAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3358,7 +3299,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteApplicationPlacement(deviceId);
 
-                FormatDeleteApplicationPlacement(ref version, ref placementId, ref deviceId, ref accountId);
+                FormatDeleteApplicationPlacement(ref placementId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3366,9 +3307,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/placement/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/placement/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/placement/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/placement/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3405,13 +3345,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/placement/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/placement/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteApplicationPlacementDefaultImplementation(apiResponseLocalVar, version, placementId, deviceId, accountId);
+                        AfterDeleteApplicationPlacementDefaultImplementation(apiResponseLocalVar, placementId, deviceId, accountId);
 
                         Events.ExecuteOnDeleteApplicationPlacement(apiResponseLocalVar);
 
@@ -3421,7 +3361,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteApplicationPlacementDefaultImplementation(e, "/api/{version}/application/placement/delete", uriBuilderLocalVar.Path, version, placementId, deviceId, accountId);
+                OnErrorDeleteApplicationPlacementDefaultImplementation(e, "/application/placement/delete", uriBuilderLocalVar.Path, placementId, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteApplicationPlacement(e);
                 throw;
             }
@@ -3520,7 +3460,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetApplication(ref decimal version, ref Option<string> appKey, ref Option<long> applicationId);
+        partial void FormatGetApplication(ref Option<string> appKey, ref Option<long> applicationId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3537,13 +3477,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="applicationId"></param>
-        private void AfterGetApplicationDefaultImplementation(IGetApplicationApiResponse apiResponseLocalVar, decimal version, Option<string> appKey, Option<long> applicationId)
+        private void AfterGetApplicationDefaultImplementation(IGetApplicationApiResponse apiResponseLocalVar, Option<string> appKey, Option<long> applicationId)
         {
             bool suppressDefaultLog = false;
-            AfterGetApplication(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, applicationId);
+            AfterGetApplication(ref suppressDefaultLog, apiResponseLocalVar, appKey, applicationId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3553,10 +3492,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="applicationId"></param>
-        partial void AfterGetApplication(ref bool suppressDefaultLog, IGetApplicationApiResponse apiResponseLocalVar, decimal version, Option<string> appKey, Option<long> applicationId);
+        partial void AfterGetApplication(ref bool suppressDefaultLog, IGetApplicationApiResponse apiResponseLocalVar, Option<string> appKey, Option<long> applicationId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3564,13 +3502,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="applicationId"></param>
-        private void OnErrorGetApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> appKey, Option<long> applicationId)
+        private void OnErrorGetApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> appKey, Option<long> applicationId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, applicationId);
+            OnErrorGetApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, applicationId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3582,24 +3519,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="applicationId"></param>
-        partial void OnErrorGetApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> appKey, Option<long> applicationId);
+        partial void OnErrorGetApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> appKey, Option<long> applicationId);
 
         /// <summary>
         /// Get Application Get a specific application by appKey
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application (optional)</param>
         /// <param name="applicationId">Application Id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationApiResponse?> GetApplicationOrDefaultAsync(decimal version, Option<string> appKey = default, Option<long> applicationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationApiResponse?> GetApplicationOrDefaultAsync(Option<string> appKey = default, Option<long> applicationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetApplicationAsync(version, appKey, applicationId, cancellationToken).ConfigureAwait(false);
+                return await GetApplicationAsync(appKey, applicationId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3611,12 +3546,11 @@ namespace Org.OpenAPITools.Api
         /// Get Application Get a specific application by appKey
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application (optional)</param>
         /// <param name="applicationId">Application Id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationApiResponse> GetApplicationAsync(decimal version, Option<string> appKey = default, Option<long> applicationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationApiResponse> GetApplicationAsync(Option<string> appKey = default, Option<long> applicationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3624,7 +3558,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetApplication(appKey);
 
-                FormatGetApplication(ref version, ref appKey, ref applicationId);
+                FormatGetApplication(ref appKey, ref applicationId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3632,9 +3566,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3669,13 +3602,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetApplicationDefaultImplementation(apiResponseLocalVar, version, appKey, applicationId);
+                        AfterGetApplicationDefaultImplementation(apiResponseLocalVar, appKey, applicationId);
 
                         Events.ExecuteOnGetApplication(apiResponseLocalVar);
 
@@ -3685,7 +3618,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetApplicationDefaultImplementation(e, "/api/{version}/application/get", uriBuilderLocalVar.Path, version, appKey, applicationId);
+                OnErrorGetApplicationDefaultImplementation(e, "/application/get", uriBuilderLocalVar.Path, appKey, applicationId);
                 Events.ExecuteOnErrorGetApplication(e);
                 throw;
             }
@@ -3784,7 +3717,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetApplicationPlacement(ref decimal version, ref long placementId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatGetApplicationPlacement(ref long placementId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3801,14 +3734,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetApplicationPlacementDefaultImplementation(IGetApplicationPlacementApiResponse apiResponseLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId)
+        private void AfterGetApplicationPlacementDefaultImplementation(IGetApplicationPlacementApiResponse apiResponseLocalVar, long placementId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, version, placementId, deviceId, accountId);
+            AfterGetApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, placementId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3818,11 +3750,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetApplicationPlacement(ref bool suppressDefaultLog, IGetApplicationPlacementApiResponse apiResponseLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterGetApplicationPlacement(ref bool suppressDefaultLog, IGetApplicationPlacementApiResponse apiResponseLocalVar, long placementId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3830,14 +3761,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorGetApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long placementId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, placementId, deviceId, accountId);
+            OnErrorGetApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, placementId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3849,26 +3779,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorGetApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long placementId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Get Ad Placement Get details of an ad placement
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationPlacementApiResponse?> GetApplicationPlacementOrDefaultAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationPlacementApiResponse?> GetApplicationPlacementOrDefaultAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetApplicationPlacementAsync(version, placementId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetApplicationPlacementAsync(placementId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3880,13 +3808,12 @@ namespace Org.OpenAPITools.Api
         /// Get Ad Placement Get details of an ad placement
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationPlacementApiResponse> GetApplicationPlacementAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationPlacementApiResponse> GetApplicationPlacementAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3894,7 +3821,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetApplicationPlacement(deviceId);
 
-                FormatGetApplicationPlacement(ref version, ref placementId, ref deviceId, ref accountId);
+                FormatGetApplicationPlacement(ref placementId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3902,9 +3829,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/placement/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/placement/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/placement/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/placement/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3941,13 +3867,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/placement/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/placement/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetApplicationPlacementDefaultImplementation(apiResponseLocalVar, version, placementId, deviceId, accountId);
+                        AfterGetApplicationPlacementDefaultImplementation(apiResponseLocalVar, placementId, deviceId, accountId);
 
                         Events.ExecuteOnGetApplicationPlacement(apiResponseLocalVar);
 
@@ -3957,7 +3883,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetApplicationPlacementDefaultImplementation(e, "/api/{version}/application/placement/get", uriBuilderLocalVar.Path, version, placementId, deviceId, accountId);
+                OnErrorGetApplicationPlacementDefaultImplementation(e, "/application/placement/get", uriBuilderLocalVar.Path, placementId, deviceId, accountId);
                 Events.ExecuteOnErrorGetApplicationPlacement(e);
                 throw;
             }
@@ -4056,17 +3982,14 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetApplicationVersions(ref decimal version);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
-        private void AfterGetApplicationVersionsDefaultImplementation(IGetApplicationVersionsApiResponse apiResponseLocalVar, decimal version)
+        private void AfterGetApplicationVersionsDefaultImplementation(IGetApplicationVersionsApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterGetApplicationVersions(ref suppressDefaultLog, apiResponseLocalVar, version);
+            AfterGetApplicationVersions(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4076,8 +3999,7 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
-        partial void AfterGetApplicationVersions(ref bool suppressDefaultLog, IGetApplicationVersionsApiResponse apiResponseLocalVar, decimal version);
+        partial void AfterGetApplicationVersions(ref bool suppressDefaultLog, IGetApplicationVersionsApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4085,11 +4007,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
-        private void OnErrorGetApplicationVersionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version)
+        private void OnErrorGetApplicationVersionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetApplicationVersions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version);
+            OnErrorGetApplicationVersions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4101,20 +4022,18 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
-        partial void OnErrorGetApplicationVersions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version);
+        partial void OnErrorGetApplicationVersions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Get API versions Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationVersionsApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationVersionsApiResponse?> GetApplicationVersionsOrDefaultAsync(decimal version, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationVersionsApiResponse?> GetApplicationVersionsOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetApplicationVersionsAsync(version, cancellationToken).ConfigureAwait(false);
+                return await GetApplicationVersionsAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4126,26 +4045,22 @@ namespace Org.OpenAPITools.Api
         /// Get API versions Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetApplicationVersionsApiResponse"/>&gt;</returns>
-        public async Task<IGetApplicationVersionsApiResponse> GetApplicationVersionsAsync(decimal version, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetApplicationVersionsApiResponse> GetApplicationVersionsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetApplicationVersions(ref version);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/versions"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/versions");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/versions"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/versions");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -4170,13 +4085,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/versions", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/versions", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetApplicationVersionsDefaultImplementation(apiResponseLocalVar, version);
+                        AfterGetApplicationVersionsDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnGetApplicationVersions(apiResponseLocalVar);
 
@@ -4186,7 +4101,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetApplicationVersionsDefaultImplementation(e, "/api/{version}/application/versions", uriBuilderLocalVar.Path, version);
+                OnErrorGetApplicationVersionsDefaultImplementation(e, "/application/versions", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorGetApplicationVersions(e);
                 throw;
             }
@@ -4285,7 +4200,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUniqueUsersByApp(ref decimal version, ref string appKey, ref Option<string> q, ref Option<string> keyword, ref Option<long> since, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit);
+        partial void FormatGetUniqueUsersByApp(ref string appKey, ref Option<string> q, ref Option<string> keyword, ref Option<long> since, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -4310,7 +4225,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="q"></param>
         /// <param name="keyword"></param>
@@ -4319,10 +4233,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        private void AfterGetUniqueUsersByAppDefaultImplementation(IGetUniqueUsersByAppApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> q, Option<string> keyword, Option<long> since, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
+        private void AfterGetUniqueUsersByAppDefaultImplementation(IGetUniqueUsersByAppApiResponse apiResponseLocalVar, string appKey, Option<string> q, Option<string> keyword, Option<long> since, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterGetUniqueUsersByApp(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, q, keyword, since, i, start, l, limit);
+            AfterGetUniqueUsersByApp(ref suppressDefaultLog, apiResponseLocalVar, appKey, q, keyword, since, i, start, l, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4332,7 +4246,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="q"></param>
         /// <param name="keyword"></param>
@@ -4341,7 +4254,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        partial void AfterGetUniqueUsersByApp(ref bool suppressDefaultLog, IGetUniqueUsersByAppApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> q, Option<string> keyword, Option<long> since, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
+        partial void AfterGetUniqueUsersByApp(ref bool suppressDefaultLog, IGetUniqueUsersByAppApiResponse apiResponseLocalVar, string appKey, Option<string> q, Option<string> keyword, Option<long> since, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4349,7 +4262,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="q"></param>
         /// <param name="keyword"></param>
@@ -4358,10 +4270,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        private void OnErrorGetUniqueUsersByAppDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> q, Option<string> keyword, Option<long> since, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
+        private void OnErrorGetUniqueUsersByAppDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> q, Option<string> keyword, Option<long> since, Option<int> i, Option<int> start, Option<int> l, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUniqueUsersByApp(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, q, keyword, since, i, start, l, limit);
+            OnErrorGetUniqueUsersByApp(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, q, keyword, since, i, start, l, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4373,7 +4285,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="q"></param>
         /// <param name="keyword"></param>
@@ -4382,12 +4293,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="l"></param>
         /// <param name="limit"></param>
-        partial void OnErrorGetUniqueUsersByApp(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> q, Option<string> keyword, Option<long> since, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
+        partial void OnErrorGetUniqueUsersByApp(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> q, Option<string> keyword, Option<long> since, Option<int> i, Option<int> start, Option<int> l, Option<int> limit);
 
         /// <summary>
         /// Search Application Users Get a list of users per application
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="q">Q (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -4398,11 +4308,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUniqueUsersByAppApiResponse"/>&gt;</returns>
-        public async Task<IGetUniqueUsersByAppApiResponse?> GetUniqueUsersByAppOrDefaultAsync(decimal version, string appKey, Option<string> q = default, Option<string> keyword = default, Option<long> since = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUniqueUsersByAppApiResponse?> GetUniqueUsersByAppOrDefaultAsync(string appKey, Option<string> q = default, Option<string> keyword = default, Option<long> since = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUniqueUsersByAppAsync(version, appKey, q, keyword, since, i, start, l, limit, cancellationToken).ConfigureAwait(false);
+                return await GetUniqueUsersByAppAsync(appKey, q, keyword, since, i, start, l, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4414,7 +4324,6 @@ namespace Org.OpenAPITools.Api
         /// Search Application Users Get a list of users per application
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key</param>
         /// <param name="q">Q (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -4425,7 +4334,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUniqueUsersByAppApiResponse"/>&gt;</returns>
-        public async Task<IGetUniqueUsersByAppApiResponse> GetUniqueUsersByAppAsync(decimal version, string appKey, Option<string> q = default, Option<string> keyword = default, Option<long> since = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUniqueUsersByAppApiResponse> GetUniqueUsersByAppAsync(string appKey, Option<string> q = default, Option<string> keyword = default, Option<long> since = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4433,7 +4342,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetUniqueUsersByApp(appKey, q, keyword);
 
-                FormatGetUniqueUsersByApp(ref version, ref appKey, ref q, ref keyword, ref since, ref i, ref start, ref l, ref limit);
+                FormatGetUniqueUsersByApp(ref appKey, ref q, ref keyword, ref since, ref i, ref start, ref l, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4441,9 +4350,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/users"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/users");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/users"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/users");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4495,13 +4403,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/users", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/users", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUniqueUsersByAppDefaultImplementation(apiResponseLocalVar, version, appKey, q, keyword, since, i, start, l, limit);
+                        AfterGetUniqueUsersByAppDefaultImplementation(apiResponseLocalVar, appKey, q, keyword, since, i, start, l, limit);
 
                         Events.ExecuteOnGetUniqueUsersByApp(apiResponseLocalVar);
 
@@ -4511,7 +4419,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUniqueUsersByAppDefaultImplementation(e, "/api/{version}/application/users", uriBuilderLocalVar.Path, version, appKey, q, keyword, since, i, start, l, limit);
+                OnErrorGetUniqueUsersByAppDefaultImplementation(e, "/application/users", uriBuilderLocalVar.Path, appKey, q, keyword, since, i, start, l, limit);
                 Events.ExecuteOnErrorGetUniqueUsersByApp(e);
                 throw;
             }
@@ -4610,7 +4518,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListApplications(ref decimal version, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<string> platforms, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> categoryIds, ref Option<string> sortField, ref Option<bool> hasAds, ref Option<bool> publicNotifications, ref Option<bool> filterBillable, ref Option<bool> filterContentAdmin, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<string> applicationIds, ref Option<bool> hasObjectStore, ref Option<bool> activeOnly);
+        partial void FormatListApplications(ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<string> platforms, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> categoryIds, ref Option<string> sortField, ref Option<bool> hasAds, ref Option<bool> publicNotifications, ref Option<bool> filterBillable, ref Option<bool> filterContentAdmin, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<string> applicationIds, ref Option<bool> hasObjectStore, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -4655,7 +4563,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
         /// <param name="keyword"></param>
@@ -4676,10 +4583,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds"></param>
         /// <param name="hasObjectStore"></param>
         /// <param name="activeOnly"></param>
-        private void AfterListApplicationsDefaultImplementation(IListApplicationsApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> platforms, Option<string> deviceIds, Option<string> deviceVersions, Option<string> categoryIds, Option<string> sortField, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> filterBillable, Option<bool> filterContentAdmin, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> applicationIds, Option<bool> hasObjectStore, Option<bool> activeOnly)
+        private void AfterListApplicationsDefaultImplementation(IListApplicationsApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> platforms, Option<string> deviceIds, Option<string> deviceVersions, Option<string> categoryIds, Option<string> sortField, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> filterBillable, Option<bool> filterContentAdmin, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> applicationIds, Option<bool> hasObjectStore, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterListApplications(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
+            AfterListApplications(ref suppressDefaultLog, apiResponseLocalVar, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4689,7 +4596,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
         /// <param name="keyword"></param>
@@ -4710,7 +4616,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds"></param>
         /// <param name="hasObjectStore"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterListApplications(ref bool suppressDefaultLog, IListApplicationsApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> platforms, Option<string> deviceIds, Option<string> deviceVersions, Option<string> categoryIds, Option<string> sortField, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> filterBillable, Option<bool> filterContentAdmin, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> applicationIds, Option<bool> hasObjectStore, Option<bool> activeOnly);
+        partial void AfterListApplications(ref bool suppressDefaultLog, IListApplicationsApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> platforms, Option<string> deviceIds, Option<string> deviceVersions, Option<string> categoryIds, Option<string> sortField, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> filterBillable, Option<bool> filterContentAdmin, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> applicationIds, Option<bool> hasObjectStore, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4718,7 +4624,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
         /// <param name="keyword"></param>
@@ -4739,10 +4644,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds"></param>
         /// <param name="hasObjectStore"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorListApplicationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> platforms, Option<string> deviceIds, Option<string> deviceVersions, Option<string> categoryIds, Option<string> sortField, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> filterBillable, Option<bool> filterContentAdmin, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> applicationIds, Option<bool> hasObjectStore, Option<bool> activeOnly)
+        private void OnErrorListApplicationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> platforms, Option<string> deviceIds, Option<string> deviceVersions, Option<string> categoryIds, Option<string> sortField, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> filterBillable, Option<bool> filterContentAdmin, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> applicationIds, Option<bool> hasObjectStore, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListApplications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
+            OnErrorListApplications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4754,7 +4659,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="q"></param>
         /// <param name="keyword"></param>
@@ -4775,12 +4679,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="applicationIds"></param>
         /// <param name="hasObjectStore"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorListApplications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> platforms, Option<string> deviceIds, Option<string> deviceVersions, Option<string> categoryIds, Option<string> sortField, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> filterBillable, Option<bool> filterContentAdmin, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> applicationIds, Option<bool> hasObjectStore, Option<bool> activeOnly);
+        partial void OnErrorListApplications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> q, Option<string> keyword, Option<string> platforms, Option<string> deviceIds, Option<string> deviceVersions, Option<string> categoryIds, Option<string> sortField, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> filterBillable, Option<bool> filterContentAdmin, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<string> applicationIds, Option<bool> hasObjectStore, Option<bool> activeOnly);
 
         /// <summary>
         /// List Applications List active applications matching the criteria (as a consumer)
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the application owner/manager (optional)</param>
         /// <param name="q">Q (optional)</param>
         /// <param name="keyword">The keyword used to search for title, about, and description fields (optional)</param>
@@ -4803,11 +4706,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListApplicationsApiResponse"/>&gt;</returns>
-        public async Task<IListApplicationsApiResponse?> ListApplicationsOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> platforms = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> categoryIds = default, Option<string> sortField = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> filterBillable = default, Option<bool> filterContentAdmin = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> applicationIds = default, Option<bool> hasObjectStore = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListApplicationsApiResponse?> ListApplicationsOrDefaultAsync(Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> platforms = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> categoryIds = default, Option<string> sortField = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> filterBillable = default, Option<bool> filterContentAdmin = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> applicationIds = default, Option<bool> hasObjectStore = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListApplicationsAsync(version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await ListApplicationsAsync(accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4819,7 +4722,6 @@ namespace Org.OpenAPITools.Api
         /// List Applications List active applications matching the criteria (as a consumer)
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the application owner/manager (optional)</param>
         /// <param name="q">Q (optional)</param>
         /// <param name="keyword">The keyword used to search for title, about, and description fields (optional)</param>
@@ -4842,7 +4744,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListApplicationsApiResponse"/>&gt;</returns>
-        public async Task<IListApplicationsApiResponse> ListApplicationsAsync(decimal version, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> platforms = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> categoryIds = default, Option<string> sortField = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> filterBillable = default, Option<bool> filterContentAdmin = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> applicationIds = default, Option<bool> hasObjectStore = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListApplicationsApiResponse> ListApplicationsAsync(Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<string> platforms = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> categoryIds = default, Option<string> sortField = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> filterBillable = default, Option<bool> filterContentAdmin = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<string> applicationIds = default, Option<bool> hasObjectStore = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4850,7 +4752,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListApplications(q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, applicationIds);
 
-                FormatListApplications(ref version, ref accountId, ref q, ref keyword, ref platforms, ref deviceIds, ref deviceVersions, ref categoryIds, ref sortField, ref hasAds, ref publicNotifications, ref filterBillable, ref filterContentAdmin, ref descending, ref i, ref start, ref l, ref limit, ref applicationIds, ref hasObjectStore, ref activeOnly);
+                FormatListApplications(ref accountId, ref q, ref keyword, ref platforms, ref deviceIds, ref deviceVersions, ref categoryIds, ref sortField, ref hasAds, ref publicNotifications, ref filterBillable, ref filterContentAdmin, ref descending, ref i, ref start, ref l, ref limit, ref applicationIds, ref hasObjectStore, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4858,9 +4760,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/list"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/list");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/list"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/list");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4949,13 +4850,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/list", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/list", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListApplicationsDefaultImplementation(apiResponseLocalVar, version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
+                        AfterListApplicationsDefaultImplementation(apiResponseLocalVar, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
 
                         Events.ExecuteOnListApplications(apiResponseLocalVar);
 
@@ -4965,7 +4866,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListApplicationsDefaultImplementation(e, "/api/{version}/application/list", uriBuilderLocalVar.Path, version, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
+                OnErrorListApplicationsDefaultImplementation(e, "/application/list", uriBuilderLocalVar.Path, accountId, q, keyword, platforms, deviceIds, deviceVersions, categoryIds, sortField, hasAds, publicNotifications, filterBillable, filterContentAdmin, descending, i, start, l, limit, applicationIds, hasObjectStore, activeOnly);
                 Events.ExecuteOnErrorListApplications(e);
                 throw;
             }
@@ -5064,7 +4965,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchApplicationPlacement(ref decimal version, ref string appKey, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchApplicationPlacement(ref string appKey, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -5085,16 +4986,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchApplicationPlacementDefaultImplementation(ISearchApplicationPlacementApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit)
+        private void AfterSearchApplicationPlacementDefaultImplementation(ISearchApplicationPlacementApiResponse apiResponseLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, deviceId, accountId, start, limit);
+            AfterSearchApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, appKey, deviceId, accountId, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5104,13 +5004,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchApplicationPlacement(ref bool suppressDefaultLog, ISearchApplicationPlacementApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit);
+        partial void AfterSearchApplicationPlacement(ref bool suppressDefaultLog, ISearchApplicationPlacementApiResponse apiResponseLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5118,16 +5017,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit)
+        private void OnErrorSearchApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, deviceId, accountId, start, limit);
+            OnErrorSearchApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, deviceId, accountId, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5139,18 +5037,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search for Ad Placements Searches placements for an application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -5158,11 +5054,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<ISearchApplicationPlacementApiResponse?> SearchApplicationPlacementOrDefaultAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApplicationPlacementApiResponse?> SearchApplicationPlacementOrDefaultAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchApplicationPlacementAsync(version, appKey, deviceId, accountId, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchApplicationPlacementAsync(appKey, deviceId, accountId, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5174,7 +5070,6 @@ namespace Org.OpenAPITools.Api
         /// Search for Ad Placements Searches placements for an application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -5182,7 +5077,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit of the pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<ISearchApplicationPlacementApiResponse> SearchApplicationPlacementAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApplicationPlacementApiResponse> SearchApplicationPlacementAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5190,7 +5085,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchApplicationPlacement(appKey, deviceId);
 
-                FormatSearchApplicationPlacement(ref version, ref appKey, ref deviceId, ref accountId, ref start, ref limit);
+                FormatSearchApplicationPlacement(ref appKey, ref deviceId, ref accountId, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5198,9 +5093,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/placement/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/placement/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/placement/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/placement/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5243,13 +5137,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/placement/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/placement/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchApplicationPlacementDefaultImplementation(apiResponseLocalVar, version, appKey, deviceId, accountId, start, limit);
+                        AfterSearchApplicationPlacementDefaultImplementation(apiResponseLocalVar, appKey, deviceId, accountId, start, limit);
 
                         Events.ExecuteOnSearchApplicationPlacement(apiResponseLocalVar);
 
@@ -5259,7 +5153,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchApplicationPlacementDefaultImplementation(e, "/api/{version}/application/placement/search", uriBuilderLocalVar.Path, version, appKey, deviceId, accountId, start, limit);
+                OnErrorSearchApplicationPlacementDefaultImplementation(e, "/application/placement/search", uriBuilderLocalVar.Path, appKey, deviceId, accountId, start, limit);
                 Events.ExecuteOnErrorSearchApplicationPlacement(e);
                 throw;
             }
@@ -5358,7 +5252,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchApplicationSettings(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchApplicationSettings(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> connectionAccountId, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -5383,7 +5277,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -5392,10 +5285,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchApplicationSettingsDefaultImplementation(ISearchApplicationSettingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void AfterSearchApplicationSettingsDefaultImplementation(ISearchApplicationSettingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchApplicationSettings(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
+            AfterSearchApplicationSettings(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5405,7 +5298,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -5414,7 +5306,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchApplicationSettings(ref bool suppressDefaultLog, ISearchApplicationSettingsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void AfterSearchApplicationSettings(ref bool suppressDefaultLog, ISearchApplicationSettingsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5422,7 +5314,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -5431,10 +5322,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchApplicationSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
+        private void OnErrorSearchApplicationSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchApplicationSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
+            OnErrorSearchApplicationSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5446,7 +5337,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="connectionAccountId"></param>
@@ -5455,12 +5345,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="descending"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchApplicationSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchApplicationSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> connectionAccountId, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search for Application Settings Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">The account id used to view another person&#39;s account (optional)</param>
@@ -5471,11 +5360,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit per result set for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationSettingsApiResponse"/>&gt;</returns>
-        public async Task<ISearchApplicationSettingsApiResponse?> SearchApplicationSettingsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApplicationSettingsApiResponse?> SearchApplicationSettingsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchApplicationSettingsAsync(version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchApplicationSettingsAsync(deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5487,7 +5376,6 @@ namespace Org.OpenAPITools.Api
         /// Search for Application Settings Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="connectionAccountId">The account id used to view another person&#39;s account (optional)</param>
@@ -5498,7 +5386,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">The limit per result set for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationSettingsApiResponse"/>&gt;</returns>
-        public async Task<ISearchApplicationSettingsApiResponse> SearchApplicationSettingsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApplicationSettingsApiResponse> SearchApplicationSettingsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> connectionAccountId = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5506,7 +5394,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchApplicationSettings(deviceId, keyword, sortField);
 
-                FormatSearchApplicationSettings(ref version, ref deviceId, ref accountId, ref connectionAccountId, ref keyword, ref sortField, ref descending, ref start, ref limit);
+                FormatSearchApplicationSettings(ref deviceId, ref accountId, ref connectionAccountId, ref keyword, ref sortField, ref descending, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5514,9 +5402,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/settings/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/settings/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/settings/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/settings/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5569,13 +5456,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/settings/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/settings/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchApplicationSettingsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
+                        AfterSearchApplicationSettingsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
 
                         Events.ExecuteOnSearchApplicationSettings(apiResponseLocalVar);
 
@@ -5585,7 +5472,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchApplicationSettingsDefaultImplementation(e, "/api/{version}/application/settings/search", uriBuilderLocalVar.Path, version, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
+                OnErrorSearchApplicationSettingsDefaultImplementation(e, "/application/settings/search", uriBuilderLocalVar.Path, deviceId, accountId, connectionAccountId, keyword, sortField, descending, start, limit);
                 Events.ExecuteOnErrorSearchApplicationSettings(e);
                 throw;
             }
@@ -5684,7 +5571,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchApplications(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> q, ref Option<string> keyword, ref Option<string> qSearchFields, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<bool> hasAds, ref Option<bool> publicNotifications, ref Option<bool> activeOnly);
+        partial void FormatSearchApplications(ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude, ref Option<string> q, ref Option<string> keyword, ref Option<string> qSearchFields, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> i, ref Option<int> start, ref Option<int> l, ref Option<int> limit, ref Option<bool> hasAds, ref Option<bool> publicNotifications, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -5717,7 +5604,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -5734,10 +5620,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasAds"></param>
         /// <param name="publicNotifications"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchApplicationsDefaultImplementation(ISearchApplicationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> q, Option<string> keyword, Option<string> qSearchFields, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> activeOnly)
+        private void AfterSearchApplicationsDefaultImplementation(ISearchApplicationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> q, Option<string> keyword, Option<string> qSearchFields, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchApplications(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
+            AfterSearchApplications(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5747,7 +5633,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -5764,7 +5649,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasAds"></param>
         /// <param name="publicNotifications"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchApplications(ref bool suppressDefaultLog, ISearchApplicationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> q, Option<string> keyword, Option<string> qSearchFields, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> activeOnly);
+        partial void AfterSearchApplications(ref bool suppressDefaultLog, ISearchApplicationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> q, Option<string> keyword, Option<string> qSearchFields, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5772,7 +5657,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -5789,10 +5673,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasAds"></param>
         /// <param name="publicNotifications"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchApplicationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> q, Option<string> keyword, Option<string> qSearchFields, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> activeOnly)
+        private void OnErrorSearchApplicationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> q, Option<string> keyword, Option<string> qSearchFields, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchApplications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
+            OnErrorSearchApplications(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5804,7 +5688,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
@@ -5821,12 +5704,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="hasAds"></param>
         /// <param name="publicNotifications"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchApplications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> q, Option<string> keyword, Option<string> qSearchFields, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> activeOnly);
+        partial void OnErrorSearchApplications(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude, Option<string> q, Option<string> keyword, Option<string> qSearchFields, Option<string> sortField, Option<bool> descending, Option<int> i, Option<int> start, Option<int> l, Option<int> limit, Option<bool> hasAds, Option<bool> publicNotifications, Option<bool> activeOnly);
 
         /// <summary>
         /// Search Applications Search for applications matching the criteria that the logged in user has access to
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The location of the device (optional)</param>
@@ -5845,11 +5727,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchApplicationsApiResponse?> SearchApplicationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> q = default, Option<string> keyword = default, Option<string> qSearchFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApplicationsApiResponse?> SearchApplicationsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> q = default, Option<string> keyword = default, Option<string> qSearchFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchApplicationsAsync(version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchApplicationsAsync(deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5861,7 +5743,6 @@ namespace Org.OpenAPITools.Api
         /// Search Applications Search for applications matching the criteria that the logged in user has access to
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">The location of the device (optional)</param>
@@ -5880,7 +5761,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Return only active results (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchApplicationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchApplicationsApiResponse> SearchApplicationsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> q = default, Option<string> keyword = default, Option<string> qSearchFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchApplicationsApiResponse> SearchApplicationsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, Option<string> q = default, Option<string> keyword = default, Option<string> qSearchFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> i = default, Option<int> start = default, Option<int> l = default, Option<int> limit = default, Option<bool> hasAds = default, Option<bool> publicNotifications = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5888,7 +5769,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchApplications(deviceId, q, keyword, qSearchFields, sortField);
 
-                FormatSearchApplications(ref version, ref deviceId, ref accountId, ref latitude, ref longitude, ref q, ref keyword, ref qSearchFields, ref sortField, ref descending, ref i, ref start, ref l, ref limit, ref hasAds, ref publicNotifications, ref activeOnly);
+                FormatSearchApplications(ref deviceId, ref accountId, ref latitude, ref longitude, ref q, ref keyword, ref qSearchFields, ref sortField, ref descending, ref i, ref start, ref l, ref limit, ref hasAds, ref publicNotifications, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5896,9 +5777,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5975,13 +5855,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchApplicationsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
+                        AfterSearchApplicationsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
 
                         Events.ExecuteOnSearchApplications(apiResponseLocalVar);
 
@@ -5991,7 +5871,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchApplicationsDefaultImplementation(e, "/api/{version}/application/search", uriBuilderLocalVar.Path, version, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
+                OnErrorSearchApplicationsDefaultImplementation(e, "/application/search", uriBuilderLocalVar.Path, deviceId, accountId, latitude, longitude, q, keyword, qSearchFields, sortField, descending, i, start, l, limit, hasAds, publicNotifications, activeOnly);
                 Events.ExecuteOnErrorSearchApplications(e);
                 throw;
             }
@@ -6090,7 +5970,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateApplication(ref decimal version, ref string appKey, ref string appName, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> about, ref Option<string> bundleId, ref Option<long> appIconAssetId, ref Option<long> appLogoAssetId, ref Option<string> facebookAppId, ref Option<string> facebookAppSecret, ref Option<string> googleApiKey, ref Option<bool> updateEULADate, ref Option<string> eulaVersion, ref Option<string> landingPageUrl, ref Option<bool> showInActivities, ref Option<string> activityDescription, ref Option<string> inviteWelcomeText, ref Option<string> invitePageUrl, ref Option<string> urlScheme, ref Option<string> platforms, ref Option<string> downloadUrls, ref Option<string> categoryIds, ref Option<string> scoringType, ref Option<int> hintCost, ref Option<int> maxScore, ref Option<float> ticketsPerPoint, ref Option<bool> hasGameData, ref Option<bool> publicNotifications, ref Option<bool> useMatchingAlgorithm, ref Option<bool> globalTickets, ref Option<float> buildVersion, ref Option<float> apiVersion, ref Option<string> placementName, ref Option<string> placementDescription, ref Option<string> placementSize, ref Option<int> placementHeight, ref Option<int> placementWidth, ref Option<int> placementRefreshInterval, ref Option<bool> createObjectStore, ref Option<bool> publicContentApproval, ref Option<bool> productionMode, ref Option<int> minimumSessionLength, ref Option<int> sessionGapLength, ref Option<bool> localAdsEnabled, ref Option<string> sqootApiKey, ref Option<string> trilatProcessingType, ref Option<int> maxSampleSize, ref Option<double> minRSSI, ref Option<string> modules, ref Option<int> authorizedCount, ref Option<string> authorizedServers, ref Option<string> defaultTimezone, ref Option<string> smtpPass, ref Option<string> metaData, ref Option<string> placementMetaData, ref Option<bool> ipsFloor, ref Option<bool> enableAPNSBadge, ref Option<bool> includeInReport, ref Option<long> defaultAppFilterId, ref Option<bool> enableWelcomeEmail, ref Option<string> appleAppId, ref Option<string> appleTeamId, ref Option<string> appleAuthKeyId, ref Option<System.IO.Stream> appleAuthKey, ref Option<string> appleIssuerId, ref Option<string> appStoreKeyId, ref Option<System.IO.Stream> appStoreKey, ref Option<System.IO.Stream> googlePrivateKeyFile, ref Option<string> authorizeNetApiKey, ref Option<string> authorizeNetTransactionKey, ref Option<string> emailSender, ref Option<string> smtpUser, ref Option<string> smtpHost, ref Option<string> vatomBusinessId, ref Option<string> vatomRestClientId, ref Option<string> vatomRestSecretKey, ref Option<string> twilioAccountSID, ref Option<string> twilioAuthToken, ref Option<string> twilioSenderPhoneNumber, ref Option<string> openAISecretKey);
+        partial void FormatUpdateApplication(ref string appKey, ref string appName, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> about, ref Option<string> bundleId, ref Option<long> appIconAssetId, ref Option<long> appLogoAssetId, ref Option<string> facebookAppId, ref Option<string> facebookAppSecret, ref Option<string> googleApiKey, ref Option<bool> updateEULADate, ref Option<string> eulaVersion, ref Option<string> landingPageUrl, ref Option<bool> showInActivities, ref Option<string> activityDescription, ref Option<string> inviteWelcomeText, ref Option<string> invitePageUrl, ref Option<string> urlScheme, ref Option<string> platforms, ref Option<string> downloadUrls, ref Option<string> categoryIds, ref Option<string> scoringType, ref Option<int> hintCost, ref Option<int> maxScore, ref Option<float> ticketsPerPoint, ref Option<bool> hasGameData, ref Option<bool> publicNotifications, ref Option<bool> useMatchingAlgorithm, ref Option<bool> globalTickets, ref Option<float> buildVersion, ref Option<float> apiVersion, ref Option<string> placementName, ref Option<string> placementDescription, ref Option<string> placementSize, ref Option<int> placementHeight, ref Option<int> placementWidth, ref Option<int> placementRefreshInterval, ref Option<bool> createObjectStore, ref Option<bool> publicContentApproval, ref Option<bool> productionMode, ref Option<int> minimumSessionLength, ref Option<int> sessionGapLength, ref Option<bool> localAdsEnabled, ref Option<string> sqootApiKey, ref Option<string> trilatProcessingType, ref Option<int> maxSampleSize, ref Option<double> minRSSI, ref Option<string> modules, ref Option<int> authorizedCount, ref Option<string> authorizedServers, ref Option<string> defaultTimezone, ref Option<string> smtpPass, ref Option<string> metaData, ref Option<string> placementMetaData, ref Option<bool> ipsFloor, ref Option<bool> enableAPNSBadge, ref Option<bool> includeInReport, ref Option<long> defaultAppFilterId, ref Option<bool> enableWelcomeEmail, ref Option<string> appleAppId, ref Option<string> appleTeamId, ref Option<string> appleAuthKeyId, ref Option<System.IO.Stream> appleAuthKey, ref Option<string> appleIssuerId, ref Option<string> appStoreKeyId, ref Option<System.IO.Stream> appStoreKey, ref Option<System.IO.Stream> googlePrivateKeyFile, ref Option<string> authorizeNetApiKey, ref Option<string> authorizeNetTransactionKey, ref Option<string> emailSender, ref Option<string> smtpUser, ref Option<string> smtpHost, ref Option<string> vatomBusinessId, ref Option<string> vatomRestClientId, ref Option<string> vatomRestSecretKey, ref Option<string> twilioAccountSID, ref Option<string> twilioAuthToken, ref Option<string> twilioSenderPhoneNumber, ref Option<string> openAISecretKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -6299,7 +6179,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="appName"></param>
         /// <param name="deviceId"></param>
@@ -6380,10 +6259,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="twilioAuthToken"></param>
         /// <param name="twilioSenderPhoneNumber"></param>
         /// <param name="openAISecretKey"></param>
-        private void AfterUpdateApplicationDefaultImplementation(IUpdateApplicationApiResponse apiResponseLocalVar, decimal version, string appKey, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey)
+        private void AfterUpdateApplicationDefaultImplementation(IUpdateApplicationApiResponse apiResponseLocalVar, string appKey, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateApplication(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+            AfterUpdateApplication(ref suppressDefaultLog, apiResponseLocalVar, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6393,7 +6272,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="appName"></param>
         /// <param name="deviceId"></param>
@@ -6474,7 +6352,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="twilioAuthToken"></param>
         /// <param name="twilioSenderPhoneNumber"></param>
         /// <param name="openAISecretKey"></param>
-        partial void AfterUpdateApplication(ref bool suppressDefaultLog, IUpdateApplicationApiResponse apiResponseLocalVar, decimal version, string appKey, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey);
+        partial void AfterUpdateApplication(ref bool suppressDefaultLog, IUpdateApplicationApiResponse apiResponseLocalVar, string appKey, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6482,7 +6360,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="appName"></param>
         /// <param name="deviceId"></param>
@@ -6563,10 +6440,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="twilioAuthToken"></param>
         /// <param name="twilioSenderPhoneNumber"></param>
         /// <param name="openAISecretKey"></param>
-        private void OnErrorUpdateApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey)
+        private void OnErrorUpdateApplicationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+            OnErrorUpdateApplication(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6578,7 +6455,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="appName"></param>
         /// <param name="deviceId"></param>
@@ -6659,12 +6535,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="twilioAuthToken"></param>
         /// <param name="twilioSenderPhoneNumber"></param>
         /// <param name="openAISecretKey"></param>
-        partial void OnErrorUpdateApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey);
+        partial void OnErrorUpdateApplication(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string appName, Option<string> deviceId, Option<long> accountId, Option<string> about, Option<string> bundleId, Option<long> appIconAssetId, Option<long> appLogoAssetId, Option<string> facebookAppId, Option<string> facebookAppSecret, Option<string> googleApiKey, Option<bool> updateEULADate, Option<string> eulaVersion, Option<string> landingPageUrl, Option<bool> showInActivities, Option<string> activityDescription, Option<string> inviteWelcomeText, Option<string> invitePageUrl, Option<string> urlScheme, Option<string> platforms, Option<string> downloadUrls, Option<string> categoryIds, Option<string> scoringType, Option<int> hintCost, Option<int> maxScore, Option<float> ticketsPerPoint, Option<bool> hasGameData, Option<bool> publicNotifications, Option<bool> useMatchingAlgorithm, Option<bool> globalTickets, Option<float> buildVersion, Option<float> apiVersion, Option<string> placementName, Option<string> placementDescription, Option<string> placementSize, Option<int> placementHeight, Option<int> placementWidth, Option<int> placementRefreshInterval, Option<bool> createObjectStore, Option<bool> publicContentApproval, Option<bool> productionMode, Option<int> minimumSessionLength, Option<int> sessionGapLength, Option<bool> localAdsEnabled, Option<string> sqootApiKey, Option<string> trilatProcessingType, Option<int> maxSampleSize, Option<double> minRSSI, Option<string> modules, Option<int> authorizedCount, Option<string> authorizedServers, Option<string> defaultTimezone, Option<string> smtpPass, Option<string> metaData, Option<string> placementMetaData, Option<bool> ipsFloor, Option<bool> enableAPNSBadge, Option<bool> includeInReport, Option<long> defaultAppFilterId, Option<bool> enableWelcomeEmail, Option<string> appleAppId, Option<string> appleTeamId, Option<string> appleAuthKeyId, Option<System.IO.Stream> appleAuthKey, Option<string> appleIssuerId, Option<string> appStoreKeyId, Option<System.IO.Stream> appStoreKey, Option<System.IO.Stream> googlePrivateKeyFile, Option<string> authorizeNetApiKey, Option<string> authorizeNetTransactionKey, Option<string> emailSender, Option<string> smtpUser, Option<string> smtpHost, Option<string> vatomBusinessId, Option<string> vatomRestClientId, Option<string> vatomRestSecretKey, Option<string> twilioAccountSID, Option<string> twilioAuthToken, Option<string> twilioSenderPhoneNumber, Option<string> openAISecretKey);
 
         /// <summary>
         /// Update Application Update an application record
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="appName">The name of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -6747,11 +6622,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="openAISecretKey">OpenAI Secret API Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationApiResponse"/>&gt;</returns>
-        public async Task<IUpdateApplicationApiResponse?> UpdateApplicationOrDefaultAsync(decimal version, string appKey, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateApplicationApiResponse?> UpdateApplicationOrDefaultAsync(string appKey, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateApplicationAsync(version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, cancellationToken).ConfigureAwait(false);
+                return await UpdateApplicationAsync(appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6763,7 +6638,6 @@ namespace Org.OpenAPITools.Api
         /// Update Application Update an application record
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The application key for updating an existing application</param>
         /// <param name="appName">The name of the application</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
@@ -6846,7 +6720,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="openAISecretKey">OpenAI Secret API Key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationApiResponse"/>&gt;</returns>
-        public async Task<IUpdateApplicationApiResponse> UpdateApplicationAsync(decimal version, string appKey, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateApplicationApiResponse> UpdateApplicationAsync(string appKey, string appName, Option<string> deviceId = default, Option<long> accountId = default, Option<string> about = default, Option<string> bundleId = default, Option<long> appIconAssetId = default, Option<long> appLogoAssetId = default, Option<string> facebookAppId = default, Option<string> facebookAppSecret = default, Option<string> googleApiKey = default, Option<bool> updateEULADate = default, Option<string> eulaVersion = default, Option<string> landingPageUrl = default, Option<bool> showInActivities = default, Option<string> activityDescription = default, Option<string> inviteWelcomeText = default, Option<string> invitePageUrl = default, Option<string> urlScheme = default, Option<string> platforms = default, Option<string> downloadUrls = default, Option<string> categoryIds = default, Option<string> scoringType = default, Option<int> hintCost = default, Option<int> maxScore = default, Option<float> ticketsPerPoint = default, Option<bool> hasGameData = default, Option<bool> publicNotifications = default, Option<bool> useMatchingAlgorithm = default, Option<bool> globalTickets = default, Option<float> buildVersion = default, Option<float> apiVersion = default, Option<string> placementName = default, Option<string> placementDescription = default, Option<string> placementSize = default, Option<int> placementHeight = default, Option<int> placementWidth = default, Option<int> placementRefreshInterval = default, Option<bool> createObjectStore = default, Option<bool> publicContentApproval = default, Option<bool> productionMode = default, Option<int> minimumSessionLength = default, Option<int> sessionGapLength = default, Option<bool> localAdsEnabled = default, Option<string> sqootApiKey = default, Option<string> trilatProcessingType = default, Option<int> maxSampleSize = default, Option<double> minRSSI = default, Option<string> modules = default, Option<int> authorizedCount = default, Option<string> authorizedServers = default, Option<string> defaultTimezone = default, Option<string> smtpPass = default, Option<string> metaData = default, Option<string> placementMetaData = default, Option<bool> ipsFloor = default, Option<bool> enableAPNSBadge = default, Option<bool> includeInReport = default, Option<long> defaultAppFilterId = default, Option<bool> enableWelcomeEmail = default, Option<string> appleAppId = default, Option<string> appleTeamId = default, Option<string> appleAuthKeyId = default, Option<System.IO.Stream> appleAuthKey = default, Option<string> appleIssuerId = default, Option<string> appStoreKeyId = default, Option<System.IO.Stream> appStoreKey = default, Option<System.IO.Stream> googlePrivateKeyFile = default, Option<string> authorizeNetApiKey = default, Option<string> authorizeNetTransactionKey = default, Option<string> emailSender = default, Option<string> smtpUser = default, Option<string> smtpHost = default, Option<string> vatomBusinessId = default, Option<string> vatomRestClientId = default, Option<string> vatomRestSecretKey = default, Option<string> twilioAccountSID = default, Option<string> twilioAuthToken = default, Option<string> twilioSenderPhoneNumber = default, Option<string> openAISecretKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6854,7 +6728,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateApplication(appKey, appName, deviceId, about, bundleId, facebookAppId, facebookAppSecret, googleApiKey, eulaVersion, landingPageUrl, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, placementName, placementDescription, placementSize, sqootApiKey, trilatProcessingType, modules, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
 
-                FormatUpdateApplication(ref version, ref appKey, ref appName, ref deviceId, ref accountId, ref about, ref bundleId, ref appIconAssetId, ref appLogoAssetId, ref facebookAppId, ref facebookAppSecret, ref googleApiKey, ref updateEULADate, ref eulaVersion, ref landingPageUrl, ref showInActivities, ref activityDescription, ref inviteWelcomeText, ref invitePageUrl, ref urlScheme, ref platforms, ref downloadUrls, ref categoryIds, ref scoringType, ref hintCost, ref maxScore, ref ticketsPerPoint, ref hasGameData, ref publicNotifications, ref useMatchingAlgorithm, ref globalTickets, ref buildVersion, ref apiVersion, ref placementName, ref placementDescription, ref placementSize, ref placementHeight, ref placementWidth, ref placementRefreshInterval, ref createObjectStore, ref publicContentApproval, ref productionMode, ref minimumSessionLength, ref sessionGapLength, ref localAdsEnabled, ref sqootApiKey, ref trilatProcessingType, ref maxSampleSize, ref minRSSI, ref modules, ref authorizedCount, ref authorizedServers, ref defaultTimezone, ref smtpPass, ref metaData, ref placementMetaData, ref ipsFloor, ref enableAPNSBadge, ref includeInReport, ref defaultAppFilterId, ref enableWelcomeEmail, ref appleAppId, ref appleTeamId, ref appleAuthKeyId, ref appleAuthKey, ref appleIssuerId, ref appStoreKeyId, ref appStoreKey, ref googlePrivateKeyFile, ref authorizeNetApiKey, ref authorizeNetTransactionKey, ref emailSender, ref smtpUser, ref smtpHost, ref vatomBusinessId, ref vatomRestClientId, ref vatomRestSecretKey, ref twilioAccountSID, ref twilioAuthToken, ref twilioSenderPhoneNumber, ref openAISecretKey);
+                FormatUpdateApplication(ref appKey, ref appName, ref deviceId, ref accountId, ref about, ref bundleId, ref appIconAssetId, ref appLogoAssetId, ref facebookAppId, ref facebookAppSecret, ref googleApiKey, ref updateEULADate, ref eulaVersion, ref landingPageUrl, ref showInActivities, ref activityDescription, ref inviteWelcomeText, ref invitePageUrl, ref urlScheme, ref platforms, ref downloadUrls, ref categoryIds, ref scoringType, ref hintCost, ref maxScore, ref ticketsPerPoint, ref hasGameData, ref publicNotifications, ref useMatchingAlgorithm, ref globalTickets, ref buildVersion, ref apiVersion, ref placementName, ref placementDescription, ref placementSize, ref placementHeight, ref placementWidth, ref placementRefreshInterval, ref createObjectStore, ref publicContentApproval, ref productionMode, ref minimumSessionLength, ref sessionGapLength, ref localAdsEnabled, ref sqootApiKey, ref trilatProcessingType, ref maxSampleSize, ref minRSSI, ref modules, ref authorizedCount, ref authorizedServers, ref defaultTimezone, ref smtpPass, ref metaData, ref placementMetaData, ref ipsFloor, ref enableAPNSBadge, ref includeInReport, ref defaultAppFilterId, ref enableWelcomeEmail, ref appleAppId, ref appleTeamId, ref appleAuthKeyId, ref appleAuthKey, ref appleIssuerId, ref appStoreKeyId, ref appStoreKey, ref googlePrivateKeyFile, ref authorizeNetApiKey, ref authorizeNetTransactionKey, ref emailSender, ref smtpUser, ref smtpHost, ref vatomBusinessId, ref vatomRestClientId, ref vatomRestSecretKey, ref twilioAccountSID, ref twilioAuthToken, ref twilioSenderPhoneNumber, ref openAISecretKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6862,9 +6736,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7130,13 +7003,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateApplicationDefaultImplementation(apiResponseLocalVar, version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+                        AfterUpdateApplicationDefaultImplementation(apiResponseLocalVar, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
 
                         Events.ExecuteOnUpdateApplication(apiResponseLocalVar);
 
@@ -7146,7 +7019,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateApplicationDefaultImplementation(e, "/api/{version}/application/update", uriBuilderLocalVar.Path, version, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
+                OnErrorUpdateApplicationDefaultImplementation(e, "/application/update", uriBuilderLocalVar.Path, appKey, appName, deviceId, accountId, about, bundleId, appIconAssetId, appLogoAssetId, facebookAppId, facebookAppSecret, googleApiKey, updateEULADate, eulaVersion, landingPageUrl, showInActivities, activityDescription, inviteWelcomeText, invitePageUrl, urlScheme, platforms, downloadUrls, categoryIds, scoringType, hintCost, maxScore, ticketsPerPoint, hasGameData, publicNotifications, useMatchingAlgorithm, globalTickets, buildVersion, apiVersion, placementName, placementDescription, placementSize, placementHeight, placementWidth, placementRefreshInterval, createObjectStore, publicContentApproval, productionMode, minimumSessionLength, sessionGapLength, localAdsEnabled, sqootApiKey, trilatProcessingType, maxSampleSize, minRSSI, modules, authorizedCount, authorizedServers, defaultTimezone, smtpPass, metaData, placementMetaData, ipsFloor, enableAPNSBadge, includeInReport, defaultAppFilterId, enableWelcomeEmail, appleAppId, appleTeamId, appleAuthKeyId, appleAuthKey, appleIssuerId, appStoreKeyId, appStoreKey, googlePrivateKeyFile, authorizeNetApiKey, authorizeNetTransactionKey, emailSender, smtpUser, smtpHost, vatomBusinessId, vatomRestClientId, vatomRestSecretKey, twilioAccountSID, twilioAuthToken, twilioSenderPhoneNumber, openAISecretKey);
                 Events.ExecuteOnErrorUpdateApplication(e);
                 throw;
             }
@@ -7245,7 +7118,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateApplicationActive(ref decimal version, ref long accountId, ref string appKey, ref bool active);
+        partial void FormatUpdateApplicationActive(ref long accountId, ref string appKey, ref bool active);
 
         /// <summary>
         /// Validates the request parameters
@@ -7262,14 +7135,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="active"></param>
-        private void AfterUpdateApplicationActiveDefaultImplementation(IUpdateApplicationActiveApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, bool active)
+        private void AfterUpdateApplicationActiveDefaultImplementation(IUpdateApplicationActiveApiResponse apiResponseLocalVar, long accountId, string appKey, bool active)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateApplicationActive(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, active);
+            AfterUpdateApplicationActive(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7279,11 +7151,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="active"></param>
-        partial void AfterUpdateApplicationActive(ref bool suppressDefaultLog, IUpdateApplicationActiveApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, bool active);
+        partial void AfterUpdateApplicationActive(ref bool suppressDefaultLog, IUpdateApplicationActiveApiResponse apiResponseLocalVar, long accountId, string appKey, bool active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7291,14 +7162,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="active"></param>
-        private void OnErrorUpdateApplicationActiveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, bool active)
+        private void OnErrorUpdateApplicationActiveDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, bool active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateApplicationActive(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, active);
+            OnErrorUpdateApplicationActive(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7310,26 +7180,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="active"></param>
-        partial void OnErrorUpdateApplicationActive(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, bool active);
+        partial void OnErrorUpdateApplicationActive(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, bool active);
 
         /// <summary>
         /// Change Appliation Status Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application.</param>
         /// <param name="appKey">The key of the application to be deleted</param>
         /// <param name="active">If true then set to active, false otherwise</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationActiveApiResponse"/>&gt;</returns>
-        public async Task<IUpdateApplicationActiveApiResponse?> UpdateApplicationActiveOrDefaultAsync(decimal version, long accountId, string appKey, bool active, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateApplicationActiveApiResponse?> UpdateApplicationActiveOrDefaultAsync(long accountId, string appKey, bool active, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateApplicationActiveAsync(version, accountId, appKey, active, cancellationToken).ConfigureAwait(false);
+                return await UpdateApplicationActiveAsync(accountId, appKey, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7341,13 +7209,12 @@ namespace Org.OpenAPITools.Api
         /// Change Appliation Status Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application.</param>
         /// <param name="appKey">The key of the application to be deleted</param>
         /// <param name="active">If true then set to active, false otherwise</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationActiveApiResponse"/>&gt;</returns>
-        public async Task<IUpdateApplicationActiveApiResponse> UpdateApplicationActiveAsync(decimal version, long accountId, string appKey, bool active, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateApplicationActiveApiResponse> UpdateApplicationActiveAsync(long accountId, string appKey, bool active, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7355,7 +7222,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateApplicationActive(appKey);
 
-                FormatUpdateApplicationActive(ref version, ref accountId, ref appKey, ref active);
+                FormatUpdateApplicationActive(ref accountId, ref appKey, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7363,9 +7230,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/active"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/active");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/active"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/active");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7398,13 +7264,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/active", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/active", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateApplicationActiveDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, active);
+                        AfterUpdateApplicationActiveDefaultImplementation(apiResponseLocalVar, accountId, appKey, active);
 
                         Events.ExecuteOnUpdateApplicationActive(apiResponseLocalVar);
 
@@ -7414,7 +7280,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateApplicationActiveDefaultImplementation(e, "/api/{version}/application/active", uriBuilderLocalVar.Path, version, accountId, appKey, active);
+                OnErrorUpdateApplicationActiveDefaultImplementation(e, "/application/active", uriBuilderLocalVar.Path, accountId, appKey, active);
                 Events.ExecuteOnErrorUpdateApplicationActive(e);
                 throw;
             }
@@ -7513,7 +7379,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateApplicationPlacement(ref decimal version, ref long placementId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> description, ref Option<string> size, ref Option<int> height, ref Option<int> width, ref Option<int> refreshInterval, ref Option<long> defaultImageId, ref Option<bool> active);
+        partial void FormatUpdateApplicationPlacement(ref long placementId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> name, ref Option<string> description, ref Option<string> size, ref Option<int> height, ref Option<int> width, ref Option<int> refreshInterval, ref Option<long> defaultImageId, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -7542,7 +7408,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -7554,10 +7419,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="refreshInterval"></param>
         /// <param name="defaultImageId"></param>
         /// <param name="active"></param>
-        private void AfterUpdateApplicationPlacementDefaultImplementation(IUpdateApplicationPlacementApiResponse apiResponseLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<string> size, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active)
+        private void AfterUpdateApplicationPlacementDefaultImplementation(IUpdateApplicationPlacementApiResponse apiResponseLocalVar, long placementId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<string> size, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
+            AfterUpdateApplicationPlacement(ref suppressDefaultLog, apiResponseLocalVar, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7567,7 +7432,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -7579,7 +7443,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="refreshInterval"></param>
         /// <param name="defaultImageId"></param>
         /// <param name="active"></param>
-        partial void AfterUpdateApplicationPlacement(ref bool suppressDefaultLog, IUpdateApplicationPlacementApiResponse apiResponseLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<string> size, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active);
+        partial void AfterUpdateApplicationPlacement(ref bool suppressDefaultLog, IUpdateApplicationPlacementApiResponse apiResponseLocalVar, long placementId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<string> size, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7587,7 +7451,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -7599,10 +7462,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="refreshInterval"></param>
         /// <param name="defaultImageId"></param>
         /// <param name="active"></param>
-        private void OnErrorUpdateApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<string> size, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active)
+        private void OnErrorUpdateApplicationPlacementDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long placementId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<string> size, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
+            OnErrorUpdateApplicationPlacement(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7614,7 +7477,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="placementId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -7626,12 +7488,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="refreshInterval"></param>
         /// <param name="defaultImageId"></param>
         /// <param name="active"></param>
-        partial void OnErrorUpdateApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long placementId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<string> size, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active);
+        partial void OnErrorUpdateApplicationPlacement(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long placementId, Option<string> deviceId, Option<long> accountId, Option<string> name, Option<string> description, Option<string> size, Option<int> height, Option<int> width, Option<int> refreshInterval, Option<long> defaultImageId, Option<bool> active);
 
         /// <summary>
         /// Update Ad Placement Updates an ad placement for an application.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement to update, the user must have rights to the application the ad placement is for</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -7645,11 +7506,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<IUpdateApplicationPlacementApiResponse?> UpdateApplicationPlacementOrDefaultAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<string> size = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateApplicationPlacementApiResponse?> UpdateApplicationPlacementOrDefaultAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<string> size = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateApplicationPlacementAsync(version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active, cancellationToken).ConfigureAwait(false);
+                return await UpdateApplicationPlacementAsync(placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7661,7 +7522,6 @@ namespace Org.OpenAPITools.Api
         /// Update Ad Placement Updates an ad placement for an application.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="placementId">The id of the placement to update, the user must have rights to the application the ad placement is for</param>
         /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
@@ -7675,7 +7535,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Active (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateApplicationPlacementApiResponse"/>&gt;</returns>
-        public async Task<IUpdateApplicationPlacementApiResponse> UpdateApplicationPlacementAsync(decimal version, long placementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<string> size = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateApplicationPlacementApiResponse> UpdateApplicationPlacementAsync(long placementId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> name = default, Option<string> description = default, Option<string> size = default, Option<int> height = default, Option<int> width = default, Option<int> refreshInterval = default, Option<long> defaultImageId = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7683,7 +7543,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateApplicationPlacement(deviceId, name, description, size);
 
-                FormatUpdateApplicationPlacement(ref version, ref placementId, ref deviceId, ref accountId, ref name, ref description, ref size, ref height, ref width, ref refreshInterval, ref defaultImageId, ref active);
+                FormatUpdateApplicationPlacement(ref placementId, ref deviceId, ref accountId, ref name, ref description, ref size, ref height, ref width, ref refreshInterval, ref defaultImageId, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7691,9 +7551,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/placement/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/placement/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/placement/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/placement/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7754,13 +7613,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/placement/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/placement/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateApplicationPlacementDefaultImplementation(apiResponseLocalVar, version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
+                        AfterUpdateApplicationPlacementDefaultImplementation(apiResponseLocalVar, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
 
                         Events.ExecuteOnUpdateApplicationPlacement(apiResponseLocalVar);
 
@@ -7770,7 +7629,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateApplicationPlacementDefaultImplementation(e, "/api/{version}/application/placement/update", uriBuilderLocalVar.Path, version, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
+                OnErrorUpdateApplicationPlacementDefaultImplementation(e, "/application/placement/update", uriBuilderLocalVar.Path, placementId, deviceId, accountId, name, description, size, height, width, refreshInterval, defaultImageId, active);
                 Events.ExecuteOnErrorUpdateApplicationPlacement(e);
                 throw;
             }
@@ -7869,7 +7728,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUploadApplicationCertificate(ref decimal version, ref string appKey, ref Option<string> deviceId, ref Option<long> accountId, ref Option<System.IO.Stream> certificate);
+        partial void FormatUploadApplicationCertificate(ref string appKey, ref Option<string> deviceId, ref Option<long> accountId, ref Option<System.IO.Stream> certificate);
 
         /// <summary>
         /// Validates the request parameters
@@ -7894,15 +7753,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="certificate"></param>
-        private void AfterUploadApplicationCertificateDefaultImplementation(IUploadApplicationCertificateApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> certificate)
+        private void AfterUploadApplicationCertificateDefaultImplementation(IUploadApplicationCertificateApiResponse apiResponseLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> certificate)
         {
             bool suppressDefaultLog = false;
-            AfterUploadApplicationCertificate(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, deviceId, accountId, certificate);
+            AfterUploadApplicationCertificate(ref suppressDefaultLog, apiResponseLocalVar, appKey, deviceId, accountId, certificate);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7912,12 +7770,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="certificate"></param>
-        partial void AfterUploadApplicationCertificate(ref bool suppressDefaultLog, IUploadApplicationCertificateApiResponse apiResponseLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> certificate);
+        partial void AfterUploadApplicationCertificate(ref bool suppressDefaultLog, IUploadApplicationCertificateApiResponse apiResponseLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> certificate);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7925,15 +7782,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="certificate"></param>
-        private void OnErrorUploadApplicationCertificateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> certificate)
+        private void OnErrorUploadApplicationCertificateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> certificate)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUploadApplicationCertificate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, deviceId, accountId, certificate);
+            OnErrorUploadApplicationCertificate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, deviceId, accountId, certificate);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7945,28 +7801,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="certificate"></param>
-        partial void OnErrorUploadApplicationCertificate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> certificate);
+        partial void OnErrorUploadApplicationCertificate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, Option<string> deviceId, Option<long> accountId, Option<System.IO.Stream> certificate);
 
         /// <summary>
         /// Create Application Certificate Uploads a certificate for an application that the user has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application</param>
         /// <param name="deviceId">Device Id (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional)</param>
         /// <param name="certificate">Certificate (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUploadApplicationCertificateApiResponse"/>&gt;</returns>
-        public async Task<IUploadApplicationCertificateApiResponse?> UploadApplicationCertificateOrDefaultAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> certificate = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUploadApplicationCertificateApiResponse?> UploadApplicationCertificateOrDefaultAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> certificate = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UploadApplicationCertificateAsync(version, appKey, deviceId, accountId, certificate, cancellationToken).ConfigureAwait(false);
+                return await UploadApplicationCertificateAsync(appKey, deviceId, accountId, certificate, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7978,14 +7832,13 @@ namespace Org.OpenAPITools.Api
         /// Create Application Certificate Uploads a certificate for an application that the user has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">The key of the application</param>
         /// <param name="deviceId">Device Id (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional)</param>
         /// <param name="certificate">Certificate (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUploadApplicationCertificateApiResponse"/>&gt;</returns>
-        public async Task<IUploadApplicationCertificateApiResponse> UploadApplicationCertificateAsync(decimal version, string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> certificate = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUploadApplicationCertificateApiResponse> UploadApplicationCertificateAsync(string appKey, Option<string> deviceId = default, Option<long> accountId = default, Option<System.IO.Stream> certificate = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7993,7 +7846,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUploadApplicationCertificate(appKey, deviceId, certificate);
 
-                FormatUploadApplicationCertificate(ref version, ref appKey, ref deviceId, ref accountId, ref certificate);
+                FormatUploadApplicationCertificate(ref appKey, ref deviceId, ref accountId, ref certificate);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8001,9 +7854,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/application/certificate/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/application/certificate/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/application/certificate/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/application/certificate/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8043,13 +7895,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/application/certificate/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/application/certificate/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUploadApplicationCertificateDefaultImplementation(apiResponseLocalVar, version, appKey, deviceId, accountId, certificate);
+                        AfterUploadApplicationCertificateDefaultImplementation(apiResponseLocalVar, appKey, deviceId, accountId, certificate);
 
                         Events.ExecuteOnUploadApplicationCertificate(apiResponseLocalVar);
 
@@ -8059,7 +7911,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUploadApplicationCertificateDefaultImplementation(e, "/api/{version}/application/certificate/create", uriBuilderLocalVar.Path, version, appKey, deviceId, accountId, certificate);
+                OnErrorUploadApplicationCertificateDefaultImplementation(e, "/application/certificate/create", uriBuilderLocalVar.Path, appKey, deviceId, accountId, certificate);
                 Events.ExecuteOnErrorUploadApplicationCertificate(e);
                 throw;
             }

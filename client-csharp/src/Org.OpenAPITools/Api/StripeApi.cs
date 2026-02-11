@@ -45,12 +45,11 @@ namespace Org.OpenAPITools.Api
         /// Create a Stripe checkout session
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="stripeParameters">Stripe Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateStripeCheckoutSessionApiResponse"/>&gt;</returns>
-        Task<ICreateStripeCheckoutSessionApiResponse> CreateStripeCheckoutSessionAsync(decimal version, string appKey, string stripeParameters, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateStripeCheckoutSessionApiResponse> CreateStripeCheckoutSessionAsync(string appKey, string stripeParameters, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Stripe Checkout Session
@@ -58,12 +57,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a Stripe checkout session
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="stripeParameters">Stripe Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateStripeCheckoutSessionApiResponse"/>?&gt;</returns>
-        Task<ICreateStripeCheckoutSessionApiResponse?> CreateStripeCheckoutSessionOrDefaultAsync(decimal version, string appKey, string stripeParameters, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateStripeCheckoutSessionApiResponse?> CreateStripeCheckoutSessionOrDefaultAsync(string appKey, string stripeParameters, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -151,7 +149,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateStripeCheckoutSession(ref decimal version, ref string appKey, ref string stripeParameters);
+        partial void FormatCreateStripeCheckoutSession(ref string appKey, ref string stripeParameters);
 
         /// <summary>
         /// Validates the request parameters
@@ -172,13 +170,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="stripeParameters"></param>
-        private void AfterCreateStripeCheckoutSessionDefaultImplementation(ICreateStripeCheckoutSessionApiResponse apiResponseLocalVar, decimal version, string appKey, string stripeParameters)
+        private void AfterCreateStripeCheckoutSessionDefaultImplementation(ICreateStripeCheckoutSessionApiResponse apiResponseLocalVar, string appKey, string stripeParameters)
         {
             bool suppressDefaultLog = false;
-            AfterCreateStripeCheckoutSession(ref suppressDefaultLog, apiResponseLocalVar, version, appKey, stripeParameters);
+            AfterCreateStripeCheckoutSession(ref suppressDefaultLog, apiResponseLocalVar, appKey, stripeParameters);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -188,10 +185,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="stripeParameters"></param>
-        partial void AfterCreateStripeCheckoutSession(ref bool suppressDefaultLog, ICreateStripeCheckoutSessionApiResponse apiResponseLocalVar, decimal version, string appKey, string stripeParameters);
+        partial void AfterCreateStripeCheckoutSession(ref bool suppressDefaultLog, ICreateStripeCheckoutSessionApiResponse apiResponseLocalVar, string appKey, string stripeParameters);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -199,13 +195,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="stripeParameters"></param>
-        private void OnErrorCreateStripeCheckoutSessionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string stripeParameters)
+        private void OnErrorCreateStripeCheckoutSessionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string stripeParameters)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateStripeCheckoutSession(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, appKey, stripeParameters);
+            OnErrorCreateStripeCheckoutSession(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, appKey, stripeParameters);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -217,24 +212,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="appKey"></param>
         /// <param name="stripeParameters"></param>
-        partial void OnErrorCreateStripeCheckoutSession(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string appKey, string stripeParameters);
+        partial void OnErrorCreateStripeCheckoutSession(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string appKey, string stripeParameters);
 
         /// <summary>
         /// Create Stripe Checkout Session Create a Stripe checkout session
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="stripeParameters">Stripe Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateStripeCheckoutSessionApiResponse"/>&gt;</returns>
-        public async Task<ICreateStripeCheckoutSessionApiResponse?> CreateStripeCheckoutSessionOrDefaultAsync(decimal version, string appKey, string stripeParameters, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateStripeCheckoutSessionApiResponse?> CreateStripeCheckoutSessionOrDefaultAsync(string appKey, string stripeParameters, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateStripeCheckoutSessionAsync(version, appKey, stripeParameters, cancellationToken).ConfigureAwait(false);
+                return await CreateStripeCheckoutSessionAsync(appKey, stripeParameters, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -246,12 +239,11 @@ namespace Org.OpenAPITools.Api
         /// Create Stripe Checkout Session Create a Stripe checkout session
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="stripeParameters">Stripe Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateStripeCheckoutSessionApiResponse"/>&gt;</returns>
-        public async Task<ICreateStripeCheckoutSessionApiResponse> CreateStripeCheckoutSessionAsync(decimal version, string appKey, string stripeParameters, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateStripeCheckoutSessionApiResponse> CreateStripeCheckoutSessionAsync(string appKey, string stripeParameters, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -259,7 +251,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateStripeCheckoutSession(appKey, stripeParameters);
 
-                FormatCreateStripeCheckoutSession(ref version, ref appKey, ref stripeParameters);
+                FormatCreateStripeCheckoutSession(ref appKey, ref stripeParameters);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -267,9 +259,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/stripe/checkout/session/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/stripe/checkout/session/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/stripe/checkout/session/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/stripe/checkout/session/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -301,13 +292,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/stripe/checkout/session/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/stripe/checkout/session/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateStripeCheckoutSessionDefaultImplementation(apiResponseLocalVar, version, appKey, stripeParameters);
+                        AfterCreateStripeCheckoutSessionDefaultImplementation(apiResponseLocalVar, appKey, stripeParameters);
 
                         Events.ExecuteOnCreateStripeCheckoutSession(apiResponseLocalVar);
 
@@ -317,7 +308,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateStripeCheckoutSessionDefaultImplementation(e, "/api/{version}/stripe/checkout/session/create", uriBuilderLocalVar.Path, version, appKey, stripeParameters);
+                OnErrorCreateStripeCheckoutSessionDefaultImplementation(e, "/stripe/checkout/session/create", uriBuilderLocalVar.Path, appKey, stripeParameters);
                 Events.ExecuteOnErrorCreateStripeCheckoutSession(e);
                 throw;
             }

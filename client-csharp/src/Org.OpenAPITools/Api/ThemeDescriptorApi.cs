@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="publicRead">determines whether the theme&#39;s participants have read permissions</param>
         /// <param name="publicWrite">determines whether the theme&#39;s participants have write permissions</param>
         /// <param name="publicDelete">determines whether the theme&#39;s participants have delete permissions</param>
@@ -75,7 +74,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddOrUpdateThemeDescriptorApiResponse"/>&gt;</returns>
-        Task<IAddOrUpdateThemeDescriptorApiResponse> AddOrUpdateThemeDescriptorAsync(decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<long> themeDescriptorId = default, Option<string> title = default, Option<string> description = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<string> appVersion = default, Option<string> colorValueJson = default, Option<string> stringReplacerJson = default, Option<string> customJsonObjects = default, Option<System.IO.Stream> iconImage = default, Option<System.IO.Stream> sceneAtlasImage = default, Option<System.IO.Stream> bgImage = default, Option<System.IO.Stream> bgSound = default, Option<string> musicSelection = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddOrUpdateThemeDescriptorApiResponse> AddOrUpdateThemeDescriptorAsync(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<long> themeDescriptorId = default, Option<string> title = default, Option<string> description = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<string> appVersion = default, Option<string> colorValueJson = default, Option<string> stringReplacerJson = default, Option<string> customJsonObjects = default, Option<System.IO.Stream> iconImage = default, Option<System.IO.Stream> sceneAtlasImage = default, Option<System.IO.Stream> bgImage = default, Option<System.IO.Stream> bgSound = default, Option<string> musicSelection = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create/Update Theme
@@ -83,7 +82,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="publicRead">determines whether the theme&#39;s participants have read permissions</param>
         /// <param name="publicWrite">determines whether the theme&#39;s participants have write permissions</param>
         /// <param name="publicDelete">determines whether the theme&#39;s participants have delete permissions</param>
@@ -113,7 +111,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddOrUpdateThemeDescriptorApiResponse"/>?&gt;</returns>
-        Task<IAddOrUpdateThemeDescriptorApiResponse?> AddOrUpdateThemeDescriptorOrDefaultAsync(decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<long> themeDescriptorId = default, Option<string> title = default, Option<string> description = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<string> appVersion = default, Option<string> colorValueJson = default, Option<string> stringReplacerJson = default, Option<string> customJsonObjects = default, Option<System.IO.Stream> iconImage = default, Option<System.IO.Stream> sceneAtlasImage = default, Option<System.IO.Stream> bgImage = default, Option<System.IO.Stream> bgSound = default, Option<string> musicSelection = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddOrUpdateThemeDescriptorApiResponse?> AddOrUpdateThemeDescriptorOrDefaultAsync(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<long> themeDescriptorId = default, Option<string> title = default, Option<string> description = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<string> appVersion = default, Option<string> colorValueJson = default, Option<string> stringReplacerJson = default, Option<string> customJsonObjects = default, Option<System.IO.Stream> iconImage = default, Option<System.IO.Stream> sceneAtlasImage = default, Option<System.IO.Stream> bgImage = default, Option<System.IO.Stream> bgSound = default, Option<string> musicSelection = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Theme
@@ -122,7 +120,6 @@ namespace Org.OpenAPITools.Api
         /// Gets a theme.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId">the theme id</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -131,7 +128,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetThemeDescriptorApiResponse"/>&gt;</returns>
-        Task<IGetThemeDescriptorApiResponse> GetThemeDescriptorAsync(decimal version, long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetThemeDescriptorApiResponse> GetThemeDescriptorAsync(long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Theme
@@ -139,7 +136,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a theme.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId">the theme id</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -148,7 +144,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetThemeDescriptorApiResponse"/>?&gt;</returns>
-        Task<IGetThemeDescriptorApiResponse?> GetThemeDescriptorOrDefaultAsync(decimal version, long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetThemeDescriptorApiResponse?> GetThemeDescriptorOrDefaultAsync(long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Themes
@@ -157,7 +153,6 @@ namespace Org.OpenAPITools.Api
         /// Searches for themes.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of Ownership</param>
         /// <param name="sortField">the field to sort by. See ThemeDescriptorApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -178,7 +173,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetThemeDescriptorsApiResponse"/>&gt;</returns>
-        Task<IGetThemeDescriptorsApiResponse> GetThemeDescriptorsAsync(decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetThemeDescriptorsApiResponse> GetThemeDescriptorsAsync(string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Themes
@@ -186,7 +181,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches for themes.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of Ownership</param>
         /// <param name="sortField">the field to sort by. See ThemeDescriptorApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -207,7 +201,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetThemeDescriptorsApiResponse"/>?&gt;</returns>
-        Task<IGetThemeDescriptorsApiResponse?> GetThemeDescriptorsOrDefaultAsync(decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetThemeDescriptorsApiResponse?> GetThemeDescriptorsOrDefaultAsync(string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Theme
@@ -216,7 +210,6 @@ namespace Org.OpenAPITools.Api
         /// Removes a theme.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId">the theme id to remove</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -225,7 +218,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveThemeDescriptorApiResponse"/>&gt;</returns>
-        Task<IRemoveThemeDescriptorApiResponse> RemoveThemeDescriptorAsync(decimal version, long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveThemeDescriptorApiResponse> RemoveThemeDescriptorAsync(long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Theme
@@ -233,7 +226,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Removes a theme.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId">the theme id to remove</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -242,7 +234,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveThemeDescriptorApiResponse"/>?&gt;</returns>
-        Task<IRemoveThemeDescriptorApiResponse?> RemoveThemeDescriptorOrDefaultAsync(decimal version, long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveThemeDescriptorApiResponse?> RemoveThemeDescriptorOrDefaultAsync(long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -426,7 +418,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddOrUpdateThemeDescriptor(ref decimal version, ref bool publicRead, ref bool publicWrite, ref bool publicDelete, ref bool publicAdd, ref string visibility, ref bool includeFriendGroup, ref bool completeWithDefaultValues, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<long> themeDescriptorId, ref Option<string> title, ref Option<string> description, ref Option<string> connectionIdsToAdd, ref Option<string> connectionGroupIdsToAdd, ref Option<string> appVersion, ref Option<string> colorValueJson, ref Option<string> stringReplacerJson, ref Option<string> customJsonObjects, ref Option<System.IO.Stream> iconImage, ref Option<System.IO.Stream> sceneAtlasImage, ref Option<System.IO.Stream> bgImage, ref Option<System.IO.Stream> bgSound, ref Option<string> musicSelection, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAddOrUpdateThemeDescriptor(ref bool publicRead, ref bool publicWrite, ref bool publicDelete, ref bool publicAdd, ref string visibility, ref bool includeFriendGroup, ref bool completeWithDefaultValues, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<long> themeDescriptorId, ref Option<string> title, ref Option<string> description, ref Option<string> connectionIdsToAdd, ref Option<string> connectionGroupIdsToAdd, ref Option<string> appVersion, ref Option<string> colorValueJson, ref Option<string> stringReplacerJson, ref Option<string> customJsonObjects, ref Option<System.IO.Stream> iconImage, ref Option<System.IO.Stream> sceneAtlasImage, ref Option<System.IO.Stream> bgImage, ref Option<System.IO.Stream> bgSound, ref Option<string> musicSelection, ref Option<string> locationDescription, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -507,7 +499,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="publicRead"></param>
         /// <param name="publicWrite"></param>
         /// <param name="publicDelete"></param>
@@ -535,10 +526,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAddOrUpdateThemeDescriptorDefaultImplementation(IAddOrUpdateThemeDescriptorApiResponse apiResponseLocalVar, decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<long> themeDescriptorId, Option<string> title, Option<string> description, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<string> appVersion, Option<string> colorValueJson, Option<string> stringReplacerJson, Option<string> customJsonObjects, Option<System.IO.Stream> iconImage, Option<System.IO.Stream> sceneAtlasImage, Option<System.IO.Stream> bgImage, Option<System.IO.Stream> bgSound, Option<string> musicSelection, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
+        private void AfterAddOrUpdateThemeDescriptorDefaultImplementation(IAddOrUpdateThemeDescriptorApiResponse apiResponseLocalVar, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<long> themeDescriptorId, Option<string> title, Option<string> description, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<string> appVersion, Option<string> colorValueJson, Option<string> stringReplacerJson, Option<string> customJsonObjects, Option<System.IO.Stream> iconImage, Option<System.IO.Stream> sceneAtlasImage, Option<System.IO.Stream> bgImage, Option<System.IO.Stream> bgSound, Option<string> musicSelection, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAddOrUpdateThemeDescriptor(ref suppressDefaultLog, apiResponseLocalVar, version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
+            AfterAddOrUpdateThemeDescriptor(ref suppressDefaultLog, apiResponseLocalVar, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -548,7 +539,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="publicRead"></param>
         /// <param name="publicWrite"></param>
         /// <param name="publicDelete"></param>
@@ -576,7 +566,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAddOrUpdateThemeDescriptor(ref bool suppressDefaultLog, IAddOrUpdateThemeDescriptorApiResponse apiResponseLocalVar, decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<long> themeDescriptorId, Option<string> title, Option<string> description, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<string> appVersion, Option<string> colorValueJson, Option<string> stringReplacerJson, Option<string> customJsonObjects, Option<System.IO.Stream> iconImage, Option<System.IO.Stream> sceneAtlasImage, Option<System.IO.Stream> bgImage, Option<System.IO.Stream> bgSound, Option<string> musicSelection, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
+        partial void AfterAddOrUpdateThemeDescriptor(ref bool suppressDefaultLog, IAddOrUpdateThemeDescriptorApiResponse apiResponseLocalVar, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<long> themeDescriptorId, Option<string> title, Option<string> description, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<string> appVersion, Option<string> colorValueJson, Option<string> stringReplacerJson, Option<string> customJsonObjects, Option<System.IO.Stream> iconImage, Option<System.IO.Stream> sceneAtlasImage, Option<System.IO.Stream> bgImage, Option<System.IO.Stream> bgSound, Option<string> musicSelection, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -584,7 +574,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="publicRead"></param>
         /// <param name="publicWrite"></param>
         /// <param name="publicDelete"></param>
@@ -612,10 +601,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAddOrUpdateThemeDescriptorDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<long> themeDescriptorId, Option<string> title, Option<string> description, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<string> appVersion, Option<string> colorValueJson, Option<string> stringReplacerJson, Option<string> customJsonObjects, Option<System.IO.Stream> iconImage, Option<System.IO.Stream> sceneAtlasImage, Option<System.IO.Stream> bgImage, Option<System.IO.Stream> bgSound, Option<string> musicSelection, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAddOrUpdateThemeDescriptorDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<long> themeDescriptorId, Option<string> title, Option<string> description, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<string> appVersion, Option<string> colorValueJson, Option<string> stringReplacerJson, Option<string> customJsonObjects, Option<System.IO.Stream> iconImage, Option<System.IO.Stream> sceneAtlasImage, Option<System.IO.Stream> bgImage, Option<System.IO.Stream> bgSound, Option<string> musicSelection, Option<string> locationDescription, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddOrUpdateThemeDescriptor(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
+            OnErrorAddOrUpdateThemeDescriptor(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -627,7 +616,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="publicRead"></param>
         /// <param name="publicWrite"></param>
         /// <param name="publicDelete"></param>
@@ -655,12 +643,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="locationDescription"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAddOrUpdateThemeDescriptor(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<long> themeDescriptorId, Option<string> title, Option<string> description, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<string> appVersion, Option<string> colorValueJson, Option<string> stringReplacerJson, Option<string> customJsonObjects, Option<System.IO.Stream> iconImage, Option<System.IO.Stream> sceneAtlasImage, Option<System.IO.Stream> bgImage, Option<System.IO.Stream> bgSound, Option<string> musicSelection, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAddOrUpdateThemeDescriptor(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<long> themeDescriptorId, Option<string> title, Option<string> description, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<string> appVersion, Option<string> colorValueJson, Option<string> stringReplacerJson, Option<string> customJsonObjects, Option<System.IO.Stream> iconImage, Option<System.IO.Stream> sceneAtlasImage, Option<System.IO.Stream> bgImage, Option<System.IO.Stream> bgSound, Option<string> musicSelection, Option<string> locationDescription, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create/Update Theme Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="publicRead">determines whether the theme&#39;s participants have read permissions</param>
         /// <param name="publicWrite">determines whether the theme&#39;s participants have write permissions</param>
         /// <param name="publicDelete">determines whether the theme&#39;s participants have delete permissions</param>
@@ -690,11 +677,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddOrUpdateThemeDescriptorApiResponse"/>&gt;</returns>
-        public async Task<IAddOrUpdateThemeDescriptorApiResponse?> AddOrUpdateThemeDescriptorOrDefaultAsync(decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<long> themeDescriptorId = default, Option<string> title = default, Option<string> description = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<string> appVersion = default, Option<string> colorValueJson = default, Option<string> stringReplacerJson = default, Option<string> customJsonObjects = default, Option<System.IO.Stream> iconImage = default, Option<System.IO.Stream> sceneAtlasImage = default, Option<System.IO.Stream> bgImage = default, Option<System.IO.Stream> bgSound = default, Option<string> musicSelection = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddOrUpdateThemeDescriptorApiResponse?> AddOrUpdateThemeDescriptorOrDefaultAsync(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<long> themeDescriptorId = default, Option<string> title = default, Option<string> description = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<string> appVersion = default, Option<string> colorValueJson = default, Option<string> stringReplacerJson = default, Option<string> customJsonObjects = default, Option<System.IO.Stream> iconImage = default, Option<System.IO.Stream> sceneAtlasImage = default, Option<System.IO.Stream> bgImage = default, Option<System.IO.Stream> bgSound = default, Option<string> musicSelection = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddOrUpdateThemeDescriptorAsync(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AddOrUpdateThemeDescriptorAsync(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -706,7 +693,6 @@ namespace Org.OpenAPITools.Api
         /// Create/Update Theme Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="publicRead">determines whether the theme&#39;s participants have read permissions</param>
         /// <param name="publicWrite">determines whether the theme&#39;s participants have write permissions</param>
         /// <param name="publicDelete">determines whether the theme&#39;s participants have delete permissions</param>
@@ -736,7 +722,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">the current longitude of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddOrUpdateThemeDescriptorApiResponse"/>&gt;</returns>
-        public async Task<IAddOrUpdateThemeDescriptorApiResponse> AddOrUpdateThemeDescriptorAsync(decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<long> themeDescriptorId = default, Option<string> title = default, Option<string> description = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<string> appVersion = default, Option<string> colorValueJson = default, Option<string> stringReplacerJson = default, Option<string> customJsonObjects = default, Option<System.IO.Stream> iconImage = default, Option<System.IO.Stream> sceneAtlasImage = default, Option<System.IO.Stream> bgImage = default, Option<System.IO.Stream> bgSound = default, Option<string> musicSelection = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddOrUpdateThemeDescriptorApiResponse> AddOrUpdateThemeDescriptorAsync(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, bool completeWithDefaultValues, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<long> themeDescriptorId = default, Option<string> title = default, Option<string> description = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<string> appVersion = default, Option<string> colorValueJson = default, Option<string> stringReplacerJson = default, Option<string> customJsonObjects = default, Option<System.IO.Stream> iconImage = default, Option<System.IO.Stream> sceneAtlasImage = default, Option<System.IO.Stream> bgImage = default, Option<System.IO.Stream> bgSound = default, Option<string> musicSelection = default, Option<string> locationDescription = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -744,7 +730,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddOrUpdateThemeDescriptor(visibility, deviceId, gameType, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription);
 
-                FormatAddOrUpdateThemeDescriptor(ref version, ref publicRead, ref publicWrite, ref publicDelete, ref publicAdd, ref visibility, ref includeFriendGroup, ref completeWithDefaultValues, ref deviceId, ref accountId, ref gameType, ref themeDescriptorId, ref title, ref description, ref connectionIdsToAdd, ref connectionGroupIdsToAdd, ref appVersion, ref colorValueJson, ref stringReplacerJson, ref customJsonObjects, ref iconImage, ref sceneAtlasImage, ref bgImage, ref bgSound, ref musicSelection, ref locationDescription, ref latitude, ref longitude);
+                FormatAddOrUpdateThemeDescriptor(ref publicRead, ref publicWrite, ref publicDelete, ref publicAdd, ref visibility, ref includeFriendGroup, ref completeWithDefaultValues, ref deviceId, ref accountId, ref gameType, ref themeDescriptorId, ref title, ref description, ref connectionIdsToAdd, ref connectionGroupIdsToAdd, ref appVersion, ref colorValueJson, ref stringReplacerJson, ref customJsonObjects, ref iconImage, ref sceneAtlasImage, ref bgImage, ref bgSound, ref musicSelection, ref locationDescription, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -752,9 +738,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/theme"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/theme");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/theme"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/theme");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -851,13 +836,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/theme", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/theme", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddOrUpdateThemeDescriptorDefaultImplementation(apiResponseLocalVar, version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
+                        AfterAddOrUpdateThemeDescriptorDefaultImplementation(apiResponseLocalVar, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
 
                         Events.ExecuteOnAddOrUpdateThemeDescriptor(apiResponseLocalVar);
 
@@ -867,7 +852,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddOrUpdateThemeDescriptorDefaultImplementation(e, "/api/{version}/consumer/theme", uriBuilderLocalVar.Path, version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
+                OnErrorAddOrUpdateThemeDescriptorDefaultImplementation(e, "/consumer/theme", uriBuilderLocalVar.Path, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, deviceId, accountId, gameType, themeDescriptorId, title, description, connectionIdsToAdd, connectionGroupIdsToAdd, appVersion, colorValueJson, stringReplacerJson, customJsonObjects, iconImage, sceneAtlasImage, bgImage, bgSound, musicSelection, locationDescription, latitude, longitude);
                 Events.ExecuteOnErrorAddOrUpdateThemeDescriptor(e);
                 throw;
             }
@@ -966,7 +951,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetThemeDescriptor(ref decimal version, ref long themeDescriptorId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetThemeDescriptor(ref long themeDescriptorId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -987,17 +972,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetThemeDescriptorDefaultImplementation(IGetThemeDescriptorApiResponse apiResponseLocalVar, decimal version, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude)
+        private void AfterGetThemeDescriptorDefaultImplementation(IGetThemeDescriptorApiResponse apiResponseLocalVar, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetThemeDescriptor(ref suppressDefaultLog, apiResponseLocalVar, version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+            AfterGetThemeDescriptor(ref suppressDefaultLog, apiResponseLocalVar, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1007,14 +991,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetThemeDescriptor(ref bool suppressDefaultLog, IGetThemeDescriptorApiResponse apiResponseLocalVar, decimal version, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetThemeDescriptor(ref bool suppressDefaultLog, IGetThemeDescriptorApiResponse apiResponseLocalVar, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1022,17 +1005,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetThemeDescriptorDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetThemeDescriptorDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetThemeDescriptor(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+            OnErrorGetThemeDescriptor(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1044,19 +1026,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetThemeDescriptor(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetThemeDescriptor(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Theme Gets a theme.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId">the theme id</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1065,11 +1045,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetThemeDescriptorApiResponse"/>&gt;</returns>
-        public async Task<IGetThemeDescriptorApiResponse?> GetThemeDescriptorOrDefaultAsync(decimal version, long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetThemeDescriptorApiResponse?> GetThemeDescriptorOrDefaultAsync(long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetThemeDescriptorAsync(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetThemeDescriptorAsync(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1081,7 +1061,6 @@ namespace Org.OpenAPITools.Api
         /// Get Theme Gets a theme.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId">the theme id</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1090,7 +1069,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetThemeDescriptorApiResponse"/>&gt;</returns>
-        public async Task<IGetThemeDescriptorApiResponse> GetThemeDescriptorAsync(decimal version, long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetThemeDescriptorApiResponse> GetThemeDescriptorAsync(long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1098,7 +1077,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetThemeDescriptor(deviceId, gameType);
 
-                FormatGetThemeDescriptor(ref version, ref themeDescriptorId, ref deviceId, ref accountId, ref gameType, ref latitude, ref longitude);
+                FormatGetThemeDescriptor(ref themeDescriptorId, ref deviceId, ref accountId, ref gameType, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1106,9 +1085,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/theme/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/theme/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/theme/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/theme/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1154,13 +1132,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/theme/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/theme/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetThemeDescriptorDefaultImplementation(apiResponseLocalVar, version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+                        AfterGetThemeDescriptorDefaultImplementation(apiResponseLocalVar, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
 
                         Events.ExecuteOnGetThemeDescriptor(apiResponseLocalVar);
 
@@ -1170,7 +1148,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetThemeDescriptorDefaultImplementation(e, "/api/{version}/consumer/theme/get", uriBuilderLocalVar.Path, version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+                OnErrorGetThemeDescriptorDefaultImplementation(e, "/consumer/theme/get", uriBuilderLocalVar.Path, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
                 Events.ExecuteOnErrorGetThemeDescriptor(e);
                 throw;
             }
@@ -1269,7 +1247,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetThemeDescriptors(ref decimal version, ref string filter, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> contestType, ref Option<long> ownerId, ref Option<string> q, ref Option<string> keyword, ref Option<int> i, ref Option<int> l, ref Option<long> dateCreated, ref Option<string> appVersion, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetThemeDescriptors(ref string filter, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> contestType, ref Option<long> ownerId, ref Option<string> q, ref Option<string> keyword, ref Option<int> i, ref Option<int> l, ref Option<long> dateCreated, ref Option<string> appVersion, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1314,7 +1292,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1333,10 +1310,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetThemeDescriptorsDefaultImplementation(IGetThemeDescriptorsApiResponse apiResponseLocalVar, decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<string> appVersion, Option<double> latitude, Option<double> longitude)
+        private void AfterGetThemeDescriptorsDefaultImplementation(IGetThemeDescriptorsApiResponse apiResponseLocalVar, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<string> appVersion, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetThemeDescriptors(ref suppressDefaultLog, apiResponseLocalVar, version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
+            AfterGetThemeDescriptors(ref suppressDefaultLog, apiResponseLocalVar, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1346,7 +1323,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1365,7 +1341,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetThemeDescriptors(ref bool suppressDefaultLog, IGetThemeDescriptorsApiResponse apiResponseLocalVar, decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<string> appVersion, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetThemeDescriptors(ref bool suppressDefaultLog, IGetThemeDescriptorsApiResponse apiResponseLocalVar, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<string> appVersion, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1373,7 +1349,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1392,10 +1367,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetThemeDescriptorsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<string> appVersion, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetThemeDescriptorsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<string> appVersion, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetThemeDescriptors(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
+            OnErrorGetThemeDescriptors(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1407,7 +1382,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1426,12 +1400,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetThemeDescriptors(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<string> appVersion, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetThemeDescriptors(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<string> appVersion, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Search Themes Searches for themes.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of Ownership</param>
         /// <param name="sortField">the field to sort by. See ThemeDescriptorApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -1452,11 +1425,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetThemeDescriptorsApiResponse"/>&gt;</returns>
-        public async Task<IGetThemeDescriptorsApiResponse?> GetThemeDescriptorsOrDefaultAsync(decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetThemeDescriptorsApiResponse?> GetThemeDescriptorsOrDefaultAsync(string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetThemeDescriptorsAsync(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetThemeDescriptorsAsync(filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1468,7 +1441,6 @@ namespace Org.OpenAPITools.Api
         /// Search Themes Searches for themes.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of Ownership</param>
         /// <param name="sortField">the field to sort by. See ThemeDescriptorApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -1489,7 +1461,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetThemeDescriptorsApiResponse"/>&gt;</returns>
-        public async Task<IGetThemeDescriptorsApiResponse> GetThemeDescriptorsAsync(decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetThemeDescriptorsApiResponse> GetThemeDescriptorsAsync(string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<string> appVersion = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1497,7 +1469,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetThemeDescriptors(filter, sortField, deviceId, gameType, contestType, q, keyword, appVersion);
 
-                FormatGetThemeDescriptors(ref version, ref filter, ref sortField, ref descending, ref start, ref limit, ref deviceId, ref accountId, ref gameType, ref contestType, ref ownerId, ref q, ref keyword, ref i, ref l, ref dateCreated, ref appVersion, ref latitude, ref longitude);
+                FormatGetThemeDescriptors(ref filter, ref sortField, ref descending, ref start, ref limit, ref deviceId, ref accountId, ref gameType, ref contestType, ref ownerId, ref q, ref keyword, ref i, ref l, ref dateCreated, ref appVersion, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1505,9 +1477,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/theme/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/theme/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/theme/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/theme/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1581,13 +1552,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/theme/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/theme/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetThemeDescriptorsDefaultImplementation(apiResponseLocalVar, version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
+                        AfterGetThemeDescriptorsDefaultImplementation(apiResponseLocalVar, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
 
                         Events.ExecuteOnGetThemeDescriptors(apiResponseLocalVar);
 
@@ -1597,7 +1568,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetThemeDescriptorsDefaultImplementation(e, "/api/{version}/consumer/theme/search", uriBuilderLocalVar.Path, version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
+                OnErrorGetThemeDescriptorsDefaultImplementation(e, "/consumer/theme/search", uriBuilderLocalVar.Path, filter, sortField, descending, start, limit, deviceId, accountId, gameType, contestType, ownerId, q, keyword, i, l, dateCreated, appVersion, latitude, longitude);
                 Events.ExecuteOnErrorGetThemeDescriptors(e);
                 throw;
             }
@@ -1696,7 +1667,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveThemeDescriptor(ref decimal version, ref long themeDescriptorId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRemoveThemeDescriptor(ref long themeDescriptorId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1717,17 +1688,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRemoveThemeDescriptorDefaultImplementation(IRemoveThemeDescriptorApiResponse apiResponseLocalVar, decimal version, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude)
+        private void AfterRemoveThemeDescriptorDefaultImplementation(IRemoveThemeDescriptorApiResponse apiResponseLocalVar, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveThemeDescriptor(ref suppressDefaultLog, apiResponseLocalVar, version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+            AfterRemoveThemeDescriptor(ref suppressDefaultLog, apiResponseLocalVar, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1737,14 +1707,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRemoveThemeDescriptor(ref bool suppressDefaultLog, IRemoveThemeDescriptorApiResponse apiResponseLocalVar, decimal version, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude);
+        partial void AfterRemoveThemeDescriptor(ref bool suppressDefaultLog, IRemoveThemeDescriptorApiResponse apiResponseLocalVar, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1752,17 +1721,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRemoveThemeDescriptorDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRemoveThemeDescriptorDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveThemeDescriptor(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+            OnErrorRemoveThemeDescriptor(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1774,19 +1742,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRemoveThemeDescriptor(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRemoveThemeDescriptor(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long themeDescriptorId, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Delete Theme Removes a theme.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId">the theme id to remove</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -1795,11 +1761,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveThemeDescriptorApiResponse"/>&gt;</returns>
-        public async Task<IRemoveThemeDescriptorApiResponse?> RemoveThemeDescriptorOrDefaultAsync(decimal version, long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveThemeDescriptorApiResponse?> RemoveThemeDescriptorOrDefaultAsync(long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveThemeDescriptorAsync(version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RemoveThemeDescriptorAsync(themeDescriptorId, deviceId, accountId, gameType, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1811,7 +1777,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Theme Removes a theme.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="themeDescriptorId">the theme id to remove</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -1820,7 +1785,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveThemeDescriptorApiResponse"/>&gt;</returns>
-        public async Task<IRemoveThemeDescriptorApiResponse> RemoveThemeDescriptorAsync(decimal version, long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveThemeDescriptorApiResponse> RemoveThemeDescriptorAsync(long themeDescriptorId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1828,7 +1793,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveThemeDescriptor(deviceId, gameType);
 
-                FormatRemoveThemeDescriptor(ref version, ref themeDescriptorId, ref deviceId, ref accountId, ref gameType, ref latitude, ref longitude);
+                FormatRemoveThemeDescriptor(ref themeDescriptorId, ref deviceId, ref accountId, ref gameType, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1836,9 +1801,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/theme/remove"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/theme/remove");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/theme/remove"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/theme/remove");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1884,13 +1848,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/theme/remove", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/theme/remove", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveThemeDescriptorDefaultImplementation(apiResponseLocalVar, version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+                        AfterRemoveThemeDescriptorDefaultImplementation(apiResponseLocalVar, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
 
                         Events.ExecuteOnRemoveThemeDescriptor(apiResponseLocalVar);
 
@@ -1900,7 +1864,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveThemeDescriptorDefaultImplementation(e, "/api/{version}/consumer/theme/remove", uriBuilderLocalVar.Path, version, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
+                OnErrorRemoveThemeDescriptorDefaultImplementation(e, "/consumer/theme/remove", uriBuilderLocalVar.Path, themeDescriptorId, deviceId, accountId, gameType, latitude, longitude);
                 Events.ExecuteOnErrorRemoveThemeDescriptor(e);
                 throw;
             }

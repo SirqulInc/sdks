@@ -44,13 +44,12 @@ namespace Org.OpenAPITools.Api
         /// Create following.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFollowingApiResponse"/>&gt;</returns>
-        Task<ICreateFollowingApiResponse> CreateFollowingAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateFollowingApiResponse> CreateFollowingAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create following
@@ -58,13 +57,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create following.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFollowingApiResponse"/>?&gt;</returns>
-        Task<ICreateFollowingApiResponse?> CreateFollowingOrDefaultAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateFollowingApiResponse?> CreateFollowingOrDefaultAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Vatom Space
@@ -73,14 +71,13 @@ namespace Org.OpenAPITools.Api
         /// Create a Vatom space.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSpaceApiResponse"/>&gt;</returns>
-        Task<ICreateSpaceApiResponse> CreateSpaceAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateSpaceApiResponse> CreateSpaceAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Vatom Space
@@ -88,14 +85,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a Vatom space.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSpaceApiResponse"/>?&gt;</returns>
-        Task<ICreateSpaceApiResponse?> CreateSpaceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateSpaceApiResponse?> CreateSpaceOrDefaultAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Vatom Event
@@ -104,14 +100,13 @@ namespace Org.OpenAPITools.Api
         /// Create a Vatom event.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVatomEventApiResponse"/>&gt;</returns>
-        Task<ICreateVatomEventApiResponse> CreateVatomEventAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateVatomEventApiResponse> CreateVatomEventAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Vatom Event
@@ -119,14 +114,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a Vatom event.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVatomEventApiResponse"/>?&gt;</returns>
-        Task<ICreateVatomEventApiResponse?> CreateVatomEventOrDefaultAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateVatomEventApiResponse?> CreateVatomEventOrDefaultAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete following
@@ -135,13 +129,12 @@ namespace Org.OpenAPITools.Api
         /// Delete following.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomRelsKey">Vatom Rels Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFollowingApiResponse"/>&gt;</returns>
-        Task<IDeleteFollowingApiResponse> DeleteFollowingAsync(decimal version, long accountId, string vatomRelsKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFollowingApiResponse> DeleteFollowingAsync(long accountId, string vatomRelsKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete following
@@ -149,13 +142,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete following.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomRelsKey">Vatom Rels Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFollowingApiResponse"/>?&gt;</returns>
-        Task<IDeleteFollowingApiResponse?> DeleteFollowingOrDefaultAsync(decimal version, long accountId, string vatomRelsKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFollowingApiResponse?> DeleteFollowingOrDefaultAsync(long accountId, string vatomRelsKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reset All Points Balance
@@ -164,14 +156,13 @@ namespace Org.OpenAPITools.Api
         /// Reset All Points Balance.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePointsBalanceApiResponse"/>&gt;</returns>
-        Task<IDeletePointsBalanceApiResponse> DeletePointsBalanceAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePointsBalanceApiResponse> DeletePointsBalanceAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Reset All Points Balance
@@ -179,14 +170,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Reset All Points Balance.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePointsBalanceApiResponse"/>?&gt;</returns>
-        Task<IDeletePointsBalanceApiResponse?> DeletePointsBalanceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeletePointsBalanceApiResponse?> DeletePointsBalanceOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Vatom Space
@@ -195,14 +185,13 @@ namespace Org.OpenAPITools.Api
         /// Delete a Vatom space.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSpaceApiResponse"/>&gt;</returns>
-        Task<IDeleteSpaceApiResponse> DeleteSpaceAsync(decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteSpaceApiResponse> DeleteSpaceAsync(long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Vatom Space
@@ -210,14 +199,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a Vatom space.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSpaceApiResponse"/>?&gt;</returns>
-        Task<IDeleteSpaceApiResponse?> DeleteSpaceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteSpaceApiResponse?> DeleteSpaceOrDefaultAsync(long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Vatom Event
@@ -226,14 +214,13 @@ namespace Org.OpenAPITools.Api
         /// Delete a Vatom event.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVatomEventApiResponse"/>&gt;</returns>
-        Task<IDeleteVatomEventApiResponse> DeleteVatomEventAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteVatomEventApiResponse> DeleteVatomEventAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Vatom Event
@@ -241,14 +228,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a Vatom event.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVatomEventApiResponse"/>?&gt;</returns>
-        Task<IDeleteVatomEventApiResponse?> DeleteVatomEventOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteVatomEventApiResponse?> DeleteVatomEventOrDefaultAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Vatom NFT
@@ -257,13 +243,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Vatom NFT
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVatomNFTApiResponse"/>&gt;</returns>
-        Task<IDeleteVatomNFTApiResponse> DeleteVatomNFTAsync(decimal version, long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteVatomNFTApiResponse> DeleteVatomNFTAsync(long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Vatom NFT
@@ -271,13 +256,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete Vatom NFT
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVatomNFTApiResponse"/>?&gt;</returns>
-        Task<IDeleteVatomNFTApiResponse?> DeleteVatomNFTOrDefaultAsync(decimal version, long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteVatomNFTApiResponse?> DeleteVatomNFTOrDefaultAsync(long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Execute Action on NFT
@@ -286,14 +270,13 @@ namespace Org.OpenAPITools.Api
         /// Execute Action on NFT.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IExecuteActionOnNFTApiResponse"/>&gt;</returns>
-        Task<IExecuteActionOnNFTApiResponse> ExecuteActionOnNFTAsync(decimal version, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IExecuteActionOnNFTApiResponse> ExecuteActionOnNFTAsync(long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Execute Action on NFT
@@ -301,14 +284,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Execute Action on NFT.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IExecuteActionOnNFTApiResponse"/>?&gt;</returns>
-        Task<IExecuteActionOnNFTApiResponse?> ExecuteActionOnNFTOrDefaultAsync(decimal version, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IExecuteActionOnNFTApiResponse?> ExecuteActionOnNFTOrDefaultAsync(long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Vatom Geo Map
@@ -317,13 +299,12 @@ namespace Org.OpenAPITools.Api
         /// Search Vatom Geo Map
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGeomapSearchApiResponse"/>&gt;</returns>
-        Task<IGeomapSearchApiResponse> GeomapSearchAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGeomapSearchApiResponse> GeomapSearchAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Vatom Geo Map
@@ -331,13 +312,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search Vatom Geo Map
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGeomapSearchApiResponse"/>?&gt;</returns>
-        Task<IGeomapSearchApiResponse?> GeomapSearchOrDefaultAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGeomapSearchApiResponse?> GeomapSearchOrDefaultAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Business Behaviors
@@ -346,13 +326,12 @@ namespace Org.OpenAPITools.Api
         /// Gets the behaviors of a business.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessBehaviorsApiResponse"/>&gt;</returns>
-        Task<IGetBusinessBehaviorsApiResponse> GetBusinessBehaviorsAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessBehaviorsApiResponse> GetBusinessBehaviorsAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Business Behaviors
@@ -360,13 +339,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the behaviors of a business.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessBehaviorsApiResponse"/>?&gt;</returns>
-        Task<IGetBusinessBehaviorsApiResponse?> GetBusinessBehaviorsOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessBehaviorsApiResponse?> GetBusinessBehaviorsOrDefaultAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the coins for a Business
@@ -375,13 +353,12 @@ namespace Org.OpenAPITools.Api
         /// Get the coins for a Businesss.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessCoinsBalanceApiResponse"/>&gt;</returns>
-        Task<IGetBusinessCoinsBalanceApiResponse> GetBusinessCoinsBalanceAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessCoinsBalanceApiResponse> GetBusinessCoinsBalanceAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the coins for a Business
@@ -389,13 +366,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the coins for a Businesss.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessCoinsBalanceApiResponse"/>?&gt;</returns>
-        Task<IGetBusinessCoinsBalanceApiResponse?> GetBusinessCoinsBalanceOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessCoinsBalanceApiResponse?> GetBusinessCoinsBalanceOrDefaultAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the user business ids
@@ -404,12 +380,11 @@ namespace Org.OpenAPITools.Api
         /// Get the business ids the logged in user has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessIdsApiResponse"/>&gt;</returns>
-        Task<IGetBusinessIdsApiResponse> GetBusinessIdsAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessIdsApiResponse> GetBusinessIdsAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the user business ids
@@ -417,12 +392,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the business ids the logged in user has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessIdsApiResponse"/>?&gt;</returns>
-        Task<IGetBusinessIdsApiResponse?> GetBusinessIdsOrDefaultAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessIdsApiResponse?> GetBusinessIdsOrDefaultAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Business Info
@@ -431,14 +405,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the business info tied to this account.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessInfoApiResponse"/>&gt;</returns>
-        Task<IGetBusinessInfoApiResponse> GetBusinessInfoAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessInfoApiResponse> GetBusinessInfoAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Business Info
@@ -446,14 +419,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the business info tied to this account.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessInfoApiResponse"/>?&gt;</returns>
-        Task<IGetBusinessInfoApiResponse?> GetBusinessInfoOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessInfoApiResponse?> GetBusinessInfoOrDefaultAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Business Users
@@ -462,13 +434,12 @@ namespace Org.OpenAPITools.Api
         /// Gets the users of a business.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessUsersApiResponse"/>&gt;</returns>
-        Task<IGetBusinessUsersApiResponse> GetBusinessUsersAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessUsersApiResponse> GetBusinessUsersAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Business Users
@@ -476,13 +447,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the users of a business.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessUsersApiResponse"/>?&gt;</returns>
-        Task<IGetBusinessUsersApiResponse?> GetBusinessUsersOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetBusinessUsersApiResponse?> GetBusinessUsersOrDefaultAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Campaign Group Entities
@@ -491,14 +461,13 @@ namespace Org.OpenAPITools.Api
         /// Get campaign group entities.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupEntitiesApiResponse"/>&gt;</returns>
-        Task<IGetCampaignGroupEntitiesApiResponse> GetCampaignGroupEntitiesAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCampaignGroupEntitiesApiResponse> GetCampaignGroupEntitiesAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Campaign Group Entities
@@ -506,14 +475,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get campaign group entities.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupEntitiesApiResponse"/>?&gt;</returns>
-        Task<IGetCampaignGroupEntitiesApiResponse?> GetCampaignGroupEntitiesOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCampaignGroupEntitiesApiResponse?> GetCampaignGroupEntitiesOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Campaign Group Rules
@@ -522,14 +490,13 @@ namespace Org.OpenAPITools.Api
         /// Get campaign group rules.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupRulesApiResponse"/>&gt;</returns>
-        Task<IGetCampaignGroupRulesApiResponse> GetCampaignGroupRulesAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCampaignGroupRulesApiResponse> GetCampaignGroupRulesAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Campaign Group Rules
@@ -537,14 +504,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get campaign group rules.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupRulesApiResponse"/>?&gt;</returns>
-        Task<IGetCampaignGroupRulesApiResponse?> GetCampaignGroupRulesOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCampaignGroupRulesApiResponse?> GetCampaignGroupRulesOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Campaign Group Stats
@@ -553,14 +519,13 @@ namespace Org.OpenAPITools.Api
         /// Get campaign group stats.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupStatsApiResponse"/>&gt;</returns>
-        Task<IGetCampaignGroupStatsApiResponse> GetCampaignGroupStatsAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCampaignGroupStatsApiResponse> GetCampaignGroupStatsAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Campaign Group Stats
@@ -568,14 +533,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get campaign group stats.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupStatsApiResponse"/>?&gt;</returns>
-        Task<IGetCampaignGroupStatsApiResponse?> GetCampaignGroupStatsOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCampaignGroupStatsApiResponse?> GetCampaignGroupStatsOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Campaign Info
@@ -584,14 +548,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the info on a campaign.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignInfoApiResponse"/>&gt;</returns>
-        Task<IGetCampaignInfoApiResponse> GetCampaignInfoAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCampaignInfoApiResponse> GetCampaignInfoAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Campaign Info
@@ -599,14 +562,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the info on a campaign.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignInfoApiResponse"/>?&gt;</returns>
-        Task<IGetCampaignInfoApiResponse?> GetCampaignInfoOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetCampaignInfoApiResponse?> GetCampaignInfoOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Event Guest List
@@ -615,14 +577,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the guest list of an event.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEventGuestListApiResponse"/>&gt;</returns>
-        Task<IGetEventGuestListApiResponse> GetEventGuestListAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEventGuestListApiResponse> GetEventGuestListAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Event Guest List
@@ -630,14 +591,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the guest list of an event.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEventGuestListApiResponse"/>?&gt;</returns>
-        Task<IGetEventGuestListApiResponse?> GetEventGuestListOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetEventGuestListApiResponse?> GetEventGuestListOrDefaultAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom User&#39;s Inventory
@@ -646,13 +606,12 @@ namespace Org.OpenAPITools.Api
         /// Gets the logged in user&#39;s Vatom Inventory.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetInventoryApiResponse"/>&gt;</returns>
-        Task<IGetInventoryApiResponse> GetInventoryAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetInventoryApiResponse> GetInventoryAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom User&#39;s Inventory
@@ -660,13 +619,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the logged in user&#39;s Vatom Inventory.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetInventoryApiResponse"/>?&gt;</returns>
-        Task<IGetInventoryApiResponse?> GetInventoryOrDefaultAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetInventoryApiResponse?> GetInventoryOrDefaultAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get following
@@ -675,12 +633,11 @@ namespace Org.OpenAPITools.Api
         /// Get following.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMyFollowingApiResponse"/>&gt;</returns>
-        Task<IGetMyFollowingApiResponse> GetMyFollowingAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMyFollowingApiResponse> GetMyFollowingAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get following
@@ -688,12 +645,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get following.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMyFollowingApiResponse"/>?&gt;</returns>
-        Task<IGetMyFollowingApiResponse?> GetMyFollowingOrDefaultAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetMyFollowingApiResponse?> GetMyFollowingOrDefaultAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Points Balance
@@ -702,14 +658,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the points balance of a Vatom user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPointsBalanceApiResponse"/>&gt;</returns>
-        Task<IGetPointsBalanceApiResponse> GetPointsBalanceAsync(decimal version, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPointsBalanceApiResponse> GetPointsBalanceAsync(long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Points Balance
@@ -717,14 +672,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the points balance of a Vatom user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPointsBalanceApiResponse"/>?&gt;</returns>
-        Task<IGetPointsBalanceApiResponse?> GetPointsBalanceOrDefaultAsync(decimal version, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPointsBalanceApiResponse?> GetPointsBalanceOrDefaultAsync(long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Points Balance as Business
@@ -733,7 +687,6 @@ namespace Org.OpenAPITools.Api
         /// Gets the points balance of a Vatom user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomUserId">Vatom User Id</param>
@@ -741,7 +694,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPointsBalanceAsBusinessApiResponse"/>&gt;</returns>
-        Task<IGetPointsBalanceAsBusinessApiResponse> GetPointsBalanceAsBusinessAsync(decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPointsBalanceAsBusinessApiResponse> GetPointsBalanceAsBusinessAsync(long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Points Balance as Business
@@ -749,7 +702,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the points balance of a Vatom user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomUserId">Vatom User Id</param>
@@ -757,7 +709,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPointsBalanceAsBusinessApiResponse"/>?&gt;</returns>
-        Task<IGetPointsBalanceAsBusinessApiResponse?> GetPointsBalanceAsBusinessOrDefaultAsync(decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetPointsBalanceAsBusinessApiResponse?> GetPointsBalanceAsBusinessOrDefaultAsync(long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Space
@@ -766,14 +718,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the details of a space.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSpaceApiResponse"/>&gt;</returns>
-        Task<IGetSpaceApiResponse> GetSpaceAsync(decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSpaceApiResponse> GetSpaceAsync(long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Space
@@ -781,14 +732,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the details of a space.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSpaceApiResponse"/>?&gt;</returns>
-        Task<IGetSpaceApiResponse?> GetSpaceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetSpaceApiResponse?> GetSpaceOrDefaultAsync(long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the coins for a user (as a Business)
@@ -797,14 +747,13 @@ namespace Org.OpenAPITools.Api
         /// Get the coins for a user (as a Business).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        Task<IGetUserCoinsAsBusinessApiResponse> GetUserCoinsAsBusinessAsync(decimal version, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserCoinsAsBusinessApiResponse> GetUserCoinsAsBusinessAsync(long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the coins for a user (as a Business)
@@ -812,14 +761,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the coins for a user (as a Business).
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserCoinsAsBusinessApiResponse"/>?&gt;</returns>
-        Task<IGetUserCoinsAsBusinessApiResponse?> GetUserCoinsAsBusinessOrDefaultAsync(decimal version, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserCoinsAsBusinessApiResponse?> GetUserCoinsAsBusinessOrDefaultAsync(long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the coins balance for a Vatom User
@@ -828,14 +776,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the coins balance for a Vatom User.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserCoinsBalanceApiResponse"/>&gt;</returns>
-        Task<IGetUserCoinsBalanceApiResponse> GetUserCoinsBalanceAsync(decimal version, long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserCoinsBalanceApiResponse> GetUserCoinsBalanceAsync(long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets the coins balance for a Vatom User
@@ -843,14 +790,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the coins balance for a Vatom User.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserCoinsBalanceApiResponse"/>?&gt;</returns>
-        Task<IGetUserCoinsBalanceApiResponse?> GetUserCoinsBalanceOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserCoinsBalanceApiResponse?> GetUserCoinsBalanceOrDefaultAsync(long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get user followers
@@ -859,13 +805,12 @@ namespace Org.OpenAPITools.Api
         /// Get user followers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserFollowersApiResponse"/>&gt;</returns>
-        Task<IGetUserFollowersApiResponse> GetUserFollowersAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserFollowersApiResponse> GetUserFollowersAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get user followers
@@ -873,13 +818,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get user followers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserFollowersApiResponse"/>?&gt;</returns>
-        Task<IGetUserFollowersApiResponse?> GetUserFollowersOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserFollowersApiResponse?> GetUserFollowersOrDefaultAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get user following
@@ -888,13 +832,12 @@ namespace Org.OpenAPITools.Api
         /// Get user following.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserFollowingApiResponse"/>&gt;</returns>
-        Task<IGetUserFollowingApiResponse> GetUserFollowingAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserFollowingApiResponse> GetUserFollowingAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get user following
@@ -902,13 +845,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get user following.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserFollowingApiResponse"/>?&gt;</returns>
-        Task<IGetUserFollowingApiResponse?> GetUserFollowingOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserFollowingApiResponse?> GetUserFollowingOrDefaultAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Info
@@ -917,13 +859,12 @@ namespace Org.OpenAPITools.Api
         /// Get a User&#39;s Info.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserInfoApiResponse"/>&gt;</returns>
-        Task<IGetUserInfoApiResponse> GetUserInfoAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserInfoApiResponse> GetUserInfoAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Info
@@ -931,13 +872,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a User&#39;s Info.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserInfoApiResponse"/>?&gt;</returns>
-        Task<IGetUserInfoApiResponse?> GetUserInfoOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserInfoApiResponse?> GetUserInfoOrDefaultAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom User Profile
@@ -946,12 +886,11 @@ namespace Org.OpenAPITools.Api
         /// Gets the logged in user&#39;s profile in Vatom.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserProfileApiResponse"/>&gt;</returns>
-        Task<IGetUserProfileApiResponse> GetUserProfileAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserProfileApiResponse> GetUserProfileAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom User Profile
@@ -959,12 +898,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the logged in user&#39;s profile in Vatom.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserProfileApiResponse"/>?&gt;</returns>
-        Task<IGetUserProfileApiResponse?> GetUserProfileOrDefaultAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetUserProfileApiResponse?> GetUserProfileOrDefaultAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Event
@@ -973,14 +911,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the details of a event.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVatomEventApiResponse"/>&gt;</returns>
-        Task<IGetVatomEventApiResponse> GetVatomEventAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetVatomEventApiResponse> GetVatomEventAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom Event
@@ -988,14 +925,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the details of a event.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVatomEventApiResponse"/>?&gt;</returns>
-        Task<IGetVatomEventApiResponse?> GetVatomEventOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetVatomEventApiResponse?> GetVatomEventOrDefaultAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom NFT Details
@@ -1004,13 +940,12 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom NFT Details
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVatomNFTApiResponse"/>&gt;</returns>
-        Task<IGetVatomNFTApiResponse> GetVatomNFTAsync(decimal version, long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetVatomNFTApiResponse> GetVatomNFTAsync(long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Vatom NFT Details
@@ -1018,13 +953,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get Vatom NFT Details
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVatomNFTApiResponse"/>?&gt;</returns>
-        Task<IGetVatomNFTApiResponse?> GetVatomNFTOrDefaultAsync(decimal version, long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetVatomNFTApiResponse?> GetVatomNFTOrDefaultAsync(long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Vatom Communities
@@ -1033,14 +967,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the communities tied to a business.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListCommunitiesApiResponse"/>&gt;</returns>
-        Task<IListCommunitiesApiResponse> ListCommunitiesAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListCommunitiesApiResponse> ListCommunitiesAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Vatom Communities
@@ -1048,14 +981,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the communities tied to a business.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListCommunitiesApiResponse"/>?&gt;</returns>
-        Task<IListCommunitiesApiResponse?> ListCommunitiesOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListCommunitiesApiResponse?> ListCommunitiesOrDefaultAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Vatom Events
@@ -1064,14 +996,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the events tied to a business.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListEventsApiResponse"/>&gt;</returns>
-        Task<IListEventsApiResponse> ListEventsAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListEventsApiResponse> ListEventsAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Vatom Events
@@ -1079,14 +1010,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the events tied to a business.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListEventsApiResponse"/>?&gt;</returns>
-        Task<IListEventsApiResponse?> ListEventsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListEventsApiResponse?> ListEventsOrDefaultAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Vatom Spaces
@@ -1095,14 +1025,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the spaces tied to a business.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListSpacesApiResponse"/>&gt;</returns>
-        Task<IListSpacesApiResponse> ListSpacesAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListSpacesApiResponse> ListSpacesAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Vatom Spaces
@@ -1110,14 +1039,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the spaces tied to a business.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListSpacesApiResponse"/>?&gt;</returns>
-        Task<IListSpacesApiResponse?> ListSpacesOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListSpacesApiResponse?> ListSpacesOrDefaultAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Coin Transactions for a Vatom User
@@ -1126,14 +1054,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the logged in user&#39;s Vatom coin transactions.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListUserCoinTransactionsApiResponse"/>&gt;</returns>
-        Task<IListUserCoinTransactionsApiResponse> ListUserCoinTransactionsAsync(decimal version, long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListUserCoinTransactionsApiResponse> ListUserCoinTransactionsAsync(long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Coin Transactions for a Vatom User
@@ -1141,14 +1068,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the logged in user&#39;s Vatom coin transactions.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListUserCoinTransactionsApiResponse"/>?&gt;</returns>
-        Task<IListUserCoinTransactionsApiResponse?> ListUserCoinTransactionsOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListUserCoinTransactionsApiResponse?> ListUserCoinTransactionsOrDefaultAsync(long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List coin transactions for a user (as a Business)
@@ -1157,7 +1083,6 @@ namespace Org.OpenAPITools.Api
         /// List coin transactions for a user (as a Business).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -1165,7 +1090,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListUserCoinTransactionsAsBusinessApiResponse"/>&gt;</returns>
-        Task<IListUserCoinTransactionsAsBusinessApiResponse> ListUserCoinTransactionsAsBusinessAsync(decimal version, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListUserCoinTransactionsAsBusinessApiResponse> ListUserCoinTransactionsAsBusinessAsync(long accountId, string vatomUserId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List coin transactions for a user (as a Business)
@@ -1173,7 +1098,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// List coin transactions for a user (as a Business).
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -1181,7 +1105,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListUserCoinTransactionsAsBusinessApiResponse"/>?&gt;</returns>
-        Task<IListUserCoinTransactionsAsBusinessApiResponse?> ListUserCoinTransactionsAsBusinessOrDefaultAsync(decimal version, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListUserCoinTransactionsAsBusinessApiResponse?> ListUserCoinTransactionsAsBusinessOrDefaultAsync(long accountId, string vatomUserId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Perform Action on NFT
@@ -1190,7 +1114,6 @@ namespace Org.OpenAPITools.Api
         /// Perform Action on NFT.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="vatomAction">Vatom Action</param>
@@ -1198,7 +1121,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPerformActionOnNFTApiResponse"/>&gt;</returns>
-        Task<IPerformActionOnNFTApiResponse> PerformActionOnNFTAsync(decimal version, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPerformActionOnNFTApiResponse> PerformActionOnNFTAsync(long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Perform Action on NFT
@@ -1206,7 +1129,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Perform Action on NFT.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="vatomAction">Vatom Action</param>
@@ -1214,7 +1136,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPerformActionOnNFTApiResponse"/>?&gt;</returns>
-        Task<IPerformActionOnNFTApiResponse?> PerformActionOnNFTOrDefaultAsync(decimal version, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPerformActionOnNFTApiResponse?> PerformActionOnNFTOrDefaultAsync(long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Redeem NFT
@@ -1223,14 +1145,13 @@ namespace Org.OpenAPITools.Api
         /// Redeem an NFT.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemNFTApiResponse"/>&gt;</returns>
-        Task<IRedeemNFTApiResponse> RedeemNFTAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRedeemNFTApiResponse> RedeemNFTAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Redeem NFT
@@ -1238,14 +1159,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Redeem an NFT.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemNFTApiResponse"/>?&gt;</returns>
-        Task<IRedeemNFTApiResponse?> RedeemNFTOrDefaultAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRedeemNFTApiResponse?> RedeemNFTOrDefaultAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Redeem the coins for a user (as a Business)
@@ -1254,7 +1174,6 @@ namespace Org.OpenAPITools.Api
         /// Redeem the coins for a user (as a Business).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -1262,7 +1181,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        Task<IRedeemUserCoinsAsBusinessApiResponse> RedeemUserCoinsAsBusinessAsync(decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRedeemUserCoinsAsBusinessApiResponse> RedeemUserCoinsAsBusinessAsync(long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Redeem the coins for a user (as a Business)
@@ -1270,7 +1189,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Redeem the coins for a user (as a Business).
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -1278,7 +1196,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemUserCoinsAsBusinessApiResponse"/>?&gt;</returns>
-        Task<IRedeemUserCoinsAsBusinessApiResponse?> RedeemUserCoinsAsBusinessOrDefaultAsync(decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRedeemUserCoinsAsBusinessApiResponse?> RedeemUserCoinsAsBusinessOrDefaultAsync(long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Vatom Businesses
@@ -1287,13 +1205,12 @@ namespace Org.OpenAPITools.Api
         /// Searches for Vatom businesses.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBusinessesApiResponse"/>&gt;</returns>
-        Task<ISearchBusinessesApiResponse> SearchBusinessesAsync(decimal version, long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchBusinessesApiResponse> SearchBusinessesAsync(long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search for Vatom Businesses
@@ -1301,13 +1218,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches for Vatom businesses.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBusinessesApiResponse"/>?&gt;</returns>
-        Task<ISearchBusinessesApiResponse?> SearchBusinessesOrDefaultAsync(decimal version, long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchBusinessesApiResponse?> SearchBusinessesOrDefaultAsync(long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Campaign Groups
@@ -1316,13 +1232,12 @@ namespace Org.OpenAPITools.Api
         /// Search campaign groups.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCampaignGroupsApiResponse"/>&gt;</returns>
-        Task<ISearchCampaignGroupsApiResponse> SearchCampaignGroupsAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCampaignGroupsApiResponse> SearchCampaignGroupsAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Campaign Groups
@@ -1330,13 +1245,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search campaign groups.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCampaignGroupsApiResponse"/>?&gt;</returns>
-        Task<ISearchCampaignGroupsApiResponse?> SearchCampaignGroupsOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchCampaignGroupsApiResponse?> SearchCampaignGroupsOrDefaultAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search User Identities
@@ -1345,12 +1259,11 @@ namespace Org.OpenAPITools.Api
         /// Search User Identities.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchIdentitiesApiResponse"/>&gt;</returns>
-        Task<ISearchIdentitiesApiResponse> SearchIdentitiesAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchIdentitiesApiResponse> SearchIdentitiesAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search User Identities
@@ -1358,12 +1271,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search User Identities.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchIdentitiesApiResponse"/>?&gt;</returns>
-        Task<ISearchIdentitiesApiResponse?> SearchIdentitiesOrDefaultAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchIdentitiesApiResponse?> SearchIdentitiesOrDefaultAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Vatom User&#39;s Inventory
@@ -1372,13 +1284,12 @@ namespace Org.OpenAPITools.Api
         /// Searches the logged in user&#39;s Vatom Inventory.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchInventoryApiResponse"/>&gt;</returns>
-        Task<ISearchInventoryApiResponse> SearchInventoryAsync(decimal version, long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchInventoryApiResponse> SearchInventoryAsync(long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Vatom User&#39;s Inventory
@@ -1386,13 +1297,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches the logged in user&#39;s Vatom Inventory.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchInventoryApiResponse"/>?&gt;</returns>
-        Task<ISearchInventoryApiResponse?> SearchInventoryOrDefaultAsync(decimal version, long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchInventoryApiResponse?> SearchInventoryOrDefaultAsync(long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send NFT
@@ -1401,7 +1311,6 @@ namespace Org.OpenAPITools.Api
         /// Send an NFT.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
@@ -1409,7 +1318,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendNFTApiResponse"/>&gt;</returns>
-        Task<ISendNFTApiResponse> SendNFTAsync(decimal version, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendNFTApiResponse> SendNFTAsync(long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send NFT
@@ -1417,7 +1326,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Send an NFT.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
@@ -1425,7 +1333,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendNFTApiResponse"/>?&gt;</returns>
-        Task<ISendNFTApiResponse?> SendNFTOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendNFTApiResponse?> SendNFTOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set Points Balance as Business
@@ -1434,7 +1342,6 @@ namespace Org.OpenAPITools.Api
         /// Sets the points balance of a Vatom user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomUserId">Vatom User Id</param>
@@ -1443,7 +1350,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISetPointsBalanceAsBusinessApiResponse"/>&gt;</returns>
-        Task<ISetPointsBalanceAsBusinessApiResponse> SetPointsBalanceAsBusinessAsync(decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISetPointsBalanceAsBusinessApiResponse> SetPointsBalanceAsBusinessAsync(long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set Points Balance as Business
@@ -1451,7 +1358,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sets the points balance of a Vatom user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomUserId">Vatom User Id</param>
@@ -1460,7 +1366,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISetPointsBalanceAsBusinessApiResponse"/>?&gt;</returns>
-        Task<ISetPointsBalanceAsBusinessApiResponse?> SetPointsBalanceAsBusinessOrDefaultAsync(decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISetPointsBalanceAsBusinessApiResponse?> SetPointsBalanceAsBusinessOrDefaultAsync(long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Transfer coins from Vatom Users
@@ -1469,14 +1375,13 @@ namespace Org.OpenAPITools.Api
         /// Transfer coins from Vatom Users.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITransferUserCoinsApiResponse"/>&gt;</returns>
-        Task<ITransferUserCoinsApiResponse> TransferUserCoinsAsync(decimal version, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITransferUserCoinsApiResponse> TransferUserCoinsAsync(long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Transfer coins from Vatom Users
@@ -1484,14 +1389,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Transfer coins from Vatom Users.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITransferUserCoinsApiResponse"/>?&gt;</returns>
-        Task<ITransferUserCoinsApiResponse?> TransferUserCoinsOrDefaultAsync(decimal version, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITransferUserCoinsApiResponse?> TransferUserCoinsOrDefaultAsync(long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Fund coins for a Business
@@ -1500,14 +1404,13 @@ namespace Org.OpenAPITools.Api
         /// Fund/update coins for a Businesss.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBusinessCoinsApiResponse"/>&gt;</returns>
-        Task<IUpdateBusinessCoinsApiResponse> UpdateBusinessCoinsAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateBusinessCoinsApiResponse> UpdateBusinessCoinsAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Fund coins for a Business
@@ -1515,14 +1418,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Fund/update coins for a Businesss.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBusinessCoinsApiResponse"/>?&gt;</returns>
-        Task<IUpdateBusinessCoinsApiResponse?> UpdateBusinessCoinsOrDefaultAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateBusinessCoinsApiResponse?> UpdateBusinessCoinsOrDefaultAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vatom Event Guest List
@@ -1531,7 +1433,6 @@ namespace Org.OpenAPITools.Api
         /// Update the guest list of an event.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
@@ -1539,7 +1440,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEventGuestListApiResponse"/>&gt;</returns>
-        Task<IUpdateEventGuestListApiResponse> UpdateEventGuestListAsync(decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateEventGuestListApiResponse> UpdateEventGuestListAsync(long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vatom Event Guest List
@@ -1547,7 +1448,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the guest list of an event.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
@@ -1555,7 +1455,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEventGuestListApiResponse"/>?&gt;</returns>
-        Task<IUpdateEventGuestListApiResponse?> UpdateEventGuestListOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateEventGuestListApiResponse?> UpdateEventGuestListOrDefaultAsync(long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vatom Space
@@ -1564,7 +1464,6 @@ namespace Org.OpenAPITools.Api
         /// Update a Vatom space.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
@@ -1572,7 +1471,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSpaceApiResponse"/>&gt;</returns>
-        Task<IUpdateSpaceApiResponse> UpdateSpaceAsync(decimal version, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateSpaceApiResponse> UpdateSpaceAsync(long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vatom Space
@@ -1580,7 +1479,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a Vatom space.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
@@ -1588,7 +1486,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSpaceApiResponse"/>?&gt;</returns>
-        Task<IUpdateSpaceApiResponse?> UpdateSpaceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateSpaceApiResponse?> UpdateSpaceOrDefaultAsync(long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the coins for a user (as a Business)
@@ -1597,7 +1495,6 @@ namespace Org.OpenAPITools.Api
         /// Update the coins for a user (as a Business).
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -1605,7 +1502,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        Task<IUpdateUserCoinsAsBusinessApiResponse> UpdateUserCoinsAsBusinessAsync(decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateUserCoinsAsBusinessApiResponse> UpdateUserCoinsAsBusinessAsync(long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the coins for a user (as a Business)
@@ -1613,7 +1510,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update the coins for a user (as a Business).
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -1621,7 +1517,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserCoinsAsBusinessApiResponse"/>?&gt;</returns>
-        Task<IUpdateUserCoinsAsBusinessApiResponse?> UpdateUserCoinsAsBusinessOrDefaultAsync(decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateUserCoinsAsBusinessApiResponse?> UpdateUserCoinsAsBusinessOrDefaultAsync(long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vatom User Profile
@@ -1630,13 +1526,12 @@ namespace Org.OpenAPITools.Api
         /// Gets the logged in user&#39;s profile in Vatom.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserProfileApiResponse"/>&gt;</returns>
-        Task<IUpdateUserProfileApiResponse> UpdateUserProfileAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateUserProfileApiResponse> UpdateUserProfileAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vatom User Profile
@@ -1644,13 +1539,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the logged in user&#39;s profile in Vatom.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserProfileApiResponse"/>?&gt;</returns>
-        Task<IUpdateUserProfileApiResponse?> UpdateUserProfileOrDefaultAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateUserProfileApiResponse?> UpdateUserProfileOrDefaultAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vatom Event
@@ -1659,7 +1553,6 @@ namespace Org.OpenAPITools.Api
         /// Update a Vatom event.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
@@ -1667,7 +1560,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateVatomEventApiResponse"/>&gt;</returns>
-        Task<IUpdateVatomEventApiResponse> UpdateVatomEventAsync(decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateVatomEventApiResponse> UpdateVatomEventAsync(long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Vatom Event
@@ -1675,7 +1568,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a Vatom event.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
@@ -1683,7 +1575,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateVatomEventApiResponse"/>?&gt;</returns>
-        Task<IUpdateVatomEventApiResponse?> UpdateVatomEventOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateVatomEventApiResponse?> UpdateVatomEventOrDefaultAsync(long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -3467,7 +3359,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateFollowing(ref decimal version, ref long accountId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatCreateFollowing(ref long accountId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -3484,14 +3376,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterCreateFollowingDefaultImplementation(ICreateFollowingApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterCreateFollowingDefaultImplementation(ICreateFollowingApiResponse apiResponseLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterCreateFollowing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            AfterCreateFollowing(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3501,11 +3392,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterCreateFollowing(ref bool suppressDefaultLog, ICreateFollowingApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterCreateFollowing(ref bool suppressDefaultLog, ICreateFollowingApiResponse apiResponseLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3513,14 +3403,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorCreateFollowingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorCreateFollowingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateFollowing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            OnErrorCreateFollowing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3532,26 +3421,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorCreateFollowing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorCreateFollowing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Create following Create following.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFollowingApiResponse"/>&gt;</returns>
-        public async Task<ICreateFollowingApiResponse?> CreateFollowingOrDefaultAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateFollowingApiResponse?> CreateFollowingOrDefaultAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateFollowingAsync(version, accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await CreateFollowingAsync(accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3563,13 +3450,12 @@ namespace Org.OpenAPITools.Api
         /// Create following Create following.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFollowingApiResponse"/>&gt;</returns>
-        public async Task<ICreateFollowingApiResponse> CreateFollowingAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateFollowingApiResponse> CreateFollowingAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3577,7 +3463,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateFollowing(vatomParameters);
 
-                FormatCreateFollowing(ref version, ref accountId, ref vatomParameters, ref returnRawResponse);
+                FormatCreateFollowing(ref accountId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3585,9 +3471,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/rels/following/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/rels/following/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/rels/following/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/rels/following/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3613,13 +3498,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/rels/following/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/rels/following/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateFollowingDefaultImplementation(apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+                        AfterCreateFollowingDefaultImplementation(apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnCreateFollowing(apiResponseLocalVar);
 
@@ -3629,7 +3514,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateFollowingDefaultImplementation(e, "/api/{version}/vatom/me/rels/following/create", uriBuilderLocalVar.Path, version, accountId, vatomParameters, returnRawResponse);
+                OnErrorCreateFollowingDefaultImplementation(e, "/vatom/me/rels/following/create", uriBuilderLocalVar.Path, accountId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorCreateFollowing(e);
                 throw;
             }
@@ -3696,7 +3581,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateSpace(ref decimal version, ref long accountId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatCreateSpace(ref long accountId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -3717,15 +3602,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterCreateSpaceDefaultImplementation(ICreateSpaceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterCreateSpaceDefaultImplementation(ICreateSpaceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterCreateSpace(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            AfterCreateSpace(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3735,12 +3619,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterCreateSpace(ref bool suppressDefaultLog, ICreateSpaceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterCreateSpace(ref bool suppressDefaultLog, ICreateSpaceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3748,15 +3631,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorCreateSpaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorCreateSpaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateSpace(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            OnErrorCreateSpace(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3768,28 +3650,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorCreateSpace(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorCreateSpace(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Create Vatom Space Create a Vatom space.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSpaceApiResponse"/>&gt;</returns>
-        public async Task<ICreateSpaceApiResponse?> CreateSpaceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateSpaceApiResponse?> CreateSpaceOrDefaultAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateSpaceAsync(version, accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await CreateSpaceAsync(accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3801,14 +3681,13 @@ namespace Org.OpenAPITools.Api
         /// Create Vatom Space Create a Vatom space.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateSpaceApiResponse"/>&gt;</returns>
-        public async Task<ICreateSpaceApiResponse> CreateSpaceAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateSpaceApiResponse> CreateSpaceAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3816,7 +3695,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateSpace(appKey, vatomParameters);
 
-                FormatCreateSpace(ref version, ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatCreateSpace(ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3824,9 +3703,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/spaces/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/spaces/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/spaces/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/spaces/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3853,13 +3731,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/spaces/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/spaces/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateSpaceDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+                        AfterCreateSpaceDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnCreateSpace(apiResponseLocalVar);
 
@@ -3869,7 +3747,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateSpaceDefaultImplementation(e, "/api/{version}/vatom/b/spaces/create", uriBuilderLocalVar.Path, version, accountId, appKey, vatomParameters, returnRawResponse);
+                OnErrorCreateSpaceDefaultImplementation(e, "/vatom/b/spaces/create", uriBuilderLocalVar.Path, accountId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorCreateSpace(e);
                 throw;
             }
@@ -3936,7 +3814,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateVatomEvent(ref decimal version, ref long accountId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatCreateVatomEvent(ref long accountId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -3957,15 +3835,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterCreateVatomEventDefaultImplementation(ICreateVatomEventApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterCreateVatomEventDefaultImplementation(ICreateVatomEventApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterCreateVatomEvent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            AfterCreateVatomEvent(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3975,12 +3852,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterCreateVatomEvent(ref bool suppressDefaultLog, ICreateVatomEventApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterCreateVatomEvent(ref bool suppressDefaultLog, ICreateVatomEventApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3988,15 +3864,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorCreateVatomEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorCreateVatomEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateVatomEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            OnErrorCreateVatomEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4008,28 +3883,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorCreateVatomEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorCreateVatomEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Create Vatom Event Create a Vatom event.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVatomEventApiResponse"/>&gt;</returns>
-        public async Task<ICreateVatomEventApiResponse?> CreateVatomEventOrDefaultAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateVatomEventApiResponse?> CreateVatomEventOrDefaultAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateVatomEventAsync(version, accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await CreateVatomEventAsync(accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4041,14 +3914,13 @@ namespace Org.OpenAPITools.Api
         /// Create Vatom Event Create a Vatom event.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateVatomEventApiResponse"/>&gt;</returns>
-        public async Task<ICreateVatomEventApiResponse> CreateVatomEventAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateVatomEventApiResponse> CreateVatomEventAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4056,7 +3928,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateVatomEvent(appKey, vatomParameters);
 
-                FormatCreateVatomEvent(ref version, ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatCreateVatomEvent(ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4064,9 +3936,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/events/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/events/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/events/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/events/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4093,13 +3964,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/events/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/events/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateVatomEventDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+                        AfterCreateVatomEventDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnCreateVatomEvent(apiResponseLocalVar);
 
@@ -4109,7 +3980,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateVatomEventDefaultImplementation(e, "/api/{version}/vatom/b/events/create", uriBuilderLocalVar.Path, version, accountId, appKey, vatomParameters, returnRawResponse);
+                OnErrorCreateVatomEventDefaultImplementation(e, "/vatom/b/events/create", uriBuilderLocalVar.Path, accountId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorCreateVatomEvent(e);
                 throw;
             }
@@ -4176,7 +4047,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteFollowing(ref decimal version, ref long accountId, ref string vatomRelsKey, ref Option<bool> returnRawResponse);
+        partial void FormatDeleteFollowing(ref long accountId, ref string vatomRelsKey, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -4193,14 +4064,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomRelsKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterDeleteFollowingDefaultImplementation(IDeleteFollowingApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomRelsKey, Option<bool> returnRawResponse)
+        private void AfterDeleteFollowingDefaultImplementation(IDeleteFollowingApiResponse apiResponseLocalVar, long accountId, string vatomRelsKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteFollowing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomRelsKey, returnRawResponse);
+            AfterDeleteFollowing(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomRelsKey, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4210,11 +4080,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomRelsKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterDeleteFollowing(ref bool suppressDefaultLog, IDeleteFollowingApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomRelsKey, Option<bool> returnRawResponse);
+        partial void AfterDeleteFollowing(ref bool suppressDefaultLog, IDeleteFollowingApiResponse apiResponseLocalVar, long accountId, string vatomRelsKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4222,14 +4091,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomRelsKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorDeleteFollowingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomRelsKey, Option<bool> returnRawResponse)
+        private void OnErrorDeleteFollowingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomRelsKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteFollowing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomRelsKey, returnRawResponse);
+            OnErrorDeleteFollowing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomRelsKey, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4241,26 +4109,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomRelsKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorDeleteFollowing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomRelsKey, Option<bool> returnRawResponse);
+        partial void OnErrorDeleteFollowing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomRelsKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Delete following Delete following.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomRelsKey">Vatom Rels Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFollowingApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFollowingApiResponse?> DeleteFollowingOrDefaultAsync(decimal version, long accountId, string vatomRelsKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFollowingApiResponse?> DeleteFollowingOrDefaultAsync(long accountId, string vatomRelsKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteFollowingAsync(version, accountId, vatomRelsKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await DeleteFollowingAsync(accountId, vatomRelsKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4272,13 +4138,12 @@ namespace Org.OpenAPITools.Api
         /// Delete following Delete following.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomRelsKey">Vatom Rels Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFollowingApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFollowingApiResponse> DeleteFollowingAsync(decimal version, long accountId, string vatomRelsKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFollowingApiResponse> DeleteFollowingAsync(long accountId, string vatomRelsKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4286,7 +4151,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteFollowing(vatomRelsKey);
 
-                FormatDeleteFollowing(ref version, ref accountId, ref vatomRelsKey, ref returnRawResponse);
+                FormatDeleteFollowing(ref accountId, ref vatomRelsKey, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4294,9 +4159,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/rels/following/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/rels/following/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/rels/following/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/rels/following/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4322,13 +4186,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/rels/following/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/rels/following/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteFollowingDefaultImplementation(apiResponseLocalVar, version, accountId, vatomRelsKey, returnRawResponse);
+                        AfterDeleteFollowingDefaultImplementation(apiResponseLocalVar, accountId, vatomRelsKey, returnRawResponse);
 
                         Events.ExecuteOnDeleteFollowing(apiResponseLocalVar);
 
@@ -4338,7 +4202,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteFollowingDefaultImplementation(e, "/api/{version}/vatom/me/rels/following/delete", uriBuilderLocalVar.Path, version, accountId, vatomRelsKey, returnRawResponse);
+                OnErrorDeleteFollowingDefaultImplementation(e, "/vatom/me/rels/following/delete", uriBuilderLocalVar.Path, accountId, vatomRelsKey, returnRawResponse);
                 Events.ExecuteOnErrorDeleteFollowing(e);
                 throw;
             }
@@ -4405,7 +4269,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeletePointsBalance(ref decimal version, ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
+        partial void FormatDeletePointsBalance(ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -4426,15 +4290,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterDeletePointsBalanceDefaultImplementation(IDeletePointsBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void AfterDeletePointsBalanceDefaultImplementation(IDeletePointsBalanceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterDeletePointsBalance(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            AfterDeletePointsBalance(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4444,12 +4307,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterDeletePointsBalance(ref bool suppressDefaultLog, IDeletePointsBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void AfterDeletePointsBalance(ref bool suppressDefaultLog, IDeletePointsBalanceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4457,15 +4319,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorDeletePointsBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void OnErrorDeletePointsBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeletePointsBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            OnErrorDeletePointsBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4477,28 +4338,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorDeletePointsBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void OnErrorDeletePointsBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Reset All Points Balance Reset All Points Balance.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePointsBalanceApiResponse"/>&gt;</returns>
-        public async Task<IDeletePointsBalanceApiResponse?> DeletePointsBalanceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePointsBalanceApiResponse?> DeletePointsBalanceOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeletePointsBalanceAsync(version, accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await DeletePointsBalanceAsync(accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4510,14 +4369,13 @@ namespace Org.OpenAPITools.Api
         /// Reset All Points Balance Reset All Points Balance.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeletePointsBalanceApiResponse"/>&gt;</returns>
-        public async Task<IDeletePointsBalanceApiResponse> DeletePointsBalanceAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeletePointsBalanceApiResponse> DeletePointsBalanceAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4525,7 +4383,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeletePointsBalance(appKey, vatomCampaignId);
 
-                FormatDeletePointsBalance(ref version, ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
+                FormatDeletePointsBalance(ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4533,9 +4391,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaign/points/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaign/points/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaign/points/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaign/points/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4562,13 +4419,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaign/points/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaign/points/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeletePointsBalanceDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                        AfterDeletePointsBalanceDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
 
                         Events.ExecuteOnDeletePointsBalance(apiResponseLocalVar);
 
@@ -4578,7 +4435,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeletePointsBalanceDefaultImplementation(e, "/api/{version}/vatom/b/campaign/points/delete", uriBuilderLocalVar.Path, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                OnErrorDeletePointsBalanceDefaultImplementation(e, "/vatom/b/campaign/points/delete", uriBuilderLocalVar.Path, accountId, appKey, vatomCampaignId, returnRawResponse);
                 Events.ExecuteOnErrorDeletePointsBalance(e);
                 throw;
             }
@@ -4645,7 +4502,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteSpace(ref decimal version, ref long accountId, ref string appKey, ref string vatomSpaceId, ref Option<bool> returnRawResponse);
+        partial void FormatDeleteSpace(ref long accountId, ref string appKey, ref string vatomSpaceId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -4666,15 +4523,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterDeleteSpaceDefaultImplementation(IDeleteSpaceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse)
+        private void AfterDeleteSpaceDefaultImplementation(IDeleteSpaceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteSpace(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomSpaceId, returnRawResponse);
+            AfterDeleteSpace(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomSpaceId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4684,12 +4540,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterDeleteSpace(ref bool suppressDefaultLog, IDeleteSpaceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse);
+        partial void AfterDeleteSpace(ref bool suppressDefaultLog, IDeleteSpaceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4697,15 +4552,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorDeleteSpaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse)
+        private void OnErrorDeleteSpaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteSpace(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomSpaceId, returnRawResponse);
+            OnErrorDeleteSpace(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomSpaceId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4717,28 +4571,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorDeleteSpace(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse);
+        partial void OnErrorDeleteSpace(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Delete Vatom Space Delete a Vatom space.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSpaceApiResponse"/>&gt;</returns>
-        public async Task<IDeleteSpaceApiResponse?> DeleteSpaceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteSpaceApiResponse?> DeleteSpaceOrDefaultAsync(long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteSpaceAsync(version, accountId, appKey, vatomSpaceId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await DeleteSpaceAsync(accountId, appKey, vatomSpaceId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4750,14 +4602,13 @@ namespace Org.OpenAPITools.Api
         /// Delete Vatom Space Delete a Vatom space.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteSpaceApiResponse"/>&gt;</returns>
-        public async Task<IDeleteSpaceApiResponse> DeleteSpaceAsync(decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteSpaceApiResponse> DeleteSpaceAsync(long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4765,7 +4616,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteSpace(appKey, vatomSpaceId);
 
-                FormatDeleteSpace(ref version, ref accountId, ref appKey, ref vatomSpaceId, ref returnRawResponse);
+                FormatDeleteSpace(ref accountId, ref appKey, ref vatomSpaceId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4773,9 +4624,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/spaces/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/spaces/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/spaces/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/spaces/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4802,13 +4652,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/spaces/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/spaces/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteSpaceDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomSpaceId, returnRawResponse);
+                        AfterDeleteSpaceDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomSpaceId, returnRawResponse);
 
                         Events.ExecuteOnDeleteSpace(apiResponseLocalVar);
 
@@ -4818,7 +4668,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteSpaceDefaultImplementation(e, "/api/{version}/vatom/b/spaces/delete", uriBuilderLocalVar.Path, version, accountId, appKey, vatomSpaceId, returnRawResponse);
+                OnErrorDeleteSpaceDefaultImplementation(e, "/vatom/b/spaces/delete", uriBuilderLocalVar.Path, accountId, appKey, vatomSpaceId, returnRawResponse);
                 Events.ExecuteOnErrorDeleteSpace(e);
                 throw;
             }
@@ -4885,7 +4735,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteVatomEvent(ref decimal version, ref long accountId, ref string appKey, ref string vatomEventId, ref Option<bool> returnRawResponse);
+        partial void FormatDeleteVatomEvent(ref long accountId, ref string appKey, ref string vatomEventId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -4906,15 +4756,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterDeleteVatomEventDefaultImplementation(IDeleteVatomEventApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
+        private void AfterDeleteVatomEventDefaultImplementation(IDeleteVatomEventApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteVatomEvent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+            AfterDeleteVatomEvent(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4924,12 +4773,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterDeleteVatomEvent(ref bool suppressDefaultLog, IDeleteVatomEventApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
+        partial void AfterDeleteVatomEvent(ref bool suppressDefaultLog, IDeleteVatomEventApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4937,15 +4785,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorDeleteVatomEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
+        private void OnErrorDeleteVatomEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteVatomEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+            OnErrorDeleteVatomEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4957,28 +4804,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorDeleteVatomEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
+        partial void OnErrorDeleteVatomEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Delete Vatom Event Delete a Vatom event.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVatomEventApiResponse"/>&gt;</returns>
-        public async Task<IDeleteVatomEventApiResponse?> DeleteVatomEventOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteVatomEventApiResponse?> DeleteVatomEventOrDefaultAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteVatomEventAsync(version, accountId, appKey, vatomEventId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await DeleteVatomEventAsync(accountId, appKey, vatomEventId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4990,14 +4835,13 @@ namespace Org.OpenAPITools.Api
         /// Delete Vatom Event Delete a Vatom event.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVatomEventApiResponse"/>&gt;</returns>
-        public async Task<IDeleteVatomEventApiResponse> DeleteVatomEventAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteVatomEventApiResponse> DeleteVatomEventAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5005,7 +4849,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteVatomEvent(appKey, vatomEventId);
 
-                FormatDeleteVatomEvent(ref version, ref accountId, ref appKey, ref vatomEventId, ref returnRawResponse);
+                FormatDeleteVatomEvent(ref accountId, ref appKey, ref vatomEventId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5013,9 +4857,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/events/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/events/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/events/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/events/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5042,13 +4885,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/events/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/events/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteVatomEventDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+                        AfterDeleteVatomEventDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
 
                         Events.ExecuteOnDeleteVatomEvent(apiResponseLocalVar);
 
@@ -5058,7 +4901,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteVatomEventDefaultImplementation(e, "/api/{version}/vatom/b/events/delete", uriBuilderLocalVar.Path, version, accountId, appKey, vatomEventId, returnRawResponse);
+                OnErrorDeleteVatomEventDefaultImplementation(e, "/vatom/b/events/delete", uriBuilderLocalVar.Path, accountId, appKey, vatomEventId, returnRawResponse);
                 Events.ExecuteOnErrorDeleteVatomEvent(e);
                 throw;
             }
@@ -5125,7 +4968,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteVatomNFT(ref decimal version, ref long accountId, ref string vatomId, ref Option<bool> returnRawResponse);
+        partial void FormatDeleteVatomNFT(ref long accountId, ref string vatomId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -5142,14 +4985,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterDeleteVatomNFTDefaultImplementation(IDeleteVatomNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomId, Option<bool> returnRawResponse)
+        private void AfterDeleteVatomNFTDefaultImplementation(IDeleteVatomNFTApiResponse apiResponseLocalVar, long accountId, string vatomId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteVatomNFT(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomId, returnRawResponse);
+            AfterDeleteVatomNFT(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5159,11 +5001,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterDeleteVatomNFT(ref bool suppressDefaultLog, IDeleteVatomNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomId, Option<bool> returnRawResponse);
+        partial void AfterDeleteVatomNFT(ref bool suppressDefaultLog, IDeleteVatomNFTApiResponse apiResponseLocalVar, long accountId, string vatomId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5171,14 +5012,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorDeleteVatomNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomId, Option<bool> returnRawResponse)
+        private void OnErrorDeleteVatomNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteVatomNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomId, returnRawResponse);
+            OnErrorDeleteVatomNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5190,26 +5030,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorDeleteVatomNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomId, Option<bool> returnRawResponse);
+        partial void OnErrorDeleteVatomNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Delete Vatom NFT Delete Vatom NFT
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVatomNFTApiResponse"/>&gt;</returns>
-        public async Task<IDeleteVatomNFTApiResponse?> DeleteVatomNFTOrDefaultAsync(decimal version, long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteVatomNFTApiResponse?> DeleteVatomNFTOrDefaultAsync(long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteVatomNFTAsync(version, accountId, vatomId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await DeleteVatomNFTAsync(accountId, vatomId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5221,13 +5059,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Vatom NFT Delete Vatom NFT
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteVatomNFTApiResponse"/>&gt;</returns>
-        public async Task<IDeleteVatomNFTApiResponse> DeleteVatomNFTAsync(decimal version, long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteVatomNFTApiResponse> DeleteVatomNFTAsync(long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5235,7 +5072,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteVatomNFT(vatomId);
 
-                FormatDeleteVatomNFT(ref version, ref accountId, ref vatomId, ref returnRawResponse);
+                FormatDeleteVatomNFT(ref accountId, ref vatomId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5243,9 +5080,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/vatoms/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/vatoms/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/vatoms/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/vatoms/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5271,13 +5107,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/vatoms/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/vatoms/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteVatomNFTDefaultImplementation(apiResponseLocalVar, version, accountId, vatomId, returnRawResponse);
+                        AfterDeleteVatomNFTDefaultImplementation(apiResponseLocalVar, accountId, vatomId, returnRawResponse);
 
                         Events.ExecuteOnDeleteVatomNFT(apiResponseLocalVar);
 
@@ -5287,7 +5123,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteVatomNFTDefaultImplementation(e, "/api/{version}/vatom/vatoms/delete", uriBuilderLocalVar.Path, version, accountId, vatomId, returnRawResponse);
+                OnErrorDeleteVatomNFTDefaultImplementation(e, "/vatom/vatoms/delete", uriBuilderLocalVar.Path, accountId, vatomId, returnRawResponse);
                 Events.ExecuteOnErrorDeleteVatomNFT(e);
                 throw;
             }
@@ -5354,7 +5190,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatExecuteActionOnNFT(ref decimal version, ref long accountId, ref string vatomId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatExecuteActionOnNFT(ref long accountId, ref string vatomId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -5375,15 +5211,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterExecuteActionOnNFTDefaultImplementation(IExecuteActionOnNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterExecuteActionOnNFTDefaultImplementation(IExecuteActionOnNFTApiResponse apiResponseLocalVar, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterExecuteActionOnNFT(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomId, vatomParameters, returnRawResponse);
+            AfterExecuteActionOnNFT(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5393,12 +5228,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterExecuteActionOnNFT(ref bool suppressDefaultLog, IExecuteActionOnNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterExecuteActionOnNFT(ref bool suppressDefaultLog, IExecuteActionOnNFTApiResponse apiResponseLocalVar, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5406,15 +5240,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorExecuteActionOnNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorExecuteActionOnNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorExecuteActionOnNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomId, vatomParameters, returnRawResponse);
+            OnErrorExecuteActionOnNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5426,28 +5259,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorExecuteActionOnNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorExecuteActionOnNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Execute Action on NFT Execute Action on NFT.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IExecuteActionOnNFTApiResponse"/>&gt;</returns>
-        public async Task<IExecuteActionOnNFTApiResponse?> ExecuteActionOnNFTOrDefaultAsync(decimal version, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IExecuteActionOnNFTApiResponse?> ExecuteActionOnNFTOrDefaultAsync(long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ExecuteActionOnNFTAsync(version, accountId, vatomId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await ExecuteActionOnNFTAsync(accountId, vatomId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5459,14 +5290,13 @@ namespace Org.OpenAPITools.Api
         /// Execute Action on NFT Execute Action on NFT.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IExecuteActionOnNFTApiResponse"/>&gt;</returns>
-        public async Task<IExecuteActionOnNFTApiResponse> ExecuteActionOnNFTAsync(decimal version, long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IExecuteActionOnNFTApiResponse> ExecuteActionOnNFTAsync(long accountId, string vatomId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5474,7 +5304,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateExecuteActionOnNFT(vatomId, vatomParameters);
 
-                FormatExecuteActionOnNFT(ref version, ref accountId, ref vatomId, ref vatomParameters, ref returnRawResponse);
+                FormatExecuteActionOnNFT(ref accountId, ref vatomId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5482,9 +5312,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/vatoms/execute-action"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/vatoms/execute-action");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/vatoms/execute-action"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/vatoms/execute-action");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5511,13 +5340,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/vatoms/execute-action", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/vatoms/execute-action", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterExecuteActionOnNFTDefaultImplementation(apiResponseLocalVar, version, accountId, vatomId, vatomParameters, returnRawResponse);
+                        AfterExecuteActionOnNFTDefaultImplementation(apiResponseLocalVar, accountId, vatomId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnExecuteActionOnNFT(apiResponseLocalVar);
 
@@ -5527,7 +5356,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorExecuteActionOnNFTDefaultImplementation(e, "/api/{version}/vatom/vatoms/execute-action", uriBuilderLocalVar.Path, version, accountId, vatomId, vatomParameters, returnRawResponse);
+                OnErrorExecuteActionOnNFTDefaultImplementation(e, "/vatom/vatoms/execute-action", uriBuilderLocalVar.Path, accountId, vatomId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorExecuteActionOnNFT(e);
                 throw;
             }
@@ -5594,7 +5423,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGeomapSearch(ref decimal version, ref long accountId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatGeomapSearch(ref long accountId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -5611,14 +5440,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGeomapSearchDefaultImplementation(IGeomapSearchApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterGeomapSearchDefaultImplementation(IGeomapSearchApiResponse apiResponseLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGeomapSearch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            AfterGeomapSearch(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5628,11 +5456,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGeomapSearch(ref bool suppressDefaultLog, IGeomapSearchApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterGeomapSearch(ref bool suppressDefaultLog, IGeomapSearchApiResponse apiResponseLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5640,14 +5467,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGeomapSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorGeomapSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGeomapSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            OnErrorGeomapSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5659,26 +5485,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGeomapSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorGeomapSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Search Vatom Geo Map Search Vatom Geo Map
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGeomapSearchApiResponse"/>&gt;</returns>
-        public async Task<IGeomapSearchApiResponse?> GeomapSearchOrDefaultAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGeomapSearchApiResponse?> GeomapSearchOrDefaultAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GeomapSearchAsync(version, accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GeomapSearchAsync(accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5690,13 +5514,12 @@ namespace Org.OpenAPITools.Api
         /// Search Vatom Geo Map Search Vatom Geo Map
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGeomapSearchApiResponse"/>&gt;</returns>
-        public async Task<IGeomapSearchApiResponse> GeomapSearchAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGeomapSearchApiResponse> GeomapSearchAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5704,7 +5527,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGeomapSearch(vatomParameters);
 
-                FormatGeomapSearch(ref version, ref accountId, ref vatomParameters, ref returnRawResponse);
+                FormatGeomapSearch(ref accountId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5712,9 +5535,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/vatoms/geo-map/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/vatoms/geo-map/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/vatoms/geo-map/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/vatoms/geo-map/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5740,13 +5562,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/vatoms/geo-map/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/vatoms/geo-map/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGeomapSearchDefaultImplementation(apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+                        AfterGeomapSearchDefaultImplementation(apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnGeomapSearch(apiResponseLocalVar);
 
@@ -5756,7 +5578,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGeomapSearchDefaultImplementation(e, "/api/{version}/vatom/vatoms/geo-map/search", uriBuilderLocalVar.Path, version, accountId, vatomParameters, returnRawResponse);
+                OnErrorGeomapSearchDefaultImplementation(e, "/vatom/vatoms/geo-map/search", uriBuilderLocalVar.Path, accountId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorGeomapSearch(e);
                 throw;
             }
@@ -5823,7 +5645,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBusinessBehaviors(ref decimal version, ref long accountId, ref string appKey, ref Option<bool> returnRawResponse);
+        partial void FormatGetBusinessBehaviors(ref long accountId, ref string appKey, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -5840,14 +5662,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetBusinessBehaviorsDefaultImplementation(IGetBusinessBehaviorsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse)
+        private void AfterGetBusinessBehaviorsDefaultImplementation(IGetBusinessBehaviorsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetBusinessBehaviors(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, returnRawResponse);
+            AfterGetBusinessBehaviors(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5857,11 +5678,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetBusinessBehaviors(ref bool suppressDefaultLog, IGetBusinessBehaviorsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse);
+        partial void AfterGetBusinessBehaviors(ref bool suppressDefaultLog, IGetBusinessBehaviorsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5869,14 +5689,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetBusinessBehaviorsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse)
+        private void OnErrorGetBusinessBehaviorsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetBusinessBehaviors(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, returnRawResponse);
+            OnErrorGetBusinessBehaviors(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5888,26 +5707,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetBusinessBehaviors(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse);
+        partial void OnErrorGetBusinessBehaviors(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom Business Behaviors Gets the behaviors of a business.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessBehaviorsApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessBehaviorsApiResponse?> GetBusinessBehaviorsOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessBehaviorsApiResponse?> GetBusinessBehaviorsOrDefaultAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetBusinessBehaviorsAsync(version, accountId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetBusinessBehaviorsAsync(accountId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5919,13 +5736,12 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom Business Behaviors Gets the behaviors of a business.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessBehaviorsApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessBehaviorsApiResponse> GetBusinessBehaviorsAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessBehaviorsApiResponse> GetBusinessBehaviorsAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5933,7 +5749,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetBusinessBehaviors(appKey);
 
-                FormatGetBusinessBehaviors(ref version, ref accountId, ref appKey, ref returnRawResponse);
+                FormatGetBusinessBehaviors(ref accountId, ref appKey, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5941,9 +5757,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/behaviors"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/behaviors");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/behaviors"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/behaviors");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5969,13 +5784,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/behaviors", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/behaviors", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetBusinessBehaviorsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, returnRawResponse);
+                        AfterGetBusinessBehaviorsDefaultImplementation(apiResponseLocalVar, accountId, appKey, returnRawResponse);
 
                         Events.ExecuteOnGetBusinessBehaviors(apiResponseLocalVar);
 
@@ -5985,7 +5800,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetBusinessBehaviorsDefaultImplementation(e, "/api/{version}/vatom/b/behaviors", uriBuilderLocalVar.Path, version, accountId, appKey, returnRawResponse);
+                OnErrorGetBusinessBehaviorsDefaultImplementation(e, "/vatom/b/behaviors", uriBuilderLocalVar.Path, accountId, appKey, returnRawResponse);
                 Events.ExecuteOnErrorGetBusinessBehaviors(e);
                 throw;
             }
@@ -6052,7 +5867,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBusinessCoinsBalance(ref decimal version, ref long accountId, ref string appKey, ref Option<bool> returnRawResponse);
+        partial void FormatGetBusinessCoinsBalance(ref long accountId, ref string appKey, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -6069,14 +5884,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetBusinessCoinsBalanceDefaultImplementation(IGetBusinessCoinsBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse)
+        private void AfterGetBusinessCoinsBalanceDefaultImplementation(IGetBusinessCoinsBalanceApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetBusinessCoinsBalance(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, returnRawResponse);
+            AfterGetBusinessCoinsBalance(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6086,11 +5900,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetBusinessCoinsBalance(ref bool suppressDefaultLog, IGetBusinessCoinsBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse);
+        partial void AfterGetBusinessCoinsBalance(ref bool suppressDefaultLog, IGetBusinessCoinsBalanceApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6098,14 +5911,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetBusinessCoinsBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse)
+        private void OnErrorGetBusinessCoinsBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetBusinessCoinsBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, returnRawResponse);
+            OnErrorGetBusinessCoinsBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6117,26 +5929,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetBusinessCoinsBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse);
+        partial void OnErrorGetBusinessCoinsBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get the coins for a Business Get the coins for a Businesss.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessCoinsBalanceApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessCoinsBalanceApiResponse?> GetBusinessCoinsBalanceOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessCoinsBalanceApiResponse?> GetBusinessCoinsBalanceOrDefaultAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetBusinessCoinsBalanceAsync(version, accountId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetBusinessCoinsBalanceAsync(accountId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6148,13 +5958,12 @@ namespace Org.OpenAPITools.Api
         /// Get the coins for a Business Get the coins for a Businesss.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessCoinsBalanceApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessCoinsBalanceApiResponse> GetBusinessCoinsBalanceAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessCoinsBalanceApiResponse> GetBusinessCoinsBalanceAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6162,7 +5971,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetBusinessCoinsBalance(appKey);
 
-                FormatGetBusinessCoinsBalance(ref version, ref accountId, ref appKey, ref returnRawResponse);
+                FormatGetBusinessCoinsBalance(ref accountId, ref appKey, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6170,9 +5979,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/coins/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/coins/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/coins/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/coins/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6198,13 +6006,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/coins/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/coins/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetBusinessCoinsBalanceDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, returnRawResponse);
+                        AfterGetBusinessCoinsBalanceDefaultImplementation(apiResponseLocalVar, accountId, appKey, returnRawResponse);
 
                         Events.ExecuteOnGetBusinessCoinsBalance(apiResponseLocalVar);
 
@@ -6214,7 +6022,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetBusinessCoinsBalanceDefaultImplementation(e, "/api/{version}/vatom/b/coins/get", uriBuilderLocalVar.Path, version, accountId, appKey, returnRawResponse);
+                OnErrorGetBusinessCoinsBalanceDefaultImplementation(e, "/vatom/b/coins/get", uriBuilderLocalVar.Path, accountId, appKey, returnRawResponse);
                 Events.ExecuteOnErrorGetBusinessCoinsBalance(e);
                 throw;
             }
@@ -6281,19 +6089,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBusinessIds(ref decimal version, ref long accountId, ref Option<bool> returnRawResponse);
+        partial void FormatGetBusinessIds(ref long accountId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetBusinessIdsDefaultImplementation(IGetBusinessIdsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<bool> returnRawResponse)
+        private void AfterGetBusinessIdsDefaultImplementation(IGetBusinessIdsApiResponse apiResponseLocalVar, long accountId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetBusinessIds(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, returnRawResponse);
+            AfterGetBusinessIds(ref suppressDefaultLog, apiResponseLocalVar, accountId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6303,10 +6110,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetBusinessIds(ref bool suppressDefaultLog, IGetBusinessIdsApiResponse apiResponseLocalVar, decimal version, long accountId, Option<bool> returnRawResponse);
+        partial void AfterGetBusinessIds(ref bool suppressDefaultLog, IGetBusinessIdsApiResponse apiResponseLocalVar, long accountId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6314,13 +6120,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetBusinessIdsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<bool> returnRawResponse)
+        private void OnErrorGetBusinessIdsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetBusinessIds(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, returnRawResponse);
+            OnErrorGetBusinessIds(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6332,24 +6137,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetBusinessIds(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<bool> returnRawResponse);
+        partial void OnErrorGetBusinessIds(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get the user business ids Get the business ids the logged in user has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessIdsApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessIdsApiResponse?> GetBusinessIdsOrDefaultAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessIdsApiResponse?> GetBusinessIdsOrDefaultAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetBusinessIdsAsync(version, accountId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetBusinessIdsAsync(accountId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6361,18 +6164,17 @@ namespace Org.OpenAPITools.Api
         /// Get the user business ids Get the business ids the logged in user has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessIdsApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessIdsApiResponse> GetBusinessIdsAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessIdsApiResponse> GetBusinessIdsAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetBusinessIds(ref version, ref accountId, ref returnRawResponse);
+                FormatGetBusinessIds(ref accountId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6380,9 +6182,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/businesses"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/businesses");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/businesses"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/businesses");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6407,13 +6208,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/businesses", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/businesses", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetBusinessIdsDefaultImplementation(apiResponseLocalVar, version, accountId, returnRawResponse);
+                        AfterGetBusinessIdsDefaultImplementation(apiResponseLocalVar, accountId, returnRawResponse);
 
                         Events.ExecuteOnGetBusinessIds(apiResponseLocalVar);
 
@@ -6423,7 +6224,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetBusinessIdsDefaultImplementation(e, "/api/{version}/vatom/me/businesses", uriBuilderLocalVar.Path, version, accountId, returnRawResponse);
+                OnErrorGetBusinessIdsDefaultImplementation(e, "/vatom/me/businesses", uriBuilderLocalVar.Path, accountId, returnRawResponse);
                 Events.ExecuteOnErrorGetBusinessIds(e);
                 throw;
             }
@@ -6490,7 +6291,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBusinessInfo(ref decimal version, ref long accountId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatGetBusinessInfo(ref long accountId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -6511,15 +6312,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetBusinessInfoDefaultImplementation(IGetBusinessInfoApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterGetBusinessInfoDefaultImplementation(IGetBusinessInfoApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetBusinessInfo(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            AfterGetBusinessInfo(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6529,12 +6329,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetBusinessInfo(ref bool suppressDefaultLog, IGetBusinessInfoApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterGetBusinessInfo(ref bool suppressDefaultLog, IGetBusinessInfoApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6542,15 +6341,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetBusinessInfoDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorGetBusinessInfoDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetBusinessInfo(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            OnErrorGetBusinessInfo(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6562,28 +6360,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetBusinessInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorGetBusinessInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom Business Info Gets the business info tied to this account.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessInfoApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessInfoApiResponse?> GetBusinessInfoOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessInfoApiResponse?> GetBusinessInfoOrDefaultAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetBusinessInfoAsync(version, accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetBusinessInfoAsync(accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6595,14 +6391,13 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom Business Info Gets the business info tied to this account.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessInfoApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessInfoApiResponse> GetBusinessInfoAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessInfoApiResponse> GetBusinessInfoAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6610,7 +6405,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetBusinessInfo(appKey, vatomParameters);
 
-                FormatGetBusinessInfo(ref version, ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatGetBusinessInfo(ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6618,9 +6413,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6649,13 +6443,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetBusinessInfoDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+                        AfterGetBusinessInfoDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnGetBusinessInfo(apiResponseLocalVar);
 
@@ -6665,7 +6459,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetBusinessInfoDefaultImplementation(e, "/api/{version}/vatom/b/get", uriBuilderLocalVar.Path, version, accountId, appKey, vatomParameters, returnRawResponse);
+                OnErrorGetBusinessInfoDefaultImplementation(e, "/vatom/b/get", uriBuilderLocalVar.Path, accountId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorGetBusinessInfo(e);
                 throw;
             }
@@ -6732,7 +6526,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetBusinessUsers(ref decimal version, ref long accountId, ref string appKey, ref Option<bool> returnRawResponse);
+        partial void FormatGetBusinessUsers(ref long accountId, ref string appKey, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -6749,14 +6543,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetBusinessUsersDefaultImplementation(IGetBusinessUsersApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse)
+        private void AfterGetBusinessUsersDefaultImplementation(IGetBusinessUsersApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetBusinessUsers(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, returnRawResponse);
+            AfterGetBusinessUsers(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6766,11 +6559,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetBusinessUsers(ref bool suppressDefaultLog, IGetBusinessUsersApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse);
+        partial void AfterGetBusinessUsers(ref bool suppressDefaultLog, IGetBusinessUsersApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6778,14 +6570,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetBusinessUsersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse)
+        private void OnErrorGetBusinessUsersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetBusinessUsers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, returnRawResponse);
+            OnErrorGetBusinessUsers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6797,26 +6588,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetBusinessUsers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse);
+        partial void OnErrorGetBusinessUsers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom Business Users Gets the users of a business.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessUsersApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessUsersApiResponse?> GetBusinessUsersOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessUsersApiResponse?> GetBusinessUsersOrDefaultAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetBusinessUsersAsync(version, accountId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetBusinessUsersAsync(accountId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6828,13 +6617,12 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom Business Users Gets the users of a business.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetBusinessUsersApiResponse"/>&gt;</returns>
-        public async Task<IGetBusinessUsersApiResponse> GetBusinessUsersAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetBusinessUsersApiResponse> GetBusinessUsersAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6842,7 +6630,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetBusinessUsers(appKey);
 
-                FormatGetBusinessUsers(ref version, ref accountId, ref appKey, ref returnRawResponse);
+                FormatGetBusinessUsers(ref accountId, ref appKey, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6850,9 +6638,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/users"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/users");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/users"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/users");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6878,13 +6665,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/users", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/users", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetBusinessUsersDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, returnRawResponse);
+                        AfterGetBusinessUsersDefaultImplementation(apiResponseLocalVar, accountId, appKey, returnRawResponse);
 
                         Events.ExecuteOnGetBusinessUsers(apiResponseLocalVar);
 
@@ -6894,7 +6681,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetBusinessUsersDefaultImplementation(e, "/api/{version}/vatom/b/users", uriBuilderLocalVar.Path, version, accountId, appKey, returnRawResponse);
+                OnErrorGetBusinessUsersDefaultImplementation(e, "/vatom/b/users", uriBuilderLocalVar.Path, accountId, appKey, returnRawResponse);
                 Events.ExecuteOnErrorGetBusinessUsers(e);
                 throw;
             }
@@ -6961,7 +6748,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCampaignGroupEntities(ref decimal version, ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
+        partial void FormatGetCampaignGroupEntities(ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -6982,15 +6769,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetCampaignGroupEntitiesDefaultImplementation(IGetCampaignGroupEntitiesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void AfterGetCampaignGroupEntitiesDefaultImplementation(IGetCampaignGroupEntitiesApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetCampaignGroupEntities(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            AfterGetCampaignGroupEntities(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7000,12 +6786,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetCampaignGroupEntities(ref bool suppressDefaultLog, IGetCampaignGroupEntitiesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void AfterGetCampaignGroupEntities(ref bool suppressDefaultLog, IGetCampaignGroupEntitiesApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7013,15 +6798,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetCampaignGroupEntitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void OnErrorGetCampaignGroupEntitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCampaignGroupEntities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            OnErrorGetCampaignGroupEntities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7033,28 +6817,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetCampaignGroupEntities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void OnErrorGetCampaignGroupEntities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Campaign Group Entities Get campaign group entities.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupEntitiesApiResponse"/>&gt;</returns>
-        public async Task<IGetCampaignGroupEntitiesApiResponse?> GetCampaignGroupEntitiesOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCampaignGroupEntitiesApiResponse?> GetCampaignGroupEntitiesOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCampaignGroupEntitiesAsync(version, accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetCampaignGroupEntitiesAsync(accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7066,14 +6848,13 @@ namespace Org.OpenAPITools.Api
         /// Get Campaign Group Entities Get campaign group entities.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupEntitiesApiResponse"/>&gt;</returns>
-        public async Task<IGetCampaignGroupEntitiesApiResponse> GetCampaignGroupEntitiesAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCampaignGroupEntitiesApiResponse> GetCampaignGroupEntitiesAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7081,7 +6862,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetCampaignGroupEntities(appKey, vatomCampaignId);
 
-                FormatGetCampaignGroupEntities(ref version, ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
+                FormatGetCampaignGroupEntities(ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7089,9 +6870,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaign-groups/entities"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaign-groups/entities");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaign-groups/entities"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaign-groups/entities");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7118,13 +6898,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaign-groups/entities", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaign-groups/entities", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCampaignGroupEntitiesDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                        AfterGetCampaignGroupEntitiesDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
 
                         Events.ExecuteOnGetCampaignGroupEntities(apiResponseLocalVar);
 
@@ -7134,7 +6914,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCampaignGroupEntitiesDefaultImplementation(e, "/api/{version}/vatom/b/campaign-groups/entities", uriBuilderLocalVar.Path, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                OnErrorGetCampaignGroupEntitiesDefaultImplementation(e, "/vatom/b/campaign-groups/entities", uriBuilderLocalVar.Path, accountId, appKey, vatomCampaignId, returnRawResponse);
                 Events.ExecuteOnErrorGetCampaignGroupEntities(e);
                 throw;
             }
@@ -7201,7 +6981,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCampaignGroupRules(ref decimal version, ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
+        partial void FormatGetCampaignGroupRules(ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -7222,15 +7002,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetCampaignGroupRulesDefaultImplementation(IGetCampaignGroupRulesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void AfterGetCampaignGroupRulesDefaultImplementation(IGetCampaignGroupRulesApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetCampaignGroupRules(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            AfterGetCampaignGroupRules(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7240,12 +7019,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetCampaignGroupRules(ref bool suppressDefaultLog, IGetCampaignGroupRulesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void AfterGetCampaignGroupRules(ref bool suppressDefaultLog, IGetCampaignGroupRulesApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7253,15 +7031,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetCampaignGroupRulesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void OnErrorGetCampaignGroupRulesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCampaignGroupRules(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            OnErrorGetCampaignGroupRules(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7273,28 +7050,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetCampaignGroupRules(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void OnErrorGetCampaignGroupRules(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Campaign Group Rules Get campaign group rules.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupRulesApiResponse"/>&gt;</returns>
-        public async Task<IGetCampaignGroupRulesApiResponse?> GetCampaignGroupRulesOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCampaignGroupRulesApiResponse?> GetCampaignGroupRulesOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCampaignGroupRulesAsync(version, accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetCampaignGroupRulesAsync(accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7306,14 +7081,13 @@ namespace Org.OpenAPITools.Api
         /// Get Campaign Group Rules Get campaign group rules.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupRulesApiResponse"/>&gt;</returns>
-        public async Task<IGetCampaignGroupRulesApiResponse> GetCampaignGroupRulesAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCampaignGroupRulesApiResponse> GetCampaignGroupRulesAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7321,7 +7095,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetCampaignGroupRules(appKey, vatomCampaignId);
 
-                FormatGetCampaignGroupRules(ref version, ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
+                FormatGetCampaignGroupRules(ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7329,9 +7103,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaign-groups/rules"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaign-groups/rules");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaign-groups/rules"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaign-groups/rules");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7358,13 +7131,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaign-groups/rules", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaign-groups/rules", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCampaignGroupRulesDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                        AfterGetCampaignGroupRulesDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
 
                         Events.ExecuteOnGetCampaignGroupRules(apiResponseLocalVar);
 
@@ -7374,7 +7147,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCampaignGroupRulesDefaultImplementation(e, "/api/{version}/vatom/b/campaign-groups/rules", uriBuilderLocalVar.Path, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                OnErrorGetCampaignGroupRulesDefaultImplementation(e, "/vatom/b/campaign-groups/rules", uriBuilderLocalVar.Path, accountId, appKey, vatomCampaignId, returnRawResponse);
                 Events.ExecuteOnErrorGetCampaignGroupRules(e);
                 throw;
             }
@@ -7441,7 +7214,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCampaignGroupStats(ref decimal version, ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
+        partial void FormatGetCampaignGroupStats(ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -7462,15 +7235,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetCampaignGroupStatsDefaultImplementation(IGetCampaignGroupStatsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void AfterGetCampaignGroupStatsDefaultImplementation(IGetCampaignGroupStatsApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetCampaignGroupStats(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            AfterGetCampaignGroupStats(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7480,12 +7252,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetCampaignGroupStats(ref bool suppressDefaultLog, IGetCampaignGroupStatsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void AfterGetCampaignGroupStats(ref bool suppressDefaultLog, IGetCampaignGroupStatsApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7493,15 +7264,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetCampaignGroupStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void OnErrorGetCampaignGroupStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCampaignGroupStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            OnErrorGetCampaignGroupStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7513,28 +7283,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetCampaignGroupStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void OnErrorGetCampaignGroupStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Campaign Group Stats Get campaign group stats.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupStatsApiResponse"/>&gt;</returns>
-        public async Task<IGetCampaignGroupStatsApiResponse?> GetCampaignGroupStatsOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCampaignGroupStatsApiResponse?> GetCampaignGroupStatsOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCampaignGroupStatsAsync(version, accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetCampaignGroupStatsAsync(accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7546,14 +7314,13 @@ namespace Org.OpenAPITools.Api
         /// Get Campaign Group Stats Get campaign group stats.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignGroupStatsApiResponse"/>&gt;</returns>
-        public async Task<IGetCampaignGroupStatsApiResponse> GetCampaignGroupStatsAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCampaignGroupStatsApiResponse> GetCampaignGroupStatsAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7561,7 +7328,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetCampaignGroupStats(appKey, vatomCampaignId);
 
-                FormatGetCampaignGroupStats(ref version, ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
+                FormatGetCampaignGroupStats(ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7569,9 +7336,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaign-groups/stats"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaign-groups/stats");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaign-groups/stats"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaign-groups/stats");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7598,13 +7364,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaign-groups/stats", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaign-groups/stats", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCampaignGroupStatsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                        AfterGetCampaignGroupStatsDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
 
                         Events.ExecuteOnGetCampaignGroupStats(apiResponseLocalVar);
 
@@ -7614,7 +7380,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCampaignGroupStatsDefaultImplementation(e, "/api/{version}/vatom/b/campaign-groups/stats", uriBuilderLocalVar.Path, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                OnErrorGetCampaignGroupStatsDefaultImplementation(e, "/vatom/b/campaign-groups/stats", uriBuilderLocalVar.Path, accountId, appKey, vatomCampaignId, returnRawResponse);
                 Events.ExecuteOnErrorGetCampaignGroupStats(e);
                 throw;
             }
@@ -7681,7 +7447,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetCampaignInfo(ref decimal version, ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
+        partial void FormatGetCampaignInfo(ref long accountId, ref string appKey, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -7702,15 +7468,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetCampaignInfoDefaultImplementation(IGetCampaignInfoApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void AfterGetCampaignInfoDefaultImplementation(IGetCampaignInfoApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetCampaignInfo(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            AfterGetCampaignInfo(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7720,12 +7485,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetCampaignInfo(ref bool suppressDefaultLog, IGetCampaignInfoApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void AfterGetCampaignInfo(ref bool suppressDefaultLog, IGetCampaignInfoApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7733,15 +7497,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetCampaignInfoDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void OnErrorGetCampaignInfoDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetCampaignInfo(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+            OnErrorGetCampaignInfo(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7753,28 +7516,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetCampaignInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void OnErrorGetCampaignInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Campaign Info Gets the info on a campaign.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignInfoApiResponse"/>&gt;</returns>
-        public async Task<IGetCampaignInfoApiResponse?> GetCampaignInfoOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCampaignInfoApiResponse?> GetCampaignInfoOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetCampaignInfoAsync(version, accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetCampaignInfoAsync(accountId, appKey, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7786,14 +7547,13 @@ namespace Org.OpenAPITools.Api
         /// Get Campaign Info Gets the info on a campaign.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetCampaignInfoApiResponse"/>&gt;</returns>
-        public async Task<IGetCampaignInfoApiResponse> GetCampaignInfoAsync(decimal version, long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetCampaignInfoApiResponse> GetCampaignInfoAsync(long accountId, string appKey, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -7801,7 +7561,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetCampaignInfo(appKey, vatomCampaignId);
 
-                FormatGetCampaignInfo(ref version, ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
+                FormatGetCampaignInfo(ref accountId, ref appKey, ref vatomCampaignId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7809,9 +7569,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaign-groups/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaign-groups/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaign-groups/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaign-groups/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7838,13 +7597,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaign-groups/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaign-groups/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetCampaignInfoDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                        AfterGetCampaignInfoDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomCampaignId, returnRawResponse);
 
                         Events.ExecuteOnGetCampaignInfo(apiResponseLocalVar);
 
@@ -7854,7 +7613,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetCampaignInfoDefaultImplementation(e, "/api/{version}/vatom/b/campaign-groups/get", uriBuilderLocalVar.Path, version, accountId, appKey, vatomCampaignId, returnRawResponse);
+                OnErrorGetCampaignInfoDefaultImplementation(e, "/vatom/b/campaign-groups/get", uriBuilderLocalVar.Path, accountId, appKey, vatomCampaignId, returnRawResponse);
                 Events.ExecuteOnErrorGetCampaignInfo(e);
                 throw;
             }
@@ -7921,7 +7680,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetEventGuestList(ref decimal version, ref long accountId, ref string appKey, ref string vatomEventId, ref Option<bool> returnRawResponse);
+        partial void FormatGetEventGuestList(ref long accountId, ref string appKey, ref string vatomEventId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -7942,15 +7701,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetEventGuestListDefaultImplementation(IGetEventGuestListApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
+        private void AfterGetEventGuestListDefaultImplementation(IGetEventGuestListApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetEventGuestList(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+            AfterGetEventGuestList(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7960,12 +7718,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetEventGuestList(ref bool suppressDefaultLog, IGetEventGuestListApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
+        partial void AfterGetEventGuestList(ref bool suppressDefaultLog, IGetEventGuestListApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7973,15 +7730,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetEventGuestListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
+        private void OnErrorGetEventGuestListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetEventGuestList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+            OnErrorGetEventGuestList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7993,28 +7749,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetEventGuestList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
+        partial void OnErrorGetEventGuestList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom Event Guest List Gets the guest list of an event.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEventGuestListApiResponse"/>&gt;</returns>
-        public async Task<IGetEventGuestListApiResponse?> GetEventGuestListOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEventGuestListApiResponse?> GetEventGuestListOrDefaultAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetEventGuestListAsync(version, accountId, appKey, vatomEventId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetEventGuestListAsync(accountId, appKey, vatomEventId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8026,14 +7780,13 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom Event Guest List Gets the guest list of an event.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetEventGuestListApiResponse"/>&gt;</returns>
-        public async Task<IGetEventGuestListApiResponse> GetEventGuestListAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetEventGuestListApiResponse> GetEventGuestListAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8041,7 +7794,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetEventGuestList(appKey, vatomEventId);
 
-                FormatGetEventGuestList(ref version, ref accountId, ref appKey, ref vatomEventId, ref returnRawResponse);
+                FormatGetEventGuestList(ref accountId, ref appKey, ref vatomEventId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8049,9 +7802,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/events/guests/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/events/guests/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/events/guests/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/events/guests/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8078,13 +7830,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/events/guests/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/events/guests/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetEventGuestListDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+                        AfterGetEventGuestListDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
 
                         Events.ExecuteOnGetEventGuestList(apiResponseLocalVar);
 
@@ -8094,7 +7846,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetEventGuestListDefaultImplementation(e, "/api/{version}/vatom/b/events/guests/get", uriBuilderLocalVar.Path, version, accountId, appKey, vatomEventId, returnRawResponse);
+                OnErrorGetEventGuestListDefaultImplementation(e, "/vatom/b/events/guests/get", uriBuilderLocalVar.Path, accountId, appKey, vatomEventId, returnRawResponse);
                 Events.ExecuteOnErrorGetEventGuestList(e);
                 throw;
             }
@@ -8161,7 +7913,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetInventory(ref decimal version, ref long accountId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatGetInventory(ref long accountId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -8178,14 +7930,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetInventoryDefaultImplementation(IGetInventoryApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterGetInventoryDefaultImplementation(IGetInventoryApiResponse apiResponseLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetInventory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            AfterGetInventory(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8195,11 +7946,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetInventory(ref bool suppressDefaultLog, IGetInventoryApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterGetInventory(ref bool suppressDefaultLog, IGetInventoryApiResponse apiResponseLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8207,14 +7957,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetInventoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorGetInventoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetInventory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            OnErrorGetInventory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8226,26 +7975,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetInventory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorGetInventory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom User&#39;s Inventory Gets the logged in user&#39;s Vatom Inventory.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetInventoryApiResponse"/>&gt;</returns>
-        public async Task<IGetInventoryApiResponse?> GetInventoryOrDefaultAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetInventoryApiResponse?> GetInventoryOrDefaultAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetInventoryAsync(version, accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetInventoryAsync(accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8257,13 +8004,12 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom User&#39;s Inventory Gets the logged in user&#39;s Vatom Inventory.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetInventoryApiResponse"/>&gt;</returns>
-        public async Task<IGetInventoryApiResponse> GetInventoryAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetInventoryApiResponse> GetInventoryAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8271,7 +8017,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetInventory(vatomParameters);
 
-                FormatGetInventory(ref version, ref accountId, ref vatomParameters, ref returnRawResponse);
+                FormatGetInventory(ref accountId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8279,9 +8025,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/inventory"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/inventory");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/inventory"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/inventory");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8307,13 +8052,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/inventory", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/inventory", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetInventoryDefaultImplementation(apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+                        AfterGetInventoryDefaultImplementation(apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnGetInventory(apiResponseLocalVar);
 
@@ -8323,7 +8068,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetInventoryDefaultImplementation(e, "/api/{version}/vatom/me/inventory", uriBuilderLocalVar.Path, version, accountId, vatomParameters, returnRawResponse);
+                OnErrorGetInventoryDefaultImplementation(e, "/vatom/me/inventory", uriBuilderLocalVar.Path, accountId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorGetInventory(e);
                 throw;
             }
@@ -8390,19 +8135,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetMyFollowing(ref decimal version, ref long accountId, ref Option<bool> returnRawResponse);
+        partial void FormatGetMyFollowing(ref long accountId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetMyFollowingDefaultImplementation(IGetMyFollowingApiResponse apiResponseLocalVar, decimal version, long accountId, Option<bool> returnRawResponse)
+        private void AfterGetMyFollowingDefaultImplementation(IGetMyFollowingApiResponse apiResponseLocalVar, long accountId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetMyFollowing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, returnRawResponse);
+            AfterGetMyFollowing(ref suppressDefaultLog, apiResponseLocalVar, accountId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8412,10 +8156,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetMyFollowing(ref bool suppressDefaultLog, IGetMyFollowingApiResponse apiResponseLocalVar, decimal version, long accountId, Option<bool> returnRawResponse);
+        partial void AfterGetMyFollowing(ref bool suppressDefaultLog, IGetMyFollowingApiResponse apiResponseLocalVar, long accountId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8423,13 +8166,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetMyFollowingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<bool> returnRawResponse)
+        private void OnErrorGetMyFollowingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetMyFollowing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, returnRawResponse);
+            OnErrorGetMyFollowing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8441,24 +8183,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetMyFollowing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<bool> returnRawResponse);
+        partial void OnErrorGetMyFollowing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get following Get following.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMyFollowingApiResponse"/>&gt;</returns>
-        public async Task<IGetMyFollowingApiResponse?> GetMyFollowingOrDefaultAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMyFollowingApiResponse?> GetMyFollowingOrDefaultAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetMyFollowingAsync(version, accountId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetMyFollowingAsync(accountId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8470,18 +8210,17 @@ namespace Org.OpenAPITools.Api
         /// Get following Get following.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetMyFollowingApiResponse"/>&gt;</returns>
-        public async Task<IGetMyFollowingApiResponse> GetMyFollowingAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetMyFollowingApiResponse> GetMyFollowingAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetMyFollowing(ref version, ref accountId, ref returnRawResponse);
+                FormatGetMyFollowing(ref accountId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8489,9 +8228,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/rels/following"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/rels/following");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/rels/following"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/rels/following");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8516,13 +8254,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/rels/following", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/rels/following", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetMyFollowingDefaultImplementation(apiResponseLocalVar, version, accountId, returnRawResponse);
+                        AfterGetMyFollowingDefaultImplementation(apiResponseLocalVar, accountId, returnRawResponse);
 
                         Events.ExecuteOnGetMyFollowing(apiResponseLocalVar);
 
@@ -8532,7 +8270,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetMyFollowingDefaultImplementation(e, "/api/{version}/vatom/me/rels/following", uriBuilderLocalVar.Path, version, accountId, returnRawResponse);
+                OnErrorGetMyFollowingDefaultImplementation(e, "/vatom/me/rels/following", uriBuilderLocalVar.Path, accountId, returnRawResponse);
                 Events.ExecuteOnErrorGetMyFollowing(e);
                 throw;
             }
@@ -8599,7 +8337,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPointsBalance(ref decimal version, ref long accountId, ref string vatomUserId, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
+        partial void FormatGetPointsBalance(ref long accountId, ref string vatomUserId, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -8620,15 +8358,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetPointsBalanceDefaultImplementation(IGetPointsBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void AfterGetPointsBalanceDefaultImplementation(IGetPointsBalanceApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetPointsBalance(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
+            AfterGetPointsBalance(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8638,12 +8375,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetPointsBalance(ref bool suppressDefaultLog, IGetPointsBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void AfterGetPointsBalance(ref bool suppressDefaultLog, IGetPointsBalanceApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8651,15 +8387,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetPointsBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void OnErrorGetPointsBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPointsBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
+            OnErrorGetPointsBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8671,28 +8406,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetPointsBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void OnErrorGetPointsBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Points Balance Gets the points balance of a Vatom user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPointsBalanceApiResponse"/>&gt;</returns>
-        public async Task<IGetPointsBalanceApiResponse?> GetPointsBalanceOrDefaultAsync(decimal version, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPointsBalanceApiResponse?> GetPointsBalanceOrDefaultAsync(long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPointsBalanceAsync(version, accountId, vatomUserId, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetPointsBalanceAsync(accountId, vatomUserId, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8704,14 +8437,13 @@ namespace Org.OpenAPITools.Api
         /// Get Points Balance Gets the points balance of a Vatom user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPointsBalanceApiResponse"/>&gt;</returns>
-        public async Task<IGetPointsBalanceApiResponse> GetPointsBalanceAsync(decimal version, long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPointsBalanceApiResponse> GetPointsBalanceAsync(long accountId, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8719,7 +8451,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetPointsBalance(vatomUserId, vatomCampaignId);
 
-                FormatGetPointsBalance(ref version, ref accountId, ref vatomUserId, ref vatomCampaignId, ref returnRawResponse);
+                FormatGetPointsBalance(ref accountId, ref vatomUserId, ref vatomCampaignId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8727,9 +8459,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/u/campaign/points/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/u/campaign/points/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/u/campaign/points/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/u/campaign/points/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8756,13 +8487,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/u/campaign/points/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/u/campaign/points/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPointsBalanceDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
+                        AfterGetPointsBalanceDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
 
                         Events.ExecuteOnGetPointsBalance(apiResponseLocalVar);
 
@@ -8772,7 +8503,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPointsBalanceDefaultImplementation(e, "/api/{version}/vatom/u/campaign/points/get", uriBuilderLocalVar.Path, version, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
+                OnErrorGetPointsBalanceDefaultImplementation(e, "/vatom/u/campaign/points/get", uriBuilderLocalVar.Path, accountId, vatomUserId, vatomCampaignId, returnRawResponse);
                 Events.ExecuteOnErrorGetPointsBalance(e);
                 throw;
             }
@@ -8839,7 +8570,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetPointsBalanceAsBusiness(ref decimal version, ref long accountId, ref string appKey, ref string vatomUserId, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
+        partial void FormatGetPointsBalanceAsBusiness(ref long accountId, ref string appKey, ref string vatomUserId, ref string vatomCampaignId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -8864,16 +8595,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetPointsBalanceAsBusinessDefaultImplementation(IGetPointsBalanceAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void AfterGetPointsBalanceAsBusinessDefaultImplementation(IGetPointsBalanceAsBusinessApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetPointsBalanceAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
+            AfterGetPointsBalanceAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8883,13 +8613,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetPointsBalanceAsBusiness(ref bool suppressDefaultLog, IGetPointsBalanceAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void AfterGetPointsBalanceAsBusiness(ref bool suppressDefaultLog, IGetPointsBalanceAsBusinessApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8897,16 +8626,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetPointsBalanceAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse)
+        private void OnErrorGetPointsBalanceAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetPointsBalanceAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
+            OnErrorGetPointsBalanceAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8918,18 +8646,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetPointsBalanceAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse);
+        partial void OnErrorGetPointsBalanceAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Points Balance as Business Gets the points balance of a Vatom user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomUserId">Vatom User Id</param>
@@ -8937,11 +8663,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPointsBalanceAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IGetPointsBalanceAsBusinessApiResponse?> GetPointsBalanceAsBusinessOrDefaultAsync(decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPointsBalanceAsBusinessApiResponse?> GetPointsBalanceAsBusinessOrDefaultAsync(long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetPointsBalanceAsBusinessAsync(version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetPointsBalanceAsBusinessAsync(accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8953,7 +8679,6 @@ namespace Org.OpenAPITools.Api
         /// Get Points Balance as Business Gets the points balance of a Vatom user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomUserId">Vatom User Id</param>
@@ -8961,7 +8686,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetPointsBalanceAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IGetPointsBalanceAsBusinessApiResponse> GetPointsBalanceAsBusinessAsync(decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetPointsBalanceAsBusinessApiResponse> GetPointsBalanceAsBusinessAsync(long accountId, string appKey, string vatomUserId, string vatomCampaignId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8969,7 +8694,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetPointsBalanceAsBusiness(appKey, vatomUserId, vatomCampaignId);
 
-                FormatGetPointsBalanceAsBusiness(ref version, ref accountId, ref appKey, ref vatomUserId, ref vatomCampaignId, ref returnRawResponse);
+                FormatGetPointsBalanceAsBusiness(ref accountId, ref appKey, ref vatomUserId, ref vatomCampaignId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8977,9 +8702,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaign/u/points/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaign/u/points/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaign/u/points/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaign/u/points/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9007,13 +8731,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaign/u/points/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaign/u/points/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetPointsBalanceAsBusinessDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
+                        AfterGetPointsBalanceAsBusinessDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
 
                         Events.ExecuteOnGetPointsBalanceAsBusiness(apiResponseLocalVar);
 
@@ -9023,7 +8747,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetPointsBalanceAsBusinessDefaultImplementation(e, "/api/{version}/vatom/b/campaign/u/points/get", uriBuilderLocalVar.Path, version, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
+                OnErrorGetPointsBalanceAsBusinessDefaultImplementation(e, "/vatom/b/campaign/u/points/get", uriBuilderLocalVar.Path, accountId, appKey, vatomUserId, vatomCampaignId, returnRawResponse);
                 Events.ExecuteOnErrorGetPointsBalanceAsBusiness(e);
                 throw;
             }
@@ -9090,7 +8814,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetSpace(ref decimal version, ref long accountId, ref string appKey, ref string vatomSpaceId, ref Option<bool> returnRawResponse);
+        partial void FormatGetSpace(ref long accountId, ref string appKey, ref string vatomSpaceId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -9111,15 +8835,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetSpaceDefaultImplementation(IGetSpaceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse)
+        private void AfterGetSpaceDefaultImplementation(IGetSpaceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetSpace(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomSpaceId, returnRawResponse);
+            AfterGetSpace(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomSpaceId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -9129,12 +8852,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetSpace(ref bool suppressDefaultLog, IGetSpaceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse);
+        partial void AfterGetSpace(ref bool suppressDefaultLog, IGetSpaceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -9142,15 +8864,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetSpaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse)
+        private void OnErrorGetSpaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetSpace(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomSpaceId, returnRawResponse);
+            OnErrorGetSpace(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomSpaceId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -9162,28 +8883,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetSpace(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse);
+        partial void OnErrorGetSpace(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom Space Gets the details of a space.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSpaceApiResponse"/>&gt;</returns>
-        public async Task<IGetSpaceApiResponse?> GetSpaceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSpaceApiResponse?> GetSpaceOrDefaultAsync(long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetSpaceAsync(version, accountId, appKey, vatomSpaceId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetSpaceAsync(accountId, appKey, vatomSpaceId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -9195,14 +8914,13 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom Space Gets the details of a space.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetSpaceApiResponse"/>&gt;</returns>
-        public async Task<IGetSpaceApiResponse> GetSpaceAsync(decimal version, long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetSpaceApiResponse> GetSpaceAsync(long accountId, string appKey, string vatomSpaceId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -9210,7 +8928,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetSpace(appKey, vatomSpaceId);
 
-                FormatGetSpace(ref version, ref accountId, ref appKey, ref vatomSpaceId, ref returnRawResponse);
+                FormatGetSpace(ref accountId, ref appKey, ref vatomSpaceId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -9218,9 +8936,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/spaces/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/spaces/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/spaces/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/spaces/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9247,13 +8964,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/spaces/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/spaces/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetSpaceDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomSpaceId, returnRawResponse);
+                        AfterGetSpaceDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomSpaceId, returnRawResponse);
 
                         Events.ExecuteOnGetSpace(apiResponseLocalVar);
 
@@ -9263,7 +8980,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetSpaceDefaultImplementation(e, "/api/{version}/vatom/b/spaces/get", uriBuilderLocalVar.Path, version, accountId, appKey, vatomSpaceId, returnRawResponse);
+                OnErrorGetSpaceDefaultImplementation(e, "/vatom/b/spaces/get", uriBuilderLocalVar.Path, accountId, appKey, vatomSpaceId, returnRawResponse);
                 Events.ExecuteOnErrorGetSpace(e);
                 throw;
             }
@@ -9330,7 +9047,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUserCoinsAsBusiness(ref decimal version, ref long accountId, ref string vatomUserId, ref string appKey, ref Option<bool> returnRawResponse);
+        partial void FormatGetUserCoinsAsBusiness(ref long accountId, ref string vatomUserId, ref string appKey, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -9351,15 +9068,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetUserCoinsAsBusinessDefaultImplementation(IGetUserCoinsAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse)
+        private void AfterGetUserCoinsAsBusinessDefaultImplementation(IGetUserCoinsAsBusinessApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetUserCoinsAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, appKey, returnRawResponse);
+            AfterGetUserCoinsAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, appKey, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -9369,12 +9085,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetUserCoinsAsBusiness(ref bool suppressDefaultLog, IGetUserCoinsAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse);
+        partial void AfterGetUserCoinsAsBusiness(ref bool suppressDefaultLog, IGetUserCoinsAsBusinessApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -9382,15 +9097,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetUserCoinsAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse)
+        private void OnErrorGetUserCoinsAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUserCoinsAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, appKey, returnRawResponse);
+            OnErrorGetUserCoinsAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, appKey, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -9402,28 +9116,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetUserCoinsAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse);
+        partial void OnErrorGetUserCoinsAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get the coins for a user (as a Business) Get the coins for a user (as a Business).
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IGetUserCoinsAsBusinessApiResponse?> GetUserCoinsAsBusinessOrDefaultAsync(decimal version, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserCoinsAsBusinessApiResponse?> GetUserCoinsAsBusinessOrDefaultAsync(long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUserCoinsAsBusinessAsync(version, accountId, vatomUserId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetUserCoinsAsBusinessAsync(accountId, vatomUserId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -9435,14 +9147,13 @@ namespace Org.OpenAPITools.Api
         /// Get the coins for a user (as a Business) Get the coins for a user (as a Business).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IGetUserCoinsAsBusinessApiResponse> GetUserCoinsAsBusinessAsync(decimal version, long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserCoinsAsBusinessApiResponse> GetUserCoinsAsBusinessAsync(long accountId, string vatomUserId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -9450,7 +9161,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetUserCoinsAsBusiness(vatomUserId, appKey);
 
-                FormatGetUserCoinsAsBusiness(ref version, ref accountId, ref vatomUserId, ref appKey, ref returnRawResponse);
+                FormatGetUserCoinsAsBusiness(ref accountId, ref vatomUserId, ref appKey, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -9458,9 +9169,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/users/coins/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/users/coins/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/users/coins/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/users/coins/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9487,13 +9197,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/users/coins/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/users/coins/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUserCoinsAsBusinessDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, appKey, returnRawResponse);
+                        AfterGetUserCoinsAsBusinessDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, appKey, returnRawResponse);
 
                         Events.ExecuteOnGetUserCoinsAsBusiness(apiResponseLocalVar);
 
@@ -9503,7 +9213,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUserCoinsAsBusinessDefaultImplementation(e, "/api/{version}/vatom/b/users/coins/get", uriBuilderLocalVar.Path, version, accountId, vatomUserId, appKey, returnRawResponse);
+                OnErrorGetUserCoinsAsBusinessDefaultImplementation(e, "/vatom/b/users/coins/get", uriBuilderLocalVar.Path, accountId, vatomUserId, appKey, returnRawResponse);
                 Events.ExecuteOnErrorGetUserCoinsAsBusiness(e);
                 throw;
             }
@@ -9570,7 +9280,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUserCoinsBalance(ref decimal version, ref long accountId, ref string vatomUserId, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatGetUserCoinsBalance(ref long accountId, ref string vatomUserId, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -9591,15 +9301,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetUserCoinsBalanceDefaultImplementation(IGetUserCoinsBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterGetUserCoinsBalanceDefaultImplementation(IGetUserCoinsBalanceApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetUserCoinsBalance(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+            AfterGetUserCoinsBalance(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -9609,12 +9318,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetUserCoinsBalance(ref bool suppressDefaultLog, IGetUserCoinsBalanceApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterGetUserCoinsBalance(ref bool suppressDefaultLog, IGetUserCoinsBalanceApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -9622,15 +9330,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetUserCoinsBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorGetUserCoinsBalanceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUserCoinsBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+            OnErrorGetUserCoinsBalance(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -9642,28 +9349,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetUserCoinsBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorGetUserCoinsBalance(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Gets the coins balance for a Vatom User Gets the coins balance for a Vatom User.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserCoinsBalanceApiResponse"/>&gt;</returns>
-        public async Task<IGetUserCoinsBalanceApiResponse?> GetUserCoinsBalanceOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserCoinsBalanceApiResponse?> GetUserCoinsBalanceOrDefaultAsync(long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUserCoinsBalanceAsync(version, accountId, vatomUserId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetUserCoinsBalanceAsync(accountId, vatomUserId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -9675,14 +9380,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the coins balance for a Vatom User Gets the coins balance for a Vatom User.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserCoinsBalanceApiResponse"/>&gt;</returns>
-        public async Task<IGetUserCoinsBalanceApiResponse> GetUserCoinsBalanceAsync(decimal version, long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserCoinsBalanceApiResponse> GetUserCoinsBalanceAsync(long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -9690,7 +9394,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetUserCoinsBalance(vatomUserId, vatomParameters);
 
-                FormatGetUserCoinsBalance(ref version, ref accountId, ref vatomUserId, ref vatomParameters, ref returnRawResponse);
+                FormatGetUserCoinsBalance(ref accountId, ref vatomUserId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -9698,9 +9402,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/u/coins/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/u/coins/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/u/coins/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/u/coins/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9729,13 +9432,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/u/coins/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/u/coins/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUserCoinsBalanceDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+                        AfterGetUserCoinsBalanceDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnGetUserCoinsBalance(apiResponseLocalVar);
 
@@ -9745,7 +9448,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUserCoinsBalanceDefaultImplementation(e, "/api/{version}/vatom/u/coins/get", uriBuilderLocalVar.Path, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+                OnErrorGetUserCoinsBalanceDefaultImplementation(e, "/vatom/u/coins/get", uriBuilderLocalVar.Path, accountId, vatomUserId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorGetUserCoinsBalance(e);
                 throw;
             }
@@ -9812,7 +9515,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUserFollowers(ref decimal version, ref long accountId, ref string vatomUserId, ref Option<bool> returnRawResponse);
+        partial void FormatGetUserFollowers(ref long accountId, ref string vatomUserId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -9829,14 +9532,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetUserFollowersDefaultImplementation(IGetUserFollowersApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse)
+        private void AfterGetUserFollowersDefaultImplementation(IGetUserFollowersApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetUserFollowers(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, returnRawResponse);
+            AfterGetUserFollowers(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -9846,11 +9548,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetUserFollowers(ref bool suppressDefaultLog, IGetUserFollowersApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse);
+        partial void AfterGetUserFollowers(ref bool suppressDefaultLog, IGetUserFollowersApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -9858,14 +9559,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetUserFollowersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse)
+        private void OnErrorGetUserFollowersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUserFollowers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, returnRawResponse);
+            OnErrorGetUserFollowers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -9877,26 +9577,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetUserFollowers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse);
+        partial void OnErrorGetUserFollowers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get user followers Get user followers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserFollowersApiResponse"/>&gt;</returns>
-        public async Task<IGetUserFollowersApiResponse?> GetUserFollowersOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserFollowersApiResponse?> GetUserFollowersOrDefaultAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUserFollowersAsync(version, accountId, vatomUserId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetUserFollowersAsync(accountId, vatomUserId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -9908,13 +9606,12 @@ namespace Org.OpenAPITools.Api
         /// Get user followers Get user followers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserFollowersApiResponse"/>&gt;</returns>
-        public async Task<IGetUserFollowersApiResponse> GetUserFollowersAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserFollowersApiResponse> GetUserFollowersAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -9922,7 +9619,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetUserFollowers(vatomUserId);
 
-                FormatGetUserFollowers(ref version, ref accountId, ref vatomUserId, ref returnRawResponse);
+                FormatGetUserFollowers(ref accountId, ref vatomUserId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -9930,9 +9627,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/users/rels/followers"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/users/rels/followers");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/users/rels/followers"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/users/rels/followers");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -9958,13 +9654,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/users/rels/followers", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/users/rels/followers", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUserFollowersDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, returnRawResponse);
+                        AfterGetUserFollowersDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, returnRawResponse);
 
                         Events.ExecuteOnGetUserFollowers(apiResponseLocalVar);
 
@@ -9974,7 +9670,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUserFollowersDefaultImplementation(e, "/api/{version}/vatom/users/rels/followers", uriBuilderLocalVar.Path, version, accountId, vatomUserId, returnRawResponse);
+                OnErrorGetUserFollowersDefaultImplementation(e, "/vatom/users/rels/followers", uriBuilderLocalVar.Path, accountId, vatomUserId, returnRawResponse);
                 Events.ExecuteOnErrorGetUserFollowers(e);
                 throw;
             }
@@ -10041,7 +9737,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUserFollowing(ref decimal version, ref long accountId, ref string vatomUserId, ref Option<bool> returnRawResponse);
+        partial void FormatGetUserFollowing(ref long accountId, ref string vatomUserId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -10058,14 +9754,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetUserFollowingDefaultImplementation(IGetUserFollowingApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse)
+        private void AfterGetUserFollowingDefaultImplementation(IGetUserFollowingApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetUserFollowing(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, returnRawResponse);
+            AfterGetUserFollowing(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -10075,11 +9770,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetUserFollowing(ref bool suppressDefaultLog, IGetUserFollowingApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse);
+        partial void AfterGetUserFollowing(ref bool suppressDefaultLog, IGetUserFollowingApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -10087,14 +9781,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetUserFollowingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse)
+        private void OnErrorGetUserFollowingDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUserFollowing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, returnRawResponse);
+            OnErrorGetUserFollowing(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -10106,26 +9799,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetUserFollowing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse);
+        partial void OnErrorGetUserFollowing(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get user following Get user following.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserFollowingApiResponse"/>&gt;</returns>
-        public async Task<IGetUserFollowingApiResponse?> GetUserFollowingOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserFollowingApiResponse?> GetUserFollowingOrDefaultAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUserFollowingAsync(version, accountId, vatomUserId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetUserFollowingAsync(accountId, vatomUserId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -10137,13 +9828,12 @@ namespace Org.OpenAPITools.Api
         /// Get user following Get user following.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserFollowingApiResponse"/>&gt;</returns>
-        public async Task<IGetUserFollowingApiResponse> GetUserFollowingAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserFollowingApiResponse> GetUserFollowingAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -10151,7 +9841,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetUserFollowing(vatomUserId);
 
-                FormatGetUserFollowing(ref version, ref accountId, ref vatomUserId, ref returnRawResponse);
+                FormatGetUserFollowing(ref accountId, ref vatomUserId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -10159,9 +9849,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/users/rels/following"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/users/rels/following");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/users/rels/following"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/users/rels/following");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -10187,13 +9876,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/users/rels/following", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/users/rels/following", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUserFollowingDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, returnRawResponse);
+                        AfterGetUserFollowingDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, returnRawResponse);
 
                         Events.ExecuteOnGetUserFollowing(apiResponseLocalVar);
 
@@ -10203,7 +9892,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUserFollowingDefaultImplementation(e, "/api/{version}/vatom/users/rels/following", uriBuilderLocalVar.Path, version, accountId, vatomUserId, returnRawResponse);
+                OnErrorGetUserFollowingDefaultImplementation(e, "/vatom/users/rels/following", uriBuilderLocalVar.Path, accountId, vatomUserId, returnRawResponse);
                 Events.ExecuteOnErrorGetUserFollowing(e);
                 throw;
             }
@@ -10270,7 +9959,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUserInfo(ref decimal version, ref long accountId, ref string vatomUserId, ref Option<bool> returnRawResponse);
+        partial void FormatGetUserInfo(ref long accountId, ref string vatomUserId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -10287,14 +9976,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetUserInfoDefaultImplementation(IGetUserInfoApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse)
+        private void AfterGetUserInfoDefaultImplementation(IGetUserInfoApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetUserInfo(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, returnRawResponse);
+            AfterGetUserInfo(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -10304,11 +9992,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetUserInfo(ref bool suppressDefaultLog, IGetUserInfoApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse);
+        partial void AfterGetUserInfo(ref bool suppressDefaultLog, IGetUserInfoApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -10316,14 +10003,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetUserInfoDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse)
+        private void OnErrorGetUserInfoDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUserInfo(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, returnRawResponse);
+            OnErrorGetUserInfo(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -10335,26 +10021,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetUserInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse);
+        partial void OnErrorGetUserInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get User Info Get a User&#39;s Info.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserInfoApiResponse"/>&gt;</returns>
-        public async Task<IGetUserInfoApiResponse?> GetUserInfoOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserInfoApiResponse?> GetUserInfoOrDefaultAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUserInfoAsync(version, accountId, vatomUserId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetUserInfoAsync(accountId, vatomUserId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -10366,13 +10050,12 @@ namespace Org.OpenAPITools.Api
         /// Get User Info Get a User&#39;s Info.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserInfoApiResponse"/>&gt;</returns>
-        public async Task<IGetUserInfoApiResponse> GetUserInfoAsync(decimal version, long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserInfoApiResponse> GetUserInfoAsync(long accountId, string vatomUserId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -10380,7 +10063,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetUserInfo(vatomUserId);
 
-                FormatGetUserInfo(ref version, ref accountId, ref vatomUserId, ref returnRawResponse);
+                FormatGetUserInfo(ref accountId, ref vatomUserId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -10388,9 +10071,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/user/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/user/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/user/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/user/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -10416,13 +10098,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/user/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/user/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUserInfoDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, returnRawResponse);
+                        AfterGetUserInfoDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, returnRawResponse);
 
                         Events.ExecuteOnGetUserInfo(apiResponseLocalVar);
 
@@ -10432,7 +10114,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUserInfoDefaultImplementation(e, "/api/{version}/vatom/user/get", uriBuilderLocalVar.Path, version, accountId, vatomUserId, returnRawResponse);
+                OnErrorGetUserInfoDefaultImplementation(e, "/vatom/user/get", uriBuilderLocalVar.Path, accountId, vatomUserId, returnRawResponse);
                 Events.ExecuteOnErrorGetUserInfo(e);
                 throw;
             }
@@ -10499,19 +10181,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetUserProfile(ref decimal version, ref long accountId, ref Option<bool> returnRawResponse);
+        partial void FormatGetUserProfile(ref long accountId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetUserProfileDefaultImplementation(IGetUserProfileApiResponse apiResponseLocalVar, decimal version, long accountId, Option<bool> returnRawResponse)
+        private void AfterGetUserProfileDefaultImplementation(IGetUserProfileApiResponse apiResponseLocalVar, long accountId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetUserProfile(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, returnRawResponse);
+            AfterGetUserProfile(ref suppressDefaultLog, apiResponseLocalVar, accountId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -10521,10 +10202,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetUserProfile(ref bool suppressDefaultLog, IGetUserProfileApiResponse apiResponseLocalVar, decimal version, long accountId, Option<bool> returnRawResponse);
+        partial void AfterGetUserProfile(ref bool suppressDefaultLog, IGetUserProfileApiResponse apiResponseLocalVar, long accountId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -10532,13 +10212,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetUserProfileDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<bool> returnRawResponse)
+        private void OnErrorGetUserProfileDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetUserProfile(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, returnRawResponse);
+            OnErrorGetUserProfile(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -10550,24 +10229,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetUserProfile(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<bool> returnRawResponse);
+        partial void OnErrorGetUserProfile(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom User Profile Gets the logged in user&#39;s profile in Vatom.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserProfileApiResponse"/>&gt;</returns>
-        public async Task<IGetUserProfileApiResponse?> GetUserProfileOrDefaultAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserProfileApiResponse?> GetUserProfileOrDefaultAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetUserProfileAsync(version, accountId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetUserProfileAsync(accountId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -10579,18 +10256,17 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom User Profile Gets the logged in user&#39;s profile in Vatom.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetUserProfileApiResponse"/>&gt;</returns>
-        public async Task<IGetUserProfileApiResponse> GetUserProfileAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetUserProfileApiResponse> GetUserProfileAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetUserProfile(ref version, ref accountId, ref returnRawResponse);
+                FormatGetUserProfile(ref accountId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -10598,9 +10274,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -10625,13 +10300,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetUserProfileDefaultImplementation(apiResponseLocalVar, version, accountId, returnRawResponse);
+                        AfterGetUserProfileDefaultImplementation(apiResponseLocalVar, accountId, returnRawResponse);
 
                         Events.ExecuteOnGetUserProfile(apiResponseLocalVar);
 
@@ -10641,7 +10316,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetUserProfileDefaultImplementation(e, "/api/{version}/vatom/me/get", uriBuilderLocalVar.Path, version, accountId, returnRawResponse);
+                OnErrorGetUserProfileDefaultImplementation(e, "/vatom/me/get", uriBuilderLocalVar.Path, accountId, returnRawResponse);
                 Events.ExecuteOnErrorGetUserProfile(e);
                 throw;
             }
@@ -10708,7 +10383,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetVatomEvent(ref decimal version, ref long accountId, ref string appKey, ref string vatomEventId, ref Option<bool> returnRawResponse);
+        partial void FormatGetVatomEvent(ref long accountId, ref string appKey, ref string vatomEventId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -10729,15 +10404,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetVatomEventDefaultImplementation(IGetVatomEventApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
+        private void AfterGetVatomEventDefaultImplementation(IGetVatomEventApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetVatomEvent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+            AfterGetVatomEvent(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -10747,12 +10421,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetVatomEvent(ref bool suppressDefaultLog, IGetVatomEventApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
+        partial void AfterGetVatomEvent(ref bool suppressDefaultLog, IGetVatomEventApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -10760,15 +10433,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetVatomEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
+        private void OnErrorGetVatomEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetVatomEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+            OnErrorGetVatomEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -10780,28 +10452,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetVatomEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
+        partial void OnErrorGetVatomEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom Event Gets the details of a event.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVatomEventApiResponse"/>&gt;</returns>
-        public async Task<IGetVatomEventApiResponse?> GetVatomEventOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetVatomEventApiResponse?> GetVatomEventOrDefaultAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetVatomEventAsync(version, accountId, appKey, vatomEventId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetVatomEventAsync(accountId, appKey, vatomEventId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -10813,14 +10483,13 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom Event Gets the details of a event.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVatomEventApiResponse"/>&gt;</returns>
-        public async Task<IGetVatomEventApiResponse> GetVatomEventAsync(decimal version, long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetVatomEventApiResponse> GetVatomEventAsync(long accountId, string appKey, string vatomEventId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -10828,7 +10497,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetVatomEvent(appKey, vatomEventId);
 
-                FormatGetVatomEvent(ref version, ref accountId, ref appKey, ref vatomEventId, ref returnRawResponse);
+                FormatGetVatomEvent(ref accountId, ref appKey, ref vatomEventId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -10836,9 +10505,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/events/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/events/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/events/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/events/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -10865,13 +10533,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/events/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/events/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetVatomEventDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomEventId, returnRawResponse);
+                        AfterGetVatomEventDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomEventId, returnRawResponse);
 
                         Events.ExecuteOnGetVatomEvent(apiResponseLocalVar);
 
@@ -10881,7 +10549,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetVatomEventDefaultImplementation(e, "/api/{version}/vatom/b/events/get", uriBuilderLocalVar.Path, version, accountId, appKey, vatomEventId, returnRawResponse);
+                OnErrorGetVatomEventDefaultImplementation(e, "/vatom/b/events/get", uriBuilderLocalVar.Path, accountId, appKey, vatomEventId, returnRawResponse);
                 Events.ExecuteOnErrorGetVatomEvent(e);
                 throw;
             }
@@ -10948,7 +10616,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetVatomNFT(ref decimal version, ref long accountId, ref string vatomId, ref Option<bool> returnRawResponse);
+        partial void FormatGetVatomNFT(ref long accountId, ref string vatomId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -10965,14 +10633,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterGetVatomNFTDefaultImplementation(IGetVatomNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomId, Option<bool> returnRawResponse)
+        private void AfterGetVatomNFTDefaultImplementation(IGetVatomNFTApiResponse apiResponseLocalVar, long accountId, string vatomId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterGetVatomNFT(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomId, returnRawResponse);
+            AfterGetVatomNFT(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -10982,11 +10649,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterGetVatomNFT(ref bool suppressDefaultLog, IGetVatomNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomId, Option<bool> returnRawResponse);
+        partial void AfterGetVatomNFT(ref bool suppressDefaultLog, IGetVatomNFTApiResponse apiResponseLocalVar, long accountId, string vatomId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -10994,14 +10660,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorGetVatomNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomId, Option<bool> returnRawResponse)
+        private void OnErrorGetVatomNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetVatomNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomId, returnRawResponse);
+            OnErrorGetVatomNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -11013,26 +10678,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorGetVatomNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomId, Option<bool> returnRawResponse);
+        partial void OnErrorGetVatomNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Get Vatom NFT Details Get Vatom NFT Details
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVatomNFTApiResponse"/>&gt;</returns>
-        public async Task<IGetVatomNFTApiResponse?> GetVatomNFTOrDefaultAsync(decimal version, long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetVatomNFTApiResponse?> GetVatomNFTOrDefaultAsync(long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetVatomNFTAsync(version, accountId, vatomId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await GetVatomNFTAsync(accountId, vatomId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -11044,13 +10707,12 @@ namespace Org.OpenAPITools.Api
         /// Get Vatom NFT Details Get Vatom NFT Details
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetVatomNFTApiResponse"/>&gt;</returns>
-        public async Task<IGetVatomNFTApiResponse> GetVatomNFTAsync(decimal version, long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetVatomNFTApiResponse> GetVatomNFTAsync(long accountId, string vatomId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -11058,7 +10720,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetVatomNFT(vatomId);
 
-                FormatGetVatomNFT(ref version, ref accountId, ref vatomId, ref returnRawResponse);
+                FormatGetVatomNFT(ref accountId, ref vatomId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -11066,9 +10728,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/vatoms/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/vatoms/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/vatoms/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/vatoms/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -11094,13 +10755,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/vatoms/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/vatoms/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetVatomNFTDefaultImplementation(apiResponseLocalVar, version, accountId, vatomId, returnRawResponse);
+                        AfterGetVatomNFTDefaultImplementation(apiResponseLocalVar, accountId, vatomId, returnRawResponse);
 
                         Events.ExecuteOnGetVatomNFT(apiResponseLocalVar);
 
@@ -11110,7 +10771,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetVatomNFTDefaultImplementation(e, "/api/{version}/vatom/vatoms/get", uriBuilderLocalVar.Path, version, accountId, vatomId, returnRawResponse);
+                OnErrorGetVatomNFTDefaultImplementation(e, "/vatom/vatoms/get", uriBuilderLocalVar.Path, accountId, vatomId, returnRawResponse);
                 Events.ExecuteOnErrorGetVatomNFT(e);
                 throw;
             }
@@ -11177,7 +10838,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListCommunities(ref decimal version, ref long accountId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatListCommunities(ref long accountId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -11198,15 +10859,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterListCommunitiesDefaultImplementation(IListCommunitiesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterListCommunitiesDefaultImplementation(IListCommunitiesApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterListCommunities(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            AfterListCommunities(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -11216,12 +10876,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterListCommunities(ref bool suppressDefaultLog, IListCommunitiesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterListCommunities(ref bool suppressDefaultLog, IListCommunitiesApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -11229,15 +10888,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorListCommunitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorListCommunitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListCommunities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            OnErrorListCommunities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -11249,28 +10907,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorListCommunities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorListCommunities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// List Vatom Communities Gets the communities tied to a business.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListCommunitiesApiResponse"/>&gt;</returns>
-        public async Task<IListCommunitiesApiResponse?> ListCommunitiesOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListCommunitiesApiResponse?> ListCommunitiesOrDefaultAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListCommunitiesAsync(version, accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await ListCommunitiesAsync(accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -11282,14 +10938,13 @@ namespace Org.OpenAPITools.Api
         /// List Vatom Communities Gets the communities tied to a business.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListCommunitiesApiResponse"/>&gt;</returns>
-        public async Task<IListCommunitiesApiResponse> ListCommunitiesAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListCommunitiesApiResponse> ListCommunitiesAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -11297,7 +10952,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListCommunities(appKey, vatomParameters);
 
-                FormatListCommunities(ref version, ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatListCommunities(ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -11305,9 +10960,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/communities/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/communities/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/communities/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/communities/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -11336,13 +10990,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/communities/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/communities/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListCommunitiesDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+                        AfterListCommunitiesDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnListCommunities(apiResponseLocalVar);
 
@@ -11352,7 +11006,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListCommunitiesDefaultImplementation(e, "/api/{version}/vatom/b/communities/search", uriBuilderLocalVar.Path, version, accountId, appKey, vatomParameters, returnRawResponse);
+                OnErrorListCommunitiesDefaultImplementation(e, "/vatom/b/communities/search", uriBuilderLocalVar.Path, accountId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorListCommunities(e);
                 throw;
             }
@@ -11419,7 +11073,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListEvents(ref decimal version, ref long accountId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatListEvents(ref long accountId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -11440,15 +11094,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterListEventsDefaultImplementation(IListEventsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterListEventsDefaultImplementation(IListEventsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterListEvents(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            AfterListEvents(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -11458,12 +11111,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterListEvents(ref bool suppressDefaultLog, IListEventsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterListEvents(ref bool suppressDefaultLog, IListEventsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -11471,15 +11123,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorListEventsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorListEventsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListEvents(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            OnErrorListEvents(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -11491,28 +11142,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorListEvents(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorListEvents(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// List Vatom Events Gets the events tied to a business.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListEventsApiResponse"/>&gt;</returns>
-        public async Task<IListEventsApiResponse?> ListEventsOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListEventsApiResponse?> ListEventsOrDefaultAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListEventsAsync(version, accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await ListEventsAsync(accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -11524,14 +11173,13 @@ namespace Org.OpenAPITools.Api
         /// List Vatom Events Gets the events tied to a business.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListEventsApiResponse"/>&gt;</returns>
-        public async Task<IListEventsApiResponse> ListEventsAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListEventsApiResponse> ListEventsAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -11539,7 +11187,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListEvents(appKey, vatomParameters);
 
-                FormatListEvents(ref version, ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatListEvents(ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -11547,9 +11195,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/events/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/events/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/events/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/events/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -11578,13 +11225,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/events/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/events/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListEventsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+                        AfterListEventsDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnListEvents(apiResponseLocalVar);
 
@@ -11594,7 +11241,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListEventsDefaultImplementation(e, "/api/{version}/vatom/b/events/search", uriBuilderLocalVar.Path, version, accountId, appKey, vatomParameters, returnRawResponse);
+                OnErrorListEventsDefaultImplementation(e, "/vatom/b/events/search", uriBuilderLocalVar.Path, accountId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorListEvents(e);
                 throw;
             }
@@ -11661,7 +11308,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListSpaces(ref decimal version, ref long accountId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatListSpaces(ref long accountId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -11682,15 +11329,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterListSpacesDefaultImplementation(IListSpacesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterListSpacesDefaultImplementation(IListSpacesApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterListSpaces(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            AfterListSpaces(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -11700,12 +11346,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterListSpaces(ref bool suppressDefaultLog, IListSpacesApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterListSpaces(ref bool suppressDefaultLog, IListSpacesApiResponse apiResponseLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -11713,15 +11358,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorListSpacesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorListSpacesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListSpaces(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            OnErrorListSpaces(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -11733,28 +11377,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorListSpaces(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorListSpaces(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// List Vatom Spaces Gets the spaces tied to a business.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListSpacesApiResponse"/>&gt;</returns>
-        public async Task<IListSpacesApiResponse?> ListSpacesOrDefaultAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListSpacesApiResponse?> ListSpacesOrDefaultAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListSpacesAsync(version, accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await ListSpacesAsync(accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -11766,14 +11408,13 @@ namespace Org.OpenAPITools.Api
         /// List Vatom Spaces Gets the spaces tied to a business.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListSpacesApiResponse"/>&gt;</returns>
-        public async Task<IListSpacesApiResponse> ListSpacesAsync(decimal version, long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListSpacesApiResponse> ListSpacesAsync(long accountId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -11781,7 +11422,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListSpaces(appKey, vatomParameters);
 
-                FormatListSpaces(ref version, ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatListSpaces(ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -11789,9 +11430,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/spaces/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/spaces/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/spaces/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/spaces/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -11820,13 +11460,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/spaces/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/spaces/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListSpacesDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+                        AfterListSpacesDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnListSpaces(apiResponseLocalVar);
 
@@ -11836,7 +11476,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListSpacesDefaultImplementation(e, "/api/{version}/vatom/b/spaces/search", uriBuilderLocalVar.Path, version, accountId, appKey, vatomParameters, returnRawResponse);
+                OnErrorListSpacesDefaultImplementation(e, "/vatom/b/spaces/search", uriBuilderLocalVar.Path, accountId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorListSpaces(e);
                 throw;
             }
@@ -11903,7 +11543,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListUserCoinTransactions(ref decimal version, ref long accountId, ref string vatomUserId, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatListUserCoinTransactions(ref long accountId, ref string vatomUserId, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -11924,15 +11564,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterListUserCoinTransactionsDefaultImplementation(IListUserCoinTransactionsApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterListUserCoinTransactionsDefaultImplementation(IListUserCoinTransactionsApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterListUserCoinTransactions(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+            AfterListUserCoinTransactions(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -11942,12 +11581,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterListUserCoinTransactions(ref bool suppressDefaultLog, IListUserCoinTransactionsApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterListUserCoinTransactions(ref bool suppressDefaultLog, IListUserCoinTransactionsApiResponse apiResponseLocalVar, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -11955,15 +11593,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorListUserCoinTransactionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorListUserCoinTransactionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListUserCoinTransactions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+            OnErrorListUserCoinTransactions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -11975,28 +11612,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorListUserCoinTransactions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorListUserCoinTransactions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// List Coin Transactions for a Vatom User Gets the logged in user&#39;s Vatom coin transactions.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListUserCoinTransactionsApiResponse"/>&gt;</returns>
-        public async Task<IListUserCoinTransactionsApiResponse?> ListUserCoinTransactionsOrDefaultAsync(decimal version, long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListUserCoinTransactionsApiResponse?> ListUserCoinTransactionsOrDefaultAsync(long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListUserCoinTransactionsAsync(version, accountId, vatomUserId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await ListUserCoinTransactionsAsync(accountId, vatomUserId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -12008,14 +11643,13 @@ namespace Org.OpenAPITools.Api
         /// List Coin Transactions for a Vatom User Gets the logged in user&#39;s Vatom coin transactions.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListUserCoinTransactionsApiResponse"/>&gt;</returns>
-        public async Task<IListUserCoinTransactionsApiResponse> ListUserCoinTransactionsAsync(decimal version, long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListUserCoinTransactionsApiResponse> ListUserCoinTransactionsAsync(long accountId, string vatomUserId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -12023,7 +11657,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListUserCoinTransactions(vatomUserId, vatomParameters);
 
-                FormatListUserCoinTransactions(ref version, ref accountId, ref vatomUserId, ref vatomParameters, ref returnRawResponse);
+                FormatListUserCoinTransactions(ref accountId, ref vatomUserId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -12031,9 +11665,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/u/coins/txns/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/u/coins/txns/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/u/coins/txns/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/u/coins/txns/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -12062,13 +11695,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/u/coins/txns/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/u/coins/txns/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListUserCoinTransactionsDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+                        AfterListUserCoinTransactionsDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnListUserCoinTransactions(apiResponseLocalVar);
 
@@ -12078,7 +11711,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListUserCoinTransactionsDefaultImplementation(e, "/api/{version}/vatom/u/coins/txns/search", uriBuilderLocalVar.Path, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+                OnErrorListUserCoinTransactionsDefaultImplementation(e, "/vatom/u/coins/txns/search", uriBuilderLocalVar.Path, accountId, vatomUserId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorListUserCoinTransactions(e);
                 throw;
             }
@@ -12145,7 +11778,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListUserCoinTransactionsAsBusiness(ref decimal version, ref long accountId, ref string vatomUserId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatListUserCoinTransactionsAsBusiness(ref long accountId, ref string vatomUserId, ref string appKey, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -12170,16 +11803,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterListUserCoinTransactionsAsBusinessDefaultImplementation(IListUserCoinTransactionsAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterListUserCoinTransactionsAsBusinessDefaultImplementation(IListUserCoinTransactionsAsBusinessApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterListUserCoinTransactionsAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+            AfterListUserCoinTransactionsAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -12189,13 +11821,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterListUserCoinTransactionsAsBusiness(ref bool suppressDefaultLog, IListUserCoinTransactionsAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterListUserCoinTransactionsAsBusiness(ref bool suppressDefaultLog, IListUserCoinTransactionsAsBusinessApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -12203,16 +11834,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorListUserCoinTransactionsAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorListUserCoinTransactionsAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListUserCoinTransactionsAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+            OnErrorListUserCoinTransactionsAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -12224,18 +11854,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorListUserCoinTransactionsAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorListUserCoinTransactionsAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// List coin transactions for a user (as a Business) List coin transactions for a user (as a Business).
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -12243,11 +11871,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListUserCoinTransactionsAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IListUserCoinTransactionsAsBusinessApiResponse?> ListUserCoinTransactionsAsBusinessOrDefaultAsync(decimal version, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListUserCoinTransactionsAsBusinessApiResponse?> ListUserCoinTransactionsAsBusinessOrDefaultAsync(long accountId, string vatomUserId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListUserCoinTransactionsAsBusinessAsync(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await ListUserCoinTransactionsAsBusinessAsync(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -12259,7 +11887,6 @@ namespace Org.OpenAPITools.Api
         /// List coin transactions for a user (as a Business) List coin transactions for a user (as a Business).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -12267,7 +11894,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListUserCoinTransactionsAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IListUserCoinTransactionsAsBusinessApiResponse> ListUserCoinTransactionsAsBusinessAsync(decimal version, long accountId, string vatomUserId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListUserCoinTransactionsAsBusinessApiResponse> ListUserCoinTransactionsAsBusinessAsync(long accountId, string vatomUserId, string appKey, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -12275,7 +11902,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListUserCoinTransactionsAsBusiness(vatomUserId, appKey, vatomParameters);
 
-                FormatListUserCoinTransactionsAsBusiness(ref version, ref accountId, ref vatomUserId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatListUserCoinTransactionsAsBusiness(ref accountId, ref vatomUserId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -12283,9 +11910,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/users/coins/txns/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/users/coins/txns/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/users/coins/txns/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/users/coins/txns/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -12315,13 +11941,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/users/coins/txns/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/users/coins/txns/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListUserCoinTransactionsAsBusinessDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+                        AfterListUserCoinTransactionsAsBusinessDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnListUserCoinTransactionsAsBusiness(apiResponseLocalVar);
 
@@ -12331,7 +11957,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListUserCoinTransactionsAsBusinessDefaultImplementation(e, "/api/{version}/vatom/b/users/coins/txns/search", uriBuilderLocalVar.Path, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+                OnErrorListUserCoinTransactionsAsBusinessDefaultImplementation(e, "/vatom/b/users/coins/txns/search", uriBuilderLocalVar.Path, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorListUserCoinTransactionsAsBusiness(e);
                 throw;
             }
@@ -12398,7 +12024,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPerformActionOnNFT(ref decimal version, ref long accountId, ref string vatomId, ref string vatomAction, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatPerformActionOnNFT(ref long accountId, ref string vatomId, ref string vatomAction, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -12423,16 +12049,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="vatomAction"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterPerformActionOnNFTDefaultImplementation(IPerformActionOnNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterPerformActionOnNFTDefaultImplementation(IPerformActionOnNFTApiResponse apiResponseLocalVar, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterPerformActionOnNFT(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
+            AfterPerformActionOnNFT(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -12442,13 +12067,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="vatomAction"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterPerformActionOnNFT(ref bool suppressDefaultLog, IPerformActionOnNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterPerformActionOnNFT(ref bool suppressDefaultLog, IPerformActionOnNFTApiResponse apiResponseLocalVar, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -12456,16 +12080,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="vatomAction"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorPerformActionOnNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorPerformActionOnNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPerformActionOnNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
+            OnErrorPerformActionOnNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -12477,18 +12100,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomId"></param>
         /// <param name="vatomAction"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorPerformActionOnNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorPerformActionOnNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Perform Action on NFT Perform Action on NFT.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="vatomAction">Vatom Action</param>
@@ -12496,11 +12117,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPerformActionOnNFTApiResponse"/>&gt;</returns>
-        public async Task<IPerformActionOnNFTApiResponse?> PerformActionOnNFTOrDefaultAsync(decimal version, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPerformActionOnNFTApiResponse?> PerformActionOnNFTOrDefaultAsync(long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PerformActionOnNFTAsync(version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await PerformActionOnNFTAsync(accountId, vatomId, vatomAction, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -12512,7 +12133,6 @@ namespace Org.OpenAPITools.Api
         /// Perform Action on NFT Perform Action on NFT.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomId">Vatom NFT Id</param>
         /// <param name="vatomAction">Vatom Action</param>
@@ -12520,7 +12140,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPerformActionOnNFTApiResponse"/>&gt;</returns>
-        public async Task<IPerformActionOnNFTApiResponse> PerformActionOnNFTAsync(decimal version, long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPerformActionOnNFTApiResponse> PerformActionOnNFTAsync(long accountId, string vatomId, string vatomAction, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -12528,7 +12148,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidatePerformActionOnNFT(vatomId, vatomAction, vatomParameters);
 
-                FormatPerformActionOnNFT(ref version, ref accountId, ref vatomId, ref vatomAction, ref vatomParameters, ref returnRawResponse);
+                FormatPerformActionOnNFT(ref accountId, ref vatomId, ref vatomAction, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -12536,9 +12156,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/vatoms/actions"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/vatoms/actions");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/vatoms/actions"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/vatoms/actions");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -12566,13 +12185,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/vatoms/actions", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/vatoms/actions", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterPerformActionOnNFTDefaultImplementation(apiResponseLocalVar, version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
+                        AfterPerformActionOnNFTDefaultImplementation(apiResponseLocalVar, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnPerformActionOnNFT(apiResponseLocalVar);
 
@@ -12582,7 +12201,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorPerformActionOnNFTDefaultImplementation(e, "/api/{version}/vatom/me/vatoms/actions", uriBuilderLocalVar.Path, version, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
+                OnErrorPerformActionOnNFTDefaultImplementation(e, "/vatom/me/vatoms/actions", uriBuilderLocalVar.Path, accountId, vatomId, vatomAction, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorPerformActionOnNFT(e);
                 throw;
             }
@@ -12649,7 +12268,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRedeemNFT(ref decimal version, ref long accountId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatRedeemNFT(ref long accountId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -12670,15 +12289,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterRedeemNFTDefaultImplementation(IRedeemNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterRedeemNFTDefaultImplementation(IRedeemNFTApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterRedeemNFT(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            AfterRedeemNFT(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -12688,12 +12306,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterRedeemNFT(ref bool suppressDefaultLog, IRedeemNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterRedeemNFT(ref bool suppressDefaultLog, IRedeemNFTApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -12701,15 +12318,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorRedeemNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorRedeemNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRedeemNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            OnErrorRedeemNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -12721,28 +12337,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorRedeemNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorRedeemNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Redeem NFT Redeem an NFT.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemNFTApiResponse"/>&gt;</returns>
-        public async Task<IRedeemNFTApiResponse?> RedeemNFTOrDefaultAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRedeemNFTApiResponse?> RedeemNFTOrDefaultAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RedeemNFTAsync(version, accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await RedeemNFTAsync(accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -12754,14 +12368,13 @@ namespace Org.OpenAPITools.Api
         /// Redeem NFT Redeem an NFT.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemNFTApiResponse"/>&gt;</returns>
-        public async Task<IRedeemNFTApiResponse> RedeemNFTAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRedeemNFTApiResponse> RedeemNFTAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -12769,7 +12382,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRedeemNFT(appKey, vatomParameters);
 
-                FormatRedeemNFT(ref version, ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatRedeemNFT(ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -12777,9 +12390,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/redemptions"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/redemptions");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/redemptions"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/redemptions");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -12806,13 +12418,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/redemptions", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/redemptions", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRedeemNFTDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+                        AfterRedeemNFTDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnRedeemNFT(apiResponseLocalVar);
 
@@ -12822,7 +12434,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRedeemNFTDefaultImplementation(e, "/api/{version}/vatom/b/redemptions", uriBuilderLocalVar.Path, version, accountId, appKey, vatomParameters, returnRawResponse);
+                OnErrorRedeemNFTDefaultImplementation(e, "/vatom/b/redemptions", uriBuilderLocalVar.Path, accountId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorRedeemNFT(e);
                 throw;
             }
@@ -12889,7 +12501,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRedeemUserCoinsAsBusiness(ref decimal version, ref long accountId, ref string vatomUserId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatRedeemUserCoinsAsBusiness(ref long accountId, ref string vatomUserId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -12914,16 +12526,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterRedeemUserCoinsAsBusinessDefaultImplementation(IRedeemUserCoinsAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterRedeemUserCoinsAsBusinessDefaultImplementation(IRedeemUserCoinsAsBusinessApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterRedeemUserCoinsAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+            AfterRedeemUserCoinsAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -12933,13 +12544,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterRedeemUserCoinsAsBusiness(ref bool suppressDefaultLog, IRedeemUserCoinsAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterRedeemUserCoinsAsBusiness(ref bool suppressDefaultLog, IRedeemUserCoinsAsBusinessApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -12947,16 +12557,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorRedeemUserCoinsAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorRedeemUserCoinsAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRedeemUserCoinsAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+            OnErrorRedeemUserCoinsAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -12968,18 +12577,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorRedeemUserCoinsAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorRedeemUserCoinsAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Redeem the coins for a user (as a Business) Redeem the coins for a user (as a Business).
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -12987,11 +12594,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IRedeemUserCoinsAsBusinessApiResponse?> RedeemUserCoinsAsBusinessOrDefaultAsync(decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRedeemUserCoinsAsBusinessApiResponse?> RedeemUserCoinsAsBusinessOrDefaultAsync(long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RedeemUserCoinsAsBusinessAsync(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await RedeemUserCoinsAsBusinessAsync(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -13003,7 +12610,6 @@ namespace Org.OpenAPITools.Api
         /// Redeem the coins for a user (as a Business) Redeem the coins for a user (as a Business).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -13011,7 +12617,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IRedeemUserCoinsAsBusinessApiResponse> RedeemUserCoinsAsBusinessAsync(decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRedeemUserCoinsAsBusinessApiResponse> RedeemUserCoinsAsBusinessAsync(long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -13019,7 +12625,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRedeemUserCoinsAsBusiness(vatomUserId, appKey, vatomParameters);
 
-                FormatRedeemUserCoinsAsBusiness(ref version, ref accountId, ref vatomUserId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatRedeemUserCoinsAsBusiness(ref accountId, ref vatomUserId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -13027,9 +12633,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/users/coins/redeem"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/users/coins/redeem");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/users/coins/redeem"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/users/coins/redeem");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -13057,13 +12662,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/users/coins/redeem", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/users/coins/redeem", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRedeemUserCoinsAsBusinessDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+                        AfterRedeemUserCoinsAsBusinessDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnRedeemUserCoinsAsBusiness(apiResponseLocalVar);
 
@@ -13073,7 +12678,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRedeemUserCoinsAsBusinessDefaultImplementation(e, "/api/{version}/vatom/b/users/coins/redeem", uriBuilderLocalVar.Path, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+                OnErrorRedeemUserCoinsAsBusinessDefaultImplementation(e, "/vatom/b/users/coins/redeem", uriBuilderLocalVar.Path, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorRedeemUserCoinsAsBusiness(e);
                 throw;
             }
@@ -13140,7 +12745,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchBusinesses(ref decimal version, ref long accountId, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatSearchBusinesses(ref long accountId, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -13157,14 +12762,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterSearchBusinessesDefaultImplementation(ISearchBusinessesApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterSearchBusinessesDefaultImplementation(ISearchBusinessesApiResponse apiResponseLocalVar, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterSearchBusinesses(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            AfterSearchBusinesses(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -13174,11 +12778,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterSearchBusinesses(ref bool suppressDefaultLog, ISearchBusinessesApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterSearchBusinesses(ref bool suppressDefaultLog, ISearchBusinessesApiResponse apiResponseLocalVar, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -13186,14 +12789,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorSearchBusinessesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorSearchBusinessesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchBusinesses(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            OnErrorSearchBusinesses(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -13205,26 +12807,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorSearchBusinesses(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorSearchBusinesses(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Search for Vatom Businesses Searches for Vatom businesses.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBusinessesApiResponse"/>&gt;</returns>
-        public async Task<ISearchBusinessesApiResponse?> SearchBusinessesOrDefaultAsync(decimal version, long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchBusinessesApiResponse?> SearchBusinessesOrDefaultAsync(long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchBusinessesAsync(version, accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await SearchBusinessesAsync(accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -13236,13 +12836,12 @@ namespace Org.OpenAPITools.Api
         /// Search for Vatom Businesses Searches for Vatom businesses.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchBusinessesApiResponse"/>&gt;</returns>
-        public async Task<ISearchBusinessesApiResponse> SearchBusinessesAsync(decimal version, long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchBusinessesApiResponse> SearchBusinessesAsync(long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -13250,7 +12849,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchBusinesses(vatomParameters);
 
-                FormatSearchBusinesses(ref version, ref accountId, ref vatomParameters, ref returnRawResponse);
+                FormatSearchBusinesses(ref accountId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -13258,9 +12857,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -13288,13 +12886,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchBusinessesDefaultImplementation(apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+                        AfterSearchBusinessesDefaultImplementation(apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnSearchBusinesses(apiResponseLocalVar);
 
@@ -13304,7 +12902,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchBusinessesDefaultImplementation(e, "/api/{version}/vatom/b/search", uriBuilderLocalVar.Path, version, accountId, vatomParameters, returnRawResponse);
+                OnErrorSearchBusinessesDefaultImplementation(e, "/vatom/b/search", uriBuilderLocalVar.Path, accountId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorSearchBusinesses(e);
                 throw;
             }
@@ -13371,7 +12969,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchCampaignGroups(ref decimal version, ref long accountId, ref string appKey, ref Option<bool> returnRawResponse);
+        partial void FormatSearchCampaignGroups(ref long accountId, ref string appKey, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -13388,14 +12986,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterSearchCampaignGroupsDefaultImplementation(ISearchCampaignGroupsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse)
+        private void AfterSearchCampaignGroupsDefaultImplementation(ISearchCampaignGroupsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterSearchCampaignGroups(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, returnRawResponse);
+            AfterSearchCampaignGroups(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -13405,11 +13002,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterSearchCampaignGroups(ref bool suppressDefaultLog, ISearchCampaignGroupsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse);
+        partial void AfterSearchCampaignGroups(ref bool suppressDefaultLog, ISearchCampaignGroupsApiResponse apiResponseLocalVar, long accountId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -13417,14 +13013,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorSearchCampaignGroupsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse)
+        private void OnErrorSearchCampaignGroupsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchCampaignGroups(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, returnRawResponse);
+            OnErrorSearchCampaignGroups(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -13436,26 +13031,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorSearchCampaignGroups(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, Option<bool> returnRawResponse);
+        partial void OnErrorSearchCampaignGroups(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Search Campaign Groups Search campaign groups.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCampaignGroupsApiResponse"/>&gt;</returns>
-        public async Task<ISearchCampaignGroupsApiResponse?> SearchCampaignGroupsOrDefaultAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCampaignGroupsApiResponse?> SearchCampaignGroupsOrDefaultAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchCampaignGroupsAsync(version, accountId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await SearchCampaignGroupsAsync(accountId, appKey, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -13467,13 +13060,12 @@ namespace Org.OpenAPITools.Api
         /// Search Campaign Groups Search campaign groups.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchCampaignGroupsApiResponse"/>&gt;</returns>
-        public async Task<ISearchCampaignGroupsApiResponse> SearchCampaignGroupsAsync(decimal version, long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchCampaignGroupsApiResponse> SearchCampaignGroupsAsync(long accountId, string appKey, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -13481,7 +13073,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchCampaignGroups(appKey);
 
-                FormatSearchCampaignGroups(ref version, ref accountId, ref appKey, ref returnRawResponse);
+                FormatSearchCampaignGroups(ref accountId, ref appKey, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -13489,9 +13081,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaign-groups/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaign-groups/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaign-groups/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaign-groups/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -13517,13 +13108,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaign-groups/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaign-groups/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchCampaignGroupsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, returnRawResponse);
+                        AfterSearchCampaignGroupsDefaultImplementation(apiResponseLocalVar, accountId, appKey, returnRawResponse);
 
                         Events.ExecuteOnSearchCampaignGroups(apiResponseLocalVar);
 
@@ -13533,7 +13124,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchCampaignGroupsDefaultImplementation(e, "/api/{version}/vatom/b/campaign-groups/search", uriBuilderLocalVar.Path, version, accountId, appKey, returnRawResponse);
+                OnErrorSearchCampaignGroupsDefaultImplementation(e, "/vatom/b/campaign-groups/search", uriBuilderLocalVar.Path, accountId, appKey, returnRawResponse);
                 Events.ExecuteOnErrorSearchCampaignGroups(e);
                 throw;
             }
@@ -13600,19 +13191,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchIdentities(ref decimal version, ref long accountId, ref Option<bool> returnRawResponse);
+        partial void FormatSearchIdentities(ref long accountId, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterSearchIdentitiesDefaultImplementation(ISearchIdentitiesApiResponse apiResponseLocalVar, decimal version, long accountId, Option<bool> returnRawResponse)
+        private void AfterSearchIdentitiesDefaultImplementation(ISearchIdentitiesApiResponse apiResponseLocalVar, long accountId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterSearchIdentities(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, returnRawResponse);
+            AfterSearchIdentities(ref suppressDefaultLog, apiResponseLocalVar, accountId, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -13622,10 +13212,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterSearchIdentities(ref bool suppressDefaultLog, ISearchIdentitiesApiResponse apiResponseLocalVar, decimal version, long accountId, Option<bool> returnRawResponse);
+        partial void AfterSearchIdentities(ref bool suppressDefaultLog, ISearchIdentitiesApiResponse apiResponseLocalVar, long accountId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -13633,13 +13222,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorSearchIdentitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<bool> returnRawResponse)
+        private void OnErrorSearchIdentitiesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchIdentities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, returnRawResponse);
+            OnErrorSearchIdentities(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -13651,24 +13239,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorSearchIdentities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<bool> returnRawResponse);
+        partial void OnErrorSearchIdentities(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Search User Identities Search User Identities.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchIdentitiesApiResponse"/>&gt;</returns>
-        public async Task<ISearchIdentitiesApiResponse?> SearchIdentitiesOrDefaultAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchIdentitiesApiResponse?> SearchIdentitiesOrDefaultAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchIdentitiesAsync(version, accountId, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await SearchIdentitiesAsync(accountId, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -13680,18 +13266,17 @@ namespace Org.OpenAPITools.Api
         /// Search User Identities Search User Identities.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchIdentitiesApiResponse"/>&gt;</returns>
-        public async Task<ISearchIdentitiesApiResponse> SearchIdentitiesAsync(decimal version, long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchIdentitiesApiResponse> SearchIdentitiesAsync(long accountId, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatSearchIdentities(ref version, ref accountId, ref returnRawResponse);
+                FormatSearchIdentities(ref accountId, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -13699,9 +13284,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/identities/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/identities/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/identities/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/identities/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -13726,13 +13310,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/identities/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/identities/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchIdentitiesDefaultImplementation(apiResponseLocalVar, version, accountId, returnRawResponse);
+                        AfterSearchIdentitiesDefaultImplementation(apiResponseLocalVar, accountId, returnRawResponse);
 
                         Events.ExecuteOnSearchIdentities(apiResponseLocalVar);
 
@@ -13742,7 +13326,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchIdentitiesDefaultImplementation(e, "/api/{version}/vatom/me/identities/search", uriBuilderLocalVar.Path, version, accountId, returnRawResponse);
+                OnErrorSearchIdentitiesDefaultImplementation(e, "/vatom/me/identities/search", uriBuilderLocalVar.Path, accountId, returnRawResponse);
                 Events.ExecuteOnErrorSearchIdentities(e);
                 throw;
             }
@@ -13809,7 +13393,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchInventory(ref decimal version, ref long accountId, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatSearchInventory(ref long accountId, ref Option<string> vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -13826,14 +13410,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterSearchInventoryDefaultImplementation(ISearchInventoryApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void AfterSearchInventoryDefaultImplementation(ISearchInventoryApiResponse apiResponseLocalVar, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterSearchInventory(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            AfterSearchInventory(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -13843,11 +13426,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterSearchInventory(ref bool suppressDefaultLog, ISearchInventoryApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterSearchInventory(ref bool suppressDefaultLog, ISearchInventoryApiResponse apiResponseLocalVar, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -13855,14 +13437,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorSearchInventoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorSearchInventoryDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchInventory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            OnErrorSearchInventory(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -13874,26 +13455,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorSearchInventory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorSearchInventory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Search Vatom User&#39;s Inventory Searches the logged in user&#39;s Vatom Inventory.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchInventoryApiResponse"/>&gt;</returns>
-        public async Task<ISearchInventoryApiResponse?> SearchInventoryOrDefaultAsync(decimal version, long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchInventoryApiResponse?> SearchInventoryOrDefaultAsync(long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchInventoryAsync(version, accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await SearchInventoryAsync(accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -13905,13 +13484,12 @@ namespace Org.OpenAPITools.Api
         /// Search Vatom User&#39;s Inventory Searches the logged in user&#39;s Vatom Inventory.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters (optional)</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchInventoryApiResponse"/>&gt;</returns>
-        public async Task<ISearchInventoryApiResponse> SearchInventoryAsync(decimal version, long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchInventoryApiResponse> SearchInventoryAsync(long accountId, Option<string> vatomParameters = default, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -13919,7 +13497,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchInventory(vatomParameters);
 
-                FormatSearchInventory(ref version, ref accountId, ref vatomParameters, ref returnRawResponse);
+                FormatSearchInventory(ref accountId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -13927,9 +13505,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/user-inventory/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/user-inventory/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/user-inventory/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/user-inventory/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -13957,13 +13534,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/user-inventory/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/user-inventory/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchInventoryDefaultImplementation(apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+                        AfterSearchInventoryDefaultImplementation(apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnSearchInventory(apiResponseLocalVar);
 
@@ -13973,7 +13550,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchInventoryDefaultImplementation(e, "/api/{version}/vatom/user-inventory/search", uriBuilderLocalVar.Path, version, accountId, vatomParameters, returnRawResponse);
+                OnErrorSearchInventoryDefaultImplementation(e, "/vatom/user-inventory/search", uriBuilderLocalVar.Path, accountId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorSearchInventory(e);
                 throw;
             }
@@ -14040,7 +13617,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSendNFT(ref decimal version, ref long accountId, ref string appKey, ref string vatomCampaignId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatSendNFT(ref long accountId, ref string appKey, ref string vatomCampaignId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -14065,16 +13642,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterSendNFTDefaultImplementation(ISendNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterSendNFTDefaultImplementation(ISendNFTApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterSendNFT(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
+            AfterSendNFT(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -14084,13 +13660,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterSendNFT(ref bool suppressDefaultLog, ISendNFTApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterSendNFT(ref bool suppressDefaultLog, ISendNFTApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -14098,16 +13673,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorSendNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorSendNFTDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSendNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
+            OnErrorSendNFT(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -14119,18 +13693,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorSendNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorSendNFT(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Send NFT Send an NFT.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
@@ -14138,11 +13710,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendNFTApiResponse"/>&gt;</returns>
-        public async Task<ISendNFTApiResponse?> SendNFTOrDefaultAsync(decimal version, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendNFTApiResponse?> SendNFTOrDefaultAsync(long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SendNFTAsync(version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await SendNFTAsync(accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -14154,7 +13726,6 @@ namespace Org.OpenAPITools.Api
         /// Send NFT Send an NFT.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomCampaignId">Vatom Campaign Id</param>
@@ -14162,7 +13733,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendNFTApiResponse"/>&gt;</returns>
-        public async Task<ISendNFTApiResponse> SendNFTAsync(decimal version, long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendNFTApiResponse> SendNFTAsync(long accountId, string appKey, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -14170,7 +13741,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSendNFT(appKey, vatomCampaignId, vatomParameters);
 
-                FormatSendNFT(ref version, ref accountId, ref appKey, ref vatomCampaignId, ref vatomParameters, ref returnRawResponse);
+                FormatSendNFT(ref accountId, ref appKey, ref vatomCampaignId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -14178,9 +13749,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaigns/send"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaigns/send");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaigns/send"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaigns/send");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -14208,13 +13778,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaigns/send", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaigns/send", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSendNFTDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
+                        AfterSendNFTDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnSendNFT(apiResponseLocalVar);
 
@@ -14224,7 +13794,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSendNFTDefaultImplementation(e, "/api/{version}/vatom/b/campaigns/send", uriBuilderLocalVar.Path, version, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
+                OnErrorSendNFTDefaultImplementation(e, "/vatom/b/campaigns/send", uriBuilderLocalVar.Path, accountId, appKey, vatomCampaignId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorSendNFT(e);
                 throw;
             }
@@ -14291,7 +13861,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSetPointsBalanceAsBusiness(ref decimal version, ref long accountId, ref string appKey, ref string vatomUserId, ref string vatomCampaignId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatSetPointsBalanceAsBusiness(ref long accountId, ref string appKey, ref string vatomUserId, ref string vatomCampaignId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -14320,17 +13890,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterSetPointsBalanceAsBusinessDefaultImplementation(ISetPointsBalanceAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterSetPointsBalanceAsBusinessDefaultImplementation(ISetPointsBalanceAsBusinessApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterSetPointsBalanceAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
+            AfterSetPointsBalanceAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -14340,14 +13909,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterSetPointsBalanceAsBusiness(ref bool suppressDefaultLog, ISetPointsBalanceAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterSetPointsBalanceAsBusiness(ref bool suppressDefaultLog, ISetPointsBalanceAsBusinessApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -14355,17 +13923,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorSetPointsBalanceAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorSetPointsBalanceAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSetPointsBalanceAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
+            OnErrorSetPointsBalanceAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -14377,19 +13944,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomCampaignId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorSetPointsBalanceAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorSetPointsBalanceAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Set Points Balance as Business Sets the points balance of a Vatom user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomUserId">Vatom User Id</param>
@@ -14398,11 +13963,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISetPointsBalanceAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<ISetPointsBalanceAsBusinessApiResponse?> SetPointsBalanceAsBusinessOrDefaultAsync(decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISetPointsBalanceAsBusinessApiResponse?> SetPointsBalanceAsBusinessOrDefaultAsync(long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SetPointsBalanceAsBusinessAsync(version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await SetPointsBalanceAsBusinessAsync(accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -14414,7 +13979,6 @@ namespace Org.OpenAPITools.Api
         /// Set Points Balance as Business Sets the points balance of a Vatom user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomUserId">Vatom User Id</param>
@@ -14423,7 +13987,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISetPointsBalanceAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<ISetPointsBalanceAsBusinessApiResponse> SetPointsBalanceAsBusinessAsync(decimal version, long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISetPointsBalanceAsBusinessApiResponse> SetPointsBalanceAsBusinessAsync(long accountId, string appKey, string vatomUserId, string vatomCampaignId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -14431,7 +13995,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSetPointsBalanceAsBusiness(appKey, vatomUserId, vatomCampaignId, vatomParameters);
 
-                FormatSetPointsBalanceAsBusiness(ref version, ref accountId, ref appKey, ref vatomUserId, ref vatomCampaignId, ref vatomParameters, ref returnRawResponse);
+                FormatSetPointsBalanceAsBusiness(ref accountId, ref appKey, ref vatomUserId, ref vatomCampaignId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -14439,9 +14003,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/campaign/u/points/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/campaign/u/points/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/campaign/u/points/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/campaign/u/points/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -14470,13 +14033,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/campaign/u/points/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/campaign/u/points/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSetPointsBalanceAsBusinessDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
+                        AfterSetPointsBalanceAsBusinessDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnSetPointsBalanceAsBusiness(apiResponseLocalVar);
 
@@ -14486,7 +14049,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSetPointsBalanceAsBusinessDefaultImplementation(e, "/api/{version}/vatom/b/campaign/u/points/update", uriBuilderLocalVar.Path, version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
+                OnErrorSetPointsBalanceAsBusinessDefaultImplementation(e, "/vatom/b/campaign/u/points/update", uriBuilderLocalVar.Path, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorSetPointsBalanceAsBusiness(e);
                 throw;
             }
@@ -14553,7 +14116,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatTransferUserCoins(ref decimal version, ref long accountId, ref string vatomUserId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatTransferUserCoins(ref long accountId, ref string vatomUserId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -14574,15 +14137,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterTransferUserCoinsDefaultImplementation(ITransferUserCoinsApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterTransferUserCoinsDefaultImplementation(ITransferUserCoinsApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterTransferUserCoins(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+            AfterTransferUserCoins(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -14592,12 +14154,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterTransferUserCoins(ref bool suppressDefaultLog, ITransferUserCoinsApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterTransferUserCoins(ref bool suppressDefaultLog, ITransferUserCoinsApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -14605,15 +14166,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorTransferUserCoinsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorTransferUserCoinsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorTransferUserCoins(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+            OnErrorTransferUserCoins(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -14625,28 +14185,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorTransferUserCoins(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorTransferUserCoins(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Transfer coins from Vatom Users Transfer coins from Vatom Users.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITransferUserCoinsApiResponse"/>&gt;</returns>
-        public async Task<ITransferUserCoinsApiResponse?> TransferUserCoinsOrDefaultAsync(decimal version, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITransferUserCoinsApiResponse?> TransferUserCoinsOrDefaultAsync(long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await TransferUserCoinsAsync(version, accountId, vatomUserId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await TransferUserCoinsAsync(accountId, vatomUserId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -14658,14 +14216,13 @@ namespace Org.OpenAPITools.Api
         /// Transfer coins from Vatom Users Transfer coins from Vatom Users.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITransferUserCoinsApiResponse"/>&gt;</returns>
-        public async Task<ITransferUserCoinsApiResponse> TransferUserCoinsAsync(decimal version, long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITransferUserCoinsApiResponse> TransferUserCoinsAsync(long accountId, string vatomUserId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -14673,7 +14230,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateTransferUserCoins(vatomUserId, vatomParameters);
 
-                FormatTransferUserCoins(ref version, ref accountId, ref vatomUserId, ref vatomParameters, ref returnRawResponse);
+                FormatTransferUserCoins(ref accountId, ref vatomUserId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -14681,9 +14238,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/u/coins/transfer"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/u/coins/transfer");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/u/coins/transfer"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/u/coins/transfer");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -14710,13 +14266,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/u/coins/transfer", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/u/coins/transfer", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterTransferUserCoinsDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+                        AfterTransferUserCoinsDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnTransferUserCoins(apiResponseLocalVar);
 
@@ -14726,7 +14282,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorTransferUserCoinsDefaultImplementation(e, "/api/{version}/vatom/u/coins/transfer", uriBuilderLocalVar.Path, version, accountId, vatomUserId, vatomParameters, returnRawResponse);
+                OnErrorTransferUserCoinsDefaultImplementation(e, "/vatom/u/coins/transfer", uriBuilderLocalVar.Path, accountId, vatomUserId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorTransferUserCoins(e);
                 throw;
             }
@@ -14793,7 +14349,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateBusinessCoins(ref decimal version, ref long accountId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatUpdateBusinessCoins(ref long accountId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -14814,15 +14370,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterUpdateBusinessCoinsDefaultImplementation(IUpdateBusinessCoinsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterUpdateBusinessCoinsDefaultImplementation(IUpdateBusinessCoinsApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateBusinessCoins(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            AfterUpdateBusinessCoins(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -14832,12 +14387,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterUpdateBusinessCoins(ref bool suppressDefaultLog, IUpdateBusinessCoinsApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterUpdateBusinessCoins(ref bool suppressDefaultLog, IUpdateBusinessCoinsApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -14845,15 +14399,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorUpdateBusinessCoinsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorUpdateBusinessCoinsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateBusinessCoins(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+            OnErrorUpdateBusinessCoins(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -14865,28 +14418,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorUpdateBusinessCoins(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorUpdateBusinessCoins(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Fund coins for a Business Fund/update coins for a Businesss.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBusinessCoinsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateBusinessCoinsApiResponse?> UpdateBusinessCoinsOrDefaultAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateBusinessCoinsApiResponse?> UpdateBusinessCoinsOrDefaultAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateBusinessCoinsAsync(version, accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await UpdateBusinessCoinsAsync(accountId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -14898,14 +14449,13 @@ namespace Org.OpenAPITools.Api
         /// Fund coins for a Business Fund/update coins for a Businesss.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateBusinessCoinsApiResponse"/>&gt;</returns>
-        public async Task<IUpdateBusinessCoinsApiResponse> UpdateBusinessCoinsAsync(decimal version, long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateBusinessCoinsApiResponse> UpdateBusinessCoinsAsync(long accountId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -14913,7 +14463,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateBusinessCoins(appKey, vatomParameters);
 
-                FormatUpdateBusinessCoins(ref version, ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatUpdateBusinessCoins(ref accountId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -14921,9 +14471,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/coins/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/coins/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/coins/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/coins/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -14950,13 +14499,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/coins/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/coins/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateBusinessCoinsDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomParameters, returnRawResponse);
+                        AfterUpdateBusinessCoinsDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnUpdateBusinessCoins(apiResponseLocalVar);
 
@@ -14966,7 +14515,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateBusinessCoinsDefaultImplementation(e, "/api/{version}/vatom/b/coins/update", uriBuilderLocalVar.Path, version, accountId, appKey, vatomParameters, returnRawResponse);
+                OnErrorUpdateBusinessCoinsDefaultImplementation(e, "/vatom/b/coins/update", uriBuilderLocalVar.Path, accountId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorUpdateBusinessCoins(e);
                 throw;
             }
@@ -15033,7 +14582,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateEventGuestList(ref decimal version, ref long accountId, ref string appKey, ref string vatomEventId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatUpdateEventGuestList(ref long accountId, ref string appKey, ref string vatomEventId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -15058,16 +14607,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterUpdateEventGuestListDefaultImplementation(IUpdateEventGuestListApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterUpdateEventGuestListDefaultImplementation(IUpdateEventGuestListApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateEventGuestList(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+            AfterUpdateEventGuestList(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -15077,13 +14625,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterUpdateEventGuestList(ref bool suppressDefaultLog, IUpdateEventGuestListApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterUpdateEventGuestList(ref bool suppressDefaultLog, IUpdateEventGuestListApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -15091,16 +14638,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorUpdateEventGuestListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorUpdateEventGuestListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateEventGuestList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+            OnErrorUpdateEventGuestList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -15112,18 +14658,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorUpdateEventGuestList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorUpdateEventGuestList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Update Vatom Event Guest List Update the guest list of an event.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
@@ -15131,11 +14675,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEventGuestListApiResponse"/>&gt;</returns>
-        public async Task<IUpdateEventGuestListApiResponse?> UpdateEventGuestListOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateEventGuestListApiResponse?> UpdateEventGuestListOrDefaultAsync(long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateEventGuestListAsync(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await UpdateEventGuestListAsync(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -15147,7 +14691,6 @@ namespace Org.OpenAPITools.Api
         /// Update Vatom Event Guest List Update the guest list of an event.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
@@ -15155,7 +14698,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateEventGuestListApiResponse"/>&gt;</returns>
-        public async Task<IUpdateEventGuestListApiResponse> UpdateEventGuestListAsync(decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateEventGuestListApiResponse> UpdateEventGuestListAsync(long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -15163,7 +14706,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateEventGuestList(appKey, vatomEventId, vatomParameters);
 
-                FormatUpdateEventGuestList(ref version, ref accountId, ref appKey, ref vatomEventId, ref vatomParameters, ref returnRawResponse);
+                FormatUpdateEventGuestList(ref accountId, ref appKey, ref vatomEventId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -15171,9 +14714,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/events/guests/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/events/guests/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/events/guests/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/events/guests/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -15201,13 +14743,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/events/guests/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/events/guests/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateEventGuestListDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+                        AfterUpdateEventGuestListDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnUpdateEventGuestList(apiResponseLocalVar);
 
@@ -15217,7 +14759,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateEventGuestListDefaultImplementation(e, "/api/{version}/vatom/b/events/guests/update", uriBuilderLocalVar.Path, version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+                OnErrorUpdateEventGuestListDefaultImplementation(e, "/vatom/b/events/guests/update", uriBuilderLocalVar.Path, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorUpdateEventGuestList(e);
                 throw;
             }
@@ -15284,7 +14826,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateSpace(ref decimal version, ref long accountId, ref string appKey, ref string vatomSpaceId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatUpdateSpace(ref long accountId, ref string appKey, ref string vatomSpaceId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -15309,16 +14851,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterUpdateSpaceDefaultImplementation(IUpdateSpaceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterUpdateSpaceDefaultImplementation(IUpdateSpaceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateSpace(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
+            AfterUpdateSpace(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -15328,13 +14869,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterUpdateSpace(ref bool suppressDefaultLog, IUpdateSpaceApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterUpdateSpace(ref bool suppressDefaultLog, IUpdateSpaceApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -15342,16 +14882,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorUpdateSpaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorUpdateSpaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateSpace(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
+            OnErrorUpdateSpace(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -15363,18 +14902,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomSpaceId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorUpdateSpace(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorUpdateSpace(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Update Vatom Space Update a Vatom space.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
@@ -15382,11 +14919,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSpaceApiResponse"/>&gt;</returns>
-        public async Task<IUpdateSpaceApiResponse?> UpdateSpaceOrDefaultAsync(decimal version, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateSpaceApiResponse?> UpdateSpaceOrDefaultAsync(long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateSpaceAsync(version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await UpdateSpaceAsync(accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -15398,7 +14935,6 @@ namespace Org.OpenAPITools.Api
         /// Update Vatom Space Update a Vatom space.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomSpaceId">Vatom Space Id</param>
@@ -15406,7 +14942,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateSpaceApiResponse"/>&gt;</returns>
-        public async Task<IUpdateSpaceApiResponse> UpdateSpaceAsync(decimal version, long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateSpaceApiResponse> UpdateSpaceAsync(long accountId, string appKey, string vatomSpaceId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -15414,7 +14950,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateSpace(appKey, vatomSpaceId, vatomParameters);
 
-                FormatUpdateSpace(ref version, ref accountId, ref appKey, ref vatomSpaceId, ref vatomParameters, ref returnRawResponse);
+                FormatUpdateSpace(ref accountId, ref appKey, ref vatomSpaceId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -15422,9 +14958,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/spaces/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/spaces/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/spaces/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/spaces/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -15452,13 +14987,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/spaces/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/spaces/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateSpaceDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
+                        AfterUpdateSpaceDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnUpdateSpace(apiResponseLocalVar);
 
@@ -15468,7 +15003,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateSpaceDefaultImplementation(e, "/api/{version}/vatom/b/spaces/update", uriBuilderLocalVar.Path, version, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
+                OnErrorUpdateSpaceDefaultImplementation(e, "/vatom/b/spaces/update", uriBuilderLocalVar.Path, accountId, appKey, vatomSpaceId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorUpdateSpace(e);
                 throw;
             }
@@ -15535,7 +15070,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateUserCoinsAsBusiness(ref decimal version, ref long accountId, ref string vatomUserId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatUpdateUserCoinsAsBusiness(ref long accountId, ref string vatomUserId, ref string appKey, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -15560,16 +15095,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterUpdateUserCoinsAsBusinessDefaultImplementation(IUpdateUserCoinsAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterUpdateUserCoinsAsBusinessDefaultImplementation(IUpdateUserCoinsAsBusinessApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateUserCoinsAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+            AfterUpdateUserCoinsAsBusiness(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -15579,13 +15113,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterUpdateUserCoinsAsBusiness(ref bool suppressDefaultLog, IUpdateUserCoinsAsBusinessApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterUpdateUserCoinsAsBusiness(ref bool suppressDefaultLog, IUpdateUserCoinsAsBusinessApiResponse apiResponseLocalVar, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -15593,16 +15126,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorUpdateUserCoinsAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorUpdateUserCoinsAsBusinessDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateUserCoinsAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+            OnErrorUpdateUserCoinsAsBusiness(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -15614,18 +15146,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomUserId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorUpdateUserCoinsAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorUpdateUserCoinsAsBusiness(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Update the coins for a user (as a Business) Update the coins for a user (as a Business).
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -15633,11 +15163,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IUpdateUserCoinsAsBusinessApiResponse?> UpdateUserCoinsAsBusinessOrDefaultAsync(decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateUserCoinsAsBusinessApiResponse?> UpdateUserCoinsAsBusinessOrDefaultAsync(long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateUserCoinsAsBusinessAsync(version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await UpdateUserCoinsAsBusinessAsync(accountId, vatomUserId, appKey, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -15649,7 +15179,6 @@ namespace Org.OpenAPITools.Api
         /// Update the coins for a user (as a Business) Update the coins for a user (as a Business).
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomUserId">Vatom User Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
@@ -15657,7 +15186,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserCoinsAsBusinessApiResponse"/>&gt;</returns>
-        public async Task<IUpdateUserCoinsAsBusinessApiResponse> UpdateUserCoinsAsBusinessAsync(decimal version, long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateUserCoinsAsBusinessApiResponse> UpdateUserCoinsAsBusinessAsync(long accountId, string vatomUserId, string appKey, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -15665,7 +15194,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateUserCoinsAsBusiness(vatomUserId, appKey, vatomParameters);
 
-                FormatUpdateUserCoinsAsBusiness(ref version, ref accountId, ref vatomUserId, ref appKey, ref vatomParameters, ref returnRawResponse);
+                FormatUpdateUserCoinsAsBusiness(ref accountId, ref vatomUserId, ref appKey, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -15673,9 +15202,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/users/coins/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/users/coins/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/users/coins/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/users/coins/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -15703,13 +15231,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/users/coins/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/users/coins/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateUserCoinsAsBusinessDefaultImplementation(apiResponseLocalVar, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+                        AfterUpdateUserCoinsAsBusinessDefaultImplementation(apiResponseLocalVar, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnUpdateUserCoinsAsBusiness(apiResponseLocalVar);
 
@@ -15719,7 +15247,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateUserCoinsAsBusinessDefaultImplementation(e, "/api/{version}/vatom/b/users/coins/update", uriBuilderLocalVar.Path, version, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
+                OnErrorUpdateUserCoinsAsBusinessDefaultImplementation(e, "/vatom/b/users/coins/update", uriBuilderLocalVar.Path, accountId, vatomUserId, appKey, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorUpdateUserCoinsAsBusiness(e);
                 throw;
             }
@@ -15786,7 +15314,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateUserProfile(ref decimal version, ref long accountId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatUpdateUserProfile(ref long accountId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -15803,14 +15331,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterUpdateUserProfileDefaultImplementation(IUpdateUserProfileApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterUpdateUserProfileDefaultImplementation(IUpdateUserProfileApiResponse apiResponseLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateUserProfile(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            AfterUpdateUserProfile(ref suppressDefaultLog, apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -15820,11 +15347,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterUpdateUserProfile(ref bool suppressDefaultLog, IUpdateUserProfileApiResponse apiResponseLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterUpdateUserProfile(ref bool suppressDefaultLog, IUpdateUserProfileApiResponse apiResponseLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -15832,14 +15358,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorUpdateUserProfileDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorUpdateUserProfileDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateUserProfile(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, vatomParameters, returnRawResponse);
+            OnErrorUpdateUserProfile(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -15851,26 +15376,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorUpdateUserProfile(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorUpdateUserProfile(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Update Vatom User Profile Gets the logged in user&#39;s profile in Vatom.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserProfileApiResponse"/>&gt;</returns>
-        public async Task<IUpdateUserProfileApiResponse?> UpdateUserProfileOrDefaultAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateUserProfileApiResponse?> UpdateUserProfileOrDefaultAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateUserProfileAsync(version, accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await UpdateUserProfileAsync(accountId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -15882,13 +15405,12 @@ namespace Org.OpenAPITools.Api
         /// Update Vatom User Profile Gets the logged in user&#39;s profile in Vatom.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="vatomParameters">Vatom Parameters</param>
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateUserProfileApiResponse"/>&gt;</returns>
-        public async Task<IUpdateUserProfileApiResponse> UpdateUserProfileAsync(decimal version, long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateUserProfileApiResponse> UpdateUserProfileAsync(long accountId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -15896,7 +15418,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateUserProfile(vatomParameters);
 
-                FormatUpdateUserProfile(ref version, ref accountId, ref vatomParameters, ref returnRawResponse);
+                FormatUpdateUserProfile(ref accountId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -15904,9 +15426,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/me/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/me/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/me/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/me/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -15932,13 +15453,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/me/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/me/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateUserProfileDefaultImplementation(apiResponseLocalVar, version, accountId, vatomParameters, returnRawResponse);
+                        AfterUpdateUserProfileDefaultImplementation(apiResponseLocalVar, accountId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnUpdateUserProfile(apiResponseLocalVar);
 
@@ -15948,7 +15469,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateUserProfileDefaultImplementation(e, "/api/{version}/vatom/me/update", uriBuilderLocalVar.Path, version, accountId, vatomParameters, returnRawResponse);
+                OnErrorUpdateUserProfileDefaultImplementation(e, "/vatom/me/update", uriBuilderLocalVar.Path, accountId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorUpdateUserProfile(e);
                 throw;
             }
@@ -16015,7 +15536,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateVatomEvent(ref decimal version, ref long accountId, ref string appKey, ref string vatomEventId, ref string vatomParameters, ref Option<bool> returnRawResponse);
+        partial void FormatUpdateVatomEvent(ref long accountId, ref string appKey, ref string vatomEventId, ref string vatomParameters, ref Option<bool> returnRawResponse);
 
         /// <summary>
         /// Validates the request parameters
@@ -16040,16 +15561,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void AfterUpdateVatomEventDefaultImplementation(IUpdateVatomEventApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse)
+        private void AfterUpdateVatomEventDefaultImplementation(IUpdateVatomEventApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateVatomEvent(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+            AfterUpdateVatomEvent(ref suppressDefaultLog, apiResponseLocalVar, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -16059,13 +15579,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void AfterUpdateVatomEvent(ref bool suppressDefaultLog, IUpdateVatomEventApiResponse apiResponseLocalVar, decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void AfterUpdateVatomEvent(ref bool suppressDefaultLog, IUpdateVatomEventApiResponse apiResponseLocalVar, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -16073,16 +15592,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        private void OnErrorUpdateVatomEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse)
+        private void OnErrorUpdateVatomEventDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateVatomEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+            OnErrorUpdateVatomEvent(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -16094,18 +15612,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="appKey"></param>
         /// <param name="vatomEventId"></param>
         /// <param name="vatomParameters"></param>
         /// <param name="returnRawResponse"></param>
-        partial void OnErrorUpdateVatomEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse);
+        partial void OnErrorUpdateVatomEvent(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse);
 
         /// <summary>
         /// Update Vatom Event Update a Vatom event.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
@@ -16113,11 +15629,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateVatomEventApiResponse"/>&gt;</returns>
-        public async Task<IUpdateVatomEventApiResponse?> UpdateVatomEventOrDefaultAsync(decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateVatomEventApiResponse?> UpdateVatomEventOrDefaultAsync(long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateVatomEventAsync(version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
+                return await UpdateVatomEventAsync(accountId, appKey, vatomEventId, vatomParameters, returnRawResponse, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -16129,7 +15645,6 @@ namespace Org.OpenAPITools.Api
         /// Update Vatom Event Update a Vatom event.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">Sirqul Account Id</param>
         /// <param name="appKey">Sirqul Application Key</param>
         /// <param name="vatomEventId">Vatom Event Id</param>
@@ -16137,7 +15652,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnRawResponse">Return raw response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateVatomEventApiResponse"/>&gt;</returns>
-        public async Task<IUpdateVatomEventApiResponse> UpdateVatomEventAsync(decimal version, long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateVatomEventApiResponse> UpdateVatomEventAsync(long accountId, string appKey, string vatomEventId, string vatomParameters, Option<bool> returnRawResponse = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -16145,7 +15660,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateVatomEvent(appKey, vatomEventId, vatomParameters);
 
-                FormatUpdateVatomEvent(ref version, ref accountId, ref appKey, ref vatomEventId, ref vatomParameters, ref returnRawResponse);
+                FormatUpdateVatomEvent(ref accountId, ref appKey, ref vatomEventId, ref vatomParameters, ref returnRawResponse);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -16153,9 +15668,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/vatom/b/events/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/vatom/b/events/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/vatom/b/events/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/vatom/b/events/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -16183,13 +15697,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/vatom/b/events/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/vatom/b/events/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateVatomEventDefaultImplementation(apiResponseLocalVar, version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+                        AfterUpdateVatomEventDefaultImplementation(apiResponseLocalVar, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
 
                         Events.ExecuteOnUpdateVatomEvent(apiResponseLocalVar);
 
@@ -16199,7 +15713,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateVatomEventDefaultImplementation(e, "/api/{version}/vatom/b/events/update", uriBuilderLocalVar.Path, version, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
+                OnErrorUpdateVatomEventDefaultImplementation(e, "/vatom/b/events/update", uriBuilderLocalVar.Path, accountId, appKey, vatomEventId, vatomParameters, returnRawResponse);
                 Events.ExecuteOnErrorUpdateVatomEvent(e);
                 throw;
             }

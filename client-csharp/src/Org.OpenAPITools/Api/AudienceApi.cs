@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a user defined audience.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the audience</param>
         /// <param name="description">The description of the audience (optional)</param>
@@ -77,7 +76,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="uniqueName">If true, makes sure the audience name is unique (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAudienceApiResponse"/>&gt;</returns>
-        Task<ICreateAudienceApiResponse> CreateAudienceAsync(decimal version, long accountId, string name, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<bool> sendSuggestion = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAudienceApiResponse> CreateAudienceAsync(long accountId, string name, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<bool> sendSuggestion = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Audience
@@ -85,7 +84,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a user defined audience.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the audience</param>
         /// <param name="description">The description of the audience (optional)</param>
@@ -117,7 +115,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="uniqueName">If true, makes sure the audience name is unique (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAudienceApiResponse"/>?&gt;</returns>
-        Task<ICreateAudienceApiResponse?> CreateAudienceOrDefaultAsync(decimal version, long accountId, string name, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<bool> sendSuggestion = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateAudienceApiResponse?> CreateAudienceOrDefaultAsync(long accountId, string name, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<bool> sendSuggestion = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Audience
@@ -126,12 +124,11 @@ namespace Org.OpenAPITools.Api
         /// Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAudienceApiResponse"/>&gt;</returns>
-        Task<IDeleteAudienceApiResponse> DeleteAudienceAsync(decimal version, long accountId, long audienceId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteAudienceApiResponse> DeleteAudienceAsync(long accountId, long audienceId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Audience
@@ -139,12 +136,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAudienceApiResponse"/>?&gt;</returns>
-        Task<IDeleteAudienceApiResponse?> DeleteAudienceOrDefaultAsync(decimal version, long accountId, long audienceId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteAudienceApiResponse?> DeleteAudienceOrDefaultAsync(long accountId, long audienceId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Age Groups
@@ -153,10 +149,9 @@ namespace Org.OpenAPITools.Api
         /// Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAgeGroupsApiResponse"/>&gt;</returns>
-        Task<IGetAgeGroupsApiResponse> GetAgeGroupsAsync(decimal version, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAgeGroupsApiResponse> GetAgeGroupsAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Age Groups
@@ -164,10 +159,9 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAgeGroupsApiResponse"/>?&gt;</returns>
-        Task<IGetAgeGroupsApiResponse?> GetAgeGroupsOrDefaultAsync(decimal version, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAgeGroupsApiResponse?> GetAgeGroupsOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Audience
@@ -176,7 +170,6 @@ namespace Org.OpenAPITools.Api
         /// Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to return.</param>
         /// <param name="appKey">The application key (optional). If provided, results may be scoped to this application. (optional)</param>
@@ -185,7 +178,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAudienceApiResponse"/>&gt;</returns>
-        Task<IGetAudienceApiResponse> GetAudienceAsync(decimal version, long accountId, long audienceId, Option<string> appKey = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAudienceApiResponse> GetAudienceAsync(long accountId, long audienceId, Option<string> appKey = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Audience
@@ -193,7 +186,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to return.</param>
         /// <param name="appKey">The application key (optional). If provided, results may be scoped to this application. (optional)</param>
@@ -202,7 +194,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAudienceApiResponse"/>?&gt;</returns>
-        Task<IGetAudienceApiResponse?> GetAudienceOrDefaultAsync(decimal version, long accountId, long audienceId, Option<string> appKey = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAudienceApiResponse?> GetAudienceOrDefaultAsync(long accountId, long audienceId, Option<string> appKey = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Audiences
@@ -211,7 +203,6 @@ namespace Org.OpenAPITools.Api
         /// Get the list audiences owned by the account
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="albumIds">Comma separated list of album IDs to filter results with (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -233,7 +224,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAudienceListApiResponse"/>&gt;</returns>
-        Task<IGetAudienceListApiResponse> GetAudienceListAsync(decimal version, Option<long> accountId = default, Option<string> albumIds = default, Option<string> keyword = default, Option<string> keywordFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> sendSuggestion = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<string> appKey = default, Option<bool> returnGlobal = default, Option<bool> exactKeyword = default, Option<string> audienceType = default, Option<string> audienceTypes = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAudienceListApiResponse> GetAudienceListAsync(Option<long> accountId = default, Option<string> albumIds = default, Option<string> keyword = default, Option<string> keywordFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> sendSuggestion = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<string> appKey = default, Option<bool> returnGlobal = default, Option<bool> exactKeyword = default, Option<string> audienceType = default, Option<string> audienceTypes = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Audiences
@@ -241,7 +232,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the list audiences owned by the account
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="albumIds">Comma separated list of album IDs to filter results with (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -263,7 +253,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAudienceListApiResponse"/>?&gt;</returns>
-        Task<IGetAudienceListApiResponse?> GetAudienceListOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> albumIds = default, Option<string> keyword = default, Option<string> keywordFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> sendSuggestion = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<string> appKey = default, Option<bool> returnGlobal = default, Option<bool> exactKeyword = default, Option<string> audienceType = default, Option<string> audienceTypes = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAudienceListApiResponse?> GetAudienceListOrDefaultAsync(Option<long> accountId = default, Option<string> albumIds = default, Option<string> keyword = default, Option<string> keywordFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> sendSuggestion = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<string> appKey = default, Option<bool> returnGlobal = default, Option<bool> exactKeyword = default, Option<string> audienceType = default, Option<string> audienceTypes = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Devices
@@ -272,11 +262,10 @@ namespace Org.OpenAPITools.Api
         /// Gets the list of available devices that can be selected by consumers and retailers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="includeInactive">If true return inactive record as well. default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDevicesApiResponse"/>&gt;</returns>
-        Task<IGetDevicesApiResponse> GetDevicesAsync(decimal version, bool includeInactive, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetDevicesApiResponse> GetDevicesAsync(bool includeInactive, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Devices
@@ -284,11 +273,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the list of available devices that can be selected by consumers and retailers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="includeInactive">If true return inactive record as well. default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDevicesApiResponse"/>?&gt;</returns>
-        Task<IGetDevicesApiResponse?> GetDevicesOrDefaultAsync(decimal version, bool includeInactive, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetDevicesApiResponse?> GetDevicesOrDefaultAsync(bool includeInactive, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Experiences
@@ -297,10 +285,9 @@ namespace Org.OpenAPITools.Api
         /// Gets the list of available experiences that can be selected by consumers and retailers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetExperiencesApiResponse"/>&gt;</returns>
-        Task<IGetExperiencesApiResponse> GetExperiencesAsync(decimal version, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetExperiencesApiResponse> GetExperiencesAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Experiences
@@ -308,10 +295,9 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the list of available experiences that can be selected by consumers and retailers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetExperiencesApiResponse"/>?&gt;</returns>
-        Task<IGetExperiencesApiResponse?> GetExperiencesOrDefaultAsync(decimal version, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetExperiencesApiResponse?> GetExperiencesOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get GroupedAudiences
@@ -320,12 +306,11 @@ namespace Org.OpenAPITools.Api
         /// Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceGroupingId">The audience grouping id to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGroupedAudiencesApiResponse"/>&gt;</returns>
-        Task<IGetGroupedAudiencesApiResponse> GetGroupedAudiencesAsync(decimal version, long accountId, string audienceGroupingId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGroupedAudiencesApiResponse> GetGroupedAudiencesAsync(long accountId, string audienceGroupingId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get GroupedAudiences
@@ -333,12 +318,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceGroupingId">The audience grouping id to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGroupedAudiencesApiResponse"/>?&gt;</returns>
-        Task<IGetGroupedAudiencesApiResponse?> GetGroupedAudiencesOrDefaultAsync(decimal version, long accountId, string audienceGroupingId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGroupedAudiencesApiResponse?> GetGroupedAudiencesOrDefaultAsync(long accountId, string audienceGroupingId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Suggestions by Audience
@@ -347,13 +331,12 @@ namespace Org.OpenAPITools.Api
         /// List either Missions or Offers that the user matches the assigned audience.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="limit">the limit of the index</param>
         /// <param name="suggestionType">the type of suggestion</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListByAccountApiResponse"/>&gt;</returns>
-        Task<IListByAccountApiResponse> ListByAccountAsync(decimal version, long accountId, int limit, string suggestionType, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListByAccountApiResponse> ListByAccountAsync(long accountId, int limit, string suggestionType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Suggestions by Audience
@@ -361,13 +344,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// List either Missions or Offers that the user matches the assigned audience.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="limit">the limit of the index</param>
         /// <param name="suggestionType">the type of suggestion</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListByAccountApiResponse"/>?&gt;</returns>
-        Task<IListByAccountApiResponse?> ListByAccountOrDefaultAsync(decimal version, long accountId, int limit, string suggestionType, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListByAccountApiResponse?> ListByAccountOrDefaultAsync(long accountId, int limit, string suggestionType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Offers by Audience
@@ -376,7 +358,6 @@ namespace Org.OpenAPITools.Api
         /// Get a list of offer locations based on audience information provided.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="limit">this is the limit of the index</param>
         /// <param name="gender">this is the gender to list offers by (optional)</param>
         /// <param name="age">this is the age to list offers by (optional)</param>
@@ -385,7 +366,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">this is the longitude to list offers by (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListByAudienceApiResponse"/>&gt;</returns>
-        Task<IListByAudienceApiResponse> ListByAudienceAsync(decimal version, int limit, Option<string> gender = default, Option<int> age = default, Option<string> categoryIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListByAudienceApiResponse> ListByAudienceAsync(int limit, Option<string> gender = default, Option<int> age = default, Option<string> categoryIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Offers by Audience
@@ -393,7 +374,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list of offer locations based on audience information provided.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="limit">this is the limit of the index</param>
         /// <param name="gender">this is the gender to list offers by (optional)</param>
         /// <param name="age">this is the age to list offers by (optional)</param>
@@ -402,7 +382,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">this is the longitude to list offers by (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListByAudienceApiResponse"/>?&gt;</returns>
-        Task<IListByAudienceApiResponse?> ListByAudienceOrDefaultAsync(decimal version, int limit, Option<string> gender = default, Option<int> age = default, Option<string> categoryIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListByAudienceApiResponse?> ListByAudienceOrDefaultAsync(int limit, Option<string> gender = default, Option<int> age = default, Option<string> categoryIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Sent Suggestions 
@@ -411,13 +391,12 @@ namespace Org.OpenAPITools.Api
         /// Return list of recent trigger suggestions that have been sent to the user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="timeframe">The timeframe in seconds of the latest suggestions</param>
         /// <param name="suggestionType">The type of trigger suggestions to return</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListLastestByAccountApiResponse"/>&gt;</returns>
-        Task<IListLastestByAccountApiResponse> ListLastestByAccountAsync(decimal version, long accountId, int timeframe, string suggestionType, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListLastestByAccountApiResponse> ListLastestByAccountAsync(long accountId, int timeframe, string suggestionType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Sent Suggestions 
@@ -425,13 +404,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Return list of recent trigger suggestions that have been sent to the user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="timeframe">The timeframe in seconds of the latest suggestions</param>
         /// <param name="suggestionType">The type of trigger suggestions to return</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListLastestByAccountApiResponse"/>?&gt;</returns>
-        Task<IListLastestByAccountApiResponse?> ListLastestByAccountOrDefaultAsync(decimal version, long accountId, int timeframe, string suggestionType, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListLastestByAccountApiResponse?> ListLastestByAccountOrDefaultAsync(long accountId, int timeframe, string suggestionType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Suggestions
@@ -440,13 +418,12 @@ namespace Org.OpenAPITools.Api
         /// Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="latitude">the latitude</param>
         /// <param name="longitude">the longitude</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendByAccountApiResponse"/>&gt;</returns>
-        Task<ISendByAccountApiResponse> SendByAccountAsync(decimal version, long accountId, double latitude, double longitude, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendByAccountApiResponse> SendByAccountAsync(long accountId, double latitude, double longitude, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send Suggestions
@@ -454,13 +431,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="latitude">the latitude</param>
         /// <param name="longitude">the longitude</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendByAccountApiResponse"/>?&gt;</returns>
-        Task<ISendByAccountApiResponse?> SendByAccountOrDefaultAsync(decimal version, long accountId, double latitude, double longitude, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISendByAccountApiResponse?> SendByAccountOrDefaultAsync(long accountId, double latitude, double longitude, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Audience
@@ -469,7 +445,6 @@ namespace Org.OpenAPITools.Api
         /// Update a user defined audience.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to update.</param>
         /// <param name="name">The name of the audience (optional)</param>
@@ -503,7 +478,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="uniqueName">If true, makes sure the audience name is unique (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAudienceApiResponse"/>&gt;</returns>
-        Task<IUpdateAudienceApiResponse> UpdateAudienceAsync(decimal version, long accountId, long audienceId, Option<string> name = default, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<bool> active = default, Option<bool> sendSuggestion = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAudienceApiResponse> UpdateAudienceAsync(long accountId, long audienceId, Option<string> name = default, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<bool> active = default, Option<bool> sendSuggestion = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Audience
@@ -511,7 +486,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a user defined audience.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to update.</param>
         /// <param name="name">The name of the audience (optional)</param>
@@ -545,7 +519,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="uniqueName">If true, makes sure the audience name is unique (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAudienceApiResponse"/>?&gt;</returns>
-        Task<IUpdateAudienceApiResponse?> UpdateAudienceOrDefaultAsync(decimal version, long accountId, long audienceId, Option<string> name = default, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<bool> active = default, Option<bool> sendSuggestion = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateAudienceApiResponse?> UpdateAudienceOrDefaultAsync(long accountId, long audienceId, Option<string> name = default, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<bool> active = default, Option<bool> sendSuggestion = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -1017,7 +991,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateAudience(ref decimal version, ref long accountId, ref string name, ref Option<string> description, ref Option<string> searchTags, ref Option<string> gender, ref Option<string> ageGroups, ref Option<string> categoryIds, ref Option<string> applicationIds, ref Option<string> gameExperienceLevel, ref Option<string> devices, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> locations, ref Option<string> radius, ref Option<int> startTimeOffset, ref Option<int> endTimeOffset, ref Option<bool> sendSuggestion, ref Option<string> associateDescription, ref Option<string> associateType, ref Option<long> associateId, ref Option<string> groupingId, ref Option<string> metaData, ref Option<string> visibility, ref Option<string> audienceType, ref Option<bool> useOrder, ref Option<string> cohortRegionsData, ref Option<string> appKey, ref Option<string> trilaterationTypes, ref Option<bool> uniqueName);
+        partial void FormatCreateAudience(ref long accountId, ref string name, ref Option<string> description, ref Option<string> searchTags, ref Option<string> gender, ref Option<string> ageGroups, ref Option<string> categoryIds, ref Option<string> applicationIds, ref Option<string> gameExperienceLevel, ref Option<string> devices, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> locations, ref Option<string> radius, ref Option<int> startTimeOffset, ref Option<int> endTimeOffset, ref Option<bool> sendSuggestion, ref Option<string> associateDescription, ref Option<string> associateType, ref Option<long> associateId, ref Option<string> groupingId, ref Option<string> metaData, ref Option<string> visibility, ref Option<string> audienceType, ref Option<bool> useOrder, ref Option<string> cohortRegionsData, ref Option<string> appKey, ref Option<string> trilaterationTypes, ref Option<bool> uniqueName);
 
         /// <summary>
         /// Validates the request parameters
@@ -1118,7 +1092,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
@@ -1148,10 +1121,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="trilaterationTypes"></param>
         /// <param name="uniqueName"></param>
-        private void AfterCreateAudienceDefaultImplementation(ICreateAudienceApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<bool> sendSuggestion, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName)
+        private void AfterCreateAudienceDefaultImplementation(ICreateAudienceApiResponse apiResponseLocalVar, long accountId, string name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<bool> sendSuggestion, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName)
         {
             bool suppressDefaultLog = false;
-            AfterCreateAudience(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+            AfterCreateAudience(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1161,7 +1134,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
@@ -1191,7 +1163,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="trilaterationTypes"></param>
         /// <param name="uniqueName"></param>
-        partial void AfterCreateAudience(ref bool suppressDefaultLog, ICreateAudienceApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<bool> sendSuggestion, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName);
+        partial void AfterCreateAudience(ref bool suppressDefaultLog, ICreateAudienceApiResponse apiResponseLocalVar, long accountId, string name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<bool> sendSuggestion, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1199,7 +1171,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
@@ -1229,10 +1200,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="trilaterationTypes"></param>
         /// <param name="uniqueName"></param>
-        private void OnErrorCreateAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<bool> sendSuggestion, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName)
+        private void OnErrorCreateAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<bool> sendSuggestion, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+            OnErrorCreateAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1244,7 +1215,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="description"></param>
@@ -1274,12 +1244,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="trilaterationTypes"></param>
         /// <param name="uniqueName"></param>
-        partial void OnErrorCreateAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<bool> sendSuggestion, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName);
+        partial void OnErrorCreateAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<bool> sendSuggestion, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName);
 
         /// <summary>
         /// Create Audience Create a user defined audience.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the audience</param>
         /// <param name="description">The description of the audience (optional)</param>
@@ -1311,11 +1280,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="uniqueName">If true, makes sure the audience name is unique (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAudienceApiResponse"/>&gt;</returns>
-        public async Task<ICreateAudienceApiResponse?> CreateAudienceOrDefaultAsync(decimal version, long accountId, string name, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<bool> sendSuggestion = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAudienceApiResponse?> CreateAudienceOrDefaultAsync(long accountId, string name, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<bool> sendSuggestion = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateAudienceAsync(version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, cancellationToken).ConfigureAwait(false);
+                return await CreateAudienceAsync(accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1327,7 +1296,6 @@ namespace Org.OpenAPITools.Api
         /// Create Audience Create a user defined audience.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the audience</param>
         /// <param name="description">The description of the audience (optional)</param>
@@ -1359,7 +1327,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="uniqueName">If true, makes sure the audience name is unique (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateAudienceApiResponse"/>&gt;</returns>
-        public async Task<ICreateAudienceApiResponse> CreateAudienceAsync(decimal version, long accountId, string name, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<bool> sendSuggestion = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateAudienceApiResponse> CreateAudienceAsync(long accountId, string name, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<bool> sendSuggestion = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1367,7 +1335,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateAudience(name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, associateDescription, associateType, groupingId, metaData, visibility, audienceType, cohortRegionsData, appKey, trilaterationTypes);
 
-                FormatCreateAudience(ref version, ref accountId, ref name, ref description, ref searchTags, ref gender, ref ageGroups, ref categoryIds, ref applicationIds, ref gameExperienceLevel, ref devices, ref deviceIds, ref deviceVersions, ref locations, ref radius, ref startTimeOffset, ref endTimeOffset, ref sendSuggestion, ref associateDescription, ref associateType, ref associateId, ref groupingId, ref metaData, ref visibility, ref audienceType, ref useOrder, ref cohortRegionsData, ref appKey, ref trilaterationTypes, ref uniqueName);
+                FormatCreateAudience(ref accountId, ref name, ref description, ref searchTags, ref gender, ref ageGroups, ref categoryIds, ref applicationIds, ref gameExperienceLevel, ref devices, ref deviceIds, ref deviceVersions, ref locations, ref radius, ref startTimeOffset, ref endTimeOffset, ref sendSuggestion, ref associateDescription, ref associateType, ref associateId, ref groupingId, ref metaData, ref visibility, ref audienceType, ref useOrder, ref cohortRegionsData, ref appKey, ref trilaterationTypes, ref uniqueName);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1375,9 +1343,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1490,13 +1457,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateAudienceDefaultImplementation(apiResponseLocalVar, version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+                        AfterCreateAudienceDefaultImplementation(apiResponseLocalVar, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
 
                         Events.ExecuteOnCreateAudience(apiResponseLocalVar);
 
@@ -1506,7 +1473,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateAudienceDefaultImplementation(e, "/api/{version}/audience/create", uriBuilderLocalVar.Path, version, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+                OnErrorCreateAudienceDefaultImplementation(e, "/audience/create", uriBuilderLocalVar.Path, accountId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, startTimeOffset, endTimeOffset, sendSuggestion, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
                 Events.ExecuteOnErrorCreateAudience(e);
                 throw;
             }
@@ -1605,19 +1572,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteAudience(ref decimal version, ref long accountId, ref long audienceId);
+        partial void FormatDeleteAudience(ref long accountId, ref long audienceId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
-        private void AfterDeleteAudienceDefaultImplementation(IDeleteAudienceApiResponse apiResponseLocalVar, decimal version, long accountId, long audienceId)
+        private void AfterDeleteAudienceDefaultImplementation(IDeleteAudienceApiResponse apiResponseLocalVar, long accountId, long audienceId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteAudience(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, audienceId);
+            AfterDeleteAudience(ref suppressDefaultLog, apiResponseLocalVar, accountId, audienceId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1627,10 +1593,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
-        partial void AfterDeleteAudience(ref bool suppressDefaultLog, IDeleteAudienceApiResponse apiResponseLocalVar, decimal version, long accountId, long audienceId);
+        partial void AfterDeleteAudience(ref bool suppressDefaultLog, IDeleteAudienceApiResponse apiResponseLocalVar, long accountId, long audienceId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1638,13 +1603,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
-        private void OnErrorDeleteAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long audienceId)
+        private void OnErrorDeleteAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long audienceId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, audienceId);
+            OnErrorDeleteAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, audienceId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1656,24 +1620,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
-        partial void OnErrorDeleteAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long audienceId);
+        partial void OnErrorDeleteAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long audienceId);
 
         /// <summary>
         /// Delete Audience Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAudienceApiResponse"/>&gt;</returns>
-        public async Task<IDeleteAudienceApiResponse?> DeleteAudienceOrDefaultAsync(decimal version, long accountId, long audienceId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteAudienceApiResponse?> DeleteAudienceOrDefaultAsync(long accountId, long audienceId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteAudienceAsync(version, accountId, audienceId, cancellationToken).ConfigureAwait(false);
+                return await DeleteAudienceAsync(accountId, audienceId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1685,18 +1647,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Audience Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteAudienceApiResponse"/>&gt;</returns>
-        public async Task<IDeleteAudienceApiResponse> DeleteAudienceAsync(decimal version, long accountId, long audienceId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteAudienceApiResponse> DeleteAudienceAsync(long accountId, long audienceId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteAudience(ref version, ref accountId, ref audienceId);
+                FormatDeleteAudience(ref accountId, ref audienceId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1704,9 +1665,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1738,13 +1698,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteAudienceDefaultImplementation(apiResponseLocalVar, version, accountId, audienceId);
+                        AfterDeleteAudienceDefaultImplementation(apiResponseLocalVar, accountId, audienceId);
 
                         Events.ExecuteOnDeleteAudience(apiResponseLocalVar);
 
@@ -1754,7 +1714,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteAudienceDefaultImplementation(e, "/api/{version}/audience/delete", uriBuilderLocalVar.Path, version, accountId, audienceId);
+                OnErrorDeleteAudienceDefaultImplementation(e, "/audience/delete", uriBuilderLocalVar.Path, accountId, audienceId);
                 Events.ExecuteOnErrorDeleteAudience(e);
                 throw;
             }
@@ -1853,17 +1813,14 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAgeGroups(ref decimal version);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
-        private void AfterGetAgeGroupsDefaultImplementation(IGetAgeGroupsApiResponse apiResponseLocalVar, decimal version)
+        private void AfterGetAgeGroupsDefaultImplementation(IGetAgeGroupsApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterGetAgeGroups(ref suppressDefaultLog, apiResponseLocalVar, version);
+            AfterGetAgeGroups(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1873,8 +1830,7 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
-        partial void AfterGetAgeGroups(ref bool suppressDefaultLog, IGetAgeGroupsApiResponse apiResponseLocalVar, decimal version);
+        partial void AfterGetAgeGroups(ref bool suppressDefaultLog, IGetAgeGroupsApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1882,11 +1838,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
-        private void OnErrorGetAgeGroupsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version)
+        private void OnErrorGetAgeGroupsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAgeGroups(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version);
+            OnErrorGetAgeGroups(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1898,20 +1853,18 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
-        partial void OnErrorGetAgeGroups(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version);
+        partial void OnErrorGetAgeGroups(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Get Age Groups Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAgeGroupsApiResponse"/>&gt;</returns>
-        public async Task<IGetAgeGroupsApiResponse?> GetAgeGroupsOrDefaultAsync(decimal version, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAgeGroupsApiResponse?> GetAgeGroupsOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAgeGroupsAsync(version, cancellationToken).ConfigureAwait(false);
+                return await GetAgeGroupsAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1923,26 +1876,22 @@ namespace Org.OpenAPITools.Api
         /// Get Age Groups Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAgeGroupsApiResponse"/>&gt;</returns>
-        public async Task<IGetAgeGroupsApiResponse> GetAgeGroupsAsync(decimal version, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAgeGroupsApiResponse> GetAgeGroupsAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetAgeGroups(ref version);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/ageGroups"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/ageGroups");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/ageGroups"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/ageGroups");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -1967,13 +1916,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/ageGroups", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/ageGroups", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAgeGroupsDefaultImplementation(apiResponseLocalVar, version);
+                        AfterGetAgeGroupsDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnGetAgeGroups(apiResponseLocalVar);
 
@@ -1983,7 +1932,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAgeGroupsDefaultImplementation(e, "/api/{version}/audience/ageGroups", uriBuilderLocalVar.Path, version);
+                OnErrorGetAgeGroupsDefaultImplementation(e, "/audience/ageGroups", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorGetAgeGroups(e);
                 throw;
             }
@@ -2082,7 +2031,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAudience(ref decimal version, ref long accountId, ref long audienceId, ref Option<string> appKey, ref Option<bool> returnAccountCount, ref Option<bool> returnAlbumCount, ref Option<string> albumTypesForCount);
+        partial void FormatGetAudience(ref long accountId, ref long audienceId, ref Option<string> appKey, ref Option<bool> returnAccountCount, ref Option<bool> returnAlbumCount, ref Option<string> albumTypesForCount);
 
         /// <summary>
         /// Validates the request parameters
@@ -2103,17 +2052,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnAccountCount"></param>
         /// <param name="returnAlbumCount"></param>
         /// <param name="albumTypesForCount"></param>
-        private void AfterGetAudienceDefaultImplementation(IGetAudienceApiResponse apiResponseLocalVar, decimal version, long accountId, long audienceId, Option<string> appKey, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount)
+        private void AfterGetAudienceDefaultImplementation(IGetAudienceApiResponse apiResponseLocalVar, long accountId, long audienceId, Option<string> appKey, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount)
         {
             bool suppressDefaultLog = false;
-            AfterGetAudience(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
+            AfterGetAudience(ref suppressDefaultLog, apiResponseLocalVar, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2123,14 +2071,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnAccountCount"></param>
         /// <param name="returnAlbumCount"></param>
         /// <param name="albumTypesForCount"></param>
-        partial void AfterGetAudience(ref bool suppressDefaultLog, IGetAudienceApiResponse apiResponseLocalVar, decimal version, long accountId, long audienceId, Option<string> appKey, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount);
+        partial void AfterGetAudience(ref bool suppressDefaultLog, IGetAudienceApiResponse apiResponseLocalVar, long accountId, long audienceId, Option<string> appKey, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2138,17 +2085,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnAccountCount"></param>
         /// <param name="returnAlbumCount"></param>
         /// <param name="albumTypesForCount"></param>
-        private void OnErrorGetAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long audienceId, Option<string> appKey, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount)
+        private void OnErrorGetAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long audienceId, Option<string> appKey, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
+            OnErrorGetAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2160,19 +2106,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
         /// <param name="appKey"></param>
         /// <param name="returnAccountCount"></param>
         /// <param name="returnAlbumCount"></param>
         /// <param name="albumTypesForCount"></param>
-        partial void OnErrorGetAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long audienceId, Option<string> appKey, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount);
+        partial void OnErrorGetAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long audienceId, Option<string> appKey, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount);
 
         /// <summary>
         /// Get Audience Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to return.</param>
         /// <param name="appKey">The application key (optional). If provided, results may be scoped to this application. (optional)</param>
@@ -2181,11 +2125,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAudienceApiResponse"/>&gt;</returns>
-        public async Task<IGetAudienceApiResponse?> GetAudienceOrDefaultAsync(decimal version, long accountId, long audienceId, Option<string> appKey = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAudienceApiResponse?> GetAudienceOrDefaultAsync(long accountId, long audienceId, Option<string> appKey = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAudienceAsync(version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount, cancellationToken).ConfigureAwait(false);
+                return await GetAudienceAsync(accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2197,7 +2141,6 @@ namespace Org.OpenAPITools.Api
         /// Get Audience Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to return.</param>
         /// <param name="appKey">The application key (optional). If provided, results may be scoped to this application. (optional)</param>
@@ -2206,7 +2149,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAudienceApiResponse"/>&gt;</returns>
-        public async Task<IGetAudienceApiResponse> GetAudienceAsync(decimal version, long accountId, long audienceId, Option<string> appKey = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAudienceApiResponse> GetAudienceAsync(long accountId, long audienceId, Option<string> appKey = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2214,7 +2157,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAudience(appKey, albumTypesForCount);
 
-                FormatGetAudience(ref version, ref accountId, ref audienceId, ref appKey, ref returnAccountCount, ref returnAlbumCount, ref albumTypesForCount);
+                FormatGetAudience(ref accountId, ref audienceId, ref appKey, ref returnAccountCount, ref returnAlbumCount, ref albumTypesForCount);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2222,9 +2165,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2268,13 +2210,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAudienceDefaultImplementation(apiResponseLocalVar, version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
+                        AfterGetAudienceDefaultImplementation(apiResponseLocalVar, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
 
                         Events.ExecuteOnGetAudience(apiResponseLocalVar);
 
@@ -2284,7 +2226,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAudienceDefaultImplementation(e, "/api/{version}/audience/get", uriBuilderLocalVar.Path, version, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
+                OnErrorGetAudienceDefaultImplementation(e, "/audience/get", uriBuilderLocalVar.Path, accountId, audienceId, appKey, returnAccountCount, returnAlbumCount, albumTypesForCount);
                 Events.ExecuteOnErrorGetAudience(e);
                 throw;
             }
@@ -2383,7 +2325,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAudienceList(ref decimal version, ref Option<long> accountId, ref Option<string> albumIds, ref Option<string> keyword, ref Option<string> keywordFields, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> sendSuggestion, ref Option<bool> activeOnly, ref Option<bool> groupByGroupingId, ref Option<string> appKey, ref Option<bool> returnGlobal, ref Option<bool> exactKeyword, ref Option<string> audienceType, ref Option<string> audienceTypes, ref Option<bool> returnAccountCount, ref Option<bool> returnAlbumCount, ref Option<string> albumTypesForCount);
+        partial void FormatGetAudienceList(ref Option<long> accountId, ref Option<string> albumIds, ref Option<string> keyword, ref Option<string> keywordFields, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> sendSuggestion, ref Option<bool> activeOnly, ref Option<bool> groupByGroupingId, ref Option<string> appKey, ref Option<bool> returnGlobal, ref Option<bool> exactKeyword, ref Option<string> audienceType, ref Option<string> audienceTypes, ref Option<bool> returnAccountCount, ref Option<bool> returnAlbumCount, ref Option<string> albumTypesForCount);
 
         /// <summary>
         /// Validates the request parameters
@@ -2428,7 +2370,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="albumIds"></param>
         /// <param name="keyword"></param>
@@ -2448,10 +2389,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnAccountCount"></param>
         /// <param name="returnAlbumCount"></param>
         /// <param name="albumTypesForCount"></param>
-        private void AfterGetAudienceListDefaultImplementation(IGetAudienceListApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> albumIds, Option<string> keyword, Option<string> keywordFields, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> sendSuggestion, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<string> appKey, Option<bool> returnGlobal, Option<bool> exactKeyword, Option<string> audienceType, Option<string> audienceTypes, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount)
+        private void AfterGetAudienceListDefaultImplementation(IGetAudienceListApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> albumIds, Option<string> keyword, Option<string> keywordFields, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> sendSuggestion, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<string> appKey, Option<bool> returnGlobal, Option<bool> exactKeyword, Option<string> audienceType, Option<string> audienceTypes, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount)
         {
             bool suppressDefaultLog = false;
-            AfterGetAudienceList(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
+            AfterGetAudienceList(ref suppressDefaultLog, apiResponseLocalVar, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2461,7 +2402,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="albumIds"></param>
         /// <param name="keyword"></param>
@@ -2481,7 +2421,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnAccountCount"></param>
         /// <param name="returnAlbumCount"></param>
         /// <param name="albumTypesForCount"></param>
-        partial void AfterGetAudienceList(ref bool suppressDefaultLog, IGetAudienceListApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> albumIds, Option<string> keyword, Option<string> keywordFields, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> sendSuggestion, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<string> appKey, Option<bool> returnGlobal, Option<bool> exactKeyword, Option<string> audienceType, Option<string> audienceTypes, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount);
+        partial void AfterGetAudienceList(ref bool suppressDefaultLog, IGetAudienceListApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> albumIds, Option<string> keyword, Option<string> keywordFields, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> sendSuggestion, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<string> appKey, Option<bool> returnGlobal, Option<bool> exactKeyword, Option<string> audienceType, Option<string> audienceTypes, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2489,7 +2429,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="albumIds"></param>
         /// <param name="keyword"></param>
@@ -2509,10 +2448,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnAccountCount"></param>
         /// <param name="returnAlbumCount"></param>
         /// <param name="albumTypesForCount"></param>
-        private void OnErrorGetAudienceListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> albumIds, Option<string> keyword, Option<string> keywordFields, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> sendSuggestion, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<string> appKey, Option<bool> returnGlobal, Option<bool> exactKeyword, Option<string> audienceType, Option<string> audienceTypes, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount)
+        private void OnErrorGetAudienceListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> albumIds, Option<string> keyword, Option<string> keywordFields, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> sendSuggestion, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<string> appKey, Option<bool> returnGlobal, Option<bool> exactKeyword, Option<string> audienceType, Option<string> audienceTypes, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAudienceList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
+            OnErrorGetAudienceList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2524,7 +2463,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="albumIds"></param>
         /// <param name="keyword"></param>
@@ -2544,12 +2482,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnAccountCount"></param>
         /// <param name="returnAlbumCount"></param>
         /// <param name="albumTypesForCount"></param>
-        partial void OnErrorGetAudienceList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> albumIds, Option<string> keyword, Option<string> keywordFields, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> sendSuggestion, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<string> appKey, Option<bool> returnGlobal, Option<bool> exactKeyword, Option<string> audienceType, Option<string> audienceTypes, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount);
+        partial void OnErrorGetAudienceList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> albumIds, Option<string> keyword, Option<string> keywordFields, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> sendSuggestion, Option<bool> activeOnly, Option<bool> groupByGroupingId, Option<string> appKey, Option<bool> returnGlobal, Option<bool> exactKeyword, Option<string> audienceType, Option<string> audienceTypes, Option<bool> returnAccountCount, Option<bool> returnAlbumCount, Option<string> albumTypesForCount);
 
         /// <summary>
         /// Search Audiences Get the list audiences owned by the account
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="albumIds">Comma separated list of album IDs to filter results with (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -2571,11 +2508,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAudienceListApiResponse"/>&gt;</returns>
-        public async Task<IGetAudienceListApiResponse?> GetAudienceListOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> albumIds = default, Option<string> keyword = default, Option<string> keywordFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> sendSuggestion = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<string> appKey = default, Option<bool> returnGlobal = default, Option<bool> exactKeyword = default, Option<string> audienceType = default, Option<string> audienceTypes = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAudienceListApiResponse?> GetAudienceListOrDefaultAsync(Option<long> accountId = default, Option<string> albumIds = default, Option<string> keyword = default, Option<string> keywordFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> sendSuggestion = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<string> appKey = default, Option<bool> returnGlobal = default, Option<bool> exactKeyword = default, Option<string> audienceType = default, Option<string> audienceTypes = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAudienceListAsync(version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount, cancellationToken).ConfigureAwait(false);
+                return await GetAudienceListAsync(accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2587,7 +2524,6 @@ namespace Org.OpenAPITools.Api
         /// Search Audiences Get the list audiences owned by the account
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user. (optional)</param>
         /// <param name="albumIds">Comma separated list of album IDs to filter results with (optional)</param>
         /// <param name="keyword">The keyword used to search (optional)</param>
@@ -2609,7 +2545,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAudienceListApiResponse"/>&gt;</returns>
-        public async Task<IGetAudienceListApiResponse> GetAudienceListAsync(decimal version, Option<long> accountId = default, Option<string> albumIds = default, Option<string> keyword = default, Option<string> keywordFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> sendSuggestion = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<string> appKey = default, Option<bool> returnGlobal = default, Option<bool> exactKeyword = default, Option<string> audienceType = default, Option<string> audienceTypes = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAudienceListApiResponse> GetAudienceListAsync(Option<long> accountId = default, Option<string> albumIds = default, Option<string> keyword = default, Option<string> keywordFields = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> sendSuggestion = default, Option<bool> activeOnly = default, Option<bool> groupByGroupingId = default, Option<string> appKey = default, Option<bool> returnGlobal = default, Option<bool> exactKeyword = default, Option<string> audienceType = default, Option<string> audienceTypes = default, Option<bool> returnAccountCount = default, Option<bool> returnAlbumCount = default, Option<string> albumTypesForCount = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2617,7 +2553,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAudienceList(albumIds, keyword, keywordFields, sortField, appKey, audienceType, audienceTypes, albumTypesForCount);
 
-                FormatGetAudienceList(ref version, ref accountId, ref albumIds, ref keyword, ref keywordFields, ref sortField, ref descending, ref start, ref limit, ref sendSuggestion, ref activeOnly, ref groupByGroupingId, ref appKey, ref returnGlobal, ref exactKeyword, ref audienceType, ref audienceTypes, ref returnAccountCount, ref returnAlbumCount, ref albumTypesForCount);
+                FormatGetAudienceList(ref accountId, ref albumIds, ref keyword, ref keywordFields, ref sortField, ref descending, ref start, ref limit, ref sendSuggestion, ref activeOnly, ref groupByGroupingId, ref appKey, ref returnGlobal, ref exactKeyword, ref audienceType, ref audienceTypes, ref returnAccountCount, ref returnAlbumCount, ref albumTypesForCount);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2625,9 +2561,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2713,13 +2648,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAudienceListDefaultImplementation(apiResponseLocalVar, version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
+                        AfterGetAudienceListDefaultImplementation(apiResponseLocalVar, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
 
                         Events.ExecuteOnGetAudienceList(apiResponseLocalVar);
 
@@ -2729,7 +2664,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAudienceListDefaultImplementation(e, "/api/{version}/audience/search", uriBuilderLocalVar.Path, version, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
+                OnErrorGetAudienceListDefaultImplementation(e, "/audience/search", uriBuilderLocalVar.Path, accountId, albumIds, keyword, keywordFields, sortField, descending, start, limit, sendSuggestion, activeOnly, groupByGroupingId, appKey, returnGlobal, exactKeyword, audienceType, audienceTypes, returnAccountCount, returnAlbumCount, albumTypesForCount);
                 Events.ExecuteOnErrorGetAudienceList(e);
                 throw;
             }
@@ -2828,18 +2763,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetDevices(ref decimal version, ref bool includeInactive);
+        partial void FormatGetDevices(ref bool includeInactive);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="includeInactive"></param>
-        private void AfterGetDevicesDefaultImplementation(IGetDevicesApiResponse apiResponseLocalVar, decimal version, bool includeInactive)
+        private void AfterGetDevicesDefaultImplementation(IGetDevicesApiResponse apiResponseLocalVar, bool includeInactive)
         {
             bool suppressDefaultLog = false;
-            AfterGetDevices(ref suppressDefaultLog, apiResponseLocalVar, version, includeInactive);
+            AfterGetDevices(ref suppressDefaultLog, apiResponseLocalVar, includeInactive);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2849,9 +2783,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="includeInactive"></param>
-        partial void AfterGetDevices(ref bool suppressDefaultLog, IGetDevicesApiResponse apiResponseLocalVar, decimal version, bool includeInactive);
+        partial void AfterGetDevices(ref bool suppressDefaultLog, IGetDevicesApiResponse apiResponseLocalVar, bool includeInactive);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2859,12 +2792,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="includeInactive"></param>
-        private void OnErrorGetDevicesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool includeInactive)
+        private void OnErrorGetDevicesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool includeInactive)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetDevices(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, includeInactive);
+            OnErrorGetDevices(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, includeInactive);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2876,22 +2808,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="includeInactive"></param>
-        partial void OnErrorGetDevices(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool includeInactive);
+        partial void OnErrorGetDevices(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool includeInactive);
 
         /// <summary>
         /// Get Devices Gets the list of available devices that can be selected by consumers and retailers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="includeInactive">If true return inactive record as well. default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDevicesApiResponse"/>&gt;</returns>
-        public async Task<IGetDevicesApiResponse?> GetDevicesOrDefaultAsync(decimal version, bool includeInactive, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetDevicesApiResponse?> GetDevicesOrDefaultAsync(bool includeInactive, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetDevicesAsync(version, includeInactive, cancellationToken).ConfigureAwait(false);
+                return await GetDevicesAsync(includeInactive, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2903,17 +2833,16 @@ namespace Org.OpenAPITools.Api
         /// Get Devices Gets the list of available devices that can be selected by consumers and retailers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="includeInactive">If true return inactive record as well. default is false.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetDevicesApiResponse"/>&gt;</returns>
-        public async Task<IGetDevicesApiResponse> GetDevicesAsync(decimal version, bool includeInactive, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetDevicesApiResponse> GetDevicesAsync(bool includeInactive, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetDevices(ref version, ref includeInactive);
+                FormatGetDevices(ref includeInactive);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2921,9 +2850,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/devices"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/devices");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/devices"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/devices");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2954,13 +2882,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/devices", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/devices", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetDevicesDefaultImplementation(apiResponseLocalVar, version, includeInactive);
+                        AfterGetDevicesDefaultImplementation(apiResponseLocalVar, includeInactive);
 
                         Events.ExecuteOnGetDevices(apiResponseLocalVar);
 
@@ -2970,7 +2898,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetDevicesDefaultImplementation(e, "/api/{version}/audience/devices", uriBuilderLocalVar.Path, version, includeInactive);
+                OnErrorGetDevicesDefaultImplementation(e, "/audience/devices", uriBuilderLocalVar.Path, includeInactive);
                 Events.ExecuteOnErrorGetDevices(e);
                 throw;
             }
@@ -3069,17 +2997,14 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetExperiences(ref decimal version);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
-        private void AfterGetExperiencesDefaultImplementation(IGetExperiencesApiResponse apiResponseLocalVar, decimal version)
+        private void AfterGetExperiencesDefaultImplementation(IGetExperiencesApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterGetExperiences(ref suppressDefaultLog, apiResponseLocalVar, version);
+            AfterGetExperiences(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3089,8 +3014,7 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
-        partial void AfterGetExperiences(ref bool suppressDefaultLog, IGetExperiencesApiResponse apiResponseLocalVar, decimal version);
+        partial void AfterGetExperiences(ref bool suppressDefaultLog, IGetExperiencesApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3098,11 +3022,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
-        private void OnErrorGetExperiencesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version)
+        private void OnErrorGetExperiencesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetExperiences(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version);
+            OnErrorGetExperiences(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3114,20 +3037,18 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
-        partial void OnErrorGetExperiences(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version);
+        partial void OnErrorGetExperiences(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Get Experiences Gets the list of available experiences that can be selected by consumers and retailers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetExperiencesApiResponse"/>&gt;</returns>
-        public async Task<IGetExperiencesApiResponse?> GetExperiencesOrDefaultAsync(decimal version, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetExperiencesApiResponse?> GetExperiencesOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetExperiencesAsync(version, cancellationToken).ConfigureAwait(false);
+                return await GetExperiencesAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3139,26 +3060,22 @@ namespace Org.OpenAPITools.Api
         /// Get Experiences Gets the list of available experiences that can be selected by consumers and retailers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetExperiencesApiResponse"/>&gt;</returns>
-        public async Task<IGetExperiencesApiResponse> GetExperiencesAsync(decimal version, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetExperiencesApiResponse> GetExperiencesAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetExperiences(ref version);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/experiences"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/experiences");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/experiences"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/experiences");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -3183,13 +3100,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/experiences", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/experiences", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetExperiencesDefaultImplementation(apiResponseLocalVar, version);
+                        AfterGetExperiencesDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnGetExperiences(apiResponseLocalVar);
 
@@ -3199,7 +3116,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetExperiencesDefaultImplementation(e, "/api/{version}/audience/experiences", uriBuilderLocalVar.Path, version);
+                OnErrorGetExperiencesDefaultImplementation(e, "/audience/experiences", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorGetExperiences(e);
                 throw;
             }
@@ -3298,7 +3215,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetGroupedAudiences(ref decimal version, ref long accountId, ref string audienceGroupingId);
+        partial void FormatGetGroupedAudiences(ref long accountId, ref string audienceGroupingId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3315,13 +3232,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceGroupingId"></param>
-        private void AfterGetGroupedAudiencesDefaultImplementation(IGetGroupedAudiencesApiResponse apiResponseLocalVar, decimal version, long accountId, string audienceGroupingId)
+        private void AfterGetGroupedAudiencesDefaultImplementation(IGetGroupedAudiencesApiResponse apiResponseLocalVar, long accountId, string audienceGroupingId)
         {
             bool suppressDefaultLog = false;
-            AfterGetGroupedAudiences(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, audienceGroupingId);
+            AfterGetGroupedAudiences(ref suppressDefaultLog, apiResponseLocalVar, accountId, audienceGroupingId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3331,10 +3247,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceGroupingId"></param>
-        partial void AfterGetGroupedAudiences(ref bool suppressDefaultLog, IGetGroupedAudiencesApiResponse apiResponseLocalVar, decimal version, long accountId, string audienceGroupingId);
+        partial void AfterGetGroupedAudiences(ref bool suppressDefaultLog, IGetGroupedAudiencesApiResponse apiResponseLocalVar, long accountId, string audienceGroupingId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3342,13 +3257,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceGroupingId"></param>
-        private void OnErrorGetGroupedAudiencesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string audienceGroupingId)
+        private void OnErrorGetGroupedAudiencesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string audienceGroupingId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetGroupedAudiences(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, audienceGroupingId);
+            OnErrorGetGroupedAudiences(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, audienceGroupingId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3360,24 +3274,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceGroupingId"></param>
-        partial void OnErrorGetGroupedAudiences(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string audienceGroupingId);
+        partial void OnErrorGetGroupedAudiences(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string audienceGroupingId);
 
         /// <summary>
         /// Get GroupedAudiences Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceGroupingId">The audience grouping id to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGroupedAudiencesApiResponse"/>&gt;</returns>
-        public async Task<IGetGroupedAudiencesApiResponse?> GetGroupedAudiencesOrDefaultAsync(decimal version, long accountId, string audienceGroupingId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGroupedAudiencesApiResponse?> GetGroupedAudiencesOrDefaultAsync(long accountId, string audienceGroupingId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetGroupedAudiencesAsync(version, accountId, audienceGroupingId, cancellationToken).ConfigureAwait(false);
+                return await GetGroupedAudiencesAsync(accountId, audienceGroupingId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3389,12 +3301,11 @@ namespace Org.OpenAPITools.Api
         /// Get GroupedAudiences Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceGroupingId">The audience grouping id to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGroupedAudiencesApiResponse"/>&gt;</returns>
-        public async Task<IGetGroupedAudiencesApiResponse> GetGroupedAudiencesAsync(decimal version, long accountId, string audienceGroupingId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGroupedAudiencesApiResponse> GetGroupedAudiencesAsync(long accountId, string audienceGroupingId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3402,7 +3313,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetGroupedAudiences(audienceGroupingId);
 
-                FormatGetGroupedAudiences(ref version, ref accountId, ref audienceGroupingId);
+                FormatGetGroupedAudiences(ref accountId, ref audienceGroupingId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3410,9 +3321,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/grouped/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/grouped/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/grouped/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/grouped/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3444,13 +3354,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/grouped/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/grouped/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetGroupedAudiencesDefaultImplementation(apiResponseLocalVar, version, accountId, audienceGroupingId);
+                        AfterGetGroupedAudiencesDefaultImplementation(apiResponseLocalVar, accountId, audienceGroupingId);
 
                         Events.ExecuteOnGetGroupedAudiences(apiResponseLocalVar);
 
@@ -3460,7 +3370,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetGroupedAudiencesDefaultImplementation(e, "/api/{version}/audience/grouped/get", uriBuilderLocalVar.Path, version, accountId, audienceGroupingId);
+                OnErrorGetGroupedAudiencesDefaultImplementation(e, "/audience/grouped/get", uriBuilderLocalVar.Path, accountId, audienceGroupingId);
                 Events.ExecuteOnErrorGetGroupedAudiences(e);
                 throw;
             }
@@ -3559,7 +3469,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListByAccount(ref decimal version, ref long accountId, ref int limit, ref string suggestionType);
+        partial void FormatListByAccount(ref long accountId, ref int limit, ref string suggestionType);
 
         /// <summary>
         /// Validates the request parameters
@@ -3576,14 +3486,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="limit"></param>
         /// <param name="suggestionType"></param>
-        private void AfterListByAccountDefaultImplementation(IListByAccountApiResponse apiResponseLocalVar, decimal version, long accountId, int limit, string suggestionType)
+        private void AfterListByAccountDefaultImplementation(IListByAccountApiResponse apiResponseLocalVar, long accountId, int limit, string suggestionType)
         {
             bool suppressDefaultLog = false;
-            AfterListByAccount(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, limit, suggestionType);
+            AfterListByAccount(ref suppressDefaultLog, apiResponseLocalVar, accountId, limit, suggestionType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3593,11 +3502,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="limit"></param>
         /// <param name="suggestionType"></param>
-        partial void AfterListByAccount(ref bool suppressDefaultLog, IListByAccountApiResponse apiResponseLocalVar, decimal version, long accountId, int limit, string suggestionType);
+        partial void AfterListByAccount(ref bool suppressDefaultLog, IListByAccountApiResponse apiResponseLocalVar, long accountId, int limit, string suggestionType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3605,14 +3513,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="limit"></param>
         /// <param name="suggestionType"></param>
-        private void OnErrorListByAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int limit, string suggestionType)
+        private void OnErrorListByAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int limit, string suggestionType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListByAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, limit, suggestionType);
+            OnErrorListByAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, limit, suggestionType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3624,26 +3531,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="limit"></param>
         /// <param name="suggestionType"></param>
-        partial void OnErrorListByAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int limit, string suggestionType);
+        partial void OnErrorListByAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int limit, string suggestionType);
 
         /// <summary>
         /// List Suggestions by Audience List either Missions or Offers that the user matches the assigned audience.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="limit">the limit of the index</param>
         /// <param name="suggestionType">the type of suggestion</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListByAccountApiResponse"/>&gt;</returns>
-        public async Task<IListByAccountApiResponse?> ListByAccountOrDefaultAsync(decimal version, long accountId, int limit, string suggestionType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListByAccountApiResponse?> ListByAccountOrDefaultAsync(long accountId, int limit, string suggestionType, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListByAccountAsync(version, accountId, limit, suggestionType, cancellationToken).ConfigureAwait(false);
+                return await ListByAccountAsync(accountId, limit, suggestionType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3655,13 +3560,12 @@ namespace Org.OpenAPITools.Api
         /// List Suggestions by Audience List either Missions or Offers that the user matches the assigned audience.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="limit">the limit of the index</param>
         /// <param name="suggestionType">the type of suggestion</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListByAccountApiResponse"/>&gt;</returns>
-        public async Task<IListByAccountApiResponse> ListByAccountAsync(decimal version, long accountId, int limit, string suggestionType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListByAccountApiResponse> ListByAccountAsync(long accountId, int limit, string suggestionType, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3669,7 +3573,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListByAccount(suggestionType);
 
-                FormatListByAccount(ref version, ref accountId, ref limit, ref suggestionType);
+                FormatListByAccount(ref accountId, ref limit, ref suggestionType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3677,9 +3581,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/suggestion/list"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/suggestion/list");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/suggestion/list"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/suggestion/list");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3712,13 +3615,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/suggestion/list", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/suggestion/list", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListByAccountDefaultImplementation(apiResponseLocalVar, version, accountId, limit, suggestionType);
+                        AfterListByAccountDefaultImplementation(apiResponseLocalVar, accountId, limit, suggestionType);
 
                         Events.ExecuteOnListByAccount(apiResponseLocalVar);
 
@@ -3728,7 +3631,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListByAccountDefaultImplementation(e, "/api/{version}/audience/suggestion/list", uriBuilderLocalVar.Path, version, accountId, limit, suggestionType);
+                OnErrorListByAccountDefaultImplementation(e, "/audience/suggestion/list", uriBuilderLocalVar.Path, accountId, limit, suggestionType);
                 Events.ExecuteOnErrorListByAccount(e);
                 throw;
             }
@@ -3827,7 +3730,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListByAudience(ref decimal version, ref int limit, ref Option<string> gender, ref Option<int> age, ref Option<string> categoryIds, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatListByAudience(ref int limit, ref Option<string> gender, ref Option<int> age, ref Option<string> categoryIds, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -3848,17 +3751,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="limit"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="categoryIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterListByAudienceDefaultImplementation(IListByAudienceApiResponse apiResponseLocalVar, decimal version, int limit, Option<string> gender, Option<int> age, Option<string> categoryIds, Option<double> latitude, Option<double> longitude)
+        private void AfterListByAudienceDefaultImplementation(IListByAudienceApiResponse apiResponseLocalVar, int limit, Option<string> gender, Option<int> age, Option<string> categoryIds, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterListByAudience(ref suppressDefaultLog, apiResponseLocalVar, version, limit, gender, age, categoryIds, latitude, longitude);
+            AfterListByAudience(ref suppressDefaultLog, apiResponseLocalVar, limit, gender, age, categoryIds, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3868,14 +3770,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="limit"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="categoryIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterListByAudience(ref bool suppressDefaultLog, IListByAudienceApiResponse apiResponseLocalVar, decimal version, int limit, Option<string> gender, Option<int> age, Option<string> categoryIds, Option<double> latitude, Option<double> longitude);
+        partial void AfterListByAudience(ref bool suppressDefaultLog, IListByAudienceApiResponse apiResponseLocalVar, int limit, Option<string> gender, Option<int> age, Option<string> categoryIds, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3883,17 +3784,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="limit"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="categoryIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorListByAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, int limit, Option<string> gender, Option<int> age, Option<string> categoryIds, Option<double> latitude, Option<double> longitude)
+        private void OnErrorListByAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int limit, Option<string> gender, Option<int> age, Option<string> categoryIds, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListByAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, limit, gender, age, categoryIds, latitude, longitude);
+            OnErrorListByAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, limit, gender, age, categoryIds, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3905,19 +3805,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="limit"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="categoryIds"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorListByAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, int limit, Option<string> gender, Option<int> age, Option<string> categoryIds, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorListByAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int limit, Option<string> gender, Option<int> age, Option<string> categoryIds, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// List Offers by Audience Get a list of offer locations based on audience information provided.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="limit">this is the limit of the index</param>
         /// <param name="gender">this is the gender to list offers by (optional)</param>
         /// <param name="age">this is the age to list offers by (optional)</param>
@@ -3926,11 +3824,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">this is the longitude to list offers by (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListByAudienceApiResponse"/>&gt;</returns>
-        public async Task<IListByAudienceApiResponse?> ListByAudienceOrDefaultAsync(decimal version, int limit, Option<string> gender = default, Option<int> age = default, Option<string> categoryIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListByAudienceApiResponse?> ListByAudienceOrDefaultAsync(int limit, Option<string> gender = default, Option<int> age = default, Option<string> categoryIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListByAudienceAsync(version, limit, gender, age, categoryIds, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await ListByAudienceAsync(limit, gender, age, categoryIds, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3942,7 +3840,6 @@ namespace Org.OpenAPITools.Api
         /// List Offers by Audience Get a list of offer locations based on audience information provided.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="limit">this is the limit of the index</param>
         /// <param name="gender">this is the gender to list offers by (optional)</param>
         /// <param name="age">this is the age to list offers by (optional)</param>
@@ -3951,7 +3848,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">this is the longitude to list offers by (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListByAudienceApiResponse"/>&gt;</returns>
-        public async Task<IListByAudienceApiResponse> ListByAudienceAsync(decimal version, int limit, Option<string> gender = default, Option<int> age = default, Option<string> categoryIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListByAudienceApiResponse> ListByAudienceAsync(int limit, Option<string> gender = default, Option<int> age = default, Option<string> categoryIds = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3959,7 +3856,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListByAudience(gender, categoryIds);
 
-                FormatListByAudience(ref version, ref limit, ref gender, ref age, ref categoryIds, ref latitude, ref longitude);
+                FormatListByAudience(ref limit, ref gender, ref age, ref categoryIds, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3967,9 +3864,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/suggestion/offersByAudience"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/suggestion/offersByAudience");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/suggestion/offersByAudience"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/suggestion/offersByAudience");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4015,13 +3911,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/suggestion/offersByAudience", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/suggestion/offersByAudience", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListByAudienceDefaultImplementation(apiResponseLocalVar, version, limit, gender, age, categoryIds, latitude, longitude);
+                        AfterListByAudienceDefaultImplementation(apiResponseLocalVar, limit, gender, age, categoryIds, latitude, longitude);
 
                         Events.ExecuteOnListByAudience(apiResponseLocalVar);
 
@@ -4031,7 +3927,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListByAudienceDefaultImplementation(e, "/api/{version}/audience/suggestion/offersByAudience", uriBuilderLocalVar.Path, version, limit, gender, age, categoryIds, latitude, longitude);
+                OnErrorListByAudienceDefaultImplementation(e, "/audience/suggestion/offersByAudience", uriBuilderLocalVar.Path, limit, gender, age, categoryIds, latitude, longitude);
                 Events.ExecuteOnErrorListByAudience(e);
                 throw;
             }
@@ -4130,7 +4026,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListLastestByAccount(ref decimal version, ref long accountId, ref int timeframe, ref string suggestionType);
+        partial void FormatListLastestByAccount(ref long accountId, ref int timeframe, ref string suggestionType);
 
         /// <summary>
         /// Validates the request parameters
@@ -4147,14 +4043,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="timeframe"></param>
         /// <param name="suggestionType"></param>
-        private void AfterListLastestByAccountDefaultImplementation(IListLastestByAccountApiResponse apiResponseLocalVar, decimal version, long accountId, int timeframe, string suggestionType)
+        private void AfterListLastestByAccountDefaultImplementation(IListLastestByAccountApiResponse apiResponseLocalVar, long accountId, int timeframe, string suggestionType)
         {
             bool suppressDefaultLog = false;
-            AfterListLastestByAccount(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, timeframe, suggestionType);
+            AfterListLastestByAccount(ref suppressDefaultLog, apiResponseLocalVar, accountId, timeframe, suggestionType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4164,11 +4059,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="timeframe"></param>
         /// <param name="suggestionType"></param>
-        partial void AfterListLastestByAccount(ref bool suppressDefaultLog, IListLastestByAccountApiResponse apiResponseLocalVar, decimal version, long accountId, int timeframe, string suggestionType);
+        partial void AfterListLastestByAccount(ref bool suppressDefaultLog, IListLastestByAccountApiResponse apiResponseLocalVar, long accountId, int timeframe, string suggestionType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4176,14 +4070,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="timeframe"></param>
         /// <param name="suggestionType"></param>
-        private void OnErrorListLastestByAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int timeframe, string suggestionType)
+        private void OnErrorListLastestByAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int timeframe, string suggestionType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListLastestByAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, timeframe, suggestionType);
+            OnErrorListLastestByAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, timeframe, suggestionType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4195,26 +4088,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="timeframe"></param>
         /// <param name="suggestionType"></param>
-        partial void OnErrorListLastestByAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, int timeframe, string suggestionType);
+        partial void OnErrorListLastestByAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, int timeframe, string suggestionType);
 
         /// <summary>
         /// List Sent Suggestions  Return list of recent trigger suggestions that have been sent to the user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="timeframe">The timeframe in seconds of the latest suggestions</param>
         /// <param name="suggestionType">The type of trigger suggestions to return</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListLastestByAccountApiResponse"/>&gt;</returns>
-        public async Task<IListLastestByAccountApiResponse?> ListLastestByAccountOrDefaultAsync(decimal version, long accountId, int timeframe, string suggestionType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListLastestByAccountApiResponse?> ListLastestByAccountOrDefaultAsync(long accountId, int timeframe, string suggestionType, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListLastestByAccountAsync(version, accountId, timeframe, suggestionType, cancellationToken).ConfigureAwait(false);
+                return await ListLastestByAccountAsync(accountId, timeframe, suggestionType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4226,13 +4117,12 @@ namespace Org.OpenAPITools.Api
         /// List Sent Suggestions  Return list of recent trigger suggestions that have been sent to the user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="timeframe">The timeframe in seconds of the latest suggestions</param>
         /// <param name="suggestionType">The type of trigger suggestions to return</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListLastestByAccountApiResponse"/>&gt;</returns>
-        public async Task<IListLastestByAccountApiResponse> ListLastestByAccountAsync(decimal version, long accountId, int timeframe, string suggestionType, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListLastestByAccountApiResponse> ListLastestByAccountAsync(long accountId, int timeframe, string suggestionType, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4240,7 +4130,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateListLastestByAccount(suggestionType);
 
-                FormatListLastestByAccount(ref version, ref accountId, ref timeframe, ref suggestionType);
+                FormatListLastestByAccount(ref accountId, ref timeframe, ref suggestionType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4248,9 +4138,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/suggestion/latest"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/suggestion/latest");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/suggestion/latest"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/suggestion/latest");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4283,13 +4172,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/suggestion/latest", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/suggestion/latest", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterListLastestByAccountDefaultImplementation(apiResponseLocalVar, version, accountId, timeframe, suggestionType);
+                        AfterListLastestByAccountDefaultImplementation(apiResponseLocalVar, accountId, timeframe, suggestionType);
 
                         Events.ExecuteOnListLastestByAccount(apiResponseLocalVar);
 
@@ -4299,7 +4188,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorListLastestByAccountDefaultImplementation(e, "/api/{version}/audience/suggestion/latest", uriBuilderLocalVar.Path, version, accountId, timeframe, suggestionType);
+                OnErrorListLastestByAccountDefaultImplementation(e, "/audience/suggestion/latest", uriBuilderLocalVar.Path, accountId, timeframe, suggestionType);
                 Events.ExecuteOnErrorListLastestByAccount(e);
                 throw;
             }
@@ -4398,20 +4287,19 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSendByAccount(ref decimal version, ref long accountId, ref double latitude, ref double longitude);
+        partial void FormatSendByAccount(ref long accountId, ref double latitude, ref double longitude);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterSendByAccountDefaultImplementation(ISendByAccountApiResponse apiResponseLocalVar, decimal version, long accountId, double latitude, double longitude)
+        private void AfterSendByAccountDefaultImplementation(ISendByAccountApiResponse apiResponseLocalVar, long accountId, double latitude, double longitude)
         {
             bool suppressDefaultLog = false;
-            AfterSendByAccount(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, latitude, longitude);
+            AfterSendByAccount(ref suppressDefaultLog, apiResponseLocalVar, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4421,11 +4309,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterSendByAccount(ref bool suppressDefaultLog, ISendByAccountApiResponse apiResponseLocalVar, decimal version, long accountId, double latitude, double longitude);
+        partial void AfterSendByAccount(ref bool suppressDefaultLog, ISendByAccountApiResponse apiResponseLocalVar, long accountId, double latitude, double longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4433,14 +4320,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorSendByAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, double latitude, double longitude)
+        private void OnErrorSendByAccountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, double latitude, double longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSendByAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, latitude, longitude);
+            OnErrorSendByAccount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4452,26 +4338,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorSendByAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, double latitude, double longitude);
+        partial void OnErrorSendByAccount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, double latitude, double longitude);
 
         /// <summary>
         /// Send Suggestions Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="latitude">the latitude</param>
         /// <param name="longitude">the longitude</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendByAccountApiResponse"/>&gt;</returns>
-        public async Task<ISendByAccountApiResponse?> SendByAccountOrDefaultAsync(decimal version, long accountId, double latitude, double longitude, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendByAccountApiResponse?> SendByAccountOrDefaultAsync(long accountId, double latitude, double longitude, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SendByAccountAsync(version, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await SendByAccountAsync(accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4483,19 +4367,18 @@ namespace Org.OpenAPITools.Api
         /// Send Suggestions Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account to match offers for.</param>
         /// <param name="latitude">the latitude</param>
         /// <param name="longitude">the longitude</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISendByAccountApiResponse"/>&gt;</returns>
-        public async Task<ISendByAccountApiResponse> SendByAccountAsync(decimal version, long accountId, double latitude, double longitude, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISendByAccountApiResponse> SendByAccountAsync(long accountId, double latitude, double longitude, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatSendByAccount(ref version, ref accountId, ref latitude, ref longitude);
+                FormatSendByAccount(ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4503,9 +4386,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/suggestion/send"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/suggestion/send");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/suggestion/send"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/suggestion/send");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4538,13 +4420,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/suggestion/send", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/suggestion/send", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSendByAccountDefaultImplementation(apiResponseLocalVar, version, accountId, latitude, longitude);
+                        AfterSendByAccountDefaultImplementation(apiResponseLocalVar, accountId, latitude, longitude);
 
                         Events.ExecuteOnSendByAccount(apiResponseLocalVar);
 
@@ -4554,7 +4436,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSendByAccountDefaultImplementation(e, "/api/{version}/audience/suggestion/send", uriBuilderLocalVar.Path, version, accountId, latitude, longitude);
+                OnErrorSendByAccountDefaultImplementation(e, "/audience/suggestion/send", uriBuilderLocalVar.Path, accountId, latitude, longitude);
                 Events.ExecuteOnErrorSendByAccount(e);
                 throw;
             }
@@ -4653,7 +4535,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateAudience(ref decimal version, ref long accountId, ref long audienceId, ref Option<string> name, ref Option<string> description, ref Option<string> searchTags, ref Option<string> gender, ref Option<string> ageGroups, ref Option<string> categoryIds, ref Option<string> applicationIds, ref Option<string> gameExperienceLevel, ref Option<string> devices, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> locations, ref Option<string> radius, ref Option<bool> active, ref Option<bool> sendSuggestion, ref Option<int> startTimeOffset, ref Option<int> endTimeOffset, ref Option<string> associateDescription, ref Option<string> associateType, ref Option<long> associateId, ref Option<string> groupingId, ref Option<string> metaData, ref Option<string> visibility, ref Option<string> audienceType, ref Option<bool> useOrder, ref Option<string> cohortRegionsData, ref Option<string> appKey, ref Option<string> trilaterationTypes, ref Option<bool> uniqueName);
+        partial void FormatUpdateAudience(ref long accountId, ref long audienceId, ref Option<string> name, ref Option<string> description, ref Option<string> searchTags, ref Option<string> gender, ref Option<string> ageGroups, ref Option<string> categoryIds, ref Option<string> applicationIds, ref Option<string> gameExperienceLevel, ref Option<string> devices, ref Option<string> deviceIds, ref Option<string> deviceVersions, ref Option<string> locations, ref Option<string> radius, ref Option<bool> active, ref Option<bool> sendSuggestion, ref Option<int> startTimeOffset, ref Option<int> endTimeOffset, ref Option<string> associateDescription, ref Option<string> associateType, ref Option<long> associateId, ref Option<string> groupingId, ref Option<string> metaData, ref Option<string> visibility, ref Option<string> audienceType, ref Option<bool> useOrder, ref Option<string> cohortRegionsData, ref Option<string> appKey, ref Option<string> trilaterationTypes, ref Option<bool> uniqueName);
 
         /// <summary>
         /// Validates the request parameters
@@ -4754,7 +4636,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
         /// <param name="name"></param>
@@ -4786,10 +4667,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="trilaterationTypes"></param>
         /// <param name="uniqueName"></param>
-        private void AfterUpdateAudienceDefaultImplementation(IUpdateAudienceApiResponse apiResponseLocalVar, decimal version, long accountId, long audienceId, Option<string> name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<bool> active, Option<bool> sendSuggestion, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName)
+        private void AfterUpdateAudienceDefaultImplementation(IUpdateAudienceApiResponse apiResponseLocalVar, long accountId, long audienceId, Option<string> name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<bool> active, Option<bool> sendSuggestion, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateAudience(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+            AfterUpdateAudience(ref suppressDefaultLog, apiResponseLocalVar, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4799,7 +4680,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
         /// <param name="name"></param>
@@ -4831,7 +4711,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="trilaterationTypes"></param>
         /// <param name="uniqueName"></param>
-        partial void AfterUpdateAudience(ref bool suppressDefaultLog, IUpdateAudienceApiResponse apiResponseLocalVar, decimal version, long accountId, long audienceId, Option<string> name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<bool> active, Option<bool> sendSuggestion, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName);
+        partial void AfterUpdateAudience(ref bool suppressDefaultLog, IUpdateAudienceApiResponse apiResponseLocalVar, long accountId, long audienceId, Option<string> name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<bool> active, Option<bool> sendSuggestion, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4839,7 +4719,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
         /// <param name="name"></param>
@@ -4871,10 +4750,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="trilaterationTypes"></param>
         /// <param name="uniqueName"></param>
-        private void OnErrorUpdateAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long audienceId, Option<string> name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<bool> active, Option<bool> sendSuggestion, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName)
+        private void OnErrorUpdateAudienceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long audienceId, Option<string> name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<bool> active, Option<bool> sendSuggestion, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+            OnErrorUpdateAudience(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4886,7 +4765,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="audienceId"></param>
         /// <param name="name"></param>
@@ -4918,12 +4796,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="trilaterationTypes"></param>
         /// <param name="uniqueName"></param>
-        partial void OnErrorUpdateAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long audienceId, Option<string> name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<bool> active, Option<bool> sendSuggestion, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName);
+        partial void OnErrorUpdateAudience(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long audienceId, Option<string> name, Option<string> description, Option<string> searchTags, Option<string> gender, Option<string> ageGroups, Option<string> categoryIds, Option<string> applicationIds, Option<string> gameExperienceLevel, Option<string> devices, Option<string> deviceIds, Option<string> deviceVersions, Option<string> locations, Option<string> radius, Option<bool> active, Option<bool> sendSuggestion, Option<int> startTimeOffset, Option<int> endTimeOffset, Option<string> associateDescription, Option<string> associateType, Option<long> associateId, Option<string> groupingId, Option<string> metaData, Option<string> visibility, Option<string> audienceType, Option<bool> useOrder, Option<string> cohortRegionsData, Option<string> appKey, Option<string> trilaterationTypes, Option<bool> uniqueName);
 
         /// <summary>
         /// Update Audience Update a user defined audience.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to update.</param>
         /// <param name="name">The name of the audience (optional)</param>
@@ -4957,11 +4834,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="uniqueName">If true, makes sure the audience name is unique (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAudienceApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAudienceApiResponse?> UpdateAudienceOrDefaultAsync(decimal version, long accountId, long audienceId, Option<string> name = default, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<bool> active = default, Option<bool> sendSuggestion = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAudienceApiResponse?> UpdateAudienceOrDefaultAsync(long accountId, long audienceId, Option<string> name = default, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<bool> active = default, Option<bool> sendSuggestion = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateAudienceAsync(version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, cancellationToken).ConfigureAwait(false);
+                return await UpdateAudienceAsync(accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4973,7 +4850,6 @@ namespace Org.OpenAPITools.Api
         /// Update Audience Update a user defined audience.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="audienceId">The id of the audience to update.</param>
         /// <param name="name">The name of the audience (optional)</param>
@@ -5007,7 +4883,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="uniqueName">If true, makes sure the audience name is unique (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateAudienceApiResponse"/>&gt;</returns>
-        public async Task<IUpdateAudienceApiResponse> UpdateAudienceAsync(decimal version, long accountId, long audienceId, Option<string> name = default, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<bool> active = default, Option<bool> sendSuggestion = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateAudienceApiResponse> UpdateAudienceAsync(long accountId, long audienceId, Option<string> name = default, Option<string> description = default, Option<string> searchTags = default, Option<string> gender = default, Option<string> ageGroups = default, Option<string> categoryIds = default, Option<string> applicationIds = default, Option<string> gameExperienceLevel = default, Option<string> devices = default, Option<string> deviceIds = default, Option<string> deviceVersions = default, Option<string> locations = default, Option<string> radius = default, Option<bool> active = default, Option<bool> sendSuggestion = default, Option<int> startTimeOffset = default, Option<int> endTimeOffset = default, Option<string> associateDescription = default, Option<string> associateType = default, Option<long> associateId = default, Option<string> groupingId = default, Option<string> metaData = default, Option<string> visibility = default, Option<string> audienceType = default, Option<bool> useOrder = default, Option<string> cohortRegionsData = default, Option<string> appKey = default, Option<string> trilaterationTypes = default, Option<bool> uniqueName = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5015,7 +4891,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateAudience(name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, associateDescription, associateType, groupingId, metaData, visibility, audienceType, cohortRegionsData, appKey, trilaterationTypes);
 
-                FormatUpdateAudience(ref version, ref accountId, ref audienceId, ref name, ref description, ref searchTags, ref gender, ref ageGroups, ref categoryIds, ref applicationIds, ref gameExperienceLevel, ref devices, ref deviceIds, ref deviceVersions, ref locations, ref radius, ref active, ref sendSuggestion, ref startTimeOffset, ref endTimeOffset, ref associateDescription, ref associateType, ref associateId, ref groupingId, ref metaData, ref visibility, ref audienceType, ref useOrder, ref cohortRegionsData, ref appKey, ref trilaterationTypes, ref uniqueName);
+                FormatUpdateAudience(ref accountId, ref audienceId, ref name, ref description, ref searchTags, ref gender, ref ageGroups, ref categoryIds, ref applicationIds, ref gameExperienceLevel, ref devices, ref deviceIds, ref deviceVersions, ref locations, ref radius, ref active, ref sendSuggestion, ref startTimeOffset, ref endTimeOffset, ref associateDescription, ref associateType, ref associateId, ref groupingId, ref metaData, ref visibility, ref audienceType, ref useOrder, ref cohortRegionsData, ref appKey, ref trilaterationTypes, ref uniqueName);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5023,9 +4899,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/audience/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/audience/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/audience/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/audience/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5144,13 +5019,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/audience/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/audience/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateAudienceDefaultImplementation(apiResponseLocalVar, version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+                        AfterUpdateAudienceDefaultImplementation(apiResponseLocalVar, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
 
                         Events.ExecuteOnUpdateAudience(apiResponseLocalVar);
 
@@ -5160,7 +5035,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateAudienceDefaultImplementation(e, "/api/{version}/audience/update", uriBuilderLocalVar.Path, version, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
+                OnErrorUpdateAudienceDefaultImplementation(e, "/audience/update", uriBuilderLocalVar.Path, accountId, audienceId, name, description, searchTags, gender, ageGroups, categoryIds, applicationIds, gameExperienceLevel, devices, deviceIds, deviceVersions, locations, radius, active, sendSuggestion, startTimeOffset, endTimeOffset, associateDescription, associateType, associateId, groupingId, metaData, visibility, audienceType, useOrder, cohortRegionsData, appKey, trilaterationTypes, uniqueName);
                 Events.ExecuteOnErrorUpdateAudience(e);
                 throw;
             }

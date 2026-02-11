@@ -45,12 +45,11 @@ namespace Org.OpenAPITools.Api
         /// Search for avaiable users for creating or updating assignment.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id sending the request</param>
         /// <param name="keyword">The keyword to filter the returned results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssigmentAssigneeAccountSearchApiResponse"/>&gt;</returns>
-        Task<IAssigmentAssigneeAccountSearchApiResponse> AssigmentAssigneeAccountSearchAsync(decimal version, long accountId, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssigmentAssigneeAccountSearchApiResponse> AssigmentAssigneeAccountSearchAsync(long accountId, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Assignment Assignees
@@ -58,12 +57,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for avaiable users for creating or updating assignment.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id sending the request</param>
         /// <param name="keyword">The keyword to filter the returned results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssigmentAssigneeAccountSearchApiResponse"/>?&gt;</returns>
-        Task<IAssigmentAssigneeAccountSearchApiResponse?> AssigmentAssigneeAccountSearchOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssigmentAssigneeAccountSearchApiResponse?> AssigmentAssigneeAccountSearchOrDefaultAsync(long accountId, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Assignment
@@ -72,7 +70,6 @@ namespace Org.OpenAPITools.Api
         /// Create an assignment.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="name">the name for the assignment</param>
         /// <param name="assigneeAccountId">the account id to assign to</param>
@@ -82,7 +79,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentCreateApiResponse"/>&gt;</returns>
-        Task<IAssignmentCreateApiResponse> AssignmentCreateAsync(decimal version, long accountId, string name, long assigneeAccountId, Option<string> description = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentCreateApiResponse> AssignmentCreateAsync(long accountId, string name, long assigneeAccountId, Option<string> description = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Assignment
@@ -90,7 +87,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an assignment.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="name">the name for the assignment</param>
         /// <param name="assigneeAccountId">the account id to assign to</param>
@@ -100,7 +96,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentCreateApiResponse"/>?&gt;</returns>
-        Task<IAssignmentCreateApiResponse?> AssignmentCreateOrDefaultAsync(decimal version, long accountId, string name, long assigneeAccountId, Option<string> description = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentCreateApiResponse?> AssignmentCreateOrDefaultAsync(long accountId, string name, long assigneeAccountId, Option<string> description = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Assignment
@@ -109,12 +105,11 @@ namespace Org.OpenAPITools.Api
         /// Delete an assignment.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentDeleteApiResponse"/>&gt;</returns>
-        Task<IAssignmentDeleteApiResponse> AssignmentDeleteAsync(decimal version, long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentDeleteApiResponse> AssignmentDeleteAsync(long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Assignment
@@ -122,12 +117,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete an assignment.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentDeleteApiResponse"/>?&gt;</returns>
-        Task<IAssignmentDeleteApiResponse?> AssignmentDeleteOrDefaultAsync(decimal version, long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentDeleteApiResponse?> AssignmentDeleteOrDefaultAsync(long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Assignment
@@ -136,12 +130,11 @@ namespace Org.OpenAPITools.Api
         /// Get the details of an assignment.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentGetApiResponse"/>&gt;</returns>
-        Task<IAssignmentGetApiResponse> AssignmentGetAsync(decimal version, long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentGetApiResponse> AssignmentGetAsync(long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Assignment
@@ -149,12 +142,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the details of an assignment.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentGetApiResponse"/>?&gt;</returns>
-        Task<IAssignmentGetApiResponse?> AssignmentGetOrDefaultAsync(decimal version, long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentGetApiResponse?> AssignmentGetOrDefaultAsync(long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Assignments
@@ -163,7 +155,6 @@ namespace Org.OpenAPITools.Api
         /// Search for assignments by the given parameters.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account sending the request</param>
         /// <param name="sortField">sort by table field</param>
         /// <param name="descending">return results in descending order or not</param>
@@ -177,7 +168,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">filter results by keyword search that matches the assignee, creator, or retailer location name (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentSearchApiResponse"/>&gt;</returns>
-        Task<IAssignmentSearchApiResponse> AssignmentSearchAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId = default, Option<string> assigneeAccountIds = default, Option<string> retailerLocationIds = default, Option<string> currentStatusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentSearchApiResponse> AssignmentSearchAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId = default, Option<string> assigneeAccountIds = default, Option<string> retailerLocationIds = default, Option<string> currentStatusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Assignments
@@ -185,7 +176,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for assignments by the given parameters.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the account sending the request</param>
         /// <param name="sortField">sort by table field</param>
         /// <param name="descending">return results in descending order or not</param>
@@ -199,7 +189,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">filter results by keyword search that matches the assignee, creator, or retailer location name (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentSearchApiResponse"/>?&gt;</returns>
-        Task<IAssignmentSearchApiResponse?> AssignmentSearchOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId = default, Option<string> assigneeAccountIds = default, Option<string> retailerLocationIds = default, Option<string> currentStatusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentSearchApiResponse?> AssignmentSearchOrDefaultAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId = default, Option<string> assigneeAccountIds = default, Option<string> retailerLocationIds = default, Option<string> currentStatusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Assignment Status
@@ -208,7 +198,6 @@ namespace Org.OpenAPITools.Api
         /// Create an assignment status.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional)</param>
@@ -222,7 +211,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment status is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusCreateApiResponse"/>&gt;</returns>
-        Task<IAssignmentStatusCreateApiResponse> AssignmentStatusCreateAsync(decimal version, long accountId, long assignmentId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusCreateApiResponse> AssignmentStatusCreateAsync(long accountId, long assignmentId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Assignment Status
@@ -230,7 +219,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an assignment status.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional)</param>
@@ -244,7 +232,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment status is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusCreateApiResponse"/>?&gt;</returns>
-        Task<IAssignmentStatusCreateApiResponse?> AssignmentStatusCreateOrDefaultAsync(decimal version, long accountId, long assignmentId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusCreateApiResponse?> AssignmentStatusCreateOrDefaultAsync(long accountId, long assignmentId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Deletes Assignment Status
@@ -253,12 +241,11 @@ namespace Org.OpenAPITools.Api
         /// Deletes an assignment status.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusDeleteApiResponse"/>&gt;</returns>
-        Task<IAssignmentStatusDeleteApiResponse> AssignmentStatusDeleteAsync(decimal version, long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusDeleteApiResponse> AssignmentStatusDeleteAsync(long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Deletes Assignment Status
@@ -266,12 +253,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes an assignment status.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusDeleteApiResponse"/>?&gt;</returns>
-        Task<IAssignmentStatusDeleteApiResponse?> AssignmentStatusDeleteOrDefaultAsync(decimal version, long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusDeleteApiResponse?> AssignmentStatusDeleteOrDefaultAsync(long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Assignment Status
@@ -280,12 +266,11 @@ namespace Org.OpenAPITools.Api
         /// Get an assignment status.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusGetApiResponse"/>&gt;</returns>
-        Task<IAssignmentStatusGetApiResponse> AssignmentStatusGetAsync(decimal version, long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusGetApiResponse> AssignmentStatusGetAsync(long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Assignment Status
@@ -293,12 +278,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get an assignment status.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusGetApiResponse"/>?&gt;</returns>
-        Task<IAssignmentStatusGetApiResponse?> AssignmentStatusGetOrDefaultAsync(decimal version, long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusGetApiResponse?> AssignmentStatusGetOrDefaultAsync(long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Assignment Statuses
@@ -307,7 +291,6 @@ namespace Org.OpenAPITools.Api
         /// Search on assignment statuses.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="sortField">the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -322,7 +305,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">filter results by keyword search (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusSearchApiResponse"/>&gt;</returns>
-        Task<IAssignmentStatusSearchApiResponse> AssignmentStatusSearchAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId = default, Option<long> creatorAccountId = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> statusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusSearchApiResponse> AssignmentStatusSearchAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId = default, Option<long> creatorAccountId = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> statusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Assignment Statuses
@@ -330,7 +313,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on assignment statuses.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="sortField">the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -345,7 +327,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">filter results by keyword search (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusSearchApiResponse"/>?&gt;</returns>
-        Task<IAssignmentStatusSearchApiResponse?> AssignmentStatusSearchOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId = default, Option<long> creatorAccountId = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> statusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusSearchApiResponse?> AssignmentStatusSearchOrDefaultAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId = default, Option<long> creatorAccountId = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> statusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Assignment Status
@@ -354,7 +336,6 @@ namespace Org.OpenAPITools.Api
         /// Updates an assignment status.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional)</param>
@@ -368,7 +349,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment status is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusUpdateApiResponse"/>&gt;</returns>
-        Task<IAssignmentStatusUpdateApiResponse> AssignmentStatusUpdateAsync(decimal version, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusUpdateApiResponse> AssignmentStatusUpdateAsync(long accountId, long assignmentStatusId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Assignment Status
@@ -376,7 +357,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates an assignment status.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional)</param>
@@ -390,7 +370,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment status is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusUpdateApiResponse"/>?&gt;</returns>
-        Task<IAssignmentStatusUpdateApiResponse?> AssignmentStatusUpdateOrDefaultAsync(decimal version, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentStatusUpdateApiResponse?> AssignmentStatusUpdateOrDefaultAsync(long accountId, long assignmentStatusId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Assignment
@@ -399,7 +379,6 @@ namespace Org.OpenAPITools.Api
         /// Updates an assignment.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="name">the name of the assignment (optional)</param>
@@ -410,7 +389,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentUpdateApiResponse"/>&gt;</returns>
-        Task<IAssignmentUpdateApiResponse> AssignmentUpdateAsync(decimal version, long accountId, long assignmentId, Option<string> name = default, Option<string> description = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentUpdateApiResponse> AssignmentUpdateAsync(long accountId, long assignmentId, Option<string> name = default, Option<string> description = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Assignment
@@ -418,7 +397,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Updates an assignment.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="name">the name of the assignment (optional)</param>
@@ -429,7 +407,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentUpdateApiResponse"/>?&gt;</returns>
-        Task<IAssignmentUpdateApiResponse?> AssignmentUpdateOrDefaultAsync(decimal version, long accountId, long assignmentId, Option<string> name = default, Option<string> description = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAssignmentUpdateApiResponse?> AssignmentUpdateOrDefaultAsync(long accountId, long assignmentId, Option<string> name = default, Option<string> description = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -837,7 +815,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAssigmentAssigneeAccountSearch(ref decimal version, ref long accountId, ref Option<string> keyword);
+        partial void FormatAssigmentAssigneeAccountSearch(ref long accountId, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -854,13 +832,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
-        private void AfterAssigmentAssigneeAccountSearchDefaultImplementation(IAssigmentAssigneeAccountSearchApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword)
+        private void AfterAssigmentAssigneeAccountSearchDefaultImplementation(IAssigmentAssigneeAccountSearchApiResponse apiResponseLocalVar, long accountId, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterAssigmentAssigneeAccountSearch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword);
+            AfterAssigmentAssigneeAccountSearch(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -870,10 +847,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
-        partial void AfterAssigmentAssigneeAccountSearch(ref bool suppressDefaultLog, IAssigmentAssigneeAccountSearchApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> keyword);
+        partial void AfterAssigmentAssigneeAccountSearch(ref bool suppressDefaultLog, IAssigmentAssigneeAccountSearchApiResponse apiResponseLocalVar, long accountId, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -881,13 +857,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
-        private void OnErrorAssigmentAssigneeAccountSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword)
+        private void OnErrorAssigmentAssigneeAccountSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssigmentAssigneeAccountSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword);
+            OnErrorAssigmentAssigneeAccountSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -899,24 +874,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorAssigmentAssigneeAccountSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> keyword);
+        partial void OnErrorAssigmentAssigneeAccountSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> keyword);
 
         /// <summary>
         /// Search Assignment Assignees Search for avaiable users for creating or updating assignment.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id sending the request</param>
         /// <param name="keyword">The keyword to filter the returned results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssigmentAssigneeAccountSearchApiResponse"/>&gt;</returns>
-        public async Task<IAssigmentAssigneeAccountSearchApiResponse?> AssigmentAssigneeAccountSearchOrDefaultAsync(decimal version, long accountId, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssigmentAssigneeAccountSearchApiResponse?> AssigmentAssigneeAccountSearchOrDefaultAsync(long accountId, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssigmentAssigneeAccountSearchAsync(version, accountId, keyword, cancellationToken).ConfigureAwait(false);
+                return await AssigmentAssigneeAccountSearchAsync(accountId, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -928,12 +901,11 @@ namespace Org.OpenAPITools.Api
         /// Search Assignment Assignees Search for avaiable users for creating or updating assignment.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id sending the request</param>
         /// <param name="keyword">The keyword to filter the returned results (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssigmentAssigneeAccountSearchApiResponse"/>&gt;</returns>
-        public async Task<IAssigmentAssigneeAccountSearchApiResponse> AssigmentAssigneeAccountSearchAsync(decimal version, long accountId, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssigmentAssigneeAccountSearchApiResponse> AssigmentAssigneeAccountSearchAsync(long accountId, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -941,7 +913,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssigmentAssigneeAccountSearch(keyword);
 
-                FormatAssigmentAssigneeAccountSearch(ref version, ref accountId, ref keyword);
+                FormatAssigmentAssigneeAccountSearch(ref accountId, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -949,9 +921,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/assignee/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/assignee/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/assignee/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/assignee/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -985,13 +956,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/assignee/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/assignee/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssigmentAssigneeAccountSearchDefaultImplementation(apiResponseLocalVar, version, accountId, keyword);
+                        AfterAssigmentAssigneeAccountSearchDefaultImplementation(apiResponseLocalVar, accountId, keyword);
 
                         Events.ExecuteOnAssigmentAssigneeAccountSearch(apiResponseLocalVar);
 
@@ -1001,7 +972,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssigmentAssigneeAccountSearchDefaultImplementation(e, "/api/{version}/assignment/assignee/search", uriBuilderLocalVar.Path, version, accountId, keyword);
+                OnErrorAssigmentAssigneeAccountSearchDefaultImplementation(e, "/assignment/assignee/search", uriBuilderLocalVar.Path, accountId, keyword);
                 Events.ExecuteOnErrorAssigmentAssigneeAccountSearch(e);
                 throw;
             }
@@ -1100,7 +1071,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentCreate(ref decimal version, ref long accountId, ref string name, ref long assigneeAccountId, ref Option<string> description, ref Option<long> retailerLocationId, ref Option<string> tags, ref Option<bool> active);
+        partial void FormatAssignmentCreate(ref long accountId, ref string name, ref long assigneeAccountId, ref Option<string> description, ref Option<long> retailerLocationId, ref Option<string> tags, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -1125,7 +1096,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="assigneeAccountId"></param>
@@ -1133,10 +1103,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="tags"></param>
         /// <param name="active"></param>
-        private void AfterAssignmentCreateDefaultImplementation(IAssignmentCreateApiResponse apiResponseLocalVar, decimal version, long accountId, string name, long assigneeAccountId, Option<string> description, Option<long> retailerLocationId, Option<string> tags, Option<bool> active)
+        private void AfterAssignmentCreateDefaultImplementation(IAssignmentCreateApiResponse apiResponseLocalVar, long accountId, string name, long assigneeAccountId, Option<string> description, Option<long> retailerLocationId, Option<string> tags, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentCreate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
+            AfterAssignmentCreate(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1146,7 +1116,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="assigneeAccountId"></param>
@@ -1154,7 +1123,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="tags"></param>
         /// <param name="active"></param>
-        partial void AfterAssignmentCreate(ref bool suppressDefaultLog, IAssignmentCreateApiResponse apiResponseLocalVar, decimal version, long accountId, string name, long assigneeAccountId, Option<string> description, Option<long> retailerLocationId, Option<string> tags, Option<bool> active);
+        partial void AfterAssignmentCreate(ref bool suppressDefaultLog, IAssignmentCreateApiResponse apiResponseLocalVar, long accountId, string name, long assigneeAccountId, Option<string> description, Option<long> retailerLocationId, Option<string> tags, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1162,7 +1131,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="assigneeAccountId"></param>
@@ -1170,10 +1138,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="tags"></param>
         /// <param name="active"></param>
-        private void OnErrorAssignmentCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, long assigneeAccountId, Option<string> description, Option<long> retailerLocationId, Option<string> tags, Option<bool> active)
+        private void OnErrorAssignmentCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, long assigneeAccountId, Option<string> description, Option<long> retailerLocationId, Option<string> tags, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
+            OnErrorAssignmentCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1185,7 +1153,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="assigneeAccountId"></param>
@@ -1193,12 +1160,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="tags"></param>
         /// <param name="active"></param>
-        partial void OnErrorAssignmentCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, long assigneeAccountId, Option<string> description, Option<long> retailerLocationId, Option<string> tags, Option<bool> active);
+        partial void OnErrorAssignmentCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, long assigneeAccountId, Option<string> description, Option<long> retailerLocationId, Option<string> tags, Option<bool> active);
 
         /// <summary>
         /// Create Assignment Create an assignment.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="name">the name for the assignment</param>
         /// <param name="assigneeAccountId">the account id to assign to</param>
@@ -1208,11 +1174,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentCreateApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentCreateApiResponse?> AssignmentCreateOrDefaultAsync(decimal version, long accountId, string name, long assigneeAccountId, Option<string> description = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentCreateApiResponse?> AssignmentCreateOrDefaultAsync(long accountId, string name, long assigneeAccountId, Option<string> description = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentCreateAsync(version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active, cancellationToken).ConfigureAwait(false);
+                return await AssignmentCreateAsync(accountId, name, assigneeAccountId, description, retailerLocationId, tags, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1224,7 +1190,6 @@ namespace Org.OpenAPITools.Api
         /// Create Assignment Create an assignment.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="name">the name for the assignment</param>
         /// <param name="assigneeAccountId">the account id to assign to</param>
@@ -1234,7 +1199,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentCreateApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentCreateApiResponse> AssignmentCreateAsync(decimal version, long accountId, string name, long assigneeAccountId, Option<string> description = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentCreateApiResponse> AssignmentCreateAsync(long accountId, string name, long assigneeAccountId, Option<string> description = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1242,7 +1207,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssignmentCreate(name, description, tags);
 
-                FormatAssignmentCreate(ref version, ref accountId, ref name, ref assigneeAccountId, ref description, ref retailerLocationId, ref tags, ref active);
+                FormatAssignmentCreate(ref accountId, ref name, ref assigneeAccountId, ref description, ref retailerLocationId, ref tags, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1250,9 +1215,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1297,13 +1261,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentCreateDefaultImplementation(apiResponseLocalVar, version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
+                        AfterAssignmentCreateDefaultImplementation(apiResponseLocalVar, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
 
                         Events.ExecuteOnAssignmentCreate(apiResponseLocalVar);
 
@@ -1313,7 +1277,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentCreateDefaultImplementation(e, "/api/{version}/assignment/create", uriBuilderLocalVar.Path, version, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
+                OnErrorAssignmentCreateDefaultImplementation(e, "/assignment/create", uriBuilderLocalVar.Path, accountId, name, assigneeAccountId, description, retailerLocationId, tags, active);
                 Events.ExecuteOnErrorAssignmentCreate(e);
                 throw;
             }
@@ -1412,19 +1376,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentDelete(ref decimal version, ref long accountId, ref long assignmentId);
+        partial void FormatAssignmentDelete(ref long accountId, ref long assignmentId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
-        private void AfterAssignmentDeleteDefaultImplementation(IAssignmentDeleteApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentId)
+        private void AfterAssignmentDeleteDefaultImplementation(IAssignmentDeleteApiResponse apiResponseLocalVar, long accountId, long assignmentId)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentDelete(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, assignmentId);
+            AfterAssignmentDelete(ref suppressDefaultLog, apiResponseLocalVar, accountId, assignmentId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1434,10 +1397,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
-        partial void AfterAssignmentDelete(ref bool suppressDefaultLog, IAssignmentDeleteApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentId);
+        partial void AfterAssignmentDelete(ref bool suppressDefaultLog, IAssignmentDeleteApiResponse apiResponseLocalVar, long accountId, long assignmentId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1445,13 +1407,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
-        private void OnErrorAssignmentDeleteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentId)
+        private void OnErrorAssignmentDeleteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentDelete(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, assignmentId);
+            OnErrorAssignmentDelete(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, assignmentId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1463,24 +1424,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
-        partial void OnErrorAssignmentDelete(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentId);
+        partial void OnErrorAssignmentDelete(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentId);
 
         /// <summary>
         /// Delete Assignment Delete an assignment.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentDeleteApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentDeleteApiResponse?> AssignmentDeleteOrDefaultAsync(decimal version, long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentDeleteApiResponse?> AssignmentDeleteOrDefaultAsync(long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentDeleteAsync(version, accountId, assignmentId, cancellationToken).ConfigureAwait(false);
+                return await AssignmentDeleteAsync(accountId, assignmentId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1492,18 +1451,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Assignment Delete an assignment.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentDeleteApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentDeleteApiResponse> AssignmentDeleteAsync(decimal version, long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentDeleteApiResponse> AssignmentDeleteAsync(long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatAssignmentDelete(ref version, ref accountId, ref assignmentId);
+                FormatAssignmentDelete(ref accountId, ref assignmentId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1511,9 +1469,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1545,13 +1502,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentDeleteDefaultImplementation(apiResponseLocalVar, version, accountId, assignmentId);
+                        AfterAssignmentDeleteDefaultImplementation(apiResponseLocalVar, accountId, assignmentId);
 
                         Events.ExecuteOnAssignmentDelete(apiResponseLocalVar);
 
@@ -1561,7 +1518,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentDeleteDefaultImplementation(e, "/api/{version}/assignment/delete", uriBuilderLocalVar.Path, version, accountId, assignmentId);
+                OnErrorAssignmentDeleteDefaultImplementation(e, "/assignment/delete", uriBuilderLocalVar.Path, accountId, assignmentId);
                 Events.ExecuteOnErrorAssignmentDelete(e);
                 throw;
             }
@@ -1660,19 +1617,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentGet(ref decimal version, ref long accountId, ref long assignmentId);
+        partial void FormatAssignmentGet(ref long accountId, ref long assignmentId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
-        private void AfterAssignmentGetDefaultImplementation(IAssignmentGetApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentId)
+        private void AfterAssignmentGetDefaultImplementation(IAssignmentGetApiResponse apiResponseLocalVar, long accountId, long assignmentId)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentGet(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, assignmentId);
+            AfterAssignmentGet(ref suppressDefaultLog, apiResponseLocalVar, accountId, assignmentId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1682,10 +1638,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
-        partial void AfterAssignmentGet(ref bool suppressDefaultLog, IAssignmentGetApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentId);
+        partial void AfterAssignmentGet(ref bool suppressDefaultLog, IAssignmentGetApiResponse apiResponseLocalVar, long accountId, long assignmentId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1693,13 +1648,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
-        private void OnErrorAssignmentGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentId)
+        private void OnErrorAssignmentGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, assignmentId);
+            OnErrorAssignmentGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, assignmentId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1711,24 +1665,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
-        partial void OnErrorAssignmentGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentId);
+        partial void OnErrorAssignmentGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentId);
 
         /// <summary>
         /// Get Assignment Get the details of an assignment.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentGetApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentGetApiResponse?> AssignmentGetOrDefaultAsync(decimal version, long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentGetApiResponse?> AssignmentGetOrDefaultAsync(long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentGetAsync(version, accountId, assignmentId, cancellationToken).ConfigureAwait(false);
+                return await AssignmentGetAsync(accountId, assignmentId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1740,18 +1692,17 @@ namespace Org.OpenAPITools.Api
         /// Get Assignment Get the details of an assignment.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentGetApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentGetApiResponse> AssignmentGetAsync(decimal version, long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentGetApiResponse> AssignmentGetAsync(long accountId, long assignmentId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatAssignmentGet(ref version, ref accountId, ref assignmentId);
+                FormatAssignmentGet(ref accountId, ref assignmentId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1759,9 +1710,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1793,13 +1743,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentGetDefaultImplementation(apiResponseLocalVar, version, accountId, assignmentId);
+                        AfterAssignmentGetDefaultImplementation(apiResponseLocalVar, accountId, assignmentId);
 
                         Events.ExecuteOnAssignmentGet(apiResponseLocalVar);
 
@@ -1809,7 +1759,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentGetDefaultImplementation(e, "/api/{version}/assignment/get", uriBuilderLocalVar.Path, version, accountId, assignmentId);
+                OnErrorAssignmentGetDefaultImplementation(e, "/assignment/get", uriBuilderLocalVar.Path, accountId, assignmentId);
                 Events.ExecuteOnErrorAssignmentGet(e);
                 throw;
             }
@@ -1908,7 +1858,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentSearch(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<long> creatorAccountId, ref Option<string> assigneeAccountIds, ref Option<string> retailerLocationIds, ref Option<string> currentStatusType, ref Option<string> keyword);
+        partial void FormatAssignmentSearch(ref long accountId, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<long> creatorAccountId, ref Option<string> assigneeAccountIds, ref Option<string> retailerLocationIds, ref Option<string> currentStatusType, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -1941,7 +1891,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1953,10 +1902,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationIds"></param>
         /// <param name="currentStatusType"></param>
         /// <param name="keyword"></param>
-        private void AfterAssignmentSearchDefaultImplementation(IAssignmentSearchApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId, Option<string> assigneeAccountIds, Option<string> retailerLocationIds, Option<string> currentStatusType, Option<string> keyword)
+        private void AfterAssignmentSearchDefaultImplementation(IAssignmentSearchApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId, Option<string> assigneeAccountIds, Option<string> retailerLocationIds, Option<string> currentStatusType, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentSearch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
+            AfterAssignmentSearch(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1966,7 +1915,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1978,7 +1926,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationIds"></param>
         /// <param name="currentStatusType"></param>
         /// <param name="keyword"></param>
-        partial void AfterAssignmentSearch(ref bool suppressDefaultLog, IAssignmentSearchApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId, Option<string> assigneeAccountIds, Option<string> retailerLocationIds, Option<string> currentStatusType, Option<string> keyword);
+        partial void AfterAssignmentSearch(ref bool suppressDefaultLog, IAssignmentSearchApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId, Option<string> assigneeAccountIds, Option<string> retailerLocationIds, Option<string> currentStatusType, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1986,7 +1934,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1998,10 +1945,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationIds"></param>
         /// <param name="currentStatusType"></param>
         /// <param name="keyword"></param>
-        private void OnErrorAssignmentSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId, Option<string> assigneeAccountIds, Option<string> retailerLocationIds, Option<string> currentStatusType, Option<string> keyword)
+        private void OnErrorAssignmentSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId, Option<string> assigneeAccountIds, Option<string> retailerLocationIds, Option<string> currentStatusType, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
+            OnErrorAssignmentSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2013,7 +1960,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -2025,12 +1971,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationIds"></param>
         /// <param name="currentStatusType"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorAssignmentSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId, Option<string> assigneeAccountIds, Option<string> retailerLocationIds, Option<string> currentStatusType, Option<string> keyword);
+        partial void OnErrorAssignmentSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId, Option<string> assigneeAccountIds, Option<string> retailerLocationIds, Option<string> currentStatusType, Option<string> keyword);
 
         /// <summary>
         /// Search Assignments Search for assignments by the given parameters.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the account sending the request</param>
         /// <param name="sortField">sort by table field</param>
         /// <param name="descending">return results in descending order or not</param>
@@ -2044,11 +1989,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">filter results by keyword search that matches the assignee, creator, or retailer location name (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentSearchApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentSearchApiResponse?> AssignmentSearchOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId = default, Option<string> assigneeAccountIds = default, Option<string> retailerLocationIds = default, Option<string> currentStatusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentSearchApiResponse?> AssignmentSearchOrDefaultAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId = default, Option<string> assigneeAccountIds = default, Option<string> retailerLocationIds = default, Option<string> currentStatusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentSearchAsync(version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword, cancellationToken).ConfigureAwait(false);
+                return await AssignmentSearchAsync(accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2060,7 +2005,6 @@ namespace Org.OpenAPITools.Api
         /// Search Assignments Search for assignments by the given parameters.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the account sending the request</param>
         /// <param name="sortField">sort by table field</param>
         /// <param name="descending">return results in descending order or not</param>
@@ -2074,7 +2018,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">filter results by keyword search that matches the assignee, creator, or retailer location name (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentSearchApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentSearchApiResponse> AssignmentSearchAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId = default, Option<string> assigneeAccountIds = default, Option<string> retailerLocationIds = default, Option<string> currentStatusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentSearchApiResponse> AssignmentSearchAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> creatorAccountId = default, Option<string> assigneeAccountIds = default, Option<string> retailerLocationIds = default, Option<string> currentStatusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2082,7 +2026,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssignmentSearch(sortField, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
 
-                FormatAssignmentSearch(ref version, ref accountId, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref creatorAccountId, ref assigneeAccountIds, ref retailerLocationIds, ref currentStatusType, ref keyword);
+                FormatAssignmentSearch(ref accountId, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref creatorAccountId, ref assigneeAccountIds, ref retailerLocationIds, ref currentStatusType, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2090,9 +2034,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2143,13 +2086,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentSearchDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
+                        AfterAssignmentSearchDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
 
                         Events.ExecuteOnAssignmentSearch(apiResponseLocalVar);
 
@@ -2159,7 +2102,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentSearchDefaultImplementation(e, "/api/{version}/assignment/search", uriBuilderLocalVar.Path, version, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
+                OnErrorAssignmentSearchDefaultImplementation(e, "/assignment/search", uriBuilderLocalVar.Path, accountId, sortField, descending, activeOnly, start, limit, creatorAccountId, assigneeAccountIds, retailerLocationIds, currentStatusType, keyword);
                 Events.ExecuteOnErrorAssignmentSearch(e);
                 throw;
             }
@@ -2258,7 +2201,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentStatusCreate(ref decimal version, ref long accountId, ref long assignmentId, ref Option<long> scheduledNotificationId, ref Option<string> toDo, ref Option<string> connection, ref Option<string> method, ref Option<string> status, ref Option<string> closure, ref Option<string> message, ref Option<long> followUp, ref Option<bool> active);
+        partial void FormatAssignmentStatusCreate(ref long accountId, ref long assignmentId, ref Option<long> scheduledNotificationId, ref Option<string> toDo, ref Option<string> connection, ref Option<string> method, ref Option<string> status, ref Option<string> closure, ref Option<string> message, ref Option<long> followUp, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -2295,7 +2238,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
         /// <param name="scheduledNotificationId"></param>
@@ -2307,10 +2249,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="message"></param>
         /// <param name="followUp"></param>
         /// <param name="active"></param>
-        private void AfterAssignmentStatusCreateDefaultImplementation(IAssignmentStatusCreateApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active)
+        private void AfterAssignmentStatusCreateDefaultImplementation(IAssignmentStatusCreateApiResponse apiResponseLocalVar, long accountId, long assignmentId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentStatusCreate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+            AfterAssignmentStatusCreate(ref suppressDefaultLog, apiResponseLocalVar, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2320,7 +2262,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
         /// <param name="scheduledNotificationId"></param>
@@ -2332,7 +2273,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="message"></param>
         /// <param name="followUp"></param>
         /// <param name="active"></param>
-        partial void AfterAssignmentStatusCreate(ref bool suppressDefaultLog, IAssignmentStatusCreateApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active);
+        partial void AfterAssignmentStatusCreate(ref bool suppressDefaultLog, IAssignmentStatusCreateApiResponse apiResponseLocalVar, long accountId, long assignmentId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2340,7 +2281,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
         /// <param name="scheduledNotificationId"></param>
@@ -2352,10 +2292,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="message"></param>
         /// <param name="followUp"></param>
         /// <param name="active"></param>
-        private void OnErrorAssignmentStatusCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active)
+        private void OnErrorAssignmentStatusCreateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentStatusCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+            OnErrorAssignmentStatusCreate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2367,7 +2307,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
         /// <param name="scheduledNotificationId"></param>
@@ -2379,12 +2318,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="message"></param>
         /// <param name="followUp"></param>
         /// <param name="active"></param>
-        partial void OnErrorAssignmentStatusCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active);
+        partial void OnErrorAssignmentStatusCreate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active);
 
         /// <summary>
         /// Create Assignment Status Create an assignment status.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional)</param>
@@ -2398,11 +2336,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment status is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusCreateApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusCreateApiResponse?> AssignmentStatusCreateOrDefaultAsync(decimal version, long accountId, long assignmentId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusCreateApiResponse?> AssignmentStatusCreateOrDefaultAsync(long accountId, long assignmentId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentStatusCreateAsync(version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, cancellationToken).ConfigureAwait(false);
+                return await AssignmentStatusCreateAsync(accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2414,7 +2352,6 @@ namespace Org.OpenAPITools.Api
         /// Create Assignment Status Create an assignment status.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional)</param>
@@ -2428,7 +2365,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment status is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusCreateApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusCreateApiResponse> AssignmentStatusCreateAsync(decimal version, long accountId, long assignmentId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusCreateApiResponse> AssignmentStatusCreateAsync(long accountId, long assignmentId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2436,7 +2373,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssignmentStatusCreate(toDo, connection, method, status, closure, message);
 
-                FormatAssignmentStatusCreate(ref version, ref accountId, ref assignmentId, ref scheduledNotificationId, ref toDo, ref connection, ref method, ref status, ref closure, ref message, ref followUp, ref active);
+                FormatAssignmentStatusCreate(ref accountId, ref assignmentId, ref scheduledNotificationId, ref toDo, ref connection, ref method, ref status, ref closure, ref message, ref followUp, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2444,9 +2381,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/status/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/status/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/status/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/status/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2505,13 +2441,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/status/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/status/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentStatusCreateDefaultImplementation(apiResponseLocalVar, version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+                        AfterAssignmentStatusCreateDefaultImplementation(apiResponseLocalVar, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
 
                         Events.ExecuteOnAssignmentStatusCreate(apiResponseLocalVar);
 
@@ -2521,7 +2457,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentStatusCreateDefaultImplementation(e, "/api/{version}/assignment/status/create", uriBuilderLocalVar.Path, version, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+                OnErrorAssignmentStatusCreateDefaultImplementation(e, "/assignment/status/create", uriBuilderLocalVar.Path, accountId, assignmentId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
                 Events.ExecuteOnErrorAssignmentStatusCreate(e);
                 throw;
             }
@@ -2620,19 +2556,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentStatusDelete(ref decimal version, ref long accountId, ref long assignmentStatusId);
+        partial void FormatAssignmentStatusDelete(ref long accountId, ref long assignmentStatusId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
-        private void AfterAssignmentStatusDeleteDefaultImplementation(IAssignmentStatusDeleteApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentStatusId)
+        private void AfterAssignmentStatusDeleteDefaultImplementation(IAssignmentStatusDeleteApiResponse apiResponseLocalVar, long accountId, long assignmentStatusId)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentStatusDelete(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, assignmentStatusId);
+            AfterAssignmentStatusDelete(ref suppressDefaultLog, apiResponseLocalVar, accountId, assignmentStatusId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2642,10 +2577,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
-        partial void AfterAssignmentStatusDelete(ref bool suppressDefaultLog, IAssignmentStatusDeleteApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentStatusId);
+        partial void AfterAssignmentStatusDelete(ref bool suppressDefaultLog, IAssignmentStatusDeleteApiResponse apiResponseLocalVar, long accountId, long assignmentStatusId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2653,13 +2587,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
-        private void OnErrorAssignmentStatusDeleteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentStatusId)
+        private void OnErrorAssignmentStatusDeleteDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentStatusId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentStatusDelete(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, assignmentStatusId);
+            OnErrorAssignmentStatusDelete(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, assignmentStatusId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2671,24 +2604,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
-        partial void OnErrorAssignmentStatusDelete(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentStatusId);
+        partial void OnErrorAssignmentStatusDelete(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentStatusId);
 
         /// <summary>
         /// Deletes Assignment Status Deletes an assignment status.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusDeleteApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusDeleteApiResponse?> AssignmentStatusDeleteOrDefaultAsync(decimal version, long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusDeleteApiResponse?> AssignmentStatusDeleteOrDefaultAsync(long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentStatusDeleteAsync(version, accountId, assignmentStatusId, cancellationToken).ConfigureAwait(false);
+                return await AssignmentStatusDeleteAsync(accountId, assignmentStatusId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2700,18 +2631,17 @@ namespace Org.OpenAPITools.Api
         /// Deletes Assignment Status Deletes an assignment status.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusDeleteApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusDeleteApiResponse> AssignmentStatusDeleteAsync(decimal version, long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusDeleteApiResponse> AssignmentStatusDeleteAsync(long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatAssignmentStatusDelete(ref version, ref accountId, ref assignmentStatusId);
+                FormatAssignmentStatusDelete(ref accountId, ref assignmentStatusId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2719,9 +2649,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/status/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/status/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/status/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/status/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2753,13 +2682,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/status/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/status/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentStatusDeleteDefaultImplementation(apiResponseLocalVar, version, accountId, assignmentStatusId);
+                        AfterAssignmentStatusDeleteDefaultImplementation(apiResponseLocalVar, accountId, assignmentStatusId);
 
                         Events.ExecuteOnAssignmentStatusDelete(apiResponseLocalVar);
 
@@ -2769,7 +2698,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentStatusDeleteDefaultImplementation(e, "/api/{version}/assignment/status/delete", uriBuilderLocalVar.Path, version, accountId, assignmentStatusId);
+                OnErrorAssignmentStatusDeleteDefaultImplementation(e, "/assignment/status/delete", uriBuilderLocalVar.Path, accountId, assignmentStatusId);
                 Events.ExecuteOnErrorAssignmentStatusDelete(e);
                 throw;
             }
@@ -2868,19 +2797,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentStatusGet(ref decimal version, ref long accountId, ref long assignmentStatusId);
+        partial void FormatAssignmentStatusGet(ref long accountId, ref long assignmentStatusId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
-        private void AfterAssignmentStatusGetDefaultImplementation(IAssignmentStatusGetApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentStatusId)
+        private void AfterAssignmentStatusGetDefaultImplementation(IAssignmentStatusGetApiResponse apiResponseLocalVar, long accountId, long assignmentStatusId)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentStatusGet(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, assignmentStatusId);
+            AfterAssignmentStatusGet(ref suppressDefaultLog, apiResponseLocalVar, accountId, assignmentStatusId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2890,10 +2818,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
-        partial void AfterAssignmentStatusGet(ref bool suppressDefaultLog, IAssignmentStatusGetApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentStatusId);
+        partial void AfterAssignmentStatusGet(ref bool suppressDefaultLog, IAssignmentStatusGetApiResponse apiResponseLocalVar, long accountId, long assignmentStatusId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2901,13 +2828,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
-        private void OnErrorAssignmentStatusGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentStatusId)
+        private void OnErrorAssignmentStatusGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentStatusId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentStatusGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, assignmentStatusId);
+            OnErrorAssignmentStatusGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, assignmentStatusId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2919,24 +2845,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
-        partial void OnErrorAssignmentStatusGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentStatusId);
+        partial void OnErrorAssignmentStatusGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentStatusId);
 
         /// <summary>
         /// Get Assignment Status Get an assignment status.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusGetApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusGetApiResponse?> AssignmentStatusGetOrDefaultAsync(decimal version, long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusGetApiResponse?> AssignmentStatusGetOrDefaultAsync(long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentStatusGetAsync(version, accountId, assignmentStatusId, cancellationToken).ConfigureAwait(false);
+                return await AssignmentStatusGetAsync(accountId, assignmentStatusId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2948,18 +2872,17 @@ namespace Org.OpenAPITools.Api
         /// Get Assignment Status Get an assignment status.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusGetApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusGetApiResponse> AssignmentStatusGetAsync(decimal version, long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusGetApiResponse> AssignmentStatusGetAsync(long accountId, long assignmentStatusId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatAssignmentStatusGet(ref version, ref accountId, ref assignmentStatusId);
+                FormatAssignmentStatusGet(ref accountId, ref assignmentStatusId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2967,9 +2890,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/status/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/status/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/status/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/status/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3001,13 +2923,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/status/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/status/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentStatusGetDefaultImplementation(apiResponseLocalVar, version, accountId, assignmentStatusId);
+                        AfterAssignmentStatusGetDefaultImplementation(apiResponseLocalVar, accountId, assignmentStatusId);
 
                         Events.ExecuteOnAssignmentStatusGet(apiResponseLocalVar);
 
@@ -3017,7 +2939,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentStatusGetDefaultImplementation(e, "/api/{version}/assignment/status/get", uriBuilderLocalVar.Path, version, accountId, assignmentStatusId);
+                OnErrorAssignmentStatusGetDefaultImplementation(e, "/assignment/status/get", uriBuilderLocalVar.Path, accountId, assignmentStatusId);
                 Events.ExecuteOnErrorAssignmentStatusGet(e);
                 throw;
             }
@@ -3116,7 +3038,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentStatusSearch(ref decimal version, ref long accountId, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<long> assignmentId, ref Option<long> creatorAccountId, ref Option<long> assigneeAccountId, ref Option<long> retailerLocationId, ref Option<string> statusType, ref Option<string> keyword);
+        partial void FormatAssignmentStatusSearch(ref long accountId, ref string sortField, ref bool descending, ref bool activeOnly, ref int start, ref int limit, ref Option<long> assignmentId, ref Option<long> creatorAccountId, ref Option<long> assigneeAccountId, ref Option<long> retailerLocationId, ref Option<string> statusType, ref Option<string> keyword);
 
         /// <summary>
         /// Validates the request parameters
@@ -3141,7 +3063,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3154,10 +3075,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="statusType"></param>
         /// <param name="keyword"></param>
-        private void AfterAssignmentStatusSearchDefaultImplementation(IAssignmentStatusSearchApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId, Option<long> creatorAccountId, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> statusType, Option<string> keyword)
+        private void AfterAssignmentStatusSearchDefaultImplementation(IAssignmentStatusSearchApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId, Option<long> creatorAccountId, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> statusType, Option<string> keyword)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentStatusSearch(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
+            AfterAssignmentStatusSearch(ref suppressDefaultLog, apiResponseLocalVar, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3167,7 +3088,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3180,7 +3100,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="statusType"></param>
         /// <param name="keyword"></param>
-        partial void AfterAssignmentStatusSearch(ref bool suppressDefaultLog, IAssignmentStatusSearchApiResponse apiResponseLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId, Option<long> creatorAccountId, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> statusType, Option<string> keyword);
+        partial void AfterAssignmentStatusSearch(ref bool suppressDefaultLog, IAssignmentStatusSearchApiResponse apiResponseLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId, Option<long> creatorAccountId, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> statusType, Option<string> keyword);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3188,7 +3108,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3201,10 +3120,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="statusType"></param>
         /// <param name="keyword"></param>
-        private void OnErrorAssignmentStatusSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId, Option<long> creatorAccountId, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> statusType, Option<string> keyword)
+        private void OnErrorAssignmentStatusSearchDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId, Option<long> creatorAccountId, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> statusType, Option<string> keyword)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentStatusSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
+            OnErrorAssignmentStatusSearch(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3216,7 +3135,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -3229,12 +3147,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="statusType"></param>
         /// <param name="keyword"></param>
-        partial void OnErrorAssignmentStatusSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId, Option<long> creatorAccountId, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> statusType, Option<string> keyword);
+        partial void OnErrorAssignmentStatusSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId, Option<long> creatorAccountId, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> statusType, Option<string> keyword);
 
         /// <summary>
         /// Search Assignment Statuses Search on assignment statuses.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="sortField">the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -3249,11 +3166,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">filter results by keyword search (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusSearchApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusSearchApiResponse?> AssignmentStatusSearchOrDefaultAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId = default, Option<long> creatorAccountId = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> statusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusSearchApiResponse?> AssignmentStatusSearchOrDefaultAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId = default, Option<long> creatorAccountId = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> statusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentStatusSearchAsync(version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword, cancellationToken).ConfigureAwait(false);
+                return await AssignmentStatusSearchAsync(accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3265,7 +3182,6 @@ namespace Org.OpenAPITools.Api
         /// Search Assignment Statuses Search on assignment statuses.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="sortField">the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -3280,7 +3196,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="keyword">filter results by keyword search (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusSearchApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusSearchApiResponse> AssignmentStatusSearchAsync(decimal version, long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId = default, Option<long> creatorAccountId = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> statusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusSearchApiResponse> AssignmentStatusSearchAsync(long accountId, string sortField, bool descending, bool activeOnly, int start, int limit, Option<long> assignmentId = default, Option<long> creatorAccountId = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> statusType = default, Option<string> keyword = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3288,7 +3204,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssignmentStatusSearch(sortField, statusType, keyword);
 
-                FormatAssignmentStatusSearch(ref version, ref accountId, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref assignmentId, ref creatorAccountId, ref assigneeAccountId, ref retailerLocationId, ref statusType, ref keyword);
+                FormatAssignmentStatusSearch(ref accountId, ref sortField, ref descending, ref activeOnly, ref start, ref limit, ref assignmentId, ref creatorAccountId, ref assigneeAccountId, ref retailerLocationId, ref statusType, ref keyword);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3296,9 +3212,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/status/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/status/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/status/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/status/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3352,13 +3267,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/status/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/status/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentStatusSearchDefaultImplementation(apiResponseLocalVar, version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
+                        AfterAssignmentStatusSearchDefaultImplementation(apiResponseLocalVar, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
 
                         Events.ExecuteOnAssignmentStatusSearch(apiResponseLocalVar);
 
@@ -3368,7 +3283,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentStatusSearchDefaultImplementation(e, "/api/{version}/assignment/status/search", uriBuilderLocalVar.Path, version, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
+                OnErrorAssignmentStatusSearchDefaultImplementation(e, "/assignment/status/search", uriBuilderLocalVar.Path, accountId, sortField, descending, activeOnly, start, limit, assignmentId, creatorAccountId, assigneeAccountId, retailerLocationId, statusType, keyword);
                 Events.ExecuteOnErrorAssignmentStatusSearch(e);
                 throw;
             }
@@ -3467,7 +3382,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentStatusUpdate(ref decimal version, ref long accountId, ref long assignmentStatusId, ref Option<long> scheduledNotificationId, ref Option<string> toDo, ref Option<string> connection, ref Option<string> method, ref Option<string> status, ref Option<string> closure, ref Option<string> message, ref Option<long> followUp, ref Option<bool> active);
+        partial void FormatAssignmentStatusUpdate(ref long accountId, ref long assignmentStatusId, ref Option<long> scheduledNotificationId, ref Option<string> toDo, ref Option<string> connection, ref Option<string> method, ref Option<string> status, ref Option<string> closure, ref Option<string> message, ref Option<long> followUp, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -3504,7 +3419,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
         /// <param name="scheduledNotificationId"></param>
@@ -3516,10 +3430,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="message"></param>
         /// <param name="followUp"></param>
         /// <param name="active"></param>
-        private void AfterAssignmentStatusUpdateDefaultImplementation(IAssignmentStatusUpdateApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active)
+        private void AfterAssignmentStatusUpdateDefaultImplementation(IAssignmentStatusUpdateApiResponse apiResponseLocalVar, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentStatusUpdate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+            AfterAssignmentStatusUpdate(ref suppressDefaultLog, apiResponseLocalVar, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3529,7 +3443,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
         /// <param name="scheduledNotificationId"></param>
@@ -3541,7 +3454,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="message"></param>
         /// <param name="followUp"></param>
         /// <param name="active"></param>
-        partial void AfterAssignmentStatusUpdate(ref bool suppressDefaultLog, IAssignmentStatusUpdateApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active);
+        partial void AfterAssignmentStatusUpdate(ref bool suppressDefaultLog, IAssignmentStatusUpdateApiResponse apiResponseLocalVar, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3549,7 +3462,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
         /// <param name="scheduledNotificationId"></param>
@@ -3561,10 +3473,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="message"></param>
         /// <param name="followUp"></param>
         /// <param name="active"></param>
-        private void OnErrorAssignmentStatusUpdateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active)
+        private void OnErrorAssignmentStatusUpdateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentStatusUpdate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+            OnErrorAssignmentStatusUpdate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3576,7 +3488,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentStatusId"></param>
         /// <param name="scheduledNotificationId"></param>
@@ -3588,12 +3499,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="message"></param>
         /// <param name="followUp"></param>
         /// <param name="active"></param>
-        partial void OnErrorAssignmentStatusUpdate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active);
+        partial void OnErrorAssignmentStatusUpdate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId, Option<string> toDo, Option<string> connection, Option<string> method, Option<string> status, Option<string> closure, Option<string> message, Option<long> followUp, Option<bool> active);
 
         /// <summary>
         /// Update Assignment Status Updates an assignment status.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional)</param>
@@ -3607,11 +3517,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment status is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusUpdateApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusUpdateApiResponse?> AssignmentStatusUpdateOrDefaultAsync(decimal version, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusUpdateApiResponse?> AssignmentStatusUpdateOrDefaultAsync(long accountId, long assignmentStatusId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentStatusUpdateAsync(version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, cancellationToken).ConfigureAwait(false);
+                return await AssignmentStatusUpdateAsync(accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3623,7 +3533,6 @@ namespace Org.OpenAPITools.Api
         /// Update Assignment Status Updates an assignment status.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentStatusId">the assignment status id</param>
         /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional)</param>
@@ -3637,7 +3546,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment status is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentStatusUpdateApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentStatusUpdateApiResponse> AssignmentStatusUpdateAsync(decimal version, long accountId, long assignmentStatusId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentStatusUpdateApiResponse> AssignmentStatusUpdateAsync(long accountId, long assignmentStatusId, Option<long> scheduledNotificationId = default, Option<string> toDo = default, Option<string> connection = default, Option<string> method = default, Option<string> status = default, Option<string> closure = default, Option<string> message = default, Option<long> followUp = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3645,7 +3554,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssignmentStatusUpdate(toDo, connection, method, status, closure, message);
 
-                FormatAssignmentStatusUpdate(ref version, ref accountId, ref assignmentStatusId, ref scheduledNotificationId, ref toDo, ref connection, ref method, ref status, ref closure, ref message, ref followUp, ref active);
+                FormatAssignmentStatusUpdate(ref accountId, ref assignmentStatusId, ref scheduledNotificationId, ref toDo, ref connection, ref method, ref status, ref closure, ref message, ref followUp, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3653,9 +3562,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/status/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/status/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/status/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/status/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3714,13 +3622,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/status/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/status/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentStatusUpdateDefaultImplementation(apiResponseLocalVar, version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+                        AfterAssignmentStatusUpdateDefaultImplementation(apiResponseLocalVar, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
 
                         Events.ExecuteOnAssignmentStatusUpdate(apiResponseLocalVar);
 
@@ -3730,7 +3638,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentStatusUpdateDefaultImplementation(e, "/api/{version}/assignment/status/update", uriBuilderLocalVar.Path, version, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
+                OnErrorAssignmentStatusUpdateDefaultImplementation(e, "/assignment/status/update", uriBuilderLocalVar.Path, accountId, assignmentStatusId, scheduledNotificationId, toDo, connection, method, status, closure, message, followUp, active);
                 Events.ExecuteOnErrorAssignmentStatusUpdate(e);
                 throw;
             }
@@ -3829,7 +3737,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatAssignmentUpdate(ref decimal version, ref long accountId, ref long assignmentId, ref Option<string> name, ref Option<string> description, ref Option<long> assigneeAccountId, ref Option<long> retailerLocationId, ref Option<string> tags, ref Option<bool> active);
+        partial void FormatAssignmentUpdate(ref long accountId, ref long assignmentId, ref Option<string> name, ref Option<string> description, ref Option<long> assigneeAccountId, ref Option<long> retailerLocationId, ref Option<string> tags, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -3854,7 +3762,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
         /// <param name="name"></param>
@@ -3863,10 +3770,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="tags"></param>
         /// <param name="active"></param>
-        private void AfterAssignmentUpdateDefaultImplementation(IAssignmentUpdateApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentId, Option<string> name, Option<string> description, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> tags, Option<bool> active)
+        private void AfterAssignmentUpdateDefaultImplementation(IAssignmentUpdateApiResponse apiResponseLocalVar, long accountId, long assignmentId, Option<string> name, Option<string> description, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> tags, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterAssignmentUpdate(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
+            AfterAssignmentUpdate(ref suppressDefaultLog, apiResponseLocalVar, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3876,7 +3783,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
         /// <param name="name"></param>
@@ -3885,7 +3791,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="tags"></param>
         /// <param name="active"></param>
-        partial void AfterAssignmentUpdate(ref bool suppressDefaultLog, IAssignmentUpdateApiResponse apiResponseLocalVar, decimal version, long accountId, long assignmentId, Option<string> name, Option<string> description, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> tags, Option<bool> active);
+        partial void AfterAssignmentUpdate(ref bool suppressDefaultLog, IAssignmentUpdateApiResponse apiResponseLocalVar, long accountId, long assignmentId, Option<string> name, Option<string> description, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> tags, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3893,7 +3799,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
         /// <param name="name"></param>
@@ -3902,10 +3807,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="tags"></param>
         /// <param name="active"></param>
-        private void OnErrorAssignmentUpdateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentId, Option<string> name, Option<string> description, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> tags, Option<bool> active)
+        private void OnErrorAssignmentUpdateDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentId, Option<string> name, Option<string> description, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> tags, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAssignmentUpdate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
+            OnErrorAssignmentUpdate(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3917,7 +3822,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="assignmentId"></param>
         /// <param name="name"></param>
@@ -3926,12 +3830,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="retailerLocationId"></param>
         /// <param name="tags"></param>
         /// <param name="active"></param>
-        partial void OnErrorAssignmentUpdate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long assignmentId, Option<string> name, Option<string> description, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> tags, Option<bool> active);
+        partial void OnErrorAssignmentUpdate(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long assignmentId, Option<string> name, Option<string> description, Option<long> assigneeAccountId, Option<long> retailerLocationId, Option<string> tags, Option<bool> active);
 
         /// <summary>
         /// Update Assignment Updates an assignment.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="name">the name of the assignment (optional)</param>
@@ -3942,11 +3845,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentUpdateApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentUpdateApiResponse?> AssignmentUpdateOrDefaultAsync(decimal version, long accountId, long assignmentId, Option<string> name = default, Option<string> description = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentUpdateApiResponse?> AssignmentUpdateOrDefaultAsync(long accountId, long assignmentId, Option<string> name = default, Option<string> description = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AssignmentUpdateAsync(version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active, cancellationToken).ConfigureAwait(false);
+                return await AssignmentUpdateAsync(accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3958,7 +3861,6 @@ namespace Org.OpenAPITools.Api
         /// Update Assignment Updates an assignment.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">the user account id</param>
         /// <param name="assignmentId">the assignment id</param>
         /// <param name="name">the name of the assignment (optional)</param>
@@ -3969,7 +3871,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">determines whether the assignment is active or inactive (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAssignmentUpdateApiResponse"/>&gt;</returns>
-        public async Task<IAssignmentUpdateApiResponse> AssignmentUpdateAsync(decimal version, long accountId, long assignmentId, Option<string> name = default, Option<string> description = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAssignmentUpdateApiResponse> AssignmentUpdateAsync(long accountId, long assignmentId, Option<string> name = default, Option<string> description = default, Option<long> assigneeAccountId = default, Option<long> retailerLocationId = default, Option<string> tags = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3977,7 +3879,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAssignmentUpdate(name, description, tags);
 
-                FormatAssignmentUpdate(ref version, ref accountId, ref assignmentId, ref name, ref description, ref assigneeAccountId, ref retailerLocationId, ref tags, ref active);
+                FormatAssignmentUpdate(ref accountId, ref assignmentId, ref name, ref description, ref assigneeAccountId, ref retailerLocationId, ref tags, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3985,9 +3887,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/assignment/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/assignment/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/assignment/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/assignment/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4037,13 +3938,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/assignment/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/assignment/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAssignmentUpdateDefaultImplementation(apiResponseLocalVar, version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
+                        AfterAssignmentUpdateDefaultImplementation(apiResponseLocalVar, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
 
                         Events.ExecuteOnAssignmentUpdate(apiResponseLocalVar);
 
@@ -4053,7 +3954,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAssignmentUpdateDefaultImplementation(e, "/api/{version}/assignment/update", uriBuilderLocalVar.Path, version, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
+                OnErrorAssignmentUpdateDefaultImplementation(e, "/assignment/update", uriBuilderLocalVar.Path, accountId, assignmentId, name, description, assigneeAccountId, retailerLocationId, tags, active);
                 Events.ExecuteOnErrorAssignmentUpdate(e);
                 throw;
             }

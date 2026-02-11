@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a Task
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the task</param>
         /// <param name="appKey">The application to target (optional)</param>
@@ -60,7 +59,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTaskApiResponse"/>&gt;</returns>
-        Task<ICreateTaskApiResponse> CreateTaskAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTaskApiResponse> CreateTaskAsync(long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Task
@@ -68,7 +67,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a Task
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the task</param>
         /// <param name="appKey">The application to target (optional)</param>
@@ -83,7 +81,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTaskApiResponse"/>?&gt;</returns>
-        Task<ICreateTaskApiResponse?> CreateTaskOrDefaultAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateTaskApiResponse?> CreateTaskOrDefaultAsync(long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Task
@@ -92,12 +90,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a Task
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="taskId">The id of the Task to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTaskApiResponse"/>&gt;</returns>
-        Task<IDeleteTaskApiResponse> DeleteTaskAsync(decimal version, long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteTaskApiResponse> DeleteTaskAsync(long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Task
@@ -105,12 +102,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a Task
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="taskId">The id of the Task to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTaskApiResponse"/>?&gt;</returns>
-        Task<IDeleteTaskApiResponse?> DeleteTaskOrDefaultAsync(decimal version, long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteTaskApiResponse?> DeleteTaskOrDefaultAsync(long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Task
@@ -119,12 +115,11 @@ namespace Org.OpenAPITools.Api
         /// Get a Task
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="taskId">The id of the Task to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTaskApiResponse"/>&gt;</returns>
-        Task<IGetTaskApiResponse> GetTaskAsync(decimal version, long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTaskApiResponse> GetTaskAsync(long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Task
@@ -132,12 +127,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a Task
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="taskId">The id of the Task to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTaskApiResponse"/>?&gt;</returns>
-        Task<IGetTaskApiResponse?> GetTaskOrDefaultAsync(decimal version, long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTaskApiResponse?> GetTaskOrDefaultAsync(long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tasks
@@ -146,7 +140,6 @@ namespace Org.OpenAPITools.Api
         /// Search on Tasks
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="filter">A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to &quot;MINE&quot;)</param>
@@ -161,7 +154,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTasksApiResponse"/>&gt;</returns>
-        Task<ISearchTasksApiResponse> SearchTasksAsync(decimal version, long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTasksApiResponse> SearchTasksAsync(long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Tasks
@@ -169,7 +162,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search on Tasks
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="filter">A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to &quot;MINE&quot;)</param>
@@ -184,7 +176,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTasksApiResponse"/>?&gt;</returns>
-        Task<ISearchTasksApiResponse?> SearchTasksOrDefaultAsync(decimal version, long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchTasksApiResponse?> SearchTasksOrDefaultAsync(long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Task
@@ -193,7 +185,6 @@ namespace Org.OpenAPITools.Api
         /// Update a Task
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="taskId">Task Id</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the task (optional)</param>
@@ -209,7 +200,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTaskApiResponse"/>&gt;</returns>
-        Task<IUpdateTaskApiResponse> UpdateTaskAsync(decimal version, long taskId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTaskApiResponse> UpdateTaskAsync(long taskId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Task
@@ -217,7 +208,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a Task
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="taskId">Task Id</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the task (optional)</param>
@@ -233,7 +223,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTaskApiResponse"/>?&gt;</returns>
-        Task<IUpdateTaskApiResponse?> UpdateTaskOrDefaultAsync(decimal version, long taskId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateTaskApiResponse?> UpdateTaskOrDefaultAsync(long taskId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -449,7 +439,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateTask(ref decimal version, ref long accountId, ref string name, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> visibility, ref Option<bool> active);
+        partial void FormatCreateTask(ref long accountId, ref string name, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> visibility, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -490,7 +480,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -503,10 +492,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="cronExpression"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        private void AfterCreateTaskDefaultImplementation(ICreateTaskApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active)
+        private void AfterCreateTaskDefaultImplementation(ICreateTaskApiResponse apiResponseLocalVar, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterCreateTask(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+            AfterCreateTask(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -516,7 +505,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -529,7 +517,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="cronExpression"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        partial void AfterCreateTask(ref bool suppressDefaultLog, ICreateTaskApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active);
+        partial void AfterCreateTask(ref bool suppressDefaultLog, ICreateTaskApiResponse apiResponseLocalVar, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -537,7 +525,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -550,10 +537,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="cronExpression"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        private void OnErrorCreateTaskDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active)
+        private void OnErrorCreateTaskDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateTask(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+            OnErrorCreateTask(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -565,7 +552,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -578,12 +564,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="cronExpression"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        partial void OnErrorCreateTask(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active);
+        partial void OnErrorCreateTask(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active);
 
         /// <summary>
         /// Create Task Create a Task
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the task</param>
         /// <param name="appKey">The application to target (optional)</param>
@@ -598,11 +583,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTaskApiResponse"/>&gt;</returns>
-        public async Task<ICreateTaskApiResponse?> CreateTaskOrDefaultAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTaskApiResponse?> CreateTaskOrDefaultAsync(long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateTaskAsync(version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, cancellationToken).ConfigureAwait(false);
+                return await CreateTaskAsync(accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -614,7 +599,6 @@ namespace Org.OpenAPITools.Api
         /// Create Task Create a Task
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the task</param>
         /// <param name="appKey">The application to target (optional)</param>
@@ -629,7 +613,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateTaskApiResponse"/>&gt;</returns>
-        public async Task<ICreateTaskApiResponse> CreateTaskAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateTaskApiResponse> CreateTaskAsync(long accountId, string name, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -637,7 +621,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateTask(name, appKey, groupingId, endpointURL, payload, cronExpression, visibility);
 
-                FormatCreateTask(ref version, ref accountId, ref name, ref appKey, ref groupingId, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref visibility, ref active);
+                FormatCreateTask(ref accountId, ref name, ref appKey, ref groupingId, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref visibility, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -645,9 +629,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/task/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/task/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/task/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/task/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -709,13 +692,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/task/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/task/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateTaskDefaultImplementation(apiResponseLocalVar, version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+                        AfterCreateTaskDefaultImplementation(apiResponseLocalVar, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
 
                         Events.ExecuteOnCreateTask(apiResponseLocalVar);
 
@@ -725,7 +708,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateTaskDefaultImplementation(e, "/api/{version}/task/create", uriBuilderLocalVar.Path, version, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+                OnErrorCreateTaskDefaultImplementation(e, "/task/create", uriBuilderLocalVar.Path, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
                 Events.ExecuteOnErrorCreateTask(e);
                 throw;
             }
@@ -824,19 +807,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteTask(ref decimal version, ref long accountId, ref long taskId);
+        partial void FormatDeleteTask(ref long accountId, ref long taskId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="taskId"></param>
-        private void AfterDeleteTaskDefaultImplementation(IDeleteTaskApiResponse apiResponseLocalVar, decimal version, long accountId, long taskId)
+        private void AfterDeleteTaskDefaultImplementation(IDeleteTaskApiResponse apiResponseLocalVar, long accountId, long taskId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteTask(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, taskId);
+            AfterDeleteTask(ref suppressDefaultLog, apiResponseLocalVar, accountId, taskId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -846,10 +828,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="taskId"></param>
-        partial void AfterDeleteTask(ref bool suppressDefaultLog, IDeleteTaskApiResponse apiResponseLocalVar, decimal version, long accountId, long taskId);
+        partial void AfterDeleteTask(ref bool suppressDefaultLog, IDeleteTaskApiResponse apiResponseLocalVar, long accountId, long taskId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -857,13 +838,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="taskId"></param>
-        private void OnErrorDeleteTaskDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long taskId)
+        private void OnErrorDeleteTaskDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long taskId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteTask(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, taskId);
+            OnErrorDeleteTask(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, taskId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -875,24 +855,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="taskId"></param>
-        partial void OnErrorDeleteTask(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long taskId);
+        partial void OnErrorDeleteTask(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long taskId);
 
         /// <summary>
         /// Delete Task Delete a Task
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="taskId">The id of the Task to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTaskApiResponse"/>&gt;</returns>
-        public async Task<IDeleteTaskApiResponse?> DeleteTaskOrDefaultAsync(decimal version, long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteTaskApiResponse?> DeleteTaskOrDefaultAsync(long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteTaskAsync(version, accountId, taskId, cancellationToken).ConfigureAwait(false);
+                return await DeleteTaskAsync(accountId, taskId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -904,18 +882,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Task Delete a Task
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="taskId">The id of the Task to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteTaskApiResponse"/>&gt;</returns>
-        public async Task<IDeleteTaskApiResponse> DeleteTaskAsync(decimal version, long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteTaskApiResponse> DeleteTaskAsync(long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteTask(ref version, ref accountId, ref taskId);
+                FormatDeleteTask(ref accountId, ref taskId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -923,9 +900,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/task/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/task/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/task/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/task/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -957,13 +933,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/task/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/task/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteTaskDefaultImplementation(apiResponseLocalVar, version, accountId, taskId);
+                        AfterDeleteTaskDefaultImplementation(apiResponseLocalVar, accountId, taskId);
 
                         Events.ExecuteOnDeleteTask(apiResponseLocalVar);
 
@@ -973,7 +949,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteTaskDefaultImplementation(e, "/api/{version}/task/delete", uriBuilderLocalVar.Path, version, accountId, taskId);
+                OnErrorDeleteTaskDefaultImplementation(e, "/task/delete", uriBuilderLocalVar.Path, accountId, taskId);
                 Events.ExecuteOnErrorDeleteTask(e);
                 throw;
             }
@@ -1072,19 +1048,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTask(ref decimal version, ref long accountId, ref long taskId);
+        partial void FormatGetTask(ref long accountId, ref long taskId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="taskId"></param>
-        private void AfterGetTaskDefaultImplementation(IGetTaskApiResponse apiResponseLocalVar, decimal version, long accountId, long taskId)
+        private void AfterGetTaskDefaultImplementation(IGetTaskApiResponse apiResponseLocalVar, long accountId, long taskId)
         {
             bool suppressDefaultLog = false;
-            AfterGetTask(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, taskId);
+            AfterGetTask(ref suppressDefaultLog, apiResponseLocalVar, accountId, taskId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1094,10 +1069,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="taskId"></param>
-        partial void AfterGetTask(ref bool suppressDefaultLog, IGetTaskApiResponse apiResponseLocalVar, decimal version, long accountId, long taskId);
+        partial void AfterGetTask(ref bool suppressDefaultLog, IGetTaskApiResponse apiResponseLocalVar, long accountId, long taskId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1105,13 +1079,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="taskId"></param>
-        private void OnErrorGetTaskDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long taskId)
+        private void OnErrorGetTaskDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long taskId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTask(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, taskId);
+            OnErrorGetTask(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, taskId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1123,24 +1096,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="taskId"></param>
-        partial void OnErrorGetTask(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long taskId);
+        partial void OnErrorGetTask(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long taskId);
 
         /// <summary>
         /// Get Task Get a Task
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="taskId">The id of the Task to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTaskApiResponse"/>&gt;</returns>
-        public async Task<IGetTaskApiResponse?> GetTaskOrDefaultAsync(decimal version, long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTaskApiResponse?> GetTaskOrDefaultAsync(long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTaskAsync(version, accountId, taskId, cancellationToken).ConfigureAwait(false);
+                return await GetTaskAsync(accountId, taskId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1152,18 +1123,17 @@ namespace Org.OpenAPITools.Api
         /// Get Task Get a Task
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="taskId">The id of the Task to return.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTaskApiResponse"/>&gt;</returns>
-        public async Task<IGetTaskApiResponse> GetTaskAsync(decimal version, long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTaskApiResponse> GetTaskAsync(long accountId, long taskId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetTask(ref version, ref accountId, ref taskId);
+                FormatGetTask(ref accountId, ref taskId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1171,9 +1141,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/task/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/task/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/task/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/task/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1205,13 +1174,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/task/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/task/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTaskDefaultImplementation(apiResponseLocalVar, version, accountId, taskId);
+                        AfterGetTaskDefaultImplementation(apiResponseLocalVar, accountId, taskId);
 
                         Events.ExecuteOnGetTask(apiResponseLocalVar);
 
@@ -1221,7 +1190,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTaskDefaultImplementation(e, "/api/{version}/task/get", uriBuilderLocalVar.Path, version, accountId, taskId);
+                OnErrorGetTaskDefaultImplementation(e, "/task/get", uriBuilderLocalVar.Path, accountId, taskId);
                 Events.ExecuteOnErrorGetTask(e);
                 throw;
             }
@@ -1320,7 +1289,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchTasks(ref decimal version, ref long accountId, ref Option<string> groupingId, ref Option<string> filter, ref Option<string> statuses, ref Option<string> templateTypes, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
+        partial void FormatSearchTasks(ref long accountId, ref Option<string> groupingId, ref Option<string> filter, ref Option<string> statuses, ref Option<string> templateTypes, ref Option<string> appKey, ref Option<string> keyword, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -1361,7 +1330,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="filter"></param>
@@ -1374,10 +1342,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchTasksDefaultImplementation(ISearchTasksApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void AfterSearchTasksDefaultImplementation(ISearchTasksApiResponse apiResponseLocalVar, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchTasks(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+            AfterSearchTasks(ref suppressDefaultLog, apiResponseLocalVar, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1387,7 +1355,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="filter"></param>
@@ -1400,7 +1367,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchTasks(ref bool suppressDefaultLog, ISearchTasksApiResponse apiResponseLocalVar, decimal version, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void AfterSearchTasks(ref bool suppressDefaultLog, ISearchTasksApiResponse apiResponseLocalVar, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1408,7 +1375,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="filter"></param>
@@ -1421,10 +1387,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchTasksDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void OnErrorSearchTasksDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchTasks(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+            OnErrorSearchTasks(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1436,7 +1402,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="groupingId"></param>
         /// <param name="filter"></param>
@@ -1449,12 +1414,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchTasks(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void OnErrorSearchTasks(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, Option<string> groupingId, Option<string> filter, Option<string> statuses, Option<string> templateTypes, Option<string> appKey, Option<string> keyword, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Search Tasks Search on Tasks
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="filter">A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to &quot;MINE&quot;)</param>
@@ -1469,11 +1433,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTasksApiResponse"/>&gt;</returns>
-        public async Task<ISearchTasksApiResponse?> SearchTasksOrDefaultAsync(decimal version, long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTasksApiResponse?> SearchTasksOrDefaultAsync(long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchTasksAsync(version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchTasksAsync(accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1485,7 +1449,6 @@ namespace Org.OpenAPITools.Api
         /// Search Tasks Search on Tasks
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional)</param>
         /// <param name="filter">A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to &quot;MINE&quot;)</param>
@@ -1500,7 +1463,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active results (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchTasksApiResponse"/>&gt;</returns>
-        public async Task<ISearchTasksApiResponse> SearchTasksAsync(decimal version, long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchTasksApiResponse> SearchTasksAsync(long accountId, Option<string> groupingId = default, Option<string> filter = default, Option<string> statuses = default, Option<string> templateTypes = default, Option<string> appKey = default, Option<string> keyword = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1508,7 +1471,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchTasks(groupingId, filter, statuses, templateTypes, appKey, keyword, sortField);
 
-                FormatSearchTasks(ref version, ref accountId, ref groupingId, ref filter, ref statuses, ref templateTypes, ref appKey, ref keyword, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
+                FormatSearchTasks(ref accountId, ref groupingId, ref filter, ref statuses, ref templateTypes, ref appKey, ref keyword, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1516,9 +1479,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/task/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/task/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/task/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/task/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1582,13 +1544,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/task/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/task/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchTasksDefaultImplementation(apiResponseLocalVar, version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+                        AfterSearchTasksDefaultImplementation(apiResponseLocalVar, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
 
                         Events.ExecuteOnSearchTasks(apiResponseLocalVar);
 
@@ -1598,7 +1560,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchTasksDefaultImplementation(e, "/api/{version}/task/search", uriBuilderLocalVar.Path, version, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
+                OnErrorSearchTasksDefaultImplementation(e, "/task/search", uriBuilderLocalVar.Path, accountId, groupingId, filter, statuses, templateTypes, appKey, keyword, sortField, descending, start, limit, activeOnly);
                 Events.ExecuteOnErrorSearchTasks(e);
                 throw;
             }
@@ -1697,7 +1659,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateTask(ref decimal version, ref long taskId, ref long accountId, ref Option<string> name, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> visibility, ref Option<bool> active);
+        partial void FormatUpdateTask(ref long taskId, ref long accountId, ref Option<string> name, ref Option<string> appKey, ref Option<string> groupingId, ref Option<string> endpointURL, ref Option<string> payload, ref Option<long> scheduledDate, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> cronExpression, ref Option<string> visibility, ref Option<bool> active);
 
         /// <summary>
         /// Validates the request parameters
@@ -1738,7 +1700,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="taskId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1752,10 +1713,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="cronExpression"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        private void AfterUpdateTaskDefaultImplementation(IUpdateTaskApiResponse apiResponseLocalVar, decimal version, long taskId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active)
+        private void AfterUpdateTaskDefaultImplementation(IUpdateTaskApiResponse apiResponseLocalVar, long taskId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateTask(ref suppressDefaultLog, apiResponseLocalVar, version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+            AfterUpdateTask(ref suppressDefaultLog, apiResponseLocalVar, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1765,7 +1726,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="taskId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1779,7 +1739,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="cronExpression"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        partial void AfterUpdateTask(ref bool suppressDefaultLog, IUpdateTaskApiResponse apiResponseLocalVar, decimal version, long taskId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active);
+        partial void AfterUpdateTask(ref bool suppressDefaultLog, IUpdateTaskApiResponse apiResponseLocalVar, long taskId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1787,7 +1747,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="taskId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1801,10 +1760,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="cronExpression"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        private void OnErrorUpdateTaskDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long taskId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active)
+        private void OnErrorUpdateTaskDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long taskId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateTask(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+            OnErrorUpdateTask(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1816,7 +1775,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="taskId"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
@@ -1830,12 +1788,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="cronExpression"></param>
         /// <param name="visibility"></param>
         /// <param name="active"></param>
-        partial void OnErrorUpdateTask(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long taskId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active);
+        partial void OnErrorUpdateTask(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long taskId, long accountId, Option<string> name, Option<string> appKey, Option<string> groupingId, Option<string> endpointURL, Option<string> payload, Option<long> scheduledDate, Option<long> startDate, Option<long> endDate, Option<string> cronExpression, Option<string> visibility, Option<bool> active);
 
         /// <summary>
         /// Update Task Update a Task
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="taskId">Task Id</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the task (optional)</param>
@@ -1851,11 +1808,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTaskApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTaskApiResponse?> UpdateTaskOrDefaultAsync(decimal version, long taskId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTaskApiResponse?> UpdateTaskOrDefaultAsync(long taskId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateTaskAsync(version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, cancellationToken).ConfigureAwait(false);
+                return await UpdateTaskAsync(taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1867,7 +1824,6 @@ namespace Org.OpenAPITools.Api
         /// Update Task Update a Task
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="taskId">Task Id</param>
         /// <param name="accountId">The logged in user.</param>
         /// <param name="name">The name of the task (optional)</param>
@@ -1883,7 +1839,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateTaskApiResponse"/>&gt;</returns>
-        public async Task<IUpdateTaskApiResponse> UpdateTaskAsync(decimal version, long taskId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateTaskApiResponse> UpdateTaskAsync(long taskId, long accountId, Option<string> name = default, Option<string> appKey = default, Option<string> groupingId = default, Option<string> endpointURL = default, Option<string> payload = default, Option<long> scheduledDate = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> cronExpression = default, Option<string> visibility = default, Option<bool> active = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1891,7 +1847,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateTask(name, appKey, groupingId, endpointURL, payload, cronExpression, visibility);
 
-                FormatUpdateTask(ref version, ref taskId, ref accountId, ref name, ref appKey, ref groupingId, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref visibility, ref active);
+                FormatUpdateTask(ref taskId, ref accountId, ref name, ref appKey, ref groupingId, ref endpointURL, ref payload, ref scheduledDate, ref startDate, ref endDate, ref cronExpression, ref visibility, ref active);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1899,9 +1855,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/task/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/task/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/task/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/task/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1966,13 +1921,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/task/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/task/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateTaskDefaultImplementation(apiResponseLocalVar, version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+                        AfterUpdateTaskDefaultImplementation(apiResponseLocalVar, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
 
                         Events.ExecuteOnUpdateTask(apiResponseLocalVar);
 
@@ -1982,7 +1937,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateTaskDefaultImplementation(e, "/api/{version}/task/update", uriBuilderLocalVar.Path, version, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
+                OnErrorUpdateTaskDefaultImplementation(e, "/task/update", uriBuilderLocalVar.Path, taskId, accountId, name, appKey, groupingId, endpointURL, payload, scheduledDate, startDate, endDate, cronExpression, visibility, active);
                 Events.ExecuteOnErrorUpdateTask(e);
                 throw;
             }

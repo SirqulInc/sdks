@@ -45,13 +45,12 @@ namespace Org.OpenAPITools.Api
         /// Batch update offer locations.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="data">JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchUpdateOfferLocationsApiResponse"/>&gt;</returns>
-        Task<IBatchUpdateOfferLocationsApiResponse> BatchUpdateOfferLocationsAsync(decimal version, string data, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBatchUpdateOfferLocationsApiResponse> BatchUpdateOfferLocationsAsync(string data, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Offer Locations
@@ -59,13 +58,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Batch update offer locations.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="data">JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchUpdateOfferLocationsApiResponse"/>?&gt;</returns>
-        Task<IBatchUpdateOfferLocationsApiResponse?> BatchUpdateOfferLocationsOrDefaultAsync(decimal version, string data, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IBatchUpdateOfferLocationsApiResponse?> BatchUpdateOfferLocationsOrDefaultAsync(string data, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Offer
@@ -74,7 +72,6 @@ namespace Org.OpenAPITools.Api
         /// Create an offer and assign it to the provided retailer locations.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
         /// <param name="title">The title (255 char limit)</param>
         /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -163,7 +160,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferApiResponse"/>&gt;</returns>
-        Task<ICreateOfferApiResponse> CreateOfferAsync(decimal version, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId = default, Option<long> accountId = default, Option<string> tags = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOfferApiResponse> CreateOfferAsync(bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId = default, Option<long> accountId = default, Option<string> tags = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Offer
@@ -171,7 +168,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create an offer and assign it to the provided retailer locations.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
         /// <param name="title">The title (255 char limit)</param>
         /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -260,7 +256,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferApiResponse"/>?&gt;</returns>
-        Task<ICreateOfferApiResponse?> CreateOfferOrDefaultAsync(decimal version, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId = default, Option<long> accountId = default, Option<string> tags = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateOfferApiResponse?> CreateOfferOrDefaultAsync(bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId = default, Option<long> accountId = default, Option<string> tags = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Offer
@@ -269,13 +265,12 @@ namespace Org.OpenAPITools.Api
         /// Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerId">The ID of the offer to be deleted</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferApiResponse"/>&gt;</returns>
-        Task<IDeleteOfferApiResponse> DeleteOfferAsync(decimal version, long offerId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOfferApiResponse> DeleteOfferAsync(long offerId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Offer
@@ -283,13 +278,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerId">The ID of the offer to be deleted</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferApiResponse"/>?&gt;</returns>
-        Task<IDeleteOfferApiResponse?> DeleteOfferOrDefaultAsync(decimal version, long offerId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOfferApiResponse?> DeleteOfferOrDefaultAsync(long offerId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Offer Location
@@ -298,13 +292,12 @@ namespace Org.OpenAPITools.Api
         /// Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerLocationId">The ID of the offer location to be deleted</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferLocationApiResponse"/>&gt;</returns>
-        Task<IDeleteOfferLocationApiResponse> DeleteOfferLocationAsync(decimal version, long offerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOfferLocationApiResponse> DeleteOfferLocationAsync(long offerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Offer Location
@@ -312,13 +305,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerLocationId">The ID of the offer location to be deleted</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferLocationApiResponse"/>?&gt;</returns>
-        Task<IDeleteOfferLocationApiResponse?> DeleteOfferLocationOrDefaultAsync(decimal version, long offerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteOfferLocationApiResponse?> DeleteOfferLocationOrDefaultAsync(long offerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offer
@@ -327,14 +319,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the details of an offer that the user has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerId">The id of the offer</param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferApiResponse"/>&gt;</returns>
-        Task<IGetOfferApiResponse> GetOfferAsync(decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferApiResponse> GetOfferAsync(long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offer
@@ -342,14 +333,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the details of an offer that the user has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerId">The id of the offer</param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferApiResponse"/>?&gt;</returns>
-        Task<IGetOfferApiResponse?> GetOfferOrDefaultAsync(decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferApiResponse?> GetOfferOrDefaultAsync(long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offer
@@ -358,7 +348,6 @@ namespace Org.OpenAPITools.Api
         /// Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="offerId">The offer id (either offeLocationId or offerId must be provided) (optional)</param>
@@ -371,7 +360,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeChildOffers">Determines whether to include child offers in the response (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferDetailsApiResponse"/>&gt;</returns>
-        Task<IGetOfferDetailsApiResponse> GetOfferDetailsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<double> distance = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> includeOfferLocations = default, Option<bool> includeRetailerLocations = default, Option<bool> includeChildOffers = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferDetailsApiResponse> GetOfferDetailsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<double> distance = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> includeOfferLocations = default, Option<bool> includeRetailerLocations = default, Option<bool> includeChildOffers = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offer
@@ -379,7 +368,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="offerId">The offer id (either offeLocationId or offerId must be provided) (optional)</param>
@@ -392,7 +380,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeChildOffers">Determines whether to include child offers in the response (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferDetailsApiResponse"/>?&gt;</returns>
-        Task<IGetOfferDetailsApiResponse?> GetOfferDetailsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<double> distance = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> includeOfferLocations = default, Option<bool> includeRetailerLocations = default, Option<bool> includeChildOffers = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferDetailsApiResponse?> GetOfferDetailsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<double> distance = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> includeOfferLocations = default, Option<bool> includeRetailerLocations = default, Option<bool> includeChildOffers = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offers (Counts)
@@ -401,14 +389,13 @@ namespace Org.OpenAPITools.Api
         /// Gets the offer list counts.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of where the search will center at</param>
         /// <param name="longitude">The longitude of where the search will center at</param>
         /// <param name="searchRange">The range of the search (optional, default to 5M)</param>
         /// <param name="distanceUnit">The units to use for distance calculations (e.g. MILES, KILOMETERS) (optional, default to MILES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferListCountsApiResponse"/>&gt;</returns>
-        Task<IGetOfferListCountsApiResponse> GetOfferListCountsAsync(decimal version, double latitude, double longitude, Option<decimal> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferListCountsApiResponse> GetOfferListCountsAsync(double latitude, double longitude, Option<decimal> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offers (Counts)
@@ -416,14 +403,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the offer list counts.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of where the search will center at</param>
         /// <param name="longitude">The longitude of where the search will center at</param>
         /// <param name="searchRange">The range of the search (optional, default to 5M)</param>
         /// <param name="distanceUnit">The units to use for distance calculations (e.g. MILES, KILOMETERS) (optional, default to MILES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferListCountsApiResponse"/>?&gt;</returns>
-        Task<IGetOfferListCountsApiResponse?> GetOfferListCountsOrDefaultAsync(decimal version, double latitude, double longitude, Option<decimal> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferListCountsApiResponse?> GetOfferListCountsOrDefaultAsync(double latitude, double longitude, Option<decimal> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offer Location
@@ -432,12 +418,11 @@ namespace Org.OpenAPITools.Api
         /// Gets the offer location by offer location id or udid (of a device)
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerLocationId">the id of the offer location to get (optional)</param>
         /// <param name="udid">the UDID of the device (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferLocationApiResponse"/>&gt;</returns>
-        Task<IGetOfferLocationApiResponse> GetOfferLocationAsync(decimal version, Option<long> offerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferLocationApiResponse> GetOfferLocationAsync(Option<long> offerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offer Location
@@ -445,12 +430,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the offer location by offer location id or udid (of a device)
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerLocationId">the id of the offer location to get (optional)</param>
         /// <param name="udid">the UDID of the device (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferLocationApiResponse"/>?&gt;</returns>
-        Task<IGetOfferLocationApiResponse?> GetOfferLocationOrDefaultAsync(decimal version, Option<long> offerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferLocationApiResponse?> GetOfferLocationOrDefaultAsync(Option<long> offerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offer Locations
@@ -459,7 +443,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
         /// <param name="descending">The order to return the results. Default is false, which will return the results in ascending order.</param>
         /// <param name="start">The index into the record set to start with. Default is 0.</param>
@@ -482,7 +465,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastNotificationSent"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferLocationsForRetailersApiResponse"/>&gt;</returns>
-        Task<IGetOfferLocationsForRetailersApiResponse> GetOfferLocationsForRetailersAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferLocationsForRetailersApiResponse> GetOfferLocationsForRetailersAsync(string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offer Locations
@@ -490,7 +473,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
         /// <param name="descending">The order to return the results. Default is false, which will return the results in ascending order.</param>
         /// <param name="start">The index into the record set to start with. Default is 0.</param>
@@ -513,7 +495,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastNotificationSent"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferLocationsForRetailersApiResponse"/>?&gt;</returns>
-        Task<IGetOfferLocationsForRetailersApiResponse?> GetOfferLocationsForRetailersOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOfferLocationsForRetailersApiResponse?> GetOfferLocationsForRetailersOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offers
@@ -522,7 +504,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on offers that the account has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerVisibility"></param>
         /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY</param>
         /// <param name="descending">The order to return the search results</param>
@@ -556,7 +537,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastNotificationSent"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOffersForRetailersApiResponse"/>&gt;</returns>
-        Task<IGetOffersForRetailersApiResponse> GetOffersForRetailersAsync(decimal version, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<int> i = default, Option<int> l = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOffersForRetailersApiResponse> GetOffersForRetailersAsync(string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<int> i = default, Option<int> l = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offers
@@ -564,7 +545,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on offers that the account has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerVisibility"></param>
         /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY</param>
         /// <param name="descending">The order to return the search results</param>
@@ -598,7 +578,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastNotificationSent"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOffersForRetailersApiResponse"/>?&gt;</returns>
-        Task<IGetOffersForRetailersApiResponse?> GetOffersForRetailersOrDefaultAsync(decimal version, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<int> i = default, Option<int> l = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetOffersForRetailersApiResponse?> GetOffersForRetailersOrDefaultAsync(string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<int> i = default, Option<int> l = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Offer Transaction
@@ -607,7 +587,6 @@ namespace Org.OpenAPITools.Api
         /// Redeems an offer.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerTransactionId">the OfferTransaction ID of the transaction being redeemed</param>
         /// <param name="status">the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -615,7 +594,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">the OfferLocation ID where the offer is being redeemed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemOfferTransactionApiResponse"/>&gt;</returns>
-        Task<IRedeemOfferTransactionApiResponse> RedeemOfferTransactionAsync(decimal version, long offerTransactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRedeemOfferTransactionApiResponse> RedeemOfferTransactionAsync(long offerTransactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Offer Transaction
@@ -623,7 +602,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Redeems an offer.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerTransactionId">the OfferTransaction ID of the transaction being redeemed</param>
         /// <param name="status">the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -631,7 +609,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">the OfferLocation ID where the offer is being redeemed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemOfferTransactionApiResponse"/>?&gt;</returns>
-        Task<IRedeemOfferTransactionApiResponse?> RedeemOfferTransactionOrDefaultAsync(decimal version, long offerTransactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRedeemOfferTransactionApiResponse?> RedeemOfferTransactionOrDefaultAsync(long offerTransactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offer Transactions
@@ -640,7 +618,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on offer transactions for offers that the account has access to.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
         /// <param name="descending">Determines whether the results are in descending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -667,7 +644,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="l">This parameter is deprecated. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionsForRetailersApiResponse"/>&gt;</returns>
-        Task<ISearchOfferTransactionsForRetailersApiResponse> SearchOfferTransactionsForRetailersAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<bool> redeemed = default, Option<bool> reservationsOnly = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> customerAccountIds = default, Option<string> categoryIds = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOfferTransactionsForRetailersApiResponse> SearchOfferTransactionsForRetailersAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<bool> redeemed = default, Option<bool> reservationsOnly = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> customerAccountIds = default, Option<string> categoryIds = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offer Transactions
@@ -675,7 +652,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on offer transactions for offers that the account has access to.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
         /// <param name="descending">Determines whether the results are in descending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -702,7 +678,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="l">This parameter is deprecated. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionsForRetailersApiResponse"/>?&gt;</returns>
-        Task<ISearchOfferTransactionsForRetailersApiResponse?> SearchOfferTransactionsForRetailersOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<bool> redeemed = default, Option<bool> reservationsOnly = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> customerAccountIds = default, Option<string> categoryIds = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOfferTransactionsForRetailersApiResponse?> SearchOfferTransactionsForRetailersOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<bool> redeemed = default, Option<bool> reservationsOnly = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> customerAccountIds = default, Option<string> categoryIds = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offers
@@ -711,7 +687,6 @@ namespace Org.OpenAPITools.Api
         /// Searches for offers as a consumer.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of where the search will center at</param>
         /// <param name="longitude">The longitude of where the search will center at</param>
         /// <param name="recommendationType">The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available</param>
@@ -745,7 +720,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="groupBy">groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOffersForConsumerApiResponse"/>&gt;</returns>
-        Task<ISearchOffersForConsumerApiResponse> SearchOffersForConsumerAsync(decimal version, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey = default, Option<string> deviceId = default, Option<long> accountId = default, Option<double> searchRange = default, Option<string> tags = default, Option<string> supportedPostalCodes = default, Option<string> keyword = default, Option<string> categories = default, Option<string> filters = default, Option<string> offerTypes = default, Option<string> type = default, Option<string> sortField = default, Option<string> recommendOfferIds = default, Option<string> retailerLocationIds = default, Option<long> offerId = default, Option<bool> includeMission = default, Option<bool> includeCategories = default, Option<bool> includeFilters = default, Option<bool> includeExpired = default, Option<bool> includeFavorite = default, Option<bool> closestOfferOnly = default, Option<string> searchExpression = default, Option<string> groupBy = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOffersForConsumerApiResponse> SearchOffersForConsumerAsync(double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey = default, Option<string> deviceId = default, Option<long> accountId = default, Option<double> searchRange = default, Option<string> tags = default, Option<string> supportedPostalCodes = default, Option<string> keyword = default, Option<string> categories = default, Option<string> filters = default, Option<string> offerTypes = default, Option<string> type = default, Option<string> sortField = default, Option<string> recommendOfferIds = default, Option<string> retailerLocationIds = default, Option<long> offerId = default, Option<bool> includeMission = default, Option<bool> includeCategories = default, Option<bool> includeFilters = default, Option<bool> includeExpired = default, Option<bool> includeFavorite = default, Option<bool> closestOfferOnly = default, Option<string> searchExpression = default, Option<string> groupBy = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Offers
@@ -753,7 +728,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches for offers as a consumer.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of where the search will center at</param>
         /// <param name="longitude">The longitude of where the search will center at</param>
         /// <param name="recommendationType">The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available</param>
@@ -787,7 +761,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="groupBy">groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOffersForConsumerApiResponse"/>?&gt;</returns>
-        Task<ISearchOffersForConsumerApiResponse?> SearchOffersForConsumerOrDefaultAsync(decimal version, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey = default, Option<string> deviceId = default, Option<long> accountId = default, Option<double> searchRange = default, Option<string> tags = default, Option<string> supportedPostalCodes = default, Option<string> keyword = default, Option<string> categories = default, Option<string> filters = default, Option<string> offerTypes = default, Option<string> type = default, Option<string> sortField = default, Option<string> recommendOfferIds = default, Option<string> retailerLocationIds = default, Option<long> offerId = default, Option<bool> includeMission = default, Option<bool> includeCategories = default, Option<bool> includeFilters = default, Option<bool> includeExpired = default, Option<bool> includeFavorite = default, Option<bool> closestOfferOnly = default, Option<string> searchExpression = default, Option<string> groupBy = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchOffersForConsumerApiResponse?> SearchOffersForConsumerOrDefaultAsync(double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey = default, Option<string> deviceId = default, Option<long> accountId = default, Option<double> searchRange = default, Option<string> tags = default, Option<string> supportedPostalCodes = default, Option<string> keyword = default, Option<string> categories = default, Option<string> filters = default, Option<string> offerTypes = default, Option<string> type = default, Option<string> sortField = default, Option<string> recommendOfferIds = default, Option<string> retailerLocationIds = default, Option<long> offerId = default, Option<bool> includeMission = default, Option<bool> includeCategories = default, Option<bool> includeFilters = default, Option<bool> includeExpired = default, Option<bool> includeFavorite = default, Option<bool> closestOfferOnly = default, Option<string> searchExpression = default, Option<string> groupBy = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offers (Top)
@@ -796,12 +770,11 @@ namespace Org.OpenAPITools.Api
         /// Gets the top active offers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="start">The index into the record set to start with. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The total number of record to return. Default id 20. (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITopOfferTransactionsApiResponse"/>&gt;</returns>
-        Task<ITopOfferTransactionsApiResponse> TopOfferTransactionsAsync(decimal version, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITopOfferTransactionsApiResponse> TopOfferTransactionsAsync(Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Offers (Top)
@@ -809,12 +782,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the top active offers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="start">The index into the record set to start with. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The total number of record to return. Default id 20. (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITopOfferTransactionsApiResponse"/>?&gt;</returns>
-        Task<ITopOfferTransactionsApiResponse?> TopOfferTransactionsOrDefaultAsync(decimal version, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITopOfferTransactionsApiResponse?> TopOfferTransactionsOrDefaultAsync(Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Offer
@@ -823,7 +795,6 @@ namespace Org.OpenAPITools.Api
         /// Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerId">The offer to update</param>
         /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -913,7 +884,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferApiResponse"/>&gt;</returns>
-        Task<IUpdateOfferApiResponse> UpdateOfferAsync(decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> tags = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOfferApiResponse> UpdateOfferAsync(long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> tags = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Offer
@@ -921,7 +892,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerId">The offer to update</param>
         /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -1011,7 +981,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferApiResponse"/>?&gt;</returns>
-        Task<IUpdateOfferApiResponse?> UpdateOfferOrDefaultAsync(decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> tags = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOfferApiResponse?> UpdateOfferOrDefaultAsync(long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> tags = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Activate Offer
@@ -1020,14 +990,13 @@ namespace Org.OpenAPITools.Api
         /// Sets the activated date on offers. This will make offers visible for consumers.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerIds">Comma separated list of offer ids</param>
         /// <param name="active">Determines whether to make the offer active as well</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the activation, must have rights to edit the offer. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferStatusApiResponse"/>&gt;</returns>
-        Task<IUpdateOfferStatusApiResponse> UpdateOfferStatusAsync(decimal version, string offerIds, bool active, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOfferStatusApiResponse> UpdateOfferStatusAsync(string offerIds, bool active, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Activate Offer
@@ -1035,14 +1004,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sets the activated date on offers. This will make offers visible for consumers.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="offerIds">Comma separated list of offer ids</param>
         /// <param name="active">Determines whether to make the offer active as well</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the activation, must have rights to edit the offer. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferStatusApiResponse"/>?&gt;</returns>
-        Task<IUpdateOfferStatusApiResponse?> UpdateOfferStatusOrDefaultAsync(decimal version, string offerIds, bool active, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateOfferStatusApiResponse?> UpdateOfferStatusOrDefaultAsync(string offerIds, bool active, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -1610,7 +1578,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatBatchUpdateOfferLocations(ref decimal version, ref string data, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatBatchUpdateOfferLocations(ref string data, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1631,14 +1599,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterBatchUpdateOfferLocationsDefaultImplementation(IBatchUpdateOfferLocationsApiResponse apiResponseLocalVar, decimal version, string data, Option<string> deviceId, Option<long> accountId)
+        private void AfterBatchUpdateOfferLocationsDefaultImplementation(IBatchUpdateOfferLocationsApiResponse apiResponseLocalVar, string data, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterBatchUpdateOfferLocations(ref suppressDefaultLog, apiResponseLocalVar, version, data, deviceId, accountId);
+            AfterBatchUpdateOfferLocations(ref suppressDefaultLog, apiResponseLocalVar, data, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1648,11 +1615,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterBatchUpdateOfferLocations(ref bool suppressDefaultLog, IBatchUpdateOfferLocationsApiResponse apiResponseLocalVar, decimal version, string data, Option<string> deviceId, Option<long> accountId);
+        partial void AfterBatchUpdateOfferLocations(ref bool suppressDefaultLog, IBatchUpdateOfferLocationsApiResponse apiResponseLocalVar, string data, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1660,14 +1626,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorBatchUpdateOfferLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string data, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorBatchUpdateOfferLocationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string data, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorBatchUpdateOfferLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, data, deviceId, accountId);
+            OnErrorBatchUpdateOfferLocations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, data, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1679,26 +1644,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="data"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorBatchUpdateOfferLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string data, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorBatchUpdateOfferLocations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string data, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Update Offer Locations Batch update offer locations.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="data">JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchUpdateOfferLocationsApiResponse"/>&gt;</returns>
-        public async Task<IBatchUpdateOfferLocationsApiResponse?> BatchUpdateOfferLocationsOrDefaultAsync(decimal version, string data, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBatchUpdateOfferLocationsApiResponse?> BatchUpdateOfferLocationsOrDefaultAsync(string data, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await BatchUpdateOfferLocationsAsync(version, data, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await BatchUpdateOfferLocationsAsync(data, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1710,13 +1673,12 @@ namespace Org.OpenAPITools.Api
         /// Update Offer Locations Batch update offer locations.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="data">JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; </param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBatchUpdateOfferLocationsApiResponse"/>&gt;</returns>
-        public async Task<IBatchUpdateOfferLocationsApiResponse> BatchUpdateOfferLocationsAsync(decimal version, string data, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IBatchUpdateOfferLocationsApiResponse> BatchUpdateOfferLocationsAsync(string data, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1724,7 +1686,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateBatchUpdateOfferLocations(data, deviceId);
 
-                FormatBatchUpdateOfferLocations(ref version, ref data, ref deviceId, ref accountId);
+                FormatBatchUpdateOfferLocations(ref data, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1732,9 +1694,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/location/batchUpdate"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/location/batchUpdate");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/location/batchUpdate"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/location/batchUpdate");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1771,13 +1732,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/location/batchUpdate", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/location/batchUpdate", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterBatchUpdateOfferLocationsDefaultImplementation(apiResponseLocalVar, version, data, deviceId, accountId);
+                        AfterBatchUpdateOfferLocationsDefaultImplementation(apiResponseLocalVar, data, deviceId, accountId);
 
                         Events.ExecuteOnBatchUpdateOfferLocations(apiResponseLocalVar);
 
@@ -1787,7 +1748,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorBatchUpdateOfferLocationsDefaultImplementation(e, "/api/{version}/retailer/offer/location/batchUpdate", uriBuilderLocalVar.Path, version, data, deviceId, accountId);
+                OnErrorBatchUpdateOfferLocationsDefaultImplementation(e, "/retailer/offer/location/batchUpdate", uriBuilderLocalVar.Path, data, deviceId, accountId);
                 Events.ExecuteOnErrorBatchUpdateOfferLocations(e);
                 throw;
             }
@@ -1886,7 +1847,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatCreateOffer(ref decimal version, ref bool includeOfferLocations, ref string title, ref string barcodeType, ref bool noExpiration, ref int availableLimit, ref int availableLimitPerUser, ref int addedLimit, ref int viewLimit, ref int maxPrints, ref long ticketPrice, ref double fullPrice, ref double discountPrice, ref string offerType, ref string specialOfferType, ref string offerVisibility, ref bool active, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> tags, ref Option<long> parentOfferId, ref Option<string> retailerLocationIds, ref Option<string> offerLocations, ref Option<string> subTitle, ref Option<string> details, ref Option<string> subDetails, ref Option<string> finePrint, ref Option<string> barcodeEntry, ref Option<string> externalRedeemOptions, ref Option<string> externalUrl, ref Option<string> externalId, ref Option<string> ticketsRewardType, ref Option<long> ticketsReward, ref Option<long> activated, ref Option<long> expires, ref Option<string> ticketPriceType, ref Option<bool> showRemaining, ref Option<bool> showRedeemed, ref Option<bool> replaced, ref Option<bool> featured, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<long> barcodeAssetId, ref Option<long> imageAssetId, ref Option<long> imageAssetId1, ref Option<long> imageAssetId2, ref Option<long> imageAssetId3, ref Option<long> imageAssetId4, ref Option<long> imageAssetId5, ref Option<string> publisher, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> brand, ref Option<string> productType, ref Option<string> conditionType, ref Option<string> isbn, ref Option<string> asin, ref Option<string> catalogNumbers, ref Option<string> department, ref Option<string> features, ref Option<double> minimumPrice, ref Option<double> width, ref Option<double> height, ref Option<double> depth, ref Option<double> weight, ref Option<string> unit, ref Option<string> studio, ref Option<string> parentalRating, ref Option<long> publishDate, ref Option<long> availabilityDate, ref Option<long> sizeId, ref Option<long> listingId, ref Option<string> mediaType, ref Option<int> duration, ref Option<string> author, ref Option<long> releaseDate, ref Option<string> collectionIds, ref Option<int> rebootTimeHour, ref Option<int> rebootTimeMinute, ref Option<int> idleTimeoutInSecond, ref Option<string> serialNumber, ref Option<string> udid, ref Option<string> deviceType, ref Option<double> devicePower, ref Option<double> deviceInterference, ref Option<string> availability, ref Option<string> availabilitySummary);
+        partial void FormatCreateOffer(ref bool includeOfferLocations, ref string title, ref string barcodeType, ref bool noExpiration, ref int availableLimit, ref int availableLimitPerUser, ref int addedLimit, ref int viewLimit, ref int maxPrints, ref long ticketPrice, ref double fullPrice, ref double discountPrice, ref string offerType, ref string specialOfferType, ref string offerVisibility, ref bool active, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> tags, ref Option<long> parentOfferId, ref Option<string> retailerLocationIds, ref Option<string> offerLocations, ref Option<string> subTitle, ref Option<string> details, ref Option<string> subDetails, ref Option<string> finePrint, ref Option<string> barcodeEntry, ref Option<string> externalRedeemOptions, ref Option<string> externalUrl, ref Option<string> externalId, ref Option<string> ticketsRewardType, ref Option<long> ticketsReward, ref Option<long> activated, ref Option<long> expires, ref Option<string> ticketPriceType, ref Option<bool> showRemaining, ref Option<bool> showRedeemed, ref Option<bool> replaced, ref Option<bool> featured, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<long> barcodeAssetId, ref Option<long> imageAssetId, ref Option<long> imageAssetId1, ref Option<long> imageAssetId2, ref Option<long> imageAssetId3, ref Option<long> imageAssetId4, ref Option<long> imageAssetId5, ref Option<string> publisher, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> brand, ref Option<string> productType, ref Option<string> conditionType, ref Option<string> isbn, ref Option<string> asin, ref Option<string> catalogNumbers, ref Option<string> department, ref Option<string> features, ref Option<double> minimumPrice, ref Option<double> width, ref Option<double> height, ref Option<double> depth, ref Option<double> weight, ref Option<string> unit, ref Option<string> studio, ref Option<string> parentalRating, ref Option<long> publishDate, ref Option<long> availabilityDate, ref Option<long> sizeId, ref Option<long> listingId, ref Option<string> mediaType, ref Option<int> duration, ref Option<string> author, ref Option<long> releaseDate, ref Option<string> collectionIds, ref Option<int> rebootTimeHour, ref Option<int> rebootTimeMinute, ref Option<int> idleTimeoutInSecond, ref Option<string> serialNumber, ref Option<string> udid, ref Option<string> deviceType, ref Option<double> devicePower, ref Option<double> deviceInterference, ref Option<string> availability, ref Option<string> availabilitySummary);
 
         /// <summary>
         /// Validates the request parameters
@@ -2063,7 +2024,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="title"></param>
         /// <param name="barcodeType"></param>
@@ -2150,10 +2110,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceInterference"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void AfterCreateOfferDefaultImplementation(ICreateOfferApiResponse apiResponseLocalVar, decimal version, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId, Option<long> accountId, Option<string> tags, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary)
+        private void AfterCreateOfferDefaultImplementation(ICreateOfferApiResponse apiResponseLocalVar, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId, Option<long> accountId, Option<string> tags, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLog = false;
-            AfterCreateOffer(ref suppressDefaultLog, apiResponseLocalVar, version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+            AfterCreateOffer(ref suppressDefaultLog, apiResponseLocalVar, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2163,7 +2123,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="title"></param>
         /// <param name="barcodeType"></param>
@@ -2250,7 +2209,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceInterference"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void AfterCreateOffer(ref bool suppressDefaultLog, ICreateOfferApiResponse apiResponseLocalVar, decimal version, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId, Option<long> accountId, Option<string> tags, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary);
+        partial void AfterCreateOffer(ref bool suppressDefaultLog, ICreateOfferApiResponse apiResponseLocalVar, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId, Option<long> accountId, Option<string> tags, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2258,7 +2217,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="title"></param>
         /// <param name="barcodeType"></param>
@@ -2345,10 +2303,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceInterference"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void OnErrorCreateOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId, Option<long> accountId, Option<string> tags, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary)
+        private void OnErrorCreateOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId, Option<long> accountId, Option<string> tags, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+            OnErrorCreateOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2360,7 +2318,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="title"></param>
         /// <param name="barcodeType"></param>
@@ -2447,12 +2404,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceInterference"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void OnErrorCreateOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId, Option<long> accountId, Option<string> tags, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary);
+        partial void OnErrorCreateOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId, Option<long> accountId, Option<string> tags, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<string> ticketPriceType, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> categoryIds, Option<string> filterIds, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Create Offer Create an offer and assign it to the provided retailer locations.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
         /// <param name="title">The title (255 char limit)</param>
         /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -2541,11 +2497,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferApiResponse"/>&gt;</returns>
-        public async Task<ICreateOfferApiResponse?> CreateOfferOrDefaultAsync(decimal version, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId = default, Option<long> accountId = default, Option<string> tags = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOfferApiResponse?> CreateOfferOrDefaultAsync(bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId = default, Option<long> accountId = default, Option<string> tags = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateOfferAsync(version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
+                return await CreateOfferAsync(includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2557,7 +2513,6 @@ namespace Org.OpenAPITools.Api
         /// Create Offer Create an offer and assign it to the provided retailer locations.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
         /// <param name="title">The title (255 char limit)</param>
         /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -2646,7 +2601,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateOfferApiResponse"/>&gt;</returns>
-        public async Task<ICreateOfferApiResponse> CreateOfferAsync(decimal version, bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId = default, Option<long> accountId = default, Option<string> tags = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateOfferApiResponse> CreateOfferAsync(bool includeOfferLocations, string title, string barcodeType, bool noExpiration, int availableLimit, int availableLimitPerUser, int addedLimit, int viewLimit, int maxPrints, long ticketPrice, double fullPrice, double discountPrice, string offerType, string specialOfferType, string offerVisibility, bool active, Option<string> deviceId = default, Option<long> accountId = default, Option<string> tags = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<string> ticketPriceType = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2654,7 +2609,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateOffer(title, barcodeType, offerType, specialOfferType, offerVisibility, deviceId, tags, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketPriceType, categoryIds, filterIds, publisher, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, unit, studio, parentalRating, mediaType, author, collectionIds, serialNumber, udid, deviceType, availability, availabilitySummary);
 
-                FormatCreateOffer(ref version, ref includeOfferLocations, ref title, ref barcodeType, ref noExpiration, ref availableLimit, ref availableLimitPerUser, ref addedLimit, ref viewLimit, ref maxPrints, ref ticketPrice, ref fullPrice, ref discountPrice, ref offerType, ref specialOfferType, ref offerVisibility, ref active, ref deviceId, ref accountId, ref tags, ref parentOfferId, ref retailerLocationIds, ref offerLocations, ref subTitle, ref details, ref subDetails, ref finePrint, ref barcodeEntry, ref externalRedeemOptions, ref externalUrl, ref externalId, ref ticketsRewardType, ref ticketsReward, ref activated, ref expires, ref ticketPriceType, ref showRemaining, ref showRedeemed, ref replaced, ref featured, ref categoryIds, ref filterIds, ref barcodeAssetId, ref imageAssetId, ref imageAssetId1, ref imageAssetId2, ref imageAssetId3, ref imageAssetId4, ref imageAssetId5, ref publisher, ref redeemableStart, ref redeemableEnd, ref brand, ref productType, ref conditionType, ref isbn, ref asin, ref catalogNumbers, ref department, ref features, ref minimumPrice, ref width, ref height, ref depth, ref weight, ref unit, ref studio, ref parentalRating, ref publishDate, ref availabilityDate, ref sizeId, ref listingId, ref mediaType, ref duration, ref author, ref releaseDate, ref collectionIds, ref rebootTimeHour, ref rebootTimeMinute, ref idleTimeoutInSecond, ref serialNumber, ref udid, ref deviceType, ref devicePower, ref deviceInterference, ref availability, ref availabilitySummary);
+                FormatCreateOffer(ref includeOfferLocations, ref title, ref barcodeType, ref noExpiration, ref availableLimit, ref availableLimitPerUser, ref addedLimit, ref viewLimit, ref maxPrints, ref ticketPrice, ref fullPrice, ref discountPrice, ref offerType, ref specialOfferType, ref offerVisibility, ref active, ref deviceId, ref accountId, ref tags, ref parentOfferId, ref retailerLocationIds, ref offerLocations, ref subTitle, ref details, ref subDetails, ref finePrint, ref barcodeEntry, ref externalRedeemOptions, ref externalUrl, ref externalId, ref ticketsRewardType, ref ticketsReward, ref activated, ref expires, ref ticketPriceType, ref showRemaining, ref showRedeemed, ref replaced, ref featured, ref categoryIds, ref filterIds, ref barcodeAssetId, ref imageAssetId, ref imageAssetId1, ref imageAssetId2, ref imageAssetId3, ref imageAssetId4, ref imageAssetId5, ref publisher, ref redeemableStart, ref redeemableEnd, ref brand, ref productType, ref conditionType, ref isbn, ref asin, ref catalogNumbers, ref department, ref features, ref minimumPrice, ref width, ref height, ref depth, ref weight, ref unit, ref studio, ref parentalRating, ref publishDate, ref availabilityDate, ref sizeId, ref listingId, ref mediaType, ref duration, ref author, ref releaseDate, ref collectionIds, ref rebootTimeHour, ref rebootTimeMinute, ref idleTimeoutInSecond, ref serialNumber, ref udid, ref deviceType, ref devicePower, ref deviceInterference, ref availability, ref availabilitySummary);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2662,9 +2617,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2920,13 +2874,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateOfferDefaultImplementation(apiResponseLocalVar, version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+                        AfterCreateOfferDefaultImplementation(apiResponseLocalVar, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
 
                         Events.ExecuteOnCreateOffer(apiResponseLocalVar);
 
@@ -2936,7 +2890,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateOfferDefaultImplementation(e, "/api/{version}/retailer/offer/create", uriBuilderLocalVar.Path, version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+                OnErrorCreateOfferDefaultImplementation(e, "/retailer/offer/create", uriBuilderLocalVar.Path, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, deviceId, accountId, tags, parentOfferId, retailerLocationIds, offerLocations, subTitle, details, subDetails, finePrint, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, ticketPriceType, showRemaining, showRedeemed, replaced, featured, categoryIds, filterIds, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
                 Events.ExecuteOnErrorCreateOffer(e);
                 throw;
             }
@@ -3035,7 +2989,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteOffer(ref decimal version, ref long offerId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteOffer(ref long offerId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3052,14 +3006,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteOfferDefaultImplementation(IDeleteOfferApiResponse apiResponseLocalVar, decimal version, long offerId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteOfferDefaultImplementation(IDeleteOfferApiResponse apiResponseLocalVar, long offerId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteOffer(ref suppressDefaultLog, apiResponseLocalVar, version, offerId, deviceId, accountId);
+            AfterDeleteOffer(ref suppressDefaultLog, apiResponseLocalVar, offerId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3069,11 +3022,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteOffer(ref bool suppressDefaultLog, IDeleteOfferApiResponse apiResponseLocalVar, decimal version, long offerId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteOffer(ref bool suppressDefaultLog, IDeleteOfferApiResponse apiResponseLocalVar, long offerId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3081,14 +3033,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerId, deviceId, accountId);
+            OnErrorDeleteOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3100,26 +3051,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Offer Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerId">The ID of the offer to be deleted</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOfferApiResponse?> DeleteOfferOrDefaultAsync(decimal version, long offerId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOfferApiResponse?> DeleteOfferOrDefaultAsync(long offerId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteOfferAsync(version, offerId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteOfferAsync(offerId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3131,13 +3080,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Offer Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerId">The ID of the offer to be deleted</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOfferApiResponse> DeleteOfferAsync(decimal version, long offerId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOfferApiResponse> DeleteOfferAsync(long offerId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3145,7 +3093,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteOffer(deviceId);
 
-                FormatDeleteOffer(ref version, ref offerId, ref deviceId, ref accountId);
+                FormatDeleteOffer(ref offerId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3153,9 +3101,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3192,13 +3139,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteOfferDefaultImplementation(apiResponseLocalVar, version, offerId, deviceId, accountId);
+                        AfterDeleteOfferDefaultImplementation(apiResponseLocalVar, offerId, deviceId, accountId);
 
                         Events.ExecuteOnDeleteOffer(apiResponseLocalVar);
 
@@ -3208,7 +3155,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteOfferDefaultImplementation(e, "/api/{version}/retailer/offer/delete", uriBuilderLocalVar.Path, version, offerId, deviceId, accountId);
+                OnErrorDeleteOfferDefaultImplementation(e, "/retailer/offer/delete", uriBuilderLocalVar.Path, offerId, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteOffer(e);
                 throw;
             }
@@ -3307,7 +3254,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteOfferLocation(ref decimal version, ref long offerLocationId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteOfferLocation(ref long offerLocationId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3324,14 +3271,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteOfferLocationDefaultImplementation(IDeleteOfferLocationApiResponse apiResponseLocalVar, decimal version, long offerLocationId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteOfferLocationDefaultImplementation(IDeleteOfferLocationApiResponse apiResponseLocalVar, long offerLocationId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteOfferLocation(ref suppressDefaultLog, apiResponseLocalVar, version, offerLocationId, deviceId, accountId);
+            AfterDeleteOfferLocation(ref suppressDefaultLog, apiResponseLocalVar, offerLocationId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3341,11 +3287,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteOfferLocation(ref bool suppressDefaultLog, IDeleteOfferLocationApiResponse apiResponseLocalVar, decimal version, long offerLocationId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteOfferLocation(ref bool suppressDefaultLog, IDeleteOfferLocationApiResponse apiResponseLocalVar, long offerLocationId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3353,14 +3298,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteOfferLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerLocationId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteOfferLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerLocationId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteOfferLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerLocationId, deviceId, accountId);
+            OnErrorDeleteOfferLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerLocationId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3372,26 +3316,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerLocationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteOfferLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerLocationId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteOfferLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerLocationId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Offer Location Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerLocationId">The ID of the offer location to be deleted</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferLocationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOfferLocationApiResponse?> DeleteOfferLocationOrDefaultAsync(decimal version, long offerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOfferLocationApiResponse?> DeleteOfferLocationOrDefaultAsync(long offerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteOfferLocationAsync(version, offerLocationId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteOfferLocationAsync(offerLocationId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3403,13 +3345,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Offer Location Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerLocationId">The ID of the offer location to be deleted</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteOfferLocationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteOfferLocationApiResponse> DeleteOfferLocationAsync(decimal version, long offerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteOfferLocationApiResponse> DeleteOfferLocationAsync(long offerLocationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3417,7 +3358,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteOfferLocation(deviceId);
 
-                FormatDeleteOfferLocation(ref version, ref offerLocationId, ref deviceId, ref accountId);
+                FormatDeleteOfferLocation(ref offerLocationId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3425,9 +3366,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/location/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/location/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/location/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/location/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3464,13 +3404,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/location/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/location/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteOfferLocationDefaultImplementation(apiResponseLocalVar, version, offerLocationId, deviceId, accountId);
+                        AfterDeleteOfferLocationDefaultImplementation(apiResponseLocalVar, offerLocationId, deviceId, accountId);
 
                         Events.ExecuteOnDeleteOfferLocation(apiResponseLocalVar);
 
@@ -3480,7 +3420,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteOfferLocationDefaultImplementation(e, "/api/{version}/retailer/offer/location/delete", uriBuilderLocalVar.Path, version, offerLocationId, deviceId, accountId);
+                OnErrorDeleteOfferLocationDefaultImplementation(e, "/retailer/offer/location/delete", uriBuilderLocalVar.Path, offerLocationId, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteOfferLocation(e);
                 throw;
             }
@@ -3579,7 +3519,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOffer(ref decimal version, ref long offerId, ref bool includeOfferLocations, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatGetOffer(ref long offerId, ref bool includeOfferLocations, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -3596,15 +3536,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterGetOfferDefaultImplementation(IGetOfferApiResponse apiResponseLocalVar, decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId)
+        private void AfterGetOfferDefaultImplementation(IGetOfferApiResponse apiResponseLocalVar, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterGetOffer(ref suppressDefaultLog, apiResponseLocalVar, version, offerId, includeOfferLocations, deviceId, accountId);
+            AfterGetOffer(ref suppressDefaultLog, apiResponseLocalVar, offerId, includeOfferLocations, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3614,12 +3553,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterGetOffer(ref bool suppressDefaultLog, IGetOfferApiResponse apiResponseLocalVar, decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId);
+        partial void AfterGetOffer(ref bool suppressDefaultLog, IGetOfferApiResponse apiResponseLocalVar, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3627,15 +3565,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorGetOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorGetOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerId, includeOfferLocations, deviceId, accountId);
+            OnErrorGetOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerId, includeOfferLocations, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3647,28 +3584,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorGetOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorGetOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Get Offer Gets the details of an offer that the user has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerId">The id of the offer</param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferApiResponse?> GetOfferOrDefaultAsync(decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferApiResponse?> GetOfferOrDefaultAsync(long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOfferAsync(version, offerId, includeOfferLocations, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await GetOfferAsync(offerId, includeOfferLocations, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3680,14 +3615,13 @@ namespace Org.OpenAPITools.Api
         /// Get Offer Gets the details of an offer that the user has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerId">The id of the offer</param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferApiResponse> GetOfferAsync(decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferApiResponse> GetOfferAsync(long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -3695,7 +3629,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOffer(deviceId);
 
-                FormatGetOffer(ref version, ref offerId, ref includeOfferLocations, ref deviceId, ref accountId);
+                FormatGetOffer(ref offerId, ref includeOfferLocations, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -3703,9 +3637,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -3743,13 +3676,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOfferDefaultImplementation(apiResponseLocalVar, version, offerId, includeOfferLocations, deviceId, accountId);
+                        AfterGetOfferDefaultImplementation(apiResponseLocalVar, offerId, includeOfferLocations, deviceId, accountId);
 
                         Events.ExecuteOnGetOffer(apiResponseLocalVar);
 
@@ -3759,7 +3692,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOfferDefaultImplementation(e, "/api/{version}/retailer/offer/get", uriBuilderLocalVar.Path, version, offerId, includeOfferLocations, deviceId, accountId);
+                OnErrorGetOfferDefaultImplementation(e, "/retailer/offer/get", uriBuilderLocalVar.Path, offerId, includeOfferLocations, deviceId, accountId);
                 Events.ExecuteOnErrorGetOffer(e);
                 throw;
             }
@@ -3858,7 +3791,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOfferDetails(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<double> distance, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> includeOfferLocations, ref Option<bool> includeRetailerLocations, ref Option<bool> includeChildOffers);
+        partial void FormatGetOfferDetails(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<double> distance, ref Option<double> latitude, ref Option<double> longitude, ref Option<bool> includeOfferLocations, ref Option<bool> includeRetailerLocations, ref Option<bool> includeChildOffers);
 
         /// <summary>
         /// Validates the request parameters
@@ -3875,7 +3808,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -3886,10 +3818,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeOfferLocations"></param>
         /// <param name="includeRetailerLocations"></param>
         /// <param name="includeChildOffers"></param>
-        private void AfterGetOfferDetailsDefaultImplementation(IGetOfferDetailsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<double> distance, Option<double> latitude, Option<double> longitude, Option<bool> includeOfferLocations, Option<bool> includeRetailerLocations, Option<bool> includeChildOffers)
+        private void AfterGetOfferDetailsDefaultImplementation(IGetOfferDetailsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<double> distance, Option<double> latitude, Option<double> longitude, Option<bool> includeOfferLocations, Option<bool> includeRetailerLocations, Option<bool> includeChildOffers)
         {
             bool suppressDefaultLog = false;
-            AfterGetOfferDetails(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
+            AfterGetOfferDetails(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -3899,7 +3831,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -3910,7 +3841,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeOfferLocations"></param>
         /// <param name="includeRetailerLocations"></param>
         /// <param name="includeChildOffers"></param>
-        partial void AfterGetOfferDetails(ref bool suppressDefaultLog, IGetOfferDetailsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<double> distance, Option<double> latitude, Option<double> longitude, Option<bool> includeOfferLocations, Option<bool> includeRetailerLocations, Option<bool> includeChildOffers);
+        partial void AfterGetOfferDetails(ref bool suppressDefaultLog, IGetOfferDetailsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<double> distance, Option<double> latitude, Option<double> longitude, Option<bool> includeOfferLocations, Option<bool> includeRetailerLocations, Option<bool> includeChildOffers);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -3918,7 +3849,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -3929,10 +3859,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeOfferLocations"></param>
         /// <param name="includeRetailerLocations"></param>
         /// <param name="includeChildOffers"></param>
-        private void OnErrorGetOfferDetailsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<double> distance, Option<double> latitude, Option<double> longitude, Option<bool> includeOfferLocations, Option<bool> includeRetailerLocations, Option<bool> includeChildOffers)
+        private void OnErrorGetOfferDetailsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<double> distance, Option<double> latitude, Option<double> longitude, Option<bool> includeOfferLocations, Option<bool> includeRetailerLocations, Option<bool> includeChildOffers)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOfferDetails(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
+            OnErrorGetOfferDetails(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -3944,7 +3874,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerId"></param>
@@ -3955,12 +3884,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeOfferLocations"></param>
         /// <param name="includeRetailerLocations"></param>
         /// <param name="includeChildOffers"></param>
-        partial void OnErrorGetOfferDetails(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<double> distance, Option<double> latitude, Option<double> longitude, Option<bool> includeOfferLocations, Option<bool> includeRetailerLocations, Option<bool> includeChildOffers);
+        partial void OnErrorGetOfferDetails(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> offerId, Option<long> offerLocationId, Option<double> distance, Option<double> latitude, Option<double> longitude, Option<bool> includeOfferLocations, Option<bool> includeRetailerLocations, Option<bool> includeChildOffers);
 
         /// <summary>
         /// Get Offer Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="offerId">The offer id (either offeLocationId or offerId must be provided) (optional)</param>
@@ -3973,11 +3901,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeChildOffers">Determines whether to include child offers in the response (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferDetailsApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferDetailsApiResponse?> GetOfferDetailsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<double> distance = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> includeOfferLocations = default, Option<bool> includeRetailerLocations = default, Option<bool> includeChildOffers = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferDetailsApiResponse?> GetOfferDetailsOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<double> distance = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> includeOfferLocations = default, Option<bool> includeRetailerLocations = default, Option<bool> includeChildOffers = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOfferDetailsAsync(version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers, cancellationToken).ConfigureAwait(false);
+                return await GetOfferDetailsAsync(deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -3989,7 +3917,6 @@ namespace Org.OpenAPITools.Api
         /// Get Offer Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional)</param>
         /// <param name="offerId">The offer id (either offeLocationId or offerId must be provided) (optional)</param>
@@ -4002,7 +3929,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="includeChildOffers">Determines whether to include child offers in the response (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferDetailsApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferDetailsApiResponse> GetOfferDetailsAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<double> distance = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> includeOfferLocations = default, Option<bool> includeRetailerLocations = default, Option<bool> includeChildOffers = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferDetailsApiResponse> GetOfferDetailsAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<double> distance = default, Option<double> latitude = default, Option<double> longitude = default, Option<bool> includeOfferLocations = default, Option<bool> includeRetailerLocations = default, Option<bool> includeChildOffers = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4010,7 +3937,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOfferDetails(deviceId);
 
-                FormatGetOfferDetails(ref version, ref deviceId, ref accountId, ref offerId, ref offerLocationId, ref distance, ref latitude, ref longitude, ref includeOfferLocations, ref includeRetailerLocations, ref includeChildOffers);
+                FormatGetOfferDetails(ref deviceId, ref accountId, ref offerId, ref offerLocationId, ref distance, ref latitude, ref longitude, ref includeOfferLocations, ref includeRetailerLocations, ref includeChildOffers);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4018,9 +3945,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4079,13 +4005,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOfferDetailsDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
+                        AfterGetOfferDetailsDefaultImplementation(apiResponseLocalVar, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
 
                         Events.ExecuteOnGetOfferDetails(apiResponseLocalVar);
 
@@ -4095,7 +4021,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOfferDetailsDefaultImplementation(e, "/api/{version}/offer/get", uriBuilderLocalVar.Path, version, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
+                OnErrorGetOfferDetailsDefaultImplementation(e, "/offer/get", uriBuilderLocalVar.Path, deviceId, accountId, offerId, offerLocationId, distance, latitude, longitude, includeOfferLocations, includeRetailerLocations, includeChildOffers);
                 Events.ExecuteOnErrorGetOfferDetails(e);
                 throw;
             }
@@ -4194,7 +4120,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOfferListCounts(ref decimal version, ref double latitude, ref double longitude, ref Option<decimal> searchRange, ref Option<string> distanceUnit);
+        partial void FormatGetOfferListCounts(ref double latitude, ref double longitude, ref Option<decimal> searchRange, ref Option<string> distanceUnit);
 
         /// <summary>
         /// Validates the request parameters
@@ -4211,15 +4137,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="searchRange"></param>
         /// <param name="distanceUnit"></param>
-        private void AfterGetOfferListCountsDefaultImplementation(IGetOfferListCountsApiResponse apiResponseLocalVar, decimal version, double latitude, double longitude, Option<decimal> searchRange, Option<string> distanceUnit)
+        private void AfterGetOfferListCountsDefaultImplementation(IGetOfferListCountsApiResponse apiResponseLocalVar, double latitude, double longitude, Option<decimal> searchRange, Option<string> distanceUnit)
         {
             bool suppressDefaultLog = false;
-            AfterGetOfferListCounts(ref suppressDefaultLog, apiResponseLocalVar, version, latitude, longitude, searchRange, distanceUnit);
+            AfterGetOfferListCounts(ref suppressDefaultLog, apiResponseLocalVar, latitude, longitude, searchRange, distanceUnit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4229,12 +4154,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="searchRange"></param>
         /// <param name="distanceUnit"></param>
-        partial void AfterGetOfferListCounts(ref bool suppressDefaultLog, IGetOfferListCountsApiResponse apiResponseLocalVar, decimal version, double latitude, double longitude, Option<decimal> searchRange, Option<string> distanceUnit);
+        partial void AfterGetOfferListCounts(ref bool suppressDefaultLog, IGetOfferListCountsApiResponse apiResponseLocalVar, double latitude, double longitude, Option<decimal> searchRange, Option<string> distanceUnit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4242,15 +4166,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="searchRange"></param>
         /// <param name="distanceUnit"></param>
-        private void OnErrorGetOfferListCountsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double latitude, double longitude, Option<decimal> searchRange, Option<string> distanceUnit)
+        private void OnErrorGetOfferListCountsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double latitude, double longitude, Option<decimal> searchRange, Option<string> distanceUnit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOfferListCounts(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, latitude, longitude, searchRange, distanceUnit);
+            OnErrorGetOfferListCounts(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, latitude, longitude, searchRange, distanceUnit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4262,28 +4185,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="searchRange"></param>
         /// <param name="distanceUnit"></param>
-        partial void OnErrorGetOfferListCounts(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double latitude, double longitude, Option<decimal> searchRange, Option<string> distanceUnit);
+        partial void OnErrorGetOfferListCounts(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double latitude, double longitude, Option<decimal> searchRange, Option<string> distanceUnit);
 
         /// <summary>
         /// Get Offers (Counts) Gets the offer list counts.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of where the search will center at</param>
         /// <param name="longitude">The longitude of where the search will center at</param>
         /// <param name="searchRange">The range of the search (optional, default to 5M)</param>
         /// <param name="distanceUnit">The units to use for distance calculations (e.g. MILES, KILOMETERS) (optional, default to MILES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferListCountsApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferListCountsApiResponse?> GetOfferListCountsOrDefaultAsync(decimal version, double latitude, double longitude, Option<decimal> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferListCountsApiResponse?> GetOfferListCountsOrDefaultAsync(double latitude, double longitude, Option<decimal> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOfferListCountsAsync(version, latitude, longitude, searchRange, distanceUnit, cancellationToken).ConfigureAwait(false);
+                return await GetOfferListCountsAsync(latitude, longitude, searchRange, distanceUnit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4295,14 +4216,13 @@ namespace Org.OpenAPITools.Api
         /// Get Offers (Counts) Gets the offer list counts.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of where the search will center at</param>
         /// <param name="longitude">The longitude of where the search will center at</param>
         /// <param name="searchRange">The range of the search (optional, default to 5M)</param>
         /// <param name="distanceUnit">The units to use for distance calculations (e.g. MILES, KILOMETERS) (optional, default to MILES)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferListCountsApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferListCountsApiResponse> GetOfferListCountsAsync(decimal version, double latitude, double longitude, Option<decimal> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferListCountsApiResponse> GetOfferListCountsAsync(double latitude, double longitude, Option<decimal> searchRange = default, Option<string> distanceUnit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4310,7 +4230,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOfferListCounts(distanceUnit);
 
-                FormatGetOfferListCounts(ref version, ref latitude, ref longitude, ref searchRange, ref distanceUnit);
+                FormatGetOfferListCounts(ref latitude, ref longitude, ref searchRange, ref distanceUnit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4318,9 +4238,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/lists/count"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/lists/count");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/lists/count"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/lists/count");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4358,13 +4277,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/lists/count", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/lists/count", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOfferListCountsDefaultImplementation(apiResponseLocalVar, version, latitude, longitude, searchRange, distanceUnit);
+                        AfterGetOfferListCountsDefaultImplementation(apiResponseLocalVar, latitude, longitude, searchRange, distanceUnit);
 
                         Events.ExecuteOnGetOfferListCounts(apiResponseLocalVar);
 
@@ -4374,7 +4293,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOfferListCountsDefaultImplementation(e, "/api/{version}/offer/lists/count", uriBuilderLocalVar.Path, version, latitude, longitude, searchRange, distanceUnit);
+                OnErrorGetOfferListCountsDefaultImplementation(e, "/offer/lists/count", uriBuilderLocalVar.Path, latitude, longitude, searchRange, distanceUnit);
                 Events.ExecuteOnErrorGetOfferListCounts(e);
                 throw;
             }
@@ -4473,7 +4392,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOfferLocation(ref decimal version, ref Option<long> offerLocationId, ref Option<string> udid);
+        partial void FormatGetOfferLocation(ref Option<long> offerLocationId, ref Option<string> udid);
 
         /// <summary>
         /// Validates the request parameters
@@ -4490,13 +4409,12 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerLocationId"></param>
         /// <param name="udid"></param>
-        private void AfterGetOfferLocationDefaultImplementation(IGetOfferLocationApiResponse apiResponseLocalVar, decimal version, Option<long> offerLocationId, Option<string> udid)
+        private void AfterGetOfferLocationDefaultImplementation(IGetOfferLocationApiResponse apiResponseLocalVar, Option<long> offerLocationId, Option<string> udid)
         {
             bool suppressDefaultLog = false;
-            AfterGetOfferLocation(ref suppressDefaultLog, apiResponseLocalVar, version, offerLocationId, udid);
+            AfterGetOfferLocation(ref suppressDefaultLog, apiResponseLocalVar, offerLocationId, udid);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4506,10 +4424,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerLocationId"></param>
         /// <param name="udid"></param>
-        partial void AfterGetOfferLocation(ref bool suppressDefaultLog, IGetOfferLocationApiResponse apiResponseLocalVar, decimal version, Option<long> offerLocationId, Option<string> udid);
+        partial void AfterGetOfferLocation(ref bool suppressDefaultLog, IGetOfferLocationApiResponse apiResponseLocalVar, Option<long> offerLocationId, Option<string> udid);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4517,13 +4434,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerLocationId"></param>
         /// <param name="udid"></param>
-        private void OnErrorGetOfferLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> offerLocationId, Option<string> udid)
+        private void OnErrorGetOfferLocationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> offerLocationId, Option<string> udid)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOfferLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerLocationId, udid);
+            OnErrorGetOfferLocation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerLocationId, udid);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4535,24 +4451,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerLocationId"></param>
         /// <param name="udid"></param>
-        partial void OnErrorGetOfferLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> offerLocationId, Option<string> udid);
+        partial void OnErrorGetOfferLocation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> offerLocationId, Option<string> udid);
 
         /// <summary>
         /// Get Offer Location Gets the offer location by offer location id or udid (of a device)
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerLocationId">the id of the offer location to get (optional)</param>
         /// <param name="udid">the UDID of the device (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferLocationApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferLocationApiResponse?> GetOfferLocationOrDefaultAsync(decimal version, Option<long> offerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferLocationApiResponse?> GetOfferLocationOrDefaultAsync(Option<long> offerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOfferLocationAsync(version, offerLocationId, udid, cancellationToken).ConfigureAwait(false);
+                return await GetOfferLocationAsync(offerLocationId, udid, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4564,12 +4478,11 @@ namespace Org.OpenAPITools.Api
         /// Get Offer Location Gets the offer location by offer location id or udid (of a device)
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerLocationId">the id of the offer location to get (optional)</param>
         /// <param name="udid">the UDID of the device (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferLocationApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferLocationApiResponse> GetOfferLocationAsync(decimal version, Option<long> offerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferLocationApiResponse> GetOfferLocationAsync(Option<long> offerLocationId = default, Option<string> udid = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4577,7 +4490,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOfferLocation(udid);
 
-                FormatGetOfferLocation(ref version, ref offerLocationId, ref udid);
+                FormatGetOfferLocation(ref offerLocationId, ref udid);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4585,9 +4498,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/location/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/location/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/location/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/location/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -4622,13 +4534,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/location/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/location/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOfferLocationDefaultImplementation(apiResponseLocalVar, version, offerLocationId, udid);
+                        AfterGetOfferLocationDefaultImplementation(apiResponseLocalVar, offerLocationId, udid);
 
                         Events.ExecuteOnGetOfferLocation(apiResponseLocalVar);
 
@@ -4638,7 +4550,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOfferLocationDefaultImplementation(e, "/api/{version}/offer/location/get", uriBuilderLocalVar.Path, version, offerLocationId, udid);
+                OnErrorGetOfferLocationDefaultImplementation(e, "/offer/location/get", uriBuilderLocalVar.Path, offerLocationId, udid);
                 Events.ExecuteOnErrorGetOfferLocation(e);
                 throw;
             }
@@ -4737,7 +4649,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOfferLocationsForRetailers(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref bool includeRetailerLocation, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> keyword, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> offerType, ref Option<string> specialOfferType, ref Option<string> barcodeType, ref Option<string> barcodeEntry, ref Option<string> isbn, ref Option<string> asin, ref Option<string> deviceStatus, ref Option<bool> needsNotificationSent, ref Option<long> lastNotificationSent);
+        partial void FormatGetOfferLocationsForRetailers(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref bool includeRetailerLocation, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> keyword, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> offerType, ref Option<string> specialOfferType, ref Option<string> barcodeType, ref Option<string> barcodeEntry, ref Option<string> isbn, ref Option<string> asin, ref Option<string> deviceStatus, ref Option<bool> needsNotificationSent, ref Option<long> lastNotificationSent);
 
         /// <summary>
         /// Validates the request parameters
@@ -4790,7 +4702,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -4811,10 +4722,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceStatus"></param>
         /// <param name="needsNotificationSent"></param>
         /// <param name="lastNotificationSent"></param>
-        private void AfterGetOfferLocationsForRetailersDefaultImplementation(IGetOfferLocationsForRetailersApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> offerType, Option<string> specialOfferType, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent)
+        private void AfterGetOfferLocationsForRetailersDefaultImplementation(IGetOfferLocationsForRetailersApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> offerType, Option<string> specialOfferType, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent)
         {
             bool suppressDefaultLog = false;
-            AfterGetOfferLocationsForRetailers(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+            AfterGetOfferLocationsForRetailers(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -4824,7 +4735,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -4845,7 +4755,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceStatus"></param>
         /// <param name="needsNotificationSent"></param>
         /// <param name="lastNotificationSent"></param>
-        partial void AfterGetOfferLocationsForRetailers(ref bool suppressDefaultLog, IGetOfferLocationsForRetailersApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> offerType, Option<string> specialOfferType, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent);
+        partial void AfterGetOfferLocationsForRetailers(ref bool suppressDefaultLog, IGetOfferLocationsForRetailersApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> offerType, Option<string> specialOfferType, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -4853,7 +4763,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -4874,10 +4783,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceStatus"></param>
         /// <param name="needsNotificationSent"></param>
         /// <param name="lastNotificationSent"></param>
-        private void OnErrorGetOfferLocationsForRetailersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> offerType, Option<string> specialOfferType, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent)
+        private void OnErrorGetOfferLocationsForRetailersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> offerType, Option<string> specialOfferType, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOfferLocationsForRetailers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+            OnErrorGetOfferLocationsForRetailers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -4889,7 +4798,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -4910,12 +4818,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceStatus"></param>
         /// <param name="needsNotificationSent"></param>
         /// <param name="lastNotificationSent"></param>
-        partial void OnErrorGetOfferLocationsForRetailers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> offerType, Option<string> specialOfferType, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent);
+        partial void OnErrorGetOfferLocationsForRetailers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId, Option<long> accountId, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> offerType, Option<string> specialOfferType, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent);
 
         /// <summary>
         /// Search Offer Locations Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
         /// <param name="descending">The order to return the results. Default is false, which will return the results in ascending order.</param>
         /// <param name="start">The index into the record set to start with. Default is 0.</param>
@@ -4938,11 +4845,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastNotificationSent"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferLocationsForRetailersApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferLocationsForRetailersApiResponse?> GetOfferLocationsForRetailersOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferLocationsForRetailersApiResponse?> GetOfferLocationsForRetailersOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOfferLocationsForRetailersAsync(version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, cancellationToken).ConfigureAwait(false);
+                return await GetOfferLocationsForRetailersAsync(sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -4954,7 +4861,6 @@ namespace Org.OpenAPITools.Api
         /// Search Offer Locations Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
         /// <param name="descending">The order to return the results. Default is false, which will return the results in ascending order.</param>
         /// <param name="start">The index into the record set to start with. Default is 0.</param>
@@ -4977,7 +4883,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastNotificationSent"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOfferLocationsForRetailersApiResponse"/>&gt;</returns>
-        public async Task<IGetOfferLocationsForRetailersApiResponse> GetOfferLocationsForRetailersAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOfferLocationsForRetailersApiResponse> GetOfferLocationsForRetailersAsync(string sortField, bool descending, int start, int limit, bool activeOnly, bool includeRetailerLocation, Option<string> deviceId = default, Option<long> accountId = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -4985,7 +4891,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOfferLocationsForRetailers(sortField, deviceId, keyword, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus);
 
-                FormatGetOfferLocationsForRetailers(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref includeRetailerLocation, ref deviceId, ref accountId, ref keyword, ref retailerId, ref retailerLocationId, ref offerType, ref specialOfferType, ref barcodeType, ref barcodeEntry, ref isbn, ref asin, ref deviceStatus, ref needsNotificationSent, ref lastNotificationSent);
+                FormatGetOfferLocationsForRetailers(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref includeRetailerLocation, ref deviceId, ref accountId, ref keyword, ref retailerId, ref retailerLocationId, ref offerType, ref specialOfferType, ref barcodeType, ref barcodeEntry, ref isbn, ref asin, ref deviceStatus, ref needsNotificationSent, ref lastNotificationSent);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -4993,9 +4899,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/location/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/location/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/location/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/location/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5073,13 +4978,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/location/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/location/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOfferLocationsForRetailersDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+                        AfterGetOfferLocationsForRetailersDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
 
                         Events.ExecuteOnGetOfferLocationsForRetailers(apiResponseLocalVar);
 
@@ -5089,7 +4994,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOfferLocationsForRetailersDefaultImplementation(e, "/api/{version}/retailer/offer/location/search", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+                OnErrorGetOfferLocationsForRetailersDefaultImplementation(e, "/retailer/offer/location/search", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, includeRetailerLocation, deviceId, accountId, keyword, retailerId, retailerLocationId, offerType, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
                 Events.ExecuteOnErrorGetOfferLocationsForRetailers(e);
                 throw;
             }
@@ -5188,7 +5093,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetOffersForRetailers(ref decimal version, ref string offerVisibility, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool availableOnly, ref bool activeOnly, ref bool includeCategories, ref bool includeFilters, ref bool includeOfferLocations, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> q, ref Option<string> keyword, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> couponType, ref Option<string> offerType, ref Option<string> offerTypes, ref Option<string> specialOfferType, ref Option<int> i, ref Option<int> l, ref Option<string> barcodeType, ref Option<string> barcodeEntry, ref Option<string> isbn, ref Option<string> asin, ref Option<string> deviceStatus, ref Option<bool> needsNotificationSent, ref Option<long> lastNotificationSent);
+        partial void FormatGetOffersForRetailers(ref string offerVisibility, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool availableOnly, ref bool activeOnly, ref bool includeCategories, ref bool includeFilters, ref bool includeOfferLocations, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<string> q, ref Option<string> keyword, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<string> couponType, ref Option<string> offerType, ref Option<string> offerTypes, ref Option<string> specialOfferType, ref Option<int> i, ref Option<int> l, ref Option<string> barcodeType, ref Option<string> barcodeEntry, ref Option<string> isbn, ref Option<string> asin, ref Option<string> deviceStatus, ref Option<bool> needsNotificationSent, ref Option<long> lastNotificationSent);
 
         /// <summary>
         /// Validates the request parameters
@@ -5265,7 +5170,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerVisibility"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -5297,10 +5201,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceStatus"></param>
         /// <param name="needsNotificationSent"></param>
         /// <param name="lastNotificationSent"></param>
-        private void AfterGetOffersForRetailersDefaultImplementation(IGetOffersForRetailersApiResponse apiResponseLocalVar, decimal version, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<string> categoryIds, Option<string> filterIds, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> couponType, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<int> i, Option<int> l, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent)
+        private void AfterGetOffersForRetailersDefaultImplementation(IGetOffersForRetailersApiResponse apiResponseLocalVar, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<string> categoryIds, Option<string> filterIds, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> couponType, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<int> i, Option<int> l, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent)
         {
             bool suppressDefaultLog = false;
-            AfterGetOffersForRetailers(ref suppressDefaultLog, apiResponseLocalVar, version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+            AfterGetOffersForRetailers(ref suppressDefaultLog, apiResponseLocalVar, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5310,7 +5214,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerVisibility"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -5342,7 +5245,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceStatus"></param>
         /// <param name="needsNotificationSent"></param>
         /// <param name="lastNotificationSent"></param>
-        partial void AfterGetOffersForRetailers(ref bool suppressDefaultLog, IGetOffersForRetailersApiResponse apiResponseLocalVar, decimal version, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<string> categoryIds, Option<string> filterIds, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> couponType, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<int> i, Option<int> l, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent);
+        partial void AfterGetOffersForRetailers(ref bool suppressDefaultLog, IGetOffersForRetailersApiResponse apiResponseLocalVar, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<string> categoryIds, Option<string> filterIds, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> couponType, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<int> i, Option<int> l, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5350,7 +5253,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerVisibility"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -5382,10 +5284,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceStatus"></param>
         /// <param name="needsNotificationSent"></param>
         /// <param name="lastNotificationSent"></param>
-        private void OnErrorGetOffersForRetailersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<string> categoryIds, Option<string> filterIds, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> couponType, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<int> i, Option<int> l, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent)
+        private void OnErrorGetOffersForRetailersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<string> categoryIds, Option<string> filterIds, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> couponType, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<int> i, Option<int> l, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetOffersForRetailers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+            OnErrorGetOffersForRetailers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5397,7 +5299,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerVisibility"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -5429,12 +5330,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceStatus"></param>
         /// <param name="needsNotificationSent"></param>
         /// <param name="lastNotificationSent"></param>
-        partial void OnErrorGetOffersForRetailers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<string> categoryIds, Option<string> filterIds, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> couponType, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<int> i, Option<int> l, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent);
+        partial void OnErrorGetOffersForRetailers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<string> categoryIds, Option<string> filterIds, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<string> couponType, Option<string> offerType, Option<string> offerTypes, Option<string> specialOfferType, Option<int> i, Option<int> l, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> isbn, Option<string> asin, Option<string> deviceStatus, Option<bool> needsNotificationSent, Option<long> lastNotificationSent);
 
         /// <summary>
         /// Search Offers Searches on offers that the account has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerVisibility"></param>
         /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY</param>
         /// <param name="descending">The order to return the search results</param>
@@ -5468,11 +5368,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastNotificationSent"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOffersForRetailersApiResponse"/>&gt;</returns>
-        public async Task<IGetOffersForRetailersApiResponse?> GetOffersForRetailersOrDefaultAsync(decimal version, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<int> i = default, Option<int> l = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOffersForRetailersApiResponse?> GetOffersForRetailersOrDefaultAsync(string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<int> i = default, Option<int> l = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetOffersForRetailersAsync(version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, cancellationToken).ConfigureAwait(false);
+                return await GetOffersForRetailersAsync(offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5484,7 +5384,6 @@ namespace Org.OpenAPITools.Api
         /// Search Offers Searches on offers that the account has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerVisibility"></param>
         /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY</param>
         /// <param name="descending">The order to return the search results</param>
@@ -5518,7 +5417,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="lastNotificationSent"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetOffersForRetailersApiResponse"/>&gt;</returns>
-        public async Task<IGetOffersForRetailersApiResponse> GetOffersForRetailersAsync(decimal version, string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<int> i = default, Option<int> l = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetOffersForRetailersApiResponse> GetOffersForRetailersAsync(string offerVisibility, string sortField, bool descending, int start, int limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> offerTypes = default, Option<string> specialOfferType = default, Option<int> i = default, Option<int> l = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> isbn = default, Option<string> asin = default, Option<string> deviceStatus = default, Option<bool> needsNotificationSent = default, Option<long> lastNotificationSent = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5526,7 +5425,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetOffersForRetailers(offerVisibility, sortField, deviceId, categoryIds, filterIds, q, keyword, couponType, offerType, offerTypes, specialOfferType, barcodeType, barcodeEntry, isbn, asin, deviceStatus);
 
-                FormatGetOffersForRetailers(ref version, ref offerVisibility, ref sortField, ref descending, ref start, ref limit, ref availableOnly, ref activeOnly, ref includeCategories, ref includeFilters, ref includeOfferLocations, ref deviceId, ref accountId, ref categoryIds, ref filterIds, ref q, ref keyword, ref retailerId, ref retailerLocationId, ref couponType, ref offerType, ref offerTypes, ref specialOfferType, ref i, ref l, ref barcodeType, ref barcodeEntry, ref isbn, ref asin, ref deviceStatus, ref needsNotificationSent, ref lastNotificationSent);
+                FormatGetOffersForRetailers(ref offerVisibility, ref sortField, ref descending, ref start, ref limit, ref availableOnly, ref activeOnly, ref includeCategories, ref includeFilters, ref includeOfferLocations, ref deviceId, ref accountId, ref categoryIds, ref filterIds, ref q, ref keyword, ref retailerId, ref retailerLocationId, ref couponType, ref offerType, ref offerTypes, ref specialOfferType, ref i, ref l, ref barcodeType, ref barcodeEntry, ref isbn, ref asin, ref deviceStatus, ref needsNotificationSent, ref lastNotificationSent);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5534,9 +5433,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5639,13 +5537,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetOffersForRetailersDefaultImplementation(apiResponseLocalVar, version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+                        AfterGetOffersForRetailersDefaultImplementation(apiResponseLocalVar, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
 
                         Events.ExecuteOnGetOffersForRetailers(apiResponseLocalVar);
 
@@ -5655,7 +5553,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetOffersForRetailersDefaultImplementation(e, "/api/{version}/retailer/offer/search", uriBuilderLocalVar.Path, version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
+                OnErrorGetOffersForRetailersDefaultImplementation(e, "/retailer/offer/search", uriBuilderLocalVar.Path, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, deviceId, accountId, categoryIds, filterIds, q, keyword, retailerId, retailerLocationId, couponType, offerType, offerTypes, specialOfferType, i, l, barcodeType, barcodeEntry, isbn, asin, deviceStatus, needsNotificationSent, lastNotificationSent);
                 Events.ExecuteOnErrorGetOffersForRetailers(e);
                 throw;
             }
@@ -5754,7 +5652,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRedeemOfferTransaction(ref decimal version, ref long offerTransactionId, ref int status, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerLocationId);
+        partial void FormatRedeemOfferTransaction(ref long offerTransactionId, ref int status, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> offerLocationId);
 
         /// <summary>
         /// Validates the request parameters
@@ -5771,16 +5669,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerTransactionId"></param>
         /// <param name="status"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerLocationId"></param>
-        private void AfterRedeemOfferTransactionDefaultImplementation(IRedeemOfferTransactionApiResponse apiResponseLocalVar, decimal version, long offerTransactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId)
+        private void AfterRedeemOfferTransactionDefaultImplementation(IRedeemOfferTransactionApiResponse apiResponseLocalVar, long offerTransactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId)
         {
             bool suppressDefaultLog = false;
-            AfterRedeemOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, version, offerTransactionId, status, deviceId, accountId, offerLocationId);
+            AfterRedeemOfferTransaction(ref suppressDefaultLog, apiResponseLocalVar, offerTransactionId, status, deviceId, accountId, offerLocationId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5790,13 +5687,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerTransactionId"></param>
         /// <param name="status"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerLocationId"></param>
-        partial void AfterRedeemOfferTransaction(ref bool suppressDefaultLog, IRedeemOfferTransactionApiResponse apiResponseLocalVar, decimal version, long offerTransactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId);
+        partial void AfterRedeemOfferTransaction(ref bool suppressDefaultLog, IRedeemOfferTransactionApiResponse apiResponseLocalVar, long offerTransactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5804,16 +5700,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerTransactionId"></param>
         /// <param name="status"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerLocationId"></param>
-        private void OnErrorRedeemOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerTransactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId)
+        private void OnErrorRedeemOfferTransactionDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerTransactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRedeemOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerTransactionId, status, deviceId, accountId, offerLocationId);
+            OnErrorRedeemOfferTransaction(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerTransactionId, status, deviceId, accountId, offerLocationId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5825,18 +5720,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerTransactionId"></param>
         /// <param name="status"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="offerLocationId"></param>
-        partial void OnErrorRedeemOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerTransactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId);
+        partial void OnErrorRedeemOfferTransaction(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerTransactionId, int status, Option<string> deviceId, Option<long> accountId, Option<long> offerLocationId);
 
         /// <summary>
         /// Update Offer Transaction Redeems an offer.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerTransactionId">the OfferTransaction ID of the transaction being redeemed</param>
         /// <param name="status">the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -5844,11 +5737,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">the OfferLocation ID where the offer is being redeemed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IRedeemOfferTransactionApiResponse?> RedeemOfferTransactionOrDefaultAsync(decimal version, long offerTransactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRedeemOfferTransactionApiResponse?> RedeemOfferTransactionOrDefaultAsync(long offerTransactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RedeemOfferTransactionAsync(version, offerTransactionId, status, deviceId, accountId, offerLocationId, cancellationToken).ConfigureAwait(false);
+                return await RedeemOfferTransactionAsync(offerTransactionId, status, deviceId, accountId, offerLocationId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5860,7 +5753,6 @@ namespace Org.OpenAPITools.Api
         /// Update Offer Transaction Redeems an offer.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerTransactionId">the OfferTransaction ID of the transaction being redeemed</param>
         /// <param name="status">the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed</param>
         /// <param name="deviceId">the device id (deviceId or accountId required) (optional)</param>
@@ -5868,7 +5760,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId">the OfferLocation ID where the offer is being redeemed (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRedeemOfferTransactionApiResponse"/>&gt;</returns>
-        public async Task<IRedeemOfferTransactionApiResponse> RedeemOfferTransactionAsync(decimal version, long offerTransactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRedeemOfferTransactionApiResponse> RedeemOfferTransactionAsync(long offerTransactionId, int status, Option<string> deviceId = default, Option<long> accountId = default, Option<long> offerLocationId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -5876,7 +5768,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRedeemOfferTransaction(deviceId);
 
-                FormatRedeemOfferTransaction(ref version, ref offerTransactionId, ref status, ref deviceId, ref accountId, ref offerLocationId);
+                FormatRedeemOfferTransaction(ref offerTransactionId, ref status, ref deviceId, ref accountId, ref offerLocationId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5884,9 +5776,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/transaction/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/transaction/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/transaction/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/transaction/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -5927,13 +5818,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/transaction/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/transaction/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRedeemOfferTransactionDefaultImplementation(apiResponseLocalVar, version, offerTransactionId, status, deviceId, accountId, offerLocationId);
+                        AfterRedeemOfferTransactionDefaultImplementation(apiResponseLocalVar, offerTransactionId, status, deviceId, accountId, offerLocationId);
 
                         Events.ExecuteOnRedeemOfferTransaction(apiResponseLocalVar);
 
@@ -5943,7 +5834,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRedeemOfferTransactionDefaultImplementation(e, "/api/{version}/retailer/offer/transaction/update", uriBuilderLocalVar.Path, version, offerTransactionId, status, deviceId, accountId, offerLocationId);
+                OnErrorRedeemOfferTransactionDefaultImplementation(e, "/retailer/offer/transaction/update", uriBuilderLocalVar.Path, offerTransactionId, status, deviceId, accountId, offerLocationId);
                 Events.ExecuteOnErrorRedeemOfferTransaction(e);
                 throw;
             }
@@ -6042,7 +5933,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchOfferTransactionsForRetailers(ref decimal version, ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<bool> redeemed, ref Option<bool> reservationsOnly, ref Option<string> couponType, ref Option<string> offerType, ref Option<string> specialOfferType, ref Option<string> customerAccountIds, ref Option<string> categoryIds, ref Option<long> redeemableStartDate, ref Option<long> redeemableEndDate, ref Option<int> i, ref Option<int> l);
+        partial void FormatSearchOfferTransactionsForRetailers(ref string sortField, ref bool descending, ref int start, ref int limit, ref bool activeOnly, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> q, ref Option<string> keyword, ref Option<long> retailerId, ref Option<long> retailerLocationId, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<bool> redeemed, ref Option<bool> reservationsOnly, ref Option<string> couponType, ref Option<string> offerType, ref Option<string> specialOfferType, ref Option<string> customerAccountIds, ref Option<string> categoryIds, ref Option<long> redeemableStartDate, ref Option<long> redeemableEndDate, ref Option<int> i, ref Option<int> l);
 
         /// <summary>
         /// Validates the request parameters
@@ -6091,7 +5982,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -6116,10 +6006,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableEndDate"></param>
         /// <param name="i"></param>
         /// <param name="l"></param>
-        private void AfterSearchOfferTransactionsForRetailersDefaultImplementation(ISearchOfferTransactionsForRetailersApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> offerId, Option<long> offerLocationId, Option<bool> redeemed, Option<bool> reservationsOnly, Option<string> couponType, Option<string> offerType, Option<string> specialOfferType, Option<string> customerAccountIds, Option<string> categoryIds, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<int> i, Option<int> l)
+        private void AfterSearchOfferTransactionsForRetailersDefaultImplementation(ISearchOfferTransactionsForRetailersApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> offerId, Option<long> offerLocationId, Option<bool> redeemed, Option<bool> reservationsOnly, Option<string> couponType, Option<string> offerType, Option<string> specialOfferType, Option<string> customerAccountIds, Option<string> categoryIds, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<int> i, Option<int> l)
         {
             bool suppressDefaultLog = false;
-            AfterSearchOfferTransactionsForRetailers(ref suppressDefaultLog, apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
+            AfterSearchOfferTransactionsForRetailers(ref suppressDefaultLog, apiResponseLocalVar, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6129,7 +6019,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -6154,7 +6043,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableEndDate"></param>
         /// <param name="i"></param>
         /// <param name="l"></param>
-        partial void AfterSearchOfferTransactionsForRetailers(ref bool suppressDefaultLog, ISearchOfferTransactionsForRetailersApiResponse apiResponseLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> offerId, Option<long> offerLocationId, Option<bool> redeemed, Option<bool> reservationsOnly, Option<string> couponType, Option<string> offerType, Option<string> specialOfferType, Option<string> customerAccountIds, Option<string> categoryIds, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<int> i, Option<int> l);
+        partial void AfterSearchOfferTransactionsForRetailers(ref bool suppressDefaultLog, ISearchOfferTransactionsForRetailersApiResponse apiResponseLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> offerId, Option<long> offerLocationId, Option<bool> redeemed, Option<bool> reservationsOnly, Option<string> couponType, Option<string> offerType, Option<string> specialOfferType, Option<string> customerAccountIds, Option<string> categoryIds, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<int> i, Option<int> l);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6162,7 +6051,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -6187,10 +6075,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableEndDate"></param>
         /// <param name="i"></param>
         /// <param name="l"></param>
-        private void OnErrorSearchOfferTransactionsForRetailersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> offerId, Option<long> offerLocationId, Option<bool> redeemed, Option<bool> reservationsOnly, Option<string> couponType, Option<string> offerType, Option<string> specialOfferType, Option<string> customerAccountIds, Option<string> categoryIds, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<int> i, Option<int> l)
+        private void OnErrorSearchOfferTransactionsForRetailersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> offerId, Option<long> offerLocationId, Option<bool> redeemed, Option<bool> reservationsOnly, Option<string> couponType, Option<string> offerType, Option<string> specialOfferType, Option<string> customerAccountIds, Option<string> categoryIds, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<int> i, Option<int> l)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchOfferTransactionsForRetailers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
+            OnErrorSearchOfferTransactionsForRetailers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6202,7 +6090,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
         /// <param name="start"></param>
@@ -6227,12 +6114,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="redeemableEndDate"></param>
         /// <param name="i"></param>
         /// <param name="l"></param>
-        partial void OnErrorSearchOfferTransactionsForRetailers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> offerId, Option<long> offerLocationId, Option<bool> redeemed, Option<bool> reservationsOnly, Option<string> couponType, Option<string> offerType, Option<string> specialOfferType, Option<string> customerAccountIds, Option<string> categoryIds, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<int> i, Option<int> l);
+        partial void OnErrorSearchOfferTransactionsForRetailers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId, Option<long> accountId, Option<string> q, Option<string> keyword, Option<long> retailerId, Option<long> retailerLocationId, Option<long> offerId, Option<long> offerLocationId, Option<bool> redeemed, Option<bool> reservationsOnly, Option<string> couponType, Option<string> offerType, Option<string> specialOfferType, Option<string> customerAccountIds, Option<string> categoryIds, Option<long> redeemableStartDate, Option<long> redeemableEndDate, Option<int> i, Option<int> l);
 
         /// <summary>
         /// Search Offer Transactions Searches on offer transactions for offers that the account has access to.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
         /// <param name="descending">Determines whether the results are in descending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -6259,11 +6145,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="l">This parameter is deprecated. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionsForRetailersApiResponse"/>&gt;</returns>
-        public async Task<ISearchOfferTransactionsForRetailersApiResponse?> SearchOfferTransactionsForRetailersOrDefaultAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<bool> redeemed = default, Option<bool> reservationsOnly = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> customerAccountIds = default, Option<string> categoryIds = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOfferTransactionsForRetailersApiResponse?> SearchOfferTransactionsForRetailersOrDefaultAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<bool> redeemed = default, Option<bool> reservationsOnly = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> customerAccountIds = default, Option<string> categoryIds = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchOfferTransactionsForRetailersAsync(version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l, cancellationToken).ConfigureAwait(false);
+                return await SearchOfferTransactionsForRetailersAsync(sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6275,7 +6161,6 @@ namespace Org.OpenAPITools.Api
         /// Search Offer Transactions Searches on offer transactions for offers that the account has access to.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
         /// <param name="descending">Determines whether the results are in descending order</param>
         /// <param name="start">The start index for pagination</param>
@@ -6302,7 +6187,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="l">This parameter is deprecated. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOfferTransactionsForRetailersApiResponse"/>&gt;</returns>
-        public async Task<ISearchOfferTransactionsForRetailersApiResponse> SearchOfferTransactionsForRetailersAsync(decimal version, string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<bool> redeemed = default, Option<bool> reservationsOnly = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> customerAccountIds = default, Option<string> categoryIds = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOfferTransactionsForRetailersApiResponse> SearchOfferTransactionsForRetailersAsync(string sortField, bool descending, int start, int limit, bool activeOnly, Option<string> deviceId = default, Option<long> accountId = default, Option<string> q = default, Option<string> keyword = default, Option<long> retailerId = default, Option<long> retailerLocationId = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<bool> redeemed = default, Option<bool> reservationsOnly = default, Option<string> couponType = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> customerAccountIds = default, Option<string> categoryIds = default, Option<long> redeemableStartDate = default, Option<long> redeemableEndDate = default, Option<int> i = default, Option<int> l = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6310,7 +6195,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchOfferTransactionsForRetailers(sortField, deviceId, q, keyword, couponType, offerType, specialOfferType, customerAccountIds, categoryIds);
 
-                FormatSearchOfferTransactionsForRetailers(ref version, ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref deviceId, ref accountId, ref q, ref keyword, ref retailerId, ref retailerLocationId, ref offerId, ref offerLocationId, ref redeemed, ref reservationsOnly, ref couponType, ref offerType, ref specialOfferType, ref customerAccountIds, ref categoryIds, ref redeemableStartDate, ref redeemableEndDate, ref i, ref l);
+                FormatSearchOfferTransactionsForRetailers(ref sortField, ref descending, ref start, ref limit, ref activeOnly, ref deviceId, ref accountId, ref q, ref keyword, ref retailerId, ref retailerLocationId, ref offerId, ref offerLocationId, ref redeemed, ref reservationsOnly, ref couponType, ref offerType, ref specialOfferType, ref customerAccountIds, ref categoryIds, ref redeemableStartDate, ref redeemableEndDate, ref i, ref l);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6318,9 +6203,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/transaction/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/transaction/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/transaction/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/transaction/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6412,13 +6296,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/transaction/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/transaction/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchOfferTransactionsForRetailersDefaultImplementation(apiResponseLocalVar, version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
+                        AfterSearchOfferTransactionsForRetailersDefaultImplementation(apiResponseLocalVar, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
 
                         Events.ExecuteOnSearchOfferTransactionsForRetailers(apiResponseLocalVar);
 
@@ -6428,7 +6312,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchOfferTransactionsForRetailersDefaultImplementation(e, "/api/{version}/retailer/offer/transaction/search", uriBuilderLocalVar.Path, version, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
+                OnErrorSearchOfferTransactionsForRetailersDefaultImplementation(e, "/retailer/offer/transaction/search", uriBuilderLocalVar.Path, sortField, descending, start, limit, activeOnly, deviceId, accountId, q, keyword, retailerId, retailerLocationId, offerId, offerLocationId, redeemed, reservationsOnly, couponType, offerType, specialOfferType, customerAccountIds, categoryIds, redeemableStartDate, redeemableEndDate, i, l);
                 Events.ExecuteOnErrorSearchOfferTransactionsForRetailers(e);
                 throw;
             }
@@ -6527,7 +6411,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchOffersForConsumer(ref decimal version, ref double latitude, ref double longitude, ref string recommendationType, ref long locationId, ref int start, ref int limit, ref int maxRecommendations, ref string distanceUnit, ref Option<string> appKey, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> searchRange, ref Option<string> tags, ref Option<string> supportedPostalCodes, ref Option<string> keyword, ref Option<string> categories, ref Option<string> filters, ref Option<string> offerTypes, ref Option<string> type, ref Option<string> sortField, ref Option<string> recommendOfferIds, ref Option<string> retailerLocationIds, ref Option<long> offerId, ref Option<bool> includeMission, ref Option<bool> includeCategories, ref Option<bool> includeFilters, ref Option<bool> includeExpired, ref Option<bool> includeFavorite, ref Option<bool> closestOfferOnly, ref Option<string> searchExpression, ref Option<string> groupBy);
+        partial void FormatSearchOffersForConsumer(ref double latitude, ref double longitude, ref string recommendationType, ref long locationId, ref int start, ref int limit, ref int maxRecommendations, ref string distanceUnit, ref Option<string> appKey, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> searchRange, ref Option<string> tags, ref Option<string> supportedPostalCodes, ref Option<string> keyword, ref Option<string> categories, ref Option<string> filters, ref Option<string> offerTypes, ref Option<string> type, ref Option<string> sortField, ref Option<string> recommendOfferIds, ref Option<string> retailerLocationIds, ref Option<long> offerId, ref Option<bool> includeMission, ref Option<bool> includeCategories, ref Option<bool> includeFilters, ref Option<bool> includeExpired, ref Option<bool> includeFavorite, ref Option<bool> closestOfferOnly, ref Option<string> searchExpression, ref Option<string> groupBy);
 
         /// <summary>
         /// Validates the request parameters
@@ -6604,7 +6488,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="recommendationType"></param>
@@ -6636,10 +6519,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="closestOfferOnly"></param>
         /// <param name="searchExpression"></param>
         /// <param name="groupBy"></param>
-        private void AfterSearchOffersForConsumerDefaultImplementation(ISearchOffersForConsumerApiResponse apiResponseLocalVar, decimal version, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey, Option<string> deviceId, Option<long> accountId, Option<double> searchRange, Option<string> tags, Option<string> supportedPostalCodes, Option<string> keyword, Option<string> categories, Option<string> filters, Option<string> offerTypes, Option<string> type, Option<string> sortField, Option<string> recommendOfferIds, Option<string> retailerLocationIds, Option<long> offerId, Option<bool> includeMission, Option<bool> includeCategories, Option<bool> includeFilters, Option<bool> includeExpired, Option<bool> includeFavorite, Option<bool> closestOfferOnly, Option<string> searchExpression, Option<string> groupBy)
+        private void AfterSearchOffersForConsumerDefaultImplementation(ISearchOffersForConsumerApiResponse apiResponseLocalVar, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey, Option<string> deviceId, Option<long> accountId, Option<double> searchRange, Option<string> tags, Option<string> supportedPostalCodes, Option<string> keyword, Option<string> categories, Option<string> filters, Option<string> offerTypes, Option<string> type, Option<string> sortField, Option<string> recommendOfferIds, Option<string> retailerLocationIds, Option<long> offerId, Option<bool> includeMission, Option<bool> includeCategories, Option<bool> includeFilters, Option<bool> includeExpired, Option<bool> includeFavorite, Option<bool> closestOfferOnly, Option<string> searchExpression, Option<string> groupBy)
         {
             bool suppressDefaultLog = false;
-            AfterSearchOffersForConsumer(ref suppressDefaultLog, apiResponseLocalVar, version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
+            AfterSearchOffersForConsumer(ref suppressDefaultLog, apiResponseLocalVar, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -6649,7 +6532,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="recommendationType"></param>
@@ -6681,7 +6563,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="closestOfferOnly"></param>
         /// <param name="searchExpression"></param>
         /// <param name="groupBy"></param>
-        partial void AfterSearchOffersForConsumer(ref bool suppressDefaultLog, ISearchOffersForConsumerApiResponse apiResponseLocalVar, decimal version, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey, Option<string> deviceId, Option<long> accountId, Option<double> searchRange, Option<string> tags, Option<string> supportedPostalCodes, Option<string> keyword, Option<string> categories, Option<string> filters, Option<string> offerTypes, Option<string> type, Option<string> sortField, Option<string> recommendOfferIds, Option<string> retailerLocationIds, Option<long> offerId, Option<bool> includeMission, Option<bool> includeCategories, Option<bool> includeFilters, Option<bool> includeExpired, Option<bool> includeFavorite, Option<bool> closestOfferOnly, Option<string> searchExpression, Option<string> groupBy);
+        partial void AfterSearchOffersForConsumer(ref bool suppressDefaultLog, ISearchOffersForConsumerApiResponse apiResponseLocalVar, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey, Option<string> deviceId, Option<long> accountId, Option<double> searchRange, Option<string> tags, Option<string> supportedPostalCodes, Option<string> keyword, Option<string> categories, Option<string> filters, Option<string> offerTypes, Option<string> type, Option<string> sortField, Option<string> recommendOfferIds, Option<string> retailerLocationIds, Option<long> offerId, Option<bool> includeMission, Option<bool> includeCategories, Option<bool> includeFilters, Option<bool> includeExpired, Option<bool> includeFavorite, Option<bool> closestOfferOnly, Option<string> searchExpression, Option<string> groupBy);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -6689,7 +6571,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="recommendationType"></param>
@@ -6721,10 +6602,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="closestOfferOnly"></param>
         /// <param name="searchExpression"></param>
         /// <param name="groupBy"></param>
-        private void OnErrorSearchOffersForConsumerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey, Option<string> deviceId, Option<long> accountId, Option<double> searchRange, Option<string> tags, Option<string> supportedPostalCodes, Option<string> keyword, Option<string> categories, Option<string> filters, Option<string> offerTypes, Option<string> type, Option<string> sortField, Option<string> recommendOfferIds, Option<string> retailerLocationIds, Option<long> offerId, Option<bool> includeMission, Option<bool> includeCategories, Option<bool> includeFilters, Option<bool> includeExpired, Option<bool> includeFavorite, Option<bool> closestOfferOnly, Option<string> searchExpression, Option<string> groupBy)
+        private void OnErrorSearchOffersForConsumerDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey, Option<string> deviceId, Option<long> accountId, Option<double> searchRange, Option<string> tags, Option<string> supportedPostalCodes, Option<string> keyword, Option<string> categories, Option<string> filters, Option<string> offerTypes, Option<string> type, Option<string> sortField, Option<string> recommendOfferIds, Option<string> retailerLocationIds, Option<long> offerId, Option<bool> includeMission, Option<bool> includeCategories, Option<bool> includeFilters, Option<bool> includeExpired, Option<bool> includeFavorite, Option<bool> closestOfferOnly, Option<string> searchExpression, Option<string> groupBy)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchOffersForConsumer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
+            OnErrorSearchOffersForConsumer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -6736,7 +6617,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <param name="recommendationType"></param>
@@ -6768,12 +6648,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="closestOfferOnly"></param>
         /// <param name="searchExpression"></param>
         /// <param name="groupBy"></param>
-        partial void OnErrorSearchOffersForConsumer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey, Option<string> deviceId, Option<long> accountId, Option<double> searchRange, Option<string> tags, Option<string> supportedPostalCodes, Option<string> keyword, Option<string> categories, Option<string> filters, Option<string> offerTypes, Option<string> type, Option<string> sortField, Option<string> recommendOfferIds, Option<string> retailerLocationIds, Option<long> offerId, Option<bool> includeMission, Option<bool> includeCategories, Option<bool> includeFilters, Option<bool> includeExpired, Option<bool> includeFavorite, Option<bool> closestOfferOnly, Option<string> searchExpression, Option<string> groupBy);
+        partial void OnErrorSearchOffersForConsumer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey, Option<string> deviceId, Option<long> accountId, Option<double> searchRange, Option<string> tags, Option<string> supportedPostalCodes, Option<string> keyword, Option<string> categories, Option<string> filters, Option<string> offerTypes, Option<string> type, Option<string> sortField, Option<string> recommendOfferIds, Option<string> retailerLocationIds, Option<long> offerId, Option<bool> includeMission, Option<bool> includeCategories, Option<bool> includeFilters, Option<bool> includeExpired, Option<bool> includeFavorite, Option<bool> closestOfferOnly, Option<string> searchExpression, Option<string> groupBy);
 
         /// <summary>
         /// Search Offers Searches for offers as a consumer.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of where the search will center at</param>
         /// <param name="longitude">The longitude of where the search will center at</param>
         /// <param name="recommendationType">The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available</param>
@@ -6807,11 +6686,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="groupBy">groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOffersForConsumerApiResponse"/>&gt;</returns>
-        public async Task<ISearchOffersForConsumerApiResponse?> SearchOffersForConsumerOrDefaultAsync(decimal version, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey = default, Option<string> deviceId = default, Option<long> accountId = default, Option<double> searchRange = default, Option<string> tags = default, Option<string> supportedPostalCodes = default, Option<string> keyword = default, Option<string> categories = default, Option<string> filters = default, Option<string> offerTypes = default, Option<string> type = default, Option<string> sortField = default, Option<string> recommendOfferIds = default, Option<string> retailerLocationIds = default, Option<long> offerId = default, Option<bool> includeMission = default, Option<bool> includeCategories = default, Option<bool> includeFilters = default, Option<bool> includeExpired = default, Option<bool> includeFavorite = default, Option<bool> closestOfferOnly = default, Option<string> searchExpression = default, Option<string> groupBy = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOffersForConsumerApiResponse?> SearchOffersForConsumerOrDefaultAsync(double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey = default, Option<string> deviceId = default, Option<long> accountId = default, Option<double> searchRange = default, Option<string> tags = default, Option<string> supportedPostalCodes = default, Option<string> keyword = default, Option<string> categories = default, Option<string> filters = default, Option<string> offerTypes = default, Option<string> type = default, Option<string> sortField = default, Option<string> recommendOfferIds = default, Option<string> retailerLocationIds = default, Option<long> offerId = default, Option<bool> includeMission = default, Option<bool> includeCategories = default, Option<bool> includeFilters = default, Option<bool> includeExpired = default, Option<bool> includeFavorite = default, Option<bool> closestOfferOnly = default, Option<string> searchExpression = default, Option<string> groupBy = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchOffersForConsumerAsync(version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy, cancellationToken).ConfigureAwait(false);
+                return await SearchOffersForConsumerAsync(latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -6823,7 +6702,6 @@ namespace Org.OpenAPITools.Api
         /// Search Offers Searches for offers as a consumer.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="latitude">The latitude of where the search will center at</param>
         /// <param name="longitude">The longitude of where the search will center at</param>
         /// <param name="recommendationType">The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available</param>
@@ -6857,7 +6735,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="groupBy">groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchOffersForConsumerApiResponse"/>&gt;</returns>
-        public async Task<ISearchOffersForConsumerApiResponse> SearchOffersForConsumerAsync(decimal version, double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey = default, Option<string> deviceId = default, Option<long> accountId = default, Option<double> searchRange = default, Option<string> tags = default, Option<string> supportedPostalCodes = default, Option<string> keyword = default, Option<string> categories = default, Option<string> filters = default, Option<string> offerTypes = default, Option<string> type = default, Option<string> sortField = default, Option<string> recommendOfferIds = default, Option<string> retailerLocationIds = default, Option<long> offerId = default, Option<bool> includeMission = default, Option<bool> includeCategories = default, Option<bool> includeFilters = default, Option<bool> includeExpired = default, Option<bool> includeFavorite = default, Option<bool> closestOfferOnly = default, Option<string> searchExpression = default, Option<string> groupBy = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchOffersForConsumerApiResponse> SearchOffersForConsumerAsync(double latitude, double longitude, string recommendationType, long locationId, int start, int limit, int maxRecommendations, string distanceUnit, Option<string> appKey = default, Option<string> deviceId = default, Option<long> accountId = default, Option<double> searchRange = default, Option<string> tags = default, Option<string> supportedPostalCodes = default, Option<string> keyword = default, Option<string> categories = default, Option<string> filters = default, Option<string> offerTypes = default, Option<string> type = default, Option<string> sortField = default, Option<string> recommendOfferIds = default, Option<string> retailerLocationIds = default, Option<long> offerId = default, Option<bool> includeMission = default, Option<bool> includeCategories = default, Option<bool> includeFilters = default, Option<bool> includeExpired = default, Option<bool> includeFavorite = default, Option<bool> closestOfferOnly = default, Option<string> searchExpression = default, Option<string> groupBy = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -6865,7 +6743,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchOffersForConsumer(recommendationType, distanceUnit, appKey, deviceId, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, searchExpression, groupBy);
 
-                FormatSearchOffersForConsumer(ref version, ref latitude, ref longitude, ref recommendationType, ref locationId, ref start, ref limit, ref maxRecommendations, ref distanceUnit, ref appKey, ref deviceId, ref accountId, ref searchRange, ref tags, ref supportedPostalCodes, ref keyword, ref categories, ref filters, ref offerTypes, ref type, ref sortField, ref recommendOfferIds, ref retailerLocationIds, ref offerId, ref includeMission, ref includeCategories, ref includeFilters, ref includeExpired, ref includeFavorite, ref closestOfferOnly, ref searchExpression, ref groupBy);
+                FormatSearchOffersForConsumer(ref latitude, ref longitude, ref recommendationType, ref locationId, ref start, ref limit, ref maxRecommendations, ref distanceUnit, ref appKey, ref deviceId, ref accountId, ref searchRange, ref tags, ref supportedPostalCodes, ref keyword, ref categories, ref filters, ref offerTypes, ref type, ref sortField, ref recommendOfferIds, ref retailerLocationIds, ref offerId, ref includeMission, ref includeCategories, ref includeFilters, ref includeExpired, ref includeFavorite, ref closestOfferOnly, ref searchExpression, ref groupBy);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -6873,9 +6751,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/lists"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/lists");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/lists"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/lists");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -6982,13 +6859,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/lists", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/lists", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchOffersForConsumerDefaultImplementation(apiResponseLocalVar, version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
+                        AfterSearchOffersForConsumerDefaultImplementation(apiResponseLocalVar, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
 
                         Events.ExecuteOnSearchOffersForConsumer(apiResponseLocalVar);
 
@@ -6998,7 +6875,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchOffersForConsumerDefaultImplementation(e, "/api/{version}/offer/lists", uriBuilderLocalVar.Path, version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
+                OnErrorSearchOffersForConsumerDefaultImplementation(e, "/offer/lists", uriBuilderLocalVar.Path, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, appKey, deviceId, accountId, searchRange, tags, supportedPostalCodes, keyword, categories, filters, offerTypes, type, sortField, recommendOfferIds, retailerLocationIds, offerId, includeMission, includeCategories, includeFilters, includeExpired, includeFavorite, closestOfferOnly, searchExpression, groupBy);
                 Events.ExecuteOnErrorSearchOffersForConsumer(e);
                 throw;
             }
@@ -7097,19 +6974,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatTopOfferTransactions(ref decimal version, ref Option<int> start, ref Option<int> limit);
+        partial void FormatTopOfferTransactions(ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterTopOfferTransactionsDefaultImplementation(ITopOfferTransactionsApiResponse apiResponseLocalVar, decimal version, Option<int> start, Option<int> limit)
+        private void AfterTopOfferTransactionsDefaultImplementation(ITopOfferTransactionsApiResponse apiResponseLocalVar, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterTopOfferTransactions(ref suppressDefaultLog, apiResponseLocalVar, version, start, limit);
+            AfterTopOfferTransactions(ref suppressDefaultLog, apiResponseLocalVar, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7119,10 +6995,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterTopOfferTransactions(ref bool suppressDefaultLog, ITopOfferTransactionsApiResponse apiResponseLocalVar, decimal version, Option<int> start, Option<int> limit);
+        partial void AfterTopOfferTransactions(ref bool suppressDefaultLog, ITopOfferTransactionsApiResponse apiResponseLocalVar, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7130,13 +7005,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorTopOfferTransactionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<int> start, Option<int> limit)
+        private void OnErrorTopOfferTransactionsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorTopOfferTransactions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, start, limit);
+            OnErrorTopOfferTransactions(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7148,24 +7022,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorTopOfferTransactions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<int> start, Option<int> limit);
+        partial void OnErrorTopOfferTransactions(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Get Offers (Top) Gets the top active offers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="start">The index into the record set to start with. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The total number of record to return. Default id 20. (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITopOfferTransactionsApiResponse"/>&gt;</returns>
-        public async Task<ITopOfferTransactionsApiResponse?> TopOfferTransactionsOrDefaultAsync(decimal version, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITopOfferTransactionsApiResponse?> TopOfferTransactionsOrDefaultAsync(Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await TopOfferTransactionsAsync(version, start, limit, cancellationToken).ConfigureAwait(false);
+                return await TopOfferTransactionsAsync(start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -7177,18 +7049,17 @@ namespace Org.OpenAPITools.Api
         /// Get Offers (Top) Gets the top active offers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="start">The index into the record set to start with. Default is 0. (optional, default to 0)</param>
         /// <param name="limit">The total number of record to return. Default id 20. (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITopOfferTransactionsApiResponse"/>&gt;</returns>
-        public async Task<ITopOfferTransactionsApiResponse> TopOfferTransactionsAsync(decimal version, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITopOfferTransactionsApiResponse> TopOfferTransactionsAsync(Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatTopOfferTransactions(ref version, ref start, ref limit);
+                FormatTopOfferTransactions(ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -7196,9 +7067,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/offer/top"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/offer/top");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/offer/top"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/offer/top");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -7233,13 +7103,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/offer/top", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/offer/top", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterTopOfferTransactionsDefaultImplementation(apiResponseLocalVar, version, start, limit);
+                        AfterTopOfferTransactionsDefaultImplementation(apiResponseLocalVar, start, limit);
 
                         Events.ExecuteOnTopOfferTransactions(apiResponseLocalVar);
 
@@ -7249,7 +7119,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorTopOfferTransactionsDefaultImplementation(e, "/api/{version}/offer/top", uriBuilderLocalVar.Path, version, start, limit);
+                OnErrorTopOfferTransactionsDefaultImplementation(e, "/offer/top", uriBuilderLocalVar.Path, start, limit);
                 Events.ExecuteOnErrorTopOfferTransactions(e);
                 throw;
             }
@@ -7348,7 +7218,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateOffer(ref decimal version, ref long offerId, ref bool includeOfferLocations, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> parentOfferId, ref Option<string> retailerLocationIds, ref Option<string> offerLocations, ref Option<string> tags, ref Option<string> title, ref Option<string> subTitle, ref Option<string> details, ref Option<string> subDetails, ref Option<string> finePrint, ref Option<string> barcodeType, ref Option<string> barcodeEntry, ref Option<string> externalRedeemOptions, ref Option<string> externalUrl, ref Option<string> externalId, ref Option<string> ticketsRewardType, ref Option<long> ticketsReward, ref Option<long> activated, ref Option<long> expires, ref Option<bool> noExpiration, ref Option<int> availableLimit, ref Option<int> availableLimitPerUser, ref Option<int> addedLimit, ref Option<int> viewLimit, ref Option<int> maxPrints, ref Option<string> ticketPriceType, ref Option<long> ticketPrice, ref Option<double> fullPrice, ref Option<double> discountPrice, ref Option<bool> showRemaining, ref Option<bool> showRedeemed, ref Option<bool> replaced, ref Option<bool> featured, ref Option<string> offerType, ref Option<string> specialOfferType, ref Option<string> offerVisibility, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> active, ref Option<long> barcodeAssetId, ref Option<long> imageAssetId, ref Option<long> imageAssetId1, ref Option<long> imageAssetId2, ref Option<long> imageAssetId3, ref Option<long> imageAssetId4, ref Option<long> imageAssetId5, ref Option<string> publisher, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> brand, ref Option<string> productType, ref Option<string> conditionType, ref Option<string> isbn, ref Option<string> asin, ref Option<string> catalogNumbers, ref Option<string> department, ref Option<string> features, ref Option<double> minimumPrice, ref Option<double> width, ref Option<double> height, ref Option<double> depth, ref Option<double> weight, ref Option<string> unit, ref Option<string> studio, ref Option<string> parentalRating, ref Option<long> publishDate, ref Option<long> availabilityDate, ref Option<long> sizeId, ref Option<long> listingId, ref Option<string> mediaType, ref Option<int> duration, ref Option<string> author, ref Option<long> releaseDate, ref Option<string> collectionIds, ref Option<int> rebootTimeHour, ref Option<int> rebootTimeMinute, ref Option<int> idleTimeoutInSecond, ref Option<string> serialNumber, ref Option<string> udid, ref Option<string> deviceType, ref Option<double> devicePower, ref Option<double> deviceInterference, ref Option<string> availability, ref Option<string> availabilitySummary);
+        partial void FormatUpdateOffer(ref long offerId, ref bool includeOfferLocations, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> parentOfferId, ref Option<string> retailerLocationIds, ref Option<string> offerLocations, ref Option<string> tags, ref Option<string> title, ref Option<string> subTitle, ref Option<string> details, ref Option<string> subDetails, ref Option<string> finePrint, ref Option<string> barcodeType, ref Option<string> barcodeEntry, ref Option<string> externalRedeemOptions, ref Option<string> externalUrl, ref Option<string> externalId, ref Option<string> ticketsRewardType, ref Option<long> ticketsReward, ref Option<long> activated, ref Option<long> expires, ref Option<bool> noExpiration, ref Option<int> availableLimit, ref Option<int> availableLimitPerUser, ref Option<int> addedLimit, ref Option<int> viewLimit, ref Option<int> maxPrints, ref Option<string> ticketPriceType, ref Option<long> ticketPrice, ref Option<double> fullPrice, ref Option<double> discountPrice, ref Option<bool> showRemaining, ref Option<bool> showRedeemed, ref Option<bool> replaced, ref Option<bool> featured, ref Option<string> offerType, ref Option<string> specialOfferType, ref Option<string> offerVisibility, ref Option<string> categoryIds, ref Option<string> filterIds, ref Option<bool> active, ref Option<long> barcodeAssetId, ref Option<long> imageAssetId, ref Option<long> imageAssetId1, ref Option<long> imageAssetId2, ref Option<long> imageAssetId3, ref Option<long> imageAssetId4, ref Option<long> imageAssetId5, ref Option<string> publisher, ref Option<long> redeemableStart, ref Option<long> redeemableEnd, ref Option<string> brand, ref Option<string> productType, ref Option<string> conditionType, ref Option<string> isbn, ref Option<string> asin, ref Option<string> catalogNumbers, ref Option<string> department, ref Option<string> features, ref Option<double> minimumPrice, ref Option<double> width, ref Option<double> height, ref Option<double> depth, ref Option<double> weight, ref Option<string> unit, ref Option<string> studio, ref Option<string> parentalRating, ref Option<long> publishDate, ref Option<long> availabilityDate, ref Option<long> sizeId, ref Option<long> listingId, ref Option<string> mediaType, ref Option<int> duration, ref Option<string> author, ref Option<long> releaseDate, ref Option<string> collectionIds, ref Option<int> rebootTimeHour, ref Option<int> rebootTimeMinute, ref Option<int> idleTimeoutInSecond, ref Option<string> serialNumber, ref Option<string> udid, ref Option<string> deviceType, ref Option<double> devicePower, ref Option<double> deviceInterference, ref Option<string> availability, ref Option<string> availabilitySummary);
 
         /// <summary>
         /// Validates the request parameters
@@ -7525,7 +7395,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId"></param>
@@ -7613,10 +7482,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceInterference"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void AfterUpdateOfferDefaultImplementation(IUpdateOfferApiResponse apiResponseLocalVar, decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> tags, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> offerType, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary)
+        private void AfterUpdateOfferDefaultImplementation(IUpdateOfferApiResponse apiResponseLocalVar, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> tags, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> offerType, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateOffer(ref suppressDefaultLog, apiResponseLocalVar, version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+            AfterUpdateOffer(ref suppressDefaultLog, apiResponseLocalVar, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -7626,7 +7495,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId"></param>
@@ -7714,7 +7582,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceInterference"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void AfterUpdateOffer(ref bool suppressDefaultLog, IUpdateOfferApiResponse apiResponseLocalVar, decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> tags, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> offerType, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary);
+        partial void AfterUpdateOffer(ref bool suppressDefaultLog, IUpdateOfferApiResponse apiResponseLocalVar, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> tags, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> offerType, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -7722,7 +7590,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId"></param>
@@ -7810,10 +7677,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceInterference"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void OnErrorUpdateOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> tags, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> offerType, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary)
+        private void OnErrorUpdateOfferDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> tags, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> offerType, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+            OnErrorUpdateOffer(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -7825,7 +7692,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerId"></param>
         /// <param name="includeOfferLocations"></param>
         /// <param name="deviceId"></param>
@@ -7913,12 +7779,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceInterference"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void OnErrorUpdateOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> tags, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> offerType, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary);
+        partial void OnErrorUpdateOffer(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long offerId, bool includeOfferLocations, Option<string> deviceId, Option<long> accountId, Option<long> parentOfferId, Option<string> retailerLocationIds, Option<string> offerLocations, Option<string> tags, Option<string> title, Option<string> subTitle, Option<string> details, Option<string> subDetails, Option<string> finePrint, Option<string> barcodeType, Option<string> barcodeEntry, Option<string> externalRedeemOptions, Option<string> externalUrl, Option<string> externalId, Option<string> ticketsRewardType, Option<long> ticketsReward, Option<long> activated, Option<long> expires, Option<bool> noExpiration, Option<int> availableLimit, Option<int> availableLimitPerUser, Option<int> addedLimit, Option<int> viewLimit, Option<int> maxPrints, Option<string> ticketPriceType, Option<long> ticketPrice, Option<double> fullPrice, Option<double> discountPrice, Option<bool> showRemaining, Option<bool> showRedeemed, Option<bool> replaced, Option<bool> featured, Option<string> offerType, Option<string> specialOfferType, Option<string> offerVisibility, Option<string> categoryIds, Option<string> filterIds, Option<bool> active, Option<long> barcodeAssetId, Option<long> imageAssetId, Option<long> imageAssetId1, Option<long> imageAssetId2, Option<long> imageAssetId3, Option<long> imageAssetId4, Option<long> imageAssetId5, Option<string> publisher, Option<long> redeemableStart, Option<long> redeemableEnd, Option<string> brand, Option<string> productType, Option<string> conditionType, Option<string> isbn, Option<string> asin, Option<string> catalogNumbers, Option<string> department, Option<string> features, Option<double> minimumPrice, Option<double> width, Option<double> height, Option<double> depth, Option<double> weight, Option<string> unit, Option<string> studio, Option<string> parentalRating, Option<long> publishDate, Option<long> availabilityDate, Option<long> sizeId, Option<long> listingId, Option<string> mediaType, Option<int> duration, Option<string> author, Option<long> releaseDate, Option<string> collectionIds, Option<int> rebootTimeHour, Option<int> rebootTimeMinute, Option<int> idleTimeoutInSecond, Option<string> serialNumber, Option<string> udid, Option<string> deviceType, Option<double> devicePower, Option<double> deviceInterference, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Update Offer Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerId">The offer to update</param>
         /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -8008,11 +7873,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOfferApiResponse?> UpdateOfferOrDefaultAsync(decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> tags = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOfferApiResponse?> UpdateOfferOrDefaultAsync(long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> tags = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateOfferAsync(version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
+                return await UpdateOfferAsync(offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8024,7 +7889,6 @@ namespace Org.OpenAPITools.Api
         /// Update Offer Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerId">The offer to update</param>
         /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
@@ -8114,7 +7978,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOfferApiResponse> UpdateOfferAsync(decimal version, long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> tags = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOfferApiResponse> UpdateOfferAsync(long offerId, bool includeOfferLocations, Option<string> deviceId = default, Option<long> accountId = default, Option<long> parentOfferId = default, Option<string> retailerLocationIds = default, Option<string> offerLocations = default, Option<string> tags = default, Option<string> title = default, Option<string> subTitle = default, Option<string> details = default, Option<string> subDetails = default, Option<string> finePrint = default, Option<string> barcodeType = default, Option<string> barcodeEntry = default, Option<string> externalRedeemOptions = default, Option<string> externalUrl = default, Option<string> externalId = default, Option<string> ticketsRewardType = default, Option<long> ticketsReward = default, Option<long> activated = default, Option<long> expires = default, Option<bool> noExpiration = default, Option<int> availableLimit = default, Option<int> availableLimitPerUser = default, Option<int> addedLimit = default, Option<int> viewLimit = default, Option<int> maxPrints = default, Option<string> ticketPriceType = default, Option<long> ticketPrice = default, Option<double> fullPrice = default, Option<double> discountPrice = default, Option<bool> showRemaining = default, Option<bool> showRedeemed = default, Option<bool> replaced = default, Option<bool> featured = default, Option<string> offerType = default, Option<string> specialOfferType = default, Option<string> offerVisibility = default, Option<string> categoryIds = default, Option<string> filterIds = default, Option<bool> active = default, Option<long> barcodeAssetId = default, Option<long> imageAssetId = default, Option<long> imageAssetId1 = default, Option<long> imageAssetId2 = default, Option<long> imageAssetId3 = default, Option<long> imageAssetId4 = default, Option<long> imageAssetId5 = default, Option<string> publisher = default, Option<long> redeemableStart = default, Option<long> redeemableEnd = default, Option<string> brand = default, Option<string> productType = default, Option<string> conditionType = default, Option<string> isbn = default, Option<string> asin = default, Option<string> catalogNumbers = default, Option<string> department = default, Option<string> features = default, Option<double> minimumPrice = default, Option<double> width = default, Option<double> height = default, Option<double> depth = default, Option<double> weight = default, Option<string> unit = default, Option<string> studio = default, Option<string> parentalRating = default, Option<long> publishDate = default, Option<long> availabilityDate = default, Option<long> sizeId = default, Option<long> listingId = default, Option<string> mediaType = default, Option<int> duration = default, Option<string> author = default, Option<long> releaseDate = default, Option<string> collectionIds = default, Option<int> rebootTimeHour = default, Option<int> rebootTimeMinute = default, Option<int> idleTimeoutInSecond = default, Option<string> serialNumber = default, Option<string> udid = default, Option<string> deviceType = default, Option<double> devicePower = default, Option<double> deviceInterference = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8122,7 +7986,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateOffer(deviceId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketPriceType, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, publisher, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, unit, studio, parentalRating, mediaType, author, collectionIds, serialNumber, udid, deviceType, availability, availabilitySummary);
 
-                FormatUpdateOffer(ref version, ref offerId, ref includeOfferLocations, ref deviceId, ref accountId, ref parentOfferId, ref retailerLocationIds, ref offerLocations, ref tags, ref title, ref subTitle, ref details, ref subDetails, ref finePrint, ref barcodeType, ref barcodeEntry, ref externalRedeemOptions, ref externalUrl, ref externalId, ref ticketsRewardType, ref ticketsReward, ref activated, ref expires, ref noExpiration, ref availableLimit, ref availableLimitPerUser, ref addedLimit, ref viewLimit, ref maxPrints, ref ticketPriceType, ref ticketPrice, ref fullPrice, ref discountPrice, ref showRemaining, ref showRedeemed, ref replaced, ref featured, ref offerType, ref specialOfferType, ref offerVisibility, ref categoryIds, ref filterIds, ref active, ref barcodeAssetId, ref imageAssetId, ref imageAssetId1, ref imageAssetId2, ref imageAssetId3, ref imageAssetId4, ref imageAssetId5, ref publisher, ref redeemableStart, ref redeemableEnd, ref brand, ref productType, ref conditionType, ref isbn, ref asin, ref catalogNumbers, ref department, ref features, ref minimumPrice, ref width, ref height, ref depth, ref weight, ref unit, ref studio, ref parentalRating, ref publishDate, ref availabilityDate, ref sizeId, ref listingId, ref mediaType, ref duration, ref author, ref releaseDate, ref collectionIds, ref rebootTimeHour, ref rebootTimeMinute, ref idleTimeoutInSecond, ref serialNumber, ref udid, ref deviceType, ref devicePower, ref deviceInterference, ref availability, ref availabilitySummary);
+                FormatUpdateOffer(ref offerId, ref includeOfferLocations, ref deviceId, ref accountId, ref parentOfferId, ref retailerLocationIds, ref offerLocations, ref tags, ref title, ref subTitle, ref details, ref subDetails, ref finePrint, ref barcodeType, ref barcodeEntry, ref externalRedeemOptions, ref externalUrl, ref externalId, ref ticketsRewardType, ref ticketsReward, ref activated, ref expires, ref noExpiration, ref availableLimit, ref availableLimitPerUser, ref addedLimit, ref viewLimit, ref maxPrints, ref ticketPriceType, ref ticketPrice, ref fullPrice, ref discountPrice, ref showRemaining, ref showRedeemed, ref replaced, ref featured, ref offerType, ref specialOfferType, ref offerVisibility, ref categoryIds, ref filterIds, ref active, ref barcodeAssetId, ref imageAssetId, ref imageAssetId1, ref imageAssetId2, ref imageAssetId3, ref imageAssetId4, ref imageAssetId5, ref publisher, ref redeemableStart, ref redeemableEnd, ref brand, ref productType, ref conditionType, ref isbn, ref asin, ref catalogNumbers, ref department, ref features, ref minimumPrice, ref width, ref height, ref depth, ref weight, ref unit, ref studio, ref parentalRating, ref publishDate, ref availabilityDate, ref sizeId, ref listingId, ref mediaType, ref duration, ref author, ref releaseDate, ref collectionIds, ref rebootTimeHour, ref rebootTimeMinute, ref idleTimeoutInSecond, ref serialNumber, ref udid, ref deviceType, ref devicePower, ref deviceInterference, ref availability, ref availabilitySummary);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8130,9 +7994,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8419,13 +8282,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateOfferDefaultImplementation(apiResponseLocalVar, version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+                        AfterUpdateOfferDefaultImplementation(apiResponseLocalVar, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
 
                         Events.ExecuteOnUpdateOffer(apiResponseLocalVar);
 
@@ -8435,7 +8298,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateOfferDefaultImplementation(e, "/api/{version}/retailer/offer/update", uriBuilderLocalVar.Path, version, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
+                OnErrorUpdateOfferDefaultImplementation(e, "/retailer/offer/update", uriBuilderLocalVar.Path, offerId, includeOfferLocations, deviceId, accountId, parentOfferId, retailerLocationIds, offerLocations, tags, title, subTitle, details, subDetails, finePrint, barcodeType, barcodeEntry, externalRedeemOptions, externalUrl, externalId, ticketsRewardType, ticketsReward, activated, expires, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPriceType, ticketPrice, fullPrice, discountPrice, showRemaining, showRedeemed, replaced, featured, offerType, specialOfferType, offerVisibility, categoryIds, filterIds, active, barcodeAssetId, imageAssetId, imageAssetId1, imageAssetId2, imageAssetId3, imageAssetId4, imageAssetId5, publisher, redeemableStart, redeemableEnd, brand, productType, conditionType, isbn, asin, catalogNumbers, department, features, minimumPrice, width, height, depth, weight, unit, studio, parentalRating, publishDate, availabilityDate, sizeId, listingId, mediaType, duration, author, releaseDate, collectionIds, rebootTimeHour, rebootTimeMinute, idleTimeoutInSecond, serialNumber, udid, deviceType, devicePower, deviceInterference, availability, availabilitySummary);
                 Events.ExecuteOnErrorUpdateOffer(e);
                 throw;
             }
@@ -8534,7 +8397,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateOfferStatus(ref decimal version, ref string offerIds, ref bool active, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatUpdateOfferStatus(ref string offerIds, ref bool active, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -8555,15 +8418,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerIds"></param>
         /// <param name="active"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterUpdateOfferStatusDefaultImplementation(IUpdateOfferStatusApiResponse apiResponseLocalVar, decimal version, string offerIds, bool active, Option<string> deviceId, Option<long> accountId)
+        private void AfterUpdateOfferStatusDefaultImplementation(IUpdateOfferStatusApiResponse apiResponseLocalVar, string offerIds, bool active, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateOfferStatus(ref suppressDefaultLog, apiResponseLocalVar, version, offerIds, active, deviceId, accountId);
+            AfterUpdateOfferStatus(ref suppressDefaultLog, apiResponseLocalVar, offerIds, active, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -8573,12 +8435,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerIds"></param>
         /// <param name="active"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterUpdateOfferStatus(ref bool suppressDefaultLog, IUpdateOfferStatusApiResponse apiResponseLocalVar, decimal version, string offerIds, bool active, Option<string> deviceId, Option<long> accountId);
+        partial void AfterUpdateOfferStatus(ref bool suppressDefaultLog, IUpdateOfferStatusApiResponse apiResponseLocalVar, string offerIds, bool active, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -8586,15 +8447,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerIds"></param>
         /// <param name="active"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorUpdateOfferStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string offerIds, bool active, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorUpdateOfferStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string offerIds, bool active, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateOfferStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, offerIds, active, deviceId, accountId);
+            OnErrorUpdateOfferStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, offerIds, active, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -8606,28 +8466,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="offerIds"></param>
         /// <param name="active"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorUpdateOfferStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string offerIds, bool active, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorUpdateOfferStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string offerIds, bool active, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Activate Offer Sets the activated date on offers. This will make offers visible for consumers.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="offerIds">Comma separated list of offer ids</param>
         /// <param name="active">Determines whether to make the offer active as well</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the activation, must have rights to edit the offer. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferStatusApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOfferStatusApiResponse?> UpdateOfferStatusOrDefaultAsync(decimal version, string offerIds, bool active, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOfferStatusApiResponse?> UpdateOfferStatusOrDefaultAsync(string offerIds, bool active, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateOfferStatusAsync(version, offerIds, active, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await UpdateOfferStatusAsync(offerIds, active, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -8639,14 +8497,13 @@ namespace Org.OpenAPITools.Api
         /// Activate Offer Sets the activated date on offers. This will make offers visible for consumers.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="offerIds">Comma separated list of offer ids</param>
         /// <param name="active">Determines whether to make the offer active as well</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account used to perform the activation, must have rights to edit the offer. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateOfferStatusApiResponse"/>&gt;</returns>
-        public async Task<IUpdateOfferStatusApiResponse> UpdateOfferStatusAsync(decimal version, string offerIds, bool active, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateOfferStatusApiResponse> UpdateOfferStatusAsync(string offerIds, bool active, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -8654,7 +8511,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateOfferStatus(offerIds, deviceId);
 
-                FormatUpdateOfferStatus(ref version, ref offerIds, ref active, ref deviceId, ref accountId);
+                FormatUpdateOfferStatus(ref offerIds, ref active, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -8662,9 +8519,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/retailer/offer/status"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/retailer/offer/status");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/retailer/offer/status"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/retailer/offer/status");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -8702,13 +8558,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/retailer/offer/status", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/retailer/offer/status", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateOfferStatusDefaultImplementation(apiResponseLocalVar, version, offerIds, active, deviceId, accountId);
+                        AfterUpdateOfferStatusDefaultImplementation(apiResponseLocalVar, offerIds, active, deviceId, accountId);
 
                         Events.ExecuteOnUpdateOfferStatus(apiResponseLocalVar);
 
@@ -8718,7 +8574,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateOfferStatusDefaultImplementation(e, "/api/{version}/retailer/offer/status", uriBuilderLocalVar.Path, version, offerIds, active, deviceId, accountId);
+                OnErrorUpdateOfferStatusDefaultImplementation(e, "/retailer/offer/status", uriBuilderLocalVar.Path, offerIds, active, deviceId, accountId);
                 Events.ExecuteOnErrorUpdateOfferStatus(e);
                 throw;
             }

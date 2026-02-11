@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates a reservation on an offer object
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="startDate">The start date (optional)</param>
@@ -56,7 +55,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">External custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateReservationApiResponse"/>&gt;</returns>
-        Task<ICreateReservationApiResponse> CreateReservationAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> appKey = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateReservationApiResponse> CreateReservationAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> appKey = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Reservation
@@ -64,7 +63,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates a reservation on an offer object
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="startDate">The start date (optional)</param>
@@ -75,7 +73,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">External custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateReservationApiResponse"/>?&gt;</returns>
-        Task<ICreateReservationApiResponse?> CreateReservationOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> appKey = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateReservationApiResponse?> CreateReservationOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> appKey = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Reservation
@@ -84,13 +82,12 @@ namespace Org.OpenAPITools.Api
         /// Deleted a reservation on a reservation object
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="reservationId">The reservation id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteReservationApiResponse"/>&gt;</returns>
-        Task<IDeleteReservationApiResponse> DeleteReservationAsync(decimal version, long reservationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteReservationApiResponse> DeleteReservationAsync(long reservationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Reservation
@@ -98,13 +95,12 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deleted a reservation on a reservation object
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="reservationId">The reservation id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteReservationApiResponse"/>?&gt;</returns>
-        Task<IDeleteReservationApiResponse?> DeleteReservationOrDefaultAsync(decimal version, long reservationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteReservationApiResponse?> DeleteReservationOrDefaultAsync(long reservationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Availability
@@ -113,7 +109,6 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the type of reservation</param>
         /// <param name="deviceId">the device id of the reservation (optional)</param>
@@ -122,7 +117,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary">Availability Summary (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IReservableAvailabilityApiResponse"/>&gt;</returns>
-        Task<IReservableAvailabilityApiResponse> ReservableAvailabilityAsync(decimal version, long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IReservableAvailabilityApiResponse> ReservableAvailabilityAsync(long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Availability
@@ -130,7 +125,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the type of reservation</param>
         /// <param name="deviceId">the device id of the reservation (optional)</param>
@@ -139,7 +133,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary">Availability Summary (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IReservableAvailabilityApiResponse"/>?&gt;</returns>
-        Task<IReservableAvailabilityApiResponse?> ReservableAvailabilityOrDefaultAsync(decimal version, long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IReservableAvailabilityApiResponse?> ReservableAvailabilityOrDefaultAsync(long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Availability
@@ -148,7 +142,6 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the reservable type</param>
         /// <param name="deviceId">the device ID that the reservation is on (optional)</param>
@@ -159,7 +152,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAvailabilityApiResponse"/>&gt;</returns>
-        Task<ISearchAvailabilityApiResponse> SearchAvailabilityAsync(decimal version, long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAvailabilityApiResponse> SearchAvailabilityAsync(long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Availability
@@ -167,7 +160,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the reservable type</param>
         /// <param name="deviceId">the device ID that the reservation is on (optional)</param>
@@ -178,7 +170,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAvailabilityApiResponse"/>?&gt;</returns>
-        Task<ISearchAvailabilityApiResponse?> SearchAvailabilityOrDefaultAsync(decimal version, long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchAvailabilityApiResponse?> SearchAvailabilityOrDefaultAsync(long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Reservations
@@ -187,7 +179,6 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">Device Id (optional)</param>
         /// <param name="appKey">Appilcation Key (optional)</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
@@ -201,7 +192,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchReservationsApiResponse"/>&gt;</returns>
-        Task<ISearchReservationsApiResponse> SearchReservationsAsync(decimal version, Option<string> deviceId = default, Option<string> appKey = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<long> reservableId = default, Option<string> reservableType = default, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchReservationsApiResponse> SearchReservationsAsync(Option<string> deviceId = default, Option<string> appKey = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<long> reservableId = default, Option<string> reservableType = default, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Reservations
@@ -209,7 +200,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">Device Id (optional)</param>
         /// <param name="appKey">Appilcation Key (optional)</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
@@ -223,7 +213,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchReservationsApiResponse"/>?&gt;</returns>
-        Task<ISearchReservationsApiResponse?> SearchReservationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<string> appKey = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<long> reservableId = default, Option<string> reservableType = default, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchReservationsApiResponse?> SearchReservationsOrDefaultAsync(Option<string> deviceId = default, Option<string> appKey = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<long> reservableId = default, Option<string> reservableType = default, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Schedule
@@ -232,7 +222,6 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the reservation type</param>
         /// <param name="startDate">the start date of the reservation</param>
@@ -242,7 +231,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="timeBucketMins">the length of time in minutes to search on for reservation (optional, default to 30)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScheduleApiResponse"/>&gt;</returns>
-        Task<ISearchScheduleApiResponse> SearchScheduleAsync(decimal version, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<int> timeBucketMins = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchScheduleApiResponse> SearchScheduleAsync(long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<int> timeBucketMins = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Schedule
@@ -250,7 +239,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the reservation type</param>
         /// <param name="startDate">the start date of the reservation</param>
@@ -260,7 +248,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="timeBucketMins">the length of time in minutes to search on for reservation (optional, default to 30)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScheduleApiResponse"/>?&gt;</returns>
-        Task<ISearchScheduleApiResponse?> SearchScheduleOrDefaultAsync(decimal version, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<int> timeBucketMins = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchScheduleApiResponse?> SearchScheduleOrDefaultAsync(long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<int> timeBucketMins = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -508,7 +496,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateReservation(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> startDate, ref Option<long> endDate, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<string> appKey, ref Option<string> metaData);
+        partial void FormatCreateReservation(ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> startDate, ref Option<long> endDate, ref Option<long> offerId, ref Option<long> offerLocationId, ref Option<string> appKey, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -533,7 +521,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="startDate"></param>
@@ -542,10 +529,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId"></param>
         /// <param name="appKey"></param>
         /// <param name="metaData"></param>
-        private void AfterCreateReservationDefaultImplementation(ICreateReservationApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<long> offerId, Option<long> offerLocationId, Option<string> appKey, Option<string> metaData)
+        private void AfterCreateReservationDefaultImplementation(ICreateReservationApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<long> offerId, Option<long> offerLocationId, Option<string> appKey, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterCreateReservation(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
+            AfterCreateReservation(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -555,7 +542,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="startDate"></param>
@@ -564,7 +550,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId"></param>
         /// <param name="appKey"></param>
         /// <param name="metaData"></param>
-        partial void AfterCreateReservation(ref bool suppressDefaultLog, ICreateReservationApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<long> offerId, Option<long> offerLocationId, Option<string> appKey, Option<string> metaData);
+        partial void AfterCreateReservation(ref bool suppressDefaultLog, ICreateReservationApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<long> offerId, Option<long> offerLocationId, Option<string> appKey, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -572,7 +558,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="startDate"></param>
@@ -581,10 +566,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId"></param>
         /// <param name="appKey"></param>
         /// <param name="metaData"></param>
-        private void OnErrorCreateReservationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<long> offerId, Option<long> offerLocationId, Option<string> appKey, Option<string> metaData)
+        private void OnErrorCreateReservationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<long> offerId, Option<long> offerLocationId, Option<string> appKey, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateReservation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
+            OnErrorCreateReservation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -596,7 +581,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="startDate"></param>
@@ -605,12 +589,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="offerLocationId"></param>
         /// <param name="appKey"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorCreateReservation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<long> offerId, Option<long> offerLocationId, Option<string> appKey, Option<string> metaData);
+        partial void OnErrorCreateReservation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<long> offerId, Option<long> offerLocationId, Option<string> appKey, Option<string> metaData);
 
         /// <summary>
         /// Create Reservation Creates a reservation on an offer object
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="startDate">The start date (optional)</param>
@@ -621,11 +604,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">External custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateReservationApiResponse"/>&gt;</returns>
-        public async Task<ICreateReservationApiResponse?> CreateReservationOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> appKey = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateReservationApiResponse?> CreateReservationOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> appKey = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateReservationAsync(version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData, cancellationToken).ConfigureAwait(false);
+                return await CreateReservationAsync(deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -637,7 +620,6 @@ namespace Org.OpenAPITools.Api
         /// Create Reservation Creates a reservation on an offer object
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="startDate">The start date (optional)</param>
@@ -648,7 +630,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">External custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateReservationApiResponse"/>&gt;</returns>
-        public async Task<ICreateReservationApiResponse> CreateReservationAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> appKey = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateReservationApiResponse> CreateReservationAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<long> offerId = default, Option<long> offerLocationId = default, Option<string> appKey = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -656,7 +638,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateReservation(deviceId, appKey, metaData);
 
-                FormatCreateReservation(ref version, ref deviceId, ref accountId, ref startDate, ref endDate, ref offerId, ref offerLocationId, ref appKey, ref metaData);
+                FormatCreateReservation(ref deviceId, ref accountId, ref startDate, ref endDate, ref offerId, ref offerLocationId, ref appKey, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -664,9 +646,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/reservation/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/reservation/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/reservation/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/reservation/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -710,13 +691,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/reservation/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/reservation/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateReservationDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
+                        AfterCreateReservationDefaultImplementation(apiResponseLocalVar, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
 
                         Events.ExecuteOnCreateReservation(apiResponseLocalVar);
 
@@ -726,7 +707,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateReservationDefaultImplementation(e, "/api/{version}/reservation/create", uriBuilderLocalVar.Path, version, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
+                OnErrorCreateReservationDefaultImplementation(e, "/reservation/create", uriBuilderLocalVar.Path, deviceId, accountId, startDate, endDate, offerId, offerLocationId, appKey, metaData);
                 Events.ExecuteOnErrorCreateReservation(e);
                 throw;
             }
@@ -793,7 +774,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteReservation(ref decimal version, ref long reservationId, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatDeleteReservation(ref long reservationId, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -810,14 +791,13 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterDeleteReservationDefaultImplementation(IDeleteReservationApiResponse apiResponseLocalVar, decimal version, long reservationId, Option<string> deviceId, Option<long> accountId)
+        private void AfterDeleteReservationDefaultImplementation(IDeleteReservationApiResponse apiResponseLocalVar, long reservationId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteReservation(ref suppressDefaultLog, apiResponseLocalVar, version, reservationId, deviceId, accountId);
+            AfterDeleteReservation(ref suppressDefaultLog, apiResponseLocalVar, reservationId, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -827,11 +807,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterDeleteReservation(ref bool suppressDefaultLog, IDeleteReservationApiResponse apiResponseLocalVar, decimal version, long reservationId, Option<string> deviceId, Option<long> accountId);
+        partial void AfterDeleteReservation(ref bool suppressDefaultLog, IDeleteReservationApiResponse apiResponseLocalVar, long reservationId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -839,14 +818,13 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorDeleteReservationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long reservationId, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorDeleteReservationDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long reservationId, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteReservation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, reservationId, deviceId, accountId);
+            OnErrorDeleteReservation(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, reservationId, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -858,26 +836,24 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservationId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorDeleteReservation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long reservationId, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorDeleteReservation(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long reservationId, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Delete Reservation Deleted a reservation on a reservation object
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="reservationId">The reservation id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteReservationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteReservationApiResponse?> DeleteReservationOrDefaultAsync(decimal version, long reservationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteReservationApiResponse?> DeleteReservationOrDefaultAsync(long reservationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteReservationAsync(version, reservationId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await DeleteReservationAsync(reservationId, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -889,13 +865,12 @@ namespace Org.OpenAPITools.Api
         /// Delete Reservation Deleted a reservation on a reservation object
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="reservationId">The reservation id</param>
         /// <param name="deviceId">The device id (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteReservationApiResponse"/>&gt;</returns>
-        public async Task<IDeleteReservationApiResponse> DeleteReservationAsync(decimal version, long reservationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteReservationApiResponse> DeleteReservationAsync(long reservationId, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -903,7 +878,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteReservation(deviceId);
 
-                FormatDeleteReservation(ref version, ref reservationId, ref deviceId, ref accountId);
+                FormatDeleteReservation(ref reservationId, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -911,9 +886,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/reservation/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/reservation/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/reservation/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/reservation/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -941,13 +915,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/reservation/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/reservation/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteReservationDefaultImplementation(apiResponseLocalVar, version, reservationId, deviceId, accountId);
+                        AfterDeleteReservationDefaultImplementation(apiResponseLocalVar, reservationId, deviceId, accountId);
 
                         Events.ExecuteOnDeleteReservation(apiResponseLocalVar);
 
@@ -957,7 +931,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteReservationDefaultImplementation(e, "/api/{version}/reservation/delete", uriBuilderLocalVar.Path, version, reservationId, deviceId, accountId);
+                OnErrorDeleteReservationDefaultImplementation(e, "/reservation/delete", uriBuilderLocalVar.Path, reservationId, deviceId, accountId);
                 Events.ExecuteOnErrorDeleteReservation(e);
                 throw;
             }
@@ -1024,7 +998,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatReservableAvailability(ref decimal version, ref long reservableId, ref string reservableType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> availability, ref Option<string> availabilitySummary);
+        partial void FormatReservableAvailability(ref long reservableId, ref string reservableType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> availability, ref Option<string> availabilitySummary);
 
         /// <summary>
         /// Validates the request parameters
@@ -1053,17 +1027,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void AfterReservableAvailabilityDefaultImplementation(IReservableAvailabilityApiResponse apiResponseLocalVar, decimal version, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<string> availability, Option<string> availabilitySummary)
+        private void AfterReservableAvailabilityDefaultImplementation(IReservableAvailabilityApiResponse apiResponseLocalVar, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLog = false;
-            AfterReservableAvailability(ref suppressDefaultLog, apiResponseLocalVar, version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
+            AfterReservableAvailability(ref suppressDefaultLog, apiResponseLocalVar, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1073,14 +1046,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void AfterReservableAvailability(ref bool suppressDefaultLog, IReservableAvailabilityApiResponse apiResponseLocalVar, decimal version, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<string> availability, Option<string> availabilitySummary);
+        partial void AfterReservableAvailability(ref bool suppressDefaultLog, IReservableAvailabilityApiResponse apiResponseLocalVar, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1088,17 +1060,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        private void OnErrorReservableAvailabilityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<string> availability, Option<string> availabilitySummary)
+        private void OnErrorReservableAvailabilityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<string> availability, Option<string> availabilitySummary)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorReservableAvailability(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
+            OnErrorReservableAvailability(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1110,19 +1081,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="availability"></param>
         /// <param name="availabilitySummary"></param>
-        partial void OnErrorReservableAvailability(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<string> availability, Option<string> availabilitySummary);
+        partial void OnErrorReservableAvailability(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<string> availability, Option<string> availabilitySummary);
 
         /// <summary>
         /// Update Availability 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the type of reservation</param>
         /// <param name="deviceId">the device id of the reservation (optional)</param>
@@ -1131,11 +1100,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary">Availability Summary (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IReservableAvailabilityApiResponse"/>&gt;</returns>
-        public async Task<IReservableAvailabilityApiResponse?> ReservableAvailabilityOrDefaultAsync(decimal version, long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IReservableAvailabilityApiResponse?> ReservableAvailabilityOrDefaultAsync(long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ReservableAvailabilityAsync(version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
+                return await ReservableAvailabilityAsync(reservableId, reservableType, deviceId, accountId, availability, availabilitySummary, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1147,7 +1116,6 @@ namespace Org.OpenAPITools.Api
         /// Update Availability 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the type of reservation</param>
         /// <param name="deviceId">the device id of the reservation (optional)</param>
@@ -1156,7 +1124,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="availabilitySummary">Availability Summary (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IReservableAvailabilityApiResponse"/>&gt;</returns>
-        public async Task<IReservableAvailabilityApiResponse> ReservableAvailabilityAsync(decimal version, long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IReservableAvailabilityApiResponse> ReservableAvailabilityAsync(long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<string> availability = default, Option<string> availabilitySummary = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1164,7 +1132,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateReservableAvailability(reservableType, deviceId, availability, availabilitySummary);
 
-                FormatReservableAvailability(ref version, ref reservableId, ref reservableType, ref deviceId, ref accountId, ref availability, ref availabilitySummary);
+                FormatReservableAvailability(ref reservableId, ref reservableType, ref deviceId, ref accountId, ref availability, ref availabilitySummary);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1172,9 +1140,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/reservable/availability/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/reservable/availability/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/reservable/availability/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/reservable/availability/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1218,13 +1185,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/reservable/availability/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/reservable/availability/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterReservableAvailabilityDefaultImplementation(apiResponseLocalVar, version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
+                        AfterReservableAvailabilityDefaultImplementation(apiResponseLocalVar, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
 
                         Events.ExecuteOnReservableAvailability(apiResponseLocalVar);
 
@@ -1234,7 +1201,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorReservableAvailabilityDefaultImplementation(e, "/api/{version}/reservable/availability/update", uriBuilderLocalVar.Path, version, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
+                OnErrorReservableAvailabilityDefaultImplementation(e, "/reservable/availability/update", uriBuilderLocalVar.Path, reservableId, reservableType, deviceId, accountId, availability, availabilitySummary);
                 Events.ExecuteOnErrorReservableAvailability(e);
                 throw;
             }
@@ -1333,7 +1300,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchAvailability(ref decimal version, ref long reservableId, ref string reservableType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> startDate, ref Option<long> endDate, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchAvailability(ref long reservableId, ref string reservableType, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> startDate, ref Option<long> endDate, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1354,7 +1321,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="deviceId"></param>
@@ -1363,10 +1329,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchAvailabilityDefaultImplementation(ISearchAvailabilityApiResponse apiResponseLocalVar, decimal version, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
+        private void AfterSearchAvailabilityDefaultImplementation(ISearchAvailabilityApiResponse apiResponseLocalVar, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchAvailability(ref suppressDefaultLog, apiResponseLocalVar, version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
+            AfterSearchAvailability(ref suppressDefaultLog, apiResponseLocalVar, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1376,7 +1342,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="deviceId"></param>
@@ -1385,7 +1350,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchAvailability(ref bool suppressDefaultLog, ISearchAvailabilityApiResponse apiResponseLocalVar, decimal version, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
+        partial void AfterSearchAvailability(ref bool suppressDefaultLog, ISearchAvailabilityApiResponse apiResponseLocalVar, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1393,7 +1358,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="deviceId"></param>
@@ -1402,10 +1366,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchAvailabilityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
+        private void OnErrorSearchAvailabilityDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchAvailability(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
+            OnErrorSearchAvailability(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1417,7 +1381,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="deviceId"></param>
@@ -1426,12 +1389,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchAvailability(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchAvailability(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long reservableId, string reservableType, Option<string> deviceId, Option<long> accountId, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Availability 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the reservable type</param>
         /// <param name="deviceId">the device ID that the reservation is on (optional)</param>
@@ -1442,11 +1404,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAvailabilityApiResponse"/>&gt;</returns>
-        public async Task<ISearchAvailabilityApiResponse?> SearchAvailabilityOrDefaultAsync(decimal version, long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAvailabilityApiResponse?> SearchAvailabilityOrDefaultAsync(long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchAvailabilityAsync(version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchAvailabilityAsync(reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1458,7 +1420,6 @@ namespace Org.OpenAPITools.Api
         /// Search Availability 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the reservable type</param>
         /// <param name="deviceId">the device ID that the reservation is on (optional)</param>
@@ -1469,7 +1430,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchAvailabilityApiResponse"/>&gt;</returns>
-        public async Task<ISearchAvailabilityApiResponse> SearchAvailabilityAsync(decimal version, long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchAvailabilityApiResponse> SearchAvailabilityAsync(long reservableId, string reservableType, Option<string> deviceId = default, Option<long> accountId = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1477,7 +1438,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchAvailability(reservableType, deviceId);
 
-                FormatSearchAvailability(ref version, ref reservableId, ref reservableType, ref deviceId, ref accountId, ref startDate, ref endDate, ref start, ref limit);
+                FormatSearchAvailability(ref reservableId, ref reservableType, ref deviceId, ref accountId, ref startDate, ref endDate, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1485,9 +1446,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/reservable/availability/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/reservable/availability/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/reservable/availability/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/reservable/availability/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1537,13 +1497,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/reservable/availability/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/reservable/availability/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchAvailabilityDefaultImplementation(apiResponseLocalVar, version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
+                        AfterSearchAvailabilityDefaultImplementation(apiResponseLocalVar, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
 
                         Events.ExecuteOnSearchAvailability(apiResponseLocalVar);
 
@@ -1553,7 +1513,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchAvailabilityDefaultImplementation(e, "/api/{version}/reservable/availability/search", uriBuilderLocalVar.Path, version, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
+                OnErrorSearchAvailabilityDefaultImplementation(e, "/reservable/availability/search", uriBuilderLocalVar.Path, reservableId, reservableType, deviceId, accountId, startDate, endDate, start, limit);
                 Events.ExecuteOnErrorSearchAvailability(e);
                 throw;
             }
@@ -1652,7 +1612,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchReservations(ref decimal version, ref Option<string> deviceId, ref Option<string> appKey, ref Option<long> accountId, ref Option<long> filterAccountId, ref Option<long> reservableId, ref Option<string> reservableType, ref Option<string> keyword, ref Option<long> startDate, ref Option<long> endDate, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchReservations(ref Option<string> deviceId, ref Option<string> appKey, ref Option<long> accountId, ref Option<long> filterAccountId, ref Option<long> reservableId, ref Option<string> reservableType, ref Option<string> keyword, ref Option<long> startDate, ref Option<long> endDate, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1681,7 +1641,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
@@ -1693,10 +1652,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchReservationsDefaultImplementation(ISearchReservationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<string> appKey, Option<long> accountId, Option<long> filterAccountId, Option<long> reservableId, Option<string> reservableType, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
+        private void AfterSearchReservationsDefaultImplementation(ISearchReservationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<string> appKey, Option<long> accountId, Option<long> filterAccountId, Option<long> reservableId, Option<string> reservableType, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchReservations(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
+            AfterSearchReservations(ref suppressDefaultLog, apiResponseLocalVar, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1706,7 +1665,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
@@ -1718,7 +1676,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchReservations(ref bool suppressDefaultLog, ISearchReservationsApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<string> appKey, Option<long> accountId, Option<long> filterAccountId, Option<long> reservableId, Option<string> reservableType, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
+        partial void AfterSearchReservations(ref bool suppressDefaultLog, ISearchReservationsApiResponse apiResponseLocalVar, Option<string> deviceId, Option<string> appKey, Option<long> accountId, Option<long> filterAccountId, Option<long> reservableId, Option<string> reservableType, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1726,7 +1684,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
@@ -1738,10 +1695,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchReservationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<string> appKey, Option<long> accountId, Option<long> filterAccountId, Option<long> reservableId, Option<string> reservableType, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
+        private void OnErrorSearchReservationsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<string> appKey, Option<long> accountId, Option<long> filterAccountId, Option<long> reservableId, Option<string> reservableType, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchReservations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
+            OnErrorSearchReservations(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1753,7 +1710,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="appKey"></param>
         /// <param name="accountId"></param>
@@ -1765,12 +1721,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="endDate"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchReservations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<string> appKey, Option<long> accountId, Option<long> filterAccountId, Option<long> reservableId, Option<string> reservableType, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchReservations(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<string> appKey, Option<long> accountId, Option<long> filterAccountId, Option<long> reservableId, Option<string> reservableType, Option<string> keyword, Option<long> startDate, Option<long> endDate, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Reservations 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">Device Id (optional)</param>
         /// <param name="appKey">Appilcation Key (optional)</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
@@ -1784,11 +1739,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchReservationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchReservationsApiResponse?> SearchReservationsOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<string> appKey = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<long> reservableId = default, Option<string> reservableType = default, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchReservationsApiResponse?> SearchReservationsOrDefaultAsync(Option<string> deviceId = default, Option<string> appKey = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<long> reservableId = default, Option<string> reservableType = default, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchReservationsAsync(version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchReservationsAsync(deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1800,7 +1755,6 @@ namespace Org.OpenAPITools.Api
         /// Search Reservations 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">Device Id (optional)</param>
         /// <param name="appKey">Appilcation Key (optional)</param>
         /// <param name="accountId">the id of the logged in user (optional)</param>
@@ -1814,7 +1768,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit of the index and/or pagination (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchReservationsApiResponse"/>&gt;</returns>
-        public async Task<ISearchReservationsApiResponse> SearchReservationsAsync(decimal version, Option<string> deviceId = default, Option<string> appKey = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<long> reservableId = default, Option<string> reservableType = default, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchReservationsApiResponse> SearchReservationsAsync(Option<string> deviceId = default, Option<string> appKey = default, Option<long> accountId = default, Option<long> filterAccountId = default, Option<long> reservableId = default, Option<string> reservableType = default, Option<string> keyword = default, Option<long> startDate = default, Option<long> endDate = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1822,7 +1776,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchReservations(deviceId, appKey, reservableType, keyword);
 
-                FormatSearchReservations(ref version, ref deviceId, ref appKey, ref accountId, ref filterAccountId, ref reservableId, ref reservableType, ref keyword, ref startDate, ref endDate, ref start, ref limit);
+                FormatSearchReservations(ref deviceId, ref appKey, ref accountId, ref filterAccountId, ref reservableId, ref reservableType, ref keyword, ref startDate, ref endDate, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1830,9 +1784,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/reservation/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/reservation/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/reservation/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/reservation/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1894,13 +1847,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/reservation/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/reservation/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchReservationsDefaultImplementation(apiResponseLocalVar, version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
+                        AfterSearchReservationsDefaultImplementation(apiResponseLocalVar, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
 
                         Events.ExecuteOnSearchReservations(apiResponseLocalVar);
 
@@ -1910,7 +1863,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchReservationsDefaultImplementation(e, "/api/{version}/reservation/search", uriBuilderLocalVar.Path, version, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
+                OnErrorSearchReservationsDefaultImplementation(e, "/reservation/search", uriBuilderLocalVar.Path, deviceId, appKey, accountId, filterAccountId, reservableId, reservableType, keyword, startDate, endDate, start, limit);
                 Events.ExecuteOnErrorSearchReservations(e);
                 throw;
             }
@@ -2009,7 +1962,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchSchedule(ref decimal version, ref long reservableId, ref string reservableType, ref long startDate, ref long endDate, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> timeBucketMins);
+        partial void FormatSearchSchedule(ref long reservableId, ref string reservableType, ref long startDate, ref long endDate, ref Option<string> deviceId, ref Option<long> accountId, ref Option<int> timeBucketMins);
 
         /// <summary>
         /// Validates the request parameters
@@ -2030,7 +1983,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="startDate"></param>
@@ -2038,10 +1990,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="timeBucketMins"></param>
-        private void AfterSearchScheduleDefaultImplementation(ISearchScheduleApiResponse apiResponseLocalVar, decimal version, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<int> timeBucketMins)
+        private void AfterSearchScheduleDefaultImplementation(ISearchScheduleApiResponse apiResponseLocalVar, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<int> timeBucketMins)
         {
             bool suppressDefaultLog = false;
-            AfterSearchSchedule(ref suppressDefaultLog, apiResponseLocalVar, version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
+            AfterSearchSchedule(ref suppressDefaultLog, apiResponseLocalVar, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2051,7 +2003,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="startDate"></param>
@@ -2059,7 +2010,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="timeBucketMins"></param>
-        partial void AfterSearchSchedule(ref bool suppressDefaultLog, ISearchScheduleApiResponse apiResponseLocalVar, decimal version, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<int> timeBucketMins);
+        partial void AfterSearchSchedule(ref bool suppressDefaultLog, ISearchScheduleApiResponse apiResponseLocalVar, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<int> timeBucketMins);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2067,7 +2018,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="startDate"></param>
@@ -2075,10 +2025,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="timeBucketMins"></param>
-        private void OnErrorSearchScheduleDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<int> timeBucketMins)
+        private void OnErrorSearchScheduleDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<int> timeBucketMins)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchSchedule(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
+            OnErrorSearchSchedule(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2090,7 +2040,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="reservableId"></param>
         /// <param name="reservableType"></param>
         /// <param name="startDate"></param>
@@ -2098,12 +2047,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="timeBucketMins"></param>
-        partial void OnErrorSearchSchedule(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<int> timeBucketMins);
+        partial void OnErrorSearchSchedule(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId, Option<long> accountId, Option<int> timeBucketMins);
 
         /// <summary>
         /// Search Schedule 
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the reservation type</param>
         /// <param name="startDate">the start date of the reservation</param>
@@ -2113,11 +2061,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="timeBucketMins">the length of time in minutes to search on for reservation (optional, default to 30)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScheduleApiResponse"/>&gt;</returns>
-        public async Task<ISearchScheduleApiResponse?> SearchScheduleOrDefaultAsync(decimal version, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<int> timeBucketMins = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchScheduleApiResponse?> SearchScheduleOrDefaultAsync(long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<int> timeBucketMins = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchScheduleAsync(version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins, cancellationToken).ConfigureAwait(false);
+                return await SearchScheduleAsync(reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2129,7 +2077,6 @@ namespace Org.OpenAPITools.Api
         /// Search Schedule 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="reservableId">the id of the reservation</param>
         /// <param name="reservableType">the reservation type</param>
         /// <param name="startDate">the start date of the reservation</param>
@@ -2139,7 +2086,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="timeBucketMins">the length of time in minutes to search on for reservation (optional, default to 30)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchScheduleApiResponse"/>&gt;</returns>
-        public async Task<ISearchScheduleApiResponse> SearchScheduleAsync(decimal version, long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<int> timeBucketMins = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchScheduleApiResponse> SearchScheduleAsync(long reservableId, string reservableType, long startDate, long endDate, Option<string> deviceId = default, Option<long> accountId = default, Option<int> timeBucketMins = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2147,7 +2094,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchSchedule(reservableType, deviceId);
 
-                FormatSearchSchedule(ref version, ref reservableId, ref reservableType, ref startDate, ref endDate, ref deviceId, ref accountId, ref timeBucketMins);
+                FormatSearchSchedule(ref reservableId, ref reservableType, ref startDate, ref endDate, ref deviceId, ref accountId, ref timeBucketMins);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2155,9 +2102,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/reservable/schedule/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/reservable/schedule/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/reservable/schedule/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/reservable/schedule/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2200,13 +2146,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/reservable/schedule/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/reservable/schedule/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchScheduleDefaultImplementation(apiResponseLocalVar, version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
+                        AfterSearchScheduleDefaultImplementation(apiResponseLocalVar, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
 
                         Events.ExecuteOnSearchSchedule(apiResponseLocalVar);
 
@@ -2216,7 +2162,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchScheduleDefaultImplementation(e, "/api/{version}/reservable/schedule/search", uriBuilderLocalVar.Path, version, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
+                OnErrorSearchScheduleDefaultImplementation(e, "/reservable/schedule/search", uriBuilderLocalVar.Path, reservableId, reservableType, startDate, endDate, deviceId, accountId, timeBucketMins);
                 Events.ExecuteOnErrorSearchSchedule(e);
                 throw;
             }

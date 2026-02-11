@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Gets the ticket count.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the id of the device that owns the tickets (optional)</param>
         /// <param name="accountId">the id of the account that owns the tickets (optional)</param>
         /// <param name="gameType">this is deprecated. (optional)</param>
@@ -53,7 +52,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType">the type of ticket (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTicketCountApiResponse"/>&gt;</returns>
-        Task<IGetTicketCountApiResponse> GetTicketCountAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> ticketType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTicketCountApiResponse> GetTicketCountAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> ticketType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Ticket Count
@@ -61,7 +60,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the ticket count.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the id of the device that owns the tickets (optional)</param>
         /// <param name="accountId">the id of the account that owns the tickets (optional)</param>
         /// <param name="gameType">this is deprecated. (optional)</param>
@@ -69,7 +67,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType">the type of ticket (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTicketCountApiResponse"/>?&gt;</returns>
-        Task<IGetTicketCountApiResponse?> GetTicketCountOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> ticketType = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTicketCountApiResponse?> GetTicketCountOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> ticketType = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Ticket List
@@ -78,7 +76,6 @@ namespace Org.OpenAPITools.Api
         /// Gets the list of tickets.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the id of the device that owns the tickets (optional)</param>
         /// <param name="accountId">the id of the account that owns the tickets (optional)</param>
         /// <param name="ticketObjectType">comma separated list of TicketObjectType (optional)</param>
@@ -90,7 +87,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTicketListApiResponse"/>&gt;</returns>
-        Task<IGetTicketListApiResponse> GetTicketListAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> ticketObjectType = default, Option<string> actionType = default, Option<string> ticketIds = default, Option<string> objectIds = default, Option<string> receiptTokens = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTicketListApiResponse> GetTicketListAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> ticketObjectType = default, Option<string> actionType = default, Option<string> ticketIds = default, Option<string> objectIds = default, Option<string> receiptTokens = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Ticket List
@@ -98,7 +95,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the list of tickets.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">the id of the device that owns the tickets (optional)</param>
         /// <param name="accountId">the id of the account that owns the tickets (optional)</param>
         /// <param name="ticketObjectType">comma separated list of TicketObjectType (optional)</param>
@@ -110,7 +106,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTicketListApiResponse"/>?&gt;</returns>
-        Task<IGetTicketListApiResponse?> GetTicketListOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> ticketObjectType = default, Option<string> actionType = default, Option<string> ticketIds = default, Option<string> objectIds = default, Option<string> receiptTokens = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTicketListApiResponse?> GetTicketListOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> ticketObjectType = default, Option<string> actionType = default, Option<string> ticketIds = default, Option<string> objectIds = default, Option<string> receiptTokens = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gift Tickets
@@ -119,7 +115,6 @@ namespace Org.OpenAPITools.Api
         /// Gift tickets to another user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="receiverAccountId">the id of the account receiving the tickets</param>
         /// <param name="ticketId">the id of the tickets</param>
         /// <param name="deviceId">the id of the device (optional)</param>
@@ -130,7 +125,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGiftPurchaseApiResponse"/>&gt;</returns>
-        Task<IGiftPurchaseApiResponse> GiftPurchaseAsync(decimal version, long receiverAccountId, long ticketId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> assetId = default, Option<string> customMessage = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGiftPurchaseApiResponse> GiftPurchaseAsync(long receiverAccountId, long ticketId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> assetId = default, Option<string> customMessage = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gift Tickets
@@ -138,7 +133,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gift tickets to another user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="receiverAccountId">the id of the account receiving the tickets</param>
         /// <param name="ticketId">the id of the tickets</param>
         /// <param name="deviceId">the id of the device (optional)</param>
@@ -149,7 +143,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGiftPurchaseApiResponse"/>?&gt;</returns>
-        Task<IGiftPurchaseApiResponse?> GiftPurchaseOrDefaultAsync(decimal version, long receiverAccountId, long ticketId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> assetId = default, Option<string> customMessage = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGiftPurchaseApiResponse?> GiftPurchaseOrDefaultAsync(long receiverAccountId, long ticketId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> assetId = default, Option<string> customMessage = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save Ticket
@@ -158,7 +152,6 @@ namespace Org.OpenAPITools.Api
         /// Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="actionType">the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER</param>
         /// <param name="ticketObjectType">the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM</param>
         /// <param name="returnNulls">whether to return nulls or not (optional)</param>
@@ -179,7 +172,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion">the application version (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTicketApiResponse"/>&gt;</returns>
-        Task<ISaveTicketApiResponse> SaveTicketAsync(decimal version, string actionType, string ticketObjectType, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<string> receiptData = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaveTicketApiResponse> SaveTicketAsync(string actionType, string ticketObjectType, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<string> receiptData = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save Ticket
@@ -187,7 +180,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="actionType">the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER</param>
         /// <param name="ticketObjectType">the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM</param>
         /// <param name="returnNulls">whether to return nulls or not (optional)</param>
@@ -208,7 +200,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion">the application version (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTicketApiResponse"/>?&gt;</returns>
-        Task<ISaveTicketApiResponse?> SaveTicketOrDefaultAsync(decimal version, string actionType, string ticketObjectType, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<string> receiptData = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaveTicketApiResponse?> SaveTicketOrDefaultAsync(string actionType, string ticketObjectType, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<string> receiptData = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save Ticket with Reciept
@@ -217,7 +209,6 @@ namespace Org.OpenAPITools.Api
         /// Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="actionType">the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }</param>
         /// <param name="ticketObjectType">the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}</param>
         /// <param name="receiptData">the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.</param>
@@ -238,7 +229,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion">the application version (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTicketViaFileUploadApiResponse"/>&gt;</returns>
-        Task<ISaveTicketViaFileUploadApiResponse> SaveTicketViaFileUploadAsync(decimal version, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaveTicketViaFileUploadApiResponse> SaveTicketViaFileUploadAsync(string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save Ticket with Reciept
@@ -246,7 +237,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="actionType">the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }</param>
         /// <param name="ticketObjectType">the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}</param>
         /// <param name="receiptData">the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.</param>
@@ -267,7 +257,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion">the application version (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTicketViaFileUploadApiResponse"/>?&gt;</returns>
-        Task<ISaveTicketViaFileUploadApiResponse?> SaveTicketViaFileUploadOrDefaultAsync(decimal version, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISaveTicketViaFileUploadApiResponse?> SaveTicketViaFileUploadOrDefaultAsync(string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Ticket Offers
@@ -276,10 +266,9 @@ namespace Org.OpenAPITools.Api
         /// Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITicketOffersApiResponse"/>&gt;</returns>
-        Task<ITicketOffersApiResponse> TicketOffersAsync(decimal version, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITicketOffersApiResponse> TicketOffersAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Ticket Offers
@@ -287,10 +276,9 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITicketOffersApiResponse"/>?&gt;</returns>
-        Task<ITicketOffersApiResponse?> TicketOffersOrDefaultAsync(decimal version, System.Threading.CancellationToken cancellationToken = default);
+        Task<ITicketOffersApiResponse?> TicketOffersOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -538,7 +526,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetTicketCount(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> ticketType);
+        partial void FormatGetTicketCount(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> ticketType);
 
         /// <summary>
         /// Validates the request parameters
@@ -567,16 +555,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="ticketType"></param>
-        private void AfterGetTicketCountDefaultImplementation(IGetTicketCountApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> ticketType)
+        private void AfterGetTicketCountDefaultImplementation(IGetTicketCountApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> ticketType)
         {
             bool suppressDefaultLog = false;
-            AfterGetTicketCount(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, gameType, appKey, ticketType);
+            AfterGetTicketCount(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, gameType, appKey, ticketType);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -586,13 +573,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="ticketType"></param>
-        partial void AfterGetTicketCount(ref bool suppressDefaultLog, IGetTicketCountApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> ticketType);
+        partial void AfterGetTicketCount(ref bool suppressDefaultLog, IGetTicketCountApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> ticketType);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -600,16 +586,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="ticketType"></param>
-        private void OnErrorGetTicketCountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> ticketType)
+        private void OnErrorGetTicketCountDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> ticketType)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTicketCount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, gameType, appKey, ticketType);
+            OnErrorGetTicketCount(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, gameType, appKey, ticketType);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -621,18 +606,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
         /// <param name="ticketType"></param>
-        partial void OnErrorGetTicketCount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> ticketType);
+        partial void OnErrorGetTicketCount(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> ticketType);
 
         /// <summary>
         /// Get Ticket Count Gets the ticket count.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the id of the device that owns the tickets (optional)</param>
         /// <param name="accountId">the id of the account that owns the tickets (optional)</param>
         /// <param name="gameType">this is deprecated. (optional)</param>
@@ -640,11 +623,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType">the type of ticket (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTicketCountApiResponse"/>&gt;</returns>
-        public async Task<IGetTicketCountApiResponse?> GetTicketCountOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> ticketType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTicketCountApiResponse?> GetTicketCountOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> ticketType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTicketCountAsync(version, deviceId, accountId, gameType, appKey, ticketType, cancellationToken).ConfigureAwait(false);
+                return await GetTicketCountAsync(deviceId, accountId, gameType, appKey, ticketType, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -656,7 +639,6 @@ namespace Org.OpenAPITools.Api
         /// Get Ticket Count Gets the ticket count.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the id of the device that owns the tickets (optional)</param>
         /// <param name="accountId">the id of the account that owns the tickets (optional)</param>
         /// <param name="gameType">this is deprecated. (optional)</param>
@@ -664,7 +646,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="ticketType">the type of ticket (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTicketCountApiResponse"/>&gt;</returns>
-        public async Task<IGetTicketCountApiResponse> GetTicketCountAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> ticketType = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTicketCountApiResponse> GetTicketCountAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> ticketType = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -672,7 +654,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetTicketCount(deviceId, gameType, appKey, ticketType);
 
-                FormatGetTicketCount(ref version, ref deviceId, ref accountId, ref gameType, ref appKey, ref ticketType);
+                FormatGetTicketCount(ref deviceId, ref accountId, ref gameType, ref appKey, ref ticketType);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -680,9 +662,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ticket/count"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ticket/count");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ticket/count"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ticket/count");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -726,13 +707,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ticket/count", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ticket/count", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTicketCountDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, gameType, appKey, ticketType);
+                        AfterGetTicketCountDefaultImplementation(apiResponseLocalVar, deviceId, accountId, gameType, appKey, ticketType);
 
                         Events.ExecuteOnGetTicketCount(apiResponseLocalVar);
 
@@ -742,7 +723,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTicketCountDefaultImplementation(e, "/api/{version}/ticket/count", uriBuilderLocalVar.Path, version, deviceId, accountId, gameType, appKey, ticketType);
+                OnErrorGetTicketCountDefaultImplementation(e, "/ticket/count", uriBuilderLocalVar.Path, deviceId, accountId, gameType, appKey, ticketType);
                 Events.ExecuteOnErrorGetTicketCount(e);
                 throw;
             }
@@ -841,7 +822,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetTicketList(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> ticketObjectType, ref Option<string> actionType, ref Option<string> ticketIds, ref Option<string> objectIds, ref Option<string> receiptTokens, ref Option<string> gameType, ref Option<string> appKey);
+        partial void FormatGetTicketList(ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> ticketObjectType, ref Option<string> actionType, ref Option<string> ticketIds, ref Option<string> objectIds, ref Option<string> receiptTokens, ref Option<string> gameType, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -886,7 +867,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketObjectType"></param>
@@ -896,10 +876,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="receiptTokens"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
-        private void AfterGetTicketListDefaultImplementation(IGetTicketListApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> ticketObjectType, Option<string> actionType, Option<string> ticketIds, Option<string> objectIds, Option<string> receiptTokens, Option<string> gameType, Option<string> appKey)
+        private void AfterGetTicketListDefaultImplementation(IGetTicketListApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> ticketObjectType, Option<string> actionType, Option<string> ticketIds, Option<string> objectIds, Option<string> receiptTokens, Option<string> gameType, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterGetTicketList(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
+            AfterGetTicketList(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -909,7 +889,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketObjectType"></param>
@@ -919,7 +898,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="receiptTokens"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
-        partial void AfterGetTicketList(ref bool suppressDefaultLog, IGetTicketListApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> ticketObjectType, Option<string> actionType, Option<string> ticketIds, Option<string> objectIds, Option<string> receiptTokens, Option<string> gameType, Option<string> appKey);
+        partial void AfterGetTicketList(ref bool suppressDefaultLog, IGetTicketListApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> ticketObjectType, Option<string> actionType, Option<string> ticketIds, Option<string> objectIds, Option<string> receiptTokens, Option<string> gameType, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -927,7 +906,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketObjectType"></param>
@@ -937,10 +915,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="receiptTokens"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
-        private void OnErrorGetTicketListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> ticketObjectType, Option<string> actionType, Option<string> ticketIds, Option<string> objectIds, Option<string> receiptTokens, Option<string> gameType, Option<string> appKey)
+        private void OnErrorGetTicketListDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> ticketObjectType, Option<string> actionType, Option<string> ticketIds, Option<string> objectIds, Option<string> receiptTokens, Option<string> gameType, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetTicketList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
+            OnErrorGetTicketList(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -952,7 +930,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="ticketObjectType"></param>
@@ -962,12 +939,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="receiptTokens"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorGetTicketList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<string> ticketObjectType, Option<string> actionType, Option<string> ticketIds, Option<string> objectIds, Option<string> receiptTokens, Option<string> gameType, Option<string> appKey);
+        partial void OnErrorGetTicketList(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<string> ticketObjectType, Option<string> actionType, Option<string> ticketIds, Option<string> objectIds, Option<string> receiptTokens, Option<string> gameType, Option<string> appKey);
 
         /// <summary>
         /// Get Ticket List Gets the list of tickets.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">the id of the device that owns the tickets (optional)</param>
         /// <param name="accountId">the id of the account that owns the tickets (optional)</param>
         /// <param name="ticketObjectType">comma separated list of TicketObjectType (optional)</param>
@@ -979,11 +955,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTicketListApiResponse"/>&gt;</returns>
-        public async Task<IGetTicketListApiResponse?> GetTicketListOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> ticketObjectType = default, Option<string> actionType = default, Option<string> ticketIds = default, Option<string> objectIds = default, Option<string> receiptTokens = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTicketListApiResponse?> GetTicketListOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> ticketObjectType = default, Option<string> actionType = default, Option<string> ticketIds = default, Option<string> objectIds = default, Option<string> receiptTokens = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTicketListAsync(version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey, cancellationToken).ConfigureAwait(false);
+                return await GetTicketListAsync(deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -995,7 +971,6 @@ namespace Org.OpenAPITools.Api
         /// Get Ticket List Gets the list of tickets.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">the id of the device that owns the tickets (optional)</param>
         /// <param name="accountId">the id of the account that owns the tickets (optional)</param>
         /// <param name="ticketObjectType">comma separated list of TicketObjectType (optional)</param>
@@ -1007,7 +982,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTicketListApiResponse"/>&gt;</returns>
-        public async Task<IGetTicketListApiResponse> GetTicketListAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<string> ticketObjectType = default, Option<string> actionType = default, Option<string> ticketIds = default, Option<string> objectIds = default, Option<string> receiptTokens = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTicketListApiResponse> GetTicketListAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<string> ticketObjectType = default, Option<string> actionType = default, Option<string> ticketIds = default, Option<string> objectIds = default, Option<string> receiptTokens = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1015,7 +990,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetTicketList(deviceId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
 
-                FormatGetTicketList(ref version, ref deviceId, ref accountId, ref ticketObjectType, ref actionType, ref ticketIds, ref objectIds, ref receiptTokens, ref gameType, ref appKey);
+                FormatGetTicketList(ref deviceId, ref accountId, ref ticketObjectType, ref actionType, ref ticketIds, ref objectIds, ref receiptTokens, ref gameType, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1023,9 +998,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ticket/getList"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ticket/getList");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ticket/getList"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ticket/getList");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1081,13 +1055,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ticket/getList", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ticket/getList", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTicketListDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
+                        AfterGetTicketListDefaultImplementation(apiResponseLocalVar, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
 
                         Events.ExecuteOnGetTicketList(apiResponseLocalVar);
 
@@ -1097,7 +1071,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTicketListDefaultImplementation(e, "/api/{version}/ticket/getList", uriBuilderLocalVar.Path, version, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
+                OnErrorGetTicketListDefaultImplementation(e, "/ticket/getList", uriBuilderLocalVar.Path, deviceId, accountId, ticketObjectType, actionType, ticketIds, objectIds, receiptTokens, gameType, appKey);
                 Events.ExecuteOnErrorGetTicketList(e);
                 throw;
             }
@@ -1196,7 +1170,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGiftPurchase(ref decimal version, ref long receiverAccountId, ref long ticketId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> assetId, ref Option<string> customMessage, ref Option<string> gameType, ref Option<string> appKey);
+        partial void FormatGiftPurchase(ref long receiverAccountId, ref long ticketId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<long> assetId, ref Option<string> customMessage, ref Option<string> gameType, ref Option<string> appKey);
 
         /// <summary>
         /// Validates the request parameters
@@ -1225,7 +1199,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="ticketId"></param>
         /// <param name="deviceId"></param>
@@ -1234,10 +1207,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="customMessage"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
-        private void AfterGiftPurchaseDefaultImplementation(IGiftPurchaseApiResponse apiResponseLocalVar, decimal version, long receiverAccountId, long ticketId, Option<string> deviceId, Option<long> accountId, Option<long> assetId, Option<string> customMessage, Option<string> gameType, Option<string> appKey)
+        private void AfterGiftPurchaseDefaultImplementation(IGiftPurchaseApiResponse apiResponseLocalVar, long receiverAccountId, long ticketId, Option<string> deviceId, Option<long> accountId, Option<long> assetId, Option<string> customMessage, Option<string> gameType, Option<string> appKey)
         {
             bool suppressDefaultLog = false;
-            AfterGiftPurchase(ref suppressDefaultLog, apiResponseLocalVar, version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
+            AfterGiftPurchase(ref suppressDefaultLog, apiResponseLocalVar, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1247,7 +1220,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="ticketId"></param>
         /// <param name="deviceId"></param>
@@ -1256,7 +1228,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="customMessage"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
-        partial void AfterGiftPurchase(ref bool suppressDefaultLog, IGiftPurchaseApiResponse apiResponseLocalVar, decimal version, long receiverAccountId, long ticketId, Option<string> deviceId, Option<long> accountId, Option<long> assetId, Option<string> customMessage, Option<string> gameType, Option<string> appKey);
+        partial void AfterGiftPurchase(ref bool suppressDefaultLog, IGiftPurchaseApiResponse apiResponseLocalVar, long receiverAccountId, long ticketId, Option<string> deviceId, Option<long> accountId, Option<long> assetId, Option<string> customMessage, Option<string> gameType, Option<string> appKey);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1264,7 +1236,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="ticketId"></param>
         /// <param name="deviceId"></param>
@@ -1273,10 +1244,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="customMessage"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
-        private void OnErrorGiftPurchaseDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long receiverAccountId, long ticketId, Option<string> deviceId, Option<long> accountId, Option<long> assetId, Option<string> customMessage, Option<string> gameType, Option<string> appKey)
+        private void OnErrorGiftPurchaseDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long receiverAccountId, long ticketId, Option<string> deviceId, Option<long> accountId, Option<long> assetId, Option<string> customMessage, Option<string> gameType, Option<string> appKey)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGiftPurchase(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
+            OnErrorGiftPurchase(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1288,7 +1259,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="receiverAccountId"></param>
         /// <param name="ticketId"></param>
         /// <param name="deviceId"></param>
@@ -1297,12 +1267,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="customMessage"></param>
         /// <param name="gameType"></param>
         /// <param name="appKey"></param>
-        partial void OnErrorGiftPurchase(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long receiverAccountId, long ticketId, Option<string> deviceId, Option<long> accountId, Option<long> assetId, Option<string> customMessage, Option<string> gameType, Option<string> appKey);
+        partial void OnErrorGiftPurchase(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long receiverAccountId, long ticketId, Option<string> deviceId, Option<long> accountId, Option<long> assetId, Option<string> customMessage, Option<string> gameType, Option<string> appKey);
 
         /// <summary>
         /// Gift Tickets Gift tickets to another user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="receiverAccountId">the id of the account receiving the tickets</param>
         /// <param name="ticketId">the id of the tickets</param>
         /// <param name="deviceId">the id of the device (optional)</param>
@@ -1313,11 +1282,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGiftPurchaseApiResponse"/>&gt;</returns>
-        public async Task<IGiftPurchaseApiResponse?> GiftPurchaseOrDefaultAsync(decimal version, long receiverAccountId, long ticketId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> assetId = default, Option<string> customMessage = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGiftPurchaseApiResponse?> GiftPurchaseOrDefaultAsync(long receiverAccountId, long ticketId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> assetId = default, Option<string> customMessage = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GiftPurchaseAsync(version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey, cancellationToken).ConfigureAwait(false);
+                return await GiftPurchaseAsync(receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1329,7 +1298,6 @@ namespace Org.OpenAPITools.Api
         /// Gift Tickets Gift tickets to another user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="receiverAccountId">the id of the account receiving the tickets</param>
         /// <param name="ticketId">the id of the tickets</param>
         /// <param name="deviceId">the id of the device (optional)</param>
@@ -1340,7 +1308,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey">the application key (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGiftPurchaseApiResponse"/>&gt;</returns>
-        public async Task<IGiftPurchaseApiResponse> GiftPurchaseAsync(decimal version, long receiverAccountId, long ticketId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> assetId = default, Option<string> customMessage = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGiftPurchaseApiResponse> GiftPurchaseAsync(long receiverAccountId, long ticketId, Option<string> deviceId = default, Option<long> accountId = default, Option<long> assetId = default, Option<string> customMessage = default, Option<string> gameType = default, Option<string> appKey = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1348,7 +1316,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGiftPurchase(deviceId, customMessage, gameType, appKey);
 
-                FormatGiftPurchase(ref version, ref receiverAccountId, ref ticketId, ref deviceId, ref accountId, ref assetId, ref customMessage, ref gameType, ref appKey);
+                FormatGiftPurchase(ref receiverAccountId, ref ticketId, ref deviceId, ref accountId, ref assetId, ref customMessage, ref gameType, ref appKey);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1356,9 +1324,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/purchase/gift"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/purchase/gift");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/purchase/gift"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/purchase/gift");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1408,13 +1375,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/purchase/gift", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/purchase/gift", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGiftPurchaseDefaultImplementation(apiResponseLocalVar, version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
+                        AfterGiftPurchaseDefaultImplementation(apiResponseLocalVar, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
 
                         Events.ExecuteOnGiftPurchase(apiResponseLocalVar);
 
@@ -1424,7 +1391,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGiftPurchaseDefaultImplementation(e, "/api/{version}/purchase/gift", uriBuilderLocalVar.Path, version, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
+                OnErrorGiftPurchaseDefaultImplementation(e, "/purchase/gift", uriBuilderLocalVar.Path, receiverAccountId, ticketId, deviceId, accountId, assetId, customMessage, gameType, appKey);
                 Events.ExecuteOnErrorGiftPurchase(e);
                 throw;
             }
@@ -1523,7 +1490,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSaveTicket(ref decimal version, ref string actionType, ref string ticketObjectType, ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<long> objectId, ref Option<string> purchaseCode, ref Option<string> receiptToken, ref Option<string> receiptData, ref Option<long> count, ref Option<string> ticketType, ref Option<string> purchaseProvider, ref Option<string> purchaseType, ref Option<bool> returnProfileResponse, ref Option<bool> includeProfileResponse, ref Option<string> appVersion);
+        partial void FormatSaveTicket(ref string actionType, ref string ticketObjectType, ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<long> objectId, ref Option<string> purchaseCode, ref Option<string> receiptToken, ref Option<string> receiptData, ref Option<long> count, ref Option<string> ticketType, ref Option<string> purchaseProvider, ref Option<string> purchaseType, ref Option<bool> returnProfileResponse, ref Option<bool> includeProfileResponse, ref Option<string> appVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -1584,7 +1551,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="actionType"></param>
         /// <param name="ticketObjectType"></param>
         /// <param name="returnNulls"></param>
@@ -1603,10 +1569,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProfileResponse"></param>
         /// <param name="includeProfileResponse"></param>
         /// <param name="appVersion"></param>
-        private void AfterSaveTicketDefaultImplementation(ISaveTicketApiResponse apiResponseLocalVar, decimal version, string actionType, string ticketObjectType, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<string> receiptData, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion)
+        private void AfterSaveTicketDefaultImplementation(ISaveTicketApiResponse apiResponseLocalVar, string actionType, string ticketObjectType, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<string> receiptData, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion)
         {
             bool suppressDefaultLog = false;
-            AfterSaveTicket(ref suppressDefaultLog, apiResponseLocalVar, version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+            AfterSaveTicket(ref suppressDefaultLog, apiResponseLocalVar, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1616,7 +1582,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="actionType"></param>
         /// <param name="ticketObjectType"></param>
         /// <param name="returnNulls"></param>
@@ -1635,7 +1600,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProfileResponse"></param>
         /// <param name="includeProfileResponse"></param>
         /// <param name="appVersion"></param>
-        partial void AfterSaveTicket(ref bool suppressDefaultLog, ISaveTicketApiResponse apiResponseLocalVar, decimal version, string actionType, string ticketObjectType, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<string> receiptData, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion);
+        partial void AfterSaveTicket(ref bool suppressDefaultLog, ISaveTicketApiResponse apiResponseLocalVar, string actionType, string ticketObjectType, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<string> receiptData, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1643,7 +1608,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="actionType"></param>
         /// <param name="ticketObjectType"></param>
         /// <param name="returnNulls"></param>
@@ -1662,10 +1626,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProfileResponse"></param>
         /// <param name="includeProfileResponse"></param>
         /// <param name="appVersion"></param>
-        private void OnErrorSaveTicketDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string actionType, string ticketObjectType, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<string> receiptData, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion)
+        private void OnErrorSaveTicketDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string actionType, string ticketObjectType, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<string> receiptData, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSaveTicket(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+            OnErrorSaveTicket(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1677,7 +1641,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="actionType"></param>
         /// <param name="ticketObjectType"></param>
         /// <param name="returnNulls"></param>
@@ -1696,12 +1659,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProfileResponse"></param>
         /// <param name="includeProfileResponse"></param>
         /// <param name="appVersion"></param>
-        partial void OnErrorSaveTicket(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string actionType, string ticketObjectType, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<string> receiptData, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion);
+        partial void OnErrorSaveTicket(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string actionType, string ticketObjectType, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<string> receiptData, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion);
 
         /// <summary>
         /// Save Ticket Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="actionType">the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER</param>
         /// <param name="ticketObjectType">the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM</param>
         /// <param name="returnNulls">whether to return nulls or not (optional)</param>
@@ -1722,11 +1684,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion">the application version (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTicketApiResponse"/>&gt;</returns>
-        public async Task<ISaveTicketApiResponse?> SaveTicketOrDefaultAsync(decimal version, string actionType, string ticketObjectType, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<string> receiptData = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaveTicketApiResponse?> SaveTicketOrDefaultAsync(string actionType, string ticketObjectType, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<string> receiptData = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SaveTicketAsync(version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, cancellationToken).ConfigureAwait(false);
+                return await SaveTicketAsync(actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1738,7 +1700,6 @@ namespace Org.OpenAPITools.Api
         /// Save Ticket Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="actionType">the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER</param>
         /// <param name="ticketObjectType">the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM</param>
         /// <param name="returnNulls">whether to return nulls or not (optional)</param>
@@ -1759,7 +1720,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion">the application version (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTicketApiResponse"/>&gt;</returns>
-        public async Task<ISaveTicketApiResponse> SaveTicketAsync(decimal version, string actionType, string ticketObjectType, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<string> receiptData = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaveTicketApiResponse> SaveTicketAsync(string actionType, string ticketObjectType, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<string> receiptData = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1767,7 +1728,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSaveTicket(actionType, ticketObjectType, deviceId, gameType, appKey, purchaseCode, receiptToken, receiptData, ticketType, purchaseProvider, purchaseType, appVersion);
 
-                FormatSaveTicket(ref version, ref actionType, ref ticketObjectType, ref returnNulls, ref deviceId, ref accountId, ref gameType, ref appKey, ref objectId, ref purchaseCode, ref receiptToken, ref receiptData, ref count, ref ticketType, ref purchaseProvider, ref purchaseType, ref returnProfileResponse, ref includeProfileResponse, ref appVersion);
+                FormatSaveTicket(ref actionType, ref ticketObjectType, ref returnNulls, ref deviceId, ref accountId, ref gameType, ref appKey, ref objectId, ref purchaseCode, ref receiptToken, ref receiptData, ref count, ref ticketType, ref purchaseProvider, ref purchaseType, ref returnProfileResponse, ref includeProfileResponse, ref appVersion);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1775,9 +1736,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ticket/save"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ticket/save");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ticket/save"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ticket/save");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1857,13 +1817,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ticket/save", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ticket/save", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSaveTicketDefaultImplementation(apiResponseLocalVar, version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+                        AfterSaveTicketDefaultImplementation(apiResponseLocalVar, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
 
                         Events.ExecuteOnSaveTicket(apiResponseLocalVar);
 
@@ -1873,7 +1833,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSaveTicketDefaultImplementation(e, "/api/{version}/ticket/save", uriBuilderLocalVar.Path, version, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+                OnErrorSaveTicketDefaultImplementation(e, "/ticket/save", uriBuilderLocalVar.Path, actionType, ticketObjectType, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, receiptData, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
                 Events.ExecuteOnErrorSaveTicket(e);
                 throw;
             }
@@ -1972,7 +1932,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSaveTicketViaFileUpload(ref decimal version, ref string actionType, ref string ticketObjectType, ref System.IO.Stream receiptData, ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<long> objectId, ref Option<string> purchaseCode, ref Option<string> receiptToken, ref Option<long> count, ref Option<string> ticketType, ref Option<string> purchaseProvider, ref Option<string> purchaseType, ref Option<bool> returnProfileResponse, ref Option<bool> includeProfileResponse, ref Option<string> appVersion);
+        partial void FormatSaveTicketViaFileUpload(ref string actionType, ref string ticketObjectType, ref System.IO.Stream receiptData, ref Option<bool> returnNulls, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<long> objectId, ref Option<string> purchaseCode, ref Option<string> receiptToken, ref Option<long> count, ref Option<string> ticketType, ref Option<string> purchaseProvider, ref Option<string> purchaseType, ref Option<bool> returnProfileResponse, ref Option<bool> includeProfileResponse, ref Option<string> appVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -2033,7 +1993,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="actionType"></param>
         /// <param name="ticketObjectType"></param>
         /// <param name="receiptData"></param>
@@ -2052,10 +2011,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProfileResponse"></param>
         /// <param name="includeProfileResponse"></param>
         /// <param name="appVersion"></param>
-        private void AfterSaveTicketViaFileUploadDefaultImplementation(ISaveTicketViaFileUploadApiResponse apiResponseLocalVar, decimal version, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion)
+        private void AfterSaveTicketViaFileUploadDefaultImplementation(ISaveTicketViaFileUploadApiResponse apiResponseLocalVar, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion)
         {
             bool suppressDefaultLog = false;
-            AfterSaveTicketViaFileUpload(ref suppressDefaultLog, apiResponseLocalVar, version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+            AfterSaveTicketViaFileUpload(ref suppressDefaultLog, apiResponseLocalVar, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2065,7 +2024,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="actionType"></param>
         /// <param name="ticketObjectType"></param>
         /// <param name="receiptData"></param>
@@ -2084,7 +2042,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProfileResponse"></param>
         /// <param name="includeProfileResponse"></param>
         /// <param name="appVersion"></param>
-        partial void AfterSaveTicketViaFileUpload(ref bool suppressDefaultLog, ISaveTicketViaFileUploadApiResponse apiResponseLocalVar, decimal version, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion);
+        partial void AfterSaveTicketViaFileUpload(ref bool suppressDefaultLog, ISaveTicketViaFileUploadApiResponse apiResponseLocalVar, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2092,7 +2050,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="actionType"></param>
         /// <param name="ticketObjectType"></param>
         /// <param name="receiptData"></param>
@@ -2111,10 +2068,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProfileResponse"></param>
         /// <param name="includeProfileResponse"></param>
         /// <param name="appVersion"></param>
-        private void OnErrorSaveTicketViaFileUploadDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion)
+        private void OnErrorSaveTicketViaFileUploadDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSaveTicketViaFileUpload(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+            OnErrorSaveTicketViaFileUpload(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2126,7 +2083,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="actionType"></param>
         /// <param name="ticketObjectType"></param>
         /// <param name="receiptData"></param>
@@ -2145,12 +2101,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="returnProfileResponse"></param>
         /// <param name="includeProfileResponse"></param>
         /// <param name="appVersion"></param>
-        partial void OnErrorSaveTicketViaFileUpload(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion);
+        partial void OnErrorSaveTicketViaFileUpload(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<long> objectId, Option<string> purchaseCode, Option<string> receiptToken, Option<long> count, Option<string> ticketType, Option<string> purchaseProvider, Option<string> purchaseType, Option<bool> returnProfileResponse, Option<bool> includeProfileResponse, Option<string> appVersion);
 
         /// <summary>
         /// Save Ticket with Reciept Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="actionType">the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }</param>
         /// <param name="ticketObjectType">the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}</param>
         /// <param name="receiptData">the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.</param>
@@ -2171,11 +2126,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion">the application version (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTicketViaFileUploadApiResponse"/>&gt;</returns>
-        public async Task<ISaveTicketViaFileUploadApiResponse?> SaveTicketViaFileUploadOrDefaultAsync(decimal version, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaveTicketViaFileUploadApiResponse?> SaveTicketViaFileUploadOrDefaultAsync(string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SaveTicketViaFileUploadAsync(version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, cancellationToken).ConfigureAwait(false);
+                return await SaveTicketViaFileUploadAsync(actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2187,7 +2142,6 @@ namespace Org.OpenAPITools.Api
         /// Save Ticket with Reciept Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="actionType">the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }</param>
         /// <param name="ticketObjectType">the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}</param>
         /// <param name="receiptData">the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.</param>
@@ -2208,7 +2162,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appVersion">the application version (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISaveTicketViaFileUploadApiResponse"/>&gt;</returns>
-        public async Task<ISaveTicketViaFileUploadApiResponse> SaveTicketViaFileUploadAsync(decimal version, string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISaveTicketViaFileUploadApiResponse> SaveTicketViaFileUploadAsync(string actionType, string ticketObjectType, System.IO.Stream receiptData, Option<bool> returnNulls = default, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<long> objectId = default, Option<string> purchaseCode = default, Option<string> receiptToken = default, Option<long> count = default, Option<string> ticketType = default, Option<string> purchaseProvider = default, Option<string> purchaseType = default, Option<bool> returnProfileResponse = default, Option<bool> includeProfileResponse = default, Option<string> appVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2216,7 +2170,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSaveTicketViaFileUpload(actionType, ticketObjectType, receiptData, deviceId, gameType, appKey, purchaseCode, receiptToken, ticketType, purchaseProvider, purchaseType, appVersion);
 
-                FormatSaveTicketViaFileUpload(ref version, ref actionType, ref ticketObjectType, ref receiptData, ref returnNulls, ref deviceId, ref accountId, ref gameType, ref appKey, ref objectId, ref purchaseCode, ref receiptToken, ref count, ref ticketType, ref purchaseProvider, ref purchaseType, ref returnProfileResponse, ref includeProfileResponse, ref appVersion);
+                FormatSaveTicketViaFileUpload(ref actionType, ref ticketObjectType, ref receiptData, ref returnNulls, ref deviceId, ref accountId, ref gameType, ref appKey, ref objectId, ref purchaseCode, ref receiptToken, ref count, ref ticketType, ref purchaseProvider, ref purchaseType, ref returnProfileResponse, ref includeProfileResponse, ref appVersion);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2224,9 +2178,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ticket/save/fileUpload"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ticket/save/fileUpload");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ticket/save/fileUpload"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ticket/save/fileUpload");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2304,13 +2257,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ticket/save/fileUpload", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ticket/save/fileUpload", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSaveTicketViaFileUploadDefaultImplementation(apiResponseLocalVar, version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+                        AfterSaveTicketViaFileUploadDefaultImplementation(apiResponseLocalVar, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
 
                         Events.ExecuteOnSaveTicketViaFileUpload(apiResponseLocalVar);
 
@@ -2320,7 +2273,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSaveTicketViaFileUploadDefaultImplementation(e, "/api/{version}/ticket/save/fileUpload", uriBuilderLocalVar.Path, version, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
+                OnErrorSaveTicketViaFileUploadDefaultImplementation(e, "/ticket/save/fileUpload", uriBuilderLocalVar.Path, actionType, ticketObjectType, receiptData, returnNulls, deviceId, accountId, gameType, appKey, objectId, purchaseCode, receiptToken, count, ticketType, purchaseProvider, purchaseType, returnProfileResponse, includeProfileResponse, appVersion);
                 Events.ExecuteOnErrorSaveTicketViaFileUpload(e);
                 throw;
             }
@@ -2419,17 +2372,14 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatTicketOffers(ref decimal version);
-
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
-        private void AfterTicketOffersDefaultImplementation(ITicketOffersApiResponse apiResponseLocalVar, decimal version)
+        private void AfterTicketOffersDefaultImplementation(ITicketOffersApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterTicketOffers(ref suppressDefaultLog, apiResponseLocalVar, version);
+            AfterTicketOffers(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2439,8 +2389,7 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
-        partial void AfterTicketOffers(ref bool suppressDefaultLog, ITicketOffersApiResponse apiResponseLocalVar, decimal version);
+        partial void AfterTicketOffers(ref bool suppressDefaultLog, ITicketOffersApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2448,11 +2397,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
-        private void OnErrorTicketOffersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version)
+        private void OnErrorTicketOffersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorTicketOffers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version);
+            OnErrorTicketOffers(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2464,20 +2412,18 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
-        partial void OnErrorTicketOffers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version);
+        partial void OnErrorTicketOffers(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Get Ticket Offers Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITicketOffersApiResponse"/>&gt;</returns>
-        public async Task<ITicketOffersApiResponse?> TicketOffersOrDefaultAsync(decimal version, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITicketOffersApiResponse?> TicketOffersOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await TicketOffersAsync(version, cancellationToken).ConfigureAwait(false);
+                return await TicketOffersAsync(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2489,26 +2435,22 @@ namespace Org.OpenAPITools.Api
         /// Get Ticket Offers Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ITicketOffersApiResponse"/>&gt;</returns>
-        public async Task<ITicketOffersApiResponse> TicketOffersAsync(decimal version, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ITicketOffersApiResponse> TicketOffersAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatTicketOffers(ref version);
-
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
                     uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/ticket/ticketoffers"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/ticket/ticketoffers");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/ticket/ticketoffers"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/ticket/ticketoffers");
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -2533,13 +2475,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/ticket/ticketoffers", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/ticket/ticketoffers", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterTicketOffersDefaultImplementation(apiResponseLocalVar, version);
+                        AfterTicketOffersDefaultImplementation(apiResponseLocalVar);
 
                         Events.ExecuteOnTicketOffers(apiResponseLocalVar);
 
@@ -2549,7 +2491,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorTicketOffersDefaultImplementation(e, "/api/{version}/ticket/ticketoffers", uriBuilderLocalVar.Path, version);
+                OnErrorTicketOffersDefaultImplementation(e, "/ticket/ticketoffers", uriBuilderLocalVar.Path);
                 Events.ExecuteOnErrorTicketOffers(e);
                 throw;
             }

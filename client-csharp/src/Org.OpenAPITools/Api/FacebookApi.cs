@@ -45,14 +45,13 @@ namespace Org.OpenAPITools.Api
         /// Gets a user&#39;s Facebook token.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="longitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTokenApiResponse"/>&gt;</returns>
-        Task<IGetTokenApiResponse> GetTokenAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTokenApiResponse> GetTokenAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Facebook Token
@@ -60,14 +59,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets a user&#39;s Facebook token.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="longitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTokenApiResponse"/>?&gt;</returns>
-        Task<IGetTokenApiResponse?> GetTokenOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetTokenApiResponse?> GetTokenOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Post to Facebook
@@ -76,7 +74,6 @@ namespace Org.OpenAPITools.Api
         /// Make Facebook posts on behalf of the user.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="varEvent">the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -89,7 +86,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGraphInterfaceApiResponse"/>&gt;</returns>
-        Task<IGraphInterfaceApiResponse> GraphInterfaceAsync(decimal version, string varEvent, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<long> assetId = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGraphInterfaceApiResponse> GraphInterfaceAsync(string varEvent, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<long> assetId = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Post to Facebook
@@ -97,7 +94,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Make Facebook posts on behalf of the user.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="varEvent">the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -110,7 +106,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGraphInterfaceApiResponse"/>?&gt;</returns>
-        Task<IGraphInterfaceApiResponse?> GraphInterfaceOrDefaultAsync(decimal version, string varEvent, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<long> assetId = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGraphInterfaceApiResponse?> GraphInterfaceOrDefaultAsync(string varEvent, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<long> assetId = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -230,7 +226,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetToken(ref decimal version, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetToken(ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -247,15 +243,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetTokenDefaultImplementation(IGetTokenApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterGetTokenDefaultImplementation(IGetTokenApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetToken(ref suppressDefaultLog, apiResponseLocalVar, version, deviceId, accountId, latitude, longitude);
+            AfterGetToken(ref suppressDefaultLog, apiResponseLocalVar, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -265,12 +260,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetToken(ref bool suppressDefaultLog, IGetTokenApiResponse apiResponseLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetToken(ref bool suppressDefaultLog, IGetTokenApiResponse apiResponseLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -278,15 +272,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetTokenDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetTokenDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetToken(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, deviceId, accountId, latitude, longitude);
+            OnErrorGetToken(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -298,28 +291,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetToken(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetToken(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Facebook Token Gets a user&#39;s Facebook token.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="longitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTokenApiResponse"/>&gt;</returns>
-        public async Task<IGetTokenApiResponse?> GetTokenOrDefaultAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTokenApiResponse?> GetTokenOrDefaultAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetTokenAsync(version, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetTokenAsync(deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -331,14 +322,13 @@ namespace Org.OpenAPITools.Api
         /// Get Facebook Token Gets a user&#39;s Facebook token.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
         /// <param name="latitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="longitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetTokenApiResponse"/>&gt;</returns>
-        public async Task<IGetTokenApiResponse> GetTokenAsync(decimal version, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetTokenApiResponse> GetTokenAsync(Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -346,7 +336,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetToken(deviceId);
 
-                FormatGetToken(ref version, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatGetToken(ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -354,9 +344,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/facebook/getfbtoken"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/facebook/getfbtoken");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/facebook/getfbtoken"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/facebook/getfbtoken");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -397,13 +386,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/facebook/getfbtoken", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/facebook/getfbtoken", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetTokenDefaultImplementation(apiResponseLocalVar, version, deviceId, accountId, latitude, longitude);
+                        AfterGetTokenDefaultImplementation(apiResponseLocalVar, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnGetToken(apiResponseLocalVar);
 
@@ -413,7 +402,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetTokenDefaultImplementation(e, "/api/{version}/facebook/getfbtoken", uriBuilderLocalVar.Path, version, deviceId, accountId, latitude, longitude);
+                OnErrorGetTokenDefaultImplementation(e, "/facebook/getfbtoken", uriBuilderLocalVar.Path, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorGetToken(e);
                 throw;
             }
@@ -512,7 +501,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGraphInterface(ref decimal version, ref string varEvent, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<long> assetId, ref Option<string> gameType, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGraphInterface(ref string varEvent, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<long> assetId, ref Option<string> gameType, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -545,7 +534,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="varEvent"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -556,10 +544,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGraphInterfaceDefaultImplementation(IGraphInterfaceApiResponse apiResponseLocalVar, decimal version, string varEvent, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<long> assetId, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
+        private void AfterGraphInterfaceDefaultImplementation(IGraphInterfaceApiResponse apiResponseLocalVar, string varEvent, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<long> assetId, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGraphInterface(ref suppressDefaultLog, apiResponseLocalVar, version, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
+            AfterGraphInterface(ref suppressDefaultLog, apiResponseLocalVar, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -569,7 +557,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="varEvent"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -580,7 +567,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGraphInterface(ref bool suppressDefaultLog, IGraphInterfaceApiResponse apiResponseLocalVar, decimal version, string varEvent, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<long> assetId, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
+        partial void AfterGraphInterface(ref bool suppressDefaultLog, IGraphInterfaceApiResponse apiResponseLocalVar, string varEvent, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<long> assetId, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -588,7 +575,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="varEvent"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -599,10 +585,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGraphInterfaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string varEvent, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<long> assetId, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGraphInterfaceDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string varEvent, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<long> assetId, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGraphInterface(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
+            OnErrorGraphInterface(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -614,7 +600,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="varEvent"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
@@ -625,12 +610,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGraphInterface(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string varEvent, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<long> assetId, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGraphInterface(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string varEvent, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<long> assetId, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Post to Facebook Make Facebook posts on behalf of the user.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="varEvent">the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -643,11 +627,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGraphInterfaceApiResponse"/>&gt;</returns>
-        public async Task<IGraphInterfaceApiResponse?> GraphInterfaceOrDefaultAsync(decimal version, string varEvent, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<long> assetId = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGraphInterfaceApiResponse?> GraphInterfaceOrDefaultAsync(string varEvent, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<long> assetId = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GraphInterfaceAsync(version, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GraphInterfaceAsync(varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -659,7 +643,6 @@ namespace Org.OpenAPITools.Api
         /// Post to Facebook Make Facebook posts on behalf of the user.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="varEvent">the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}</param>
         /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional)</param>
@@ -672,7 +655,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGraphInterfaceApiResponse"/>&gt;</returns>
-        public async Task<IGraphInterfaceApiResponse> GraphInterfaceAsync(decimal version, string varEvent, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<long> assetId = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGraphInterfaceApiResponse> GraphInterfaceAsync(string varEvent, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<long> assetId = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -680,7 +663,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGraphInterface(varEvent, deviceId, permissionableType, gameType, appKey);
 
-                FormatGraphInterface(ref version, ref varEvent, ref deviceId, ref accountId, ref permissionableType, ref permissionableId, ref assetId, ref gameType, ref appKey, ref latitude, ref longitude);
+                FormatGraphInterface(ref varEvent, ref deviceId, ref accountId, ref permissionableType, ref permissionableId, ref assetId, ref gameType, ref appKey, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -688,9 +671,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/facebook/graph"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/facebook/graph");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/facebook/graph"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/facebook/graph");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -748,13 +730,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/facebook/graph", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/facebook/graph", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGraphInterfaceDefaultImplementation(apiResponseLocalVar, version, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
+                        AfterGraphInterfaceDefaultImplementation(apiResponseLocalVar, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
 
                         Events.ExecuteOnGraphInterface(apiResponseLocalVar);
 
@@ -764,7 +746,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGraphInterfaceDefaultImplementation(e, "/api/{version}/facebook/graph", uriBuilderLocalVar.Path, version, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
+                OnErrorGraphInterfaceDefaultImplementation(e, "/facebook/graph", uriBuilderLocalVar.Path, varEvent, deviceId, accountId, permissionableType, permissionableId, assetId, gameType, appKey, latitude, longitude);
                 Events.ExecuteOnErrorGraphInterface(e);
                 throw;
             }

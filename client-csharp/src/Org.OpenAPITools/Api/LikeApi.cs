@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -60,7 +59,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegisterLikeApiResponse"/>&gt;</returns>
-        Task<IRegisterLikeApiResponse> RegisterLikeAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> like = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegisterLikeApiResponse> RegisterLikeAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> like = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Like
@@ -68,7 +67,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -83,7 +81,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegisterLikeApiResponse"/>?&gt;</returns>
-        Task<IRegisterLikeApiResponse?> RegisterLikeOrDefaultAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> like = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRegisterLikeApiResponse?> RegisterLikeOrDefaultAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> like = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Like
@@ -92,7 +90,6 @@ namespace Org.OpenAPITools.Api
         /// Removes a like. This will make the user \&quot;neutral\&quot;.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -101,7 +98,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveLikeApiResponse"/>&gt;</returns>
-        Task<IRemoveLikeApiResponse> RemoveLikeAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveLikeApiResponse> RemoveLikeAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Like
@@ -109,7 +106,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Removes a like. This will make the user \&quot;neutral\&quot;.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -118,7 +114,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveLikeApiResponse"/>?&gt;</returns>
-        Task<IRemoveLikeApiResponse?> RemoveLikeOrDefaultAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IRemoveLikeApiResponse?> RemoveLikeOrDefaultAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Likes
@@ -127,7 +123,6 @@ namespace Org.OpenAPITools.Api
         /// Search for likes on a likable object.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -141,7 +136,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLikesApiResponse"/>&gt;</returns>
-        Task<ISearchLikesApiResponse> SearchLikesAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchLikesApiResponse> SearchLikesAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Likes
@@ -149,7 +144,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for likes on a likable object.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -163,7 +157,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLikesApiResponse"/>?&gt;</returns>
-        Task<ISearchLikesApiResponse?> SearchLikesOrDefaultAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchLikesApiResponse?> SearchLikesOrDefaultAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -315,7 +309,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatRegisterLike(ref decimal version, ref string likableType, ref long likableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<bool> like, ref Option<string> app, ref Option<string> gameType, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRegisterLike(ref string likableType, ref long likableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> permissionableType, ref Option<long> permissionableId, ref Option<bool> like, ref Option<string> app, ref Option<string> gameType, ref Option<string> appKey, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -352,7 +346,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
@@ -365,10 +358,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRegisterLikeDefaultImplementation(IRegisterLikeApiResponse apiResponseLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<bool> like, Option<string> app, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
+        private void AfterRegisterLikeDefaultImplementation(IRegisterLikeApiResponse apiResponseLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<bool> like, Option<string> app, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRegisterLike(ref suppressDefaultLog, apiResponseLocalVar, version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
+            AfterRegisterLike(ref suppressDefaultLog, apiResponseLocalVar, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -378,7 +371,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
@@ -391,7 +383,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRegisterLike(ref bool suppressDefaultLog, IRegisterLikeApiResponse apiResponseLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<bool> like, Option<string> app, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
+        partial void AfterRegisterLike(ref bool suppressDefaultLog, IRegisterLikeApiResponse apiResponseLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<bool> like, Option<string> app, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -399,7 +391,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
@@ -412,10 +403,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRegisterLikeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<bool> like, Option<string> app, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRegisterLikeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<bool> like, Option<string> app, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRegisterLike(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
+            OnErrorRegisterLike(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -427,7 +418,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
@@ -440,12 +430,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="appKey"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRegisterLike(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<bool> like, Option<string> app, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRegisterLike(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> permissionableType, Option<long> permissionableId, Option<bool> like, Option<string> app, Option<string> gameType, Option<string> appKey, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create Like Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -460,11 +449,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegisterLikeApiResponse"/>&gt;</returns>
-        public async Task<IRegisterLikeApiResponse?> RegisterLikeOrDefaultAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> like = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegisterLikeApiResponse?> RegisterLikeOrDefaultAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> like = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RegisterLikeAsync(version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RegisterLikeAsync(likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -476,7 +465,6 @@ namespace Org.OpenAPITools.Api
         /// Create Like Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -491,7 +479,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRegisterLikeApiResponse"/>&gt;</returns>
-        public async Task<IRegisterLikeApiResponse> RegisterLikeAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> like = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRegisterLikeApiResponse> RegisterLikeAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> permissionableType = default, Option<long> permissionableId = default, Option<bool> like = default, Option<string> app = default, Option<string> gameType = default, Option<string> appKey = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -499,7 +487,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRegisterLike(likableType, deviceId, permissionableType, app, gameType, appKey);
 
-                FormatRegisterLike(ref version, ref likableType, ref likableId, ref deviceId, ref accountId, ref permissionableType, ref permissionableId, ref like, ref app, ref gameType, ref appKey, ref latitude, ref longitude);
+                FormatRegisterLike(ref likableType, ref likableId, ref deviceId, ref accountId, ref permissionableType, ref permissionableId, ref like, ref app, ref gameType, ref appKey, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -507,9 +495,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/like"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/like");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/like"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/like");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -571,13 +558,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/like", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/like", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRegisterLikeDefaultImplementation(apiResponseLocalVar, version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
+                        AfterRegisterLikeDefaultImplementation(apiResponseLocalVar, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
 
                         Events.ExecuteOnRegisterLike(apiResponseLocalVar);
 
@@ -587,7 +574,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRegisterLikeDefaultImplementation(e, "/api/{version}/like", uriBuilderLocalVar.Path, version, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
+                OnErrorRegisterLikeDefaultImplementation(e, "/like", uriBuilderLocalVar.Path, likableType, likableId, deviceId, accountId, permissionableType, permissionableId, like, app, gameType, appKey, latitude, longitude);
                 Events.ExecuteOnErrorRegisterLike(e);
                 throw;
             }
@@ -686,7 +673,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatRemoveLike(ref decimal version, ref string likableType, ref long likableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatRemoveLike(ref string likableType, ref long likableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -707,17 +694,16 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterRemoveLikeDefaultImplementation(IRemoveLikeApiResponse apiResponseLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterRemoveLikeDefaultImplementation(IRemoveLikeApiResponse apiResponseLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterRemoveLike(ref suppressDefaultLog, apiResponseLocalVar, version, likableType, likableId, deviceId, accountId, latitude, longitude);
+            AfterRemoveLike(ref suppressDefaultLog, apiResponseLocalVar, likableType, likableId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -727,14 +713,13 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterRemoveLike(ref bool suppressDefaultLog, IRemoveLikeApiResponse apiResponseLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterRemoveLike(ref bool suppressDefaultLog, IRemoveLikeApiResponse apiResponseLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -742,17 +727,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorRemoveLikeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorRemoveLikeDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorRemoveLike(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, likableType, likableId, deviceId, accountId, latitude, longitude);
+            OnErrorRemoveLike(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, likableType, likableId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -764,19 +748,17 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorRemoveLike(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorRemoveLike(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Delete Like Removes a like. This will make the user \&quot;neutral\&quot;.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -785,11 +767,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveLikeApiResponse"/>&gt;</returns>
-        public async Task<IRemoveLikeApiResponse?> RemoveLikeOrDefaultAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveLikeApiResponse?> RemoveLikeOrDefaultAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await RemoveLikeAsync(version, likableType, likableId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await RemoveLikeAsync(likableType, likableId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -801,7 +783,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Like Removes a like. This will make the user \&quot;neutral\&quot;.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -810,7 +791,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">The current location of the user (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IRemoveLikeApiResponse"/>&gt;</returns>
-        public async Task<IRemoveLikeApiResponse> RemoveLikeAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IRemoveLikeApiResponse> RemoveLikeAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -818,7 +799,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateRemoveLike(likableType, deviceId);
 
-                FormatRemoveLike(ref version, ref likableType, ref likableId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatRemoveLike(ref likableType, ref likableId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -826,9 +807,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/like/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/like/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/like/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/like/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -872,13 +852,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/like/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/like/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterRemoveLikeDefaultImplementation(apiResponseLocalVar, version, likableType, likableId, deviceId, accountId, latitude, longitude);
+                        AfterRemoveLikeDefaultImplementation(apiResponseLocalVar, likableType, likableId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnRemoveLike(apiResponseLocalVar);
 
@@ -888,7 +868,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorRemoveLikeDefaultImplementation(e, "/api/{version}/like/delete", uriBuilderLocalVar.Path, version, likableType, likableId, deviceId, accountId, latitude, longitude);
+                OnErrorRemoveLikeDefaultImplementation(e, "/like/delete", uriBuilderLocalVar.Path, likableType, likableId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorRemoveLike(e);
                 throw;
             }
@@ -987,7 +967,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchLikes(ref decimal version, ref string likableType, ref long likableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionAccountIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<long> updatedSince, ref Option<long> updatedBefore, ref Option<int> start, ref Option<int> limit);
+        partial void FormatSearchLikes(ref string likableType, ref long likableId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> connectionAccountIds, ref Option<string> sortField, ref Option<bool> descending, ref Option<long> updatedSince, ref Option<long> updatedBefore, ref Option<int> start, ref Option<int> limit);
 
         /// <summary>
         /// Validates the request parameters
@@ -1016,7 +996,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
@@ -1028,10 +1007,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="updatedBefore"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void AfterSearchLikesDefaultImplementation(ISearchLikesApiResponse apiResponseLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountIds, Option<string> sortField, Option<bool> descending, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit)
+        private void AfterSearchLikesDefaultImplementation(ISearchLikesApiResponse apiResponseLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountIds, Option<string> sortField, Option<bool> descending, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLog = false;
-            AfterSearchLikes(ref suppressDefaultLog, apiResponseLocalVar, version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
+            AfterSearchLikes(ref suppressDefaultLog, apiResponseLocalVar, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1041,7 +1020,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
@@ -1053,7 +1031,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="updatedBefore"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void AfterSearchLikes(ref bool suppressDefaultLog, ISearchLikesApiResponse apiResponseLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountIds, Option<string> sortField, Option<bool> descending, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit);
+        partial void AfterSearchLikes(ref bool suppressDefaultLog, ISearchLikesApiResponse apiResponseLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountIds, Option<string> sortField, Option<bool> descending, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1061,7 +1039,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
@@ -1073,10 +1050,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="updatedBefore"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        private void OnErrorSearchLikesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountIds, Option<string> sortField, Option<bool> descending, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit)
+        private void OnErrorSearchLikesDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountIds, Option<string> sortField, Option<bool> descending, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchLikes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
+            OnErrorSearchLikes(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1088,7 +1065,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="likableType"></param>
         /// <param name="likableId"></param>
         /// <param name="deviceId"></param>
@@ -1100,12 +1076,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="updatedBefore"></param>
         /// <param name="start"></param>
         /// <param name="limit"></param>
-        partial void OnErrorSearchLikes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountIds, Option<string> sortField, Option<bool> descending, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit);
+        partial void OnErrorSearchLikes(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string likableType, long likableId, Option<string> deviceId, Option<long> accountId, Option<string> connectionAccountIds, Option<string> sortField, Option<bool> descending, Option<long> updatedSince, Option<long> updatedBefore, Option<int> start, Option<int> limit);
 
         /// <summary>
         /// Search Likes Search for likes on a likable object.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -1119,11 +1094,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLikesApiResponse"/>&gt;</returns>
-        public async Task<ISearchLikesApiResponse?> SearchLikesOrDefaultAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchLikesApiResponse?> SearchLikesOrDefaultAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchLikesAsync(version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit, cancellationToken).ConfigureAwait(false);
+                return await SearchLikesAsync(likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1135,7 +1110,6 @@ namespace Org.OpenAPITools.Api
         /// Search Likes Search for likes on a likable object.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
         /// <param name="likableId">The id of the likable object</param>
         /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional)</param>
@@ -1149,7 +1123,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="limit">the limit for pagination (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchLikesApiResponse"/>&gt;</returns>
-        public async Task<ISearchLikesApiResponse> SearchLikesAsync(decimal version, string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchLikesApiResponse> SearchLikesAsync(string likableType, long likableId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> connectionAccountIds = default, Option<string> sortField = default, Option<bool> descending = default, Option<long> updatedSince = default, Option<long> updatedBefore = default, Option<int> start = default, Option<int> limit = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1157,7 +1131,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchLikes(likableType, deviceId, connectionAccountIds, sortField);
 
-                FormatSearchLikes(ref version, ref likableType, ref likableId, ref deviceId, ref accountId, ref connectionAccountIds, ref sortField, ref descending, ref updatedSince, ref updatedBefore, ref start, ref limit);
+                FormatSearchLikes(ref likableType, ref likableId, ref deviceId, ref accountId, ref connectionAccountIds, ref sortField, ref descending, ref updatedSince, ref updatedBefore, ref start, ref limit);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1165,9 +1139,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/like/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/like/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/like/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/like/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1226,13 +1199,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/like/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/like/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchLikesDefaultImplementation(apiResponseLocalVar, version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
+                        AfterSearchLikesDefaultImplementation(apiResponseLocalVar, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
 
                         Events.ExecuteOnSearchLikes(apiResponseLocalVar);
 
@@ -1242,7 +1215,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchLikesDefaultImplementation(e, "/api/{version}/like/search", uriBuilderLocalVar.Path, version, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
+                OnErrorSearchLikesDefaultImplementation(e, "/like/search", uriBuilderLocalVar.Path, likableType, likableId, deviceId, accountId, connectionAccountIds, sortField, descending, updatedSince, updatedBefore, start, limit);
                 Events.ExecuteOnErrorSearchLikes(e);
                 throw;
             }

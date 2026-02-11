@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Create a filter
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="name">The name of the filter</param>
         /// <param name="appKey">The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)</param>
@@ -57,7 +56,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFilterApiResponse"/>&gt;</returns>
-        Task<ICreateFilterApiResponse> CreateFilterAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<long> parentFilterId = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateFilterApiResponse> CreateFilterAsync(long accountId, string name, Option<string> appKey = default, Option<long> parentFilterId = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create Filter
@@ -65,7 +64,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Create a filter
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="name">The name of the filter</param>
         /// <param name="appKey">The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)</param>
@@ -77,7 +75,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFilterApiResponse"/>?&gt;</returns>
-        Task<ICreateFilterApiResponse?> CreateFilterOrDefaultAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<long> parentFilterId = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICreateFilterApiResponse?> CreateFilterOrDefaultAsync(long accountId, string name, Option<string> appKey = default, Option<long> parentFilterId = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Filter
@@ -86,12 +84,11 @@ namespace Org.OpenAPITools.Api
         /// Delete a filter.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the filter&#39;s assigned application)</param>
         /// <param name="filterId">The ID of the filter to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFilterApiResponse"/>&gt;</returns>
-        Task<IDeleteFilterApiResponse> DeleteFilterAsync(decimal version, long accountId, long filterId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFilterApiResponse> DeleteFilterAsync(long accountId, long filterId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Filter
@@ -99,12 +96,11 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Delete a filter.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the filter&#39;s assigned application)</param>
         /// <param name="filterId">The ID of the filter to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFilterApiResponse"/>?&gt;</returns>
-        Task<IDeleteFilterApiResponse?> DeleteFilterOrDefaultAsync(decimal version, long accountId, long filterId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteFilterApiResponse?> DeleteFilterOrDefaultAsync(long accountId, long filterId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Filter
@@ -113,11 +109,10 @@ namespace Org.OpenAPITools.Api
         /// Get the details of a specific filter. Recursively include all child filters and their children.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filterId">the id of the filter to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFilterApiResponse"/>&gt;</returns>
-        Task<IGetFilterApiResponse> GetFilterAsync(decimal version, long filterId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFilterApiResponse> GetFilterAsync(long filterId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Filter
@@ -125,11 +120,10 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Get the details of a specific filter. Recursively include all child filters and their children.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="filterId">the id of the filter to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFilterApiResponse"/>?&gt;</returns>
-        Task<IGetFilterApiResponse?> GetFilterOrDefaultAsync(decimal version, long filterId, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetFilterApiResponse?> GetFilterOrDefaultAsync(long filterId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Filters
@@ -138,7 +132,6 @@ namespace Org.OpenAPITools.Api
         /// Search for filters.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve filters for (optional)</param>
@@ -151,7 +144,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active categories (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchFiltersApiResponse"/>&gt;</returns>
-        Task<ISearchFiltersApiResponse> SearchFiltersAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> responseGroup = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchFiltersApiResponse> SearchFiltersAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> responseGroup = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Filters
@@ -159,7 +152,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Search for filters.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve filters for (optional)</param>
@@ -172,7 +164,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active categories (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchFiltersApiResponse"/>?&gt;</returns>
-        Task<ISearchFiltersApiResponse?> SearchFiltersOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> responseGroup = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISearchFiltersApiResponse?> SearchFiltersOrDefaultAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> responseGroup = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Filter
@@ -181,7 +173,6 @@ namespace Org.OpenAPITools.Api
         /// Update a filter.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="filterId">The ID of the filter to edit</param>
         /// <param name="parentFilterId">The ID of the parent filter, if not provided then the parent filter will be null (optional)</param>
@@ -193,7 +184,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateFilterApiResponse"/>&gt;</returns>
-        Task<IUpdateFilterApiResponse> UpdateFilterAsync(decimal version, long accountId, long filterId, Option<long> parentFilterId = default, Option<string> name = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateFilterApiResponse> UpdateFilterAsync(long accountId, long filterId, Option<long> parentFilterId = default, Option<string> name = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Filter
@@ -201,7 +192,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Update a filter.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="filterId">The ID of the filter to edit</param>
         /// <param name="parentFilterId">The ID of the parent filter, if not provided then the parent filter will be null (optional)</param>
@@ -213,7 +203,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateFilterApiResponse"/>?&gt;</returns>
-        Task<IUpdateFilterApiResponse?> UpdateFilterOrDefaultAsync(decimal version, long accountId, long filterId, Option<long> parentFilterId = default, Option<string> name = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IUpdateFilterApiResponse?> UpdateFilterOrDefaultAsync(long accountId, long filterId, Option<long> parentFilterId = default, Option<string> name = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -429,7 +419,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCreateFilter(ref decimal version, ref long accountId, ref string name, ref Option<string> appKey, ref Option<long> parentFilterId, ref Option<string> description, ref Option<string> externalId, ref Option<string> externalType, ref Option<bool> active, ref Option<string> metaData);
+        partial void FormatCreateFilter(ref long accountId, ref string name, ref Option<string> appKey, ref Option<long> parentFilterId, ref Option<string> description, ref Option<string> externalId, ref Option<string> externalType, ref Option<bool> active, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -466,7 +456,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -476,10 +465,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalType"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        private void AfterCreateFilterDefaultImplementation(ICreateFilterApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<long> parentFilterId, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData)
+        private void AfterCreateFilterDefaultImplementation(ICreateFilterApiResponse apiResponseLocalVar, long accountId, string name, Option<string> appKey, Option<long> parentFilterId, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterCreateFilter(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
+            AfterCreateFilter(ref suppressDefaultLog, apiResponseLocalVar, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -489,7 +478,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -499,7 +487,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalType"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        partial void AfterCreateFilter(ref bool suppressDefaultLog, ICreateFilterApiResponse apiResponseLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<long> parentFilterId, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData);
+        partial void AfterCreateFilter(ref bool suppressDefaultLog, ICreateFilterApiResponse apiResponseLocalVar, long accountId, string name, Option<string> appKey, Option<long> parentFilterId, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -507,7 +495,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -517,10 +504,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalType"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        private void OnErrorCreateFilterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<long> parentFilterId, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData)
+        private void OnErrorCreateFilterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> appKey, Option<long> parentFilterId, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCreateFilter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
+            OnErrorCreateFilter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -532,7 +519,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="name"></param>
         /// <param name="appKey"></param>
@@ -542,12 +528,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalType"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorCreateFilter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, string name, Option<string> appKey, Option<long> parentFilterId, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData);
+        partial void OnErrorCreateFilter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, string name, Option<string> appKey, Option<long> parentFilterId, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData);
 
         /// <summary>
         /// Create Filter Create a filter
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="name">The name of the filter</param>
         /// <param name="appKey">The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)</param>
@@ -559,11 +544,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFilterApiResponse"/>&gt;</returns>
-        public async Task<ICreateFilterApiResponse?> CreateFilterOrDefaultAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<long> parentFilterId = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateFilterApiResponse?> CreateFilterOrDefaultAsync(long accountId, string name, Option<string> appKey = default, Option<long> parentFilterId = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CreateFilterAsync(version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData, cancellationToken).ConfigureAwait(false);
+                return await CreateFilterAsync(accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -575,7 +560,6 @@ namespace Org.OpenAPITools.Api
         /// Create Filter Create a filter
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
         /// <param name="name">The name of the filter</param>
         /// <param name="appKey">The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)</param>
@@ -587,7 +571,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICreateFilterApiResponse"/>&gt;</returns>
-        public async Task<ICreateFilterApiResponse> CreateFilterAsync(decimal version, long accountId, string name, Option<string> appKey = default, Option<long> parentFilterId = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICreateFilterApiResponse> CreateFilterAsync(long accountId, string name, Option<string> appKey = default, Option<long> parentFilterId = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -595,7 +579,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateCreateFilter(name, appKey, description, externalId, externalType, metaData);
 
-                FormatCreateFilter(ref version, ref accountId, ref name, ref appKey, ref parentFilterId, ref description, ref externalId, ref externalType, ref active, ref metaData);
+                FormatCreateFilter(ref accountId, ref name, ref appKey, ref parentFilterId, ref description, ref externalId, ref externalType, ref active, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -603,9 +587,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/filter/create"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/filter/create");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/filter/create"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/filter/create");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -658,13 +641,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/filter/create", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/filter/create", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterCreateFilterDefaultImplementation(apiResponseLocalVar, version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
+                        AfterCreateFilterDefaultImplementation(apiResponseLocalVar, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
 
                         Events.ExecuteOnCreateFilter(apiResponseLocalVar);
 
@@ -674,7 +657,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorCreateFilterDefaultImplementation(e, "/api/{version}/filter/create", uriBuilderLocalVar.Path, version, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
+                OnErrorCreateFilterDefaultImplementation(e, "/filter/create", uriBuilderLocalVar.Path, accountId, name, appKey, parentFilterId, description, externalId, externalType, active, metaData);
                 Events.ExecuteOnErrorCreateFilter(e);
                 throw;
             }
@@ -773,19 +756,18 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteFilter(ref decimal version, ref long accountId, ref long filterId);
+        partial void FormatDeleteFilter(ref long accountId, ref long filterId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="filterId"></param>
-        private void AfterDeleteFilterDefaultImplementation(IDeleteFilterApiResponse apiResponseLocalVar, decimal version, long accountId, long filterId)
+        private void AfterDeleteFilterDefaultImplementation(IDeleteFilterApiResponse apiResponseLocalVar, long accountId, long filterId)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteFilter(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, filterId);
+            AfterDeleteFilter(ref suppressDefaultLog, apiResponseLocalVar, accountId, filterId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -795,10 +777,9 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="filterId"></param>
-        partial void AfterDeleteFilter(ref bool suppressDefaultLog, IDeleteFilterApiResponse apiResponseLocalVar, decimal version, long accountId, long filterId);
+        partial void AfterDeleteFilter(ref bool suppressDefaultLog, IDeleteFilterApiResponse apiResponseLocalVar, long accountId, long filterId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -806,13 +787,12 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="filterId"></param>
-        private void OnErrorDeleteFilterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long filterId)
+        private void OnErrorDeleteFilterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long filterId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteFilter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, filterId);
+            OnErrorDeleteFilter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, filterId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -824,24 +804,22 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="filterId"></param>
-        partial void OnErrorDeleteFilter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long filterId);
+        partial void OnErrorDeleteFilter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long filterId);
 
         /// <summary>
         /// Delete Filter Delete a filter.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the filter&#39;s assigned application)</param>
         /// <param name="filterId">The ID of the filter to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFilterApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFilterApiResponse?> DeleteFilterOrDefaultAsync(decimal version, long accountId, long filterId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFilterApiResponse?> DeleteFilterOrDefaultAsync(long accountId, long filterId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteFilterAsync(version, accountId, filterId, cancellationToken).ConfigureAwait(false);
+                return await DeleteFilterAsync(accountId, filterId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -853,18 +831,17 @@ namespace Org.OpenAPITools.Api
         /// Delete Filter Delete a filter.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (must have permissions to the filter&#39;s assigned application)</param>
         /// <param name="filterId">The ID of the filter to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteFilterApiResponse"/>&gt;</returns>
-        public async Task<IDeleteFilterApiResponse> DeleteFilterAsync(decimal version, long accountId, long filterId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteFilterApiResponse> DeleteFilterAsync(long accountId, long filterId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatDeleteFilter(ref version, ref accountId, ref filterId);
+                FormatDeleteFilter(ref accountId, ref filterId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -872,9 +849,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/filter/delete"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/filter/delete");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/filter/delete"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/filter/delete");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -906,13 +882,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/filter/delete", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/filter/delete", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteFilterDefaultImplementation(apiResponseLocalVar, version, accountId, filterId);
+                        AfterDeleteFilterDefaultImplementation(apiResponseLocalVar, accountId, filterId);
 
                         Events.ExecuteOnDeleteFilter(apiResponseLocalVar);
 
@@ -922,7 +898,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteFilterDefaultImplementation(e, "/api/{version}/filter/delete", uriBuilderLocalVar.Path, version, accountId, filterId);
+                OnErrorDeleteFilterDefaultImplementation(e, "/filter/delete", uriBuilderLocalVar.Path, accountId, filterId);
                 Events.ExecuteOnErrorDeleteFilter(e);
                 throw;
             }
@@ -1021,18 +997,17 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetFilter(ref decimal version, ref long filterId);
+        partial void FormatGetFilter(ref long filterId);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filterId"></param>
-        private void AfterGetFilterDefaultImplementation(IGetFilterApiResponse apiResponseLocalVar, decimal version, long filterId)
+        private void AfterGetFilterDefaultImplementation(IGetFilterApiResponse apiResponseLocalVar, long filterId)
         {
             bool suppressDefaultLog = false;
-            AfterGetFilter(ref suppressDefaultLog, apiResponseLocalVar, version, filterId);
+            AfterGetFilter(ref suppressDefaultLog, apiResponseLocalVar, filterId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1042,9 +1017,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filterId"></param>
-        partial void AfterGetFilter(ref bool suppressDefaultLog, IGetFilterApiResponse apiResponseLocalVar, decimal version, long filterId);
+        partial void AfterGetFilter(ref bool suppressDefaultLog, IGetFilterApiResponse apiResponseLocalVar, long filterId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1052,12 +1026,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filterId"></param>
-        private void OnErrorGetFilterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long filterId)
+        private void OnErrorGetFilterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long filterId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetFilter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, filterId);
+            OnErrorGetFilter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, filterId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1069,22 +1042,20 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filterId"></param>
-        partial void OnErrorGetFilter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long filterId);
+        partial void OnErrorGetFilter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long filterId);
 
         /// <summary>
         /// Get Filter Get the details of a specific filter. Recursively include all child filters and their children.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="filterId">the id of the filter to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFilterApiResponse"/>&gt;</returns>
-        public async Task<IGetFilterApiResponse?> GetFilterOrDefaultAsync(decimal version, long filterId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFilterApiResponse?> GetFilterOrDefaultAsync(long filterId, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetFilterAsync(version, filterId, cancellationToken).ConfigureAwait(false);
+                return await GetFilterAsync(filterId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1096,17 +1067,16 @@ namespace Org.OpenAPITools.Api
         /// Get Filter Get the details of a specific filter. Recursively include all child filters and their children.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filterId">the id of the filter to get</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetFilterApiResponse"/>&gt;</returns>
-        public async Task<IGetFilterApiResponse> GetFilterAsync(decimal version, long filterId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetFilterApiResponse> GetFilterAsync(long filterId, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetFilter(ref version, ref filterId);
+                FormatGetFilter(ref filterId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1114,9 +1084,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/filter/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/filter/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/filter/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/filter/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1147,13 +1116,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/filter/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/filter/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetFilterDefaultImplementation(apiResponseLocalVar, version, filterId);
+                        AfterGetFilterDefaultImplementation(apiResponseLocalVar, filterId);
 
                         Events.ExecuteOnGetFilter(apiResponseLocalVar);
 
@@ -1163,7 +1132,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetFilterDefaultImplementation(e, "/api/{version}/filter/get", uriBuilderLocalVar.Path, version, filterId);
+                OnErrorGetFilterDefaultImplementation(e, "/filter/get", uriBuilderLocalVar.Path, filterId);
                 Events.ExecuteOnErrorGetFilter(e);
                 throw;
             }
@@ -1262,7 +1231,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSearchFilters(ref decimal version, ref Option<long> accountId, ref Option<string> keyword, ref Option<string> appKey, ref Option<string> responseGroup, ref Option<bool> rootOnly, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
+        partial void FormatSearchFilters(ref Option<long> accountId, ref Option<string> keyword, ref Option<string> appKey, ref Option<string> responseGroup, ref Option<bool> rootOnly, ref Option<string> sortField, ref Option<bool> descending, ref Option<int> start, ref Option<int> limit, ref Option<bool> activeOnly);
 
         /// <summary>
         /// Validates the request parameters
@@ -1291,7 +1260,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -1302,10 +1270,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void AfterSearchFiltersDefaultImplementation(ISearchFiltersApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> responseGroup, Option<bool> rootOnly, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void AfterSearchFiltersDefaultImplementation(ISearchFiltersApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> responseGroup, Option<bool> rootOnly, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLog = false;
-            AfterSearchFilters(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
+            AfterSearchFilters(ref suppressDefaultLog, apiResponseLocalVar, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1315,7 +1283,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -1326,7 +1293,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void AfterSearchFilters(ref bool suppressDefaultLog, ISearchFiltersApiResponse apiResponseLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> responseGroup, Option<bool> rootOnly, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void AfterSearchFilters(ref bool suppressDefaultLog, ISearchFiltersApiResponse apiResponseLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> responseGroup, Option<bool> rootOnly, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1334,7 +1301,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -1345,10 +1311,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        private void OnErrorSearchFiltersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> responseGroup, Option<bool> rootOnly, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
+        private void OnErrorSearchFiltersDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> responseGroup, Option<bool> rootOnly, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSearchFilters(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
+            OnErrorSearchFilters(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1360,7 +1326,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="keyword"></param>
         /// <param name="appKey"></param>
@@ -1371,12 +1336,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="activeOnly"></param>
-        partial void OnErrorSearchFilters(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> responseGroup, Option<bool> rootOnly, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
+        partial void OnErrorSearchFilters(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<long> accountId, Option<string> keyword, Option<string> appKey, Option<string> responseGroup, Option<bool> rootOnly, Option<string> sortField, Option<bool> descending, Option<int> start, Option<int> limit, Option<bool> activeOnly);
 
         /// <summary>
         /// Search Filters Search for filters.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve filters for (optional)</param>
@@ -1389,11 +1353,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active categories (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchFiltersApiResponse"/>&gt;</returns>
-        public async Task<ISearchFiltersApiResponse?> SearchFiltersOrDefaultAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> responseGroup = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchFiltersApiResponse?> SearchFiltersOrDefaultAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> responseGroup = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SearchFiltersAsync(version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
+                return await SearchFiltersAsync(accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1405,7 +1369,6 @@ namespace Org.OpenAPITools.Api
         /// Search Filters Search for filters.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user (optional)</param>
         /// <param name="keyword">The string to search on (optional)</param>
         /// <param name="appKey">the appKey of the application to retrieve filters for (optional)</param>
@@ -1418,7 +1381,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="activeOnly">Determines whether to return only active categories (optional, default to true)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISearchFiltersApiResponse"/>&gt;</returns>
-        public async Task<ISearchFiltersApiResponse> SearchFiltersAsync(decimal version, Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> responseGroup = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISearchFiltersApiResponse> SearchFiltersAsync(Option<long> accountId = default, Option<string> keyword = default, Option<string> appKey = default, Option<string> responseGroup = default, Option<bool> rootOnly = default, Option<string> sortField = default, Option<bool> descending = default, Option<int> start = default, Option<int> limit = default, Option<bool> activeOnly = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1426,7 +1389,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateSearchFilters(keyword, appKey, responseGroup, sortField);
 
-                FormatSearchFilters(ref version, ref accountId, ref keyword, ref appKey, ref responseGroup, ref rootOnly, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
+                FormatSearchFilters(ref accountId, ref keyword, ref appKey, ref responseGroup, ref rootOnly, ref sortField, ref descending, ref start, ref limit, ref activeOnly);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1434,9 +1397,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/filter/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/filter/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/filter/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/filter/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1495,13 +1457,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/filter/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/filter/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterSearchFiltersDefaultImplementation(apiResponseLocalVar, version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
+                        AfterSearchFiltersDefaultImplementation(apiResponseLocalVar, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
 
                         Events.ExecuteOnSearchFilters(apiResponseLocalVar);
 
@@ -1511,7 +1473,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorSearchFiltersDefaultImplementation(e, "/api/{version}/filter/search", uriBuilderLocalVar.Path, version, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
+                OnErrorSearchFiltersDefaultImplementation(e, "/filter/search", uriBuilderLocalVar.Path, accountId, keyword, appKey, responseGroup, rootOnly, sortField, descending, start, limit, activeOnly);
                 Events.ExecuteOnErrorSearchFilters(e);
                 throw;
             }
@@ -1610,7 +1572,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatUpdateFilter(ref decimal version, ref long accountId, ref long filterId, ref Option<long> parentFilterId, ref Option<string> name, ref Option<string> description, ref Option<string> externalId, ref Option<string> externalType, ref Option<bool> active, ref Option<string> metaData);
+        partial void FormatUpdateFilter(ref long accountId, ref long filterId, ref Option<long> parentFilterId, ref Option<string> name, ref Option<string> description, ref Option<string> externalId, ref Option<string> externalType, ref Option<bool> active, ref Option<string> metaData);
 
         /// <summary>
         /// Validates the request parameters
@@ -1643,7 +1605,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="filterId"></param>
         /// <param name="parentFilterId"></param>
@@ -1653,10 +1614,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalType"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        private void AfterUpdateFilterDefaultImplementation(IUpdateFilterApiResponse apiResponseLocalVar, decimal version, long accountId, long filterId, Option<long> parentFilterId, Option<string> name, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData)
+        private void AfterUpdateFilterDefaultImplementation(IUpdateFilterApiResponse apiResponseLocalVar, long accountId, long filterId, Option<long> parentFilterId, Option<string> name, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData)
         {
             bool suppressDefaultLog = false;
-            AfterUpdateFilter(ref suppressDefaultLog, apiResponseLocalVar, version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
+            AfterUpdateFilter(ref suppressDefaultLog, apiResponseLocalVar, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1666,7 +1627,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="filterId"></param>
         /// <param name="parentFilterId"></param>
@@ -1676,7 +1636,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalType"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        partial void AfterUpdateFilter(ref bool suppressDefaultLog, IUpdateFilterApiResponse apiResponseLocalVar, decimal version, long accountId, long filterId, Option<long> parentFilterId, Option<string> name, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData);
+        partial void AfterUpdateFilter(ref bool suppressDefaultLog, IUpdateFilterApiResponse apiResponseLocalVar, long accountId, long filterId, Option<long> parentFilterId, Option<string> name, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1684,7 +1644,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="filterId"></param>
         /// <param name="parentFilterId"></param>
@@ -1694,10 +1653,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalType"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        private void OnErrorUpdateFilterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long filterId, Option<long> parentFilterId, Option<string> name, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData)
+        private void OnErrorUpdateFilterDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long filterId, Option<long> parentFilterId, Option<string> name, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorUpdateFilter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
+            OnErrorUpdateFilter(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1709,7 +1668,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="accountId"></param>
         /// <param name="filterId"></param>
         /// <param name="parentFilterId"></param>
@@ -1719,12 +1677,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="externalType"></param>
         /// <param name="active"></param>
         /// <param name="metaData"></param>
-        partial void OnErrorUpdateFilter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long accountId, long filterId, Option<long> parentFilterId, Option<string> name, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData);
+        partial void OnErrorUpdateFilter(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long accountId, long filterId, Option<long> parentFilterId, Option<string> name, Option<string> description, Option<string> externalId, Option<string> externalType, Option<bool> active, Option<string> metaData);
 
         /// <summary>
         /// Update Filter Update a filter.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="filterId">The ID of the filter to edit</param>
         /// <param name="parentFilterId">The ID of the parent filter, if not provided then the parent filter will be null (optional)</param>
@@ -1736,11 +1693,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateFilterApiResponse"/>&gt;</returns>
-        public async Task<IUpdateFilterApiResponse?> UpdateFilterOrDefaultAsync(decimal version, long accountId, long filterId, Option<long> parentFilterId = default, Option<string> name = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateFilterApiResponse?> UpdateFilterOrDefaultAsync(long accountId, long filterId, Option<long> parentFilterId = default, Option<string> name = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await UpdateFilterAsync(version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData, cancellationToken).ConfigureAwait(false);
+                return await UpdateFilterAsync(accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1752,7 +1709,6 @@ namespace Org.OpenAPITools.Api
         /// Update Filter Update a filter.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="accountId">The account id of the user</param>
         /// <param name="filterId">The ID of the filter to edit</param>
         /// <param name="parentFilterId">The ID of the parent filter, if not provided then the parent filter will be null (optional)</param>
@@ -1764,7 +1720,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="metaData">external custom client defined data (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IUpdateFilterApiResponse"/>&gt;</returns>
-        public async Task<IUpdateFilterApiResponse> UpdateFilterAsync(decimal version, long accountId, long filterId, Option<long> parentFilterId = default, Option<string> name = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IUpdateFilterApiResponse> UpdateFilterAsync(long accountId, long filterId, Option<long> parentFilterId = default, Option<string> name = default, Option<string> description = default, Option<string> externalId = default, Option<string> externalType = default, Option<bool> active = default, Option<string> metaData = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1772,7 +1728,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateUpdateFilter(name, description, externalId, externalType, metaData);
 
-                FormatUpdateFilter(ref version, ref accountId, ref filterId, ref parentFilterId, ref name, ref description, ref externalId, ref externalType, ref active, ref metaData);
+                FormatUpdateFilter(ref accountId, ref filterId, ref parentFilterId, ref name, ref description, ref externalId, ref externalType, ref active, ref metaData);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1780,9 +1736,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/filter/update"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/filter/update");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/filter/update"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/filter/update");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1835,13 +1790,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/filter/update", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/filter/update", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterUpdateFilterDefaultImplementation(apiResponseLocalVar, version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
+                        AfterUpdateFilterDefaultImplementation(apiResponseLocalVar, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
 
                         Events.ExecuteOnUpdateFilter(apiResponseLocalVar);
 
@@ -1851,7 +1806,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorUpdateFilterDefaultImplementation(e, "/api/{version}/filter/update", uriBuilderLocalVar.Path, version, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
+                OnErrorUpdateFilterDefaultImplementation(e, "/filter/update", uriBuilderLocalVar.Path, accountId, filterId, parentFilterId, name, description, externalId, externalType, active, metaData);
                 Events.ExecuteOnErrorUpdateFilter(e);
                 throw;
             }

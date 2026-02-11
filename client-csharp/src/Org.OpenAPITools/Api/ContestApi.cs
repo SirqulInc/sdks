@@ -45,7 +45,6 @@ namespace Org.OpenAPITools.Api
         /// Creates or updates a contest.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="publicRead">determines whether the contest&#39;s participants has read permissions</param>
         /// <param name="publicWrite">determines whether the contest&#39;s participants has write permissions</param>
         /// <param name="publicDelete">determines whether the contest&#39;s participants has delete permissions</param>
@@ -73,7 +72,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddOrUpdateAlbumContestApiResponse"/>&gt;</returns>
-        Task<IAddOrUpdateAlbumContestApiResponse> AddOrUpdateAlbumContestAsync(decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> contestType = default, Option<long> albumContestId = default, Option<string> title = default, Option<string> description = default, Option<long> albumId1 = default, Option<bool> removeAlbum1 = default, Option<long> albumId2 = default, Option<bool> removeAlbum2 = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> locationDescription = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddOrUpdateAlbumContestApiResponse> AddOrUpdateAlbumContestAsync(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> contestType = default, Option<long> albumContestId = default, Option<string> title = default, Option<string> description = default, Option<long> albumId1 = default, Option<bool> removeAlbum1 = default, Option<long> albumId2 = default, Option<bool> removeAlbum2 = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> locationDescription = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create or Update Contest
@@ -81,7 +80,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Creates or updates a contest.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="publicRead">determines whether the contest&#39;s participants has read permissions</param>
         /// <param name="publicWrite">determines whether the contest&#39;s participants has write permissions</param>
         /// <param name="publicDelete">determines whether the contest&#39;s participants has delete permissions</param>
@@ -109,7 +107,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddOrUpdateAlbumContestApiResponse"/>?&gt;</returns>
-        Task<IAddOrUpdateAlbumContestApiResponse?> AddOrUpdateAlbumContestOrDefaultAsync(decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> contestType = default, Option<long> albumContestId = default, Option<string> title = default, Option<string> description = default, Option<long> albumId1 = default, Option<bool> removeAlbum1 = default, Option<long> albumId2 = default, Option<bool> removeAlbum2 = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> locationDescription = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IAddOrUpdateAlbumContestApiResponse?> AddOrUpdateAlbumContestOrDefaultAsync(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> contestType = default, Option<long> albumContestId = default, Option<string> title = default, Option<string> description = default, Option<long> albumId1 = default, Option<bool> removeAlbum1 = default, Option<long> albumId2 = default, Option<bool> removeAlbum2 = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> locationDescription = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Approve Contest
@@ -118,14 +116,13 @@ namespace Org.OpenAPITools.Api
         /// Sets the approval status of a contest.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumContestId">The ID of the album contest</param>
         /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApproveAlbumContestApiResponse"/>&gt;</returns>
-        Task<IApproveAlbumContestApiResponse> ApproveAlbumContestAsync(decimal version, long albumContestId, string approvalStatus, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IApproveAlbumContestApiResponse> ApproveAlbumContestAsync(long albumContestId, string approvalStatus, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Approve Contest
@@ -133,14 +130,13 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Sets the approval status of a contest.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumContestId">The ID of the album contest</param>
         /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApproveAlbumContestApiResponse"/>?&gt;</returns>
-        Task<IApproveAlbumContestApiResponse?> ApproveAlbumContestOrDefaultAsync(decimal version, long albumContestId, string approvalStatus, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IApproveAlbumContestApiResponse?> ApproveAlbumContestOrDefaultAsync(long albumContestId, string approvalStatus, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Contest
@@ -149,7 +145,6 @@ namespace Org.OpenAPITools.Api
         /// Deletes a contest.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -157,7 +152,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteContestApiResponse"/>&gt;</returns>
-        Task<IDeleteContestApiResponse> DeleteContestAsync(decimal version, long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteContestApiResponse> DeleteContestAsync(long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete Contest
@@ -165,7 +160,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Deletes a contest.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -173,7 +167,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteContestApiResponse"/>?&gt;</returns>
-        Task<IDeleteContestApiResponse?> DeleteContestOrDefaultAsync(decimal version, long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IDeleteContestApiResponse?> DeleteContestOrDefaultAsync(long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Contest
@@ -182,7 +176,6 @@ namespace Org.OpenAPITools.Api
         /// Gets the contest object including the likes and notes
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -190,7 +183,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumContestApiResponse"/>&gt;</returns>
-        Task<IGetAlbumContestApiResponse> GetAlbumContestAsync(decimal version, long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAlbumContestApiResponse> GetAlbumContestAsync(long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Contest
@@ -198,7 +191,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Gets the contest object including the likes and notes
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -206,7 +198,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumContestApiResponse"/>?&gt;</returns>
-        Task<IGetAlbumContestApiResponse?> GetAlbumContestOrDefaultAsync(decimal version, long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAlbumContestApiResponse?> GetAlbumContestOrDefaultAsync(long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Contests
@@ -215,7 +207,6 @@ namespace Org.OpenAPITools.Api
         /// Searches on contests.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of Ownership</param>
         /// <param name="sortField">the field to sort by. See AlbumContestApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -237,7 +228,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumContestsApiResponse"/>&gt;</returns>
-        Task<IGetAlbumContestsApiResponse> GetAlbumContestsAsync(decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAlbumContestsApiResponse> GetAlbumContestsAsync(string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Contests
@@ -245,7 +236,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Searches on contests.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of Ownership</param>
         /// <param name="sortField">the field to sort by. See AlbumContestApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -267,7 +257,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumContestsApiResponse"/>?&gt;</returns>
-        Task<IGetAlbumContestsApiResponse?> GetAlbumContestsOrDefaultAsync(decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetAlbumContestsApiResponse?> GetAlbumContestsOrDefaultAsync(string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Vote on Contest
@@ -276,7 +266,6 @@ namespace Org.OpenAPITools.Api
         /// Vote on a collection in a contest.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="albumId">the ID of the album to vote on</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -286,7 +275,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IVoteOnAlbumContestApiResponse"/>&gt;</returns>
-        Task<IVoteOnAlbumContestApiResponse> VoteOnAlbumContestAsync(decimal version, long albumContestId, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> contestType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IVoteOnAlbumContestApiResponse> VoteOnAlbumContestAsync(long albumContestId, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> contestType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Vote on Contest
@@ -294,7 +283,6 @@ namespace Org.OpenAPITools.Api
         /// <remarks>
         /// Vote on a collection in a contest.
         /// </remarks>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="albumId">the ID of the album to vote on</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -304,7 +292,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IVoteOnAlbumContestApiResponse"/>?&gt;</returns>
-        Task<IVoteOnAlbumContestApiResponse?> VoteOnAlbumContestOrDefaultAsync(decimal version, long albumContestId, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> contestType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IVoteOnAlbumContestApiResponse?> VoteOnAlbumContestOrDefaultAsync(long albumContestId, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> contestType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -552,7 +540,7 @@ namespace Org.OpenAPITools.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatAddOrUpdateAlbumContest(ref decimal version, ref bool publicRead, ref bool publicWrite, ref bool publicDelete, ref bool publicAdd, ref string visibility, ref bool includeFriendGroup, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> contestType, ref Option<long> albumContestId, ref Option<string> title, ref Option<string> description, ref Option<long> albumId1, ref Option<bool> removeAlbum1, ref Option<long> albumId2, ref Option<bool> removeAlbum2, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> locationDescription, ref Option<string> connectionIdsToAdd, ref Option<string> connectionGroupIdsToAdd, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatAddOrUpdateAlbumContest(ref bool publicRead, ref bool publicWrite, ref bool publicDelete, ref bool publicAdd, ref string visibility, ref bool includeFriendGroup, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> contestType, ref Option<long> albumContestId, ref Option<string> title, ref Option<string> description, ref Option<long> albumId1, ref Option<bool> removeAlbum1, ref Option<long> albumId2, ref Option<bool> removeAlbum2, ref Option<long> startDate, ref Option<long> endDate, ref Option<string> locationDescription, ref Option<string> connectionIdsToAdd, ref Option<string> connectionGroupIdsToAdd, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -605,7 +593,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="publicRead"></param>
         /// <param name="publicWrite"></param>
         /// <param name="publicDelete"></param>
@@ -631,10 +618,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroupIdsToAdd"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterAddOrUpdateAlbumContestDefaultImplementation(IAddOrUpdateAlbumContestApiResponse apiResponseLocalVar, decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> contestType, Option<long> albumContestId, Option<string> title, Option<string> description, Option<long> albumId1, Option<bool> removeAlbum1, Option<long> albumId2, Option<bool> removeAlbum2, Option<long> startDate, Option<long> endDate, Option<string> locationDescription, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<double> latitude, Option<double> longitude)
+        private void AfterAddOrUpdateAlbumContestDefaultImplementation(IAddOrUpdateAlbumContestApiResponse apiResponseLocalVar, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> contestType, Option<long> albumContestId, Option<string> title, Option<string> description, Option<long> albumId1, Option<bool> removeAlbum1, Option<long> albumId2, Option<bool> removeAlbum2, Option<long> startDate, Option<long> endDate, Option<string> locationDescription, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterAddOrUpdateAlbumContest(ref suppressDefaultLog, apiResponseLocalVar, version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
+            AfterAddOrUpdateAlbumContest(ref suppressDefaultLog, apiResponseLocalVar, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -644,7 +631,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="publicRead"></param>
         /// <param name="publicWrite"></param>
         /// <param name="publicDelete"></param>
@@ -670,7 +656,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroupIdsToAdd"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterAddOrUpdateAlbumContest(ref bool suppressDefaultLog, IAddOrUpdateAlbumContestApiResponse apiResponseLocalVar, decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> contestType, Option<long> albumContestId, Option<string> title, Option<string> description, Option<long> albumId1, Option<bool> removeAlbum1, Option<long> albumId2, Option<bool> removeAlbum2, Option<long> startDate, Option<long> endDate, Option<string> locationDescription, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<double> latitude, Option<double> longitude);
+        partial void AfterAddOrUpdateAlbumContest(ref bool suppressDefaultLog, IAddOrUpdateAlbumContestApiResponse apiResponseLocalVar, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> contestType, Option<long> albumContestId, Option<string> title, Option<string> description, Option<long> albumId1, Option<bool> removeAlbum1, Option<long> albumId2, Option<bool> removeAlbum2, Option<long> startDate, Option<long> endDate, Option<string> locationDescription, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -678,7 +664,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="publicRead"></param>
         /// <param name="publicWrite"></param>
         /// <param name="publicDelete"></param>
@@ -704,10 +689,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroupIdsToAdd"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorAddOrUpdateAlbumContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> contestType, Option<long> albumContestId, Option<string> title, Option<string> description, Option<long> albumId1, Option<bool> removeAlbum1, Option<long> albumId2, Option<bool> removeAlbum2, Option<long> startDate, Option<long> endDate, Option<string> locationDescription, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<double> latitude, Option<double> longitude)
+        private void OnErrorAddOrUpdateAlbumContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> contestType, Option<long> albumContestId, Option<string> title, Option<string> description, Option<long> albumId1, Option<bool> removeAlbum1, Option<long> albumId2, Option<bool> removeAlbum2, Option<long> startDate, Option<long> endDate, Option<string> locationDescription, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorAddOrUpdateAlbumContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
+            OnErrorAddOrUpdateAlbumContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -719,7 +704,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="publicRead"></param>
         /// <param name="publicWrite"></param>
         /// <param name="publicDelete"></param>
@@ -745,12 +729,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="connectionGroupIdsToAdd"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorAddOrUpdateAlbumContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> contestType, Option<long> albumContestId, Option<string> title, Option<string> description, Option<long> albumId1, Option<bool> removeAlbum1, Option<long> albumId2, Option<bool> removeAlbum2, Option<long> startDate, Option<long> endDate, Option<string> locationDescription, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorAddOrUpdateAlbumContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> contestType, Option<long> albumContestId, Option<string> title, Option<string> description, Option<long> albumId1, Option<bool> removeAlbum1, Option<long> albumId2, Option<bool> removeAlbum2, Option<long> startDate, Option<long> endDate, Option<string> locationDescription, Option<string> connectionIdsToAdd, Option<string> connectionGroupIdsToAdd, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Create or Update Contest Creates or updates a contest.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="publicRead">determines whether the contest&#39;s participants has read permissions</param>
         /// <param name="publicWrite">determines whether the contest&#39;s participants has write permissions</param>
         /// <param name="publicDelete">determines whether the contest&#39;s participants has delete permissions</param>
@@ -778,11 +761,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddOrUpdateAlbumContestApiResponse"/>&gt;</returns>
-        public async Task<IAddOrUpdateAlbumContestApiResponse?> AddOrUpdateAlbumContestOrDefaultAsync(decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> contestType = default, Option<long> albumContestId = default, Option<string> title = default, Option<string> description = default, Option<long> albumId1 = default, Option<bool> removeAlbum1 = default, Option<long> albumId2 = default, Option<bool> removeAlbum2 = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> locationDescription = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddOrUpdateAlbumContestApiResponse?> AddOrUpdateAlbumContestOrDefaultAsync(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> contestType = default, Option<long> albumContestId = default, Option<string> title = default, Option<string> description = default, Option<long> albumId1 = default, Option<bool> removeAlbum1 = default, Option<long> albumId2 = default, Option<bool> removeAlbum2 = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> locationDescription = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await AddOrUpdateAlbumContestAsync(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await AddOrUpdateAlbumContestAsync(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -794,7 +777,6 @@ namespace Org.OpenAPITools.Api
         /// Create or Update Contest Creates or updates a contest.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="publicRead">determines whether the contest&#39;s participants has read permissions</param>
         /// <param name="publicWrite">determines whether the contest&#39;s participants has write permissions</param>
         /// <param name="publicDelete">determines whether the contest&#39;s participants has delete permissions</param>
@@ -822,7 +804,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAddOrUpdateAlbumContestApiResponse"/>&gt;</returns>
-        public async Task<IAddOrUpdateAlbumContestApiResponse> AddOrUpdateAlbumContestAsync(decimal version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> contestType = default, Option<long> albumContestId = default, Option<string> title = default, Option<string> description = default, Option<long> albumId1 = default, Option<bool> removeAlbum1 = default, Option<long> albumId2 = default, Option<bool> removeAlbum2 = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> locationDescription = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IAddOrUpdateAlbumContestApiResponse> AddOrUpdateAlbumContestAsync(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, string visibility, bool includeFriendGroup, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> contestType = default, Option<long> albumContestId = default, Option<string> title = default, Option<string> description = default, Option<long> albumId1 = default, Option<bool> removeAlbum1 = default, Option<long> albumId2 = default, Option<bool> removeAlbum2 = default, Option<long> startDate = default, Option<long> endDate = default, Option<string> locationDescription = default, Option<string> connectionIdsToAdd = default, Option<string> connectionGroupIdsToAdd = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -830,7 +812,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateAddOrUpdateAlbumContest(visibility, deviceId, gameType, appKey, contestType, title, description, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd);
 
-                FormatAddOrUpdateAlbumContest(ref version, ref publicRead, ref publicWrite, ref publicDelete, ref publicAdd, ref visibility, ref includeFriendGroup, ref deviceId, ref accountId, ref gameType, ref appKey, ref contestType, ref albumContestId, ref title, ref description, ref albumId1, ref removeAlbum1, ref albumId2, ref removeAlbum2, ref startDate, ref endDate, ref locationDescription, ref connectionIdsToAdd, ref connectionGroupIdsToAdd, ref latitude, ref longitude);
+                FormatAddOrUpdateAlbumContest(ref publicRead, ref publicWrite, ref publicDelete, ref publicAdd, ref visibility, ref includeFriendGroup, ref deviceId, ref accountId, ref gameType, ref appKey, ref contestType, ref albumContestId, ref title, ref description, ref albumId1, ref removeAlbum1, ref albumId2, ref removeAlbum2, ref startDate, ref endDate, ref locationDescription, ref connectionIdsToAdd, ref connectionGroupIdsToAdd, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -838,9 +820,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/album/contest"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/album/contest");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/album/contest"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/album/contest");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -933,13 +914,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/album/contest", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/album/contest", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterAddOrUpdateAlbumContestDefaultImplementation(apiResponseLocalVar, version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
+                        AfterAddOrUpdateAlbumContestDefaultImplementation(apiResponseLocalVar, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
 
                         Events.ExecuteOnAddOrUpdateAlbumContest(apiResponseLocalVar);
 
@@ -949,7 +930,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorAddOrUpdateAlbumContestDefaultImplementation(e, "/api/{version}/consumer/album/contest", uriBuilderLocalVar.Path, version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
+                OnErrorAddOrUpdateAlbumContestDefaultImplementation(e, "/consumer/album/contest", uriBuilderLocalVar.Path, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, deviceId, accountId, gameType, appKey, contestType, albumContestId, title, description, albumId1, removeAlbum1, albumId2, removeAlbum2, startDate, endDate, locationDescription, connectionIdsToAdd, connectionGroupIdsToAdd, latitude, longitude);
                 Events.ExecuteOnErrorAddOrUpdateAlbumContest(e);
                 throw;
             }
@@ -1048,7 +1029,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatApproveAlbumContest(ref decimal version, ref long albumContestId, ref string approvalStatus, ref Option<string> deviceId, ref Option<long> accountId);
+        partial void FormatApproveAlbumContest(ref long albumContestId, ref string approvalStatus, ref Option<string> deviceId, ref Option<long> accountId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1069,15 +1050,14 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void AfterApproveAlbumContestDefaultImplementation(IApproveAlbumContestApiResponse apiResponseLocalVar, decimal version, long albumContestId, string approvalStatus, Option<string> deviceId, Option<long> accountId)
+        private void AfterApproveAlbumContestDefaultImplementation(IApproveAlbumContestApiResponse apiResponseLocalVar, long albumContestId, string approvalStatus, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLog = false;
-            AfterApproveAlbumContest(ref suppressDefaultLog, apiResponseLocalVar, version, albumContestId, approvalStatus, deviceId, accountId);
+            AfterApproveAlbumContest(ref suppressDefaultLog, apiResponseLocalVar, albumContestId, approvalStatus, deviceId, accountId);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1087,12 +1067,11 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void AfterApproveAlbumContest(ref bool suppressDefaultLog, IApproveAlbumContestApiResponse apiResponseLocalVar, decimal version, long albumContestId, string approvalStatus, Option<string> deviceId, Option<long> accountId);
+        partial void AfterApproveAlbumContest(ref bool suppressDefaultLog, IApproveAlbumContestApiResponse apiResponseLocalVar, long albumContestId, string approvalStatus, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1100,15 +1079,14 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        private void OnErrorApproveAlbumContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumContestId, string approvalStatus, Option<string> deviceId, Option<long> accountId)
+        private void OnErrorApproveAlbumContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumContestId, string approvalStatus, Option<string> deviceId, Option<long> accountId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorApproveAlbumContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumContestId, approvalStatus, deviceId, accountId);
+            OnErrorApproveAlbumContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumContestId, approvalStatus, deviceId, accountId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1120,28 +1098,26 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="approvalStatus"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
-        partial void OnErrorApproveAlbumContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumContestId, string approvalStatus, Option<string> deviceId, Option<long> accountId);
+        partial void OnErrorApproveAlbumContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumContestId, string approvalStatus, Option<string> deviceId, Option<long> accountId);
 
         /// <summary>
         /// Approve Contest Sets the approval status of a contest.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumContestId">The ID of the album contest</param>
         /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApproveAlbumContestApiResponse"/>&gt;</returns>
-        public async Task<IApproveAlbumContestApiResponse?> ApproveAlbumContestOrDefaultAsync(decimal version, long albumContestId, string approvalStatus, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IApproveAlbumContestApiResponse?> ApproveAlbumContestOrDefaultAsync(long albumContestId, string approvalStatus, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ApproveAlbumContestAsync(version, albumContestId, approvalStatus, deviceId, accountId, cancellationToken).ConfigureAwait(false);
+                return await ApproveAlbumContestAsync(albumContestId, approvalStatus, deviceId, accountId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1153,14 +1129,13 @@ namespace Org.OpenAPITools.Api
         /// Approve Contest Sets the approval status of a contest.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumContestId">The ID of the album contest</param>
         /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}</param>
         /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IApproveAlbumContestApiResponse"/>&gt;</returns>
-        public async Task<IApproveAlbumContestApiResponse> ApproveAlbumContestAsync(decimal version, long albumContestId, string approvalStatus, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IApproveAlbumContestApiResponse> ApproveAlbumContestAsync(long albumContestId, string approvalStatus, Option<string> deviceId = default, Option<long> accountId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1168,7 +1143,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateApproveAlbumContest(approvalStatus, deviceId);
 
-                FormatApproveAlbumContest(ref version, ref albumContestId, ref approvalStatus, ref deviceId, ref accountId);
+                FormatApproveAlbumContest(ref albumContestId, ref approvalStatus, ref deviceId, ref accountId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1176,9 +1151,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/album/contest/approve"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/album/contest/approve");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/album/contest/approve"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/album/contest/approve");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1216,13 +1190,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/album/contest/approve", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/album/contest/approve", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterApproveAlbumContestDefaultImplementation(apiResponseLocalVar, version, albumContestId, approvalStatus, deviceId, accountId);
+                        AfterApproveAlbumContestDefaultImplementation(apiResponseLocalVar, albumContestId, approvalStatus, deviceId, accountId);
 
                         Events.ExecuteOnApproveAlbumContest(apiResponseLocalVar);
 
@@ -1232,7 +1206,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorApproveAlbumContestDefaultImplementation(e, "/api/{version}/consumer/album/contest/approve", uriBuilderLocalVar.Path, version, albumContestId, approvalStatus, deviceId, accountId);
+                OnErrorApproveAlbumContestDefaultImplementation(e, "/consumer/album/contest/approve", uriBuilderLocalVar.Path, albumContestId, approvalStatus, deviceId, accountId);
                 Events.ExecuteOnErrorApproveAlbumContest(e);
                 throw;
             }
@@ -1331,7 +1305,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatDeleteContest(ref decimal version, ref long albumContestId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatDeleteContest(ref long albumContestId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1348,16 +1322,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterDeleteContestDefaultImplementation(IDeleteContestApiResponse apiResponseLocalVar, decimal version, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterDeleteContestDefaultImplementation(IDeleteContestApiResponse apiResponseLocalVar, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterDeleteContest(ref suppressDefaultLog, apiResponseLocalVar, version, albumContestId, deviceId, accountId, latitude, longitude);
+            AfterDeleteContest(ref suppressDefaultLog, apiResponseLocalVar, albumContestId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1367,13 +1340,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterDeleteContest(ref bool suppressDefaultLog, IDeleteContestApiResponse apiResponseLocalVar, decimal version, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterDeleteContest(ref bool suppressDefaultLog, IDeleteContestApiResponse apiResponseLocalVar, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1381,16 +1353,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorDeleteContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorDeleteContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorDeleteContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumContestId, deviceId, accountId, latitude, longitude);
+            OnErrorDeleteContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumContestId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1402,18 +1373,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorDeleteContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorDeleteContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Delete Contest Deletes a contest.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1421,11 +1390,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteContestApiResponse"/>&gt;</returns>
-        public async Task<IDeleteContestApiResponse?> DeleteContestOrDefaultAsync(decimal version, long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteContestApiResponse?> DeleteContestOrDefaultAsync(long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await DeleteContestAsync(version, albumContestId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await DeleteContestAsync(albumContestId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1437,7 +1406,6 @@ namespace Org.OpenAPITools.Api
         /// Delete Contest Deletes a contest.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1445,7 +1413,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IDeleteContestApiResponse"/>&gt;</returns>
-        public async Task<IDeleteContestApiResponse> DeleteContestAsync(decimal version, long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IDeleteContestApiResponse> DeleteContestAsync(long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1453,7 +1421,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateDeleteContest(deviceId);
 
-                FormatDeleteContest(ref version, ref albumContestId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatDeleteContest(ref albumContestId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1461,9 +1429,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/album/contest/remove"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/album/contest/remove");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/album/contest/remove"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/album/contest/remove");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1506,13 +1473,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/album/contest/remove", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/album/contest/remove", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterDeleteContestDefaultImplementation(apiResponseLocalVar, version, albumContestId, deviceId, accountId, latitude, longitude);
+                        AfterDeleteContestDefaultImplementation(apiResponseLocalVar, albumContestId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnDeleteContest(apiResponseLocalVar);
 
@@ -1522,7 +1489,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorDeleteContestDefaultImplementation(e, "/api/{version}/consumer/album/contest/remove", uriBuilderLocalVar.Path, version, albumContestId, deviceId, accountId, latitude, longitude);
+                OnErrorDeleteContestDefaultImplementation(e, "/consumer/album/contest/remove", uriBuilderLocalVar.Path, albumContestId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorDeleteContest(e);
                 throw;
             }
@@ -1621,7 +1588,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAlbumContest(ref decimal version, ref long albumContestId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetAlbumContest(ref long albumContestId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1638,16 +1605,15 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetAlbumContestDefaultImplementation(IGetAlbumContestApiResponse apiResponseLocalVar, decimal version, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void AfterGetAlbumContestDefaultImplementation(IGetAlbumContestApiResponse apiResponseLocalVar, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetAlbumContest(ref suppressDefaultLog, apiResponseLocalVar, version, albumContestId, deviceId, accountId, latitude, longitude);
+            AfterGetAlbumContest(ref suppressDefaultLog, apiResponseLocalVar, albumContestId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1657,13 +1623,12 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetAlbumContest(ref bool suppressDefaultLog, IGetAlbumContestApiResponse apiResponseLocalVar, decimal version, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetAlbumContest(ref bool suppressDefaultLog, IGetAlbumContestApiResponse apiResponseLocalVar, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1671,16 +1636,15 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetAlbumContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetAlbumContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAlbumContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumContestId, deviceId, accountId, latitude, longitude);
+            OnErrorGetAlbumContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumContestId, deviceId, accountId, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1692,18 +1656,16 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="deviceId"></param>
         /// <param name="accountId"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetAlbumContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetAlbumContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumContestId, Option<string> deviceId, Option<long> accountId, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Get Contest Gets the contest object including the likes and notes
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1711,11 +1673,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumContestApiResponse"/>&gt;</returns>
-        public async Task<IGetAlbumContestApiResponse?> GetAlbumContestOrDefaultAsync(decimal version, long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAlbumContestApiResponse?> GetAlbumContestOrDefaultAsync(long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAlbumContestAsync(version, albumContestId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetAlbumContestAsync(albumContestId, deviceId, accountId, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1727,7 +1689,6 @@ namespace Org.OpenAPITools.Api
         /// Get Contest Gets the contest object including the likes and notes
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
         /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional)</param>
@@ -1735,7 +1696,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumContestApiResponse"/>&gt;</returns>
-        public async Task<IGetAlbumContestApiResponse> GetAlbumContestAsync(decimal version, long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAlbumContestApiResponse> GetAlbumContestAsync(long albumContestId, Option<string> deviceId = default, Option<long> accountId = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1743,7 +1704,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAlbumContest(deviceId);
 
-                FormatGetAlbumContest(ref version, ref albumContestId, ref deviceId, ref accountId, ref latitude, ref longitude);
+                FormatGetAlbumContest(ref albumContestId, ref deviceId, ref accountId, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1751,9 +1712,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/album/contest/get"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/album/contest/get");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/album/contest/get"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/album/contest/get");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -1796,13 +1756,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/album/contest/get", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/album/contest/get", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAlbumContestDefaultImplementation(apiResponseLocalVar, version, albumContestId, deviceId, accountId, latitude, longitude);
+                        AfterGetAlbumContestDefaultImplementation(apiResponseLocalVar, albumContestId, deviceId, accountId, latitude, longitude);
 
                         Events.ExecuteOnGetAlbumContest(apiResponseLocalVar);
 
@@ -1812,7 +1772,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAlbumContestDefaultImplementation(e, "/api/{version}/consumer/album/contest/get", uriBuilderLocalVar.Path, version, albumContestId, deviceId, accountId, latitude, longitude);
+                OnErrorGetAlbumContestDefaultImplementation(e, "/consumer/album/contest/get", uriBuilderLocalVar.Path, albumContestId, deviceId, accountId, latitude, longitude);
                 Events.ExecuteOnErrorGetAlbumContest(e);
                 throw;
             }
@@ -1911,7 +1871,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatGetAlbumContests(ref decimal version, ref string filter, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> appType, ref Option<string> contestType, ref Option<long> ownerId, ref Option<string> q, ref Option<string> keyword, ref Option<int> i, ref Option<int> l, ref Option<long> dateCreated, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatGetAlbumContests(ref string filter, ref string sortField, ref bool descending, ref int start, ref int limit, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> gameType, ref Option<string> appKey, ref Option<string> appType, ref Option<string> contestType, ref Option<long> ownerId, ref Option<string> q, ref Option<string> keyword, ref Option<int> i, ref Option<int> l, ref Option<long> dateCreated, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -1960,7 +1920,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -1980,10 +1939,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="dateCreated"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterGetAlbumContestsDefaultImplementation(IGetAlbumContestsApiResponse apiResponseLocalVar, decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> appType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<double> latitude, Option<double> longitude)
+        private void AfterGetAlbumContestsDefaultImplementation(IGetAlbumContestsApiResponse apiResponseLocalVar, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> appType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterGetAlbumContests(ref suppressDefaultLog, apiResponseLocalVar, version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
+            AfterGetAlbumContests(ref suppressDefaultLog, apiResponseLocalVar, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1993,7 +1952,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -2013,7 +1971,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="dateCreated"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterGetAlbumContests(ref bool suppressDefaultLog, IGetAlbumContestsApiResponse apiResponseLocalVar, decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> appType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<double> latitude, Option<double> longitude);
+        partial void AfterGetAlbumContests(ref bool suppressDefaultLog, IGetAlbumContestsApiResponse apiResponseLocalVar, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> appType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2021,7 +1979,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -2041,10 +1998,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="dateCreated"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorGetAlbumContestsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> appType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<double> latitude, Option<double> longitude)
+        private void OnErrorGetAlbumContestsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> appType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetAlbumContests(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
+            OnErrorGetAlbumContests(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2056,7 +2013,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="filter"></param>
         /// <param name="sortField"></param>
         /// <param name="descending"></param>
@@ -2076,12 +2032,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="dateCreated"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorGetAlbumContests(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> appType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorGetAlbumContests(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId, Option<long> accountId, Option<string> gameType, Option<string> appKey, Option<string> appType, Option<string> contestType, Option<long> ownerId, Option<string> q, Option<string> keyword, Option<int> i, Option<int> l, Option<long> dateCreated, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Search Contests Searches on contests.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of Ownership</param>
         /// <param name="sortField">the field to sort by. See AlbumContestApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -2103,11 +2058,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumContestsApiResponse"/>&gt;</returns>
-        public async Task<IGetAlbumContestsApiResponse?> GetAlbumContestsOrDefaultAsync(decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAlbumContestsApiResponse?> GetAlbumContestsOrDefaultAsync(string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetAlbumContestsAsync(version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await GetAlbumContestsAsync(filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2119,7 +2074,6 @@ namespace Org.OpenAPITools.Api
         /// Search Contests Searches on contests.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="filter">a comma separated list of Ownership</param>
         /// <param name="sortField">the field to sort by. See AlbumContestApiMap</param>
         /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -2141,7 +2095,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetAlbumContestsApiResponse"/>&gt;</returns>
-        public async Task<IGetAlbumContestsApiResponse> GetAlbumContestsAsync(decimal version, string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetAlbumContestsApiResponse> GetAlbumContestsAsync(string filter, string sortField, bool descending, int start, int limit, Option<string> deviceId = default, Option<long> accountId = default, Option<string> gameType = default, Option<string> appKey = default, Option<string> appType = default, Option<string> contestType = default, Option<long> ownerId = default, Option<string> q = default, Option<string> keyword = default, Option<int> i = default, Option<int> l = default, Option<long> dateCreated = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2149,7 +2103,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateGetAlbumContests(filter, sortField, deviceId, gameType, appKey, appType, contestType, q, keyword);
 
-                FormatGetAlbumContests(ref version, ref filter, ref sortField, ref descending, ref start, ref limit, ref deviceId, ref accountId, ref gameType, ref appKey, ref appType, ref contestType, ref ownerId, ref q, ref keyword, ref i, ref l, ref dateCreated, ref latitude, ref longitude);
+                FormatGetAlbumContests(ref filter, ref sortField, ref descending, ref start, ref limit, ref deviceId, ref accountId, ref gameType, ref appKey, ref appType, ref contestType, ref ownerId, ref q, ref keyword, ref i, ref l, ref dateCreated, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2157,9 +2111,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/album/contest/search"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/album/contest/search");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/album/contest/search"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/album/contest/search");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2236,13 +2189,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/album/contest/search", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/album/contest/search", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterGetAlbumContestsDefaultImplementation(apiResponseLocalVar, version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
+                        AfterGetAlbumContestsDefaultImplementation(apiResponseLocalVar, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
 
                         Events.ExecuteOnGetAlbumContests(apiResponseLocalVar);
 
@@ -2252,7 +2205,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorGetAlbumContestsDefaultImplementation(e, "/api/{version}/consumer/album/contest/search", uriBuilderLocalVar.Path, version, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
+                OnErrorGetAlbumContestsDefaultImplementation(e, "/consumer/album/contest/search", uriBuilderLocalVar.Path, filter, sortField, descending, start, limit, deviceId, accountId, gameType, appKey, appType, contestType, ownerId, q, keyword, i, l, dateCreated, latitude, longitude);
                 Events.ExecuteOnErrorGetAlbumContests(e);
                 throw;
             }
@@ -2351,7 +2304,7 @@ namespace Org.OpenAPITools.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatVoteOnAlbumContest(ref decimal version, ref long albumContestId, ref long albumId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> contestType, ref Option<double> latitude, ref Option<double> longitude);
+        partial void FormatVoteOnAlbumContest(ref long albumContestId, ref long albumId, ref Option<string> deviceId, ref Option<long> accountId, ref Option<string> contestType, ref Option<double> latitude, ref Option<double> longitude);
 
         /// <summary>
         /// Validates the request parameters
@@ -2372,7 +2325,6 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
@@ -2380,10 +2332,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="contestType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void AfterVoteOnAlbumContestDefaultImplementation(IVoteOnAlbumContestApiResponse apiResponseLocalVar, decimal version, long albumContestId, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> contestType, Option<double> latitude, Option<double> longitude)
+        private void AfterVoteOnAlbumContestDefaultImplementation(IVoteOnAlbumContestApiResponse apiResponseLocalVar, long albumContestId, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> contestType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLog = false;
-            AfterVoteOnAlbumContest(ref suppressDefaultLog, apiResponseLocalVar, version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
+            AfterVoteOnAlbumContest(ref suppressDefaultLog, apiResponseLocalVar, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
             if (!suppressDefaultLog)
                 Logger.LogInformation("{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -2393,7 +2345,6 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
@@ -2401,7 +2352,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="contestType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void AfterVoteOnAlbumContest(ref bool suppressDefaultLog, IVoteOnAlbumContestApiResponse apiResponseLocalVar, decimal version, long albumContestId, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> contestType, Option<double> latitude, Option<double> longitude);
+        partial void AfterVoteOnAlbumContest(ref bool suppressDefaultLog, IVoteOnAlbumContestApiResponse apiResponseLocalVar, long albumContestId, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> contestType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -2409,7 +2360,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
@@ -2417,10 +2367,10 @@ namespace Org.OpenAPITools.Api
         /// <param name="contestType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        private void OnErrorVoteOnAlbumContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumContestId, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> contestType, Option<double> latitude, Option<double> longitude)
+        private void OnErrorVoteOnAlbumContestDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumContestId, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> contestType, Option<double> latitude, Option<double> longitude)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorVoteOnAlbumContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
+            OnErrorVoteOnAlbumContest(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -2432,7 +2382,6 @@ namespace Org.OpenAPITools.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        /// <param name="version"></param>
         /// <param name="albumContestId"></param>
         /// <param name="albumId"></param>
         /// <param name="deviceId"></param>
@@ -2440,12 +2389,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="contestType"></param>
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
-        partial void OnErrorVoteOnAlbumContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, decimal version, long albumContestId, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> contestType, Option<double> latitude, Option<double> longitude);
+        partial void OnErrorVoteOnAlbumContest(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, long albumContestId, long albumId, Option<string> deviceId, Option<long> accountId, Option<string> contestType, Option<double> latitude, Option<double> longitude);
 
         /// <summary>
         /// Vote on Contest Vote on a collection in a contest.
         /// </summary>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="albumId">the ID of the album to vote on</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -2455,11 +2403,11 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IVoteOnAlbumContestApiResponse"/>&gt;</returns>
-        public async Task<IVoteOnAlbumContestApiResponse?> VoteOnAlbumContestOrDefaultAsync(decimal version, long albumContestId, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> contestType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IVoteOnAlbumContestApiResponse?> VoteOnAlbumContestOrDefaultAsync(long albumContestId, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> contestType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await VoteOnAlbumContestAsync(version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude, cancellationToken).ConfigureAwait(false);
+                return await VoteOnAlbumContestAsync(albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -2471,7 +2419,6 @@ namespace Org.OpenAPITools.Api
         /// Vote on Contest Vote on a collection in a contest.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="version"></param>
         /// <param name="albumContestId">the album contest ID</param>
         /// <param name="albumId">the ID of the album to vote on</param>
         /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional)</param>
@@ -2481,7 +2428,7 @@ namespace Org.OpenAPITools.Api
         /// <param name="longitude">longitude used to update the user&#39;s current location (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IVoteOnAlbumContestApiResponse"/>&gt;</returns>
-        public async Task<IVoteOnAlbumContestApiResponse> VoteOnAlbumContestAsync(decimal version, long albumContestId, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> contestType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IVoteOnAlbumContestApiResponse> VoteOnAlbumContestAsync(long albumContestId, long albumId, Option<string> deviceId = default, Option<long> accountId = default, Option<string> contestType = default, Option<double> latitude = default, Option<double> longitude = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -2489,7 +2436,7 @@ namespace Org.OpenAPITools.Api
             {
                 ValidateVoteOnAlbumContest(deviceId, contestType);
 
-                FormatVoteOnAlbumContest(ref version, ref albumContestId, ref albumId, ref deviceId, ref accountId, ref contestType, ref latitude, ref longitude);
+                FormatVoteOnAlbumContest(ref albumContestId, ref albumId, ref deviceId, ref accountId, ref contestType, ref latitude, ref longitude);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -2497,9 +2444,8 @@ namespace Org.OpenAPITools.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/api/{version}/consumer/album/contest/vote"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/api/{version}/consumer/album/contest/vote");
-                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bversion%7D", Uri.EscapeDataString(version.ToString()));
+                        ? "/consumer/album/contest/vote"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/consumer/album/contest/vote");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
 
@@ -2546,13 +2492,13 @@ namespace Org.OpenAPITools.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/api/{version}/consumer/album/contest/vote", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/consumer/album/contest/vote", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
                         }
 
-                        AfterVoteOnAlbumContestDefaultImplementation(apiResponseLocalVar, version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
+                        AfterVoteOnAlbumContestDefaultImplementation(apiResponseLocalVar, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
 
                         Events.ExecuteOnVoteOnAlbumContest(apiResponseLocalVar);
 
@@ -2562,7 +2508,7 @@ namespace Org.OpenAPITools.Api
             }
             catch(Exception e)
             {
-                OnErrorVoteOnAlbumContestDefaultImplementation(e, "/api/{version}/consumer/album/contest/vote", uriBuilderLocalVar.Path, version, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
+                OnErrorVoteOnAlbumContestDefaultImplementation(e, "/consumer/album/contest/vote", uriBuilderLocalVar.Path, albumContestId, albumId, deviceId, accountId, contestType, latitude, longitude);
                 Events.ExecuteOnErrorVoteOnAlbumContest(e);
                 throw;
             }
